@@ -4,7 +4,7 @@
 
 **Blocked by:** None (can start immediately)
 
-**Status:** ready-for-agent
+**Status:** claimed
 
 - [ ] 一条 Docker Compose 命令能够启动前端、后端和 PostgreSQL。
 - [ ] 后端健康接口返回 HTTP 200 和机器可读服务状态。

@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.7"
+          enable-cache: true
+
+      - name: Check backend
+        run: uv run python scripts/check_backend.py
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.15.1
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: frontend/pnpm-lock.yaml
+
+      - name: Install frontend dependencies
+        run: pnpm install --frozen-lockfile
+        working-directory: frontend
+
+      - name: Check frontend
+        run: pnpm check
+        working-directory: frontend
+
+      - name: Start containers
+        run: docker compose up --build --detach --wait
+
+      - name: Smoke test
+        run: |
+          curl --fail http://localhost:3000/
+          curl --fail http://localhost:3000/api/health | grep '"status":"ok"'
+
+      - name: Stop containers
+        if: always()
+        run: docker compose down --volumes
