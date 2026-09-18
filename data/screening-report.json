@@ -1,0 +1,7 @@
+{
+  "accepted_case_ids": [
+    "starlette-issue-3497"
+  ],
+  "excluded": [],
+  "schema_version": "1.0"
+}

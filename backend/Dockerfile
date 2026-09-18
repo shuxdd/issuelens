@@ -8,6 +8,7 @@ COPY pyproject.toml uv.lock ./
 RUN uv sync --frozen --no-dev
 
 COPY backend/src ./backend/src
+COPY data ./data
 
 ENV PATH="/app/.venv/bin:$PATH"
 ENV PYTHONPATH="/app/backend/src"

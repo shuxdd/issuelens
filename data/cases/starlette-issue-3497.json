@@ -1,0 +1,27 @@
+{
+  "allowed_evidence": {
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/3497"
+    ]
+  },
+  "case_id": "starlette-issue-3497",
+  "investigation_cutoff": "2026-09-03T06:58:28Z",
+  "issue": {
+    "number": 3497,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/3497",
+    "title": "`testclient` imports the deprecated `anyio.abc.BlockingPortal` alias"
+  },
+  "repair_evidence": {
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/3498"
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "39fd0ffac25593fce39466320c9a666957ce8b8c",
+    "source_url": "https://github.com/Kludex/starlette/commit/39fd0ffac25593fce39466320c9a666957ce8b8c"
+  },
+  "schema_version": "1.0"
+}

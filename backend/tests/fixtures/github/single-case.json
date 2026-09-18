@@ -1,0 +1,14 @@
+{
+  "repository": "Kludex/starlette",
+  "issue": {
+    "number": 3497,
+    "title": "`testclient` imports the deprecated `anyio.abc.BlockingPortal` alias",
+    "url": "https://github.com/Kludex/starlette/issues/3497",
+    "created_at": "2026-09-03T04:02:00Z"
+  },
+  "closing_pull_request": {
+    "number": 3498,
+    "url": "https://github.com/Kludex/starlette/pull/3498",
+    "created_at": "2026-09-03T06:58:28Z"
+  }
+}
