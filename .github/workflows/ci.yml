@@ -43,7 +43,7 @@ jobs:
         run: |
           curl --fail http://localhost:3000/
           curl --fail http://localhost:3000/api/health | grep '"status":"ok"'
-          curl --fail http://localhost:3000/api/cases/starlette-issue-3497 | grep '"validation_status":"valid"'
+          curl --fail http://localhost:3000/api/cases/starlette-issue-1552 | grep '"validation_status":"valid"'
 
       - name: Stop containers
         if: always()

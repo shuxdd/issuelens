@@ -1,0 +1,127 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-12-05T10:01:09Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2785"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2785"
+    ]
+  },
+  "case_id": "starlette-issue-2785",
+  "investigation_cutoff": "2024-12-26T12:30:03Z",
+  "issue": {
+    "number": 2785,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2785",
+    "title": "MultiPartException:  Part exceeded maximum size 1M"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt 2024-12-05T10:01:09Z is before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2815 created_at 2024-12-26T12:30:03Z",
+    "notes": "Multipart size behavior has implementation, documentation, and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2815; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "docs/requests.md",
+      "starlette/formparsers.py",
+      "starlette/requests.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+    "test_files": [
+      "tests/test_formparsers.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/requests.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/docs%2Frequests.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/starlette%2Fformparsers.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/requests.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/starlette%2Frequests.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "b52bfb77e3ed5fdaea8396718f895aaa3273284d",
+        "source_url": "https://github.com/Kludex/starlette/commit/b52bfb77e3ed5fdaea8396718f895aaa3273284d"
+      },
+      {
+        "sha": "e32c078d2d3f3a2bf0839699ae5050850eaf56c8",
+        "source_url": "https://github.com/Kludex/starlette/commit/e32c078d2d3f3a2bf0839699ae5050850eaf56c8"
+      },
+      {
+        "sha": "daa8d1d5d3da62361f06ae2cb4e9ee03f71181ed",
+        "source_url": "https://github.com/Kludex/starlette/commit/daa8d1d5d3da62361f06ae2cb4e9ee03f71181ed"
+      },
+      {
+        "sha": "cd66fe30ed5e4dbcc636a9a1a37ab6290bd20cf3",
+        "source_url": "https://github.com/Kludex/starlette/commit/cd66fe30ed5e4dbcc636a9a1a37ab6290bd20cf3"
+      },
+      {
+        "sha": "2952aa8cc1db7a325c97177160be5c22b73b4d0e",
+        "source_url": "https://github.com/Kludex/starlette/commit/2952aa8cc1db7a325c97177160be5c22b73b4d0e"
+      },
+      {
+        "sha": "143d9d43e58257a1b7968562897e437e996bf061",
+        "source_url": "https://github.com/Kludex/starlette/commit/143d9d43e58257a1b7968562897e437e996bf061"
+      },
+      {
+        "sha": "7b869bbe01bfc0804c795ccbbcb6d786655ec16e",
+        "source_url": "https://github.com/Kludex/starlette/commit/7b869bbe01bfc0804c795ccbbcb6d786655ec16e"
+      },
+      {
+        "sha": "ded09ca5973c86bb6ff785d62aced4fc5b831145",
+        "source_url": "https://github.com/Kludex/starlette/commit/ded09ca5973c86bb6ff785d62aced4fc5b831145"
+      },
+      {
+        "sha": "c4136e6a0ccef2e63e9fed577d2721bd84b600e1",
+        "source_url": "https://github.com/Kludex/starlette/commit/c4136e6a0ccef2e63e9fed577d2721bd84b600e1"
+      },
+      {
+        "sha": "70fdf28a0908056b1fe4004d450590d860992630",
+        "source_url": "https://github.com/Kludex/starlette/commit/70fdf28a0908056b1fe4004d450590d860992630"
+      },
+      {
+        "sha": "2533a464558c6b2237d46ffa0a784fdf6a34b841",
+        "source_url": "https://github.com/Kludex/starlette/commit/2533a464558c6b2237d46ffa0a784fdf6a34b841"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-12-26T12:30:03Z",
+      "number": 2815,
+      "source_url": "https://github.com/Kludex/starlette/pull/2815"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2815"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/tests%2Ftest_formparsers.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+    "committed_at": "2024-12-26T08:00:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835"
+  },
+  "schema_version": "1.0"
+}

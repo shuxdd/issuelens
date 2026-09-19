@@ -1,0 +1,154 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-07-24T07:40:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/68ad77110b2757eddb17c50b45ea530499718d51",
+      "sha": "68ad77110b2757eddb17c50b45ea530499718d51"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-07-21T12:18:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2648",
+          "number": 2648,
+          "pull_request": {
+            "merged_at": "2024-07-24T08:23:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `routing.get_name()` not to assume all routines have `__name__`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-05-29T13:42:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/isosuite/splinepy/pull/471",
+          "number": 471,
+          "pull_request": {
+            "merged_at": "2025-05-29T15:40:29Z",
+            "url": "https://api.github.com/repos/isosuite/splinepy/pulls/471"
+          },
+          "repository": {
+            "full_name": "isosuite/splinepy"
+          },
+          "title": "Maint/py3.13"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68ad77110b2757eddb17c50b45ea530499718d51/starlette%2Frouting.py",
+      "changes": 4,
+      "deletions": 3,
+      "filename": "starlette/routing.py",
+      "sha": "481b13f5d91950d23c5762bb5463326b15840102",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2024-07-24T08:24:00Z",
+    "created_at": "2024-07-06T14:35:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2638",
+    "number": 2638,
+    "state": "closed",
+    "title": "Python 3.13.0b3: AttributeError: 'functools.partial' object has no attribute '__name__'",
+    "user": "musicinmybrain"
+  },
+  "pull_request": {
+    "closed_at": "2024-07-24T08:24:00Z",
+    "created_at": "2024-07-21T12:18:01Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2648",
+    "merge_commit_sha": "07427f86474b15d648497014eb19c41f01317f15",
+    "merged_at": "2024-07-24T08:23:59Z",
+    "number": 2648,
+    "title": "Fix `routing.get_name()` not to assume all routines have `__name__`",
+    "user": "mgorny"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-07-21T03:47:14Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "70ade1b6a4987cb92126b5eec534266f4499f2c0",
+      "commit_url": "https://api.github.com/repos/mgorny/starlette/commits/70ade1b6a4987cb92126b5eec534266f4499f2c0",
+      "created_at": "2024-07-21T12:17:06Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-07-21T12:18:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2648",
+          "number": 2648,
+          "pull_request": {
+            "merged_at": "2024-07-24T08:23:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `routing.get_name()` not to assume all routines have `__name__`"
+        }
+      }
+    },
+    {
+      "commit_id": "4c122a1daa6862e76f6c8d83ce77203cbbc8ebcb",
+      "commit_url": "https://api.github.com/repos/mgorny/starlette/commits/4c122a1daa6862e76f6c8d83ce77203cbbc8ebcb",
+      "created_at": "2024-07-21T13:43:09Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "68ad77110b2757eddb17c50b45ea530499718d51",
+      "commit_url": "https://api.github.com/repos/mgorny/starlette/commits/68ad77110b2757eddb17c50b45ea530499718d51",
+      "created_at": "2024-07-24T07:40:18Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-07-24T08:24:01Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "07427f86474b15d648497014eb19c41f01317f15",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/07427f86474b15d648497014eb19c41f01317f15",
+      "created_at": "2024-07-24T08:24:01Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "07427f86474b15d648497014eb19c41f01317f15",
+      "commit_url": "https://api.github.com/repos/sthagen/encode-starlette/commits/07427f86474b15d648497014eb19c41f01317f15",
+      "created_at": "2024-07-24T15:10:45Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-05-29T13:42:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/isosuite/splinepy/pull/471",
+          "number": 471,
+          "pull_request": {
+            "merged_at": "2025-05-29T15:40:29Z",
+            "url": "https://api.github.com/repos/isosuite/splinepy/pulls/471"
+          },
+          "repository": {
+            "full_name": "isosuite/splinepy"
+          },
+          "title": "Maint/py3.13"
+        }
+      }
+    }
+  ]
+}

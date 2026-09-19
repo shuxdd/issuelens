@@ -1,0 +1,103 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-07-25T19:51:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3fafe0b2f9ad14aee723cf2b960b2e55bf0a0bab",
+      "sha": "3fafe0b2f9ad14aee723cf2b960b2e55bf0a0bab"
+    },
+    {
+      "committed_at": "2026-08-08T08:53:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/61f1e6cf34e5a33dd9261164d5903d75b661ccfc",
+      "sha": "61f1e6cf34e5a33dd9261164d5903d75b661ccfc"
+    },
+    {
+      "committed_at": "2026-08-08T08:55:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bfb973314f02aa81827a9e744af62d2a00057526",
+      "sha": "bfb973314f02aa81827a9e744af62d2a00057526"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2026-07-25T19:56:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3389",
+          "number": 3389,
+          "pull_request": {
+            "merged_at": "2026-08-08T08:56:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3389"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reject inverted single-byte Range like bytes=5-4"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/bfb973314f02aa81827a9e744af62d2a00057526/starlette%2Fresponses.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/responses.py",
+      "sha": "60bd5d3cc9d026dfd12be1e3a558c874ed6f1734",
+      "status": "modified"
+    },
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/bfb973314f02aa81827a9e744af62d2a00057526/tests%2Ftest_responses.py",
+      "changes": 13,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "8f9055e6baa42fda4ac9e6c802680f0f78757aec",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2026-08-08T08:56:09Z",
+    "created_at": "2026-07-25T19:56:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3388",
+    "number": 3388,
+    "state": "closed",
+    "title": "FileResponse accepts inverted single-byte Range like bytes=5-4",
+    "user": "nikolauspschuetz"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-08T08:56:07Z",
+    "created_at": "2026-07-25T19:56:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3389",
+    "merge_commit_sha": "78ae82cad482fe66a73fb1217f0a6609b3f998f6",
+    "merged_at": "2026-08-08T08:56:07Z",
+    "number": 3389,
+    "title": "Reject inverted single-byte Range like bytes=5-4",
+    "user": "nikolauspschuetz"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-07-25T19:56:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3389",
+          "number": 3389,
+          "pull_request": {
+            "merged_at": "2026-08-08T08:56:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3389"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reject inverted single-byte Range like bytes=5-4"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T08:56:09Z",
+      "event": "closed"
+    }
+  ]
+}

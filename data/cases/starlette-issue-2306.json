@@ -1,0 +1,85 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-10-25T01:29:22Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2306"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2306"
+    ]
+  },
+  "case_id": "starlette-issue-2306",
+  "investigation_cutoff": "2023-12-16T13:36:02Z",
+  "issue": {
+    "number": 2306,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2306",
+    "title": "TestClient doesn't merge urls in the same way as the httpx client, and I think it should."
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt 2023-10-25T01:29:22Z is before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2376 created_at 2023-12-16T13:36:02Z",
+    "notes": "TestClient URL merging has implementation and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2376; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is 9a213c1321593fcf9344161b043bdd7d1e600e24",
+    "test_files": [
+      "tests/middleware/test_session.py",
+      "tests/test_testclient.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "5c19376fd6181a11e9f9820f58c3d883d322ca99",
+        "source_url": "https://github.com/Kludex/starlette/commit/5c19376fd6181a11e9f9820f58c3d883d322ca99"
+      },
+      {
+        "sha": "b96d7799b8fd363df33936848e1804555f9a0465",
+        "source_url": "https://github.com/Kludex/starlette/commit/b96d7799b8fd363df33936848e1804555f9a0465"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-12-16T13:36:02Z",
+      "number": 2376,
+      "source_url": "https://github.com/Kludex/starlette/pull/2376"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2376"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_session.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Fmiddleware%2Ftest_session.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Ftest_testclient.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+    "committed_at": "2023-12-16T12:51:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/9a213c1321593fcf9344161b043bdd7d1e600e24"
+  },
+  "schema_version": "1.0"
+}

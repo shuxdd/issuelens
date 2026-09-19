@@ -1,0 +1,109 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-06-19T07:20:38Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2625"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2625"
+    ]
+  },
+  "case_id": "starlette-issue-2625",
+  "investigation_cutoff": "2024-12-26T08:55:32Z",
+  "issue": {
+    "number": 2625,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2625",
+    "title": "middleware causes exceptions to not be raised/handled silently (back again)"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt 2024-06-19T07:20:38Z is before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2812 created_at 2024-12-26T08:55:32Z",
+    "notes": "Middleware exception propagation has direct implementation and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2812; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "starlette/middleware/base.py",
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+    "test_files": [
+      "tests/middleware/test_base.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "c7f1629e0782dca93dbb0af04f7da72dd7ef0035",
+        "source_url": "https://github.com/Kludex/starlette/commit/c7f1629e0782dca93dbb0af04f7da72dd7ef0035"
+      },
+      {
+        "sha": "7ef64c9a62e540809b54681215ea35332f8f7fd7",
+        "source_url": "https://github.com/Kludex/starlette/commit/7ef64c9a62e540809b54681215ea35332f8f7fd7"
+      },
+      {
+        "sha": "ebe0a951555cbf025214fb0c431b8b854e368ca2",
+        "source_url": "https://github.com/Kludex/starlette/commit/ebe0a951555cbf025214fb0c431b8b854e368ca2"
+      },
+      {
+        "sha": "b4caa4e5ef3ebd71ad034d29ab82875b9a6786ea",
+        "source_url": "https://github.com/Kludex/starlette/commit/b4caa4e5ef3ebd71ad034d29ab82875b9a6786ea"
+      },
+      {
+        "sha": "a48bcda0af1ce0b7683f1b33ddb61340de1c2e69",
+        "source_url": "https://github.com/Kludex/starlette/commit/a48bcda0af1ce0b7683f1b33ddb61340de1c2e69"
+      },
+      {
+        "sha": "069ad2e1ed9cb1800850f981d161534cd5ea140f",
+        "source_url": "https://github.com/Kludex/starlette/commit/069ad2e1ed9cb1800850f981d161534cd5ea140f"
+      },
+      {
+        "sha": "558b389fc962cc9789c682ecdb7f21ce84a75ea7",
+        "source_url": "https://github.com/Kludex/starlette/commit/558b389fc962cc9789c682ecdb7f21ce84a75ea7"
+      },
+      {
+        "sha": "54028a1446f068742823665802375b6474a50e04",
+        "source_url": "https://github.com/Kludex/starlette/commit/54028a1446f068742823665802375b6474a50e04"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-12-26T08:55:32Z",
+      "number": 2812,
+      "source_url": "https://github.com/Kludex/starlette/pull/2812"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2812"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/tests%2Fmiddleware%2Ftest_base.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+    "committed_at": "2024-12-26T08:00:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835"
+  },
+  "schema_version": "1.0"
+}

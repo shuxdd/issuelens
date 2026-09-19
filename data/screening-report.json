@@ -1,7 +1,71 @@
 {
   "accepted_case_ids": [
-    "starlette-issue-3497"
+    "starlette-issue-1552",
+    "starlette-issue-2298",
+    "starlette-issue-2306",
+    "starlette-issue-2516",
+    "starlette-issue-2625",
+    "starlette-issue-2646",
+    "starlette-issue-2692",
+    "starlette-issue-2785",
+    "starlette-issue-3357",
+    "starlette-issue-3388"
   ],
-  "excluded": [],
+  "excluded": [
+    {
+      "exclusion_stage": "analyzable",
+      "issue_number": 1957,
+      "reason": "Failure depends on optional brotlicffi behavior and the closing PR contains no Starlette repair file",
+      "reason_code": "cross_repository_root_cause"
+    },
+    {
+      "exclusion_stage": "analyzable",
+      "issue_number": 2524,
+      "reason": "Closing PR #2526 has no test file change",
+      "reason_code": "unanalyzable"
+    },
+    {
+      "exclusion_stage": "analyzable",
+      "issue_number": 2638,
+      "reason": "Closing PR #2648 has no test file change",
+      "reason_code": "unanalyzable"
+    },
+    {
+      "exclusion_stage": "analyzable",
+      "issue_number": 3497,
+      "reason": "Closing PR #3498 has no test file change",
+      "reason_code": "unanalyzable"
+    },
+    {
+      "candidate_id": "issue-3096",
+      "exclusion_stage": "category_eligible",
+      "reason": "Public candidate is explicitly titled security issue and is excluded from the evaluation dataset",
+      "reason_code": "security",
+      "source_url": "https://github.com/Kludex/starlette/issues/3096"
+    },
+    {
+      "candidate_id": "pr-3515",
+      "exclusion_stage": "category_eligible",
+      "reason": "PR #3515 changes documentation only",
+      "reason_code": "documentation_only",
+      "source_url": "https://github.com/Kludex/starlette/pull/3515"
+    },
+    {
+      "candidate_id": "pr-2894",
+      "exclusion_stage": "category_eligible",
+      "reason": "PR #2894 was opened by dependabot[bot]",
+      "reason_code": "dependency_bot",
+      "source_url": "https://github.com/Kludex/starlette/pull/2894"
+    }
+  ],
+  "funnel": {
+    "accepted": 10,
+    "analyzable": 10,
+    "category_eligible": 14,
+    "collected": 17,
+    "manual_reviewed": 10,
+    "relationship_recovered": 14,
+    "time_slice_valid": 10
+  },
   "schema_version": "1.0"
 }

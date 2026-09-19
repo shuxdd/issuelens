@@ -1,0 +1,187 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-11-11T19:23:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f1f45d3d8dcde86390b4e3cdcf6213b48351151a",
+      "sha": "f1f45d3d8dcde86390b4e3cdcf6213b48351151a"
+    },
+    {
+      "committed_at": "2023-11-12T04:58:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e4174085437c7598d420514a6cbc79c9ea0db958",
+      "sha": "e4174085437c7598d420514a6cbc79c9ea0db958"
+    },
+    {
+      "committed_at": "2023-12-02T07:02:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ee9a0b7e10c535c4d99fd55358b66887787170c7",
+      "sha": "ee9a0b7e10c535c4d99fd55358b66887787170c7"
+    },
+    {
+      "committed_at": "2023-12-04T13:36:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1b53e18c8627f08527f1a33e208d6963aeca916e",
+      "sha": "1b53e18c8627f08527f1a33e208d6963aeca916e"
+    },
+    {
+      "committed_at": "2023-12-04T13:56:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bf07332542c3c98bbdb921cb4ffbb25e25bde4f0",
+      "sha": "bf07332542c3c98bbdb921cb4ffbb25e25bde4f0"
+    },
+    {
+      "committed_at": "2023-12-07T07:27:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/28a09cc5940970ffbf4372b1e07c9f9a0df3b1e3",
+      "sha": "28a09cc5940970ffbf4372b1e07c9f9a0df3b1e3"
+    },
+    {
+      "committed_at": "2023-12-14T11:00:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/63a15659d34219b1be9de7f0b43cc276da582664",
+      "sha": "63a15659d34219b1be9de7f0b43cc276da582664"
+    },
+    {
+      "committed_at": "2023-12-16T14:04:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/07e278b03609d7cbedf6448ffe1d23a2eb8fe2d1",
+      "sha": "07e278b03609d7cbedf6448ffe1d23a2eb8fe2d1"
+    },
+    {
+      "committed_at": "2023-12-16T14:05:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e76f1db414d8e39dc5bee0cba26385686a3b9faa",
+      "sha": "e76f1db414d8e39dc5bee0cba26385686a3b9faa"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-11-12T05:56:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2334",
+          "number": 2334,
+          "pull_request": {
+            "merged_at": "2023-12-16T14:13:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2334"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Take weak ETags in consideration on `StaticFiles`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-28T04:59:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simple-repository/simple-repository-server/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simple-repository/simple-repository-server"
+          },
+          "title": "etags should be in double quotes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/starlette%2Fresponses.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/responses.py",
+      "sha": "b33aa8618e8d3c67c4dabf95de7d2eb0759f0c28",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/starlette%2Fstaticfiles.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "895105a7dd2c2963292822414f3396cdc6c0690c",
+      "status": "modified"
+    },
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/tests%2Ftest_staticfiles.py",
+      "changes": 5,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "2bb730566f3382300eac6a1ca541d7e16502b445",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2023-12-16T14:13:22Z",
+    "created_at": "2023-10-07T11:43:09Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2298",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2298,
+    "state": "closed",
+    "title": "Strong and weak etags for StaticFiles",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2023-12-16T14:13:21Z",
+    "created_at": "2023-11-12T05:56:52Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2334",
+    "merge_commit_sha": "3c8ab8e74a8c773624d6149d8c04cf5a09d4f1c4",
+    "merged_at": "2023-12-16T14:13:21Z",
+    "number": 2334,
+    "title": "Take weak ETags in consideration on `StaticFiles`",
+    "user": "neolooong"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-10-07T11:43:09Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-11-04T09:13:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-12T05:48:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-12T05:56:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2334",
+          "number": 2334,
+          "pull_request": {
+            "merged_at": "2023-12-16T14:13:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2334"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Take weak ETags in consideration on `StaticFiles`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-16T14:13:23Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-06-28T04:59:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simple-repository/simple-repository-server/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simple-repository/simple-repository-server"
+          },
+          "title": "etags should be in double quotes"
+        }
+      }
+    }
+  ]
+}

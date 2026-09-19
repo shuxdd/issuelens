@@ -1,0 +1,453 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-09-03T06:57:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a47aae22025cdd88799a3688b469ac98296af160",
+      "sha": "a47aae22025cdd88799a3688b469ac98296af160"
+    },
+    {
+      "committed_at": "2026-09-03T07:01:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/394d27cdb7026d97d2637c2657d8f06da4db579d",
+      "sha": "394d27cdb7026d97d2637c2657d8f06da4db579d"
+    },
+    {
+      "committed_at": "2026-09-05T07:02:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d6d12d206ba5b984e354e9c5b695c811e9812d48",
+      "sha": "d6d12d206ba5b984e354e9c5b695c811e9812d48"
+    },
+    {
+      "committed_at": "2026-09-05T07:02:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d4e2950fbf4172ec6e15ec05d1fdaaea90821ac9",
+      "sha": "d4e2950fbf4172ec6e15ec05d1fdaaea90821ac9"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2026-09-03T04:08:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/pydantic-ai/pull/8038",
+          "number": 8038,
+          "pull_request": {
+            "merged_at": "2026-09-03T04:25:15Z",
+            "url": "https://api.github.com/repos/pydantic/pydantic-ai/pulls/8038"
+          },
+          "repository": {
+            "full_name": "pydantic/pydantic-ai"
+          },
+          "title": "Ignore starlette's deprecated `anyio.abc.BlockingPortal` import warning in the test suite"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T05:41:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wolfgang-aura/Mailman/issues/40",
+          "number": 40,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wolfgang-aura/Mailman"
+          },
+          "title": "no-test-change is the one hygiene gate a run cannot answer, even with evidence"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T06:58:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3498",
+          "number": 3498,
+          "pull_request": {
+            "merged_at": "2026-09-05T07:03:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use anyio.from_thread.BlockingPortal in TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T09:08:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/codeforjapan/BirdXplorer/pull/288",
+          "number": 288,
+          "pull_request": {
+            "merged_at": "2026-09-03T09:20:08Z",
+            "url": "https://api.github.com/repos/codeforjapan/BirdXplorer/pulls/288"
+          },
+          "repository": {
+            "full_name": "codeforjapan/BirdXplorer"
+          },
+          "title": "fix(api): anyio \u306e\u5225\u540d deprecation \u3067 api-test-check \u304c\u843d\u3061\u308b\u306e\u3092\u6b62\u3081\u308b"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T17:05:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ewoks-kit/ewoksserver/issues/257",
+          "number": 257,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ewoks-kit/ewoksserver"
+          },
+          "title": "DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead."
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T18:51:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wolfgang-aura/Mailman/issues/41",
+          "number": 41,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wolfgang-aura/Mailman"
+          },
+          "title": "A staged submission is never re-checked for duplicates before it is pushed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-04T08:31:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/standard-voice/standard_asr/pull/77",
+          "number": 77,
+          "pull_request": {
+            "merged_at": "2026-09-04T08:48:33Z",
+            "url": "https://api.github.com/repos/standard-voice/standard_asr/pulls/77"
+          },
+          "repository": {
+            "full_name": "standard-voice/standard_asr"
+          },
+          "title": "test: ignore anyio's BlockingPortal alias warning from Starlette's test client"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-04T13:21:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/anthturner/AnyInfer/pull/26",
+          "number": 26,
+          "pull_request": {
+            "merged_at": "2026-09-04T13:25:06Z",
+            "url": "https://api.github.com/repos/anthturner/AnyInfer/pulls/26"
+          },
+          "repository": {
+            "full_name": "anthturner/AnyInfer"
+          },
+          "title": "fix(ci): restore gates and roll up action dependencies"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-04T15:33:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OCA/rest-framework/pull/636",
+          "number": 636,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OCA/rest-framework/pulls/636"
+          },
+          "repository": {
+            "full_name": "OCA/rest-framework"
+          },
+          "title": "[19.0][FIX] test-requirements: pin anyio<4.15 to unblock CI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T00:05:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ContextualWisdomLab/four-pillars/issues/45",
+          "number": 45,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ContextualWisdomLab/four-pillars"
+          },
+          "title": "Track starlette TestClient anyio.abc.BlockingPortal deprecation until the upstream fix (starlette#3498) is released"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d4e2950fbf4172ec6e15ec05d1fdaaea90821ac9/starlette%2Ftestclient.py",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "starlette/testclient.py",
+      "sha": "ffc613a288494992d7b72f4ff989bad21f8b2639",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2026-09-05T07:03:32Z",
+    "created_at": "2026-09-03T04:02:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3497",
+    "number": 3497,
+    "state": "closed",
+    "title": "`testclient` imports the deprecated `anyio.abc.BlockingPortal` alias",
+    "user": "dsfaccini"
+  },
+  "pull_request": {
+    "closed_at": "2026-09-05T07:03:31Z",
+    "created_at": "2026-09-03T06:58:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3498",
+    "merge_commit_sha": "bbee894422c6cc1306327335ae385b901ccfec13",
+    "merged_at": "2026-09-05T07:03:30Z",
+    "number": 3498,
+    "title": "Use anyio.from_thread.BlockingPortal in TestClient",
+    "user": "vyrnsynx"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-09-03T04:08:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/pydantic-ai/pull/8038",
+          "number": 8038,
+          "pull_request": {
+            "merged_at": "2026-09-03T04:25:15Z",
+            "url": "https://api.github.com/repos/pydantic/pydantic-ai/pulls/8038"
+          },
+          "repository": {
+            "full_name": "pydantic/pydantic-ai"
+          },
+          "title": "Ignore starlette's deprecated `anyio.abc.BlockingPortal` import warning in the test suite"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T05:41:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wolfgang-aura/Mailman/issues/40",
+          "number": 40,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wolfgang-aura/Mailman"
+          },
+          "title": "no-test-change is the one hygiene gate a run cannot answer, even with evidence"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T06:58:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3498",
+          "number": 3498,
+          "pull_request": {
+            "merged_at": "2026-09-05T07:03:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use anyio.from_thread.BlockingPortal in TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T09:08:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/codeforjapan/BirdXplorer/pull/288",
+          "number": 288,
+          "pull_request": {
+            "merged_at": "2026-09-03T09:20:08Z",
+            "url": "https://api.github.com/repos/codeforjapan/BirdXplorer/pulls/288"
+          },
+          "repository": {
+            "full_name": "codeforjapan/BirdXplorer"
+          },
+          "title": "fix(api): anyio \u306e\u5225\u540d deprecation \u3067 api-test-check \u304c\u843d\u3061\u308b\u306e\u3092\u6b62\u3081\u308b"
+        }
+      }
+    },
+    {
+      "commit_id": "3a8f1de32d21cda237b67858787940012775bd74",
+      "commit_url": "https://api.github.com/repos/codeforjapan/BirdXplorer/commits/3a8f1de32d21cda237b67858787940012775bd74",
+      "created_at": "2026-09-03T09:20:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-09-03T17:05:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ewoks-kit/ewoksserver/issues/257",
+          "number": 257,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ewoks-kit/ewoksserver"
+          },
+          "title": "DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead."
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T18:51:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wolfgang-aura/Mailman/issues/41",
+          "number": 41,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wolfgang-aura/Mailman"
+          },
+          "title": "A staged submission is never re-checked for duplicates before it is pushed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-03T19:39:58Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "ff7803ed908b2e44d524cf32c4bac29bdb46a2e6",
+      "commit_url": "https://api.github.com/repos/standard-voice/standard_asr/commits/ff7803ed908b2e44d524cf32c4bac29bdb46a2e6",
+      "created_at": "2026-09-04T08:30:31Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-09-04T08:31:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/standard-voice/standard_asr/pull/77",
+          "number": 77,
+          "pull_request": {
+            "merged_at": "2026-09-04T08:48:33Z",
+            "url": "https://api.github.com/repos/standard-voice/standard_asr/pulls/77"
+          },
+          "repository": {
+            "full_name": "standard-voice/standard_asr"
+          },
+          "title": "test: ignore anyio's BlockingPortal alias warning from Starlette's test client"
+        }
+      }
+    },
+    {
+      "commit_id": "9714df5a0859401ccbbe828899ec47fd9c9040ed",
+      "commit_url": "https://api.github.com/repos/standard-voice/standard_asr/commits/9714df5a0859401ccbbe828899ec47fd9c9040ed",
+      "created_at": "2026-09-04T08:48:35Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-09-04T13:21:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/anthturner/AnyInfer/pull/26",
+          "number": 26,
+          "pull_request": {
+            "merged_at": "2026-09-04T13:25:06Z",
+            "url": "https://api.github.com/repos/anthturner/AnyInfer/pulls/26"
+          },
+          "repository": {
+            "full_name": "anthturner/AnyInfer"
+          },
+          "title": "fix(ci): restore gates and roll up action dependencies"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-04T13:30:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-09-04T15:33:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OCA/rest-framework/pull/636",
+          "number": 636,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OCA/rest-framework/pulls/636"
+          },
+          "repository": {
+            "full_name": "OCA/rest-framework"
+          },
+          "title": "[19.0][FIX] test-requirements: pin anyio<4.15 to unblock CI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-04T22:00:20Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-09-05T07:03:32Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "7fd9b47f345847c34320b5026fd827e0516e736e",
+      "commit_url": "https://api.github.com/repos/ewoks-kit/ewoksserver/commits/7fd9b47f345847c34320b5026fd827e0516e736e",
+      "created_at": "2026-09-05T14:36:13Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "bfa2c25716eed2588de9d59c91fc0baf1d0cfae9",
+      "commit_url": "https://api.github.com/repos/ewoks-kit/ewoksserver/commits/bfa2c25716eed2588de9d59c91fc0baf1d0cfae9",
+      "created_at": "2026-09-05T14:58:11Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-09-14T00:05:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ContextualWisdomLab/four-pillars/issues/45",
+          "number": 45,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ContextualWisdomLab/four-pillars"
+          },
+          "title": "Track starlette TestClient anyio.abc.BlockingPortal deprecation until the upstream fix (starlette#3498) is released"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-15T03:35:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-09-15T03:36:00Z",
+      "event": "unsubscribed"
+    },
+    {
+      "commit_id": "c8e61c5eb519564620676956e044ebcfb83cf059",
+      "commit_url": "https://api.github.com/repos/Microrobotics-Simulation-Framework/MADDENING/commits/c8e61c5eb519564620676956e044ebcfb83cf059",
+      "created_at": "2026-09-15T14:24:19Z",
+      "event": "referenced"
+    }
+  ]
+}

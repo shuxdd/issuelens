@@ -1,0 +1,95 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-09-13T02:07:56Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2692"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2692"
+    ]
+  },
+  "case_id": "starlette-issue-2692",
+  "investigation_cutoff": "2024-10-04T01:59:08Z",
+  "issue": {
+    "number": 2692,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2692",
+    "title": "Mismatch Between ASGI Specification and httpx's `raw_path` Definition in TestClient"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+    "investigation_cutoff_basis": "Closing PR #2716 created_at 2024-10-04T01:59:08Z",
+    "notes": "TestClient raw_path behavior has implementation and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2716; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is e11684013fe5ca084f5bd4e54830512a4dff9618",
+    "test_files": [
+      "tests/test_testclient.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8a108212b370d4964a90b22912e365eba8c8ed60/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b",
+        "source_url": "https://github.com/Kludex/starlette/commit/c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b"
+      },
+      {
+        "sha": "121f698a6657448662da2e7ff08c4e316c00f783",
+        "source_url": "https://github.com/Kludex/starlette/commit/121f698a6657448662da2e7ff08c4e316c00f783"
+      },
+      {
+        "sha": "068a93c56d4381cf4dac6c60fb351abf20d8dbec",
+        "source_url": "https://github.com/Kludex/starlette/commit/068a93c56d4381cf4dac6c60fb351abf20d8dbec"
+      },
+      {
+        "sha": "84e5d2300d6f2541c45793daf5f196a650f11ab8",
+        "source_url": "https://github.com/Kludex/starlette/commit/84e5d2300d6f2541c45793daf5f196a650f11ab8"
+      },
+      {
+        "sha": "e58f9171e334947826bc3ca1f3d8313567f6579c",
+        "source_url": "https://github.com/Kludex/starlette/commit/e58f9171e334947826bc3ca1f3d8313567f6579c"
+      },
+      {
+        "sha": "8a108212b370d4964a90b22912e365eba8c8ed60",
+        "source_url": "https://github.com/Kludex/starlette/commit/8a108212b370d4964a90b22912e365eba8c8ed60"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-10-04T01:59:08Z",
+      "number": 2716,
+      "source_url": "https://github.com/Kludex/starlette/pull/2716"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2716"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8a108212b370d4964a90b22912e365eba8c8ed60/tests%2Ftest_testclient.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+    "committed_at": "2024-10-02T06:49:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e11684013fe5ca084f5bd4e54830512a4dff9618"
+  },
+  "schema_version": "1.0"
+}

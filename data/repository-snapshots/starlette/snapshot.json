@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "repository": "Kludex/starlette",
+  "default_branch": "main",
+  "default_branch_commits": [
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "committed_at": "2022-03-09T18:43:11Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/e086fc2da361767b532cf690e5203619bbae98aa"
+    },
+    {
+      "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+      "committed_at": "2023-11-08T16:43:38Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/93494a46ee0f2e8b1eeafd12e466ebac15037b41"
+    },
+    {
+      "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+      "committed_at": "2023-12-16T12:51:24Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/9a213c1321593fcf9344161b043bdd7d1e600e24"
+    },
+    {
+      "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+      "committed_at": "2024-06-04T19:47:30Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5a1bec33f8d6a669a3670f51034de83292d19408"
+    },
+    {
+      "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+      "committed_at": "2024-09-29T10:33:42Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44"
+    },
+    {
+      "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+      "committed_at": "2024-10-02T06:49:29Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/e11684013fe5ca084f5bd4e54830512a4dff9618"
+    },
+    {
+      "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+      "committed_at": "2024-12-26T08:00:28Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835"
+    },
+    {
+      "commit": "5174d4c8358a6f06aa8056bafd14c2272dab8dd1",
+      "committed_at": "2026-07-04T05:14:17Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5174d4c8358a6f06aa8056bafd14c2272dab8dd1"
+    },
+    {
+      "commit": "04d7869c1ec3016fa11f58382a9ac7bc14b46662",
+      "committed_at": "2026-08-23T20:24:35Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/04d7869c1ec3016fa11f58382a9ac7bc14b46662"
+    }
+  ]
+}

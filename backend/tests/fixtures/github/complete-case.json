@@ -1,0 +1,82 @@
+{
+  "repository": "Kludex/starlette",
+  "issue": {
+    "number": 3497,
+    "title": "`testclient` imports the deprecated `anyio.abc.BlockingPortal` alias",
+    "html_url": "https://github.com/Kludex/starlette/issues/3497",
+    "created_at": "2026-09-03T04:02:00Z",
+    "body_last_edited_at": null
+  },
+  "timeline": [
+    {
+      "event": "cross-referenced",
+      "created_at": "2026-09-03T07:01:00Z",
+      "source": {
+        "issue": {
+          "number": 3498,
+          "html_url": "https://github.com/Kludex/starlette/pull/3498",
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3498",
+            "merged_at": "2026-09-05T07:03:31Z"
+          }
+        }
+      }
+    }
+  ],
+  "cross_references": [
+    {
+      "event": "cross-referenced",
+      "created_at": "2026-09-03T07:01:00Z",
+      "source": {
+        "issue": {
+          "number": 3498,
+          "html_url": "https://github.com/Kludex/starlette/pull/3498",
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3498",
+            "merged_at": "2026-09-05T07:03:31Z"
+          }
+        }
+      }
+    }
+  ],
+  "pull_request": {
+    "number": 3498,
+    "html_url": "https://github.com/Kludex/starlette/pull/3498",
+    "created_at": "2026-09-03T06:58:28Z"
+  },
+  "commits": [
+    {
+      "sha": "repair-commit",
+      "html_url": "https://github.com/Kludex/starlette/commit/repair-commit"
+    }
+  ],
+  "files": [
+    {
+      "filename": "starlette/testclient.py",
+      "status": "modified",
+      "blob_url": "https://github.com/Kludex/starlette/blob/repair-commit/starlette/testclient.py"
+    },
+    {
+      "filename": "tests/test_testclient.py",
+      "status": "modified",
+      "blob_url": "https://github.com/Kludex/starlette/blob/repair-commit/tests/test_testclient.py"
+    }
+  ],
+  "manual_review": {
+    "relationship_basis": "GitHub timeline cross-reference from PR #3498",
+    "investigation_cutoff_basis": "Closing PR #3498 created_at",
+    "snapshot_basis": "Latest default-branch commit strictly before the cutoff",
+    "exclusion_assessment": "Not security, documentation-only, dependency-bot, cross-repository, or unanalyzable",
+    "repair_files": ["starlette/testclient.py"],
+    "test_files": ["tests/test_testclient.py"],
+    "future_information_risk": "No allowed evidence at or after the cutoff",
+    "verdict": "accepted",
+    "notes": "Issue body was not edited after the cutoff"
+  }
+}

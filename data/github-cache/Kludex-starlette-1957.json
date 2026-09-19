@@ -1,0 +1,120 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-11-22T17:04:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/43cce67eec98f57675ff3181b50fc8805777eecd",
+      "sha": "43cce67eec98f57675ff3181b50fc8805777eecd"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-11-23T08:03:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1962",
+          "number": 1962,
+          "pull_request": {
+            "merged_at": "2022-11-23T08:02:53Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1962"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix test_gzip_ignored_for_responses_with_encoding_set w/ brotli"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/43cce67eec98f57675ff3181b50fc8805777eecd/tests%2Fmiddleware%2Ftest_gzip.py",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "tests/middleware/test_gzip.py",
+      "sha": "b6ec1f3fa28a99cada46ac30e76bda7fa21291cb",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2022-11-23T08:04:01Z",
+    "created_at": "2022-11-18T09:21:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1957",
+    "labels": [
+      "bug",
+      "good first issue"
+    ],
+    "number": 1957,
+    "state": "closed",
+    "title": "test_gzip_ignored_for_responses_with_encoding_set fails if brotlicffi is installed",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-11-23T08:02:53Z",
+    "created_at": "2022-11-22T17:06:02Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1962",
+    "merge_commit_sha": "88e9fc1411f6bd79131afa4a7d2f4dc576c8bf04",
+    "merged_at": "2022-11-23T08:02:53Z",
+    "number": 1962,
+    "title": "Fix test_gzip_ignored_for_responses_with_encoding_set w/ brotli",
+    "user": "mgorny"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-11-18T09:33:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-18T09:33:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-11-18T09:33:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-11-18T09:33:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-11-18T09:33:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-11-18T10:02:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-22T16:25:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-23T08:03:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1962",
+          "number": 1962,
+          "pull_request": {
+            "merged_at": "2022-11-23T08:02:53Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1962"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix test_gzip_ignored_for_responses_with_encoding_set w/ brotli"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-23T08:04:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-23T08:04:01Z",
+      "event": "closed"
+    }
+  ]
+}

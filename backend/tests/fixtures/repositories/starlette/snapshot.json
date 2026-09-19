@@ -2,5 +2,17 @@
   "repository": "Kludex/starlette",
   "commit": "39fd0ffac25593fce39466320c9a666957ce8b8c",
   "committed_at": "2026-08-30T12:57:43Z",
-  "source_url": "https://github.com/Kludex/starlette/commit/39fd0ffac25593fce39466320c9a666957ce8b8c"
+  "source_url": "https://github.com/Kludex/starlette/commit/39fd0ffac25593fce39466320c9a666957ce8b8c",
+  "default_branch_commits": [
+    {
+      "commit": "39fd0ffac25593fce39466320c9a666957ce8b8c",
+      "committed_at": "2026-08-30T12:57:43Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/39fd0ffac25593fce39466320c9a666957ce8b8c"
+    },
+    {
+      "commit": "future-default-branch-commit",
+      "committed_at": "2026-09-04T00:00:00Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/future-default-branch-commit"
+    }
+  ]
 }

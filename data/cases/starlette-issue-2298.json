@@ -1,0 +1,113 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-10-07T11:43:12Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2298"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2298"
+    ]
+  },
+  "case_id": "starlette-issue-2298",
+  "investigation_cutoff": "2023-11-12T05:56:52Z",
+  "issue": {
+    "number": 2298,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2298",
+    "title": "Strong and weak etags for StaticFiles"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt 2023-10-07T11:43:12Z is before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2334 created_at 2023-11-12T05:56:52Z",
+    "notes": "Weak ETag behavior has direct implementation and regression-test changes",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2334; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "starlette/responses.py",
+      "starlette/staticfiles.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is 93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+    "test_files": [
+      "tests/test_staticfiles.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/starlette%2Fresponses.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/starlette%2Fstaticfiles.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "f1f45d3d8dcde86390b4e3cdcf6213b48351151a",
+        "source_url": "https://github.com/Kludex/starlette/commit/f1f45d3d8dcde86390b4e3cdcf6213b48351151a"
+      },
+      {
+        "sha": "e4174085437c7598d420514a6cbc79c9ea0db958",
+        "source_url": "https://github.com/Kludex/starlette/commit/e4174085437c7598d420514a6cbc79c9ea0db958"
+      },
+      {
+        "sha": "ee9a0b7e10c535c4d99fd55358b66887787170c7",
+        "source_url": "https://github.com/Kludex/starlette/commit/ee9a0b7e10c535c4d99fd55358b66887787170c7"
+      },
+      {
+        "sha": "1b53e18c8627f08527f1a33e208d6963aeca916e",
+        "source_url": "https://github.com/Kludex/starlette/commit/1b53e18c8627f08527f1a33e208d6963aeca916e"
+      },
+      {
+        "sha": "bf07332542c3c98bbdb921cb4ffbb25e25bde4f0",
+        "source_url": "https://github.com/Kludex/starlette/commit/bf07332542c3c98bbdb921cb4ffbb25e25bde4f0"
+      },
+      {
+        "sha": "28a09cc5940970ffbf4372b1e07c9f9a0df3b1e3",
+        "source_url": "https://github.com/Kludex/starlette/commit/28a09cc5940970ffbf4372b1e07c9f9a0df3b1e3"
+      },
+      {
+        "sha": "63a15659d34219b1be9de7f0b43cc276da582664",
+        "source_url": "https://github.com/Kludex/starlette/commit/63a15659d34219b1be9de7f0b43cc276da582664"
+      },
+      {
+        "sha": "07e278b03609d7cbedf6448ffe1d23a2eb8fe2d1",
+        "source_url": "https://github.com/Kludex/starlette/commit/07e278b03609d7cbedf6448ffe1d23a2eb8fe2d1"
+      },
+      {
+        "sha": "e76f1db414d8e39dc5bee0cba26385686a3b9faa",
+        "source_url": "https://github.com/Kludex/starlette/commit/e76f1db414d8e39dc5bee0cba26385686a3b9faa"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-11-12T05:56:52Z",
+      "number": 2334,
+      "source_url": "https://github.com/Kludex/starlette/pull/2334"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2334"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/e76f1db414d8e39dc5bee0cba26385686a3b9faa/tests%2Ftest_staticfiles.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+    "committed_at": "2023-11-08T16:43:38Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/93494a46ee0f2e8b1eeafd12e466ebac15037b41"
+  },
+  "schema_version": "1.0"
+}

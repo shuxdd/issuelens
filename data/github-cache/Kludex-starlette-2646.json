@@ -1,0 +1,170 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-12-01T13:50:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a3724fc62a29a0b5463d40697faa6d7298411770",
+      "sha": "a3724fc62a29a0b5463d40697faa6d7298411770"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-07-19T12:21:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hanxi/xiaomusic/issues/128",
+          "number": 128,
+          "pull_request": {},
+          "repository": {
+            "full_name": "hanxi/xiaomusic"
+          },
+          "title": "\u7f51\u76d8\u6302\u8f7d\u4e3a\u672c\u5730\uff0c\u5347\u7ea7\u540e\u64ad\u653e\u91cc\u9762\u7684\u6b4c\u66f2\u6ca1\u6709\u58f0\u97f3"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-29T20:33:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2711",
+          "number": 2711,
+          "pull_request": {
+            "merged_at": "2024-12-01T16:46:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2711"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix: Resolve the issue where the directory itself being a symlink does not work."
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/starlette%2Fstaticfiles.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "746e740e0e215983a69907bac68dd40bc71edc0e",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/tests%2Ftest_staticfiles.py",
+      "changes": 20,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "8f742359339e438dccfa75958f1b8d773b705372",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2024-12-01T16:46:18Z",
+    "created_at": "2024-07-19T01:01:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2646",
+    "labels": [
+      "staticfiles"
+    ],
+    "number": 2646,
+    "state": "closed",
+    "title": "When the directory itself being a symlink does not work.",
+    "user": "hanxi"
+  },
+  "pull_request": {
+    "closed_at": "2024-12-01T16:46:17Z",
+    "created_at": "2024-09-29T20:33:44Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2711",
+    "merge_commit_sha": "eee4cdcb9a4e787d53df88ccbee2861a0bb9b0a8",
+    "merged_at": "2024-12-01T16:46:17Z",
+    "number": 2711,
+    "title": "Fix: Resolve the issue where the directory itself being a symlink does not work.",
+    "user": "hanxi"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-07-19T12:21:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hanxi/xiaomusic/issues/128",
+          "number": 128,
+          "pull_request": {},
+          "repository": {
+            "full_name": "hanxi/xiaomusic"
+          },
+          "title": "\u7f51\u76d8\u6302\u8f7d\u4e3a\u672c\u5730\uff0c\u5347\u7ea7\u540e\u64ad\u653e\u91cc\u9762\u7684\u6b4c\u66f2\u6ca1\u6709\u58f0\u97f3"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-01T06:05:07Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2024-08-01T06:05:13Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-09-29T18:09:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T20:33:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2711",
+          "number": 2711,
+          "pull_request": {
+            "merged_at": "2024-12-01T16:46:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2711"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix: Resolve the issue where the directory itself being a symlink does not work."
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-29T20:40:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-01T16:46:18Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-02-18T12:34:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T12:34:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-02-18T12:34:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-02-18T13:41:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T13:41:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-02-18T13:41:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-05T17:48:32Z",
+      "event": "commented"
+    }
+  ]
+}

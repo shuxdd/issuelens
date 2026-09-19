@@ -1,0 +1,297 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-12-26T12:27:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b52bfb77e3ed5fdaea8396718f895aaa3273284d",
+      "sha": "b52bfb77e3ed5fdaea8396718f895aaa3273284d"
+    },
+    {
+      "committed_at": "2024-12-26T12:30:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e32c078d2d3f3a2bf0839699ae5050850eaf56c8",
+      "sha": "e32c078d2d3f3a2bf0839699ae5050850eaf56c8"
+    },
+    {
+      "committed_at": "2024-12-26T12:55:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/daa8d1d5d3da62361f06ae2cb4e9ee03f71181ed",
+      "sha": "daa8d1d5d3da62361f06ae2cb4e9ee03f71181ed"
+    },
+    {
+      "committed_at": "2024-12-26T13:01:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cd66fe30ed5e4dbcc636a9a1a37ab6290bd20cf3",
+      "sha": "cd66fe30ed5e4dbcc636a9a1a37ab6290bd20cf3"
+    },
+    {
+      "committed_at": "2024-12-26T13:34:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2952aa8cc1db7a325c97177160be5c22b73b4d0e",
+      "sha": "2952aa8cc1db7a325c97177160be5c22b73b4d0e"
+    },
+    {
+      "committed_at": "2024-12-26T13:36:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/143d9d43e58257a1b7968562897e437e996bf061",
+      "sha": "143d9d43e58257a1b7968562897e437e996bf061"
+    },
+    {
+      "committed_at": "2024-12-26T13:44:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7b869bbe01bfc0804c795ccbbcb6d786655ec16e",
+      "sha": "7b869bbe01bfc0804c795ccbbcb6d786655ec16e"
+    },
+    {
+      "committed_at": "2024-12-26T13:46:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ded09ca5973c86bb6ff785d62aced4fc5b831145",
+      "sha": "ded09ca5973c86bb6ff785d62aced4fc5b831145"
+    },
+    {
+      "committed_at": "2024-12-26T13:49:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c4136e6a0ccef2e63e9fed577d2721bd84b600e1",
+      "sha": "c4136e6a0ccef2e63e9fed577d2721bd84b600e1"
+    },
+    {
+      "committed_at": "2024-12-28T04:54:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/70fdf28a0908056b1fe4004d450590d860992630",
+      "sha": "70fdf28a0908056b1fe4004d450590d860992630"
+    },
+    {
+      "committed_at": "2024-12-28T04:55:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2533a464558c6b2237d46ffa0a784fdf6a34b841",
+      "sha": "2533a464558c6b2237d46ffa0a784fdf6a34b841"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-12-26T12:30:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2815",
+          "number": 2815,
+          "pull_request": {
+            "merged_at": "2024-12-28T04:57:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2815"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `max_part_size` parameter to `MultiPartParser`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T14:09:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ls1intum/edutelligence/pull/704",
+          "number": 704,
+          "pull_request": {
+            "merged_at": "2026-08-12T12:55:32Z",
+            "url": "https://api.github.com/repos/ls1intum/edutelligence/pulls/704"
+          },
+          "repository": {
+            "full_name": "ls1intum/edutelligence"
+          },
+          "title": "`Logos`: Add first-class Whisper support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T16:35:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zuluagab99/coderabbit-showcase/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/zuluagab99/coderabbit-showcase/pulls/3"
+          },
+          "repository": {
+            "full_name": "zuluagab99/coderabbit-showcase"
+          },
+          "title": "Demo/insecure endpoints"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/docs%2Frequests.md",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "docs/requests.md",
+      "sha": "368755f137f54a89815da65fcd2275bd2bb34577",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/starlette%2Fformparsers.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "starlette/formparsers.py",
+      "sha": "87d262c1d8e4837bc41a21e654ba5c74ee8ee900",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/starlette%2Frequests.py",
+      "changes": 19,
+      "deletions": 3,
+      "filename": "starlette/requests.py",
+      "sha": "992988a4572d5908b9bf0d67e7c4f8ae6a11e93b",
+      "status": "modified"
+    },
+    {
+      "additions": 42,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2533a464558c6b2237d46ffa0a784fdf6a34b841/tests%2Ftest_formparsers.py",
+      "changes": 44,
+      "deletions": 2,
+      "filename": "tests/test_formparsers.py",
+      "sha": "f781a9ecb302abf6b81e911127e233f0d13905a2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2024-12-28T04:57:21Z",
+    "created_at": "2024-12-05T10:00:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2785",
+    "number": 2785,
+    "state": "closed",
+    "title": "MultiPartException:  Part exceeded maximum size 1M",
+    "user": "lsaint"
+  },
+  "pull_request": {
+    "closed_at": "2024-12-28T04:57:20Z",
+    "created_at": "2024-12-26T12:30:03Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2815",
+    "merge_commit_sha": "cef7834e2b9eec9ec7bd1e00f9dacf7c3048c65e",
+    "merged_at": "2024-12-28T04:57:20Z",
+    "number": 2815,
+    "title": "Add `max_part_size` parameter to `MultiPartParser`",
+    "user": "iudeen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-12-06T11:49:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T01:31:24Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-12-09T06:47:56Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2024-12-09T06:50:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T07:02:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T07:09:38Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "b52bfb77e3ed5fdaea8396718f895aaa3273284d",
+      "commit_url": "https://api.github.com/repos/iudeen/starlette/commits/b52bfb77e3ed5fdaea8396718f895aaa3273284d",
+      "created_at": "2024-12-26T12:28:06Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-12-26T12:30:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2815",
+          "number": 2815,
+          "pull_request": {
+            "merged_at": "2024-12-28T04:57:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2815"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `max_part_size` parameter to `MultiPartParser`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-28T04:57:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-07-23T14:09:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ls1intum/edutelligence/pull/704",
+          "number": 704,
+          "pull_request": {
+            "merged_at": "2026-08-12T12:55:32Z",
+            "url": "https://api.github.com/repos/ls1intum/edutelligence/pulls/704"
+          },
+          "repository": {
+            "full_name": "ls1intum/edutelligence"
+          },
+          "title": "`Logos`: Add first-class Whisper support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T16:35:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zuluagab99/coderabbit-showcase/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/zuluagab99/coderabbit-showcase/pulls/3"
+          },
+          "repository": {
+            "full_name": "zuluagab99/coderabbit-showcase"
+          },
+          "title": "Demo/insecure endpoints"
+        }
+      }
+    }
+  ]
+}

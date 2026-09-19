@@ -1,0 +1,121 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2026-07-03T04:26:27Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/3357"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/3357"
+    ]
+  },
+  "case_id": "starlette-issue-3357",
+  "investigation_cutoff": "2026-08-23T20:50:33Z",
+  "issue": {
+    "number": 3357,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/3357",
+    "title": "TrustedHostMiddleware Doesn't handle IPv6 properly"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+    "investigation_cutoff_basis": "Closing PR #3471 created_at 2026-08-23T20:50:33Z",
+    "notes": "IPv6 TrustedHostMiddleware behavior has implementation and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #3471; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "docs/middleware.md",
+      "starlette/_utils.py",
+      "starlette/datastructures.py",
+      "starlette/middleware/trustedhost.py",
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is 04d7869c1ec3016fa11f58382a9ac7bc14b46662",
+    "test_files": [
+      "tests/middleware/test_trusted_host.py",
+      "tests/test_testclient.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/middleware.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/docs%2Fmiddleware.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/_utils.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2F_utils.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/datastructures.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Fdatastructures.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/middleware/trustedhost.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Fmiddleware%2Ftrustedhost.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "ee08988255de186791fa301d3d74bb2b8340c045",
+        "source_url": "https://github.com/Kludex/starlette/commit/ee08988255de186791fa301d3d74bb2b8340c045"
+      },
+      {
+        "sha": "b0a2d729776d83c0edf6d98a6f5e77ddd9e1f199",
+        "source_url": "https://github.com/Kludex/starlette/commit/b0a2d729776d83c0edf6d98a6f5e77ddd9e1f199"
+      },
+      {
+        "sha": "bc20fa550d4e86ca1a6303741e56cc1510843c43",
+        "source_url": "https://github.com/Kludex/starlette/commit/bc20fa550d4e86ca1a6303741e56cc1510843c43"
+      },
+      {
+        "sha": "0cdbd9edda68f9e42844c77eb5aec7d0f4427b90",
+        "source_url": "https://github.com/Kludex/starlette/commit/0cdbd9edda68f9e42844c77eb5aec7d0f4427b90"
+      },
+      {
+        "sha": "c5c17c282021bfd1efade49932f7b1a09ed0f7e8",
+        "source_url": "https://github.com/Kludex/starlette/commit/c5c17c282021bfd1efade49932f7b1a09ed0f7e8"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2026-08-23T20:50:33Z",
+      "number": 3471,
+      "source_url": "https://github.com/Kludex/starlette/pull/3471"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/3471"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_trusted_host.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/tests%2Fmiddleware%2Ftest_trusted_host.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/tests%2Ftest_testclient.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "04d7869c1ec3016fa11f58382a9ac7bc14b46662",
+    "committed_at": "2026-08-23T20:24:35Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/04d7869c1ec3016fa11f58382a9ac7bc14b46662"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,177 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-10-20T15:24:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b",
+      "sha": "c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b"
+    },
+    {
+      "committed_at": "2024-10-20T15:24:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/121f698a6657448662da2e7ff08c4e316c00f783",
+      "sha": "121f698a6657448662da2e7ff08c4e316c00f783"
+    },
+    {
+      "committed_at": "2024-11-16T08:37:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/068a93c56d4381cf4dac6c60fb351abf20d8dbec",
+      "sha": "068a93c56d4381cf4dac6c60fb351abf20d8dbec"
+    },
+    {
+      "committed_at": "2024-11-18T19:01:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/84e5d2300d6f2541c45793daf5f196a650f11ab8",
+      "sha": "84e5d2300d6f2541c45793daf5f196a650f11ab8"
+    },
+    {
+      "committed_at": "2024-11-18T19:23:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e58f9171e334947826bc3ca1f3d8313567f6579c",
+      "sha": "e58f9171e334947826bc3ca1f3d8313567f6579c"
+    },
+    {
+      "committed_at": "2024-11-18T19:25:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8a108212b370d4964a90b22912e365eba8c8ed60",
+      "sha": "8a108212b370d4964a90b22912e365eba8c8ed60"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-10-04T01:59:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2716",
+          "number": 2716,
+          "pull_request": {
+            "merged_at": "2024-11-18T19:28:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2716"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(testclient): exclude query sting from `raw_path`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8a108212b370d4964a90b22912e365eba8c8ed60/starlette%2Ftestclient.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/testclient.py",
+      "sha": "645ca10900a64658d5e76c80807d476bf2e45c6b",
+      "status": "modified"
+    },
+    {
+      "additions": 24,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8a108212b370d4964a90b22912e365eba8c8ed60/tests%2Ftest_testclient.py",
+      "changes": 24,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "68593a9ac9c340095e89c36fa65014a28b8903eb",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2024-11-18T19:28:45Z",
+    "created_at": "2024-09-13T02:07:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2692",
+    "labels": [
+      "testclient"
+    ],
+    "number": 2692,
+    "state": "closed",
+    "title": "Mismatch Between ASGI Specification and httpx's `raw_path` Definition in TestClient",
+    "user": "raptium"
+  },
+  "pull_request": {
+    "closed_at": "2024-11-18T19:28:44Z",
+    "created_at": "2024-10-04T01:59:08Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2716",
+    "merge_commit_sha": "9dc9d2e92919306fae683746e38530ff55ed3092",
+    "merged_at": "2024-11-18T19:28:44Z",
+    "number": 2716,
+    "title": "fix(testclient): exclude query sting from `raw_path`",
+    "user": "raptium"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-09-15T19:17:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-16T01:25:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-16T05:35:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-17T12:25:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-17T12:45:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-23T18:40:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-09-23T18:40:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-09-29T18:10:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T18:10:30Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2024-09-29T18:10:34Z",
+      "event": "assigned"
+    },
+    {
+      "commit_id": "f242cda325becab9ab3608095eb6fcde7f067de2",
+      "commit_url": "https://api.github.com/repos/raptium/starlette/commits/f242cda325becab9ab3608095eb6fcde7f067de2",
+      "created_at": "2024-10-04T01:59:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-10-04T01:59:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2716",
+          "number": 2716,
+          "pull_request": {
+            "merged_at": "2024-11-18T19:28:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2716"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(testclient): exclude query sting from `raw_path`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-04T02:15:27Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b",
+      "commit_url": "https://api.github.com/repos/raptium/starlette/commits/c3fbd1ecbaa2f49803b948c3a9c84760b648ce6b",
+      "created_at": "2024-10-20T15:24:20Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-11-18T19:28:45Z",
+      "event": "closed"
+    }
+  ]
+}

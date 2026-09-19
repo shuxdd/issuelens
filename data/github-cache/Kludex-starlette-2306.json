@@ -1,0 +1,186 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-12-16T13:35:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5c19376fd6181a11e9f9820f58c3d883d322ca99",
+      "sha": "5c19376fd6181a11e9f9820f58c3d883d322ca99"
+    },
+    {
+      "committed_at": "2023-12-16T13:39:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b96d7799b8fd363df33936848e1804555f9a0465",
+      "sha": "b96d7799b8fd363df33936848e1804555f9a0465"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-12-16T13:36:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2376",
+          "number": 2376,
+          "pull_request": {
+            "merged_at": "2023-12-16T13:55:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2376"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Merge URLs properly on TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-20T15:29:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/geopython/pygeoapi/issues/1445",
+          "number": 1445,
+          "pull_request": {},
+          "repository": {
+            "full_name": "geopython/pygeoapi"
+          },
+          "title": "Master CI Fails"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-01T02:29:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/lexy-ai/lexy/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2024-03-01T02:29:33Z",
+            "url": "https://api.github.com/repos/lexy-ai/lexy/pulls/59"
+          },
+          "repository": {
+            "full_name": "lexy-ai/lexy"
+          },
+          "title": "Refactored testing config for python client"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/starlette%2Ftestclient.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/testclient.py",
+      "sha": "04ac90a057a95568d159f473b5f4040a65aa644c",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Fmiddleware%2Ftest_session.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "tests/middleware/test_session.py",
+      "sha": "dc10941175aab1fb3393c546ab19d14595823c64",
+      "status": "modified"
+    },
+    {
+      "additions": 10,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Ftest_testclient.py",
+      "changes": 10,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "44bcd7acea4db9128c571c96bbd83543366961af",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2023-12-16T13:55:21Z",
+    "created_at": "2023-10-18T07:19:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2306",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2306,
+    "state": "closed",
+    "title": "TestClient doesn't merge urls in the same way as the httpx client, and I think it should.",
+    "user": "Waghabond"
+  },
+  "pull_request": {
+    "closed_at": "2023-12-16T13:55:21Z",
+    "created_at": "2023-12-16T13:36:02Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2376",
+    "merge_commit_sha": "efa03ebd64b9a1927cb6d0da61784b400fa5a0de",
+    "merged_at": "2023-12-16T13:55:20Z",
+    "number": 2376,
+    "title": "Merge URLs properly on TestClient",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-10-18T07:21:27Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-12-16T13:36:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2376",
+          "number": 2376,
+          "pull_request": {
+            "merged_at": "2023-12-16T13:55:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2376"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Merge URLs properly on TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-16T13:55:22Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-12-20T15:29:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/geopython/pygeoapi/issues/1445",
+          "number": 1445,
+          "pull_request": {},
+          "repository": {
+            "full_name": "geopython/pygeoapi"
+          },
+          "title": "Master CI Fails"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-01T02:29:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/lexy-ai/lexy/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2024-03-01T02:29:33Z",
+            "url": "https://api.github.com/repos/lexy-ai/lexy/pulls/59"
+          },
+          "repository": {
+            "full_name": "lexy-ai/lexy"
+          },
+          "title": "Refactored testing config for python client"
+        }
+      }
+    },
+    {
+      "commit_id": "17213bc7aab6e47fb3214b54d1f7aa2f113cc1e6",
+      "commit_url": "https://api.github.com/repos/lexy-ai/lexy/commits/17213bc7aab6e47fb3214b54d1f7aa2f113cc1e6",
+      "created_at": "2024-03-01T02:29:35Z",
+      "event": "referenced"
+    }
+  ]
+}

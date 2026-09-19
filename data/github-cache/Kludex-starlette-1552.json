@@ -1,0 +1,165 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-03-25T10:08:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2ba3353e388d94a10dba9bbf6ff8178f5a6f4100",
+      "sha": "2ba3353e388d94a10dba9bbf6ff8178f5a6f4100"
+    },
+    {
+      "committed_at": "2022-03-27T18:40:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ea4bffc0712b69642b912a086f55ad80af426dbe",
+      "sha": "ea4bffc0712b69642b912a086f55ad80af426dbe"
+    },
+    {
+      "committed_at": "2022-03-28T06:44:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c269b220158dc7b6d01b38d75e67a72acb59c3c8",
+      "sha": "c269b220158dc7b6d01b38d75e67a72acb59c3c8"
+    },
+    {
+      "committed_at": "2022-03-28T06:45:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c282914539ce699d2ef8a76e468f1450845f51b4",
+      "sha": "c282914539ce699d2ef8a76e468f1450845f51b4"
+    },
+    {
+      "committed_at": "2022-03-28T06:45:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a04485d9922ae7c7350ff2e7473958e695819cbf",
+      "sha": "a04485d9922ae7c7350ff2e7473958e695819cbf"
+    },
+    {
+      "committed_at": "2022-04-05T14:42:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0a681dcdd948f46f8c92980d1f4c973ad2d36bfe",
+      "sha": "0a681dcdd948f46f8c92980d1f4c973ad2d36bfe"
+    },
+    {
+      "committed_at": "2022-04-07T06:51:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b8ffc22151972420b6fb24e38098ff2bd4450106",
+      "sha": "b8ffc22151972420b6fb24e38098ff2bd4450106"
+    },
+    {
+      "committed_at": "2022-04-08T15:32:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9831f623a5f4c93c758fe03bfd53902464a88b5b",
+      "sha": "9831f623a5f4c93c758fe03bfd53902464a88b5b"
+    },
+    {
+      "committed_at": "2022-04-08T17:15:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4d2dc29fdd0db3817d5d9cac4bc00ffa4cd1591b",
+      "sha": "4d2dc29fdd0db3817d5d9cac4bc00ffa4cd1591b"
+    },
+    {
+      "committed_at": "2022-04-08T18:04:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a0655d6248ffa97fc333be1bd192f76aaa2e7fc1",
+      "sha": "a0655d6248ffa97fc333be1bd192f76aaa2e7fc1"
+    },
+    {
+      "committed_at": "2022-04-08T18:06:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2635947d01d97c219bc46c766462d22002dfa820",
+      "sha": "2635947d01d97c219bc46c766462d22002dfa820"
+    },
+    {
+      "committed_at": "2022-04-08T18:30:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/64c6f6c4a14a628d5c85950519b1cf79bb01d618",
+      "sha": "64c6f6c4a14a628d5c85950519b1cf79bb01d618"
+    },
+    {
+      "committed_at": "2022-04-08T18:35:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cc99f1f0babf1009d575ef6690c9f4782fa997a6",
+      "sha": "cc99f1f0babf1009d575ef6690c9f4782fa997a6"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-03-25T10:25:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1553",
+          "number": 1553,
+          "pull_request": {
+            "merged_at": "2022-04-08T18:53:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1553"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Apply right name to `Route` when created from methods"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cc99f1f0babf1009d575ef6690c9f4782fa997a6/starlette%2Frouting.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/routing.py",
+      "sha": "ea6ec211715a39084c893dae3ee73cf4c02e671d",
+      "status": "modified"
+    },
+    {
+      "additions": 36,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cc99f1f0babf1009d575ef6690c9f4782fa997a6/tests%2Ftest_routing.py",
+      "changes": 36,
+      "deletions": 0,
+      "filename": "tests/test_routing.py",
+      "sha": "e8adaca48bfc0f11689237c3bd360a1ceb1f87ee",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2022-04-08T18:53:17Z",
+    "created_at": "2022-03-25T09:24:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1552",
+    "number": 1552,
+    "state": "closed",
+    "title": "Route naming introspection always return \"method\" for method endpoints ",
+    "user": "flxdot"
+  },
+  "pull_request": {
+    "closed_at": "2022-04-08T18:53:18Z",
+    "created_at": "2022-03-25T10:25:47Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1553",
+    "merge_commit_sha": "d7cbe2a4887ad6b15fe7523ed62e28a426b7697d",
+    "merged_at": "2022-04-08T18:53:17Z",
+    "number": 1553,
+    "title": "Apply right name to `Route` when created from methods",
+    "user": "flxdot"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-03-25T09:24:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-25T09:24:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-25T09:25:37Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-03-25T10:25:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1553",
+          "number": 1553,
+          "pull_request": {
+            "merged_at": "2022-04-08T18:53:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1553"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Apply right name to `Route` when created from methods"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-08T18:53:18Z",
+      "event": "closed"
+    }
+  ]
+}

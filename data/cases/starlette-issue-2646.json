@@ -1,0 +1,75 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-07-19T01:01:32Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2646"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2646"
+    ]
+  },
+  "case_id": "starlette-issue-2646",
+  "investigation_cutoff": "2024-09-29T20:33:44Z",
+  "issue": {
+    "number": 2646,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2646",
+    "title": "When the directory itself being a symlink does not work."
+  },
+  "manual_review": {
+    "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+    "future_information_risk": "GraphQL lastEditedAt 2024-07-19T01:01:32Z is before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2711 created_at 2024-09-29T20:33:44Z",
+    "notes": "StaticFiles symlink behavior has implementation and regression coverage",
+    "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2711; GraphQL closedByPullRequestsReferences confirms it",
+    "repair_files": [
+      "starlette/staticfiles.py"
+    ],
+    "snapshot_basis": "Latest main commit before cutoff is 0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+    "test_files": [
+      "tests/test_staticfiles.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/starlette%2Fstaticfiles.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "a3724fc62a29a0b5463d40697faa6d7298411770",
+        "source_url": "https://github.com/Kludex/starlette/commit/a3724fc62a29a0b5463d40697faa6d7298411770"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-09-29T20:33:44Z",
+      "number": 2711,
+      "source_url": "https://github.com/Kludex/starlette/pull/2711"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2711"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/tests%2Ftest_staticfiles.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+    "committed_at": "2024-09-29T10:33:42Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44"
+  },
+  "schema_version": "1.0"
+}

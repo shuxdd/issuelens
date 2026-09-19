@@ -1,0 +1,548 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-08-21T02:42:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/839b069cf3347e5ce776095061b2f600ea86e0bc",
+      "sha": "839b069cf3347e5ce776095061b2f600ea86e0bc"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2c4cec781f783a1c7df5bda892b71658312f3faf",
+      "sha": "2c4cec781f783a1c7df5bda892b71658312f3faf"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d7713f65fb8242d70d2b4d8c4a7eb2027c45a3ee",
+      "sha": "d7713f65fb8242d70d2b4d8c4a7eb2027c45a3ee"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/41d5076a832829205a98e2158d293e5f83bce117",
+      "sha": "41d5076a832829205a98e2158d293e5f83bce117"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/45884bc050d2e2813c146b50ac8c66d998fee64d",
+      "sha": "45884bc050d2e2813c146b50ac8c66d998fee64d"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c6f775230e71b46925a3f0ebf3febc874a0cb744",
+      "sha": "c6f775230e71b46925a3f0ebf3febc874a0cb744"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c384b5b4499d6f772db5536b12cccd809043c40",
+      "sha": "7c384b5b4499d6f772db5536b12cccd809043c40"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/922b85fb4458324754981bca647cff4688560a8b",
+      "sha": "922b85fb4458324754981bca647cff4688560a8b"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/796a1fb07ed284aeb7e81f1c56a0aa8fa11b2e43",
+      "sha": "796a1fb07ed284aeb7e81f1c56a0aa8fa11b2e43"
+    },
+    {
+      "committed_at": "2024-08-21T02:43:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0679356d33122969ab74f5ba59511aabf8e9095c",
+      "sha": "0679356d33122969ab74f5ba59511aabf8e9095c"
+    },
+    {
+      "committed_at": "2024-08-21T11:06:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c50731db62dc86a86ef9238ce895dada1e56cc40",
+      "sha": "c50731db62dc86a86ef9238ce895dada1e56cc40"
+    },
+    {
+      "committed_at": "2024-08-21T11:07:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5acd4312f652fc6d4c80495dec4f6c0ded5a0b9c",
+      "sha": "5acd4312f652fc6d4c80495dec4f6c0ded5a0b9c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-02-16T11:30:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2517",
+          "number": 2517,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Incompatibility with anyio v3"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-16T12:07:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2519",
+          "number": 2519,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2519"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix 'no response returned' RuntimeError during cancellation in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-13T19:47:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2620",
+          "number": 2620,
+          "pull_request": {
+            "merged_at": "2024-09-01T07:04:50Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't poll for disconnects in BaseHTTPMiddleware via StreamingResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-25T05:56:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zauberzeug/nicegui/issues/3273",
+          "number": 3273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "zauberzeug/nicegui"
+          },
+          "title": "RuntimeError: app.storage.user needs a storage_secret passed in ui.run()"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-11T10:15:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tiendil/brigid/issues/88",
+          "number": 88,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Tiendil/brigid"
+          },
+          "title": "The process periodically hangs up and uses 100% CPU"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-03T12:53:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DataDog/dd-trace-py/pull/10483",
+          "number": 10483,
+          "pull_request": {
+            "merged_at": "2024-09-03T13:50:41Z",
+            "url": "https://api.github.com/repos/DataDog/dd-trace-py/pulls/10483"
+          },
+          "repository": {
+            "full_name": "DataDog/dd-trace-py"
+          },
+          "title": "chore(CI): starlette tests"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-04T11:06:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/26140",
+          "number": 26140,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Upgrade `starlette` to >0.38.5"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-04T11:06:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/26117",
+          "number": 26117,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Exception in ASGI application error message was found in Vulnerability detection performance test"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-05T02:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/coxon/tabletalker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "url": "https://api.github.com/repos/coxon/tabletalker/pulls/5"
+          },
+          "repository": {
+            "full_name": "coxon/tabletalker"
+          },
+          "title": "v1.5 \u51b3\u8d5b\u51b2\u523a \u00b7 \u5de7\u73b2"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 24,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5acd4312f652fc6d4c80495dec4f6c0ded5a0b9c/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 35,
+      "deletions": 11,
+      "filename": "starlette/middleware/base.py",
+      "sha": "87c0f51f8ba7cf5704006361c1c9e79b2fba6083",
+      "status": "modified"
+    },
+    {
+      "additions": 144,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5acd4312f652fc6d4c80495dec4f6c0ded5a0b9c/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 169,
+      "deletions": 25,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "8e410cb1515da7e21c292a259b6f3bf8966058cf",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2024-09-01T07:04:51Z",
+    "created_at": "2024-02-16T11:26:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2516",
+    "number": 2516,
+    "state": "closed",
+    "title": "`RuntimeError(\"No response returned\")` in `BaseHTTPMiddleware`",
+    "user": "jonathanslenders"
+  },
+  "pull_request": {
+    "closed_at": "2024-09-01T07:04:50Z",
+    "created_at": "2024-06-13T19:47:44Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2620",
+    "merge_commit_sha": "d771bb7a5ecfcd658735cf07ba6f1dd4ac057ccd",
+    "merged_at": "2024-09-01T07:04:50Z",
+    "number": 2620,
+    "title": "Don't poll for disconnects in BaseHTTPMiddleware via StreamingResponse",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-02-16T11:30:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2517",
+          "number": 2517,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Incompatibility with anyio v3"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-16T12:07:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2519",
+          "number": 2519,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2519"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix 'no response returned' RuntimeError during cancellation in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-04T11:47:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-04T11:47:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-03-04T11:47:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-03-05T02:44:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-05T12:26:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-03-05T12:26:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-05-07T14:00:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-04T18:37:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-04T19:23:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-04T19:59:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-04T20:26:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-07T09:32:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-07T09:32:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-07T09:32:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-06-07T09:32:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-07T09:32:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-06-13T18:26:10Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "318fc7891b0a36d46d7ca6f5110dbe521a6ad003",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/318fc7891b0a36d46d7ca6f5110dbe521a6ad003",
+      "created_at": "2024-06-13T19:47:34Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-06-13T19:47:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2620",
+          "number": 2620,
+          "pull_request": {
+            "merged_at": "2024-09-01T07:04:50Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't poll for disconnects in BaseHTTPMiddleware via StreamingResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-13T19:49:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-21T11:07:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-25T05:56:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zauberzeug/nicegui/issues/3273",
+          "number": 3273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "zauberzeug/nicegui"
+          },
+          "title": "RuntimeError: app.storage.user needs a storage_secret passed in ui.run()"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-11T10:15:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tiendil/brigid/issues/88",
+          "number": 88,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Tiendil/brigid"
+          },
+          "title": "The process periodically hangs up and uses 100% CPU"
+        }
+      }
+    },
+    {
+      "commit_id": "839b069cf3347e5ce776095061b2f600ea86e0bc",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/839b069cf3347e5ce776095061b2f600ea86e0bc",
+      "created_at": "2024-08-21T02:43:21Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-09-01T07:04:51Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "d771bb7a5ecfcd658735cf07ba6f1dd4ac057ccd",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/d771bb7a5ecfcd658735cf07ba6f1dd4ac057ccd",
+      "created_at": "2024-09-01T07:04:51Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "d771bb7a5ecfcd658735cf07ba6f1dd4ac057ccd",
+      "commit_url": "https://api.github.com/repos/Orenoid/starlette/commits/d771bb7a5ecfcd658735cf07ba6f1dd4ac057ccd",
+      "created_at": "2024-09-01T09:27:03Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-09-03T12:53:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DataDog/dd-trace-py/pull/10483",
+          "number": 10483,
+          "pull_request": {
+            "merged_at": "2024-09-03T13:50:41Z",
+            "url": "https://api.github.com/repos/DataDog/dd-trace-py/pulls/10483"
+          },
+          "repository": {
+            "full_name": "DataDog/dd-trace-py"
+          },
+          "title": "chore(CI): starlette tests"
+        }
+      }
+    },
+    {
+      "commit_id": "84b335eb7e94fc600aa4424a65b19a6fccd69d85",
+      "commit_url": "https://api.github.com/repos/DataDog/dd-trace-py/commits/84b335eb7e94fc600aa4424a65b19a6fccd69d85",
+      "created_at": "2024-09-03T13:50:42Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-09-06T22:38:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-06T22:38:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-09-06T22:38:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-09-06T22:38:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-09-06T22:38:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-09-17T13:05:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-17T13:26:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-17T13:50:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-17T13:57:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-04T11:06:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/26140",
+          "number": 26140,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Upgrade `starlette` to >0.38.5"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-04T11:06:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/26117",
+          "number": 26117,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Exception in ASGI application error message was found in Vulnerability detection performance test"
+        }
+      }
+    },
+    {
+      "created_at": "2025-07-30T06:54:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-05T02:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/coxon/tabletalker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "url": "https://api.github.com/repos/coxon/tabletalker/pulls/5"
+          },
+          "repository": {
+            "full_name": "coxon/tabletalker"
+          },
+          "title": "v1.5 \u51b3\u8d5b\u51b2\u523a \u00b7 \u5de7\u73b2"
+        }
+      }
+    }
+  ]
+}

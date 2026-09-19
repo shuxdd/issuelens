@@ -1,0 +1,244 @@
+{
+  "schema_version": "1.0",
+  "reviews": {
+    "1552": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #1553; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #1553 created_at 2022-03-25T10:25:47Z",
+        "snapshot_basis": "Latest main commit before cutoff is e086fc2da361767b532cf690e5203619bbae98aa",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/routing.py"],
+        "test_files": ["tests/test_routing.py"],
+        "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+        "verdict": "accepted",
+        "notes": "Route naming behavior has a direct code change and regression test"
+      }
+    },
+    "1957": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #1962; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #1962 created_at 2022-11-22T17:06:02Z",
+        "snapshot_basis": "Not selected because the candidate was excluded before case construction",
+        "exclusion_assessment": "The failure depends on optional brotlicffi behavior and the PR changes only a test, so the Starlette root cause is not independently analyzable",
+        "repair_files": [],
+        "test_files": ["tests/middleware/test_gzip.py"],
+        "future_information_risk": "GraphQL lastEditedAt is null",
+        "verdict": "rejected",
+        "notes": "Excluded as cross-repository root cause"
+      },
+      "screening": {
+        "exclusion_stage": "analyzable",
+        "reason_code": "cross_repository_root_cause",
+        "reason": "Failure depends on optional brotlicffi behavior and the closing PR contains no Starlette repair file"
+      }
+    },
+    "2298": {
+      "body_last_edited_at": "2023-10-07T11:43:12Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2334; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2334 created_at 2023-11-12T05:56:52Z",
+        "snapshot_basis": "Latest main commit before cutoff is 93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/responses.py", "starlette/staticfiles.py"],
+        "test_files": ["tests/test_staticfiles.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2023-10-07T11:43:12Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "Weak ETag behavior has direct implementation and regression-test changes"
+      }
+    },
+    "2306": {
+      "body_last_edited_at": "2023-10-25T01:29:22Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2376; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2376 created_at 2023-12-16T13:36:02Z",
+        "snapshot_basis": "Latest main commit before cutoff is 9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/testclient.py"],
+        "test_files": ["tests/middleware/test_session.py", "tests/test_testclient.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2023-10-25T01:29:22Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "TestClient URL merging has implementation and regression coverage"
+      }
+    },
+    "2516": {
+      "body_last_edited_at": "2024-03-05T12:12:24Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2620; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2620 created_at 2024-06-13T19:47:44Z",
+        "snapshot_basis": "Latest main commit before cutoff is 5a1bec33f8d6a669a3670f51034de83292d19408",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/middleware/base.py"],
+        "test_files": ["tests/middleware/test_base.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2024-03-05T12:12:24Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "BaseHTTPMiddleware response failure has a focused code and test change"
+      }
+    },
+    "2524": {
+      "body_last_edited_at": "2024-02-22T12:41:13Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2526; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2526 created_at 2024-02-23T05:52:50Z",
+        "snapshot_basis": "Not selected because the candidate was excluded before case construction",
+        "exclusion_assessment": "Closing PR has no test file change, so the required repair behavior cannot be evaluated from versioned test evidence",
+        "repair_files": ["starlette/testclient.py"],
+        "test_files": [],
+        "future_information_risk": "GraphQL lastEditedAt 2024-02-22T12:41:13Z is before cutoff",
+        "verdict": "rejected",
+        "notes": "Excluded as unanalyzable under Issue 03 acceptance rules"
+      },
+      "screening": {
+        "exclusion_stage": "analyzable",
+        "reason_code": "unanalyzable",
+        "reason": "Closing PR #2526 has no test file change"
+      }
+    },
+    "2625": {
+      "body_last_edited_at": "2024-06-19T07:20:38Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2812; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2812 created_at 2024-12-26T08:55:32Z",
+        "snapshot_basis": "Latest main commit before cutoff is ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/middleware/base.py", "starlette/responses.py"],
+        "test_files": ["tests/middleware/test_base.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2024-06-19T07:20:38Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "Middleware exception propagation has direct implementation and regression coverage"
+      }
+    },
+    "2638": {
+      "body_last_edited_at": "2024-07-06T14:35:18Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2648; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2648 created_at 2024-07-21T12:18:01Z",
+        "snapshot_basis": "Not selected because the candidate was excluded before case construction",
+        "exclusion_assessment": "Closing PR has no test file change, so the required repair behavior cannot be evaluated from versioned test evidence",
+        "repair_files": ["starlette/routing.py"],
+        "test_files": [],
+        "future_information_risk": "GraphQL lastEditedAt 2024-07-06T14:35:18Z is before cutoff",
+        "verdict": "rejected",
+        "notes": "Excluded as unanalyzable under Issue 03 acceptance rules"
+      },
+      "screening": {
+        "exclusion_stage": "analyzable",
+        "reason_code": "unanalyzable",
+        "reason": "Closing PR #2648 has no test file change"
+      }
+    },
+    "2646": {
+      "body_last_edited_at": "2024-07-19T01:01:32Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2711; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2711 created_at 2024-09-29T20:33:44Z",
+        "snapshot_basis": "Latest main commit before cutoff is 0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/staticfiles.py"],
+        "test_files": ["tests/test_staticfiles.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2024-07-19T01:01:32Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "StaticFiles symlink behavior has implementation and regression coverage"
+      }
+    },
+    "2692": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2716; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2716 created_at 2024-10-04T01:59:08Z",
+        "snapshot_basis": "Latest main commit before cutoff is e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/testclient.py"],
+        "test_files": ["tests/test_testclient.py"],
+        "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+        "verdict": "accepted",
+        "notes": "TestClient raw_path behavior has implementation and regression coverage"
+      }
+    },
+    "2785": {
+      "body_last_edited_at": "2024-12-05T10:01:09Z",
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #2815; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #2815 created_at 2024-12-26T12:30:03Z",
+        "snapshot_basis": "Latest main commit before cutoff is ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["docs/requests.md", "starlette/formparsers.py", "starlette/requests.py"],
+        "test_files": ["tests/test_formparsers.py"],
+        "future_information_risk": "GraphQL lastEditedAt 2024-12-05T10:01:09Z is before cutoff",
+        "verdict": "accepted",
+        "notes": "Multipart size behavior has implementation, documentation, and regression coverage"
+      }
+    },
+    "3357": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #3471; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #3471 created_at 2026-08-23T20:50:33Z",
+        "snapshot_basis": "Latest main commit before cutoff is 04d7869c1ec3016fa11f58382a9ac7bc14b46662",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["docs/middleware.md", "starlette/_utils.py", "starlette/datastructures.py", "starlette/middleware/trustedhost.py", "starlette/testclient.py"],
+        "test_files": ["tests/middleware/test_trusted_host.py", "tests/test_testclient.py"],
+        "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+        "verdict": "accepted",
+        "notes": "IPv6 TrustedHostMiddleware behavior has implementation and regression coverage"
+      }
+    },
+    "3388": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #3389; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #3389 created_at 2026-07-25T19:56:46Z",
+        "snapshot_basis": "Latest main commit before cutoff is 5174d4c8358a6f06aa8056bafd14c2272dab8dd1",
+        "exclusion_assessment": "Not security-sensitive, documentation-only, dependency-bot, cross-repository, or unanalyzable; PR changes code and behavior tests",
+        "repair_files": ["starlette/responses.py"],
+        "test_files": ["tests/test_responses.py"],
+        "future_information_risk": "GraphQL lastEditedAt is null; allowed Issue evidence predates cutoff",
+        "verdict": "accepted",
+        "notes": "Invalid Range handling has implementation and regression coverage"
+      }
+    },
+    "3497": {
+      "body_last_edited_at": null,
+      "manual_review": {
+        "relationship_basis": "GitHub timeline same-repository merged cross-reference to PR #3498; GraphQL closedByPullRequestsReferences confirms it",
+        "investigation_cutoff_basis": "Closing PR #3498 created_at 2026-09-03T06:58:28Z",
+        "snapshot_basis": "Not selected because the candidate was excluded before case construction",
+        "exclusion_assessment": "Closing PR has no test file change, so the required repair behavior cannot be evaluated from versioned test evidence",
+        "repair_files": ["starlette/testclient.py"],
+        "test_files": [],
+        "future_information_risk": "GraphQL lastEditedAt is null",
+        "verdict": "rejected",
+        "notes": "Excluded as unanalyzable under Issue 03 acceptance rules"
+      },
+      "screening": {
+        "exclusion_stage": "analyzable",
+        "reason_code": "unanalyzable",
+        "reason": "Closing PR #3498 has no test file change"
+      }
+    }
+  },
+  "standalone_exclusions": [
+    {
+      "candidate_id": "issue-3096",
+      "source_url": "https://github.com/Kludex/starlette/issues/3096",
+      "exclusion_stage": "category_eligible",
+      "reason_code": "security",
+      "reason": "Public candidate is explicitly titled security issue and is excluded from the evaluation dataset"
+    },
+    {
+      "candidate_id": "pr-3515",
+      "source_url": "https://github.com/Kludex/starlette/pull/3515",
+      "exclusion_stage": "category_eligible",
+      "reason_code": "documentation_only",
+      "reason": "PR #3515 changes documentation only"
+    },
+    {
+      "candidate_id": "pr-2894",
+      "source_url": "https://github.com/Kludex/starlette/pull/2894",
+      "exclusion_stage": "category_eligible",
+      "reason_code": "dependency_bot",
+      "reason": "PR #2894 was opened by dependabot[bot]"
+    }
+  ]
+}

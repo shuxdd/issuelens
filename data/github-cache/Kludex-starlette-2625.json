@@ -1,0 +1,433 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-12-26T08:55:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c7f1629e0782dca93dbb0af04f7da72dd7ef0035",
+      "sha": "c7f1629e0782dca93dbb0af04f7da72dd7ef0035"
+    },
+    {
+      "committed_at": "2024-12-26T08:58:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7ef64c9a62e540809b54681215ea35332f8f7fd7",
+      "sha": "7ef64c9a62e540809b54681215ea35332f8f7fd7"
+    },
+    {
+      "committed_at": "2024-12-28T04:57:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ebe0a951555cbf025214fb0c431b8b854e368ca2",
+      "sha": "ebe0a951555cbf025214fb0c431b8b854e368ca2"
+    },
+    {
+      "committed_at": "2024-12-29T12:33:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b4caa4e5ef3ebd71ad034d29ab82875b9a6786ea",
+      "sha": "b4caa4e5ef3ebd71ad034d29ab82875b9a6786ea"
+    },
+    {
+      "committed_at": "2024-12-29T12:36:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a48bcda0af1ce0b7683f1b33ddb61340de1c2e69",
+      "sha": "a48bcda0af1ce0b7683f1b33ddb61340de1c2e69"
+    },
+    {
+      "committed_at": "2024-12-29T12:39:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/069ad2e1ed9cb1800850f981d161534cd5ea140f",
+      "sha": "069ad2e1ed9cb1800850f981d161534cd5ea140f"
+    },
+    {
+      "committed_at": "2024-12-29T12:46:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/558b389fc962cc9789c682ecdb7f21ce84a75ea7",
+      "sha": "558b389fc962cc9789c682ecdb7f21ce84a75ea7"
+    },
+    {
+      "committed_at": "2025-02-22T13:39:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/54028a1446f068742823665802375b6474a50e04",
+      "sha": "54028a1446f068742823665802375b6474a50e04"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-09-21T21:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2696",
+          "number": 2696,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2696"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reraise exception from background task"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-15T12:03:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/2019",
+          "number": 2019,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "Stack trace not available to logger in v3 error handler function"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-26T08:57:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2812",
+          "number": 2812,
+          "pull_request": {
+            "merged_at": "2025-02-22T13:41:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2812"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise exception from background task on BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-18T05:53:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Liohtml/MedCheck/pull/116",
+          "number": 116,
+          "pull_request": {
+            "merged_at": "2026-06-19T05:32:03Z",
+            "url": "https://api.github.com/repos/Liohtml/MedCheck/pulls/116"
+          },
+          "repository": {
+            "full_name": "Liohtml/MedCheck"
+          },
+          "title": "fix: prevent PHI leakage via .gitignore and add HTTP security headers (#114, #109)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T00:08:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xvanov/sacrifice/pull/308",
+          "number": 308,
+          "pull_request": {
+            "merged_at": "2026-07-23T00:22:21Z",
+            "url": "https://api.github.com/repos/xvanov/sacrifice/pulls/308"
+          },
+          "repository": {
+            "full_name": "xvanov/sacrifice"
+          },
+          "title": "feat(backend): D102 global X-Request-ID middleware with backend coverage"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-26T04:45:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/j0nsh1n/LitSieve/pull/33",
+          "number": 33,
+          "pull_request": {
+            "merged_at": "2026-07-26T05:04:34Z",
+            "url": "https://api.github.com/repos/j0nsh1n/LitSieve/pulls/33"
+          },
+          "repository": {
+            "full_name": "j0nsh1n/LitSieve"
+          },
+          "title": "restore: security hardening lost when PR #28 merged early"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 9,
+      "deletions": 5,
+      "filename": "starlette/middleware/base.py",
+      "sha": "2a59337e524c7eee2b4e92e2499fb3d2d7979bef",
+      "status": "modified"
+    },
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/starlette%2Fresponses.py",
+      "changes": 14,
+      "deletions": 6,
+      "filename": "starlette/responses.py",
+      "sha": "81e89faefed9050e59177af5d91872355410e97a",
+      "status": "modified"
+    },
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/54028a1446f068742823665802375b6474a50e04/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "e4e82077f19659f73efb5c104ac4b0d345c7c148",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2025-02-22T13:41:47Z",
+    "created_at": "2024-06-19T07:20:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2625",
+    "number": 2625,
+    "state": "closed",
+    "title": "middleware causes exceptions to not be raised/handled silently (back again)",
+    "user": "fraser-langton"
+  },
+  "pull_request": {
+    "closed_at": "2025-02-22T13:41:46Z",
+    "created_at": "2024-12-26T08:55:32Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2812",
+    "merge_commit_sha": "5cc4ddf1a5d07388015458e7c6b2ae5df617c372",
+    "merged_at": "2025-02-22T13:41:46Z",
+    "number": 2812,
+    "title": "Raise exception from background task on BaseHTTPMiddleware",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-06-24T21:01:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-27T05:28:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-27T05:28:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-27T05:28:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-07-16T09:59:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-07-16T09:59:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-07-16T09:59:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-06T10:26:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-21T21:14:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-21T21:55:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-21T21:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2696",
+          "number": 2696,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2696"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reraise exception from background task"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-08T19:57:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T00:54:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T00:54:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-12-09T00:54:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-12-09T14:53:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T15:07:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-09T15:07:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-12-09T15:07:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-12-15T12:03:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/2019",
+          "number": 2019,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "Stack trace not available to logger in v3 error handler function"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-26T08:57:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2812",
+          "number": 2812,
+          "pull_request": {
+            "merged_at": "2025-02-22T13:41:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2812"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise exception from background task on BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-26T08:58:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-21T12:43:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-31T04:11:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-02-22T13:41:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-12-04T06:13:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-06-18T05:53:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Liohtml/MedCheck/pull/116",
+          "number": 116,
+          "pull_request": {
+            "merged_at": "2026-06-19T05:32:03Z",
+            "url": "https://api.github.com/repos/Liohtml/MedCheck/pulls/116"
+          },
+          "repository": {
+            "full_name": "Liohtml/MedCheck"
+          },
+          "title": "fix: prevent PHI leakage via .gitignore and add HTTP security headers (#114, #109)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T00:08:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xvanov/sacrifice/pull/308",
+          "number": 308,
+          "pull_request": {
+            "merged_at": "2026-07-23T00:22:21Z",
+            "url": "https://api.github.com/repos/xvanov/sacrifice/pulls/308"
+          },
+          "repository": {
+            "full_name": "xvanov/sacrifice"
+          },
+          "title": "feat(backend): D102 global X-Request-ID middleware with backend coverage"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-26T04:45:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/j0nsh1n/LitSieve/pull/33",
+          "number": 33,
+          "pull_request": {
+            "merged_at": "2026-07-26T05:04:34Z",
+            "url": "https://api.github.com/repos/j0nsh1n/LitSieve/pulls/33"
+          },
+          "repository": {
+            "full_name": "j0nsh1n/LitSieve"
+          },
+          "title": "restore: security hardening lost when PR #28 merged early"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ]
+}

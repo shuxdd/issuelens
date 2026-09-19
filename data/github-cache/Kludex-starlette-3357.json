@@ -1,0 +1,344 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-08-23T20:50:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ee08988255de186791fa301d3d74bb2b8340c045",
+      "sha": "ee08988255de186791fa301d3d74bb2b8340c045"
+    },
+    {
+      "committed_at": "2026-08-23T20:54:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b0a2d729776d83c0edf6d98a6f5e77ddd9e1f199",
+      "sha": "b0a2d729776d83c0edf6d98a6f5e77ddd9e1f199"
+    },
+    {
+      "committed_at": "2026-08-23T20:55:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bc20fa550d4e86ca1a6303741e56cc1510843c43",
+      "sha": "bc20fa550d4e86ca1a6303741e56cc1510843c43"
+    },
+    {
+      "committed_at": "2026-08-23T20:56:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0cdbd9edda68f9e42844c77eb5aec7d0f4427b90",
+      "sha": "0cdbd9edda68f9e42844c77eb5aec7d0f4427b90"
+    },
+    {
+      "committed_at": "2026-08-25T10:16:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c5c17c282021bfd1efade49932f7b1a09ed0f7e8",
+      "sha": "c5c17c282021bfd1efade49932f7b1a09ed0f7e8"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2026-07-03T09:51:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3360",
+          "number": 3360,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3360"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handle bracketed IPv6 hosts in TrustedHostMiddleware and TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-04T01:22:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3362",
+          "number": 3362,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3362"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware IPv6 host header parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T05:46:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3368",
+          "number": 3368,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3368"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TestClient IPv6 base_url parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-20T03:58:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3358",
+          "number": 3358,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3358"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixes #3357 Allow IPv6 trusted hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-22T12:56:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3456",
+          "number": 3456,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TrustedHostMiddleware rejects requests from IPv6 hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T20:50:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3471",
+          "number": 3471,
+          "pull_request": {
+            "merged_at": "2026-08-25T13:23:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3471"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support IPv6 hosts in `TrustedHostMiddleware`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/docs%2Fmiddleware.md",
+      "changes": 5,
+      "deletions": 2,
+      "filename": "docs/middleware.md",
+      "sha": "29a0d82b88c189403104e0c16b7108fb04ea5c40",
+      "status": "modified"
+    },
+    {
+      "additions": 14,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2F_utils.py",
+      "changes": 14,
+      "deletions": 0,
+      "filename": "starlette/_utils.py",
+      "sha": "c50ebecc1b93778262a2809a96f76fb782ec6477",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Fdatastructures.py",
+      "changes": 7,
+      "deletions": 5,
+      "filename": "starlette/datastructures.py",
+      "sha": "01d49d5383fd224723288fd11911a20e59e8a0c1",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Fmiddleware%2Ftrustedhost.py",
+      "changes": 7,
+      "deletions": 1,
+      "filename": "starlette/middleware/trustedhost.py",
+      "sha": "cccdfd23f7b09edbe5ed924c7577105ca12ca2e0",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/starlette%2Ftestclient.py",
+      "changes": 14,
+      "deletions": 10,
+      "filename": "starlette/testclient.py",
+      "sha": "40a5943ffb4835ea9631d417a32cc30149417817",
+      "status": "modified"
+    },
+    {
+      "additions": 39,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/tests%2Fmiddleware%2Ftest_trusted_host.py",
+      "changes": 39,
+      "deletions": 0,
+      "filename": "tests/middleware/test_trusted_host.py",
+      "sha": "055d7dc58c155d868fd3c442a465ba98b6fb4576",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c5c17c282021bfd1efade49932f7b1a09ed0f7e8/tests%2Ftest_testclient.py",
+      "changes": 20,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "ff67b56ebbb81d60f0d55720c6d8c85f27a750c3",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "closed_at": "2026-08-25T13:23:51Z",
+    "created_at": "2026-07-03T04:26:27Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3357",
+    "number": 3357,
+    "state": "closed",
+    "title": "TrustedHostMiddleware Doesn't handle IPv6 properly",
+    "user": "gopackgo90"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-25T13:23:49Z",
+    "created_at": "2026-08-23T20:50:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3471",
+    "merge_commit_sha": "6ad24bb7809c2d833445d5b1cfb9e95c26260e56",
+    "merged_at": "2026-08-25T13:23:49Z",
+    "number": 3471,
+    "title": "Support IPv6 hosts in `TrustedHostMiddleware`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-07-03T09:51:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3360",
+          "number": 3360,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3360"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handle bracketed IPv6 hosts in TrustedHostMiddleware and TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-03T15:18:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-04T01:22:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3362",
+          "number": 3362,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3362"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware IPv6 host header parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T05:46:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3368",
+          "number": 3368,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3368"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TestClient IPv6 base_url parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-20T03:58:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3358",
+          "number": 3358,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3358"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixes #3357 Allow IPv6 trusted hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-20T13:28:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-22T12:56:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3456",
+          "number": 3456,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TrustedHostMiddleware rejects requests from IPv6 hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-22T13:57:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-23T01:36:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-23T20:50:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3471",
+          "number": 3471,
+          "pull_request": {
+            "merged_at": "2026-08-25T13:23:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3471"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support IPv6 hosts in `TrustedHostMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-25T13:23:51Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-08-25T13:30:08Z",
+      "event": "commented"
+    }
+  ]
+}
