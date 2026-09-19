@@ -1,5 +1,6 @@
 .venv/
 .uv-cache/
+.retrieval-cache/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/

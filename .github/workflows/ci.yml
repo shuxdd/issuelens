@@ -17,6 +17,8 @@ jobs:
 
       - name: Check backend
         run: uv run python scripts/check_backend.py
+        env:
+          HF_HUB_OFFLINE: "1"
 
       - uses: pnpm/action-setup@v4
         with:
@@ -44,6 +46,7 @@ jobs:
           curl --fail http://localhost:3000/
           curl --fail http://localhost:3000/api/health | grep '"status":"ok"'
           curl --fail http://localhost:3000/api/cases/starlette-issue-1552 | grep '"validation_status":"valid"'
+          curl --fail http://localhost:3000/api/retrieval/cases/starlette-issue-1552 | grep '"root_cause_files":{"hits":1'
 
       - name: Stop containers
         if: always()

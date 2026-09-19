@@ -9,6 +9,7 @@ from issuelens.cases import validate_case
 
 app = FastAPI(title="IssueLens API")
 CASES_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "cases"
+RETRIEVAL_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "retrieval"
 
 
 @app.get("/health")
@@ -36,3 +37,15 @@ def review_case(case_id: str) -> dict[str, object]:
     if errors:
         case["validation_errors"] = errors
     return case
+
+
+@app.get("/retrieval/cases/{case_id}")
+def review_retrieval(case_id: str) -> dict[str, Any]:
+    if re.fullmatch(r"[a-z0-9-]+", case_id) is None:
+        raise HTTPException(status_code=404, detail="Retrieval result not found")
+
+    result_path = RETRIEVAL_DIRECTORY / case_id / "result.json"
+    if not result_path.is_file():
+        raise HTTPException(status_code=404, detail="Retrieval result not found")
+    result: dict[str, Any] = json.loads(result_path.read_text(encoding="utf-8"))
+    return result

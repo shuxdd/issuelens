@@ -1,0 +1,42 @@
+{
+  "case_id": "starlette-issue-1552",
+  "changed_files": [
+    {
+      "basis": "repair_evidence.changed_files",
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cc99f1f0babf1009d575ef6690c9f4782fa997a6/starlette%2Frouting.py"
+    }
+  ],
+  "reviewed_at": "2026-09-19T05:39:28Z",
+  "root_cause_files": [
+    {
+      "evidence": [
+        {
+          "end_line": 89,
+          "kind": "allowed_snapshot",
+          "path": "starlette/routing.py",
+          "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+          "start_line": 86
+        },
+        {
+          "end_line": 202,
+          "kind": "allowed_snapshot",
+          "path": "starlette/routing.py",
+          "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+          "start_line": 202
+        }
+      ],
+      "path": "starlette/routing.py",
+      "rationale": "get_name handles functions and classes but not bound methods, so Route naming falls back to the endpoint type name 'method'."
+    }
+  ],
+  "schema_version": "1.0",
+  "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+  "test_files": [
+    {
+      "basis": "repair_evidence.test_files",
+      "path": "tests/test_routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cc99f1f0babf1009d575ef6690c9f4782fa997a6/tests%2Ftest_routing.py"
+    }
+  ]
+}

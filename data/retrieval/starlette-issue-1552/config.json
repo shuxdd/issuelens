@@ -1,0 +1,64 @@
+{
+  "case_id": "starlette-issue-1552",
+  "chunking": {
+    "index_version": "starlette-1552-vector-v1",
+    "markdown_parser": "headings-v1",
+    "max_lines": 120,
+    "overlap_lines": 20,
+    "python_parser": "ast-v1"
+  },
+  "corpus": {
+    "include": [
+      "starlette/**/*.py",
+      "tests/**/*.py",
+      "docs/**/*.md"
+    ],
+    "source_types": [
+      "python_source",
+      "python_test",
+      "markdown"
+    ]
+  },
+  "data_version": "cases-v1",
+  "embedding": {
+    "artifact_files": {
+      "config.json": "13582bcf2effc85b7bf3d3f5532e686bc1c9ce86bb009d10f0ec33cbe92299dd",
+      "model_optimized.onnx": "51f1bd0addd6e859e42c2c8021a5e5461385bb676a649f4b269aa445449f2431",
+      "special_tokens_map.json": "5d5b662e421ea9fac075174bb0688ee0d9431699900b90662acd44b2a350503a",
+      "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53"
+    },
+    "artifact_size_bytes": 67179163,
+    "dimension": 384,
+    "implementation": "fastembed",
+    "local_files_only": true,
+    "model": "BAAI/bge-small-en-v1.5",
+    "package_version": "0.8.0",
+    "revision": "52398278842ec682c6f32300af41344b1c0b0bb2",
+    "threads": 1
+  },
+  "generation_version": "retrieval-v1",
+  "index": {
+    "capacity_scope": "single_case",
+    "migration_condition": "Use pgvector when multi-case scale or measured latency exceeds the project budget",
+    "score_precision": 6,
+    "similarity": "cosine",
+    "storage": "in_memory_linear_scan",
+    "tie_break": [
+      "score_desc",
+      "path_asc",
+      "start_line_asc",
+      "end_line_asc",
+      "source_type_asc"
+    ],
+    "top_k": 10
+  },
+  "query_source": "issue.title",
+  "schema_version": "1.0",
+  "snapshot": {
+    "archive_sha256": "5d5d68f0ea4c6a77389d1195340e58e81321546f3b55ce2b3b76bc81558d9c04",
+    "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/archive/e086fc2da361767b532cf690e5203619bbae98aa.zip"
+  }
+}

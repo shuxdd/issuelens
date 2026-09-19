@@ -1,0 +1,164 @@
+{
+  "candidates": [
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+      "end_line": 452,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "docs/release-notes.md",
+      "rank": 1,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
+      "score": "0.744283",
+      "source_type": "markdown",
+      "start_line": 449
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "class Route(BaseRoute):\n    def __init__(\n        self,\n        path: str,\n        endpoint: typing.Callable,\n        *,\n        methods: typing.List[str] = None,\n        name: str = None,\n        include_in_schema: bool = True,\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n        self.include_in_schema = include_in_schema\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(request) -> response`.\n            self.app = request_response(endpoint)\n            if methods is None:\n                methods = [\"GET\"]\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"http\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                if self.methods and scope[\"method\"] not in self.methods:\n                    return Match.PARTIAL, child_scope\n                else:\n                    return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"http\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if self.methods and scope[\"method\"] not in self.methods:\n            headers = {\"Allow\": \", \".join(self.methods)}\n            if \"app\" in scope:\n                raise HTTPException(status_code=405, headers=headers)\n            else:\n                response = PlainTextResponse(\n                    \"Method Not Allowed\", status_code=405, headers=headers\n                )\n            await response(scope, receive, send)\n        else:\n            await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, Route)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n            and self.methods == other.methods\n        )",
+      "end_line": 274,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 2,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
+      "score": "0.734856",
+      "source_type": "python_source",
+      "start_line": 189
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+      "end_line": 28,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/schemas.py",
+      "rank": 3,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+      "score": "0.727545",
+      "source_type": "python_source",
+      "start_line": 25
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+      "end_line": 89,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 4,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+      "score": "0.724352",
+      "source_type": "python_source",
+      "start_line": 86
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "## 0.8.3\n\n* Add 'name' argument to `@app.route()`.\n* Use 'Host' header for URL reconstruction.\n",
+      "end_line": 386,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "docs/release-notes.md",
+      "rank": 5,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386",
+      "score": "0.710456",
+      "source_type": "markdown",
+      "start_line": 382
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "class WebSocketRoute(BaseRoute):\n    def __init__(\n        self, path: str, endpoint: typing.Callable, *, name: str = None\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"websocket\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, WebSocketRoute)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n        )",
+      "end_line": 332,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 6,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L277-L332",
+      "score": "0.705086",
+      "source_type": "python_source",
+      "start_line": 277
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "### Routing API\n\n* Support routing to methods.\n* Ensure `url_path_for` works with Mount('/{some_path_params}').\n* Fix Router(default=) argument.\n* Support repeated paths, like: `@app.route(\"/\", methods=[\"GET\"])`, `@app.route(\"/\", methods=[\"POST\"])`\n* Use the default ThreadPoolExecutor for all sync endpoints.\n",
+      "end_line": 491,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "docs/release-notes.md",
+      "rank": 7,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L484-L491",
+      "score": "0.703661",
+      "source_type": "markdown",
+      "start_line": 484
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "\n    def add_route(\n        self,\n        path: str,\n        endpoint: typing.Callable,\n        methods: typing.List[str] = None,\n        name: str = None,\n        include_in_schema: bool = True,\n    ) -> None:  # pragma: nocover\n        route = Route(\n            path,\n            endpoint=endpoint,\n            methods=methods,\n            name=name,\n            include_in_schema=include_in_schema,\n        )\n        self.routes.append(route)\n\n    def add_websocket_route(\n        self, path: str, endpoint: typing.Callable, name: str = None\n    ) -> None:  # pragma: no cover\n        route = WebSocketRoute(path, endpoint=endpoint, name=name)\n        self.routes.append(route)\n\n    def route(\n        self,\n        path: str,\n        methods: typing.List[str] = None,\n        name: str = None,\n        include_in_schema: bool = True,\n    ) -> typing.Callable:  # pragma: nocover\n        \"\"\"\n        We no longer document this decorator style API, and its usage is discouraged.\n        Instead you should use the following approach:\n\n        routes = [\n            Route(path, endpoint=..., ...),\n            ...\n        ]\n\n        app = Starlette(routes=routes)\n        \"\"\"\n\n        def decorator(func: typing.Callable) -> typing.Callable:\n            self.add_route(\n                path,\n                func,\n                methods=methods,\n                name=name,\n                include_in_schema=include_in_schema,\n            )\n            return func\n\n        return decorator\n\n    def websocket_route(\n        self, path: str, name: str = None\n    ) -> typing.Callable:  # pragma: nocover\n        \"\"\"\n        We no longer document this decorator style API, and its usage is discouraged.\n        Instead you should use the following approach:\n\n        routes = [\n            WebSocketRoute(path, endpoint=..., ...),\n            ...\n        ]\n\n        app = Starlette(routes=routes)\n        \"\"\"\n\n        def decorator(func: typing.Callable) -> typing.Callable:\n            self.add_websocket_route(path, func, name=name)\n            return func\n\n        return decorator\n\n    def add_event_handler(\n        self, event_type: str, func: typing.Callable\n    ) -> None:  # pragma: no cover\n        assert event_type in (\"startup\", \"shutdown\")\n\n        if event_type == \"startup\":\n            self.on_startup.append(func)\n        else:\n            self.on_shutdown.append(func)\n\n    def on_event(self, event_type: str) -> typing.Callable:  # pragma: nocover\n        def decorator(func: typing.Callable) -> typing.Callable:\n            self.add_event_handler(event_type, func)\n            return func\n\n        return decorator",
+      "end_line": 828,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 8,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L737-L828",
+      "score": "0.699479",
+      "source_type": "python_source",
+      "start_line": 737
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "class Mount(BaseRoute):\n    def __init__(\n        self,\n        path: str,\n        app: ASGIApp = None,\n        routes: typing.Sequence[BaseRoute] = None,\n        name: str = None,\n    ) -> None:\n        assert path == \"\" or path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        assert (\n            app is not None or routes is not None\n        ), \"Either 'app=...', or 'routes=' must be specified\"\n        self.path = path.rstrip(\"/\")\n        if app is not None:\n            self.app: ASGIApp = app\n        else:\n            self.app = Router(routes=routes)\n        self.name = name\n        self.path_regex, self.path_format, self.param_convertors = compile_path(\n            self.path + \"/{path:path}\"\n        )\n\n    @property\n    def routes(self) -> typing.List[BaseRoute]:\n        return getattr(self.app, \"routes\", [])\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] in (\"http\", \"websocket\"):\n            path = scope[\"path\"]\n            match = self.path_regex.match(path)\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                remaining_path = \"/\" + matched_params.pop(\"path\")\n                matched_path = path[: -len(remaining_path)]\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                root_path = scope.get(\"root_path\", \"\")\n                child_scope = {\n                    \"path_params\": path_params,\n                    \"app_root_path\": scope.get(\"app_root_path\", root_path),\n                    \"root_path\": root_path + matched_path,\n                    \"path\": remaining_path,\n                    \"endpoint\": self.app,\n                }\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        if self.name is not None and name == self.name and \"path\" in path_params:\n            # 'name' matches \"<mount_name>\".\n            path_params[\"path\"] = path_params[\"path\"].lstrip(\"/\")\n            path, remaining_params = replace_params(\n                self.path_format, self.param_convertors, path_params\n            )\n            if not remaining_params:\n                return URLPath(path=path)\n        elif self.name is None or name.startswith(self.name + \":\"):\n            if self.name is None:\n                # No mount name.\n                remaining_name = name\n            else:\n                # 'name' matches \"<mount_name>:<child_name>\".\n                remaining_name = name[len(self.name) + 1 :]\n            path_kwarg = path_params.get(\"path\")\n            path_params[\"path\"] = \"\"\n            path_prefix, remaining_params = replace_params(\n                self.path_format, self.param_convertors, path_params\n            )\n            if path_kwarg is not None:\n                remaining_params[\"path\"] = path_kwarg\n            for route in self.routes or []:\n                try:\n                    url = route.url_path_for(remaining_name, **remaining_params)\n                    return URLPath(\n                        path=path_prefix.rstrip(\"/\") + str(url), protocol=url.protocol\n                    )\n                except NoMatchFound:\n                    pass\n        raise NoMatchFound(name, path_params)\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, Mount)\n            and self.path == other.path\n            and self.app == other.app\n        )",
+      "end_line": 425,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 9,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L335-L425",
+      "score": "0.697739",
+      "source_type": "python_source",
+      "start_line": 335
+    },
+    {
+      "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "content": "class NoMatchFound(Exception):\n    \"\"\"\n    Raised by `.url_for(name, **path_params)` and `.url_path_for(name, **path_params)`\n    if no matching route exists.\n    \"\"\"\n\n    def __init__(self, name: str, path_params: typing.Dict[str, typing.Any]) -> None:\n        params = \", \".join(list(path_params.keys()))\n        super().__init__(f'No route exists for name \"{name}\" and params \"{params}\".')",
+      "end_line": 36,
+      "index_version": "starlette-1552-vector-v1",
+      "path": "starlette/routing.py",
+      "rank": 10,
+      "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L28-L36",
+      "score": "0.697208",
+      "source_type": "python_source",
+      "start_line": 28
+    }
+  ],
+  "case_id": "starlette-issue-1552",
+  "metadata": {
+    "chunk_count": 850,
+    "chunking": {
+      "markdown_parser": "headings-v1",
+      "max_lines": 120,
+      "overlap_lines": 20,
+      "python_parser": "ast-v1"
+    },
+    "data_version": "cases-v1",
+    "embedding_dimension": 384,
+    "embedding_identifier": "fastembed:BAAI/bge-small-en-v1.5@52398278842ec682c6f32300af41344b1c0b0bb2",
+    "generation_version": "retrieval-v1",
+    "index_version": "starlette-1552-vector-v1",
+    "score_precision": 6,
+    "similarity": "cosine",
+    "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+    "tie_break": "path,start_line,end_line,source_type",
+    "top_k": 10
+  },
+  "query": "Route naming introspection always return \"method\" for method endpoints",
+  "recall": {
+    "changed_files": {
+      "hits": 1,
+      "recall": 1.0,
+      "total": 1
+    },
+    "root_cause_files": {
+      "hits": 1,
+      "recall": 1.0,
+      "total": 1
+    },
+    "test_files": {
+      "hits": 0,
+      "recall": 0.0,
+      "total": 1
+    },
+    "top_k": 10
+  },
+  "schema_version": "1.0"
+}
