@@ -47,6 +47,7 @@ jobs:
           curl --fail http://localhost:3000/api/health | grep '"status":"ok"'
           curl --fail http://localhost:3000/api/cases/starlette-issue-1552 | grep '"validation_status":"valid"'
           curl --fail http://localhost:3000/api/retrieval/cases/starlette-issue-1552 | grep '"root_cause_files":{"hits":1'
+          curl --fail http://localhost:3000/api/retrieval/comparisons/starlette-issue-1552 | grep '"g2_hybrid"'
 
       - name: Stop containers
         if: always()

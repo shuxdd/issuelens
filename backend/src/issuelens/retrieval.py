@@ -1,11 +1,15 @@
 import ast
 import json
 import math
-from collections.abc import Sequence
+import re
+import time
+from collections import Counter
+from collections.abc import Callable, Sequence
 from dataclasses import asdict, dataclass
 from decimal import Decimal
 from importlib import import_module
 from pathlib import Path
+from statistics import median
 from typing import Any, Protocol
 from urllib.parse import quote
 
@@ -98,6 +102,30 @@ class VectorIndexConfig:
 
 
 @dataclass(frozen=True)
+class BM25Config:
+    top_k: int
+    score_precision: int
+    tokenizer_version: str
+    k1: float
+    b: float
+
+
+@dataclass(frozen=True)
+class FusionConfig:
+    top_k: int
+    score_precision: int
+    rank_constant: int
+    vector_weight: float
+    bm25_weight: float
+
+
+@dataclass(frozen=True)
+class BenchmarkConfig:
+    warmup_runs: int = 0
+    repetitions: int = 1
+
+
+@dataclass(frozen=True)
 class RetrievalCandidate:
     rank: int
     score: str
@@ -109,6 +137,16 @@ class RetrievalCandidate:
     index_version: str
     content: str
     reference: str
+
+
+@dataclass(frozen=True)
+class HybridCandidate(RetrievalCandidate):
+    vector_rank: int | None
+    vector_score: str | None
+    vector_contribution: str
+    bm25_rank: int | None
+    bm25_score: str | None
+    bm25_contribution: str
 
 
 @dataclass(frozen=True)
@@ -135,6 +173,28 @@ class RetrievalRun:
 
 
 @dataclass(frozen=True)
+class BM25Run:
+    query: str
+    candidates: tuple[RetrievalCandidate, ...]
+    metadata: dict[str, int | str]
+
+
+@dataclass(frozen=True)
+class HybridRun:
+    query: str
+    candidates: tuple[HybridCandidate, ...]
+    metadata: dict[str, int | str]
+
+
+@dataclass(frozen=True)
+class RetrievalComparison:
+    shared_input: dict[str, int | str]
+    g1_vector: RetrievalRun
+    g2_hybrid: HybridRun
+    metadata: dict[str, Any]
+
+
+@dataclass(frozen=True)
 class RecallMetric:
     hits: int
     total: int
@@ -147,6 +207,14 @@ class RecallReport:
     root_cause_files: RecallMetric
     changed_files: RecallMetric
     test_files: RecallMetric
+
+
+@dataclass(frozen=True)
+class RetrievalMetrics:
+    recall_at_5: RecallReport
+    recall_at_10: RecallReport
+    mrr: float
+    ndcg_at_10: float
 
 
 def load_retrieval_input(case_path: Path) -> RetrievalInput:
@@ -289,28 +357,493 @@ def _cosine_similarity(left: Sequence[float], right: Sequence[float]) -> float:
     )
 
 
-def run_vector_retrieval(
+_BM25_TOKEN = re.compile(r"[a-z0-9]+(?:_[a-z0-9]+)*")
+
+
+def _tokenize_bm25(text: str) -> tuple[str, ...]:
+    tokens: list[str] = []
+    for match in _BM25_TOKEN.finditer(text.casefold()):
+        token = match.group()
+        tokens.append(token)
+        if "_" in token:
+            tokens.extend(token.split("_"))
+    return tuple(tokens)
+
+
+@dataclass(frozen=True)
+class _BM25Index:
+    corpus: Corpus
+    config: BM25Config
+    documents: tuple[tuple[str, ...], ...]
+    term_frequencies: tuple[Counter[str], ...]
+    document_frequency: Counter[str]
+    average_length: float
+    index_size: dict[str, int]
+
+
+def _build_bm25_index(
+    corpus: Corpus,
+    config: BM25Config,
+) -> _BM25Index:
+    if (
+        not corpus.chunks
+        or config.top_k < 1
+        or config.score_precision < 0
+        or config.k1 <= 0
+        or not 0 <= config.b <= 1
+    ):
+        raise ValueError("BM25 requires chunks, positive top_k/k1 and 0 <= b <= 1")
+
+    documents = tuple(
+        _tokenize_bm25(f"{chunk.path}\n{chunk.content}") for chunk in corpus.chunks
+    )
+    term_frequencies = tuple(Counter(document) for document in documents)
+    document_frequency = Counter(
+        token for document in documents for token in set(document)
+    )
+    average_length = math.fsum(len(document) for document in documents) / len(documents)
+    postings: dict[str, list[list[int]]] = {}
+    for document_id, frequencies in enumerate(term_frequencies):
+        for token, frequency in frequencies.items():
+            postings.setdefault(token, []).append([document_id, frequency])
+    serialized = json.dumps(
+        {
+            "document_lengths": [len(document) for document in documents],
+            "postings": postings,
+        },
+        ensure_ascii=False,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return _BM25Index(
+        corpus=corpus,
+        config=config,
+        documents=documents,
+        term_frequencies=term_frequencies,
+        document_frequency=document_frequency,
+        average_length=average_length,
+        index_size={
+            "document_count": len(documents),
+            "term_count": len(document_frequency),
+            "posting_count": sum(document_frequency.values()),
+            "token_count": sum(len(document) for document in documents),
+            "serialized_bytes": len(serialized),
+        },
+    )
+
+
+def _query_bm25_index(index: _BM25Index, query: str) -> BM25Run:
+    config = index.config
+    query_tokens = _tokenize_bm25(query)
+    document_count = len(index.documents)
+    scored: list[tuple[str, Chunk]] = []
+    for chunk, document, term_frequency in zip(
+        index.corpus.chunks,
+        index.documents,
+        index.term_frequencies,
+        strict=True,
+    ):
+        length_normalization = config.k1 * (
+            1 - config.b + config.b * len(document) / index.average_length
+        )
+        score = math.fsum(
+            math.log(
+                1
+                + (document_count - index.document_frequency[token] + 0.5)
+                / (index.document_frequency[token] + 0.5)
+            )
+            * term_frequency[token]
+            * (config.k1 + 1)
+            / (term_frequency[token] + length_normalization)
+            for token in query_tokens
+            if term_frequency[token]
+        )
+        if score > 0:
+            scored.append((f"{score:.{config.score_precision}f}", chunk))
+
+    scored.sort(
+        key=lambda item: (
+            -Decimal(item[0]),
+            item[1].path,
+            item[1].start_line,
+            item[1].end_line,
+            item[1].source_type,
+        )
+    )
+    candidates = tuple(
+        RetrievalCandidate(
+            rank=rank,
+            score=score,
+            commit=chunk.commit,
+            path=chunk.path,
+            start_line=chunk.start_line,
+            end_line=chunk.end_line,
+            source_type=chunk.source_type,
+            index_version=chunk.index_version,
+            content=chunk.content,
+            reference=(
+                f"https://github.com/{chunk.repository}/blob/{chunk.commit}/"
+                f"{quote(chunk.path, safe='/')}#L{chunk.start_line}-L{chunk.end_line}"
+            ),
+        )
+        for rank, (score, chunk) in enumerate(scored[: config.top_k], start=1)
+    )
+    return BM25Run(
+        query=query,
+        candidates=candidates,
+        metadata={
+            "document_count": document_count,
+            "average_document_length": (
+                f"{index.average_length:.{config.score_precision}f}"
+            ),
+            "tokenizer_version": config.tokenizer_version,
+            "k1": f"{config.k1:.{config.score_precision}f}",
+            "b": f"{config.b:.{config.score_precision}f}",
+            "score_precision": config.score_precision,
+            "tie_break": "path,start_line,end_line,source_type",
+        },
+    )
+
+
+def run_bm25_retrieval(
+    corpus: Corpus,
+    query: str,
+    config: BM25Config,
+) -> BM25Run:
+    return _query_bm25_index(_build_bm25_index(corpus, config), query)
+
+
+def fuse_retrieval_runs(
+    vector: RetrievalRun,
+    bm25: BM25Run,
+    config: FusionConfig,
+) -> HybridRun:
+    if vector.query != bm25.query:
+        raise ValueError("Fusion requires the same query")
+    if (
+        config.top_k < 1
+        or config.score_precision < 0
+        or config.rank_constant < 0
+        or config.vector_weight < 0
+        or config.bm25_weight < 0
+        or config.vector_weight + config.bm25_weight == 0
+    ):
+        raise ValueError("Fusion requires positive output and non-negative RRF weights")
+
+    def key(candidate: RetrievalCandidate) -> tuple[str, str, int, int, str, str]:
+        return (
+            candidate.commit,
+            candidate.path,
+            candidate.start_line,
+            candidate.end_line,
+            candidate.source_type,
+            candidate.index_version,
+        )
+
+    vector_by_key = {key(candidate): candidate for candidate in vector.candidates}
+    bm25_by_key = {key(candidate): candidate for candidate in bm25.candidates}
+    scored: list[
+        tuple[
+            str,
+            RetrievalCandidate,
+            RetrievalCandidate | None,
+            RetrievalCandidate | None,
+            str,
+            str,
+        ]
+    ] = []
+    for candidate_key in vector_by_key.keys() | bm25_by_key.keys():
+        vector_candidate = vector_by_key.get(candidate_key)
+        bm25_candidate = bm25_by_key.get(candidate_key)
+        vector_contribution = (
+            config.vector_weight
+            / (config.rank_constant + vector_candidate.rank)
+            if vector_candidate is not None
+            else 0.0
+        )
+        bm25_contribution = (
+            config.bm25_weight / (config.rank_constant + bm25_candidate.rank)
+            if bm25_candidate is not None
+            else 0.0
+        )
+        source = vector_candidate or bm25_candidate
+        assert source is not None
+        scored.append(
+            (
+                f"{vector_contribution + bm25_contribution:.{config.score_precision}f}",
+                source,
+                vector_candidate,
+                bm25_candidate,
+                f"{vector_contribution:.{config.score_precision}f}",
+                f"{bm25_contribution:.{config.score_precision}f}",
+            )
+        )
+
+    scored.sort(
+        key=lambda item: (
+            -Decimal(item[0]),
+            item[1].path,
+            item[1].start_line,
+            item[1].end_line,
+            item[1].source_type,
+        )
+    )
+    candidates = tuple(
+        HybridCandidate(
+            rank=rank,
+            score=score,
+            commit=candidate.commit,
+            path=candidate.path,
+            start_line=candidate.start_line,
+            end_line=candidate.end_line,
+            source_type=candidate.source_type,
+            index_version=candidate.index_version,
+            content=candidate.content,
+            reference=candidate.reference,
+            vector_rank=vector_candidate.rank if vector_candidate else None,
+            vector_score=vector_candidate.score if vector_candidate else None,
+            vector_contribution=vector_contribution,
+            bm25_rank=bm25_candidate.rank if bm25_candidate else None,
+            bm25_score=bm25_candidate.score if bm25_candidate else None,
+            bm25_contribution=bm25_contribution,
+        )
+        for rank, (
+            score,
+            candidate,
+            vector_candidate,
+            bm25_candidate,
+            vector_contribution,
+            bm25_contribution,
+        ) in enumerate(scored[: config.top_k], start=1)
+    )
+    return HybridRun(
+        query=vector.query,
+        candidates=candidates,
+        metadata={
+            "strategy": "rrf-v1",
+            "rank_constant": config.rank_constant,
+            "vector_weight": f"{config.vector_weight:.{config.score_precision}f}",
+            "bm25_weight": f"{config.bm25_weight:.{config.score_precision}f}",
+            "score_precision": config.score_precision,
+            "top_k": config.top_k,
+            "tie_break": "path,start_line,end_line,source_type",
+        },
+    )
+
+
+def run_retrieval_comparison(
     corpus: Corpus,
     query: str,
     embedder: Embedder,
+    vector_config: VectorIndexConfig,
+    bm25_config: BM25Config,
+    fusion_config: FusionConfig,
+    *,
+    benchmark: BenchmarkConfig | None = None,
+    clock: Callable[[], int] = time.perf_counter_ns,
+) -> RetrievalComparison:
+    benchmark = benchmark or BenchmarkConfig()
+    if not (
+        vector_config.top_k == bm25_config.top_k == fusion_config.top_k
+    ):
+        raise ValueError("G1 and G2 require the same top_k")
+    if benchmark.warmup_runs < 0 or benchmark.repetitions < 1:
+        raise ValueError("Benchmark requires non-negative warmups and repetitions")
+
+    samples: dict[str, list[int]] = {
+        "vector_build": [],
+        "vector_query": [],
+        "bm25_build": [],
+        "bm25_query": [],
+        "fusion": [],
+    }
+    vector: RetrievalRun | None = None
+    hybrid: HybridRun | None = None
+    vector_index: _VectorIndex | None = None
+    bm25_index: _BM25Index | None = None
+    for run_number in range(benchmark.warmup_runs + benchmark.repetitions):
+        started = clock()
+        current_vector_index = _build_vector_index(corpus, embedder, vector_config)
+        vector_built = clock()
+        current_vector = _query_vector_index(current_vector_index, query)
+        vector_queried = clock()
+        current_bm25_index = _build_bm25_index(corpus, bm25_config)
+        bm25_built = clock()
+        current_bm25 = _query_bm25_index(current_bm25_index, query)
+        bm25_queried = clock()
+        current_hybrid = fuse_retrieval_runs(
+            current_vector, current_bm25, fusion_config
+        )
+        fused = clock()
+        durations = (
+            vector_built - started,
+            vector_queried - vector_built,
+            bm25_built - vector_queried,
+            bm25_queried - bm25_built,
+            fused - bm25_queried,
+        )
+        if any(duration < 0 for duration in durations):
+            raise ValueError("Benchmark clock must be monotonic")
+        if run_number < benchmark.warmup_runs:
+            continue
+        for name, duration in zip(samples, durations, strict=True):
+            samples[name].append(duration)
+        if vector is not None and (
+            current_vector != vector or current_hybrid != hybrid
+        ):
+            raise ValueError("Retrieval ranking changed between benchmark repetitions")
+        vector = current_vector
+        hybrid = current_hybrid
+        vector_index = current_vector_index
+        bm25_index = current_bm25_index
+
+    assert vector is not None and hybrid is not None
+    assert vector_index is not None and bm25_index is not None
+
+    def summary(values: list[int]) -> dict[str, int | list[int]]:
+        return {
+            "samples": values,
+            "median": int(median(values)),
+            "min": min(values),
+            "max": max(values),
+        }
+
+    vector_bytes = len(corpus.chunks) * embedder.dimension * 4
+    vector_size = {
+        "document_count": len(corpus.chunks),
+        "dimension": embedder.dimension,
+        "value_count": len(corpus.chunks) * embedder.dimension,
+        "payload_bytes": vector_bytes,
+        "element_encoding": "float32",
+    }
+    bm25_size = bm25_index.index_size
+    return RetrievalComparison(
+        shared_input={
+            "query": query,
+            "snapshot_commit": vector.metadata.snapshot_commit,
+            "index_version": vector.metadata.index_version,
+            "chunk_count": len(corpus.chunks),
+            "embedding_identifier": embedder.identifier,
+            "embedding_dimension": embedder.dimension,
+            "top_k": vector_config.top_k,
+        },
+        g1_vector=vector,
+        g2_hybrid=hybrid,
+        metadata={
+            "data_version": vector_config.data_version,
+            "snapshot_commit": vector.metadata.snapshot_commit,
+            "chunking": {
+                "index_version": corpus.chunking_config.index_version,
+                "max_lines": corpus.chunking_config.max_lines,
+                "overlap_lines": corpus.chunking_config.overlap_lines,
+                "python_parser": corpus.chunking_config.python_parser,
+                "markdown_parser": corpus.chunking_config.markdown_parser,
+            },
+            "embedding": {
+                "identifier": embedder.identifier,
+                "dimension": embedder.dimension,
+            },
+            "bm25": {
+                "tokenizer_version": bm25_config.tokenizer_version,
+                "k1": f"{bm25_config.k1:.{bm25_config.score_precision}f}",
+                "b": f"{bm25_config.b:.{bm25_config.score_precision}f}",
+                "score_precision": bm25_config.score_precision,
+            },
+            "fusion": {
+                "strategy": "rrf-v1",
+                "rank_constant": fusion_config.rank_constant,
+                "vector_weight": (
+                    f"{fusion_config.vector_weight:.{fusion_config.score_precision}f}"
+                ),
+                "bm25_weight": (
+                    f"{fusion_config.bm25_weight:.{fusion_config.score_precision}f}"
+                ),
+                "score_precision": fusion_config.score_precision,
+            },
+            "top_k": vector_config.top_k,
+            "benchmark": {
+                "clock": "perf_counter_ns",
+                "warmup_runs": benchmark.warmup_runs,
+                "repetitions": benchmark.repetitions,
+            },
+            "latency_ns": {
+                "g1_vector": {
+                    "build": summary(samples["vector_build"]),
+                    "query": summary(samples["vector_query"]),
+                },
+                "g2_hybrid": {
+                    "build": summary(
+                        [
+                            vector_build + bm25_build
+                            for vector_build, bm25_build in zip(
+                                samples["vector_build"],
+                                samples["bm25_build"],
+                                strict=True,
+                            )
+                        ]
+                    ),
+                    "query": summary(
+                        [
+                            vector_query + bm25_query + fusion
+                            for vector_query, bm25_query, fusion in zip(
+                                samples["vector_query"],
+                                samples["bm25_query"],
+                                samples["fusion"],
+                                strict=True,
+                            )
+                        ]
+                    ),
+                },
+            },
+            "index_size": {
+                "vector": vector_size,
+                "bm25": bm25_size,
+                "g1_total_bytes": vector_bytes,
+                "g2_total_bytes": vector_bytes + bm25_size["serialized_bytes"],
+            },
+        },
+    )
+
+
+@dataclass(frozen=True)
+class _VectorIndex:
+    corpus: Corpus
+    embedder: Embedder
+    config: VectorIndexConfig
+    vectors: tuple[tuple[float, ...], ...]
+
+
+def _build_vector_index(
+    corpus: Corpus,
+    embedder: Embedder,
     config: VectorIndexConfig,
-) -> RetrievalRun:
+) -> _VectorIndex:
     if not corpus.chunks or config.top_k < 1 or config.score_precision < 0:
         raise ValueError("Vector retrieval requires chunks, positive top_k and score precision")
 
-    document_vectors = embedder.embed_documents(
+    document_vectors = tuple(
+        tuple(float(value) for value in vector)
+        for vector in embedder.embed_documents(
         [f"{chunk.path}\n{chunk.content}" for chunk in corpus.chunks]
+        )
     )
+    if len(document_vectors) != len(corpus.chunks):
+        raise ValueError("Embedder returned an unexpected vector shape")
+    if any(len(vector) != embedder.dimension for vector in document_vectors):
+        raise ValueError("Embedder returned an unexpected vector shape")
+    return _VectorIndex(corpus, embedder, config, document_vectors)
+
+
+def _query_vector_index(index: _VectorIndex, query: str) -> RetrievalRun:
+    corpus = index.corpus
+    embedder = index.embedder
+    config = index.config
     query_vector = embedder.embed_query(query)
-    if len(query_vector) != embedder.dimension or len(document_vectors) != len(
-        corpus.chunks
-    ):
+    if len(query_vector) != embedder.dimension:
         raise ValueError("Embedder returned an unexpected vector shape")
 
     scored: list[tuple[str, Chunk]] = []
-    for chunk, vector in zip(corpus.chunks, document_vectors, strict=True):
-        if len(vector) != embedder.dimension:
-            raise ValueError("Embedder returned an unexpected vector shape")
+    for chunk, vector in zip(corpus.chunks, index.vectors, strict=True):
         score = _cosine_similarity(query_vector, vector)
         scored.append((f"{score:.{config.score_precision}f}", chunk))
 
@@ -366,8 +899,17 @@ def run_vector_retrieval(
     )
 
 
+def run_vector_retrieval(
+    corpus: Corpus,
+    query: str,
+    embedder: Embedder,
+    config: VectorIndexConfig,
+) -> RetrievalRun:
+    return _query_vector_index(_build_vector_index(corpus, embedder, config), query)
+
+
 def evaluate_recall(
-    retrieval_run: RetrievalRun,
+    retrieval_run: RetrievalRun | HybridRun,
     gold_path: Path,
     *,
     top_k: int,
@@ -398,6 +940,46 @@ def evaluate_recall(
     )
 
 
+def evaluate_retrieval_metrics(
+    retrieval_run: RetrievalRun | HybridRun,
+    gold_path: Path,
+) -> RetrievalMetrics:
+    gold: dict[str, list[dict[str, Any]]] = json.loads(
+        gold_path.read_text(encoding="utf-8")
+    )
+    relevance = {
+        str(item["path"]): int(item["relevance"])
+        for item in gold["root_cause_files"]
+    }
+    first_relevant_rank = next(
+        (
+            candidate.rank
+            for candidate in retrieval_run.candidates
+            if relevance.get(candidate.path, 0) > 0
+        ),
+        None,
+    )
+
+    seen_paths: set[str] = set()
+    dcg = 0.0
+    for candidate in retrieval_run.candidates[:10]:
+        grade = 0 if candidate.path in seen_paths else relevance.get(candidate.path, 0)
+        seen_paths.add(candidate.path)
+        dcg += (2**grade - 1) / math.log2(candidate.rank + 1)
+    ideal_grades = sorted(relevance.values(), reverse=True)[:10]
+    ideal_dcg = math.fsum(
+        (2**grade - 1) / math.log2(rank + 1)
+        for rank, grade in enumerate(ideal_grades, start=1)
+    )
+
+    return RetrievalMetrics(
+        recall_at_5=evaluate_recall(retrieval_run, gold_path, top_k=5),
+        recall_at_10=evaluate_recall(retrieval_run, gold_path, top_k=10),
+        mrr=round(1 / first_relevant_rank, 6) if first_relevant_rank else 0.0,
+        ndcg_at_10=round(dcg / ideal_dcg, 6) if ideal_dcg else 0.0,
+    )
+
+
 def write_retrieval_result(
     output_path: Path,
     case_id: str,
@@ -411,6 +993,39 @@ def write_retrieval_result(
         "candidates": [asdict(candidate) for candidate in retrieval_run.candidates],
         "metadata": asdict(retrieval_run.metadata),
         "recall": asdict(recall),
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+
+def write_retrieval_comparison(
+    output_path: Path,
+    case_id: str,
+    comparison: RetrievalComparison,
+    g1_metrics: RetrievalMetrics,
+    g2_metrics: RetrievalMetrics,
+) -> None:
+    result = {
+        "schema_version": "1.0",
+        "case_id": case_id,
+        "shared_input": comparison.shared_input,
+        "groups": {
+            "g1_vector": {
+                "candidates": [
+                    asdict(candidate) for candidate in comparison.g1_vector.candidates
+                ],
+                "metrics": asdict(g1_metrics),
+            },
+            "g2_hybrid": {
+                "candidates": [
+                    asdict(candidate) for candidate in comparison.g2_hybrid.candidates
+                ],
+                "metrics": asdict(g2_metrics),
+            },
+        },
+        "metadata": comparison.metadata,
     }
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(

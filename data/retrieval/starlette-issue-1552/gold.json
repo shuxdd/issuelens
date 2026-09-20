@@ -27,6 +27,7 @@
         }
       ],
       "path": "starlette/routing.py",
+      "relevance": 2,
       "rationale": "get_name handles functions and classes but not bound methods, so Route naming falls back to the endpoint type name 'method'."
     }
   ],

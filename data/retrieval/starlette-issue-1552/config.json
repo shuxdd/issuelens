@@ -1,4 +1,44 @@
 {
+  "benchmark": {
+    "clock": "time.perf_counter_ns",
+    "repetitions": 5,
+    "summary": [
+      "samples",
+      "median",
+      "min",
+      "max"
+    ],
+    "warmup_runs": 1
+  },
+  "bm25": {
+    "b": 0.75,
+    "capacity_scope": "single_case",
+    "idf": "log(1 + (N - df + 0.5) / (df + 0.5))",
+    "implementation": "python_stdlib",
+    "k1": 1.2,
+    "migration_condition": "Use persistent search storage when multi-case scale or measured latency exceeds the project budget",
+    "score_precision": 6,
+    "storage": "in_memory_inverted_index",
+    "tie_break": [
+      "score_desc",
+      "path_asc",
+      "start_line_asc",
+      "end_line_asc",
+      "source_type_asc"
+    ],
+    "tokenizer": {
+      "casefold": true,
+      "fields": [
+        "path",
+        "content"
+      ],
+      "pattern": "[a-z0-9]+(?:_[a-z0-9]+)*",
+      "snake_case": "whole_and_parts",
+      "stemming": false,
+      "stop_words": false,
+      "version": "code-text-v1"
+    }
+  },
   "case_id": "starlette-issue-1552",
   "chunking": {
     "index_version": "starlette-1552-vector-v1",
@@ -38,6 +78,22 @@
     "threads": 1
   },
   "generation_version": "retrieval-v1",
+  "fusion": {
+    "bm25_weight": 1.0,
+    "candidate_top_k": 10,
+    "rank_constant": 60,
+    "score_precision": 8,
+    "strategy": "rrf-v1",
+    "tie_break": [
+      "score_desc",
+      "path_asc",
+      "start_line_asc",
+      "end_line_asc",
+      "source_type_asc"
+    ],
+    "top_k": 10,
+    "vector_weight": 1.0
+  },
   "index": {
     "capacity_scope": "single_case",
     "migration_condition": "Use pgvector when multi-case scale or measured latency exceeds the project budget",

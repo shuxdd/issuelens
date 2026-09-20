@@ -5,13 +5,18 @@ from collections.abc import Iterable, Sequence
 from dataclasses import asdict
 from pathlib import Path
 from types import SimpleNamespace
+from typing import Any
 
 import pytest
 from issuelens.retrieval import (
+    BenchmarkConfig,
+    BM25Config,
+    BM25Run,
     Chunk,
     ChunkingConfig,
     Corpus,
     FastEmbedAdapter,
+    FusionConfig,
     RecallMetric,
     RecallReport,
     RetrievalCandidate,
@@ -21,8 +26,13 @@ from issuelens.retrieval import (
     VectorIndexConfig,
     build_corpus,
     evaluate_recall,
+    evaluate_retrieval_metrics,
+    fuse_retrieval_runs,
     load_retrieval_input,
+    run_bm25_retrieval,
+    run_retrieval_comparison,
     run_vector_retrieval,
+    write_retrieval_comparison,
     write_retrieval_result,
 )
 
@@ -33,6 +43,658 @@ def write_snapshot_manifest(snapshot_root: Path, commit: str = "e086fc2") -> Non
         json.dumps({"repository": "Kludex/starlette", "commit": commit}),
         encoding="utf-8",
     )
+
+
+def test_bm25_matches_hand_calculated_scores_and_order() -> None:
+    corpus = Corpus(
+        chunks=tuple(
+            Chunk(
+                source_type="markdown",
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path=path,
+                start_line=1,
+                end_line=1,
+                content=content,
+                index_version="hybrid-v1",
+            )
+            for path, content in (
+                ("docs/a.md", "route route method"),
+                ("docs/b.md", "route name"),
+                ("docs/c.md", "unrelated"),
+            )
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+
+    result = run_bm25_retrieval(
+        corpus,
+        "route method",
+        BM25Config(
+            top_k=3,
+            score_precision=6,
+            tokenizer_version="code-text-v1",
+            k1=1.2,
+            b=0.75,
+        ),
+    )
+
+    assert [(candidate.path, candidate.score) for candidate in result.candidates] == [
+        ("docs/a.md", "1.518488"),
+        ("docs/b.md", "0.470004"),
+    ]
+    assert result.metadata == {
+        "document_count": 3,
+        "average_document_length": "5.000000",
+        "tokenizer_version": "code-text-v1",
+        "k1": "1.200000",
+        "b": "0.750000",
+        "score_precision": 6,
+        "tie_break": "path,start_line,end_line,source_type",
+    }
+
+
+def test_bm25_retrieves_code_symbols_error_text_and_markdown_terms() -> None:
+    corpus = Corpus(
+        chunks=tuple(
+            Chunk(
+                source_type=source_type,
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path=path,
+                start_line=1,
+                end_line=1,
+                content=content,
+                index_version="hybrid-v1",
+            )
+            for source_type, path, content in (
+                ("python_source", "starlette/symbol.py", "def get_name(endpoint): ..."),
+                (
+                    "python_source",
+                    "starlette/error.py",
+                    "RuntimeError: Routed paths must start with '/'",
+                ),
+                ("markdown", "docs/routing.md", "## Route Naming\nIntrospection"),
+            )
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+    config = BM25Config(
+        top_k=1,
+        score_precision=6,
+        tokenizer_version="code-text-v1",
+        k1=1.2,
+        b=0.75,
+    )
+
+    assert [
+        run_bm25_retrieval(corpus, query, config).candidates[0].path
+        for query in ("get name", "Routed paths must start", "route naming")
+    ] == [
+        "starlette/symbol.py",
+        "starlette/error.py",
+        "docs/routing.md",
+    ]
+
+
+def test_bm25_uses_fixed_precision_and_stable_tie_break() -> None:
+    corpus = Corpus(
+        chunks=tuple(
+            Chunk(
+                source_type=source_type,
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path=path,
+                start_line=start_line,
+                end_line=start_line,
+                content="shared",
+                index_version="hybrid-v1",
+            )
+            for source_type, path, start_line in (
+                ("python_source", "z.py", 1),
+                ("python_source", "a.py", 2),
+                ("python_test", "a.py", 1),
+                ("markdown", "a.py", 1),
+            )
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+
+    result = run_bm25_retrieval(
+        corpus,
+        "shared",
+        BM25Config(
+            top_k=4,
+            score_precision=6,
+            tokenizer_version="code-text-v1",
+            k1=1.2,
+            b=0.75,
+        ),
+    )
+
+    assert [
+        (
+            candidate.path,
+            candidate.start_line,
+            candidate.end_line,
+            candidate.source_type,
+            candidate.score,
+        )
+        for candidate in result.candidates
+    ] == [
+        ("a.py", 1, 1, "markdown", "0.105361"),
+        ("a.py", 1, 1, "python_test", "0.105361"),
+        ("a.py", 2, 2, "python_source", "0.105361"),
+        ("z.py", 1, 1, "python_source", "0.105361"),
+    ]
+
+
+def test_rrf_fuses_fixed_vector_and_bm25_rankings() -> None:
+    def candidate(rank: int, path: str, score: str) -> RetrievalCandidate:
+        return RetrievalCandidate(
+            rank=rank,
+            score=score,
+            commit="e086fc2",
+            path=path,
+            start_line=1,
+            end_line=2,
+            source_type="python_source",
+            index_version="hybrid-v1",
+            content=f"content for {path}",
+            reference=f"https://example.test/{path}#L1-L2",
+        )
+
+    vector = RetrievalRun(
+        query="route name",
+        candidates=(
+            candidate(1, "a.py", "0.900000"),
+            candidate(2, "b.py", "0.800000"),
+        ),
+        metadata=RetrievalMetadata(
+            data_version="cases-v1",
+            snapshot_commit="e086fc2",
+            index_version="hybrid-v1",
+            embedding_identifier="fixed-test-v1",
+            embedding_dimension=2,
+            top_k=2,
+            generation_version="retrieval-v1",
+            chunk_count=3,
+        ),
+    )
+    bm25 = BM25Run(
+        query="route name",
+        candidates=(
+            candidate(1, "b.py", "2.000000"),
+            candidate(2, "c.py", "1.000000"),
+        ),
+        metadata={},
+    )
+
+    result = fuse_retrieval_runs(
+        vector,
+        bm25,
+        FusionConfig(
+            top_k=3,
+            score_precision=8,
+            rank_constant=60,
+            vector_weight=1.0,
+            bm25_weight=1.0,
+        ),
+    )
+
+    assert [(item.path, item.score) for item in result.candidates] == [
+        ("b.py", "0.03252247"),
+        ("a.py", "0.01639344"),
+        ("c.py", "0.01612903"),
+    ]
+
+
+def test_hybrid_candidate_preserves_channel_scores_contributions_and_reference() -> None:
+    def candidate(rank: int, score: str) -> RetrievalCandidate:
+        return RetrievalCandidate(
+            rank=rank,
+            score=score,
+            commit="e086fc2",
+            path="starlette/routing.py",
+            start_line=86,
+            end_line=89,
+            source_type="python_source",
+            index_version="hybrid-v1",
+            content="def get_name(endpoint): ...",
+            reference="https://example.test/starlette/routing.py#L86-L89",
+        )
+
+    vector = RetrievalRun(
+        query="route name",
+        candidates=(candidate(2, "0.724352"),),
+        metadata=RetrievalMetadata(
+            data_version="cases-v1",
+            snapshot_commit="e086fc2",
+            index_version="hybrid-v1",
+            embedding_identifier="fixed-test-v1",
+            embedding_dimension=2,
+            top_k=10,
+            generation_version="retrieval-v1",
+            chunk_count=1,
+        ),
+    )
+    bm25 = BM25Run(
+        query="route name",
+        candidates=(candidate(1, "3.250000"),),
+        metadata={},
+    )
+
+    result = fuse_retrieval_runs(
+        vector,
+        bm25,
+        FusionConfig(
+            top_k=10,
+            score_precision=8,
+            rank_constant=60,
+            vector_weight=1.0,
+            bm25_weight=1.0,
+        ),
+    )
+    item = result.candidates[0]
+
+    assert (
+        item.vector_rank,
+        item.vector_score,
+        item.vector_contribution,
+        item.bm25_rank,
+        item.bm25_score,
+        item.bm25_contribution,
+        item.rank,
+        item.score,
+        item.commit,
+        item.reference,
+    ) == (
+        2,
+        "0.724352",
+        "0.01612903",
+        1,
+        "3.250000",
+        "0.01639344",
+        1,
+        "0.03252247",
+        "e086fc2",
+        "https://example.test/starlette/routing.py#L86-L89",
+    )
+
+
+def test_g1_and_g2_share_corpus_query_embedding_and_top_k() -> None:
+    document_calls: list[list[str]] = []
+
+    class FixedEmbedder:
+        identifier = "fixed-test-v1"
+        dimension = 2
+
+        def embed_documents(self, texts: Sequence[str]) -> list[tuple[float, float]]:
+            document_calls.append(list(texts))
+            return [(1.0, 0.0), (0.0, 1.0)]
+
+        def embed_query(self, text: str) -> tuple[float, float]:
+            assert text == "route name"
+            return (1.0, 0.0)
+
+    corpus = Corpus(
+        chunks=tuple(
+            Chunk(
+                source_type="python_source",
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path=path,
+                start_line=1,
+                end_line=2,
+                content=content,
+                index_version="hybrid-v1",
+            )
+            for path, content in (
+                ("starlette/routing.py", "def get_name(endpoint): ..."),
+                ("starlette/other.py", "unrelated"),
+            )
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+
+    comparison = run_retrieval_comparison(
+        corpus,
+        "route name",
+        FixedEmbedder(),
+        VectorIndexConfig(
+            top_k=2,
+            score_precision=6,
+            generation_version="retrieval-v1",
+            data_version="cases-v1",
+        ),
+        BM25Config(
+            top_k=2,
+            score_precision=6,
+            tokenizer_version="code-text-v1",
+            k1=1.2,
+            b=0.75,
+        ),
+        FusionConfig(
+            top_k=2,
+            score_precision=8,
+            rank_constant=60,
+            vector_weight=1.0,
+            bm25_weight=1.0,
+        ),
+    )
+
+    assert len(document_calls) == 1
+    assert comparison.shared_input == {
+        "query": "route name",
+        "snapshot_commit": "e086fc2",
+        "index_version": "hybrid-v1",
+        "chunk_count": 2,
+        "embedding_identifier": "fixed-test-v1",
+        "embedding_dimension": 2,
+        "top_k": 2,
+    }
+    assert comparison.g2_hybrid.candidates[0].vector_rank == (
+        comparison.g1_vector.candidates[0].rank
+    )
+    assert comparison.g2_hybrid.candidates[0].vector_score == (
+        comparison.g1_vector.candidates[0].score
+    )
+
+
+def test_retrieval_metrics_match_hand_calculated_recall_mrr_and_ndcg(
+    tmp_path: Path,
+) -> None:
+    def candidate(rank: int, path: str, start_line: int = 1) -> RetrievalCandidate:
+        return RetrievalCandidate(
+            rank=rank,
+            score=f"{1 / rank:.6f}",
+            commit="e086fc2",
+            path=path,
+            start_line=start_line,
+            end_line=start_line,
+            source_type="python_source",
+            index_version="hybrid-v1",
+            content="content",
+            reference=f"https://example.test/{path}#L{start_line}-L{start_line}",
+        )
+
+    run = RetrievalRun(
+        query="route name",
+        candidates=(
+            candidate(1, "irrelevant.py"),
+            candidate(2, "root-a.py"),
+            candidate(3, "root-a.py", 10),
+            candidate(4, "root-b.py"),
+            candidate(5, "changed.py"),
+            candidate(6, "test.py"),
+        ),
+        metadata=RetrievalMetadata(
+            data_version="cases-v1",
+            snapshot_commit="e086fc2",
+            index_version="hybrid-v1",
+            embedding_identifier="fixed-test-v1",
+            embedding_dimension=2,
+            top_k=10,
+            generation_version="retrieval-v1",
+            chunk_count=6,
+        ),
+    )
+    gold_path = tmp_path / "gold.json"
+    gold_path.write_text(
+        json.dumps(
+            {
+                "root_cause_files": [
+                    {"path": "root-a.py", "relevance": 2},
+                    {"path": "root-b.py", "relevance": 1},
+                ],
+                "changed_files": [{"path": "changed.py"}],
+                "test_files": [{"path": "test.py"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    metrics = evaluate_retrieval_metrics(run, gold_path)
+
+    assert asdict(metrics) == {
+        "recall_at_5": {
+            "top_k": 5,
+            "root_cause_files": {"hits": 2, "total": 2, "recall": 1.0},
+            "changed_files": {"hits": 1, "total": 1, "recall": 1.0},
+            "test_files": {"hits": 0, "total": 1, "recall": 0.0},
+        },
+        "recall_at_10": {
+            "top_k": 10,
+            "root_cause_files": {"hits": 2, "total": 2, "recall": 1.0},
+            "changed_files": {"hits": 1, "total": 1, "recall": 1.0},
+            "test_files": {"hits": 1, "total": 1, "recall": 1.0},
+        },
+        "mrr": 0.5,
+        "ndcg_at_10": 0.639909,
+    }
+
+
+def test_comparison_metadata_records_inputs_latency_and_reproducible_index_size() -> None:
+    class FixedEmbedder:
+        identifier = "fixed-test-v1"
+        dimension = 2
+
+        def embed_documents(self, texts: Sequence[str]) -> list[tuple[float, float]]:
+            assert list(texts) == ["routing.py\nroute name"]
+            return [(1.0, 0.0)]
+
+        def embed_query(self, text: str) -> tuple[float, float]:
+            assert text == "route name"
+            return (1.0, 0.0)
+
+    corpus = Corpus(
+        chunks=(
+            Chunk(
+                source_type="python_source",
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path="routing.py",
+                start_line=1,
+                end_line=1,
+                content="route name",
+                index_version="hybrid-v1",
+            ),
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+    ticks = iter(range(0, 1000, 10))
+
+    comparison = run_retrieval_comparison(
+        corpus,
+        "route name",
+        FixedEmbedder(),
+        VectorIndexConfig(
+            top_k=1,
+            score_precision=6,
+            generation_version="retrieval-v1",
+            data_version="cases-v1",
+        ),
+        BM25Config(
+            top_k=1,
+            score_precision=6,
+            tokenizer_version="code-text-v1",
+            k1=1.2,
+            b=0.75,
+        ),
+        FusionConfig(
+            top_k=1,
+            score_precision=8,
+            rank_constant=60,
+            vector_weight=1.0,
+            bm25_weight=1.0,
+        ),
+        benchmark=BenchmarkConfig(warmup_runs=1, repetitions=2),
+        clock=lambda: next(ticks),
+    )
+
+    assert comparison.metadata["data_version"] == "cases-v1"
+    assert comparison.metadata["snapshot_commit"] == "e086fc2"
+    assert comparison.metadata["chunking"] == {
+        "index_version": "hybrid-v1",
+        "max_lines": 120,
+        "overlap_lines": 20,
+        "python_parser": "ast-v1",
+        "markdown_parser": "headings-v1",
+    }
+    assert comparison.metadata["embedding"] == {
+        "identifier": "fixed-test-v1",
+        "dimension": 2,
+    }
+    assert comparison.metadata["bm25"] == {
+        "tokenizer_version": "code-text-v1",
+        "k1": "1.200000",
+        "b": "0.750000",
+        "score_precision": 6,
+    }
+    assert comparison.metadata["fusion"] == {
+        "strategy": "rrf-v1",
+        "rank_constant": 60,
+        "vector_weight": "1.00000000",
+        "bm25_weight": "1.00000000",
+        "score_precision": 8,
+    }
+    assert comparison.metadata["top_k"] == 1
+    assert comparison.metadata["benchmark"] == {
+        "clock": "perf_counter_ns",
+        "warmup_runs": 1,
+        "repetitions": 2,
+    }
+    assert comparison.metadata["latency_ns"] == {
+        "g1_vector": {
+            "build": {"samples": [10, 10], "median": 10, "min": 10, "max": 10},
+            "query": {"samples": [10, 10], "median": 10, "min": 10, "max": 10},
+        },
+        "g2_hybrid": {
+            "build": {"samples": [20, 20], "median": 20, "min": 20, "max": 20},
+            "query": {"samples": [30, 30], "median": 30, "min": 30, "max": 30},
+        },
+    }
+    index_size = comparison.metadata["index_size"]
+    assert index_size["vector"] == {
+        "document_count": 1,
+        "dimension": 2,
+        "value_count": 2,
+        "payload_bytes": 8,
+        "element_encoding": "float32",
+    }
+    assert index_size["bm25"]["document_count"] == 1
+    assert index_size["bm25"]["term_count"] == 4
+    assert index_size["bm25"]["posting_count"] == 4
+    assert index_size["bm25"]["token_count"] == 4
+    assert index_size["bm25"]["serialized_bytes"] > 0
+    assert index_size["g1_total_bytes"] == 8
+    assert index_size["g2_total_bytes"] == (
+        8 + index_size["bm25"]["serialized_bytes"]
+    )
+
+
+def test_comparison_result_is_deterministic_except_wall_clock_latency(
+    tmp_path: Path,
+) -> None:
+    class FixedEmbedder:
+        identifier = "fixed-test-v1"
+        dimension = 2
+
+        def embed_documents(self, texts: Sequence[str]) -> list[tuple[float, float]]:
+            return [(1.0, 0.0) for _text in texts]
+
+        def embed_query(self, text: str) -> tuple[float, float]:
+            return (1.0, 0.0)
+
+    corpus = Corpus(
+        chunks=(
+            Chunk(
+                source_type="python_source",
+                repository="Kludex/starlette",
+                commit="e086fc2",
+                path="routing.py",
+                start_line=1,
+                end_line=2,
+                content="def get_name(endpoint): ...",
+                index_version="hybrid-v1",
+            ),
+        ),
+        chunking_config=ChunkingConfig(
+            index_version="hybrid-v1", max_lines=120, overlap_lines=20
+        ),
+    )
+    vector_config = VectorIndexConfig(
+        top_k=1,
+        score_precision=6,
+        generation_version="retrieval-v1",
+        data_version="cases-v1",
+    )
+    bm25_config = BM25Config(
+        top_k=1,
+        score_precision=6,
+        tokenizer_version="code-text-v1",
+        k1=1.2,
+        b=0.75,
+    )
+    fusion_config = FusionConfig(
+        top_k=1,
+        score_precision=8,
+        rank_constant=60,
+        vector_weight=1.0,
+        bm25_weight=1.0,
+    )
+    gold_path = tmp_path / "gold.json"
+    gold_path.write_text(
+        json.dumps(
+            {
+                "root_cause_files": [{"path": "routing.py", "relevance": 2}],
+                "changed_files": [{"path": "routing.py"}],
+                "test_files": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    def run_with_tick(step: int) -> tuple[dict[str, Any], Path]:
+        ticks = iter(range(0, 1000, step))
+        comparison = run_retrieval_comparison(
+            corpus,
+            "route name",
+            FixedEmbedder(),
+            vector_config,
+            bm25_config,
+            fusion_config,
+            clock=lambda: next(ticks),
+        )
+        output = tmp_path / f"comparison-{step}.json"
+        write_retrieval_comparison(
+            output,
+            "starlette-issue-1552",
+            comparison,
+            evaluate_retrieval_metrics(comparison.g1_vector, gold_path),
+            evaluate_retrieval_metrics(comparison.g2_hybrid, gold_path),
+        )
+        return json.loads(output.read_text(encoding="utf-8")), output
+
+    first, first_path = run_with_tick(10)
+    second, second_path = run_with_tick(20)
+    first["metadata"].pop("latency_ns")
+    second["metadata"].pop("latency_ns")
+
+    assert first == second
+    assert first_path.read_bytes() != second_path.read_bytes()
+    assert first["groups"]["g2_hybrid"]["candidates"][0]["vector_rank"] == 1
+    assert first["groups"]["g2_hybrid"]["candidates"][0]["bm25_rank"] == 1
 
 
 def test_python_source_corpus_preserves_structure_commit_path_and_lines(
@@ -277,10 +939,36 @@ def test_retrieval_input_and_corpus_cannot_observe_repair_evidence(
             data_version="cases-v1",
         ),
     )
+    comparison = run_retrieval_comparison(
+        corpus,
+        retrieval_input.query,
+        CapturingEmbedder(),
+        VectorIndexConfig(
+            top_k=1,
+            score_precision=6,
+            generation_version="retrieval-v1",
+            data_version="cases-v1",
+        ),
+        BM25Config(
+            top_k=1,
+            score_precision=6,
+            tokenizer_version="code-text-v1",
+            k1=1.2,
+            b=0.75,
+        ),
+        FusionConfig(
+            top_k=1,
+            score_precision=8,
+            rank_constant=60,
+            vector_weight=1.0,
+            bm25_weight=1.0,
+        ),
+    )
 
     assert retrieval_input.query == 'Route naming introspection always return "method"'
     assert repair_only_marker not in serialized_index_input
     assert repair_only_marker not in "\n".join(observed_embedding_inputs)
+    assert repair_only_marker not in json.dumps(asdict(comparison))
 
 
 def test_corpus_rejects_snapshot_from_a_different_commit(tmp_path: Path) -> None:

@@ -42,3 +42,43 @@ def test_retrieval_review_shows_query_candidates_scores_and_references(
 
     assert response.status_code == 200
     assert response.json() == result
+
+
+def test_retrieval_comparison_review_shows_g1_g2_summary_and_candidate_trace(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    result = {
+        "schema_version": "1.0",
+        "case_id": "starlette-issue-1552",
+        "shared_input": {"query": "route name", "top_k": 10},
+        "groups": {
+            "g1_vector": {
+                "metrics": {"mrr": 0.25, "ndcg_at_10": 0.5},
+                "candidates": [{"rank": 1, "path": "docs/routing.md"}],
+            },
+            "g2_hybrid": {
+                "metrics": {"mrr": 1.0, "ndcg_at_10": 1.0},
+                "candidates": [
+                    {
+                        "rank": 1,
+                        "path": "starlette/routing.py",
+                        "vector_rank": 4,
+                        "bm25_rank": 1,
+                        "score": "0.03201844",
+                    }
+                ],
+            },
+        },
+        "metadata": {"fusion": {"strategy": "rrf-v1"}},
+    }
+    result_path = tmp_path / "starlette-issue-1552" / "comparison.json"
+    result_path.parent.mkdir()
+    result_path.write_text(json.dumps(result), encoding="utf-8")
+    monkeypatch.setattr(api, "RETRIEVAL_DIRECTORY", tmp_path)
+
+    response = TestClient(api.app).get(
+        "/retrieval/comparisons/starlette-issue-1552"
+    )
+
+    assert response.status_code == 200
+    assert response.json() == result
