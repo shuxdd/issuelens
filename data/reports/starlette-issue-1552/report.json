@@ -1,0 +1,508 @@
+{
+  "case_id": "starlette-issue-1552",
+  "groups": {
+    "g1_vector": {
+      "metadata": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00163725",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5071,
+        "latency_ns": 5177802500,
+        "missed_input_tokens": 5071,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1461,
+        "prompt_version": "one-shot-v1",
+        "total_tokens": 6532
+      },
+      "report": {
+        "confidence": "medium",
+        "facts": [
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 203,
+                "excerpt": "        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n        self.include_in_schema = include_in_schema",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L199-L203",
+                "start_line": 199
+              },
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 222,
+                "excerpt": "        if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+                "start_line": 217
+              }
+            ],
+            "text": "Route stores its name from the provided name argument or derives it from the endpoint, and stores HTTP methods separately as self.methods."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 203,
+                "excerpt": "        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n        self.include_in_schema = include_in_schema",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L199-L203",
+                "start_line": 199
+              },
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 222,
+                "excerpt": "        if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+                "start_line": 217
+              }
+            ],
+            "text": "The Route.name is a single string; methods are held in a separate set and are not incorporated into the name during Route construction."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 247,
+                "excerpt": "    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L242-L247",
+                "start_line": 242
+              }
+            ],
+            "text": "url_path_for compares the requested name against self.name directly."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 10,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 36,
+                "excerpt": "    def __init__(self, name: str, path_params: typing.Dict[str, typing.Any]) -> None:\n        params = \", \".join(list(path_params.keys()))\n        super().__init__(f'No route exists for name \"{name}\" and params \"{params}\".')",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L34-L36",
+                "start_line": 34
+              }
+            ],
+            "text": "NoMatchFound exception message uses the supplied name."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 3,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 28,
+                "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+                "start_line": 25
+              }
+            ],
+            "text": "EndpointInfo NamedTuple contains an http_method field distinct from name."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 4,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "get_name returns endpoint.__name__ for functions/classes, otherwise endpoint.__class__.__name__, and is used when name is None."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 274,
+                "excerpt": "    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, Route)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n            and self.methods == other.methods\n        )",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L268-L274",
+                "start_line": 268
+              }
+            ],
+            "text": "Route.__eq__ compares path, endpoint, and methods, but not name."
+          }
+        ],
+        "issue_classification": "routing",
+        "root_cause_hypotheses": [
+          {
+            "confidence": "medium",
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 203,
+                "excerpt": "        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n        self.include_in_schema = include_in_schema",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L199-L203",
+                "start_line": 199
+              },
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 222,
+                "excerpt": "        if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+                "start_line": 217
+              },
+              {
+                "candidate_rank": 4,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "The observed behavior matches the current code: Route.name is set from name or get_name(endpoint) and is never combined with methods, so name introspection does not include method information for method endpoints.",
+            "verification": "supported"
+          },
+          {
+            "confidence": "medium",
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 239,
+                "excerpt": "                if self.methods and scope[\"method\"] not in self.methods:\n                    return Match.PARTIAL, child_scope\n                else:\n                    return Match.FULL, child_scope",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L236-L239",
+                "start_line": 236
+              }
+            ],
+            "text": "Method-specific route discrimination occurs during matching via self.methods and Match.PARTIAL/FULL, not through stored route names, so introspection based on name cannot distinguish methods.",
+            "verification": "supported"
+          },
+          {
+            "confidence": "low",
+            "evidence": [
+              {
+                "candidate_rank": 3,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 28,
+                "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+                "start_line": 25
+              }
+            ],
+            "text": "The schema EndpointInfo structure records http_method separately from path/function, suggesting method information is tracked separately rather than embedded into route names.",
+            "verification": "supported"
+          }
+        ],
+        "schema_version": "1.0",
+        "unresolved_questions": [
+          "What exact API or function is meant by 'Route naming introspection'?",
+          "Should route names include HTTP methods, or is an error message or url_path_for lookup relying on a method-derived name?",
+          "Are duplicate routes for the same path with different methods expected to have distinct names?"
+        ]
+      }
+    },
+    "g2_hybrid": {
+      "metadata": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001178784",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4192,
+        "latency_ns": 3899206700,
+        "missed_input_tokens": 4064,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 948,
+        "prompt_version": "one-shot-v1",
+        "total_tokens": 5140
+      },
+      "report": {
+        "confidence": "medium",
+        "facts": [
+          {
+            "evidence": [
+              {
+                "candidate_rank": 1,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 202,
+                "excerpt": "self.name = get_name(endpoint) if name is None else name",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+                "start_line": 202
+              }
+            ],
+            "text": "Route.__init__ sets self.name from the endpoint when no explicit name is supplied."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 8,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "get_name returns the class name for endpoint instances, not a method name."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 3,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 72,
+                "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+                "start_line": 66
+              }
+            ],
+            "text": "Schema generation inspects route.endpoint for callable or method and derives HTTP methods from route.methods."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 3,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 80,
+                "excerpt": "else:\n                for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                    if not hasattr(route.endpoint, method):\n                        continue\n                    func = getattr(route.endpoint, method)\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), func)\n                    )",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L73-L80",
+                "start_line": 73
+              }
+            ],
+            "text": "For non-function endpoints, schema generation checks for HTTP method attributes (get, post, etc.) on the endpoint class."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 6,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 28,
+                "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+                "start_line": 25
+              }
+            ],
+            "text": "EndpointInfo stores path, http_method, and func, not route name."
+          }
+        ],
+        "issue_classification": "routing",
+        "root_cause_hypotheses": [
+          {
+            "confidence": "medium",
+            "evidence": [
+              {
+                "candidate_rank": 3,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 72,
+                "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+                "start_line": 66
+              },
+              {
+                "candidate_rank": 6,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 28,
+                "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+                "start_line": 25
+              }
+            ],
+            "text": "The reported behavior may arise from introspection code not using Route.name for endpoint identification; instead schema/introspection derives method information from route.endpoint and route.methods, which for function or method endpoints produces the HTTP method rather than a route name.",
+            "verification": "supported"
+          },
+          {
+            "confidence": "low",
+            "evidence": [
+              {
+                "candidate_rank": 1,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 202,
+                "excerpt": "self.name = get_name(endpoint) if name is None else name",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+                "start_line": 202
+              },
+              {
+                "candidate_rank": 8,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "For callable/method endpoints, Route.__init__ may assign a default name based on the endpoint function or method name, so route.name should not always be \"method\" unless the endpoint itself is named or resolved as \"method\".",
+            "verification": "supported"
+          }
+        ],
+        "schema_version": "1.0",
+        "unresolved_questions": [
+          "Which specific introspection API or caller is returning \"method\" for method endpoints?",
+          "Are the method endpoints function-based routes, HTTPEndpoint classes, or another callable type?",
+          "Is the introspection using Route.name, EndpointInfo.http_method, or another derived attribute?"
+        ]
+      }
+    },
+    "g3_reranked": {
+      "metadata": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001152984",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4192,
+        "latency_ns": 3962964300,
+        "missed_input_tokens": 4064,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 905,
+        "prompt_version": "one-shot-v1",
+        "total_tokens": 5097
+      },
+      "report": {
+        "confidence": "low",
+        "facts": [
+          {
+            "evidence": [
+              {
+                "candidate_rank": 1,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 80,
+                "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )\n            else:\n                for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                    if not hasattr(route.endpoint, method):\n                        continue\n                    func = getattr(route.endpoint, method)\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), func)\n                    )",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L80",
+                "start_line": 66
+              }
+            ],
+            "text": "The schema generator distinguishes function/method endpoints from class endpoints when iterating route methods."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 222,
+                "excerpt": "if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+                "start_line": 217
+              }
+            ],
+            "text": "Route initializes methods and includes HEAD when GET is present."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 202,
+                "excerpt": "self.name = get_name(endpoint) if name is None else name",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+                "start_line": 202
+              },
+              {
+                "candidate_rank": 8,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "Route name is derived from endpoint when name is None."
+          },
+          {
+            "evidence": [
+              {
+                "candidate_rank": 4,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 133,
+                "excerpt": "schema[\"paths\"][endpoint.path][endpoint.http_method] = parsed",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L133-L133",
+                "start_line": 133
+              }
+            ],
+            "text": "SchemaGenerator writes parsed schema under endpoint.http_method."
+          }
+        ],
+        "issue_classification": "schema generation bug",
+        "root_cause_hypotheses": [
+          {
+            "confidence": "low",
+            "evidence": [
+              {
+                "candidate_rank": 1,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 72,
+                "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+                "path": "starlette/schemas.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+                "start_line": 66
+              }
+            ],
+            "text": "Introspection for method endpoints may produce incorrect route method/name metadata because function/method detection treats bound methods as callables and uses route.methods, but the reported 'method' return is not visible in the cited schema generation excerpt.",
+            "verification": "supported"
+          },
+          {
+            "confidence": "low",
+            "evidence": [
+              {
+                "candidate_rank": 2,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 202,
+                "excerpt": "self.name = get_name(endpoint) if name is None else name",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+                "start_line": 202
+              },
+              {
+                "candidate_rank": 8,
+                "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+                "end_line": 89,
+                "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+                "path": "starlette/routing.py",
+                "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+                "start_line": 86
+              }
+            ],
+            "text": "Route.name defaults from endpoint via get_name; for method endpoints this may yield 'method' if endpoint is an instance method whose class name is not as expected.",
+            "verification": "supported"
+          }
+        ],
+        "schema_version": "1.0",
+        "unresolved_questions": [
+          "What exact introspection API returns route names, and how does it use Route.name?",
+          "Are the reported method endpoints defined as plain functions, bound methods, or class-based HTTPEndpoint handlers?",
+          "What is the actual value of route.endpoint for the failing case, and whether inspect.ismethod returns true?",
+          "Does the issue occur in get_endpoints, get_name, or a separate route naming API not included in the candidates?"
+        ]
+      }
+    }
+  },
+  "schema_version": "1.0"
+}

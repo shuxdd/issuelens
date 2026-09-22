@@ -1,0 +1,22 @@
+{
+  "model": "deepseek-flash",
+  "model_version": "DeepSeek-V4.1-Flash",
+  "prompt_version": "one-shot-v1",
+  "pricing_source": "https://api-docs.deepseek.com/quick_start/pricing",
+  "pricing": {
+    "off_peak": {
+      "input_cache_hit": "0.003",
+      "input_cache_miss": "0.15",
+      "output": "0.6"
+    },
+    "peak": {
+      "input_cache_hit": "0.006",
+      "input_cache_miss": "0.3",
+      "output": "1.2"
+    }
+  },
+  "currency": "USD",
+  "max_output_tokens_per_call": 2048,
+  "approved_calls": 3,
+  "approved_budget_cny": "5"
+}

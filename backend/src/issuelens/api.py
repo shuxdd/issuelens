@@ -10,6 +10,7 @@ from issuelens.cases import validate_case
 app = FastAPI(title="IssueLens API")
 CASES_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "cases"
 RETRIEVAL_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "retrieval"
+REPORT_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "reports"
 
 
 @app.get("/health")
@@ -72,4 +73,15 @@ def review_reranker_comparison(case_id: str) -> dict[str, Any]:
     if not result_path.is_file():
         raise HTTPException(status_code=404, detail="Reranker comparison not found")
     result: dict[str, Any] = json.loads(result_path.read_text(encoding="utf-8"))
+    return result
+
+
+@app.get("/reports/three-way/{case_id}")
+def review_three_way_report(case_id: str) -> dict[str, Any]:
+    if re.fullmatch(r"[a-z0-9-]+", case_id) is None:
+        raise HTTPException(status_code=404, detail="Investigation report not found")
+    path = REPORT_DIRECTORY / case_id / "report.json"
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Investigation report not found")
+    result: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
     return result
