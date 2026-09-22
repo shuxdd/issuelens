@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "kind": "hand_fixed_corpus",
+  "query": "route name",
+  "chunking": {"index_version": "fixture-v1", "max_lines": 120, "overlap_lines": 20},
+  "chunks": [
+    {"source_type": "python_source", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/irrelevant.py", "start_line": 1, "end_line": 1, "content": "unrelated", "index_version": "fixture-v1"},
+    {"source_type": "python_source", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/root-a.py", "start_line": 1, "end_line": 2, "content": "def route_name():\n    pass", "index_version": "fixture-v1"},
+    {"source_type": "python_source", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/root-a.py", "start_line": 4, "end_line": 5, "content": "def route_alias():\n    pass", "index_version": "fixture-v1"},
+    {"source_type": "python_source", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/root-b.py", "start_line": 1, "end_line": 2, "content": "def endpoint_name():\n    pass", "index_version": "fixture-v1"},
+    {"source_type": "python_source", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/changed.py", "start_line": 1, "end_line": 1, "content": "changed", "index_version": "fixture-v1"},
+    {"source_type": "python_test", "repository": "fixture/demo", "commit": "fixture-v1", "path": "fixture/test.py", "start_line": 1, "end_line": 1, "content": "def test_route_name(): pass", "index_version": "fixture-v1"}
+  ],
+  "embedding": {
+    "identifier": "fixed-2d-ci-v1",
+    "dimension": 2,
+    "query_vector": [1.0, 0.0],
+    "document_vectors": [[0.0, 1.0], [1.0, 0.0], [0.8, 0.6], [0.7, 0.7], [0.2, 0.98], [0.1, 0.995]]
+  },
+  "vector": {"top_k": 10, "score_precision": 6, "generation_version": "fixture-v1", "data_version": "fixture-v1"},
+  "bm25": {"top_k": 10, "score_precision": 6, "tokenizer_version": "code-text-v1", "k1": 1.2, "b": 0.75},
+  "fusion": {"top_k": 10, "score_precision": 8, "rank_constant": 60, "vector_weight": 1.0, "bm25_weight": 1.0}
+}

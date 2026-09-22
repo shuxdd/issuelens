@@ -1,0 +1,105 @@
+{
+  "entries": [
+    {
+      "failures": [],
+      "id": "starlette-issue-1552",
+      "kind": "real_snapshot",
+      "metrics": {
+        "mrr": 1.0,
+        "ndcg_at_10": 1.0,
+        "recall_at_10": {
+          "changed_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "root_cause_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "test_files": {
+            "hits": 0,
+            "recall": 0.0,
+            "total": 1
+          },
+          "top_k": 10
+        },
+        "recall_at_5": {
+          "changed_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "root_cause_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "test_files": {
+            "hits": 0,
+            "recall": 0.0,
+            "total": 1
+          },
+          "top_k": 5
+        }
+      },
+      "pipeline": "frozen-g2+reranker"
+    },
+    {
+      "failures": [],
+      "id": "hand-fixed-ranking-v1",
+      "kind": "hand_fixed_corpus",
+      "metrics": {
+        "mrr": 1.0,
+        "ndcg_at_10": 0.944848,
+        "recall_at_10": {
+          "changed_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "root_cause_files": {
+            "hits": 2,
+            "recall": 1.0,
+            "total": 2
+          },
+          "test_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "top_k": 10
+        },
+        "recall_at_5": {
+          "changed_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "root_cause_files": {
+            "hits": 2,
+            "recall": 1.0,
+            "total": 2
+          },
+          "test_files": {
+            "hits": 1,
+            "recall": 1.0,
+            "total": 1
+          },
+          "top_k": 5
+        }
+      },
+      "pipeline": "vector+bm25+rrf+reranker"
+    }
+  ],
+  "manifest_sha256": "0662c5d7eb5b9b633f6a4b1fc0cfca8a481245be27079343d859c42fb79e7b6c",
+  "scorer": "g2-rank-preserving-ci-v1",
+  "status": "passed",
+  "thresholds": {
+    "mrr": 0.5,
+    "ndcg_at_10": 0.63,
+    "root_cause_recall_at_10": 1.0,
+    "root_cause_recall_at_5": 1.0
+  }
+}

@@ -20,6 +20,12 @@ jobs:
         env:
           HF_HUB_OFFLINE: "1"
 
+      - name: Check retrieval regression
+        run: uv run --frozen --offline python scripts/check_retrieval_regression.py
+        env:
+          HF_HUB_OFFLINE: "1"
+          PYTHONPATH: backend/src
+
       - uses: pnpm/action-setup@v4
         with:
           version: 10.15.1

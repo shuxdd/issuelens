@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "root_cause_files": [
+    {"path": "fixture/root-a.py", "relevance": 2},
+    {"path": "fixture/root-b.py", "relevance": 1}
+  ],
+  "changed_files": [{"path": "fixture/changed.py"}],
+  "test_files": [{"path": "fixture/test.py"}]
+}

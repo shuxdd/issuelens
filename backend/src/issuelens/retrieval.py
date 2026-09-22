@@ -1,7 +1,10 @@
 import ast
+import hashlib
 import json
 import math
+import os
 import re
+import tempfile
 import time
 from collections import Counter
 from collections.abc import Callable, Sequence
@@ -91,6 +94,57 @@ class FastEmbedAdapter:
         if len(vectors) != 1:
             raise ValueError("Embedder must return exactly one query vector")
         return tuple(float(value) for value in vectors[0])
+
+
+class CachedDocumentEmbedder:
+    def __init__(self, embedder: Embedder, cache_dir: Path) -> None:
+        self.embedder = embedder
+        self.cache_dir = cache_dir
+        self.identifier = embedder.identifier
+        self.dimension = embedder.dimension
+        self.cache_hits = 0
+        self.cache_misses = 0
+
+    def embed_documents(self, texts: Sequence[str]) -> list[tuple[float, ...]]:
+        key = hashlib.sha256(json.dumps(
+            [self.identifier, self.dimension, list(texts)],
+            ensure_ascii=False, separators=(",", ":"),
+        ).encode("utf-8")).hexdigest()
+        path = self.cache_dir / f"{key}.json"
+        if path.is_file():
+            try:
+                vectors = [tuple(row) for row in json.loads(path.read_text(encoding="utf-8"))]
+                if len(vectors) == len(texts) and all(
+                    len(row) == self.dimension and all(
+                        isinstance(value, (int, float)) and math.isfinite(value)
+                        for value in row
+                    ) for row in vectors
+                ):
+                    self.cache_hits += 1
+                    return vectors
+            except (OSError, ValueError, TypeError):
+                pass
+        vectors = [
+            tuple(float(value) for value in row)
+            for row in self.embedder.embed_documents(texts)
+        ]
+        if len(vectors) != len(texts) or any(len(row) != self.dimension for row in vectors):
+            raise ValueError("Embedder returned an unexpected vector shape")
+        self.cache_dir.mkdir(parents=True, exist_ok=True)
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=self.cache_dir, delete=False
+        ) as temporary:
+            json.dump(vectors, temporary, separators=(",", ":"))
+            temporary_path = Path(temporary.name)
+        try:
+            os.replace(temporary_path, path)
+        finally:
+            temporary_path.unlink(missing_ok=True)
+        self.cache_misses += 1
+        return vectors
+
+    def embed_query(self, text: str) -> tuple[float, ...]:
+        return tuple(self.embedder.embed_query(text))
 
 
 @dataclass(frozen=True)
@@ -186,12 +240,224 @@ class HybridRun:
     metadata: dict[str, int | str]
 
 
+class Reranker(Protocol):
+    identifier: str
+
+    def score(
+        self, query: str, candidates: Sequence[HybridCandidate]
+    ) -> Sequence[float]: ...
+
+
+class FastEmbedRerankerAdapter:
+    def __init__(
+        self, *, model_name: str, model_revision: str, model_path: Path
+    ) -> None:
+        if not model_path.is_dir():
+            raise ValueError("Reranker model path does not exist")
+        encoder: Any = import_module("fastembed.rerank.cross_encoder").TextCrossEncoder
+        self._model = encoder(
+            model_name=model_name,
+            specific_model_path=str(model_path),
+            local_files_only=True,
+            threads=1,
+            cuda=False,
+        )
+        self.identifier = f"fastembed:{model_name}@{model_revision}"
+
+    def score(
+        self, query: str, candidates: Sequence[HybridCandidate]
+    ) -> list[float]:
+        return [
+            float(score)
+            for score in self._model.rerank(
+                query, [candidate.content for candidate in candidates], batch_size=10
+            )
+        ]
+
+
+def verify_model_artifacts(model_path: Path, artifacts: dict[str, str]) -> int:
+    if not artifacts:
+        raise ValueError("Reranker artifact hashes are required")
+    total_bytes = 0
+    for name, expected in artifacts.items():
+        relative = Path(name)
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError("Reranker artifact path must be relative")
+        path = model_path / relative
+        if not path.is_file():
+            raise ValueError(f"Reranker artifact missing: {name}")
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        if digest != expected:
+            raise ValueError(f"Reranker artifact hash mismatch: {name}")
+        total_bytes += path.stat().st_size
+    return total_bytes
+
+
+def load_local_reranker(
+    config: dict[str, Any], cache_root: Path
+) -> tuple[Reranker | None, int]:
+    if not config["enabled"]:
+        return None, 0
+    model = config["model"]
+    if not model.get("revision") or not model.get("artifact_files"):
+        raise ValueError("A pinned local Reranker model is required")
+    model_path = (
+        cache_root / f"models--{model['name'].replace('/', '--')}"
+        / "snapshots" / model["revision"]
+    )
+    size = verify_model_artifacts(model_path, model["artifact_files"])
+    return FastEmbedRerankerAdapter(
+        model_name=model["name"], model_revision=model["revision"], model_path=model_path
+    ), size
+
+
+@dataclass(frozen=True)
+class RerankerConfig:
+    enabled: bool
+    top_k: int
+    score_precision: int
+
+
+@dataclass(frozen=True)
+class RerankedCandidate(HybridCandidate):
+    g2_rank: int
+    rrf_score: str
+    reranker_score: str
+
+
+@dataclass(frozen=True)
+class RerankedRun:
+    query: str
+    candidates: tuple[RerankedCandidate, ...]
+    metadata: dict[str, int | str]
+
+
+def rerank_hybrid_run(
+    g2: HybridRun,
+    reranker: Reranker | None = None,
+    config: RerankerConfig | None = None,
+) -> HybridRun | RerankedRun:
+    if config is None:
+        raise ValueError("Reranker config is required")
+    if not config.enabled:
+        return g2
+    if reranker is None:
+        raise ValueError("Enabled reranker requires a scorer")
+    if config.top_k < 1 or config.score_precision < 0:
+        raise ValueError("Reranker requires positive top_k and non-negative score precision")
+    scores = tuple(reranker.score(g2.query, g2.candidates))
+    if len(scores) != len(g2.candidates) or any(not math.isfinite(score) for score in scores):
+        raise ValueError("Reranker must return one finite score per candidate")
+    scored = [
+        (f"{score:.{config.score_precision}f}", candidate)
+        for score, candidate in zip(scores, g2.candidates, strict=True)
+    ]
+    scored.sort(key=lambda item: (-Decimal(item[0]), item[1].rank, item[1].path,
+                                  item[1].start_line, item[1].end_line, item[1].source_type))
+    candidates = tuple(
+        RerankedCandidate(
+            **{**asdict(candidate), "rank": rank, "score": score},
+            g2_rank=candidate.rank,
+            rrf_score=candidate.score,
+            reranker_score=score,
+        )
+        for rank, (score, candidate) in enumerate(scored[: config.top_k], start=1)
+    )
+    return RerankedRun(
+        query=g2.query,
+        candidates=candidates,
+        metadata={"reranker_identifier": reranker.identifier,
+                  "top_k": config.top_k, "score_precision": config.score_precision},
+    )
+
+
 @dataclass(frozen=True)
 class RetrievalComparison:
     shared_input: dict[str, int | str]
     g1_vector: RetrievalRun
     g2_hybrid: HybridRun
     metadata: dict[str, Any]
+
+
+@dataclass(frozen=True)
+class RerankerComparison:
+    shared_input: dict[str, int | str]
+    g1_vector: RetrievalRun
+    g2_hybrid: HybridRun
+    g3_reranked: HybridRun | RerankedRun
+    metadata: dict[str, Any]
+
+
+def add_reranker_comparison(
+    baseline: RetrievalComparison,
+    reranker: Reranker | None,
+    config: RerankerConfig,
+) -> RerankerComparison:
+    g3 = rerank_hybrid_run(baseline.g2_hybrid, reranker, config)
+    return RerankerComparison(
+        shared_input=baseline.shared_input,
+        g1_vector=baseline.g1_vector,
+        g2_hybrid=baseline.g2_hybrid,
+        g3_reranked=g3,
+        metadata={
+            **baseline.metadata,
+            "reranker": {
+                "enabled": config.enabled,
+                "identifier": reranker.identifier if config.enabled and reranker else None,
+                "top_k": config.top_k,
+                "score_precision": config.score_precision,
+            },
+        },
+    )
+
+
+def run_three_way_experiment(
+    corpus: Corpus,
+    query: str,
+    embedder: Embedder,
+    vector_config: VectorIndexConfig,
+    bm25_config: BM25Config,
+    fusion_config: FusionConfig,
+    reranker: Reranker | None,
+    reranker_config: RerankerConfig,
+    *,
+    benchmark: BenchmarkConfig,
+    clock: Callable[[], int] = time.perf_counter_ns,
+) -> RerankerComparison:
+    if reranker_config.top_k != fusion_config.top_k:
+        raise ValueError("G2 and G3 require the same top_k")
+    baseline = run_retrieval_comparison(
+        corpus, query, embedder, vector_config, bm25_config, fusion_config,
+        benchmark=benchmark, clock=clock,
+    )
+    samples: list[int] = []
+    expected: HybridRun | RerankedRun | None = None
+    for run_number in range(benchmark.warmup_runs + benchmark.repetitions):
+        started = clock()
+        current = rerank_hybrid_run(baseline.g2_hybrid, reranker, reranker_config)
+        duration = clock() - started
+        if duration < 0:
+            raise ValueError("Benchmark clock must be monotonic")
+        if run_number < benchmark.warmup_runs:
+            continue
+        if expected is not None and current != expected:
+            raise ValueError("Reranker ranking changed between benchmark repetitions")
+        expected = current
+        samples.append(duration)
+    comparison = add_reranker_comparison(baseline, reranker, reranker_config)
+    assert expected is not None
+    if comparison.g3_reranked != expected:
+        raise ValueError("Reranker ranking changed after benchmark")
+    comparison.metadata["latency_ns"]["g3_reranked"] = {
+        "build": comparison.metadata["latency_ns"]["g2_hybrid"]["build"],
+        "reranker": {
+            "samples": samples,
+            "median": int(median(samples)),
+            "min": min(samples),
+            "max": max(samples),
+        },
+    }
+    return comparison
 
 
 @dataclass(frozen=True)
@@ -215,6 +481,53 @@ class RetrievalMetrics:
     recall_at_10: RecallReport
     mrr: float
     ndcg_at_10: float
+
+
+def validate_candidate_references(
+    candidates: Sequence[RetrievalCandidate],
+    snapshot_root: Path,
+    repository: str,
+    commit: str,
+) -> list[str]:
+    root = snapshot_root.resolve()
+    errors: list[str] = []
+    for candidate in candidates:
+        label = f"{candidate.path}:{candidate.start_line}-{candidate.end_line}"
+        source = (root / candidate.path).resolve()
+        if not source.is_relative_to(root) or not source.is_file():
+            errors.append(f"{label}: path does not resolve in snapshot")
+            continue
+        lines = source.read_text(encoding="utf-8").splitlines()
+        if not 1 <= candidate.start_line <= candidate.end_line <= len(lines):
+            errors.append(f"{label}: invalid line range")
+            continue
+        if candidate.content != "\n".join(lines[candidate.start_line - 1:candidate.end_line]):
+            errors.append(f"{label}: content does not match snapshot")
+        expected = (
+            f"https://github.com/{repository}/blob/{commit}/"
+            f"{quote(candidate.path, safe='/')}"
+            f"#L{candidate.start_line}-L{candidate.end_line}"
+        )
+        if candidate.commit != commit or candidate.reference != expected:
+            errors.append(f"{label}: commit or reference does not match snapshot")
+    return errors
+
+
+def check_retrieval_thresholds(
+    metrics: RetrievalMetrics, thresholds: dict[str, float]
+) -> list[str]:
+    values = {
+        "root_cause_recall_at_5": metrics.recall_at_5.root_cause_files.recall,
+        "root_cause_recall_at_10": metrics.recall_at_10.root_cause_files.recall,
+        "mrr": metrics.mrr,
+        "ndcg_at_10": metrics.ndcg_at_10,
+    }
+    failures: list[str] = []
+    for name, minimum in thresholds.items():
+        value = values[name]
+        if value is None or value < minimum:
+            failures.append(f"{name}: {value} < {minimum}")
+    return failures
 
 
 def load_retrieval_input(case_path: Path) -> RetrievalInput:
@@ -909,7 +1222,7 @@ def run_vector_retrieval(
 
 
 def evaluate_recall(
-    retrieval_run: RetrievalRun | HybridRun,
+    retrieval_run: RetrievalRun | HybridRun | RerankedRun,
     gold_path: Path,
     *,
     top_k: int,
@@ -941,7 +1254,7 @@ def evaluate_recall(
 
 
 def evaluate_retrieval_metrics(
-    retrieval_run: RetrievalRun | HybridRun,
+    retrieval_run: RetrievalRun | HybridRun | RerankedRun,
     gold_path: Path,
 ) -> RetrievalMetrics:
     gold: dict[str, list[dict[str, Any]]] = json.loads(
@@ -978,6 +1291,87 @@ def evaluate_retrieval_metrics(
         mrr=round(1 / first_relevant_rank, 6) if first_relevant_rank else 0.0,
         ndcg_at_10=round(dcg / ideal_dcg, 6) if ideal_dcg else 0.0,
     )
+
+
+def run_regression_suite(manifest_path: Path) -> dict[str, Any]:
+    manifest: dict[str, Any] = json.loads(manifest_path.read_text(encoding="utf-8"))
+    config = RerankerConfig(**manifest["reranker"])
+    thresholds: dict[str, float] = manifest["thresholds"]
+
+    class RankPreservingReranker:
+        identifier = "g2-rank-preserving-ci-v1"
+
+        def score(
+            self, query: str, candidates: Sequence[HybridCandidate]
+        ) -> list[float]:
+            return [-float(candidate.rank) for candidate in candidates]
+
+    entries: list[dict[str, Any]] = []
+    for entry in manifest["entries"]:
+        source: dict[str, Any] = json.loads(
+            (manifest_path.parent / entry["source"]).read_text(encoding="utf-8")
+        )
+        if entry["kind"] == "real_snapshot":
+            query = source["shared_input"]["query"]
+            candidates = source["groups"]["g2_hybrid"]["candidates"]
+            g2 = HybridRun(
+                query=query,
+                candidates=tuple(HybridCandidate(**candidate) for candidate in candidates),
+                metadata={"strategy": "rrf-v1"},
+            )
+            pipeline = "frozen-g2+reranker"
+        else:
+            query = source["query"]
+            corpus = Corpus(
+                chunks=tuple(Chunk(**chunk) for chunk in source["chunks"]),
+                chunking_config=ChunkingConfig(**source["chunking"]),
+            )
+            class FixedEmbedder:
+                def __init__(self, fixed_corpus: Corpus, fixed_query: str,
+                             settings: dict[str, Any]) -> None:
+                    self.identifier = str(settings["identifier"])
+                    self.dimension = int(settings["dimension"])
+                    self.expected_texts = [
+                        f"{chunk.path}\n{chunk.content}" for chunk in fixed_corpus.chunks
+                    ]
+                    self.query = fixed_query
+                    self.document_vectors = [
+                        tuple(float(value) for value in vector)
+                        for vector in settings["document_vectors"]
+                    ]
+                    self.query_vector = tuple(float(value) for value in settings["query_vector"])
+
+                def embed_documents(self, texts: Sequence[str]) -> Sequence[Sequence[float]]:
+                    if list(texts) != self.expected_texts:
+                        raise ValueError("Hand-fixed corpus changed")
+                    return self.document_vectors
+
+                def embed_query(self, text: str) -> Sequence[float]:
+                    if text != self.query:
+                        raise ValueError("Hand-fixed query changed")
+                    return self.query_vector
+
+            g2 = run_retrieval_comparison(
+                corpus, query, FixedEmbedder(corpus, query, source["embedding"]),
+                VectorIndexConfig(**source["vector"]),
+                BM25Config(**source["bm25"]),
+                FusionConfig(**source["fusion"]),
+            ).g2_hybrid
+            pipeline = "vector+bm25+rrf+reranker"
+        g3 = rerank_hybrid_run(g2, RankPreservingReranker(), config)
+        metrics = evaluate_retrieval_metrics(g3, manifest_path.parent / entry["gold"])
+        failures = check_retrieval_thresholds(metrics, thresholds)
+        entries.append(
+            {"id": entry["id"], "kind": entry["kind"], "pipeline": pipeline,
+             "metrics": asdict(metrics), "failures": failures}
+        )
+    return {
+        "status": "failed" if any(entry["failures"] for entry in entries) else "passed",
+        "scorer": RankPreservingReranker.identifier,
+        "thresholds": thresholds,
+        "manifest_sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+        "entries": entries,
+    }
 
 
 def write_retrieval_result(
@@ -1024,6 +1418,36 @@ def write_retrieval_comparison(
                 ],
                 "metrics": asdict(g2_metrics),
             },
+        },
+        "metadata": comparison.metadata,
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
+        json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
+
+
+def write_reranker_comparison(
+    output_path: Path,
+    case_id: str,
+    comparison: RerankerComparison,
+    gold_path: Path,
+) -> None:
+    groups: dict[str, RetrievalRun | HybridRun | RerankedRun] = {
+        "g1_vector": comparison.g1_vector,
+        "g2_hybrid": comparison.g2_hybrid,
+        "g3_reranked": comparison.g3_reranked,
+    }
+    result = {
+        "schema_version": "1.0",
+        "case_id": case_id,
+        "shared_input": comparison.shared_input,
+        "groups": {
+            name: {
+                "candidates": [asdict(candidate) for candidate in run.candidates],
+                "metrics": asdict(evaluate_retrieval_metrics(run, gold_path)),
+            }
+            for name, run in groups.items()
         },
         "metadata": comparison.metadata,
     }

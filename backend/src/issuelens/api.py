@@ -61,3 +61,15 @@ def review_retrieval_comparison(case_id: str) -> dict[str, Any]:
         raise HTTPException(status_code=404, detail="Retrieval comparison not found")
     result: dict[str, Any] = json.loads(result_path.read_text(encoding="utf-8"))
     return result
+
+
+@app.get("/retrieval/three-way/{case_id}")
+def review_reranker_comparison(case_id: str) -> dict[str, Any]:
+    if re.fullmatch(r"[a-z0-9-]+", case_id) is None:
+        raise HTTPException(status_code=404, detail="Reranker comparison not found")
+
+    result_path = RETRIEVAL_DIRECTORY / case_id / "three-way.json"
+    if not result_path.is_file():
+        raise HTTPException(status_code=404, detail="Reranker comparison not found")
+    result: dict[str, Any] = json.loads(result_path.read_text(encoding="utf-8"))
+    return result
