@@ -1,11 +1,13 @@
+import asyncio
 import json
 from collections.abc import Callable
 from dataclasses import replace
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any, Literal
 
 import pytest
-from issuelens.investigation import InvestigationBudget
+from issuelens.investigation import InvestigationBudget, ObservationContext
 from issuelens.report import ModelResponse, ReportConfig
 from issuelens.retrieval import RerankedCandidate, RerankedRun, RetrievalCandidate, RetrievalInput
 
@@ -45,6 +47,7 @@ def _fixed_investigation(
     run_clock: Callable[[], int] | None = None,
     structured_failures: int = 0,
     observed_model_calls: list[int] | None = None,
+    observation: ObservationContext | None = None,
 ) -> dict[str, Any]:
     from issuelens.investigation import run_investigation
 
@@ -120,7 +123,7 @@ def _fixed_investigation(
     result = run_investigation(
         case, g3, tmp_path, FixedModel(),
         ReportConfig("fixed", "agent-v1", "0", "0", "USD"), FixedTools(), clock=clock,
-        mode=mode, budget=budget, run_clock=run_clock,
+        mode=mode, budget=budget, run_clock=run_clock, observation=observation,
     )
 
     return result
@@ -594,6 +597,22 @@ def test_invalid_structured_output_recovers_once_with_a_fixed_response(
     )
 
 
+def test_recovered_model_calls_all_contribute_events_and_usage(tmp_path: Path) -> None:
+    result = _fixed_investigation(
+        tmp_path,
+        structured_failures=1,
+        observed_model_calls=[],
+    )
+    model_events = [event for event in result["events"] if event["kind"] == "model"]
+
+    assert [event["status"] for event in model_events] == ["invalid_output", "ok"]
+    assert result["statistics"]["model_calls"] == 2
+    assert result["statistics"]["input_tokens"] == 110
+    assert result["statistics"]["output_tokens"] == 25
+    assert result["statistics"]["total_tokens"] == 135
+    assert result["statistics"]["cost"] == "0"
+
+
 def test_structured_output_recovery_exhaustion_is_insufficient_evidence(
     tmp_path: Path,
 ) -> None:
@@ -635,7 +654,10 @@ def test_each_outcome_has_a_terminal_event_and_complete_budget_statistics(
 ) -> None:
     result = _fixed_investigation(tmp_path, **kwargs)  # type: ignore[arg-type]
 
-    assert result["events"][-1] == {
+    assert {
+        key: result["events"][-1][key]
+        for key in ("kind", "stage", "outcome", "stop_reason", "sequence")
+    } == {
         "kind": "stage",
         "stage": "reported",
         "outcome": status,
@@ -655,6 +677,339 @@ def test_investigation_events_have_one_ordered_sequence(tmp_path: Path) -> None:
     events = _fixed_investigation(tmp_path)["events"]
 
     assert [event["sequence"] for event in events] == list(range(1, len(events) + 1))
+
+
+def test_investigation_has_stable_run_trace_and_event_identifiers(tmp_path: Path) -> None:
+    result = _fixed_investigation(
+        tmp_path,
+        observation=ObservationContext(
+            run_id="fixed-run",
+            started_at=datetime(2026, 9, 23, tzinfo=UTC),
+            clock=lambda: 0,
+        ),
+        clock=lambda: 0,
+    )
+
+    assert result["run_id"] == "fixed-run"
+    assert result["trace_id"]
+    assert {event["run_id"] for event in result["events"]} == {"fixed-run"}
+    assert {event["trace_id"] for event in result["events"]} == {result["trace_id"]}
+    assert len({event["event_id"] for event in result["events"]}) == len(result["events"])
+    assert [event["sequence"] for event in result["events"]] == list(
+        range(1, len(result["events"]) + 1)
+    )
+    assert all(event["started_at"] == "2026-09-23T00:00:00Z" for event in result["events"])
+    assert all(event["finished_at"] == "2026-09-23T00:00:00Z" for event in result["events"])
+    assert all(event["duration_ns"] == 0 for event in result["events"])
+
+
+def test_investigation_events_expose_stage_and_tool_parent_relationships(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(tmp_path)
+    retrieved = next(
+        event
+        for event in result["events"]
+        if event["kind"] == "stage" and event["stage"] == "retrieved"
+    )
+
+    assert all(
+        event["parent_id"] == result["trace_id"]
+        for event in result["events"]
+        if event["kind"] == "stage"
+    )
+    assert all(
+        event["parent_id"] == retrieved["event_id"]
+        for event in result["events"]
+        if event["kind"] == "tool"
+    )
+
+
+def test_model_event_reports_usage_cost_latency_and_parent(tmp_path: Path) -> None:
+    readings = iter((10, 25))
+    result = _fixed_investigation(tmp_path, clock=lambda: next(readings))
+    hypotheses = next(
+        event
+        for event in result["events"]
+        if event["kind"] == "stage" and event["stage"] == "hypotheses_formed"
+    )
+    model = next(event for event in result["events"] if event["kind"] == "model")
+
+    assert model["parent_id"] == hypotheses["event_id"]
+    assert model["status"] == "ok"
+    assert model["model"] == "fixed"
+    assert model["prompt_version"] == "agent-v1"
+    assert model["input_tokens"] == 100
+    assert model["cached_input_tokens"] == 0
+    assert model["output_tokens"] == 20
+    assert model["total_tokens"] == 120
+    assert model["cost"] == "0"
+    assert model["currency"] == "USD"
+    assert model["duration_ns"] == 15
+
+
+def test_langfuse_disabled_keeps_investigation_offline(tmp_path: Path) -> None:
+    from issuelens.observability import export_to_langfuse
+
+    result = _fixed_investigation(tmp_path)
+    initialized: list[bool] = []
+
+    exported = export_to_langfuse(
+        result,
+        environ={"LANGFUSE_ENABLED": "false"},
+        client_factory=lambda **kwargs: initialized.append(True),
+    )
+
+    assert result["outcome"]["status"] == "supported"
+    assert exported is False
+    assert initialized == []
+
+
+def test_fixed_langfuse_client_receives_investigation_hierarchy(tmp_path: Path) -> None:
+    from issuelens.observability import export_to_langfuse
+
+    class FixedObservation:
+        def __init__(self, name: str, kind: str) -> None:
+            self.name = name
+            self.kind = kind
+            self.children: list[FixedObservation] = []
+
+        def start_observation(self, *, name: str, as_type: str, **kwargs: object) -> object:
+            child = FixedObservation(name, as_type)
+            self.children.append(child)
+            return child
+
+        def end(self) -> None:
+            pass
+
+    class FixedClient:
+        def __init__(self) -> None:
+            self.root: FixedObservation | None = None
+            self.root_arguments: dict[str, object] = {}
+            self.flushed = False
+
+        def start_observation(self, *, name: str, as_type: str, **kwargs: object) -> object:
+            self.root_arguments = kwargs
+            self.root = FixedObservation(name, as_type)
+            return self.root
+
+        def flush(self) -> None:
+            self.flushed = True
+
+    client = FixedClient()
+    result = _fixed_investigation(tmp_path)
+
+    assert export_to_langfuse(
+        result,
+        environ={
+            "LANGFUSE_ENABLED": "true",
+            "LANGFUSE_PUBLIC_KEY": "fixed-public",
+            "LANGFUSE_SECRET_KEY": "fixed-secret",
+            "LANGFUSE_HOST": "https://fixed.invalid",
+        },
+        client_factory=lambda **kwargs: client,
+    )
+    assert client.flushed
+    assert client.root is not None
+    assert (client.root.name, client.root.kind) == ("investigation", "agent")
+    assert client.root_arguments["trace_context"] == {"trace_id": result["trace_id"]}
+    stages = {child.name: child for child in client.root.children}
+    assert set(stages) == {
+        "issue_parsed", "planned", "retrieved", "evidence_summarized",
+        "hypotheses_formed", "verified", "reported",
+    }
+    assert {(child.name, child.kind) for child in stages["retrieved"].children} == {
+        ("search_code", "tool"),
+        ("semantic_search", "tool"),
+    }
+    assert [(child.name, child.kind) for child in stages["hypotheses_formed"].children] == [
+        ("model", "generation")
+    ]
+
+
+@pytest.mark.parametrize("failure_stage", ["initialization", "send", "flush"])
+def test_langfuse_failure_preserves_result_and_local_events(
+    tmp_path: Path, failure_stage: str,
+) -> None:
+    from issuelens.observability import export_to_langfuse
+
+    class FixedObservation:
+        def start_observation(self, **kwargs: object) -> object:
+            return self
+
+        def end(self) -> None:
+            pass
+
+    class FixedClient:
+        def start_observation(self, **kwargs: object) -> object:
+            if failure_stage == "send":
+                raise RuntimeError("Authorization: Bearer secret-value")
+            return FixedObservation()
+
+        def flush(self) -> None:
+            if failure_stage == "flush":
+                raise RuntimeError("Authorization: Bearer secret-value")
+
+    result = _fixed_investigation(tmp_path)
+    original_events = json.loads(json.dumps(result["events"]))
+
+    exported = export_to_langfuse(
+        result,
+        environ={"LANGFUSE_ENABLED": "true"},
+        client_factory=(
+            (lambda **kwargs: (_ for _ in ()).throw(RuntimeError("secret-value")))
+            if failure_stage == "initialization"
+            else lambda **kwargs: FixedClient()
+        ),
+    )
+
+    assert exported is False
+    assert result["outcome"]["status"] == "supported"
+    assert result["events"][:-1] == original_events
+    assert result["events"][-1]["kind"] == "observation"
+    assert result["events"][-1]["status"] == "degraded"
+    assert result["events"][-1]["failure_stage"] == failure_stage
+    assert "secret-value" not in json.dumps(result["events"][-1])
+
+
+def test_langfuse_payload_is_sanitized_at_the_single_export_boundary(tmp_path: Path) -> None:
+    from issuelens.observability import export_to_langfuse
+
+    payloads: list[dict[str, object]] = []
+
+    class FixedObservation:
+        def start_observation(self, **kwargs: object) -> object:
+            payloads.append(kwargs)
+            return self
+
+        def end(self) -> None:
+            pass
+
+    class FixedClient:
+        def start_observation(self, **kwargs: object) -> object:
+            payloads.append(kwargs)
+            return FixedObservation()
+
+        def flush(self) -> None:
+            pass
+
+    result = _fixed_investigation(tmp_path)
+    tool = next(event for event in result["events"] if event["kind"] == "tool")
+    tool["status"] = "Authorization: Bearer secret-value"
+    tool["arguments"] = {
+        "api_key": "secret-value",
+        "raw_output": "container-secret-value",
+    }
+    result["environment"] = {"COMPLETE_ENVIRONMENT": "environment-secret-value"}
+
+    assert export_to_langfuse(
+        result,
+        environ={
+            "LANGFUSE_ENABLED": "true",
+            "LANGFUSE_SECRET_KEY": "secret-value",
+        },
+        client_factory=lambda **kwargs: FixedClient(),
+    )
+    uploaded = json.dumps(payloads)
+    assert "secret-value" not in uploaded
+    assert "container-secret-value" not in uploaded
+    assert "environment-secret-value" not in uploaded
+    assert "[REDACTED]" in uploaded
+    assert '"total": 120' in uploaded
+
+
+def test_evaluation_score_links_completed_trace_and_experiment_run(tmp_path: Path) -> None:
+    from issuelens.observability import export_to_langfuse, record_evaluation_score
+
+    scores: list[dict[str, object]] = []
+
+    class FixedObservation:
+        def start_observation(self, **kwargs: object) -> object:
+            return self
+
+        def end(self) -> None:
+            pass
+
+    class FixedClient:
+        def start_observation(self, **kwargs: object) -> object:
+            return FixedObservation()
+
+        def create_score(self, **kwargs: object) -> None:
+            scores.append(kwargs)
+
+        def flush(self) -> None:
+            pass
+
+    result = _fixed_investigation(tmp_path)
+    event = record_evaluation_score(
+        result,
+        experiment_run_id="experiment-fixed-1",
+        name="root_cause_verdict",
+        value=2.0,
+        evaluator_version="verdict-v1",
+    )
+
+    assert event["trace_id"] == result["trace_id"]
+    assert event["parent_id"] == result["events"][-2]["event_id"]
+    assert event["experiment_run_id"] == "experiment-fixed-1"
+    assert export_to_langfuse(
+        result,
+        environ={"LANGFUSE_ENABLED": "true"},
+        client_factory=lambda **kwargs: FixedClient(),
+    )
+    assert scores == [{
+        "name": "root_cause_verdict",
+        "value": 2.0,
+        "trace_id": result["trace_id"],
+        "dataset_run_id": "experiment-fixed-1",
+        "score_id": event["event_id"],
+        "data_type": "NUMERIC",
+        "metadata": {"evaluator_version": "verdict-v1"},
+    }]
+
+
+def test_state_and_retrieval_events_include_safe_transition_and_timing_summaries(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(tmp_path)
+    stages = [event for event in result["events"] if event["kind"] == "stage"]
+    tools = [event for event in result["events"] if event["kind"] == "tool"]
+
+    assert [(event["from_stage"], event["to_stage"]) for event in stages] == [
+        (None, "issue_parsed"),
+        ("issue_parsed", "planned"),
+        ("planned", "retrieved"),
+        ("retrieved", "evidence_summarized"),
+        ("evidence_summarized", "hypotheses_formed"),
+        ("hypotheses_formed", "verified"),
+        ("verified", "reported"),
+    ]
+    assert all(event["candidate_count"] == 1 for event in tools)
+    assert all(event["candidate_ranks"] == [1] for event in tools)
+    assert all(event["duration_ns"] >= 0 for event in tools)
+    assert result["statistics"]["run_latency_ns"] >= 0
+
+
+def test_concurrent_async_investigations_keep_separate_parent_trees(tmp_path: Path) -> None:
+    async def run_both() -> tuple[dict[str, Any], dict[str, Any]]:
+        first, second = await asyncio.gather(
+            asyncio.to_thread(_fixed_investigation, tmp_path / "first"),
+            asyncio.to_thread(_fixed_investigation, tmp_path / "second"),
+        )
+        return first, second
+
+    first, second = asyncio.run(run_both())
+
+    assert first["trace_id"] != second["trace_id"]
+    for result in (first, second):
+        event_ids = {event["event_id"] for event in result["events"]}
+        assert [event["sequence"] for event in result["events"]] == list(
+            range(1, len(result["events"]) + 1)
+        )
+        assert all(
+            event["parent_id"] == result["trace_id"] or event["parent_id"] in event_ids
+            for event in result["events"]
+        )
 
 
 def test_issue_parse_event_identifies_source_and_snapshot(tmp_path: Path) -> None:
@@ -677,7 +1032,9 @@ def test_evidence_summary_names_validated_g3_candidates(tmp_path: Path) -> None:
 
 def test_hypothesis_event_exposes_bounded_model_proposals(tmp_path: Path) -> None:
     events = _fixed_investigation(tmp_path)["events"]
-    hypotheses = next(event for event in events if event["stage"] == "hypotheses_formed")
+    hypotheses = next(
+        event for event in events if event.get("stage") == "hypotheses_formed"
+    )
 
     assert hypotheses["hypotheses"] == [
         "A bound method falls through to its class name, method."
@@ -686,7 +1043,7 @@ def test_hypothesis_event_exposes_bounded_model_proposals(tmp_path: Path) -> Non
 
 def test_verification_event_names_supported_evidence(tmp_path: Path) -> None:
     events = _fixed_investigation(tmp_path)["events"]
-    verification = next(event for event in events if event["stage"] == "verified")
+    verification = next(event for event in events if event.get("stage") == "verified")
 
     assert verification["supported_hypotheses"] == 1
     assert verification["references"] == [

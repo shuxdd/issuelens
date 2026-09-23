@@ -14,6 +14,9 @@ IssueLens is an evidence-driven investigation system for open-source issues.
 - Explicit budgets for tool calls, retrieval rewrites, root-cause hypotheses,
   patch attempts, and total runtime. Tests use fixed model and tool substitutes;
   no real patch sandbox is implemented yet.
+- Ordered local investigation events with stable run/trace identifiers, explicit
+  parent links, model usage/cost, latency, and terminal reasons. Langfuse is an
+  optional sanitized export; local events remain the offline source of record.
 
 ## Dataset
 
@@ -90,6 +93,14 @@ PYTHONPATH=backend/src uv run --frozen --offline python scripts/run_supported_in
 
 The replay writes the deterministic result to
 `data/investigations/starlette-issue-1552/run.json`.
+
+Langfuse export is disabled by default. Set `LANGFUSE_ENABLED=true` together
+with `LANGFUSE_PUBLIC_KEY`, `LANGFUSE_SECRET_KEY`, and optionally
+`LANGFUSE_BASE_URL` to export the same local events. Initialization, send, or
+flush failures only append a local degraded-observation event and never change
+the investigation outcome. The export boundary sends allowlisted summaries;
+credentials, complete environments, prompts, tool results, and container output
+are excluded.
 
 ## Checks
 

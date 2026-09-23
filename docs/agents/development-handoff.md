@@ -14,7 +14,7 @@
 
 ## 当前交接状态
 
-截至工单 09 完成及其后续文档更新：
+截至工单 10 完成：
 
 - 远程仓库：`https://github.com/shuxdd/issuelens.git`。
 - 本地 `main` 已包含工单 09 实现提交
@@ -28,8 +28,10 @@
   `issuelens_postgres-data` 数据卷保留。
 - `pnpm check` 仍会在项目脚本前因 `[ERR_PNPM_IGNORED_BUILDS]` 拒绝 `esbuild@0.28.2`；按既定流程
   直接运行四项前端工具，不修改依赖清单或构建审批。
-- 下一步可处理未受阻的工单 10 `10-observable-investigations.md`。工单 10 负责 Langfuse 和完整
-  可观测性，不应回填到工单 09。未经用户明确要求不要推送。
+- 当前分支为 `feat/issue-10-observable-investigations`，工单 10 为 `resolved`。公共调查接缝产生
+  有序本地事件并提供经过统一清洗的可选 Langfuse 出口；固定客户端、失败降级、评分关联、
+  异步父子关系及全部离线回归均通过。项目作者已在本地自托管 Langfuse 的 Traces 界面确认
+  调查、状态、工具和模型调用层级。下一步可处理工单 11；未经用户明确要求不要推送或合并。
 
 ## 历史迁移记录：原电脑上传
 

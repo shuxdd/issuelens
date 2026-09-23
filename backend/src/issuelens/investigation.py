@@ -2,16 +2,18 @@ import json
 import time
 from collections import Counter
 from collections.abc import Callable
-from dataclasses import dataclass
-from datetime import datetime
+from dataclasses import dataclass, field
+from datetime import UTC, datetime, timedelta
+from decimal import Decimal
 from hashlib import sha256
 from pathlib import Path
 from typing import Any, Literal, Protocol, TypedDict, cast
 from urllib.parse import quote
+from uuid import uuid4
 
 from langgraph.graph import END, START, StateGraph
 
-from issuelens.report import ReportConfig, ReportModel, generate_report
+from issuelens.report import ModelResponse, ReportConfig, ReportModel, generate_report
 from issuelens.retrieval import (
     RerankedRun,
     RetrievalCandidate,
@@ -22,6 +24,17 @@ from issuelens.retrieval import (
 
 class InvestigationTools(Protocol):
     def invoke(self, name: str, arguments: dict[str, object]) -> object: ...
+
+
+@dataclass(frozen=True)
+class ObservationContext:
+    run_id: str = field(default_factory=lambda: uuid4().hex)
+    started_at: datetime = field(default_factory=lambda: datetime.now(UTC))
+    clock: Callable[[], int] = time.perf_counter_ns
+
+    def __post_init__(self) -> None:
+        if not self.run_id or self.started_at.utcoffset() != timedelta(0):
+            raise ValueError("observation requires a run identifier and UTC start time")
 
 
 @dataclass(frozen=True)
@@ -105,10 +118,17 @@ class ToolGateway:
             ]
         elif isinstance(result, dict) and isinstance(result.get("reference"), str):
             references = [result["reference"]]
+        candidates = (
+            [item for item in result if isinstance(item, RetrievalCandidate)]
+            if isinstance(result, (list, tuple))
+            else []
+        )
         self.events.append({
             "sequence": len(self.events) + 1,
             "kind": "tool", "tool": name, "status": status,
             "arguments": summary, "references": references,
+            "candidate_count": len(candidates),
+            "candidate_ranks": [item.rank for item in candidates],
         })
 
     def invoke(self, name: str, arguments: dict[str, object]) -> object:
@@ -295,12 +315,16 @@ def run_investigation(
     budget: InvestigationBudget | None = None,
     run_clock: Callable[[], int] | None = None,
     mode: Literal["evaluation", "interactive"] = "evaluation",
+    observation: ObservationContext | None = None,
 ) -> dict[str, Any]:
     if mode not in ("evaluation", "interactive"):
         raise ValueError("mode must be evaluation or interactive")
     budget = budget or InvestigationBudget()
     run_clock = run_clock or time.perf_counter_ns
     started = run_clock()
+    observation = observation or ObservationContext()
+    observation_started = observation.clock()
+    trace_id = sha256(f"issuelens:{observation.run_id}".encode()).hexdigest()[:32]
     gateway = ToolGateway(
         retrieval_input,
         snapshot_root,
@@ -309,6 +333,31 @@ def run_investigation(
         run_clock=run_clock,
         started_ns=started,
     )
+    model_attempts: list[tuple[ModelResponse, int]] = []
+
+    def model_event(status: str) -> dict[str, Any]:
+        response, latency_ns = model_attempts[-1]
+        cost = (
+            Decimal(response.input_tokens - response.cached_input_tokens)
+            * Decimal(config.input_price_per_million)
+            + Decimal(response.cached_input_tokens)
+            * Decimal(config.cached_input_price_per_million)
+            + Decimal(response.output_tokens)
+            * Decimal(config.output_price_per_million)
+        ) / 1_000_000
+        return {
+            "kind": "model",
+            "status": status,
+            "model": config.model,
+            "prompt_version": config.prompt_version,
+            "input_tokens": response.input_tokens,
+            "cached_input_tokens": response.cached_input_tokens,
+            "output_tokens": response.output_tokens,
+            "total_tokens": response.total_tokens,
+            "cost": str(cost),
+            "currency": config.currency,
+            "duration_ns": latency_ns,
+        }
 
     def parse(state: _State) -> _State:
         events = list(state.get("events", []))
@@ -375,6 +424,7 @@ def run_investigation(
                 )
             except _BudgetExhausted as error:
                 events.append({**gateway.events[-1], "stage": "retrieved"})
+                events.append({"kind": "stage", "stage": "retrieved"})
                 return terminal_state(
                     events,
                     "budget_exhausted",
@@ -387,6 +437,7 @@ def run_investigation(
                 )
             except PermissionError:
                 events.append({**gateway.events[-1], "stage": "retrieved"})
+                events.append({"kind": "stage", "stage": "retrieved"})
                 return terminal_state(
                     events,
                     "unsafe_request",
@@ -448,7 +499,13 @@ def run_investigation(
                     "used": elapsed,
                 })
                 terminal = terminal_state(
-                    events,
+                    [
+                        *events,
+                        *(
+                            [{"kind": "stage", "stage": "hypotheses_formed"}]
+                            if model_attempts else []
+                        ),
+                    ],
                     "budget_exhausted",
                     "time_budget_exhausted",
                     ["Which evidence should be investigated in a new budgeted run?"],
@@ -468,13 +525,18 @@ def run_investigation(
                         ],
                     },
                     clock=clock,
+                    on_model_response=lambda response, latency: model_attempts.append(
+                        (response, latency)
+                    ),
                 )
                 draft["metadata"]["model_calls"] = attempt
                 draft["metadata"]["structured_output_retries"] = attempt - 1
+                events.append(model_event("ok"))
                 break
             except ValueError as error:
                 if not str(error).startswith(output_error_prefixes):
                     raise
+                events.append(model_event("invalid_output"))
                 if attempt == 2:
                     events.append({
                         "kind": "recovery",
@@ -483,6 +545,7 @@ def run_investigation(
                         "attempt": 2,
                         "max_retries": 1,
                     })
+                    events.append({"kind": "stage", "stage": "hypotheses_formed"})
                     terminal = terminal_state(
                         events,
                         "insufficient_evidence",
@@ -635,18 +698,57 @@ def run_investigation(
             "outcome": state["outcome"]["status"],
             "stop_reason": state["outcome"]["stop_reason"],
         }
+        observation_finished = observation.clock()
+        started_at = observation.started_at.isoformat().replace("+00:00", "Z")
+        finished_at = (
+            observation.started_at
+            + timedelta(microseconds=(observation_finished - observation_started) / 1_000)
+        ).isoformat().replace("+00:00", "Z")
         events = [
-            {**event, "sequence": number}
+            {
+                **event,
+                "sequence": number,
+                "run_id": observation.run_id,
+                "trace_id": trace_id,
+                "event_id": sha256(
+                    f"{trace_id}:{number}:{event['kind']}".encode()
+                ).hexdigest()[:16],
+                "started_at": started_at,
+                "finished_at": finished_at,
+                "duration_ns": event.get(
+                    "duration_ns", observation_finished - observation_started
+                ),
+            }
             for number, event in enumerate(
                 [*state.get("events", []), terminal_event], start=1
             )
         ]
+        stage_ids = {
+            event["stage"]: event["event_id"]
+            for event in events
+            if event["kind"] == "stage"
+        }
+        previous_stage: str | None = None
+        for event in events:
+            if event["kind"] == "stage":
+                event["from_stage"] = previous_stage
+                event["to_stage"] = event["stage"]
+                previous_stage = event["stage"]
+            if event["kind"] == "tool":
+                event["parent_id"] = stage_ids.get("retrieved", trace_id)
+            elif event["kind"] == "model":
+                event["parent_id"] = stage_ids.get("hypotheses_formed", trace_id)
+            else:
+                event["parent_id"] = trace_id
         tool_counts = Counter(
             event["tool"] for event in events if event["kind"] == "tool"
         )
+        model_events = [event for event in events if event["kind"] == "model"]
         metadata = state["draft"]["metadata"]
         return {
             "result": {
+                "run_id": observation.run_id,
+                "trace_id": trace_id,
                 "case_id": retrieval_input.case_id,
                 "report": state["draft"]["report"],
                 "outcome": state["outcome"],
@@ -654,13 +756,18 @@ def run_investigation(
                 "statistics": {
                     "tool_calls": sum(tool_counts.values()),
                     "tools": dict(tool_counts),
-                    "input_tokens": metadata["input_tokens"],
-                    "output_tokens": metadata["output_tokens"],
-                    "cost": metadata["cost"],
+                    "input_tokens": sum(event["input_tokens"] for event in model_events),
+                    "output_tokens": sum(event["output_tokens"] for event in model_events),
+                    "total_tokens": sum(event["total_tokens"] for event in model_events),
+                    "cost": str(sum(
+                        (Decimal(event["cost"]) for event in model_events),
+                        start=Decimal(0),
+                    )),
                     "model": metadata["model"],
                     "prompt_version": metadata["prompt_version"],
-                    "latency_ns": metadata["latency_ns"],
-                    "model_calls": metadata.get("model_calls", 0),
+                    "latency_ns": sum(event["duration_ns"] for event in model_events),
+                    "run_latency_ns": observation_finished - observation_started,
+                    "model_calls": len(model_events),
                     "structured_output_retries": metadata.get(
                         "structured_output_retries", 0
                     ),

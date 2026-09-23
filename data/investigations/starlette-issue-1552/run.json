@@ -3,27 +3,62 @@
   "events": [
     {
       "case_id": "starlette-issue-1552",
+      "duration_ns": 0,
+      "event_id": "8f49431c157d4cd2",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": null,
       "issue_source_url": "https://github.com/Kludex/starlette/issues/1552",
       "kind": "stage",
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 1,
       "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
-      "stage": "issue_parsed"
+      "stage": "issue_parsed",
+      "started_at": "2026-09-23T00:00:00Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
+      "duration_ns": 0,
+      "event_id": "109b9a4f8f5701a6",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "issue_parsed",
       "kind": "stage",
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
       "query": "Route naming introspection always return \"method\" for method endpoints",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 2,
       "stage": "planned",
+      "started_at": "2026-09-23T00:00:00Z",
+      "to_stage": "planned",
       "tools": [
         "search_code",
         "semantic_search"
-      ]
+      ],
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
       "arguments": {
         "query_sha256": "5fad0cc3fbe1b448be3a6fbb8c7c3d613e9b1da4ff4fb14d388c4cf8ef54c0d2"
       },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 0,
+      "event_id": "602081db113c23f9",
+      "finished_at": "2026-09-23T00:00:00Z",
       "kind": "tool",
+      "parent_id": "7d38d6698a30cf93",
       "references": [
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
@@ -36,16 +71,36 @@
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
       ],
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 3,
       "stage": "retrieved",
+      "started_at": "2026-09-23T00:00:00Z",
       "status": "ok",
-      "tool": "search_code"
+      "tool": "search_code",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
       "arguments": {
         "query_sha256": "5fad0cc3fbe1b448be3a6fbb8c7c3d613e9b1da4ff4fb14d388c4cf8ef54c0d2"
       },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 0,
+      "event_id": "5f21c0d24a887539",
+      "finished_at": "2026-09-23T00:00:00Z",
       "kind": "tool",
+      "parent_id": "7d38d6698a30cf93",
       "references": [
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
@@ -58,15 +113,27 @@
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
       ],
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 4,
       "stage": "retrieved",
+      "started_at": "2026-09-23T00:00:00Z",
       "status": "ok",
-      "tool": "semantic_search"
+      "tool": "semantic_search",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
+      "duration_ns": 0,
+      "event_id": "7d38d6698a30cf93",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "planned",
       "kind": "stage",
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 5,
-      "stage": "retrieved"
+      "stage": "retrieved",
+      "started_at": "2026-09-23T00:00:00Z",
+      "to_stage": "retrieved",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
       "candidate_references": [
@@ -81,36 +148,92 @@
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
       ],
+      "duration_ns": 0,
+      "event_id": "52cc7bd6fd5b2eab",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "retrieved",
       "kind": "stage",
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
       "sequence": 6,
-      "stage": "evidence_summarized"
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-23T00:00:00Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
+      "cached_input_tokens": 0,
+      "cost": "0",
+      "currency": "USD",
+      "duration_ns": 0,
+      "event_id": "e870ef034e6914ee",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "input_tokens": 0,
+      "kind": "model",
+      "model": "fixed-g3-report-v1",
+      "output_tokens": 0,
+      "parent_id": "cb06feb107e4acd0",
+      "prompt_version": "agent-v1",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
+      "sequence": 7,
+      "started_at": "2026-09-23T00:00:00Z",
+      "status": "ok",
+      "total_tokens": 0,
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
+    },
+    {
+      "duration_ns": 0,
+      "event_id": "cb06feb107e4acd0",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "evidence_summarized",
       "hypotheses": [
         "Introspection for method endpoints may produce incorrect route method/name metadata because function/method detection treats bound methods as callables and uses route.methods, but the reported 'method' return is not visible in the cited schema generation excerpt.",
         "Route.name defaults from endpoint via get_name; for method endpoints this may yield 'method' if endpoint is an instance method whose class name is not as expected."
       ],
       "kind": "stage",
-      "sequence": 7,
-      "stage": "hypotheses_formed"
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-23T00:00:00Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
+      "duration_ns": 0,
+      "event_id": "552a80c731e882b6",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "hypotheses_formed",
       "kind": "stage",
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
       "references": [
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
         "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72"
       ],
-      "sequence": 8,
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
+      "sequence": 9,
       "stage": "verified",
-      "supported_hypotheses": 2
+      "started_at": "2026-09-23T00:00:00Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     },
     {
+      "duration_ns": 0,
+      "event_id": "a5bbc04293c3643c",
+      "finished_at": "2026-09-23T00:00:00Z",
+      "from_stage": "verified",
       "kind": "stage",
       "outcome": "supported",
-      "sequence": 9,
+      "parent_id": "ba6eae187599eaa57a14cd1f630906cf",
+      "run_id": "starlette-issue-1552-fixed-supported-v1",
+      "sequence": 10,
       "stage": "reported",
-      "stop_reason": "verified_root_cause"
+      "started_at": "2026-09-23T00:00:00Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
     }
   ],
   "outcome": {
@@ -288,6 +411,7 @@
       "Does the issue occur in get_endpoints, get_name, or a separate route naming API not included in the candidates?"
     ]
   },
+  "run_id": "starlette-issue-1552-fixed-supported-v1",
   "statistics": {
     "budgets": {
       "patch_attempts": {
@@ -325,11 +449,14 @@
       "score_precision": 6,
       "top_k": 10
     },
+    "run_latency_ns": 0,
     "structured_output_retries": 0,
     "tool_calls": 2,
     "tools": {
       "search_code": 1,
       "semantic_search": 1
-    }
-  }
+    },
+    "total_tokens": 0
+  },
+  "trace_id": "ba6eae187599eaa57a14cd1f630906cf"
 }

@@ -1,10 +1,17 @@
 """Replay the fixed supported investigation without network or model calls."""
 
 import json
+import os
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from issuelens.investigation import run_investigation, write_investigation_result
+from issuelens.investigation import (
+    ObservationContext,
+    run_investigation,
+    write_investigation_result,
+)
+from issuelens.observability import export_to_langfuse
 from issuelens.report import (
     ModelResponse,
     ReportConfig,
@@ -63,7 +70,13 @@ def run(root: Path = ROOT) -> dict[str, Any]:
         FixedTools(g3.candidates),
         clock=lambda: 0,
         run_clock=lambda: 0,
+        observation=ObservationContext(
+            run_id=f"{CASE_ID}-fixed-supported-v1",
+            started_at=datetime(2026, 9, 23, tzinfo=UTC),
+            clock=lambda: 0,
+        ),
     )
+    export_to_langfuse(result, environ=os.environ)
     write_investigation_result(root / "data/investigations" / CASE_ID / "run.json", result)
     return result
 

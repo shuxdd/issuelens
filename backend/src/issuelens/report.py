@@ -92,6 +92,7 @@ def generate_report(
     *,
     clock: Callable[[], int] | None = None,
     investigation_context: dict[str, Any] | None = None,
+    on_model_response: Callable[[ModelResponse, int], None] | None = None,
 ) -> dict[str, Any]:
     if run.query != retrieval_input.query:
         raise ValueError("retrieval query does not match investigation issue")
@@ -176,6 +177,8 @@ def generate_report(
     started = clock()
     response = model.generate(messages, config)
     latency_ns = clock() - started
+    if on_model_response is not None:
+        on_model_response(response, latency_ns)
     if (
         response.input_tokens < 0
         or response.output_tokens < 0
