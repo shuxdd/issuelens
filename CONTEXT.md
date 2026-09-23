@@ -49,7 +49,7 @@ _Avoid_：评测模式、自由对话
 _Avoid_：交互模式、演示模式
 
 **调查终态（Investigation Outcome）**：
-一次调查结束时的规范状态，只能是 `supported`、`insufficient_evidence`、`budget_exhausted` 或 `unsafe_request`；每种终态都必须包含停止原因和已收集证据。
+一次调查结束时的规范结果，只能是 `supported`、`insufficient_evidence`、`budget_exhausted` 或 `unsafe_request`；每种终态都包含明确停止原因、允许进入报告的证据和未解决问题。
 _Avoid_：failed、成功或失败
 
 **主评测集（Primary Evaluation Set）**：

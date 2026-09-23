@@ -1,6 +1,6 @@
 # IssueLens 跨设备开发交接
 
-本文供项目作者和新电脑上的 Codex 使用。它说明如何从 GitHub 接续当前项目、收口工单 01，并从工单 02 开始按统一流程继续开发。
+本文供项目作者和新电脑上的 Codex 使用。它说明如何核对仓库真实状态，并按统一流程接续当前未完成工单。
 
 仓库文件是最终事实来源。每次接续时先检查 Git 状态、工单状态和 CI，不要仅依赖本文记录的历史状态。
 
@@ -14,19 +14,27 @@
 
 ## 当前交接状态
 
-截至提交 `d9a34d1`：
+截至本地提交 `fa26459`：
 
-- 远程仓库：`https://github.com/shuxdd/issuelens.git`
-- 当前主分支：`main`
-- 工单 01 的实现提交：`d9a34d1 feat: add runnable IssueLens skeleton`
-- 工单 01 状态仍为 `claimed`，原因是原电脑没有可用的 Docker 引擎，动态容器冒烟尚未在本地确认。
-- 已通过的检查：后端测试、Ruff、mypy、前端测试、ESLint、TypeScript、Vite 生产构建和 `docker compose config --quiet`。
-- 待确认的检查：前端、后端与 PostgreSQL 三个容器能够启动，首页和 `/api/health` 能通过前端容器访问。
-- 下一张工单是 `02-single-investigation-case.md`，它被工单 01 阻塞；工单 01 解决前不开始工单 02。
+- 远程仓库：`https://github.com/shuxdd/issuelens.git`。
+- 本地 `main` 为 `e25914f`；工单 08 已合并到本地 main。
+- 当前工单分支为 `feat/issue-09-controlled-outcomes-and-budgets`，提交为
+  `fa26459 feat: add controlled investigation outcomes and budgets`；尚未推送或合并。
+- 工单 01–09 均为 `resolved`。工单 09 在公共 `run_investigation` 接缝上实现
+  `supported`、`insufficient_evidence`、`budget_exhausted` 和 `unsafe_request`，并加入工具调用、
+  检索改写、根因假设、补丁尝试和五分钟运行时预算、有限工具/结构化输出恢复、交互模式最多三问。
+- 工单 09 验收通过：后端 169 tests、Ruff、mypy、检索回归、前端 Vitest/ESLint/TypeScript/Vite
+  build、Docker 全新构建、三个服务健康及 8 条 HTTP 冒烟。Compose 已停止，
+  `issuelens_postgres-data` 数据卷保留。
+- `pnpm check` 仍会在项目脚本前因 `[ERR_PNPM_IGNORED_BUILDS]` 拒绝 `esbuild@0.28.2`；按既定流程
+  直接运行四项前端工具，不修改依赖清单或构建审批。
+- 工作区预期保留用户所有的 `PRD.md` 和 `README.md` 未提交修改；接续时不得覆盖、还原、暂存或提交。
+- 下一步是在用户明确要求后推送/合并工单 09；随后可处理未受阻的工单 10
+  `10-observable-investigations.md`。工单 10 负责 Langfuse 和完整可观测性，不应回填到工单 09。
 
-这次迁移是一次过渡例外：工单 01 的实现已经提交。Docker 验证通过后，可用一个仅包含工单状态和验收记录的文档提交收口。自工单 02 起，每张工单保持一个最终实现提交。
+## 历史迁移记录：原电脑上传
 
-## 原电脑：确保交接文档已上传
+以下步骤仅保留为最初跨设备迁移记录，当前接续无需执行。
 
 在原电脑的仓库根目录执行：
 
@@ -64,7 +72,7 @@ git status -sb
 git log -3 --oneline
 ```
 
-完成标准：当前分支为 `main`，工作区干净，并且日志中能看到实现提交 `d9a34d1` 和交接文档提交。
+完成标准：当前分支、工作区和近期提交与“当前交接状态”一致。
 
 ### 3. 读取项目约束
 
@@ -79,7 +87,9 @@ git log -3 --oneline
 
 问题跟踪规则、分诊标签和领域文档规则分别由 `AGENTS.md` 中的指针加载。
 
-## 收口工单 01
+## 历史迁移记录：收口工单 01
+
+以下步骤仅保留为工单 01 的验收记录；工单 01 已解决，当前接续无需执行。
 
 ### 1. 本地静态检查
 
