@@ -2,11 +2,34 @@ import json
 from collections.abc import Callable
 from dataclasses import replace
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 import pytest
+from issuelens.investigation import InvestigationBudget
 from issuelens.report import ModelResponse, ReportConfig
 from issuelens.retrieval import RerankedCandidate, RerankedRun, RetrievalCandidate, RetrievalInput
+
+
+@pytest.mark.parametrize(
+    "overrides",
+    [
+        {"tool_calls": 21},
+        {"retrieval_rewrites": 3},
+        {"root_cause_hypotheses": 4},
+        {"patch_attempts": 3},
+        {"run_time_ns": 300_000_000_001},
+        {"tool_calls": -1},
+        {"retrieval_rewrites": -1},
+        {"root_cause_hypotheses": -1},
+        {"patch_attempts": -1},
+        {"run_time_ns": -1},
+    ],
+)
+def test_investigation_budget_cannot_exceed_or_bypass_specification(
+    overrides: dict[str, int],
+) -> None:
+    with pytest.raises(ValueError, match="budget"):
+        InvestigationBudget(**overrides)
 
 
 def _fixed_investigation(
@@ -14,6 +37,14 @@ def _fixed_investigation(
     observed_messages: list[list[dict[str, str]]] | None = None,
     unverified_report: bool = False,
     clock: Callable[[], int] | None = None,
+    mode: Literal["evaluation", "interactive"] = "evaluation",
+    unsafe_tool_request: bool = False,
+    observed_tool_calls: list[str] | None = None,
+    failing_tool: str | None = None,
+    budget: InvestigationBudget | None = None,
+    run_clock: Callable[[], int] | None = None,
+    structured_failures: int = 0,
+    observed_model_calls: list[int] | None = None,
 ) -> dict[str, Any]:
     from issuelens.investigation import run_investigation
 
@@ -43,8 +74,12 @@ def _fixed_investigation(
 
     class FixedModel:
         def generate(self, messages: list[dict[str, str]], config: ReportConfig) -> ModelResponse:
-            if invalid_tool_candidate or empty_tool_results:
+            if invalid_tool_candidate or empty_tool_results or unsafe_tool_request:
                 pytest.fail("unretrieved candidate reached model")
+            if observed_model_calls is not None:
+                observed_model_calls.append(1)
+                if len(observed_model_calls) <= structured_failures:
+                    return ModelResponse("{invalid", 10, 5, 15)
             if observed_messages is not None:
                 observed_messages.append(messages)
             if unverified_report:
@@ -67,6 +102,12 @@ def _fixed_investigation(
 
     class FixedTools:
         def invoke(self, name: str, arguments: dict[str, object]) -> object:
+            if observed_tool_calls is not None:
+                observed_tool_calls.append(name)
+            if unsafe_tool_request:
+                raise PermissionError("untrusted request tried to exceed tool permissions")
+            if name == failing_tool:
+                raise RuntimeError("fixed tool failure")
             if name in {"search_code", "semantic_search"}:
                 if empty_tool_results:
                     return []
@@ -79,6 +120,7 @@ def _fixed_investigation(
     result = run_investigation(
         case, g3, tmp_path, FixedModel(),
         ReportConfig("fixed", "agent-v1", "0", "0", "USD"), FixedTools(), clock=clock,
+        mode=mode, budget=budget, run_clock=run_clock,
     )
 
     return result
@@ -113,6 +155,19 @@ def test_supported_run_reports_tool_and_model_usage(tmp_path: Path) -> None:
     assert result["statistics"]["output_tokens"] == 20
     assert result["statistics"]["cost"] == "0"
     assert result["statistics"]["model"] == "fixed"
+
+
+def test_supported_run_reports_all_controlled_budgets(tmp_path: Path) -> None:
+    budgets = _fixed_investigation(tmp_path)["statistics"]["budgets"]
+
+    assert budgets == {
+        "tool_calls": {"limit": 20, "used": 2},
+        "retrieval_rewrites": {"limit": 2, "used": 0},
+        "root_cause_hypotheses": {"limit": 3, "used": 1},
+        "patch_attempts": {"limit": 2, "used": 0},
+        "run_time_ns": {"limit": 300_000_000_000, "used": budgets["run_time_ns"]["used"]},
+    }
+    assert 0 <= budgets["run_time_ns"]["used"] <= budgets["run_time_ns"]["limit"]
 
 
 def test_supported_outcome_contains_only_cited_snapshot_evidence(tmp_path: Path) -> None:
@@ -206,9 +261,53 @@ def test_submit_patch_requires_preapproved_identifier_without_writing_files(tmp_
     assert list(tmp_path.iterdir()) == []
 
 
-def test_untrusted_retrieval_result_is_rejected_before_model_call(tmp_path: Path) -> None:
-    with pytest.raises(ValueError, match="commit or reference"):
-        _fixed_investigation(tmp_path, invalid_tool_candidate=True)
+def test_submit_patch_budget_blocks_the_third_fixed_attempt(tmp_path: Path) -> None:
+    from issuelens.investigation import ToolGateway
+
+    case = RetrievalInput("fixture", "cases-v1", "Kludex/starlette", "abc123", "Issue", "url")
+
+    class Backend:
+        calls = 0
+
+        def invoke(self, name: str, arguments: dict[str, object]) -> object:
+            self.calls += 1
+            return {"accepted": True}
+
+    backend = Backend()
+    gateway = ToolGateway(
+        case,
+        tmp_path,
+        backend,
+        allowed_patches={"first", "second", "third"},
+        budget=InvestigationBudget(patch_attempts=2),
+    )
+
+    gateway.invoke("submit_patch", {"patch_id": "first"})
+    gateway.invoke("submit_patch", {"patch_id": "second"})
+    with pytest.raises(RuntimeError, match="patch_attempts"):
+        gateway.invoke("submit_patch", {"patch_id": "third"})
+
+    assert backend.calls == 2
+    assert gateway.events[-1] == {
+        "sequence": 3,
+        "kind": "budget",
+        "dimension": "patch_attempts",
+        "status": "exhausted",
+        "limit": 2,
+        "used": 2,
+    }
+
+
+def test_invalid_tool_results_exhaust_recovery_without_reaching_model(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(tmp_path, invalid_tool_candidate=True)
+
+    assert result["outcome"]["status"] == "insufficient_evidence"
+    assert result["outcome"]["stop_reason"] == "tool_recovery_exhausted"
+    assert [
+        event["status"] for event in result["events"] if event["kind"] == "tool"
+    ] == ["invalid_result", "invalid_result"]
 
 
 def test_read_file_returns_only_snapshot_lines_with_fixed_commit_reference(tmp_path: Path) -> None:
@@ -313,9 +412,243 @@ def test_plan_event_explains_how_issue_will_be_searched(tmp_path: Path) -> None:
     assert plan["tools"] == ["search_code", "semantic_search"]
 
 
-def test_no_retrieved_evidence_cannot_reach_report_model(tmp_path: Path) -> None:
-    with pytest.raises(ValueError, match="no validated retrieval candidates"):
-        _fixed_investigation(tmp_path, empty_tool_results=True)
+def test_evaluation_mode_stops_safely_when_no_evidence_is_retrieved(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(tmp_path, empty_tool_results=True)
+
+    assert result["outcome"] == {
+        "status": "insufficient_evidence",
+        "stop_reason": "no_validated_evidence",
+        "allowed_evidence": [],
+        "unresolved_questions": [
+            "What exact call failed, and what was the complete error?",
+            "What is the smallest input that reproduces the issue?",
+            "Which Starlette version or snapshot exhibits the issue?",
+        ],
+    }
+    assert result["report"]["schema_version"] == "1.0"
+    assert "clarification_questions" not in result["outcome"]
+
+
+def test_interactive_mode_returns_at_most_three_answerable_questions(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(tmp_path, empty_tool_results=True, mode="interactive")
+
+    questions = result["outcome"]["clarification_questions"]
+    assert questions == result["outcome"]["unresolved_questions"]
+    assert len(questions) == 3
+    assert all(question.endswith("?") for question in questions)
+
+
+def test_permission_denial_stops_as_unsafe_request_before_another_tool(
+    tmp_path: Path,
+) -> None:
+    calls: list[str] = []
+
+    result = _fixed_investigation(
+        tmp_path, unsafe_tool_request=True, observed_tool_calls=calls
+    )
+
+    assert result["outcome"] == {
+        "status": "unsafe_request",
+        "stop_reason": "tool_permission_denied",
+        "allowed_evidence": [],
+        "unresolved_questions": [
+            "Can the issue be investigated using only allowed snapshot operations?"
+        ],
+    }
+    assert calls == ["search_code"]
+    denied = [event for event in result["events"] if event.get("status") == "denied"]
+    assert len(denied) == 1
+    assert denied[0]["tool"] == "search_code"
+
+
+def test_one_tool_failure_uses_the_other_retrieval_tool_without_retry(
+    tmp_path: Path,
+) -> None:
+    calls: list[str] = []
+
+    result = _fixed_investigation(
+        tmp_path, failing_tool="search_code", observed_tool_calls=calls
+    )
+
+    assert result["outcome"]["status"] == "supported"
+    assert calls == ["search_code", "semantic_search"]
+    failed = [event for event in result["events"] if event.get("status") == "error"]
+    assert len(failed) == 1
+    assert failed[0]["tool"] == "search_code"
+
+
+def test_tool_call_budget_blocks_the_next_tool_before_backend_invocation(
+    tmp_path: Path,
+) -> None:
+    calls: list[str] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        budget=InvestigationBudget(tool_calls=1),
+        observed_tool_calls=calls,
+    )
+
+    assert result["outcome"]["status"] == "budget_exhausted"
+    assert result["outcome"]["stop_reason"] == "tool_call_budget_exhausted"
+    assert calls == ["search_code"]
+    assert result["statistics"]["budgets"]["tool_calls"] == {"limit": 1, "used": 1}
+
+
+def test_time_budget_preserves_validated_report_and_stops_further_tools(
+    tmp_path: Path,
+) -> None:
+    limit = 300_000_000_000
+    readings = iter((0, 0, 0, 0, limit + 1, limit + 1))
+    calls: list[str] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        observed_tool_calls=calls,
+        run_clock=lambda: next(readings),
+    )
+
+    assert result["outcome"]["status"] == "budget_exhausted"
+    assert result["outcome"]["stop_reason"] == "time_budget_exhausted"
+    assert result["outcome"]["allowed_evidence"]
+    assert result["report"]["facts"]
+    assert calls == ["search_code", "semantic_search"]
+    assert any(
+        event.get("kind") == "budget" and event.get("dimension") == "run_time_ns"
+        for event in result["events"]
+    )
+
+
+def test_expired_time_budget_blocks_the_first_tool_call(tmp_path: Path) -> None:
+    limit = 300_000_000_000
+    readings = iter((0, limit, limit))
+    calls: list[str] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        observed_tool_calls=calls,
+        run_clock=lambda: next(readings),
+    )
+
+    assert result["outcome"]["status"] == "budget_exhausted"
+    assert result["outcome"]["stop_reason"] == "time_budget_exhausted"
+    assert calls == []
+    assert result["statistics"]["budgets"]["tool_calls"]["used"] == 0
+
+
+def test_expired_time_budget_blocks_the_report_model_call(tmp_path: Path) -> None:
+    limit = 300_000_000_000
+    readings = iter((0, 0, 0, limit, limit))
+    model_calls: list[int] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        observed_model_calls=model_calls,
+        run_clock=lambda: next(readings),
+    )
+
+    assert result["outcome"]["status"] == "budget_exhausted"
+    assert result["outcome"]["stop_reason"] == "time_budget_exhausted"
+    assert model_calls == []
+
+
+def test_hypothesis_budget_excludes_excess_hypotheses_from_the_report(
+    tmp_path: Path,
+) -> None:
+    result = _fixed_investigation(
+        tmp_path,
+        budget=InvestigationBudget(root_cause_hypotheses=0),
+    )
+
+    assert result["outcome"]["status"] == "budget_exhausted"
+    assert result["outcome"]["stop_reason"] == "hypothesis_budget_exhausted"
+    assert result["report"]["root_cause_hypotheses"] == []
+    assert result["report"]["facts"]
+    assert result["statistics"]["budgets"]["root_cause_hypotheses"] == {
+        "limit": 0,
+        "used": 0,
+    }
+
+
+def test_invalid_structured_output_recovers_once_with_a_fixed_response(
+    tmp_path: Path,
+) -> None:
+    model_calls: list[int] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        structured_failures=1,
+        observed_model_calls=model_calls,
+    )
+
+    assert result["outcome"]["status"] == "supported"
+    assert model_calls == [1, 1]
+    assert result["statistics"]["model_calls"] == 2
+    assert result["statistics"]["structured_output_retries"] == 1
+    assert any(
+        event.get("kind") == "recovery" and event.get("status") == "retrying"
+        for event in result["events"]
+    )
+
+
+def test_structured_output_recovery_exhaustion_is_insufficient_evidence(
+    tmp_path: Path,
+) -> None:
+    model_calls: list[int] = []
+
+    result = _fixed_investigation(
+        tmp_path,
+        structured_failures=2,
+        observed_model_calls=model_calls,
+    )
+
+    assert result["outcome"]["status"] == "insufficient_evidence"
+    assert result["outcome"]["stop_reason"] == "structured_output_recovery_exhausted"
+    assert result["outcome"]["allowed_evidence"] == []
+    assert result["report"]["root_cause_hypotheses"] == []
+    assert model_calls == [1, 1]
+    assert result["statistics"]["model_calls"] == 2
+    assert result["statistics"]["structured_output_retries"] == 1
+
+
+@pytest.mark.parametrize(
+    ("kwargs", "status", "stop_reason"),
+    [
+        ({}, "supported", "verified_root_cause"),
+        ({"empty_tool_results": True}, "insufficient_evidence", "no_validated_evidence"),
+        (
+            {"budget": InvestigationBudget(tool_calls=1)},
+            "budget_exhausted",
+            "tool_call_budget_exhausted",
+        ),
+        ({"unsafe_tool_request": True}, "unsafe_request", "tool_permission_denied"),
+    ],
+)
+def test_each_outcome_has_a_terminal_event_and_complete_budget_statistics(
+    tmp_path: Path,
+    kwargs: dict[str, object],
+    status: str,
+    stop_reason: str,
+) -> None:
+    result = _fixed_investigation(tmp_path, **kwargs)  # type: ignore[arg-type]
+
+    assert result["events"][-1] == {
+        "kind": "stage",
+        "stage": "reported",
+        "outcome": status,
+        "stop_reason": stop_reason,
+        "sequence": len(result["events"]),
+    }
+    assert set(result["statistics"]["budgets"]) == {
+        "tool_calls",
+        "retrieval_rewrites",
+        "root_cause_hypotheses",
+        "patch_attempts",
+        "run_time_ns",
+    }
 
 
 def test_investigation_events_have_one_ordered_sequence(tmp_path: Path) -> None:
@@ -399,11 +732,20 @@ def test_versioned_g3_loader_exposes_only_retrieval_configuration() -> None:
     }
 
 
-def test_issue_08_does_not_claim_a_terminal_state_without_verified_root_cause(
+def test_unverified_root_cause_finishes_as_insufficient_evidence(
     tmp_path: Path,
 ) -> None:
-    with pytest.raises(ValueError, match="supported path requires verified root cause"):
-        _fixed_investigation(tmp_path, unverified_report=True)
+    result = _fixed_investigation(tmp_path, unverified_report=True)
+
+    assert result["outcome"] == {
+        "status": "insufficient_evidence",
+        "stop_reason": "no_supported_root_cause",
+        "allowed_evidence": [],
+        "unresolved_questions": ["What caused it?"],
+    }
+    assert result["report"]["root_cause_hypotheses"][0]["verification"] == (
+        "unverified_hypothesis"
+    )
 
 
 def test_run_tests_rejects_unstructured_tool_output(tmp_path: Path) -> None:

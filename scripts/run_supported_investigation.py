@@ -62,6 +62,7 @@ def run(root: Path = ROOT) -> dict[str, Any]:
         ReportConfig("fixed-g3-report-v1", "agent-v1", "0", "0", "USD"),
         FixedTools(g3.candidates),
         clock=lambda: 0,
+        run_clock=lambda: 0,
     )
     write_investigation_result(root / "data/investigations" / CASE_ID / "run.json", result)
     return result
