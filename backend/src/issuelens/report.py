@@ -71,7 +71,13 @@ def load_versioned_three_way(case_path: Path, frozen_path: Path) -> RerankerComp
         g3_reranked=RerankedRun(
             case.query,
             tuple(RerankedCandidate(**item) for item in groups["g3_reranked"]["candidates"]),
-            {},
+            {
+                "embedding_identifier": shared["embedding_identifier"],
+                "fusion_strategy": frozen["metadata"]["fusion"]["strategy"],
+                "reranker_identifier": frozen["metadata"]["reranker"]["identifier"],
+                "top_k": shared["top_k"],
+                "score_precision": frozen["metadata"]["reranker"]["ranking"]["score_precision"],
+            },
         ),
         metadata={},
     )
@@ -85,10 +91,11 @@ def generate_report(
     config: ReportConfig,
     *,
     clock: Callable[[], int] | None = None,
+    investigation_context: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     if run.query != retrieval_input.query:
         raise ValueError("retrieval query does not match investigation issue")
-    if config.prompt_version != "one-shot-v1":
+    if config.prompt_version not in ("one-shot-v1", "agent-v1"):
         raise ValueError("unsupported prompt version")
     try:
         prices = (
@@ -158,6 +165,10 @@ def generate_report(
                         }
                         for item in run.candidates
                     ],
+                    **(
+                        {"investigation": investigation_context or {}}
+                        if config.prompt_version == "agent-v1" else {}
+                    ),
                 }
             ),
         },

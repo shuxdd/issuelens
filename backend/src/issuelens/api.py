@@ -11,6 +11,7 @@ app = FastAPI(title="IssueLens API")
 CASES_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "cases"
 RETRIEVAL_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "retrieval"
 REPORT_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "reports"
+INVESTIGATION_DIRECTORY = Path(__file__).resolve().parents[3] / "data" / "investigations"
 
 
 @app.get("/health")
@@ -83,5 +84,16 @@ def review_three_way_report(case_id: str) -> dict[str, Any]:
     path = REPORT_DIRECTORY / case_id / "report.json"
     if not path.is_file():
         raise HTTPException(status_code=404, detail="Investigation report not found")
+    result: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
+
+
+@app.get("/investigations/{case_id}")
+def review_investigation(case_id: str) -> dict[str, Any]:
+    if re.fullmatch(r"[a-z0-9-]+", case_id) is None:
+        raise HTTPException(status_code=404, detail="Investigation result not found")
+    path = INVESTIGATION_DIRECTORY / case_id / "run.json"
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Investigation result not found")
     result: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
     return result
