@@ -14,12 +14,12 @@
 
 ## 当前交接状态
 
-截至本地提交 `fa26459`：
+截至工单 09 完成及其后续文档更新：
 
 - 远程仓库：`https://github.com/shuxdd/issuelens.git`。
-- 本地 `main` 为 `e25914f`；工单 08 已合并到本地 main。
-- 当前工单分支为 `feat/issue-09-controlled-outcomes-and-budgets`，提交为
-  `fa26459 feat: add controlled investigation outcomes and budgets`；尚未推送或合并。
+- 本地 `main` 已包含工单 09 实现提交
+  `fa26459 feat: add controlled investigation outcomes and budgets` 及后续文档更新；尚未推送。
+- `feat/issue-09-controlled-outcomes-and-budgets` 分支保留在本地。
 - 工单 01–09 均为 `resolved`。工单 09 在公共 `run_investigation` 接缝上实现
   `supported`、`insufficient_evidence`、`budget_exhausted` 和 `unsafe_request`，并加入工具调用、
   检索改写、根因假设、补丁尝试和五分钟运行时预算、有限工具/结构化输出恢复、交互模式最多三问。
@@ -28,9 +28,8 @@
   `issuelens_postgres-data` 数据卷保留。
 - `pnpm check` 仍会在项目脚本前因 `[ERR_PNPM_IGNORED_BUILDS]` 拒绝 `esbuild@0.28.2`；按既定流程
   直接运行四项前端工具，不修改依赖清单或构建审批。
-- 工作区预期保留用户所有的 `PRD.md` 和 `README.md` 未提交修改；接续时不得覆盖、还原、暂存或提交。
-- 下一步是在用户明确要求后推送/合并工单 09；随后可处理未受阻的工单 10
-  `10-observable-investigations.md`。工单 10 负责 Langfuse 和完整可观测性，不应回填到工单 09。
+- 下一步可处理未受阻的工单 10 `10-observable-investigations.md`。工单 10 负责 Langfuse 和完整
+  可观测性，不应回填到工单 09。未经用户明确要求不要推送。
 
 ## 历史迁移记录：原电脑上传
 
