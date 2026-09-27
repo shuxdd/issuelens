@@ -1,0 +1,162 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-11T22:47:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cc0571b09d913e5207dab576e8659a4fbea23fc0",
+      "sha": "cc0571b09d913e5207dab576e8659a4fbea23fc0"
+    },
+    {
+      "committed_at": "2018-10-11T23:06:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/98f5f542d24666eb0c68e8e30cb1f05a051f057e",
+      "sha": "98f5f542d24666eb0c68e8e30cb1f05a051f057e"
+    },
+    {
+      "committed_at": "2018-10-11T23:27:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dc8ed0d500aa82e96879a67a84eb8af703e261f0",
+      "sha": "dc8ed0d500aa82e96879a67a84eb8af703e261f0"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-11T22:53:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/105",
+          "number": 105,
+          "pull_request": {
+            "merged_at": "2018-10-12T08:46:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/105"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Respond to credentialed requests with specific origin"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-16T19:02:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SrJesus98/Sancti-Shop/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-17T15:30:24Z",
+            "url": "https://api.github.com/repos/SrJesus98/Sancti-Shop/pulls/5"
+          },
+          "repository": {
+            "full_name": "SrJesus98/Sancti-Shop"
+          },
+          "title": "Feature/006 file upload"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc8ed0d500aa82e96879a67a84eb8af703e261f0/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 21,
+      "deletions": 5,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "8bc338047de1f33578d998e932a952d3363bce9d",
+      "status": "modified"
+    },
+    {
+      "additions": 57,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc8ed0d500aa82e96879a67a84eb8af703e261f0/tests%2Ftest_middleware.py",
+      "changes": 57,
+      "deletions": 0,
+      "filename": "tests/test_middleware.py",
+      "sha": "ab3a07726dc93ab34c1ddcc4062e499364b5b855",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "See https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#Credentialed_requests_and_wildcards \r\n\r\nIf a standard request is made, that includes any cookie headers, then CORSMiddleware *ought* to strictly respond with the requested origin, rather than a wildcard.\r\n\r\nThis is actually potentially a bit fiddly since we maybe also need to make sure to *set or add* Vary: Origin in those cases, in order to ensure correct cacheability.",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-12T08:46:10Z",
+    "created_at": "2018-10-09T09:04:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/95",
+    "number": 95,
+    "state": "closed",
+    "title": "Credentialed CORS standard requests should not respond with wildcard origins",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-12T08:46:11Z",
+    "created_at": "2018-10-11T22:53:24Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/105",
+    "merge_commit_sha": "7a0f89abb86099fa996d915523cabbdd48e254e2",
+    "merged_at": "2018-10-12T08:46:10Z",
+    "number": 105,
+    "title": "Respond to credentialed requests with specific origin",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "cc09042c1ca5ccac78bf0ff689faa5dcd3e04f3a",
+    "committed_at": "2018-10-10T16:33:12Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/cc09042c1ca5ccac78bf0ff689faa5dcd3e04f3a"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-10-09T23:31:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-10T09:15:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-11T02:25:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-11T11:09:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-11T13:27:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-11T22:53:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/105",
+          "number": 105,
+          "pull_request": {
+            "merged_at": "2018-10-12T08:46:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/105"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Respond to credentialed requests with specific origin"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-16T19:02:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SrJesus98/Sancti-Shop/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-17T15:30:24Z",
+            "url": "https://api.github.com/repos/SrJesus98/Sancti-Shop/pulls/5"
+          },
+          "repository": {
+            "full_name": "SrJesus98/Sancti-Shop"
+          },
+          "title": "Feature/006 file upload"
+        }
+      }
+    }
+  ]
+}

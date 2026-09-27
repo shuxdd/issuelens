@@ -1,0 +1,137 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-06-30T06:05:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/moorcheh-ai/memanto/pull/1269",
+          "number": 1269,
+          "pull_request": {
+            "merged_at": "2026-07-14T18:04:22Z",
+            "url": "https://api.github.com/repos/moorcheh-ai/memanto/pulls/1269"
+          },
+          "repository": {
+            "full_name": "moorcheh-ai/memanto"
+          },
+          "title": "fix: event-loop blocking in restart endpoint + zero memories_created (#770)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T15:51:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Meeting-BaaS/speaking-meeting-bot/pull/29",
+          "number": 29,
+          "pull_request": {
+            "merged_at": "2026-07-06T15:44:28Z",
+            "url": "https://api.github.com/repos/Meeting-BaaS/speaking-meeting-bot/pulls/29"
+          },
+          "repository": {
+            "full_name": "Meeting-BaaS/speaking-meeting-bot"
+          },
+          "title": "Account-executive persona + v2 API migration, floor control, lobby-aware greeting"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "It appears like starlette does not cancel inner processing for when a client disconnects.\r\n\r\nWith the following code it will keep on fetching from the remote, although the\r\nclient has disconnected already, e.g. when cancelling a curl call.\r\n\r\n```python\r\n@app.route(\u2026)\r\nasync def foo(request):\r\n    \u2026\r\n    if content_type.startswith(\"video/\"):\r\n        bytes_total = req.headers[\"Content-Length\"]\r\n        logger.info(\"Streaming {} bytes...\", bytes_total)\r\n\r\n        async def generator(bytes_total):\r\n            import aiohttp\r\n            async with aiohttp.ClientSession() as session:\r\n                chunk = 0\r\n                chunk_size = 102400\r\n                bytes_read = 0\r\n                async with session.request(method, str(url), chunked=chunk_size) as resp:\r\n                    async for data, end_of_http_chunk in resp.content.iter_chunks():\r\n                        chunk += 1\r\n                        bytes_read += chunk_size\r\n                        logger.info(\"chunk {} {}/{}\", chunk, bytes_read, bytes_total)\r\n                        yield data\r\n        return StreamingResponse(generator(bytes_total), media_type=content_type)\r\n```\r\n\r\nIt might be useful if the handler could be notified of this, in case it wants\r\nto handle this, but in general I think a late middleware, responsible for\r\nsending could handle this maybe?!\r\n",
+    "closed_at": "2019-01-15T09:59:59Z",
+    "created_at": "2018-12-30T22:41:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/297",
+    "number": 297,
+    "state": "closed",
+    "title": "Detect/handle closed client connections",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-30T22:42:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-31T13:44:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-02T22:41:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-02T22:41:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-01-02T22:41:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-01-03T09:19:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-03T09:19:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-01-03T09:19:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-01-03T09:23:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-03T10:35:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-14T14:33:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-14T16:58:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-30T06:05:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/moorcheh-ai/memanto/pull/1269",
+          "number": 1269,
+          "pull_request": {
+            "merged_at": "2026-07-14T18:04:22Z",
+            "url": "https://api.github.com/repos/moorcheh-ai/memanto/pulls/1269"
+          },
+          "repository": {
+            "full_name": "moorcheh-ai/memanto"
+          },
+          "title": "fix: event-loop blocking in restart endpoint + zero memories_created (#770)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T15:51:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Meeting-BaaS/speaking-meeting-bot/pull/29",
+          "number": 29,
+          "pull_request": {
+            "merged_at": "2026-07-06T15:44:28Z",
+            "url": "https://api.github.com/repos/Meeting-BaaS/speaking-meeting-bot/pulls/29"
+          },
+          "repository": {
+            "full_name": "Meeting-BaaS/speaking-meeting-bot"
+          },
+          "title": "Account-executive persona + v2 API migration, floor control, lobby-aware greeting"
+        }
+      }
+    }
+  ]
+}

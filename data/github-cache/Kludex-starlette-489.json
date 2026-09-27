@@ -1,0 +1,75 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-02T05:33:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'd like to do a very simple task, that is add a middleware which runs before the endpoints and adds a few properties to the request object. Very similar to how authentication middleware does it, but I'd like to make it more flexible.\r\n\r\nMy aim is to have something like this:\r\n- request.user_.user_data\r\n- request.user_.org_data\r\n- request.user_.allowed_regions\r\nfor example\r\n\r\nNow, my problem is the following:\r\n- BaseHTTPMiddleware in the docs starts with `response = await call_next(request)` and it adds a Header **after** the request has been processed. How can I use BaseHTTPMiddleware to add processing **before** an endpoint runs?\r\n- Can I add custom properties to the request object in a Middleware?\r\n- In case I cannot do it with BaseHTTPMiddleware I'm confused about the pure ASGI 2 vs. 3. middlewares. All the examples in starlette 0.11.4 are on ASGI 2, but ProxyHeadersMiddleware from uvicorn github is ASGI 3, do I understand it right?\r\n- I get a `INFO: ASGI 'lifespan' protocol appears unsupported.` if I try to add something based on the skeleton of ProxyHeadersMiddleware. Will it disappear if I upgrade to 0.12.beta?",
+    "closed_at": "2019-05-20T14:17:26Z",
+    "created_at": "2019-04-23T16:24:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/489",
+    "number": 489,
+    "state": "closed",
+    "title": "Questions about middlewares",
+    "user": "hyperknot"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-24T05:18:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T09:29:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T09:32:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T10:07:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T10:13:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-02T05:33:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-20T14:17:26Z",
+      "event": "commented"
+    }
+  ]
+}

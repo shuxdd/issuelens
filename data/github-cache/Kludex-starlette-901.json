@@ -1,0 +1,313 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-09-12T08:39:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7495f02cd36af948ca3ac081247dd30eab00abfb",
+      "sha": "7495f02cd36af948ca3ac081247dd30eab00abfb"
+    },
+    {
+      "committed_at": "2020-09-12T09:03:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e5602b5df4ece5f9ef22d1eef387b5bf44825e8",
+      "sha": "1e5602b5df4ece5f9ef22d1eef387b5bf44825e8"
+    },
+    {
+      "committed_at": "2020-10-21T18:13:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/666784d8cbc891d6d23d6f165a6d095c0172b022",
+      "sha": "666784d8cbc891d6d23d6f165a6d095c0172b022"
+    },
+    {
+      "committed_at": "2020-11-08T20:36:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/554435450a5549cefe5b98c7b8ee61428db6bb16",
+      "sha": "554435450a5549cefe5b98c7b8ee61428db6bb16"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-04-15T21:22:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/870",
+          "number": 870,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/870"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add ORJSONResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-14T03:49:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/946",
+          "number": 946,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider removing `request.user` from HTTPConnection?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-06T10:01:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1047",
+          "number": 1047,
+          "pull_request": {
+            "merged_at": "2020-11-08T20:49:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1047"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove UJSONResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-10T15:09:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2335",
+          "number": 2335,
+          "pull_request": {
+            "merged_at": "2021-05-10T14:09:05Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2335"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f  Upgrade Starlette to 0.14.2, including internal `UJSONResponse` migrated from Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-12T16:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2798",
+          "number": 2798,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2798"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fixed python 3.8.7 compatibility"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/README.md",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "README.md",
+      "sha": "0b4508124a49d4d6cf253fbafd27cf9ca4ebd039",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/docs%2Findex.md",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "docs/index.md",
+      "sha": "70ba5ced7b7cb2d0c5f6985eff19e10a6726e49d",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/docs%2Fresponses.md",
+      "changes": 28,
+      "deletions": 12,
+      "filename": "docs/responses.md",
+      "sha": "2ac7c4e71aeb0d0776308c9d17a1dba98559aa19",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/requirements.txt",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "requirements.txt",
+      "sha": "55fb0768be44e9c5902815c0764e6a72080891fe",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/setup.py",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "setup.py",
+      "sha": "37a09ea487543161863932949dbd6ff4e4ed744f",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/starlette%2Fresponses.py",
+      "changes": 13,
+      "deletions": 13,
+      "filename": "starlette/responses.py",
+      "sha": "ff122fba1ceb14b33af2d8508db812bb172f9f99",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/554435450a5549cefe5b98c7b8ee61428db6bb16/tests%2Ftest_responses.py",
+      "changes": 11,
+      "deletions": 11,
+      "filename": "tests/test_responses.py",
+      "sha": "10fbe673cfd625fc489c783ef2d2cb4b9477bf1b",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Sorry if this isn\u2019t the place to discuss this. I created this issue for visibility of a [comment](https://github.com/encode/starlette/pull/870#issuecomment-614258113) I made in a pull request to add a `ORJSONResponse` class (similar to the `UJSONResponse` class). I'm gonna quote it here:\r\n\r\n> [...] I don't think flavour of the month JSON libraries belong in Starlette core, this applies to `UJSONResponse` as well. Next up someone wants a `SIMDJSONResponse` class[1]. Where should the line be drawn?\r\n> \r\n> Another aspect to consider is the maintenance burden of implementing custom response classes like this in core, because that means a contract has been signed. So if orjson becomes unmaintained tomorrow, Starlette would have to go through a deprecation cycle to remove it. Or keep it forever... Bugs in the renderer(s) would likely end up as a Starlette issue as well, instead of in the upstream JSON library.\r\n> \r\n> But enough complaining and on to more constructive feedback. It's evident by this pull request that it's pretty trivial to implement your own custom `JSONResponse` class, so maybe just a section in the documentation describing how to do it is enough? Then someone can (and probably will) publish a package to PyPI that Starlette later can link to, e.g. starlette-orjson. Maybe even a starlette-contrib repo under the encode org? \ud83e\udd37\u200d\u2642\ufe0f \r\n> \r\n> Another option is to make the default `JSONResponse` more pluggable/configurable, similar to how you can configure renderers in Django REST Framework[2]. Personally, I like this approach.\r\n>\r\n> [...]\r\n> \r\n> [1] https://github.com/TkTech/pysimdjson\r\n> [2] https://www.django-rest-framework.org/api-guide/settings/#default_parser_classes",
+    "body_last_edited_at": "2020-04-15T20:41:46Z",
+    "closed_at": "2020-11-08T20:49:13Z",
+    "created_at": "2020-04-15T20:30:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/901",
+    "labels": [
+      "clean up"
+    ],
+    "number": 901,
+    "state": "closed",
+    "title": "Consider removing UJSONResponse from core",
+    "user": "lithammer"
+  },
+  "pull_request": {
+    "closed_at": "2020-11-08T20:49:13Z",
+    "created_at": "2020-09-06T10:01:17Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1047",
+    "merge_commit_sha": "99b37781eb88cfc2f7064724975ac5d93d623ea7",
+    "merged_at": "2020-11-08T20:49:13Z",
+    "number": 1047,
+    "title": "Remove UJSONResponse",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "8729e9fc6964fe0299f67b13658a61c65af2b25b",
+    "committed_at": "2020-09-05T13:16:56Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/8729e9fc6964fe0299f67b13658a61c65af2b25b"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-04-15T20:31:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T20:43:15Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-04-15T21:22:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/870",
+          "number": 870,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/870"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add ORJSONResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-20T10:10:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-14T03:49:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/946",
+          "number": 946,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider removing `request.user` from HTTPConnection?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-06T10:01:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1047",
+          "number": 1047,
+          "pull_request": {
+            "merged_at": "2020-11-08T20:49:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1047"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove UJSONResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:04:26Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-11-08T20:49:13Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-11-10T15:09:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2335",
+          "number": 2335,
+          "pull_request": {
+            "merged_at": "2021-05-10T14:09:05Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2335"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f  Upgrade Starlette to 0.14.2, including internal `UJSONResponse` migrated from Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-12T16:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2798",
+          "number": 2798,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2798"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fixed python 3.8.7 compatibility"
+        }
+      }
+    }
+  ]
+}

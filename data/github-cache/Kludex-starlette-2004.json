@@ -1,0 +1,102 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-01-16T08:29:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7e6c5b222dba94ae72a674ca7d8cce49ab7eb407",
+      "sha": "7e6c5b222dba94ae72a674ca7d8cce49ab7eb407"
+    },
+    {
+      "committed_at": "2023-01-16T08:29:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4c65718356216447bb6e65eaf3c2ff9c149e011e",
+      "sha": "4c65718356216447bb6e65eaf3c2ff9c149e011e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-01-16T08:29:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2011",
+          "number": 2011,
+          "pull_request": {
+            "merged_at": "2023-01-18T15:16:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2011"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document iter methods for WebSockets"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4c65718356216447bb6e65eaf3c2ff9c149e011e/docs%2Fwebsockets.md",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "docs/websockets.md",
+      "sha": "6cf4e08e0ed7f9b7e0a1399e38247c110871a111",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The `WebSocket` class has three methods that are not documented:\r\n\r\nhttps://github.com/encode/starlette/blob/048643adc21e75b668567fc6bcdd3650b89044ea/starlette/websockets.py#L141-L160\r\n\r\nThe goal here would be to add those to the documentation.\r\n\r\nI believe the user would preferably want to use those methods, since they don't need to except `WebSocketDisconnect`. \r\n\r\nI only found them because I was about to implement this... :sweat_smile: ",
+    "closed_at": "2023-01-18T15:16:23Z",
+    "created_at": "2023-01-11T21:49:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2004",
+    "labels": [
+      "documentation",
+      "good first issue"
+    ],
+    "number": 2004,
+    "state": "closed",
+    "title": "Document `iter_text`, `iter_json` and `iter_bytes`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2023-01-18T15:16:21Z",
+    "created_at": "2023-01-16T08:29:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2011",
+    "merge_commit_sha": "9450edf28208ba139c2162b38e6ea40eb04bc90b",
+    "merged_at": "2023-01-18T15:16:21Z",
+    "number": 2011,
+    "title": "Document iter methods for WebSockets",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-01-11T21:49:58Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-11T21:49:58Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-16T08:29:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2011",
+          "number": 2011,
+          "pull_request": {
+            "merged_at": "2023-01-18T15:16:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2011"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document iter methods for WebSockets"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-18T15:16:23Z",
+      "event": "closed"
+    }
+  ]
+}

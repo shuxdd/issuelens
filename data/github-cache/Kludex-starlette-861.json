@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "In the database documentation (https://github.com/encode/starlette/blob/master/docs/database.md), I fail to understand where is the table actually created. When I try to reproduce the example (with `sqlite`), I get: `sqlite3.OperationalError: no such table: notes`. I'm probably missing an obvious piece. Help would be greatly appreciated. Thanks.",
+    "closed_at": "2020-03-16T15:40:52Z",
+    "created_at": "2020-03-11T21:33:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/861",
+    "number": 861,
+    "state": "closed",
+    "title": "How is the table created in the database documentation example?",
+    "user": "gduverger"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-13T13:18:50Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-03-13T13:19:01Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-03-13T14:40:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-13T16:25:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T15:40:52Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-18T04:42:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/211",
+          "number": 211,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/211"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Template endpoint"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "This is going to require a bit of thinking about.\r\n\r\n```python\r\napp = Starlette(template_directory='templates')\r\n\r\n@app.route('/')\r\nasync def homepage(request):\r\n    template = app.get_template('index.html')\r\n    content = template.render(request=request)\r\n    return HTMLResponse(content)\r\n\r\nclient = TestClient(app)\r\nresponse = client.get('/')\r\nassert response.template = 'index.html'\r\nassert 'request' in response.context\r\n```\r\n\r\nTwo issues here. Firstly we haven't associated the template name or context with the response in any way, so we can't reference them from the template. We could do so, with something like...\r\n\r\n```python\r\nreturn app.render_reponse('index.html', context={'request': request})\r\n```\r\n\r\nOr...\r\n\r\n```python\r\nreturn TemplateResponse(template, context={'request': request}))  # I *guess* `template` has the \"index.html\" name string associated with it somewhere?\r\n```\r\n\r\nSecondly, we don't have access to the response instance itself, we've just been sent ASGI messages. We'd need to ensure that `TemplateResponse` included some extra info (\"template\", \"context\") in the messages that it sent back, and that `TestClient` was able to additionally annotate the response with that information.",
+    "closed_at": "2018-12-13T15:16:26Z",
+    "created_at": "2018-11-08T16:54:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/199",
+    "number": 199,
+    "state": "closed",
+    "title": "Testing template reponses",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-11T01:28:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-11T02:56:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-18T04:42:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/211",
+          "number": 211,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/211"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Template endpoint"
+        }
+      }
+    }
+  ]
+}

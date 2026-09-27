@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I think we *probably* ought to include a default Jinja2 setup out-of-the box, so...\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import Response\r\n\r\napp = Starlette(template_dir=\"templates\")\r\n\r\n@app.route(\"/\")\r\nasync def homepage(request):\r\n    template = app.get_template(\"index.html\")\r\n    content = template.render(request=request)\r\n    return HTMLResponse(content=content)\r\n```\r\n\r\nWe'd ensure that the support is strictly optional, and document what a more explicit setup would look like.\r\n\r\nThis would require:\r\n\r\n* Adding `template_dir=` to `Starlette.__init__` and use it to setup a `.template_env` attribute.\r\n* Add `Starlette.get_template()`\r\n\r\nSee our [example repo](https://github.com/encode/starlette-example) or our [template docs](https://www.starlette.io/templates/) for how the template setup should work.\r\n\r\nAny feedback on this?\r\nAnyone interested in tacking a crack at it?",
+    "closed_at": "2018-11-09T07:06:30Z",
+    "created_at": "2018-11-08T13:19:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/196",
+    "number": 196,
+    "state": "closed",
+    "title": "Default `jinja2` setup.",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-08T15:29:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T18:07:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T18:09:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T18:30:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T18:30:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-09T18:30:30Z",
+      "event": "subscribed"
+    }
+  ]
+}

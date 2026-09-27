@@ -1,0 +1,147 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-07-26T09:07:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1251",
+          "number": 1251,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1251"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add a encoder argument for the function __init__ of class - JsonRespo\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-10T03:36:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Gauravsingh257/stocks-with-gaurav/pull/97",
+          "number": 97,
+          "pull_request": {
+            "merged_at": "2026-07-10T03:27:02Z",
+            "url": "https://api.github.com/repos/Gauravsingh257/stocks-with-gaurav/pulls/97"
+          },
+          "repository": {
+            "full_name": "Gauravsingh257/stocks-with-gaurav"
+          },
+          "title": "feat(momentum-pf): Phase C \u2014 deep analytics endpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T13:32:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stranske/Manager-Database/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2026-07-31T14:39:12Z",
+            "url": "https://api.github.com/repos/stranske/Manager-Database/pulls/1497"
+          },
+          "repository": {
+            "full_name": "stranske/Manager-Database"
+          },
+          "title": "feat: add cosine similarity crowding alerts"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi,dear  commiter:\r\n     When I use the class  -- <JsonResponse>  to serialize(jsonify) a response, I find that I can not assign the special JsonEncoder .  Sometime i have to rewrite the JsonResponse class  ,like  following code\r\n`class JSONResponse(Response):\r\n    media_type = \"application/json\"\r\n\r\n    def __init__(self,*args,**kwargs):\r\n        self.encoder = kwargs.get('encoder',None)\r\n        super().__init__(*args)\r\n\r\n    def render(self, content: typing.Any) -> bytes:\r\n        return json.dumps(\r\n            content,\r\n            ensure_ascii=False,\r\n            allow_nan=False,\r\n            indent=None,\r\n            separators=(\",\", \":\"),\r\n            cls=self.encoder,\r\n        ).encode(\"utf-8\")`\r\n\r\n i think it's  necessary that provide custom jsonencoder function.  ",
+    "closed_at": "2021-12-14T18:55:50Z",
+    "created_at": "2021-07-22T09:24:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1250",
+    "number": 1250,
+    "state": "closed",
+    "title": "Could  JSONResponse  provide  JsonEncoder class option on    JSONResponse.__init__ () ?",
+    "user": "lishukan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "7ee807fca971baee88cfb567e22ae86066e6e97a",
+      "commit_url": "https://api.github.com/repos/lishukan/starlette/commits/7ee807fca971baee88cfb567e22ae86066e6e97a",
+      "created_at": "2021-07-26T09:04:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-07-26T09:07:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1251",
+          "number": 1251,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1251"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add a encoder argument for the function __init__ of class - JsonRespo\u2026"
+        }
+      }
+    },
+    {
+      "commit_id": "5281ce276f03337274e2a0a0ac135a5ea69f5e0a",
+      "commit_url": "https://api.github.com/repos/lishukan/starlette/commits/5281ce276f03337274e2a0a0ac135a5ea69f5e0a",
+      "created_at": "2021-07-26T10:55:38Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-12-14T18:55:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T18:55:50Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-12-14T19:03:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-10T03:36:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Gauravsingh257/stocks-with-gaurav/pull/97",
+          "number": 97,
+          "pull_request": {
+            "merged_at": "2026-07-10T03:27:02Z",
+            "url": "https://api.github.com/repos/Gauravsingh257/stocks-with-gaurav/pulls/97"
+          },
+          "repository": {
+            "full_name": "Gauravsingh257/stocks-with-gaurav"
+          },
+          "title": "feat(momentum-pf): Phase C \u2014 deep analytics endpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T13:32:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stranske/Manager-Database/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2026-07-31T14:39:12Z",
+            "url": "https://api.github.com/repos/stranske/Manager-Database/pulls/1497"
+          },
+          "repository": {
+            "full_name": "stranske/Manager-Database"
+          },
+          "title": "feat: add cosine similarity crowding alerts"
+        }
+      }
+    }
+  ]
+}

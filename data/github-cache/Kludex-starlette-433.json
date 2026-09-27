@@ -1,0 +1,71 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-03-22T11:47:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/444",
+          "number": 444,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Take out path_params items with None value in url_path_for"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\n\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route(\"/\")\r\n@app.route(\"/{page:int}\")\r\n@app.route(\"/cat/{cat}\")\r\n@app.route(\"/cat/{cat}/{page:int}\")\r\ndef http_method(request):\r\n    cat = request.path_params.get(\"cat\", \"\")\r\n    page = request.path_params.get(\"page\", 0)\r\n    return PlainTextResponse(\"cat: {}, page: {}\".format(cat, page))\r\n\r\n\r\nprint(app.url_path_for(\"http_method\", cat=None, page=1))  # expected /1\r\nprint(app.url_path_for(\"http_method\", cat=\"name\", page=1))  # expected /cat/name/1\r\nprint(app.url_path_for(\"http_method\", cat=\"name\", page=None))  # expected /cat/name\r\n```\r\n\r\nFirst print does not match with expected, second print matches, third one throws exception",
+    "closed_at": "2019-03-27T12:18:39Z",
+    "created_at": "2019-03-11T09:18:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/433",
+    "number": 433,
+    "state": "closed",
+    "title": "url_for for one endpoint with combinations of routes ",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-11T09:56:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-22T11:47:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/444",
+          "number": 444,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Take out path_params items with None value in url_path_for"
+        }
+      }
+    },
+    {
+      "created_at": "2019-03-27T05:29:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T09:31:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T10:38:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T12:18:39Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-10-31T17:21:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/167",
+          "number": 167,
+          "pull_request": {
+            "merged_at": "2018-11-05T11:38:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/167"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " adds background task param to StreamingResponse and FileResponse"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "This will help with cleaning up any temp resources used to stream a response out.\r\n\r\nSimilar in functionality to : http://flask.pocoo.org/docs/1.0/patterns/deferredcallbacks/  \r\n@after_this_request  etc.",
+    "closed_at": "2018-10-31T09:04:00Z",
+    "created_at": "2018-10-31T00:02:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/166",
+    "number": 166,
+    "state": "closed",
+    "title": "Request to provide an easy canonical way to specify a function to call after last byte is sent.",
+    "user": "zya-performance"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-31T09:04:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-31T17:01:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-31T17:21:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/167",
+          "number": 167,
+          "pull_request": {
+            "merged_at": "2018-11-05T11:38:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/167"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " adds background task param to StreamingResponse and FileResponse"
+        }
+      }
+    }
+  ]
+}

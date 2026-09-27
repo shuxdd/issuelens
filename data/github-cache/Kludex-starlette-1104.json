@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [ ] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen trying to create a background task with kwargs, encounter an error TypeError: __call__() got an unexpected keyword argument when  return await loop.run_in_executor(None, func, *args) in starlette/concurrency.py\", line 34, in run_in_threadpool\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\nTry passing kwargs to background task\r\n\r\n### Expected behavior\r\n\r\nOne recommendation on stackoverflow is to use functools.partial(). Can consider to use same in starlette implementation\r\n\r\n### Actual behavior\r\n\r\nTypeError encountered\r\n\r\n### Debugging material\r\n\r\nERROR:uvicorn.error:Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \u201c<userpath>/uvicorn/protocols/http/h11_impl.py\", line 394, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"<userpath>uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"<userpath>fastapi/applications.py\", line 179, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"<userpath>starlette/applications.py\", line 111, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"<userpath>starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc from None\r\n  File \"<userpath>starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"<userpath>starlette/exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"<userpath>starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"<userpath>starlette/routing.py\", line 566, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"<userpath>starlette/routing.py\", line 227, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"<userpath>starlette/routing.py\", line 44, in app\r\n    await response(scope, receive, send)\r\n  File \"<userpath>starlette/responses.py\", line 142, in __call__\r\n    await self.background()\r\n  File \"<userpath>starlette/background.py\", line 35, in __call__\r\n    await task()\r\n  File \"<userpath>starlette/background.py\", line 20, in __call__\r\n    await run_in_threadpool(self.func, *self.args, **self.kwargs)\r\n  File \"<userpath>starlette/concurrency.py\", line 34, in run_in_threadpool\r\n    return await loop.run_in_executor(None, func, *args)\r\n  File \"/opt/anaconda3/lib/python3.7/concurrent/futures/thread.py\", line 57, in run\r\n    result = self.fn(*self.args, **self.kwargs)\r\nTypeError: __call__() got an unexpected keyword argument 'entityId'\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: <!-- eg Linux/Windows/macOS. --> macOS\r\n- Python version: <!-- eg 3.8.5 (get it with `$ python -V`). --> Python 3.7.4\r\n- Starlette version: <!-- eg 0.13.8 (get it with `$ pip show starlette`). -->Version: 0.13.6\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\nREST endpoint to train a machine learning model. Creating a background task to perform a call back at later point in time. One of the params to model trainer method is a dict (key value) containing information about sample data location, header information, sample size etc. Since there will more information in future required for training the mode, it will be useful to pass this as dict instead of a list\r\n",
+    "closed_at": "2021-06-11T21:01:33Z",
+    "created_at": "2020-11-29T13:14:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1104",
+    "number": 1104,
+    "state": "closed",
+    "title": "kwargs not accepted - return await loop.run_in_executor(None, func, *args) in starlette/concurrency.py",
+    "user": "AnupamaGangadhar"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-02-04T20:32:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T21:01:33Z",
+      "event": "closed"
+    }
+  ]
+}

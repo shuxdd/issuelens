@@ -1,0 +1,249 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-03T17:09:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/656",
+          "number": 656,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/656"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow multiple headers of the same key"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-05T11:12:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Hwara/micro-mart/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-05-07T03:35:59Z",
+            "url": "https://api.github.com/repos/Hwara/micro-mart/pulls/24"
+          },
+          "repository": {
+            "full_name": "Hwara/micro-mart"
+          },
+          "title": "[FEATURE] Phase 6 - api-gateway \uad6c\ud604"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-24T11:44:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/the-momentum/open-wearables/pull/1344",
+          "number": 1344,
+          "pull_request": {
+            "merged_at": "2026-07-24T14:22:43Z",
+            "url": "https://api.github.com/repos/the-momentum/open-wearables/pulls/1344"
+          },
+          "repository": {
+            "full_name": "the-momentum/open-wearables"
+          },
+          "title": "chore: SDK logs validation, optional response logging on 4xx"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-05T19:36:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/maltzsama/dagster-authkit/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-08-05T20:01:58Z",
+            "url": "https://api.github.com/repos/maltzsama/dagster-authkit/pulls/8"
+          },
+          "repository": {
+            "full_name": "maltzsama/dagster-authkit"
+          },
+          "title": "Develop"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:06:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/370",
+          "number": 370,
+          "pull_request": {
+            "merged_at": "2026-08-23T09:10:30Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/370"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "P2: /v1, a deprecation header, and a date on the 562 unversioned paths"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "HTTP spec allows multiple headers of the same key to be present. This is why libraries such as h11 accept a list of headers instead of dictionaries. \r\n\r\n[HTTP 1.1, section 4.2](http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2)\r\n\r\nCurrently starlette dosen't support this because it is just running `value.encode()` on the value in the header. \r\n\r\nI propose that the header dictionary be able to contain lists as values as well, in which case starlette will add a header for each value. \r\nThis is most common when using the `set-cookie` header, when a backend wants to add multiple cookies, but not have the one header exceed too big of an individual header length. \r\n\r\nfor example:\r\n```\r\nheaders = {'mykey': ['value1', 'value2']}\r\n```\r\n\r\nwould produce the following headers:\r\n\r\n```\r\nmykey: value1\r\nmykey: value2\r\n```\r\n\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/650\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/650/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/650/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2019-11-20T04:54:25Z",
+    "created_at": "2019-09-30T19:52:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/650",
+    "number": 650,
+    "state": "closed",
+    "title": "Multiple headers of the same name",
+    "user": "nhumrich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-03T16:36:00Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e55259542c5052a5607f5e568dff1a5868bc6935",
+      "commit_url": "https://api.github.com/repos/nhumrich/starlette/commits/e55259542c5052a5607f5e568dff1a5868bc6935",
+      "created_at": "2019-10-03T17:09:38Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-10-03T17:09:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/656",
+          "number": 656,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/656"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow multiple headers of the same key"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-06T20:39:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-06T21:16:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-06T21:45:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-20T04:54:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-20T04:54:25Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-09-21T07:10:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-29T17:59:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-29T20:15:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-29T20:15:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-12-29T20:15:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-12-08T09:27:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-05-05T11:12:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Hwara/micro-mart/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-05-07T03:35:59Z",
+            "url": "https://api.github.com/repos/Hwara/micro-mart/pulls/24"
+          },
+          "repository": {
+            "full_name": "Hwara/micro-mart"
+          },
+          "title": "[FEATURE] Phase 6 - api-gateway \uad6c\ud604"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-24T11:44:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/the-momentum/open-wearables/pull/1344",
+          "number": 1344,
+          "pull_request": {
+            "merged_at": "2026-07-24T14:22:43Z",
+            "url": "https://api.github.com/repos/the-momentum/open-wearables/pulls/1344"
+          },
+          "repository": {
+            "full_name": "the-momentum/open-wearables"
+          },
+          "title": "chore: SDK logs validation, optional response logging on 4xx"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-05T19:36:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/maltzsama/dagster-authkit/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-08-05T20:01:58Z",
+            "url": "https://api.github.com/repos/maltzsama/dagster-authkit/pulls/8"
+          },
+          "repository": {
+            "full_name": "maltzsama/dagster-authkit"
+          },
+          "title": "Develop"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:06:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/370",
+          "number": 370,
+          "pull_request": {
+            "merged_at": "2026-08-23T09:10:30Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/370"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "P2: /v1, a deprecation header, and a date on the 562 unversioned paths"
+        }
+      }
+    }
+  ]
+}

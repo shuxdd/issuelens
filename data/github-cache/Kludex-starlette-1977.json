@@ -1,0 +1,192 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-11-08T18:43:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a0482c0f1a9e594e6ca1773a93afb64906cc05ea",
+      "sha": "a0482c0f1a9e594e6ca1773a93afb64906cc05ea"
+    },
+    {
+      "committed_at": "2022-11-08T19:28:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a71b8518c9b017bbe31e39ee690282e4300538d7",
+      "sha": "a71b8518c9b017bbe31e39ee690282e4300538d7"
+    },
+    {
+      "committed_at": "2022-12-05T13:11:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/db631f9d7cedd4e25b84d09e5c751276826ee54d",
+      "sha": "db631f9d7cedd4e25b84d09e5c751276826ee54d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-12-06T08:21:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1940",
+          "number": 1940,
+          "pull_request": {
+            "merged_at": "2022-12-08T08:18:50Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1940"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Only stop receiving stream on `body_stream` if body is empty"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-19T07:20:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2625",
+          "number": 2625,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "middleware causes exceptions to not be raised/handled silently (back again)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/db631f9d7cedd4e25b84d09e5c751276826ee54d/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 2,
+      "deletions": 2,
+      "filename": "starlette/middleware/base.py",
+      "sha": "8f2f02ea06f12131f6b4bc50bdbd495092e5e3fb",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1976\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **fraser-langton** December  6, 2022</sup>\r\nFrom [issue in FastAPI](https://github.com/tiangolo/fastapi/issues/5173) - issue was said to be from starlette\r\n\r\nWas initially noticed in FastAPI 0.74.0, was fixed after 0.79.0 but has since regressed (FastAPI 0.88.0 it isn't working)\r\n\r\nWhen exceptions are raised on a subapp, the exceptions are not propagated all the way to see in console\r\nIn the example code\r\n/info raises an exception and the full stacktrace is seen in console\r\n/private/info does not raise the exception and only `INFO: 127.0.0.1:56308 - \"GET /info HTTP/1.1\" 500 Internal Server Error` is shown in console\r\n\r\n```python\r\nimport uvicorn\r\nfrom fastapi import FastAPI\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\n\r\n\r\napp = FastAPI()\r\n\r\n\r\n@app.get(\"/info\")\r\ndef info():\r\n    # raises Exception as expected, the traceback is seen in console\r\n    raise Exception\r\n\r\n\r\nprivate_api = FastAPI()\r\n\r\n\r\n@private_api.get(\"/info\")\r\ndef info():\r\n    # exception is handled silently, no traceback is seen in console\r\n    raise Exception\r\n\r\n\r\napp.mount(\"/private\", private_api)\r\n\r\n\r\nclass Middleware(BaseHTTPMiddleware):\r\n\r\n    async def dispatch(self, request, call_next):\r\n        return await call_next(request)\r\n\r\n\r\napp.add_middleware(Middleware)  # when this is removed, the exceptions are raised for all routes\r\n\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, port=8000)\r\n```\r\n</div>",
+    "closed_at": "2022-12-08T08:18:51Z",
+    "created_at": "2022-12-06T07:53:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1977",
+    "labels": [
+      "bug"
+    ],
+    "number": 1977,
+    "state": "closed",
+    "title": "middleware causes exceptions to not be raised/handled silently",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-12-08T08:18:50Z",
+    "created_at": "2022-11-08T18:43:29Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1940",
+    "merge_commit_sha": "9ae4ee5f1707dc8ea6bd5a1f26c2a7a35e3d2059",
+    "merged_at": "2022-12-08T08:18:50Z",
+    "number": 1940,
+    "title": "Only stop receiving stream on `body_stream` if body is empty",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-12-06T07:53:54Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-12-06T07:57:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-06T07:57:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-12-06T07:57:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-12-06T08:17:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-06T08:21:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1940",
+          "number": 1940,
+          "pull_request": {
+            "merged_at": "2022-12-08T08:18:50Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1940"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Only stop receiving stream on `body_stream` if body is empty"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-08T08:18:52Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-02-25T12:31:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-19T07:20:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2625",
+          "number": 2625,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "middleware causes exceptions to not be raised/handled silently (back again)"
+        }
+      }
+    },
+    {
+      "created_at": "2025-12-08T12:22:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ]
+}

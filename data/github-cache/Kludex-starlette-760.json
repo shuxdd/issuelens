@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,  am working on a project in which i be having urls with query params of the form \r\nhttp://server.com/sample?field[\"email\"]=\"title\" \r\nthat is query parameters of style deepObject ( OpenAPI)\r\nDoes starlette support these type of parameters or is there a way for me to write my own custom deserializer for these\r\n",
+    "closed_at": "2019-12-18T10:40:02Z",
+    "created_at": "2019-12-18T10:33:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/760",
+    "number": 760,
+    "state": "closed",
+    "title": "Handling Deepobject Query params",
+    "user": "Origin1227"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-18T10:40:02Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2296\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **VietThan** October  4, 2023</sup>\r\n## Context\r\nI'm coming from using FastAPI but I have an endpoint where I use it in the following manner:\r\n\r\n```py\r\nfrom fastapi.testclient import TestClient\r\n\r\ndef test_upload(test_client: TestClient):\r\n  # URL of your FastAPI endpoint\r\n  url = \"http://localhost:8000/upload/?param1=temp&param2=temp\"\r\n  \r\n  # Path to the file you want to upload\r\n  file_path = \"your_file.bin\"\r\n  \r\n  # Open the file and send it as binary data in the request\r\n  with open(file_path, \"rb\") as file:\r\n      response = test_client.post(url, data=file.read())\r\n  \r\n  # Print the response from the server\r\n  print(response.status_code)\r\n  print(response.text)\r\n```\r\n\r\nThe endpoint itself is defined something like:\r\n\r\n```py\r\n@app.post(\r\n    '/upload/',\r\n    status_code=status.HTTP_201_CREATED,\r\n)\r\nasync def upload(request: Request) -> str:\r\n  data: bytes = await request.body()\r\n  s3_client = get_s3_client()\r\n  key = generate_random_key()\r\n  s3_client.put_object(Key=key, Body=data, Bucket=BUCKET_NAME)\r\n  return key\r\n```\r\n\r\n## Issue \r\nThe test above works, but mypy giving me an error:\r\n```\r\nerror: Argument \"data\" to \"post\" of \"TestClient\" has incompatible type \"bytes\"; expected \"Mapping[str, str | Iterable[str]] | None\"  [arg-type]\r\n```\r\n\r\nAt the moment, in `starlette/testclient.py` is the following:\r\n```py\r\n_RequestData = typing.Mapping[str, typing.Union[str, typing.Iterable[str]]]\r\n```\r\n\r\nI would like to submit a PR to add `bytes` if we think how I'm using the TestClient is appropriate.</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2421\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2421/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2421/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-02-15T08:27:45Z",
+    "created_at": "2024-01-14T19:01:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2421",
+    "labels": [
+      "good first issue"
+    ],
+    "number": 2421,
+    "state": "closed",
+    "title": "typing map _RequestData in testclient.py might be missing type bytes",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-02-12T21:38:51Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-02-14T18:16:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-14T18:16:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-02-14T18:16:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-02-15T08:27:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-15T08:27:46Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-10-29T06:28:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-05-18T14:41:45Z",
+      "event": "commented"
+    }
+  ]
+}

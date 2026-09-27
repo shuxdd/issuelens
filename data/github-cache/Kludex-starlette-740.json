@@ -1,0 +1,157 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-12-03T11:42:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphene/issues/907",
+          "number": 907,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphene"
+          },
+          "title": "Protection against malicious queries"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-03T14:16:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphene-django/issues/79",
+          "number": 79,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphene-django"
+          },
+          "title": "Permission System"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-04T16:27:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiidateam/aiida-restapi/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2021-06-14T23:31:53Z",
+            "url": "https://api.github.com/repos/aiidateam/aiida-restapi/pulls/17"
+          },
+          "repository": {
+            "full_name": "aiidateam/aiida-restapi"
+          },
+          "title": "\u2728 NEW: Initial graphql implementation"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm wondering if it's possible to add middlewares to a `GraphQLApp` directly, for example is it possible to add  authentication on top of it? \r\n\r\nI think I could make it work using the following strategy, but is there a better way?\r\n\r\n```python\r\ndef authentication_check(func):\r\n\r\n    async def check(*args, **kwargs):\r\n        print(\"We could check for authentication here\")\r\n        response = await func(*args, **kwargs)\r\n        print(\"...\")\r\n        return response\r\n\r\n    return check\r\n\r\n\r\ngraphql_app = GraphQLApp(schema=schema, executor_class=AsyncioExecutor)\r\ngraphql_app.handle_graphql = authentication_check(graphql_app.handle_graphql)\r\n```\r\n\r\nMaybe it would be better to intercept calls to `graphql_app.execute` so we can decide which request are allowed depending on the kind of user? Or, as suggested in [graphene documentation](https://docs.graphene-python.org/en/latest/execution/middleware/) we could just allow to add middleware directly to `schema.execute` right [here](https://github.com/encode/starlette/blob/006fb2ab7ed1465c7c493c7bd2f159f8c16ee949/starlette/graphql.py#L121-L140).\r\n\r\n```python\r\nasync def execute(  # type: ignore\r\n        self, query, variables=None, context=None, operation_name=None, middleware=None\r\n    ):\r\n\r\n    return await self.schema.execute(query, middleware=middleware, ...)\r\n```\r\nOr maybe even better, allow the user to pass any parameter to `schema.execute`: \r\n\r\n```python\r\nasync def execute(  # type: ignore\r\n        self, query, **optional_args\r\n    ):\r\n\r\n    return await self.schema.execute(query, **optional_args)\r\n```\r\n\r\nI found this location to add a middleware very strange (adding it on the schema directly would make more sense to me), but if that's what graphene does I guess that's the better way? I'm very new to this so maybe I'm just lost ^^. \r\n",
+    "closed_at": "2021-02-05T19:47:52Z",
+    "created_at": "2019-12-01T11:56:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/740",
+    "number": 740,
+    "state": "closed",
+    "title": "[Question] Add middleware to GraphQLApp",
+    "user": "cglacet"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-03T11:42:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphene/issues/907",
+          "number": 907,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphene"
+          },
+          "title": "Protection against malicious queries"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-03T14:16:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphene-django/issues/79",
+          "number": 79,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphene-django"
+          },
+          "title": "Permission System"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-17T10:27:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-26T23:21:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-26T23:49:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-28T01:47:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-05T21:02:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-05T23:59:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-01T10:02:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T10:45:53Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-11-06T23:37:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:47:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:47:52Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-06-04T16:27:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiidateam/aiida-restapi/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2021-06-14T23:31:53Z",
+            "url": "https://api.github.com/repos/aiidateam/aiida-restapi/pulls/17"
+          },
+          "repository": {
+            "full_name": "aiidateam/aiida-restapi"
+          },
+          "title": "\u2728 NEW: Initial graphql implementation"
+        }
+      }
+    }
+  ]
+}

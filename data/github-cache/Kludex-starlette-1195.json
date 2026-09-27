@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Describe the bug\r\n\r\nWhen testing a Starlette application with normal cookies, everything works as intended. When setting secure=True, it breaks tests. The TestClient request context seems to lose information about cookies given to it via response, which breaks tests that depend on the cookie being resubmitted to the application.\r\n\r\n### To reproduce\r\n\r\nPython dependencies: `starlette`, `pytest`.\r\n\r\n```\r\n$ git clone https://github.com/kevr/starlette-secure-cookie-bug\r\n$ cd starlette-secure-cookie-bug\r\n$ PYTHONPATH=. pytest test\r\n```\r\n\r\nProblematic app route code and test:\r\n- https://github.com/kevr/starlette-secure-cookie-bug/blob/master/secure_app/app.py#L8\r\n- https://github.com/kevr/starlette-secure-cookie-bug/blob/master/test/test_app.py#L8\r\n\r\n### Expected behavior\r\n\r\nI expect the same behavior that `TestClient` uses for `secure=False` cookies; that is, they persist in the `TestClient` request context.\r\n\r\n### Actual behavior\r\n\r\nCookie does not persist in `TestClient`.\r\n\r\n### Environment\r\n\r\n- OS: `Linux volcano 5.8.0-55-generic #62-Ubuntu SMP Tue Jun 1 08:21:18 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux`, Ubuntu.\r\n- Python version: 3.9.5\r\n- Starlette version: 0.14.2\r\n\r\n### Additional context\r\n\r\nThis issue affects FastAPI directly, as `fastapi.testclient.TestClient == starlette.testclient.TestClient`.\r\n\r\nFastAPI issue: https://github.com/tiangolo/fastapi/issues/3339\r\n",
+    "closed_at": "2022-02-03T04:27:42Z",
+    "created_at": "2021-06-07T04:19:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1195",
+    "labels": [
+      "testclient"
+    ],
+    "number": 1195,
+    "state": "closed",
+    "title": " [Bug] Secure/HTTPOnly cookies untestable",
+    "user": "kevr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-11T21:18:04Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-12T04:03:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T04:27:42Z",
+      "event": "closed"
+    }
+  ]
+}

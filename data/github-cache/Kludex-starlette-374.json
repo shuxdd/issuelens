@@ -1,0 +1,141 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-02-14T17:27:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/370",
+          "number": 370,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Finesse database backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-07T10:03:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/658",
+          "number": 658,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Future-proof way to access a global DB object"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "In Flask we have a `g` global context to keep the global variables of the request. A kind of canonical example [from the docs](http://flask.pocoo.org/docs/1.0/appcontext/#storing-data):\r\n```python\r\nfrom flask import g\r\n\r\ndef get_db():\r\n    if 'db' not in g:\r\n        g.db = connect_to_database()\r\n\r\n    return g.db\r\n\r\n@app.teardown_appcontext\r\ndef teardown_db():\r\n    db = g.pop('db', None)\r\n\r\n    if db is not None:\r\n        db.close()\r\n```\r\nSo I wonder if there is something similar in `starlette`? I have a couple of very weighty objects which I don't want to initialize too often. These objects are \"read-only\" and are not modified during app's lifetime. What is the best way to handle cases like this?",
+    "closed_at": "2019-02-01T09:23:34Z",
+    "created_at": "2019-02-01T07:08:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/374",
+    "number": 374,
+    "state": "closed",
+    "title": "What is the best way to store globally accessible \"heavy\" objects?",
+    "user": "i-zaitsev"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-01T09:22:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-01T09:23:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-01T11:55:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-01T12:33:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T04:10:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T09:49:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T09:49:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-02-08T09:49:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-02-08T15:48:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T16:15:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:27:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/370",
+          "number": 370,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Finesse database backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-07T10:03:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/658",
+          "number": 658,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Future-proof way to access a global DB object"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-08T18:54:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-06T18:11:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-06T18:11:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-04-06T18:11:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-09-29T20:18:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-30T06:45:56Z",
+      "event": "commented"
+    }
+  ]
+}

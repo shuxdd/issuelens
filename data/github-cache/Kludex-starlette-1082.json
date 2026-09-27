@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [X] The bug is reproducible against the latest release and/or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWe had a project that is running starlette version 0.13.8. We recently added pydantic 1.7. This completely broke CORS handling in our app. \r\n\r\nWe don't know why this interaction happens, but we've traced to a dependency of pydantic. Pydantic also installs email_validator 1.1.1, which in turn installs dnspython 2.0.0. Uninstalling dnspython fixes the CORS handling. \r\n\r\n### To reproduce\r\n\r\nSetup a starlette app with CORS enabled, and install the latest pydantic version as well (verify that it ends up adding dnspython to the environment). See CORS break. Uninstall dnspython. See CORS fixed.\r\n\r\n### Expected behavior\r\n\r\nI would expect starlette to play nice with pydantic.\r\n\r\n### Actual behavior\r\n\r\nInstalling pydantic with starlette causes all CORS checks to fail.\r\n\r\n### Debugging material\r\n\r\nAll API calls fail on CORS checks.\r\n\r\n### Environment\r\n\r\n- OS: macOS, tiangolo gunicorn/uvicorn/starlette docker image\r\n- Python version: 3.7\r\n- Starlette version: 0.13.8\r\n\r\n### Additional context\r\n\r\nEDIT: Discovered that pydantic recommends https://pypi.org/project/datamodel-code-generator/ for codegen, which installs the pydantic[email], and this is what actually results in dnspython getting installed.\r\n",
+    "closed_at": "2020-11-04T07:37:38Z",
+    "created_at": "2020-10-30T21:25:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1082",
+    "number": 1082,
+    "state": "closed",
+    "title": "Unexpected interaction between starlette and pydantic dependencies",
+    "user": "quaterneon"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-10-31T09:05:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-03T22:36:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-04T07:37:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-04T07:37:38Z",
+      "event": "closed"
+    }
+  ]
+}

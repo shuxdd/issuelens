@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "for this code :\r\n\r\nfrom starlette.config import Config\r\nfrom starlette.datastructures import URL, Secret\r\n\r\nconfig = Config(\".env\")\r\n\r\nURI: URL = config(\"URI\", cast=URL, default=\"\")\r\nPASSWORD: Secret = config(\"PASSWORD\", cast=Secret, default=\"\")\r\n\r\nwhen run mypy check, it failed:\r\nerror: Incompatible types in assignment (expression has type \"object\", variable has type \"URL\")  [assignment]\r\nerror: Incompatible types in assignment (expression has type \"object\", variable has type \"Secret\")  [assignment]\r\n",
+    "closed_at": "2022-04-13T09:17:13Z",
+    "created_at": "2022-04-13T09:08:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1586",
+    "number": 1586,
+    "state": "closed",
+    "title": "mypy check failed for URL/Secret typing from Config",
+    "user": "chuckliu1979"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-04-13T09:17:12Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-04-13T09:17:13Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

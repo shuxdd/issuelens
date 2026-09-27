@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Apparently since e396f07.\r\nRelated https://github.com/encode/starlette/pull/424.",
+    "closed_at": "2019-05-20T14:57:55Z",
+    "created_at": "2019-05-19T20:35:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/520",
+    "number": 520,
+    "state": "closed",
+    "title": "setup.py requirements are out of date",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-20T14:32:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-20T14:44:29Z",
+      "event": "commented"
+    }
+  ]
+}

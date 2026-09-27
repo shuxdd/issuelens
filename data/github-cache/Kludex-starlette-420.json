@@ -1,0 +1,297 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-07-19T22:34:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/397",
+          "number": 397,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How can I implement a Correlation ID middleware?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-15T23:01:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/13",
+          "number": 13,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Dynamic rate limit based on user type"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-15T17:04:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/googleapis/python-logging/issues/505",
+          "number": 505,
+          "pull_request": {},
+          "repository": {
+            "full_name": "googleapis/python-logging"
+          },
+          "title": "Support metadata autodetection for Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T01:09:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/EngineerCafeJP/engineercafe-navigator/issues/843",
+          "number": 843,
+          "pull_request": {},
+          "repository": {
+            "full_name": "EngineerCafeJP/engineercafe-navigator"
+          },
+          "title": "[FU-01][P0] chat_response.provider/model \u3092 agent metadata \u7d4c\u7531\u3067\u78ba\u5b9f\u306b\u4f1d\u9054"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello, I had an issue with Starlette where I had to access request information outside of a view function. I successfully fixed my issue and would like to share the discussion I had with @tomchristie and how I solved the issue.\r\n \r\n--- \r\n\r\nHere's a snippet of the question I asked and the answer I got:\r\n\r\n**From me:**\r\n\r\nHi!\r\n\r\nI am currently working with Starlette (porting over a Flask project to FastAPI) and I'm wondering if there's some way to get the current request from anywhere in the code, like you can do with Flask using `from flask import request`. \r\nI need to access data from the request but from a non-view part of the code (a logging filter, so I can't even pass it along).\r\n\r\nI've read the whole documentation and looked at all the GitHub issues but couldn't find anything that fits my needs, this https://github.com/encode/starlette/issues/379 is the closest I found, which seems to be part of what I want. However I found no way of importing the request object so it's useless to me.\r\n\r\n\r\n**Reply:**\r\nNo we don't currently do that. Using contextvars would be the way to implement it. You could do this in a middleware class without having to alter Starlette directly. Happy to chat through how you'd achieve that, but let's open a ticket if there's more to talk over here. :)\r\n\r\n---\r\n\r\n## Solution\r\n\r\n**RequestContextMiddleware**:\r\n```py\r\nfrom contextvars import ContextVar\r\nfrom uuid import uuid4\r\n\r\nfrom starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint\r\nfrom starlette.requests import Request\r\n\r\n\r\nREQUEST_ID_CTX_KEY = \"request_id\"\r\n\r\n_request_id_ctx_var: ContextVar[str] = ContextVar(REQUEST_ID_CTX_KEY, default=None)\r\n\r\n\r\ndef get_request_id() -> str:\r\n    return _request_id_ctx_var.get()\r\n\r\n\r\nclass RequestContextMiddleware(BaseHTTPMiddleware):\r\n\r\n    async def dispatch(\r\n        self, request: Request, call_next: RequestResponseEndpoint\r\n    ):\r\n        request_id = _request_id_ctx_var.set(str(uuid4()))\r\n\r\n        response = await call_next(request)\r\n\r\n        _request_id_ctx_var.reset(request_id)\r\n\r\n        return response\r\n```\r\n\r\n**In your app initialisation**:\r\n```python\r\napp.add_middleware(RequestContextMiddleware)\r\n```\r\n\r\n**Usage**:\r\nNow you will be able to import the `get_request_id` function anywhere and get the current request ID, or `None` if you are not in the context of a request.\r\n\r\nYou can also add many more context vars by creating new `ContextVar` objects, and using them the same way as `_request_id_ctx_var` in my example.\r\n\r\n---\r\n## For the future\r\n\r\nMaybe Starlette could expose an object that abstracts the context vars in some way. But my idea on this isn't clear, I don't know how generic this could be.",
+    "closed_at": "2019-04-30T08:46:46Z",
+    "created_at": "2019-03-06T16:41:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/420",
+    "number": 420,
+    "state": "closed",
+    "title": "Globally importable request object",
+    "user": "MarcDufresne"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-11T13:40:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-11T13:40:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-03-11T13:40:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-30T03:30:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T03:30:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-30T03:30:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-30T08:47:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T08:47:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-30T08:47:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-07-19T22:34:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/397",
+          "number": 397,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How can I implement a Correlation ID middleware?"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-28T12:28:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-28T15:01:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-28T17:22:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-15T23:01:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/13",
+          "number": 13,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Dynamic rate limit based on user type"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-21T15:35:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-21T15:35:09Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-05-21T15:35:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-05-22T19:11:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-22T23:20:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-06T06:31:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-15T17:04:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/googleapis/python-logging/issues/505",
+          "number": 505,
+          "pull_request": {},
+          "repository": {
+            "full_name": "googleapis/python-logging"
+          },
+          "title": "Support metadata autodetection for Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-07T17:00:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-07T17:00:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-02-07T17:00:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-07T17:34:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-07T17:35:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-02-07T17:35:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-05-17T01:09:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/EngineerCafeJP/engineercafe-navigator/issues/843",
+          "number": 843,
+          "pull_request": {},
+          "repository": {
+            "full_name": "EngineerCafeJP/engineercafe-navigator"
+          },
+          "title": "[FU-01][P0] chat_response.provider/model \u3092 agent metadata \u7d4c\u7531\u3067\u78ba\u5b9f\u306b\u4f1d\u9054"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "case_id": "starlette-issue-1588",
+  "changed_files": [
+    {
+      "path": "starlette/applications.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fapplications.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fexceptions.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/formparsers.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fformparsers.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/middleware/exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fmiddleware%2Fexceptions.py",
+      "status": "added"
+    },
+    {
+      "path": "starlette/requests.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Frequests.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/applications.py",
+      "snapshot_commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+      "source_url": "https://github.com/Kludex/starlette/blob/830f3486537916bae6b46948ff922adc14a22b7c/starlette/applications.py"
+    },
+    {
+      "path": "starlette/exceptions.py",
+      "snapshot_commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+      "source_url": "https://github.com/Kludex/starlette/blob/830f3486537916bae6b46948ff922adc14a22b7c/starlette/exceptions.py"
+    },
+    {
+      "path": "starlette/formparsers.py",
+      "snapshot_commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+      "source_url": "https://github.com/Kludex/starlette/blob/830f3486537916bae6b46948ff922adc14a22b7c/starlette/formparsers.py"
+    },
+    {
+      "path": "starlette/requests.py",
+      "snapshot_commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+      "source_url": "https://github.com/Kludex/starlette/blob/830f3486537916bae6b46948ff922adc14a22b7c/starlette/requests.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/applications.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/exceptions.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/formparsers.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/requests.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Send 400 on missing `boundary`' originates in starlette/applications.py, starlette/exceptions.py, starlette/formparsers.py, starlette/requests.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_exceptions.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_formparsers.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_formparsers.py",
+      "status": "modified"
+    }
+  ]
+}

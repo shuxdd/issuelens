@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-30T21:04:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/884",
+          "number": 884,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add simple CDN example for static files"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "https://www.starlette.io/staticfiles/\r\n\r\nIt's looks as good idea to add support for private storage buckets.\r\n\r\nIt can be useful, for example, for creating static pypi repository (via dumb-pypi generator) on google cloud bucket and using Starlette as proxy between Google Cloud Storage bucket and end user (with pip or poetry).",
+    "closed_at": "2020-03-31T10:04:48Z",
+    "created_at": "2020-03-21T12:31:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/873",
+    "number": 873,
+    "state": "closed",
+    "title": "Add support for Google Cloud Storage and AWS S3",
+    "user": "lorddaedra"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-30T21:04:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/884",
+          "number": 884,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add simple CDN example for static files"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-31T10:04:48Z",
+      "event": "commented"
+    }
+  ]
+}

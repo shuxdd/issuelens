@@ -1,0 +1,220 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-02-28T21:56:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/taoufik07/nejma/issues/1",
+          "number": 1,
+          "pull_request": {},
+          "repository": {
+            "full_name": "taoufik07/nejma"
+          },
+          "title": "Redis channel layer"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-26T19:44:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/51",
+          "number": 51,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-23T22:30:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/208",
+          "number": 208,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Not Handling Connections to Multiple Worker Processes Correctly"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-23T21:25:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DmitryBurnaev/starlette-web/issues/62",
+          "number": 62,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DmitryBurnaev/starlette-web"
+          },
+          "title": "Integrate websocket channel groups"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "WebSockets and SSE aren\u2019t really any use without a broadcast interface. (Eg redis pub/sub or postgres listen/notify)\r\n\r\nLook to channels\u2019 group add/discard/send here.",
+    "closed_at": "2022-02-14T15:46:23Z",
+    "created_at": "2018-10-20T18:39:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/133",
+    "labels": [
+      "feature"
+    ],
+    "number": 133,
+    "state": "closed",
+    "title": "Broadcast interface",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-20T18:40:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-23T21:10:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-03T11:01:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-03T11:01:12Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-12-03T11:01:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-02-28T21:56:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/taoufik07/nejma/issues/1",
+          "number": 1,
+          "pull_request": {},
+          "repository": {
+            "full_name": "taoufik07/nejma"
+          },
+          "title": "Redis channel layer"
+        }
+      }
+    },
+    {
+      "created_at": "2019-02-28T22:11:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-28T22:11:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-02-28T22:11:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-02T01:14:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-02T03:06:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-02T03:06:13Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-02T03:06:13Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-02T08:37:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-02T08:37:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-02T08:37:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-04T00:44:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-04T00:44:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-04T00:44:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-26T19:44:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/51",
+          "number": 51,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-01T12:29:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-23T22:30:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/208",
+          "number": 208,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Not Handling Connections to Multiple Worker Processes Correctly"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-14T15:46:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-23T21:25:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DmitryBurnaev/starlette-web/issues/62",
+          "number": 62,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DmitryBurnaev/starlette-web"
+          },
+          "title": "Integrate websocket channel groups"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-06-11T11:01:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/broadcaster/issues/123",
+          "number": 123,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/broadcaster"
+          },
+          "title": "RuntimeError: Cannot call \"receive\" once a disconnect message has been received."
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-15T16:28:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/broadcaster/issues/137",
+          "number": 137,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/broadcaster"
+          },
+          "title": "Fix sample code in ReadMe"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-25T19:45:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/uzerkayat2004-gif/dom-platform-engine/pull/43",
+          "number": 43,
+          "pull_request": {
+            "url": "https://api.github.com/repos/uzerkayat2004-gif/dom-platform-engine/pulls/43"
+          },
+          "repository": {
+            "full_name": "uzerkayat2004-gif/dom-platform-engine"
+          },
+          "title": "Fix: Improve WebSocket error handling in broadcast and disconnect"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-04T07:16:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redhat-et/robotics-playground/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-07-04T10:28:48Z",
+            "url": "https://api.github.com/repos/redhat-et/robotics-playground/pulls/8"
+          },
+          "repository": {
+            "full_name": "redhat-et/robotics-playground"
+          },
+          "title": "feat: Phase 1 \u2014 Skeleton UI Shell + Mock Backend"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-22T18:10:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/drinktoomuchsax/Aimont/pull/39",
+          "number": 39,
+          "pull_request": {
+            "merged_at": "2026-07-23T02:15:56Z",
+            "url": "https://api.github.com/repos/drinktoomuchsax/Aimont/pulls/39"
+          },
+          "repository": {
+            "full_name": "drinktoomuchsax/Aimont"
+          },
+          "title": "Consolidated repo improvements (supersedes #21\u2013#38)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-29T11:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Deathcharge/samsarix-chat-engine/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-07-29T11:57:57Z",
+            "url": "https://api.github.com/repos/Deathcharge/samsarix-chat-engine/pulls/2"
+          },
+          "repository": {
+            "full_name": "Deathcharge/samsarix-chat-engine"
+          },
+          "title": "Productize Samsarix Chat Engine and add its Samsarix roadmap"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T01:08:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/psamin/project_flock/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T01:31:48Z",
+            "url": "https://api.github.com/repos/psamin/project_flock/pulls/9"
+          },
+          "repository": {
+            "full_name": "psamin/project_flock"
+          },
+          "title": "Phase 2: walking skeleton \u2014 scouts move, write beliefs, render in a browser"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-17T20:18:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/obsidian-media/AlphonsoEcosystem/pull/153",
+          "number": 153,
+          "pull_request": {
+            "merged_at": "2026-08-19T00:03:55Z",
+            "url": "https://api.github.com/repos/obsidian-media/AlphonsoEcosystem/pulls/153"
+          },
+          "repository": {
+            "full_name": "obsidian-media/AlphonsoEcosystem"
+          },
+          "title": "Security hardening: Voice OS token auth, approvalMode default fix, companion IP throttle, OCR arg allowlist, placeholder connector UX"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "[As recommended by Alex and confirmed that this seems to be an issue with starlette and not broadcaster,](https://github.com/encode/broadcaster/issues/123#issuecomment-2159066937) I am creating this issue.\r\n \r\n\r\nThis RuntimeError shows on client disconnect. \r\n\r\nI have made a sample code which can reproduce the error at https://github.com/laxuscullen/WS/tree/wo_broadcaster\r\n\r\n```\r\n  File \"venv/lib/python3.12/site-packages/starlette/endpoints.py\", line 79, in dispatch\r\n    message = await websocket.receive()\r\n              ^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"venv/lib/python3.12/site-packages/starlette/websockets.py\", line 60, in receive\r\n    raise RuntimeError(\r\nRuntimeError: Cannot call \"receive\" once a disconnect message has been received.\r\n```\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2617\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2617/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2617/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-08-06T07:46:53Z",
+    "created_at": "2024-06-10T23:52:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2617",
+    "labels": [
+      "websocket"
+    ],
+    "number": 2617,
+    "state": "closed",
+    "title": "[Websockets] RuntimeError: Cannot call \"receive\" once a disconnect message has been received.",
+    "user": "laxuscullen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-06-11T07:13:36Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2024-06-11T11:01:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/broadcaster/issues/123",
+          "number": 123,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/broadcaster"
+          },
+          "title": "RuntimeError: Cannot call \"receive\" once a disconnect message has been received."
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-21T16:09:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-21T16:09:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-21T16:09:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-06-21T16:24:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-21T16:46:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-21T17:09:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-01T21:50:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-04T20:20:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-04T20:20:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-04T20:20:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-06T07:27:33Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-08-06T07:46:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T07:46:54Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-08-07T00:46:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T16:11:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T16:11:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T16:11:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T16:22:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T16:24:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T16:24:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T16:24:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T16:24:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T16:24:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T16:28:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/broadcaster/issues/137",
+          "number": 137,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/broadcaster"
+          },
+          "title": "Fix sample code in ReadMe"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-15T16:47:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T16:47:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T16:47:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T22:34:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T22:34:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T22:34:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T22:34:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-15T23:00:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T23:00:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-15T23:00:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-16T07:59:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-16T07:59:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-16T07:59:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-17T19:42:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-17T19:42:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-17T19:42:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-25T19:45:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/uzerkayat2004-gif/dom-platform-engine/pull/43",
+          "number": 43,
+          "pull_request": {
+            "url": "https://api.github.com/repos/uzerkayat2004-gif/dom-platform-engine/pulls/43"
+          },
+          "repository": {
+            "full_name": "uzerkayat2004-gif/dom-platform-engine"
+          },
+          "title": "Fix: Improve WebSocket error handling in broadcast and disconnect"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-04T07:16:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redhat-et/robotics-playground/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-07-04T10:28:48Z",
+            "url": "https://api.github.com/repos/redhat-et/robotics-playground/pulls/8"
+          },
+          "repository": {
+            "full_name": "redhat-et/robotics-playground"
+          },
+          "title": "feat: Phase 1 \u2014 Skeleton UI Shell + Mock Backend"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-22T18:10:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/drinktoomuchsax/Aimont/pull/39",
+          "number": 39,
+          "pull_request": {
+            "merged_at": "2026-07-23T02:15:56Z",
+            "url": "https://api.github.com/repos/drinktoomuchsax/Aimont/pulls/39"
+          },
+          "repository": {
+            "full_name": "drinktoomuchsax/Aimont"
+          },
+          "title": "Consolidated repo improvements (supersedes #21\u2013#38)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-29T11:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Deathcharge/samsarix-chat-engine/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-07-29T11:57:57Z",
+            "url": "https://api.github.com/repos/Deathcharge/samsarix-chat-engine/pulls/2"
+          },
+          "repository": {
+            "full_name": "Deathcharge/samsarix-chat-engine"
+          },
+          "title": "Productize Samsarix Chat Engine and add its Samsarix roadmap"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T01:08:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/psamin/project_flock/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T01:31:48Z",
+            "url": "https://api.github.com/repos/psamin/project_flock/pulls/9"
+          },
+          "repository": {
+            "full_name": "psamin/project_flock"
+          },
+          "title": "Phase 2: walking skeleton \u2014 scouts move, write beliefs, render in a browser"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-17T20:18:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/obsidian-media/AlphonsoEcosystem/pull/153",
+          "number": 153,
+          "pull_request": {
+            "merged_at": "2026-08-19T00:03:55Z",
+            "url": "https://api.github.com/repos/obsidian-media/AlphonsoEcosystem/pulls/153"
+          },
+          "repository": {
+            "full_name": "obsidian-media/AlphonsoEcosystem"
+          },
+          "title": "Security hardening: Voice OS token auth, approvalMode default fix, companion IP throttle, OCR arg allowlist, placeholder connector UX"
+        }
+      }
+    }
+  ]
+}

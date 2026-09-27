@@ -1,0 +1,987 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-11T18:17:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ceee4830b385cc16b7d5b8e325aa05d7a18baf09",
+      "sha": "ceee4830b385cc16b7d5b8e325aa05d7a18baf09"
+    },
+    {
+      "committed_at": "2021-09-30T20:32:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ad29baadbedc7ef0b58b23ac5a30a91afd87fcde",
+      "sha": "ad29baadbedc7ef0b58b23ac5a30a91afd87fcde"
+    },
+    {
+      "committed_at": "2021-10-02T10:35:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/48bc30d11977c65c98d312ab7fc17c8ecfe86a60",
+      "sha": "48bc30d11977c65c98d312ab7fc17c8ecfe86a60"
+    },
+    {
+      "committed_at": "2021-10-02T12:01:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bd9ed14b639b0e525cfdc709c915b5460a836e0d",
+      "sha": "bd9ed14b639b0e525cfdc709c915b5460a836e0d"
+    },
+    {
+      "committed_at": "2021-10-02T12:01:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92568bd79936c7fe56653189a735effdf54d1ef8",
+      "sha": "92568bd79936c7fe56653189a735effdf54d1ef8"
+    },
+    {
+      "committed_at": "2021-10-02T12:07:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1",
+      "sha": "850c4559ed7f16cb7f41aff1367f7b90a32a3cc1"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-09-12T10:20:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1056",
+          "number": 1056,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1056"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix graphql deprecation warnings"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-03T22:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1135",
+          "number": 1135,
+          "pull_request": {
+            "merged_at": "2021-02-05T19:13:39Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1135"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate built-in GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:41:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/996",
+          "number": 996,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[feature request] Graphql file upload"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:41:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/987",
+          "number": 987,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Context Values"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:42:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/982",
+          "number": 982,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When raise exception I got graphql error"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:42:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/970",
+          "number": 970,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Overriding graphiql request path when behind proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/953",
+          "number": 953,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Feature] Allow overriding of qraphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:48:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1091",
+          "number": 1091,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1091"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Graphql subscription support added"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:49:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1086",
+          "number": 1086,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1086"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update GraphiQL template in GraphQLApp"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:50:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1044",
+          "number": 1044,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1044"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added support for graphene middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:50:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/990",
+          "number": 990,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/990"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "move graphql error formatting to a function that can be overridden"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/954",
+          "number": 954,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/954"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "closes #953 add possibility to ovewrite graphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/876",
+          "number": 876,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/876"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix graphql error import bug"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/615",
+          "number": 615,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/615"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Allow using multipart/form-data to upload files with graphql"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:52:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/586",
+          "number": 586,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/586"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "GraphQLApp support custom response class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-12T20:38:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1180",
+          "number": 1180,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1180"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Optional custom GraphiQL welcome message/default query"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-12T20:39:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1181",
+          "number": 1181,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1181"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "added way to have custom context for graphql"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-18T17:47:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphql-core/issues/121",
+          "number": 121,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphql-core"
+          },
+          "title": "Cannot use AsyncioExecutor"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-18T21:09:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphql-server/issues/81",
+          "number": 81,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphql-server"
+          },
+          "title": "FastAPI/Starlette integration?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-04T16:27:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiidateam/aiida-restapi/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2021-06-14T23:31:53Z",
+            "url": "https://api.github.com/repos/aiidateam/aiida-restapi/pulls/17"
+          },
+          "repository": {
+            "full_name": "aiidateam/aiida-restapi"
+          },
+          "title": "\u2728 NEW: Initial graphql implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T16:46:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/798",
+          "number": 798,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS preflight request not handled properly over graphql endpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T18:26:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1198",
+          "number": 1198,
+          "pull_request": {
+            "merged_at": "2021-10-03T15:21:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\ud83d\udd25 Remove GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-28T08:48:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1277",
+          "number": 1277,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1277"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Graphiql supports custom request headers (#1275)"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-28T08:57:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1275",
+          "number": 1275,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Graphiql supports custom request headers"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/README.md",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "README.md",
+      "sha": "a7d94904dfd362773ce8c4e57369d3763c49691f",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/docs%2Fgraphql.md",
+      "changes": 119,
+      "deletions": 113,
+      "filename": "docs/graphql.md",
+      "sha": "9b00106bb2ae3c8293c2ebdb9ebf6859014cea8c",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/docs%2Fimg%2Fgraphiql.png",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "docs/img/graphiql.png",
+      "sha": "7851993f7f0b5d20de637b8a6c23ddef01b8c558",
+      "status": "removed"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/docs%2Findex.md",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "docs/index.md",
+      "sha": "a9ec4106f90bd7f9266ef3206c0966ebff3b3f2a",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/requirements.txt",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "requirements.txt",
+      "sha": "59cc2edf7ecfd20abb6b02855de7d4b182275f00",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/setup.cfg",
+      "changes": 7,
+      "deletions": 7,
+      "filename": "setup.cfg",
+      "sha": "b3f84dca1e1a8838cd0d11a0741adfffa0d24b3c",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/setup.py",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "setup.py",
+      "sha": "3b8d32e16b0f6d63ea2de7a2a97d924c948f9ae5",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/starlette%2Fgraphql.py",
+      "changes": 275,
+      "deletions": 275,
+      "filename": "starlette/graphql.py",
+      "sha": "6e5d6ec6af09e2196eb9addd2819108392d92d27",
+      "status": "removed"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/tests%2Fconftest.py",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "tests/conftest.py",
+      "sha": "4f210b3bd6c498e58878458d14ca2ab4de3ac3b2",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/tests%2Ftest_graphql.py",
+      "changes": 152,
+      "deletions": 152,
+      "filename": "tests/test_graphql.py",
+      "sha": "8492439f833ca0b7533da07de3d43517c0607440",
+      "status": "removed"
+    }
+  ],
+  "issue": {
+    "body": "I'd like our graphql support to move out into being a third party package.\r\n\r\nWe should then document:\r\n\r\n* The third party package it's been moved to.\r\n* Links to ASGI implementations with ariadne, tartiflette, strawberry.\r\n\r\nQuestions:\r\n\r\n* Which of Ariadne, Tartiflette & Strawberry currently have provide an ASGI application, that Starlette can mount?\r\n* Are there any other GraphQL implementations I've missed here?\r\n* Anyone keen to take on the GraphQL implementation as a third party package?\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2021-10-03T15:21:38Z",
+    "created_at": "2019-08-27T10:43:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/619",
+    "number": 619,
+    "state": "closed",
+    "title": "GraphQL support should be a third party application.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2021-10-03T15:21:38Z",
+    "created_at": "2021-06-11T18:21:43Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1198",
+    "merge_commit_sha": "28088573aebc70807ef2aa422000cddb93b57a70",
+    "merged_at": "2021-10-03T15:21:38Z",
+    "number": 1198,
+    "title": "\ud83d\udd25 Remove GraphQL support",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "467eb1c2121d1068323b37be068812a6e115ef0d",
+    "committed_at": "2021-06-11T09:55:32Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/467eb1c2121d1068323b37be068812a6e115ef0d"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-08-27T10:50:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T10:48:04Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-12T10:20:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1056",
+          "number": 1056,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1056"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix graphql deprecation warnings"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-23T23:45:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-24T04:02:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-03T22:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1135",
+          "number": 1135,
+          "pull_request": {
+            "merged_at": "2021-02-05T19:13:39Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1135"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate built-in GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-04T20:18:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:41:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/996",
+          "number": 996,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[feature request] Graphql file upload"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:41:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/987",
+          "number": 987,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Context Values"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:42:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/982",
+          "number": 982,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When raise exception I got graphql error"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:42:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/970",
+          "number": 970,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Overriding graphiql request path when behind proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/953",
+          "number": 953,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Feature] Allow overriding of qraphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:48:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1091",
+          "number": 1091,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1091"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Graphql subscription support added"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:49:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1086",
+          "number": 1086,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1086"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update GraphiQL template in GraphQLApp"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:50:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1044",
+          "number": 1044,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1044"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added support for graphene middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:50:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/990",
+          "number": 990,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/990"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "move graphql error formatting to a function that can be overridden"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/954",
+          "number": 954,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/954"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "closes #953 add possibility to ovewrite graphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/876",
+          "number": 876,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/876"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix graphql error import bug"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:51:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/615",
+          "number": 615,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/615"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Allow using multipart/form-data to upload files with graphql"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T19:52:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/586",
+          "number": 586,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/586"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "GraphQLApp support custom response class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-10T19:39:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-10T20:41:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-18T13:04:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-12T20:38:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1180",
+          "number": 1180,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1180"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Optional custom GraphiQL welcome message/default query"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-12T20:39:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1181",
+          "number": 1181,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1181"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "added way to have custom context for graphql"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-18T17:47:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphql-core/issues/121",
+          "number": 121,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphql-core"
+          },
+          "title": "Cannot use AsyncioExecutor"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-18T21:09:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/graphql-python/graphql-server/issues/81",
+          "number": 81,
+          "pull_request": {},
+          "repository": {
+            "full_name": "graphql-python/graphql-server"
+          },
+          "title": "FastAPI/Starlette integration?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-04T16:27:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiidateam/aiida-restapi/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2021-06-14T23:31:53Z",
+            "url": "https://api.github.com/repos/aiidateam/aiida-restapi/pulls/17"
+          },
+          "repository": {
+            "full_name": "aiidateam/aiida-restapi"
+          },
+          "title": "\u2728 NEW: Initial graphql implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T16:40:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T16:46:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/798",
+          "number": 798,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS preflight request not handled properly over graphql endpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T18:26:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1198",
+          "number": 1198,
+          "pull_request": {
+            "merged_at": "2021-10-03T15:21:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\ud83d\udd25 Remove GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T20:47:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-28T08:48:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1277",
+          "number": 1277,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1277"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Graphiql supports custom request headers (#1275)"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-28T08:57:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1275",
+          "number": 1275,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Graphiql supports custom request headers"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-03T15:21:38Z",
+      "event": "closed"
+    }
+  ]
+}

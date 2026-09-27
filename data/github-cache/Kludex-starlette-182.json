@@ -1,0 +1,147 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-12T01:21:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/214",
+          "number": 214,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/214"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for route converters"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-21T22:20:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/932",
+          "number": 932,
+          "pull_request": {
+            "merged_at": "2020-05-11T11:23:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/932"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow path to contain regex meta characters"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi, I've just discovered starlette (seems to be the perfect asgi fw ! great)\r\nLooking into docs/unitests ... but it seems that regex routing is not implemented yet (will look into the code)\r\n\r\nIs it possible to declare something like that ?\r\n```python \r\n@app.route(\"/api/{name:.*}\")\r\ndef ...\r\n```\r\n\r\nIt's the only thing it seems to miss (to quit aiohttp)\r\n",
+    "closed_at": "2018-11-16T13:50:56Z",
+    "created_at": "2018-11-06T09:46:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/182",
+    "number": 182,
+    "state": "closed",
+    "title": "Support route convertors",
+    "user": "manatlan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-06T10:38:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-06T11:38:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-06T19:23:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T12:38:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:34:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:34:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-08T13:34:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-08T14:27:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T14:27:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-08T14:27:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-08T14:58:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-12T01:21:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/214",
+          "number": 214,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/214"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for route converters"
+        }
+      }
+    },
+    {
+      "created_at": "2019-03-28T15:02:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-28T15:32:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-28T15:37:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-28T15:38:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-21T22:20:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/932",
+          "number": 932,
+          "pull_request": {
+            "merged_at": "2020-05-11T11:23:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/932"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow path to contain regex meta characters"
+        }
+      }
+    }
+  ]
+}

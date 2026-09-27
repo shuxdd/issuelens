@@ -1,0 +1,107 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-28T10:22:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/17fa3b8065a18772ac215db7b33b1c4b9372b3fa",
+      "sha": "17fa3b8065a18772ac215db7b33b1c4b9372b3fa"
+    },
+    {
+      "committed_at": "2021-12-28T11:01:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3fcc134e34c04de9ecad52b6f916488c67aaffe9",
+      "sha": "3fcc134e34c04de9ecad52b6f916488c67aaffe9"
+    },
+    {
+      "committed_at": "2021-12-29T21:48:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e84cf11777c7099bcc761a545661a109d3349c20",
+      "sha": "e84cf11777c7099bcc761a545661a109d3349c20"
+    },
+    {
+      "committed_at": "2022-01-02T14:44:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/60a7bb325702534adc23b7b8cb3c6ea14d7aeb68",
+      "sha": "60a7bb325702534adc23b7b8cb3c6ea14d7aeb68"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-28T10:27:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1388",
+          "number": 1388,
+          "pull_request": {
+            "merged_at": "2022-01-04T08:54:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1388"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `WebSocketRoute` docs in `Routing`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 42,
+      "blob_url": "https://github.com/Kludex/starlette/blob/60a7bb325702534adc23b7b8cb3c6ea14d7aeb68/docs%2Frouting.md",
+      "changes": 44,
+      "deletions": 2,
+      "filename": "docs/routing.md",
+      "sha": "f0b672d8a226430987ea2ea5f1682b8560d22b51",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The \"routing\" docs page doesn't mention that `Route()` is for HTTP only and `WebSocketRoute()` is required for websocket endpoints. I found `WebSocketRoute` through examples on other pages but it woudl be good if it was fully described on the \"routing\" page.",
+    "closed_at": "2022-01-04T08:54:22Z",
+    "created_at": "2019-12-20T23:29:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/764",
+    "labels": [
+      "websocket"
+    ],
+    "number": 764,
+    "state": "closed",
+    "title": "WebSocketRoute undocumented",
+    "user": "adamchainz"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-04T08:54:22Z",
+    "created_at": "2021-12-28T10:27:09Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1388",
+    "merge_commit_sha": "bff81f83d07dcf3f0fd3bda6a079747d74bb8d26",
+    "merged_at": "2022-01-04T08:54:22Z",
+    "number": 1388,
+    "title": "Add `WebSocketRoute` docs in `Routing`",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T11:03:01Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-28T10:27:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1388",
+          "number": 1388,
+          "pull_request": {
+            "merged_at": "2022-01-04T08:54:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1388"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `WebSocketRoute` docs in `Routing`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-04T08:54:22Z",
+      "event": "closed"
+    }
+  ]
+}

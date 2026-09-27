@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-06-23T17:09:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1210",
+          "number": 1210,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1210"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient accepts backend and backend_options as arguments"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your feature request. -->\r\n\r\n- [x] There are no similar issues or pull requests for this yet.\r\n- [x] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nI want to be able to:\r\n\r\n```python\r\ndef test_foo(anyio_backend_name, anyio_backend_options):\r\n    with starlette.testing.TestClient(\r\n        create_app(),\r\n        backend=anyio_backend_name,\r\n        backend_options=anyio_backend_options,\r\n    ) as client:\r\n        ...\r\n```\r\n\r\n## Describe the solution you would like.\r\n\r\nallow passing anyio backend options via TestClient constructor\r\n\r\n## Describe alternatives you considered\r\n\r\nNone\r\n\r\n## Additional context\r\n\r\nthis is needed so I can easily run the fastapi test suite on both trio and asyncio",
+    "closed_at": "2021-07-15T18:05:23Z",
+    "created_at": "2021-06-23T16:32:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1209",
+    "number": 1209,
+    "state": "closed",
+    "title": "allow passing anyio backend options via TestClient constructor",
+    "user": "graingert"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-23T17:09:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1210",
+          "number": 1210,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1210"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient accepts backend and backend_options as arguments"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-15T18:05:23Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-07-15T18:06:20Z",
+      "event": "commented"
+    }
+  ]
+}

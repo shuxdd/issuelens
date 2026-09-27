@@ -1,0 +1,162 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-12-05T13:36:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1351",
+          "number": 1351,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1351"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Share session data across mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-05T19:29:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alex-oleshkevich/starsessions/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "alex-oleshkevich/starsessions"
+          },
+          "title": "\"null\" Session Id when using RedisBackend and InMemoryBackend"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-07T20:53:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pjatk21/pjatk-cat-guard/issues/14",
+          "number": 14,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pjatk21/pjatk-cat-guard"
+          },
+          "title": "B\u0142\u0119dny u\u017cytkownik w panelu administracyjnym"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nAs discussed with @mahmoudhossam on #1147, I am creating this issue.\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nUpdate 0.15.0 broke my session checking function to ensure users are logged in. I mount all the sub routes (users, etc..). The request.session has data in it when set, but when I redirect back to the start page then session is now null. I see no documentation on how to have the session across Mounts?\r\n\r\nBelow is example of what I am doing...\r\n\r\n```\r\n# Routes\r\nroutes = [\r\n    Route(\"/\", main_pages.homepage, name=\"dashboard\", methods=[\"GET\", \"POST\"]),\r\n    Route(\"/about\", main_pages.about_page, methods=[\"GET\"]),\r\n    Mount(\"/user\", routes=\r\n    [\r\n        Route(\r\n            \"/forgot\", routes=user_pages.forgot_password, methods=[\"GET\", \"POST\"]\r\n        ),\r\n        Route(\"/login\", routes=user_pages.login, methods=[\"GET\", \"POST\"]),\r\n        Route(\"/logout\", routes=user_pages.logout, methods=[\"GET\", \"POST\"]),\r\n        Route(\r\n            \"/password-change\",\r\n            routes=user_pages.password_change,\r\n            methods=[\"GET\", \"POST\"],\r\n        ),\r\n        Route(\"/profile\", routes=user_pages.profile, methods=[\"GET\"]),\r\n        Route(\"/register\", routes=user_pages.register, methods=[\"GET\", \"POST\"]),\r\n    ],\r\n    name=\"user\",\r\n    ),\r\n\r\n# Session Checking\r\ndef require_login(endpoint: Callable) -> Callable:\r\n    async def check_login(request: Request) -> Response:\r\n        if \"user_name\" not in request.session:\r\n            logger.error(\r\n                f\"user page access without being logged in from {request.client.host}\"\r\n            )\r\n            return RedirectResponse(url=\"/user/login\", status_code=303)\r\n\r\n        else:\r\n            one_twenty = datetime.now() - timedelta(\r\n                minutes=config_settings.login_timeout\r\n            )\r\n            current: bool = one_twenty < datetime.strptime(\r\n                request.session[\"updated\"], \"%Y-%m-%d %H:%M:%S.%f\"\r\n            )\r\n\r\n            if current == False:\r\n                logger.error(\r\n                    f\"user {request.session['user_name']} outside window: {current}\"\r\n                )\r\n                return RedirectResponse(url=\"/user/login\", status_code=303)\r\n\r\n            # update datetime of last use\r\n            logger.info(\r\n                f\"user {request.session['id']} within timeout window: {current}\"\r\n            )\r\n            request.session[\"updated\"] = str(datetime.now())\r\n        return await endpoint(request)\r\n\r\n    return check_login\r\n```\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\nCreate basic app, using greater than 0.14.2, using Mount add subroutes and then check the session cookies for the subroutes as there will be a new session cookie as it it now acting like a submounted app, instead of subroutes.\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nMounts should not create a new session cookie, unless Mounting a sub application. See [Routing](https://www.starlette.io/routing/) and using Mounts in the documentation. It shows you need to add \"app=\" for the submounted app. If left out/none, it is just a submounted route and should not be treated as an submounted app.\r\n\r\nMount(\"/static\", app=StaticFiles(directory=\"static\"), name=\"static\")\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nUsing Mount it will create new session cookies.\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: <!-- eg Linux/Windows/macOS. --> Windows/Linux\r\n- Python version: <!-- eg 3.8.5 (get it with `$ python -V`). --> 3.8+\r\n- Starlette version: <!-- eg 0.13.8 (get it with `$ pip show starlette`). --> 0.15.0 + created in release #1147 by issue #233\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nI would suggest checking if in Mount app=None as a way to determine whether to use ASGI path or \"/\". \r\n",
+    "closed_at": "2022-02-14T15:05:14Z",
+    "created_at": "2021-08-07T23:37:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1261",
+    "labels": [
+      "sessions"
+    ],
+    "number": 1261,
+    "state": "closed",
+    "title": "Starlette 0.15.0 breaks SessionMiddleware by adding ASGI Path for Subroutes using Mount",
+    "user": "devsetgo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-08-07T23:37:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-07T23:37:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-08-16T21:24:08Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-09T12:25:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-09T12:25:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-09T12:25:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-05T13:34:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-05T13:36:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1351",
+          "number": 1351,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1351"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Share session data across mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-05T19:29:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alex-oleshkevich/starsessions/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "alex-oleshkevich/starsessions"
+          },
+          "title": "\"null\" Session Id when using RedisBackend and InMemoryBackend"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-14T23:48:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-15T06:57:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-15T09:55:22Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-01-15T09:57:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-07T20:53:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pjatk21/pjatk-cat-guard/issues/14",
+          "number": 14,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pjatk21/pjatk-cat-guard"
+          },
+          "title": "B\u0142\u0119dny u\u017cytkownik w panelu administracyjnym"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-14T12:59:36Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have this in my `server.py` ...\r\n\r\n```\r\nif __name__ == '__main__':\r\n    if 'serve' in sys.argv:\r\n        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level=\"info\")\r\n```\r\n\r\n... which I've learned cannot be used to enable auto-reloading.  For that, I'm told I have to actually run uvicorn from the terminal as such:\r\n\r\n```\r\nuvicorn example:app --debug (or I think its --reload now)\r\n```\r\n\r\nAnyhow, is there any way I can do the auto-reload when the application is running in a docker container. I've played with the `Dockerfile` and my `docker-compose.yml` file to see if I can make this work but so far I've been unsuccessful.",
+    "closed_at": "2019-08-27T10:35:39Z",
+    "created_at": "2019-08-17T02:19:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/603",
+    "number": 603,
+    "state": "closed",
+    "title": "How to enable autoreload when running in a docker container?",
+    "user": "ohmeow"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-17T02:50:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-17T03:00:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-19T12:30:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-19T17:43:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-19T17:43:43Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-19T17:43:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-20T15:44:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-21T09:51:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-21T09:51:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-21T09:51:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-21T09:51:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-21T09:51:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-27T10:35:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T19:57:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-28T07:24:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-28T07:24:05Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-28T07:24:05Z",
+      "event": "subscribed"
+    }
+  ]
+}

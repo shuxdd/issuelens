@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I just move from using `responder` library to `starlette`. I got the graphql error when I raise exception.\r\n\r\nServer:\r\n\r\n```js\r\napp = Starlette(debug=True, routes=[\r\n    Route('/', show_version),\r\n    Route('/healthz', check_health),\r\n    Route('/graphql', GraphQLApp(schema=schema)),\r\n])\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=9090)\r\n```\r\n\r\nSchema:\r\n\r\n```\r\n...\r\n\r\nraise Exception('Something wrong')\r\n\r\n...\r\n```\r\n\r\nError:\r\n\r\n![Screenshot from 2020-06-24 13-40-48](https://user-images.githubusercontent.com/1308397/85509501-55a05100-b620-11ea-895b-615e7471d703.png)\r\n\r\nWhat I expect is it return error message `Something wrong` with `the http status 200` instead of error above. Thanks!",
+    "closed_at": "2021-02-05T19:42:04Z",
+    "created_at": "2020-06-24T06:42:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/982",
+    "number": 982,
+    "state": "closed",
+    "title": "When raise exception I got graphql error",
+    "user": "Bunlong"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T10:47:22Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-01-31T16:46:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:42:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:42:04Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-23T22:30:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/208",
+          "number": 208,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Not Handling Connections to Multiple Worker Processes Correctly"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Currently, the WebSocket is not pickable, so it's impossible to share clients of the WebSocket in a multiple worker environment.\r\n",
+    "closed_at": "2018-11-13T13:17:08Z",
+    "created_at": "2018-11-13T07:10:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/216",
+    "number": 216,
+    "state": "closed",
+    "title": "WebSocket should be pickable",
+    "user": "manatlan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-13T13:17:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T13:35:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T13:58:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T14:59:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T15:12:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T15:14:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T16:22:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T16:22:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T16:23:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T16:25:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T08:05:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T10:36:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T11:01:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T11:01:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-14T11:01:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-14T11:22:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T11:28:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T21:54:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-12T20:23:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-23T22:30:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/208",
+          "number": 208,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Not Handling Connections to Multiple Worker Processes Correctly"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-02T11:34:32Z",
+      "event": "commented"
+    }
+  ]
+}

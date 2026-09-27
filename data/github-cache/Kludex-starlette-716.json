@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Newbie question here, I am only able to get `content-type` and `content-length` in response HTTP headers. I also want date and URI. How do I do that? Please help me out. Thank You",
+    "closed_at": "2019-11-13T13:38:21Z",
+    "created_at": "2019-11-13T12:00:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/716",
+    "number": 716,
+    "state": "closed",
+    "title": "How to get date and URI from response object's headers?",
+    "user": "abhisheksms"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-13T13:38:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T05:29:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T08:50:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T09:17:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T09:42:27Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-12-04T07:29:38Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2783"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2783"
+    ]
+  },
+  "case_id": "starlette-issue-2783",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2808",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Remove deprecated `allow_redirects` argument from `TestClient`' directly changes starlette/testclient.py with focused behavior test(s) tests/middleware/test_https_redirect.py, tests/test_responses.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2024-12-22T15:15:00Z",
+  "issue": {
+    "body": "In here, the elif branch should likely be the first condition to trigger only then followed by check of the individual parameters - I can do a PR for this if accepted\r\n\r\nhttps://github.com/encode/starlette/blob/d40bc9e5e12d686542a180368bc78402e9501efd/starlette/testclient.py#L458C1-L462C24",
+    "number": 2783,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2783",
+    "title": "Elif branch with error raise in TestClient _choose_redirect_arg never triggers"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2808 created_at 2024-12-22T15:15:00Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2808",
+    "repair_files": [
+      "pyproject.toml",
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is f884b6649ea7e0b019443a265db7ff62ebe7914b",
+    "test_files": [
+      "tests/middleware/test_https_redirect.py",
+      "tests/test_responses.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "pyproject.toml",
+        "source_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/pyproject.toml",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "a13b42d4752572887ad5bdba666000d4b4052b39",
+        "source_url": "https://github.com/Kludex/starlette/commit/a13b42d4752572887ad5bdba666000d4b4052b39"
+      },
+      {
+        "sha": "016c2510618daa90ba4239981a75a437a9306b40",
+        "source_url": "https://github.com/Kludex/starlette/commit/016c2510618daa90ba4239981a75a437a9306b40"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-12-22T15:15:00Z",
+      "number": 2808,
+      "source_url": "https://github.com/Kludex/starlette/pull/2808"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2808"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_https_redirect.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/tests%2Fmiddleware%2Ftest_https_redirect.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/tests%2Ftest_responses.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+    "committed_at": "2024-12-21T19:11:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f884b6649ea7e0b019443a265db7ff62ebe7914b"
+  },
+  "schema_version": "1.0"
+}

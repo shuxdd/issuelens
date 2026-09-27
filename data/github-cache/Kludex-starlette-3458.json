@@ -1,0 +1,177 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-25T13:44:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rick1330/ibex-harness/pull/592",
+          "number": 592,
+          "pull_request": {
+            "merged_at": "2026-08-25T15:09:05Z",
+            "url": "https://api.github.com/repos/Rick1330/ibex-harness/pulls/592"
+          },
+          "repository": {
+            "full_name": "Rick1330/ibex-harness"
+          },
+          "title": "feat(obs): phase 2.5 exit gate with local LGTM stack (m2.5.G7)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-29T21:13:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3485",
+          "number": 3485,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3485"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Delay background task execution until BaseHTTPMiddleware sends the response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-06T14:32:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2176",
+          "number": 2176,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Run background tasks after the middleware stack returns"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-19T23:46:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AndJunes/CodeZard/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-09-23T01:29:45Z",
+            "url": "https://api.github.com/repos/AndJunes/CodeZard/pulls/1"
+          },
+          "repository": {
+            "full_name": "AndJunes/CodeZard"
+          },
+          "title": "Forward responses as they arrive instead of after they are complete"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "With a `BaseHTTPMiddleware` anywhere in the stack, a `BackgroundTask` attached to a response starts running **before the last byte of the response has been sent** to the client. The [background docs](https://www.starlette.io/background/) state:\n\n> A background task should be attached to a response, and will run only once the response has been sent.\n\n**Version:** starlette 1.6.0\n**Python:** 3.13.14\n\n## Repro\n\nRaw ASGI harness with a deliberately slow `send` (simulates a slow client). A pass-through `BaseHTTPMiddleware` is enough to trigger it; without any middleware the docs are honored.\n\n```python\nimport asyncio, warnings\nwarnings.simplefilter(\"ignore\")\nfrom starlette.applications import Starlette\nfrom starlette.background import BackgroundTask\nfrom starlette.middleware.base import BaseHTTPMiddleware\nfrom starlette.responses import PlainTextResponse\nfrom starlette.routing import Route\n\nevents = []\n\nasync def bg():\n    events.append((\"background-done\", asyncio.get_running_loop().time()))\n\nasync def homepage(request):\n    return PlainTextResponse(\"hello\", background=BackgroundTask(bg))\n\nasync def passthrough(request, call_next):\n    return await call_next(request)\n\napp = Starlette(routes=[Route(\"/\", homepage)])\napp = BaseHTTPMiddleware(app, dispatch=passthrough)\n\nasync def main():\n    scope = {\"type\": \"http\", \"method\": \"GET\", \"path\": \"/\", \"headers\": [],\n             \"query_string\": b\"\", \"root_path\": \"\", \"scheme\": \"http\",\n             \"server\": [\"t\", 80], \"client\": (\"t\", 1), \"http_version\": \"1.1\"}\n    async def receive():\n        await asyncio.sleep(3600)\n    async def send(message):\n        events.append((message[\"type\"], asyncio.get_running_loop().time()))\n        await asyncio.sleep(0.15)   # slow client\n    await app(scope, receive, send)\n    for name, t in sorted(events, key=lambda e: e[1]):\n        print(f\"  {name:<30} @{t:.3f}\")\n\nasyncio.run(main())\n```\n\nActual ordering (deterministic across runs):\n\n```\nhttp.response.start        @t+0.000\nhttp.response.body(more=True)  @t+0.155\nbackground-done            @t+0.155      <-- task finished HERE\nhttp.response.body(more=False) @t+0.310  <-- last byte only here\n```\n\n## Why it happens\n\nWhen `BaseHTTPMiddleware` wraps the app, the inner `Response.__call__` hands its final message into the middleware's memory stream and then runs the background task immediately \u2014 while the outer `_StreamingResponse` created from the buffered messages is still forwarding bytes to the real `send`. Without the middleware, the inner response *is* the outermost sender and runs the task after the final message.\n\n## Impact\n\nTasks that assume \"response fully delivered\" (e.g. logging request completion, cache invalidation after streaming, metrics that should not overlap body transfer) start early under this common middleware setup. With large/slow bodies the gap can be significant.\n\nSuggested direction: defer `await response(background=...)`-style execution in `BaseHTTPMiddleware._StreamingResponse` until its own final `send` completes (or document the caveat explicitly).\n\nHappy to work on a fix PR if maintainers consider this worth aligning with the documented contract.\n",
+    "closed_at": "2026-09-06T15:36:40Z",
+    "created_at": "2026-08-23T02:58:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3458",
+    "number": 3458,
+    "state": "closed",
+    "title": "BackgroundTask starts before the response has been sent when BaseHTTPMiddleware is in the stack",
+    "user": "Mukller"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-08-25T13:44:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rick1330/ibex-harness/pull/592",
+          "number": 592,
+          "pull_request": {
+            "merged_at": "2026-08-25T15:09:05Z",
+            "url": "https://api.github.com/repos/Rick1330/ibex-harness/pulls/592"
+          },
+          "repository": {
+            "full_name": "Rick1330/ibex-harness"
+          },
+          "title": "feat(obs): phase 2.5 exit gate with local LGTM stack (m2.5.G7)"
+        }
+      }
+    },
+    {
+      "commit_id": "775b5a804b0b057213e2c48f6e24de72b9bff7b4",
+      "commit_url": "https://api.github.com/repos/lx3133584/starlette/commits/775b5a804b0b057213e2c48f6e24de72b9bff7b4",
+      "created_at": "2026-08-27T07:59:12Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "ab31df9fe522a02acb07da451f100029531b57ce",
+      "commit_url": "https://api.github.com/repos/lx3133584/starlette/commits/ab31df9fe522a02acb07da451f100029531b57ce",
+      "created_at": "2026-08-27T08:01:13Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-08-29T21:13:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3485",
+          "number": 3485,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3485"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Delay background task execution until BaseHTTPMiddleware sends the response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-30T00:13:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-09-06T14:32:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2176",
+          "number": 2176,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Run background tasks after the middleware stack returns"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-06T15:36:40Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-09-19T23:46:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AndJunes/CodeZard/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-09-23T01:29:45Z",
+            "url": "https://api.github.com/repos/AndJunes/CodeZard/pulls/1"
+          },
+          "repository": {
+            "full_name": "AndJunes/CodeZard"
+          },
+          "title": "Forward responses as they arrive instead of after they are complete"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-07-04T10:52:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b88cc2e4ba718d10c22e0c10071b6fb5b9cbd2f6",
+      "sha": "b88cc2e4ba718d10c22e0c10071b6fb5b9cbd2f6"
+    },
+    {
+      "committed_at": "2021-07-15T17:46:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/18de9043c4e65997a48d6d9772d8af62a33a3fe6",
+      "sha": "18de9043c4e65997a48d6d9772d8af62a33a3fe6"
+    },
+    {
+      "committed_at": "2021-07-19T04:20:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ad8e95328e353b06fccf8d0e37c233a447a5bf49",
+      "sha": "ad8e95328e353b06fccf8d0e37c233a447a5bf49"
+    },
+    {
+      "committed_at": "2021-08-08T14:53:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/368b81bfdf867cf3f0ae83f1115912cb79e095ca",
+      "sha": "368b81bfdf867cf3f0ae83f1115912cb79e095ca"
+    },
+    {
+      "committed_at": "2021-09-24T15:17:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ed5504eab6bb47bf409231554f0059ce88707ded",
+      "sha": "ed5504eab6bb47bf409231554f0059ce88707ded"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-07-04T10:51:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1234",
+          "number": 1234,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1234"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "change-ImmutableMultiDict-get-list-typing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-04T10:54:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1235",
+          "number": 1235,
+          "pull_request": {
+            "merged_at": "2021-09-25T22:50:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1235"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "change-ImmutableMultiDict-get-list-typing"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ed5504eab6bb47bf409231554f0059ce88707ded/starlette%2Fdatastructures.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/datastructures.py",
+      "sha": "17dc46eb6a854a5dffd7470b19bd115350f6b769",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "`starlette.datastructures.ImmutableMultiDict.getlist()` could return a list of List[UploadFile] in some circumstances.\r\n\r\n### Code to reproduce\r\n```python\r\n@router.post(\"/upload\")\r\nasync def create_training_set(request: Request) -> Any:\r\n\r\n    form = await request.form()\r\n    files = form.getlist('file')\r\n\r\n    print(type(files))\r\n    print(type(files[0]))\r\n\r\n    print(type(form.getlist('label')))\r\n    print(type(form.getlist('label')[0]))\r\n```\r\noutput:\r\n```\r\n<class 'list'>\r\n<class 'starlette.datastructures.UploadFile'>\r\n<class 'list'>\r\n<class 'str'>\r\n```\r\nThe request was made from a flutter (mobile) lib, if needed, I can provide more details about the request.\r\n\r\nThis is compliant with the [doc](https://www.starlette.io/requests/#request-files), it's just a Typing issue I would say",
+    "closed_at": "2021-09-25T22:50:04Z",
+    "created_at": "2020-07-07T07:33:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/994",
+    "labels": [
+      "typing"
+    ],
+    "number": 994,
+    "state": "closed",
+    "title": "ImmutableMultiDict returns a List[Any] instead of a List[str]",
+    "user": "nphilou"
+  },
+  "pull_request": {
+    "closed_at": "2021-09-25T22:50:04Z",
+    "created_at": "2021-07-04T10:54:25Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1235",
+    "merge_commit_sha": "134eb0b3aed85865ee528ddaea032f67d40f0cb2",
+    "merged_at": "2021-09-25T22:50:04Z",
+    "number": 1235,
+    "title": "change-ImmutableMultiDict-get-list-typing",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T10:53:37Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-07-04T10:51:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1234",
+          "number": 1234,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1234"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "change-ImmutableMultiDict-get-list-typing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-04T10:54:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1235",
+          "number": 1235,
+          "pull_request": {
+            "merged_at": "2021-09-25T22:50:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1235"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "change-ImmutableMultiDict-get-list-typing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-25T22:50:04Z",
+      "event": "closed"
+    }
+  ]
+}

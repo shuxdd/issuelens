@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-03-20T14:19:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3196",
+          "number": 3196,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3196"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "BackgroundTasks: run all tasks even when one raises (fire-and-forget)"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "background.py __call__ iterates tasks and awaits each one without try/except. If any task raises, the loop stops and later tasks never run.\n\nFor fire-and-forget background work, wrapping each await in try/except and logging the error would keep the remaining tasks running.",
+    "closed_at": "2026-03-22T07:19:27Z",
+    "created_at": "2026-03-19T13:35:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3195",
+    "number": 3195,
+    "state": "closed",
+    "title": "BackgroundTasks: one task exception prevents remaining tasks from running",
+    "user": "themavik"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-03-20T14:19:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3196",
+          "number": 3196,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3196"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "BackgroundTasks: run all tasks even when one raises (fire-and-forget)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-22T07:19:27Z",
+      "event": "closed"
+    }
+  ]
+}

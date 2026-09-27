@@ -1,0 +1,33 @@
+{
+  "case_id": "starlette-issue-289",
+  "changed_files": [
+    {
+      "path": "starlette/responses.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/e6dc80d203b613f211003df63352a37550538e9a/starlette%2Fresponses.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/responses.py",
+      "snapshot_commit": "9d20c9f6d6a8e659460e6781745d8a286dc42442",
+      "source_url": "https://github.com/Kludex/starlette/blob/9d20c9f6d6a8e659460e6781745d8a286dc42442/starlette/responses.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/responses.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Content-Type and Content-Length headers not automatically populated if headers is given' originates in starlette/responses.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_responses.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/e6dc80d203b613f211003df63352a37550538e9a/tests%2Ftest_responses.py",
+      "status": "modified"
+    }
+  ]
+}

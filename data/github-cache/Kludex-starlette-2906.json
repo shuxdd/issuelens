@@ -1,0 +1,158 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-03-16T12:13:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ca5a683c4965b9255bc2feae8480c6971158b0be",
+      "sha": "ca5a683c4965b9255bc2feae8480c6971158b0be"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-03-13T19:11:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sponsfreixes/jinja2-fragments/pull/42",
+          "number": 42,
+          "pull_request": {
+            "merged_at": "2025-03-16T02:34:41Z",
+            "url": "https://api.github.com/repos/sponsfreixes/jinja2-fragments/pulls/42"
+          },
+          "repository": {
+            "full_name": "sponsfreixes/jinja2-fragments"
+          },
+          "title": "Add positional request argument for starlette 0.29 and newer"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-16T12:14:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2909",
+          "number": 2909,
+          "pull_request": {
+            "merged_at": "2025-03-16T12:18:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2909"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix IndexError in TemplateResponse"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ca5a683c4965b9255bc2feae8480c6971158b0be/starlette%2Ftemplating.py",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "starlette/templating.py",
+      "sha": "f764858b88365c0485828cbf2d3efda62b9d3fb3",
+      "status": "modified"
+    },
+    {
+      "additions": 121,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ca5a683c4965b9255bc2feae8480c6971158b0be/tests%2Ftest_templates.py",
+      "changes": 121,
+      "deletions": 0,
+      "filename": "tests/test_templates.py",
+      "sha": "e182cb82b2b2ade1fb3533c25aca49617490aaef",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The parsing logic for the backward-compatible (pre-0.29.0) list of positional arguments uses index 2 twice:\n\nhttps://github.com/encode/starlette/blob/c8a46925366361e40b65b117473db1342895b904/starlette/templating.py#L168-L173\n\n`headers`, `media_type` and `background` should be at indices 3, 4 and 5, respectively.",
+    "body_last_edited_at": null,
+    "closed_at": "2025-03-16T12:18:02Z",
+    "created_at": "2025-03-13T19:09:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2906",
+    "number": 2906,
+    "state": "closed",
+    "title": "Index Errors in old-style Jinja2Templates.TemplateResponse",
+    "user": "Finwood"
+  },
+  "pull_request": {
+    "closed_at": "2025-03-16T12:18:01Z",
+    "created_at": "2025-03-16T12:14:29Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2909",
+    "merge_commit_sha": "bcdf0ad017168408060b6faab156636ced4c94f7",
+    "merged_at": "2025-03-16T12:18:01Z",
+    "number": 2909,
+    "title": "Fix IndexError in TemplateResponse",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "c8a46925366361e40b65b117473db1342895b904",
+    "committed_at": "2025-03-08T13:02:32Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/c8a46925366361e40b65b117473db1342895b904"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-03-13T19:11:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sponsfreixes/jinja2-fragments/pull/42",
+          "number": 42,
+          "pull_request": {
+            "merged_at": "2025-03-16T02:34:41Z",
+            "url": "https://api.github.com/repos/sponsfreixes/jinja2-fragments/pulls/42"
+          },
+          "repository": {
+            "full_name": "sponsfreixes/jinja2-fragments"
+          },
+          "title": "Add positional request argument for starlette 0.29 and newer"
+        }
+      }
+    },
+    {
+      "commit_id": "ac4c969f67c23f70ae73e876a5ee658aa3e73fc4",
+      "commit_url": "https://api.github.com/repos/Finwood/jinja2-fragments/commits/ac4c969f67c23f70ae73e876a5ee658aa3e73fc4",
+      "created_at": "2025-03-13T19:37:42Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-03-14T07:37:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-14T07:37:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-03-14T07:37:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-16T12:14:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2909",
+          "number": 2909,
+          "pull_request": {
+            "merged_at": "2025-03-16T12:18:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2909"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix IndexError in TemplateResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-16T12:18:02Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-03-16T12:18:26Z",
+      "event": "commented"
+    }
+  ]
+}

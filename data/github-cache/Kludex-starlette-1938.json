@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The starting point for issues should usually be a discussion...\r\n\r\nhttps://github.com/encode/starlette/discussions\r\n\r\nPossible bugs may be raised as a \"Potential Issue\" discussion, feature requests may be raised as an \"Ideas\" discussion. We can then determine if the discussion needs to be escalated into an \"Issue\" or not.\r\n\r\nThis will help us ensure that the \"Issues\" list properly reflects ongoing or needed work on the project.\r\n\r\n---\r\n\r\n- [ ] Initially raised as discussion #...\r\n",
+    "closed_at": "2022-11-08T07:54:18Z",
+    "created_at": "2022-11-08T07:52:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1938",
+    "number": 1938,
+    "state": "closed",
+    "title": "router path consider radix tree ?",
+    "user": "me-v2"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-11-08T07:54:17Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-11-08T07:54:18Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

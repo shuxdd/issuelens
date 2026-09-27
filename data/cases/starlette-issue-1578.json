@@ -1,0 +1,111 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-04-07T14:37:36Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1578"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1578"
+    ]
+  },
+  "case_id": "starlette-issue-1578",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1580",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Deprecate `WS_1004_NO_STATUS_RCVD` and `WS_1005_ABNORMAL_CLOSURE`' directly changes starlette/_pep562.py, starlette/status.py with focused behavior test(s) tests/test_status.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-04-07T20:27:25Z",
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1577\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **vbsd** April  7, 2022</sup>\r\nIt seems that there is a mistake in starlette's WebSocket [status code list](https://github.com/encode/starlette/blob/0.19.0/starlette/status.py#L83).\r\n\r\nStatus code 1005 has the name `1005_ABNORMAL_CLOSURE` and 1006 is missing altogether. However, [Mozilla MDN docs](https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent/code) indicate that 1005 actually means \"no status received\". It is status code 1006 that means \"abnormal closure\".\r\n\r\nIt looks like what should have been\r\n```\r\nWS_1005_NO_STATUS_RECEIVED = 1005\r\nWS_1006_ABNORMAL_CLOSURE = 1006\r\n```\r\ngot mashed together and became just one line:\r\n```\r\nWS_1006_NO_STATUS_RECEIVED = 1005\r\n```\r\n\r\nMaking starlette backwards-incompatible over this wouldn't make much sense, but it seems reasonable to at least add the two correct lines and document `WS_1005_ABNORMAL_CLOSURE` as deprecated/wrong.</div>",
+    "number": 1578,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1578",
+    "title": "BUG: Incorrect WebSocket status code 1005 description, missing status code 1006"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1580 created_at 2022-04-07T20:27:25Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1580",
+    "repair_files": [
+      "starlette/_pep562.py",
+      "starlette/status.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 487f05dfc641a0632be8bd405add6454cab4f6b0",
+    "test_files": [
+      "tests/test_status.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/_pep562.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/starlette%2F_pep562.py",
+        "status": "added"
+      },
+      {
+        "path": "starlette/status.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/starlette%2Fstatus.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "d1d8a4fa0a90154c5a23cd5e73443f40a56d163b",
+        "source_url": "https://github.com/Kludex/starlette/commit/d1d8a4fa0a90154c5a23cd5e73443f40a56d163b"
+      },
+      {
+        "sha": "26751fb4195c574d9551ee38bf2f881ca9114923",
+        "source_url": "https://github.com/Kludex/starlette/commit/26751fb4195c574d9551ee38bf2f881ca9114923"
+      },
+      {
+        "sha": "15e14c095f78a073f1700f68a372e2a1ae031298",
+        "source_url": "https://github.com/Kludex/starlette/commit/15e14c095f78a073f1700f68a372e2a1ae031298"
+      },
+      {
+        "sha": "7119d055e20aa8b65d0086c740cecaf8528a1e31",
+        "source_url": "https://github.com/Kludex/starlette/commit/7119d055e20aa8b65d0086c740cecaf8528a1e31"
+      },
+      {
+        "sha": "3d7dc1d65a6341d5c827357f88c3545401d69875",
+        "source_url": "https://github.com/Kludex/starlette/commit/3d7dc1d65a6341d5c827357f88c3545401d69875"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-04-07T20:27:25Z",
+      "number": 1580,
+      "source_url": "https://github.com/Kludex/starlette/pull/1580"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1580"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_status.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/tests%2Ftest_status.py",
+        "status": "added"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+    "committed_at": "2022-04-06T07:01:07Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/487f05dfc641a0632be8bd405add6454cab4f6b0"
+  },
+  "schema_version": "1.0"
+}

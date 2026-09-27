@@ -1,0 +1,63 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2023-01-04T05:27:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5818",
+          "number": 5818,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "TrustedHostMiddleware ignores port in Host header"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Cross-post from an issue at https://github.com/tiangolo/fastapi/issues/5818 as I didn't realise it was starlette providing this underneath.\r\n\r\n```\r\napp = FastAPI()\r\napp.add_middleware(\r\n    TrustedHostMiddleware,\r\n    allowed_hosts=[\"localhost:8000\"]\r\n)\r\n```\r\n\r\nUsing the provided example code and making a request from localhost:8000 I get an \"Invalid host header\" response, even though looking at dev tools in chrome the header is Host: localhost:8000\r\n\r\nIf I change to allowed_hosts=[\"localhost\"] it works fine.\r\n\r\nI understand it's a trusted host, and not a trusted port, but seems strange to me that it says invalid host header even though thats exactly what the browser is sending in the host header.\r\n\r\n\r\nAlso see comment by @jgould22\r\n>The relevant bit of code is here https://github.com/encode/starlette/blob/master/starlette/middleware/trustedhost.py#L38\r\n>\r\n>I agree since the Host header can include port (https://www.rfc-editor.org/rfc/rfc9110.html#field.host) it should not be trimmed off before the check.\r\n>\r\n> Even the docs refer only to a \"correctly set Host header\" https://www.starlette.io/middleware/#trustedhostmiddleware .",
+    "closed_at": "2023-01-04T05:31:10Z",
+    "created_at": "2023-01-04T05:27:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1997",
+    "number": 1997,
+    "state": "closed",
+    "title": "TrustedHostMiddleware ignores port in Host header",
+    "user": "blipk"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-01-04T05:27:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-01-04T05:27:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-01-04T05:27:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5818",
+          "number": 5818,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "TrustedHostMiddleware ignores port in Host header"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-04T05:31:10Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-01-04T05:31:10Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

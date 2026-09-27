@@ -1,0 +1,178 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-01-30T20:36:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8fd70c822ac25da74b7baf0b28d35cfabe869198",
+      "sha": "8fd70c822ac25da74b7baf0b28d35cfabe869198"
+    },
+    {
+      "committed_at": "2021-01-30T21:26:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3bd3e6b3a382344fa4f0f5933201f1655ce912fa",
+      "sha": "3bd3e6b3a382344fa4f0f5933201f1655ce912fa"
+    },
+    {
+      "committed_at": "2021-01-30T21:54:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aa97f30c73e1c830e0952f7a97d08bc5fad03dea",
+      "sha": "aa97f30c73e1c830e0952f7a97d08bc5fad03dea"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-09-07T00:48:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1040",
+          "number": 1040,
+          "pull_request": {
+            "merged_at": "2020-09-11T09:19:48Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1040"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "configure pytest to be stricter"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-30T22:25:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1132",
+          "number": 1132,
+          "pull_request": {
+            "merged_at": "2021-01-31T11:43:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1132"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 12,
+      "deletions": 6,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "4217185e8a1c3e277623a779c4e8f0e2605eadbe",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/starlette%2Ftestclient.py",
+      "changes": 6,
+      "deletions": 2,
+      "filename": "starlette/testclient.py",
+      "sha": "1d5e90dc807d4c37d982ed21a1f093c60d3eea7a",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/tests%2Fmiddleware%2F__init__.py",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "tests/middleware/__init__.py",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Hrm..we should probably fix these \ud83e\udd14 curious that they all seem to be warnings for `family=AddressFamily.AF_UNIX`\r\n\r\n_Originally posted by @JayH5 in https://github.com/encode/starlette/pull/1040#discussion_r484068578_",
+    "body_last_edited_at": null,
+    "closed_at": "2021-01-31T11:43:08Z",
+    "created_at": "2020-09-07T00:32:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1050",
+    "labels": [
+      "bug"
+    ],
+    "number": 1050,
+    "state": "closed",
+    "title": "fix Unraisable ResourceWarnings",
+    "user": "graingert"
+  },
+  "pull_request": {
+    "closed_at": "2021-01-31T11:43:09Z",
+    "created_at": "2021-01-30T22:21:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1132",
+    "merge_commit_sha": "62e95b89fca3a4c60d6638776bddbe1b59fcd2f9",
+    "merged_at": "2021-01-31T11:43:08Z",
+    "number": 1132,
+    "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "e4307065ea6dbe708fba9643d14fe7adfff06d46",
+    "committed_at": "2020-11-23T16:06:26Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e4307065ea6dbe708fba9643d14fe7adfff06d46"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-09-07T00:32:16Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-09-07T00:32:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-09-07T00:32:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-07T00:48:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1040",
+          "number": 1040,
+          "pull_request": {
+            "merged_at": "2020-09-11T09:19:48Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1040"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "configure pytest to be stricter"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T10:35:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T11:03:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-01-30T22:25:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1132",
+          "number": 1132,
+          "pull_request": {
+            "merged_at": "2021-01-31T11:43:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1132"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-31T11:43:08Z",
+      "event": "closed"
+    }
+  ]
+}

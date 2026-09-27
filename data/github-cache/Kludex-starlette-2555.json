@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,\r\n\r\nI encountered the following issue while using Starlette today :)\r\n\r\n## Issue description\r\n\r\nA `RuntimeError: Stream consumed` error is raised when `request.body()` is read in the custom middleware (1) after `call_next`, given that a route uses `request.body()`.\r\n\r\n## How to reproduce the issue?\r\n\r\n### Code\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.middleware import Middleware\r\n\r\nasync def testpage(request):\r\n    await request.body()\r\n    return JSONResponse({'hello': 'world'})\r\n\r\n\r\nclass CustomMiddleware(BaseHTTPMiddleware):\r\n\r\n    async def dispatch(self, request, call_next):\r\n        response = await call_next(request)\r\n        await request.body()  # THIS WILL RAISE -> RuntimeError: Stream consumed\r\n        return response\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[Route('/', testpage, methods=[\"PUT\"])],\r\n    middleware=[Middleware(CustomMiddleware)]\r\n)\r\n```\r\n\r\n### Dependencies\r\n\r\n```txt\r\nstarlette==0.37.2\r\nuvicorn==0.29.0\r\n```\r\n\r\n### Commands\r\n\r\n- 1st terminal: `uvicorn example:app`\r\n- 2nd terminal: `curl -XPUT http://127.0.0.1:8000 -d '123'`\r\n\r\n## Known workarounds\r\n\r\n1. Use `request.body()` at least once before `call_next` to ensure that the `_body` is cached.\r\n\r\n> I prefer not to use a workaround, as I only want to read the body in the middleware conditionally, based on the response, rather than always.\r\n\r\n---\r\n\r\nThis is my first time using `starlette`. Is this usage incorrect, or is it a bug? ",
+    "closed_at": "2024-03-29T14:01:33Z",
+    "created_at": "2024-03-29T13:46:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2555",
+    "number": 2555,
+    "state": "closed",
+    "title": "A `RuntimeError: Stream consumed` error is raised when `request.body()` is read in the custom middleware",
+    "user": "theredfoxlee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-03-29T13:47:32Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2024-03-29T14:01:33Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-03-29T14:01:33Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

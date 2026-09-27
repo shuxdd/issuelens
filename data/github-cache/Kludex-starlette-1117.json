@@ -1,0 +1,114 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-12-28T22:45:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/36dd28b166e6e123b5b28a864e3e2927edbcc448",
+      "sha": "36dd28b166e6e123b5b28a864e3e2927edbcc448"
+    },
+    {
+      "committed_at": "2021-06-26T18:04:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f216e018e55cbbe64a68269ae567b04fd4d5fb0e",
+      "sha": "f216e018e55cbbe64a68269ae567b04fd4d5fb0e"
+    },
+    {
+      "committed_at": "2021-09-18T13:12:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/89ed22a37ca8a2c2d4503769f56bfe7514927374",
+      "sha": "89ed22a37ca8a2c2d4503769f56bfe7514927374"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-12-28T22:50:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1118",
+          "number": 1118,
+          "pull_request": {
+            "merged_at": "2021-09-18T13:16:05Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1118"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Align __getitem__ type with scope type"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/89ed22a37ca8a2c2d4503769f56bfe7514927374/starlette%2Frequests.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/requests.py",
+      "sha": "676f4e9aa3fec50df942c46053e991b78074cf26",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n`HTTPConnection`'s `__get_item__` has the return type `str`. However, it returns the value for the provided key in the scope. Not all values in the scope are strings, (See documentation here: https://asgi.readthedocs.io/en/latest/specs/www.html#http-connection-scope\r\n\r\nSince `WebSocket` inherits this method it also has the wrong return type.\r\n\r\n### To reproduce\r\nThis example uses WebSocket because that's how I originally found the issue.\r\n\r\nRun mypy\r\n```bash\r\nmypy --pretty main.py\r\n```\r\nOn the following code\r\n```python\r\nfrom starlette.types import Scope, Receive, Send\r\nfrom starlette.websockets import WebSocket\r\n\r\n\r\nasync def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n    websocket = WebSocket(scope=scope, receive=receive, send=send)\r\n    await websocket.accept()\r\n    ip, port = websocket['client']  # mypy fails to typecheck, because websocket['client'] typed as a str\r\n    # Succeeds at runtime, because websocket['client'] is not a string\r\n    assert isinstance(ip, str)\r\n    assert isinstance(port, int)\r\n```\r\n\r\n### Expected behavior\r\n\r\nmypy typecheck should pass for valid code\r\n\r\n### Actual behavior\r\n\r\nMypy fails to typecheck with the following error:\r\n\r\n```\r\nmain.py:8: error: Unpacking a string is disallowed\r\n        ip, port = websocket['client']  # mypy fails to typecheck, because webso...\r\n                   ^\r\n```\r\n\r\n\r\n### Environment\r\n\r\n- OS: linux/windows/mac\r\n- Python version: 3.9\r\n- Starlette version: 0.14.1\r\n\r\n### Additional context\r\n\r\nChanging the return type of `__get_item__` to `Any` is likely the right thing to do here, which would be backwards-compatible for those currently using mypy. \r\n\r\nAs an extra solution to this problem, it would be great to expose the correct types for the scope using a TypedDict (couldn't be done for `__getitem__`, but could be done for the scope attribute on `WebSocket` and `HTTPConnection`), although that would be a breaking change for MyPy users, and also complicate the middleware story.\r\n\r\nI'd be happy to work on either/both of these solutions if there's a consensus on what the right direction is.",
+    "closed_at": "2021-09-18T13:16:05Z",
+    "created_at": "2020-12-28T03:56:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1117",
+    "labels": [
+      "typing"
+    ],
+    "number": 1117,
+    "state": "closed",
+    "title": "HTTPConnection::__get_item__ has incorrect type signature",
+    "user": "sburba"
+  },
+  "pull_request": {
+    "closed_at": "2021-09-18T13:16:06Z",
+    "created_at": "2020-12-28T22:50:51Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1118",
+    "merge_commit_sha": "217019b36303ea16a5869ad076d835e4fdc1cef3",
+    "merged_at": "2021-09-18T13:16:05Z",
+    "number": 1118,
+    "title": "Align __getitem__ type with scope type",
+    "user": "sburba"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "36dd28b166e6e123b5b28a864e3e2927edbcc448",
+      "commit_url": "https://api.github.com/repos/sburba/starlette/commits/36dd28b166e6e123b5b28a864e3e2927edbcc448",
+      "created_at": "2020-12-28T22:47:01Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-12-28T22:50:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1118",
+          "number": 1118,
+          "pull_request": {
+            "merged_at": "2021-09-18T13:16:05Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1118"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Align __getitem__ type with scope type"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-04T20:26:03Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-09-18T13:16:06Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "217019b36303ea16a5869ad076d835e4fdc1cef3",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/217019b36303ea16a5869ad076d835e4fdc1cef3",
+      "created_at": "2021-09-18T13:16:07Z",
+      "event": "referenced"
+    }
+  ]
+}

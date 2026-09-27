@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "So, I went through documentation and I made this test application, to see if the CORSMiddleware even works. Well, apparently it doesn't work at all, the headers are not being sent and the OPTIONS request still returns 405.\r\n\r\nIs it just me misunderstanding something and if so, what exactly? If it's not just me, then I think something is broken here.\r\n\r\nI would really appreciate some TIP on that, since I rewrote one of my API wrappers to starlette and it doesn't really work, because of cors ;-;\r\n\r\nMy application code\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse, PlainTextResponse\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.cors import CORSMiddleware\r\nfrom starlette.exceptions import HTTPException\r\n\r\n\r\nmiddleware = [\r\n    Middleware(CORSMiddleware, allow_origins=['*'], allow_methods=[\"GET\", \"OPTIONS\"],\r\n               allow_headers=[\"Token\", \"Origin\", \"X-Requested-With\", \"Content-Type\", \"Accept\"])\r\n]\r\n\r\napp = Starlette(middleware=middleware)\r\n\r\n\r\n@app.route('/')\r\nasync def homepage(request):\r\n    return JSONResponse(content={\"message\": \"hi\"})\r\n\r\n\r\n@app.route('/test')\r\nasync def test(request):\r\n    return JSONResponse(content={\"test\": \"the test route\"})\r\n\r\n```\r\n\r\nHere's results of the request to root:\r\n![Postman_e6qkuwYQR2](https://user-images.githubusercontent.com/51153795/73184297-a6755180-4135-11ea-8bae-3a666431d5eb.png)\r\n![image](https://user-images.githubusercontent.com/51153795/73184431-d4f32c80-4135-11ea-91ac-33b85f22f542.png)\r\n\r\n",
+    "closed_at": "2020-01-29T10:06:11Z",
+    "created_at": "2020-01-27T14:52:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/810",
+    "number": 810,
+    "state": "closed",
+    "title": "CORSMiddleware is not working",
+    "user": "ghost"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-29T06:53:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-29T10:06:11Z",
+      "event": "commented"
+    }
+  ]
+}

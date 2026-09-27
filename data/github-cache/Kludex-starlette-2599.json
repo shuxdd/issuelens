@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-05-22T16:54:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2600",
+          "number": 2600,
+          "pull_request": {
+            "merged_at": "2024-09-01T15:12:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2600"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ensure accurate `root_path` removal in `get_route_path` function"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2495\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **robbielaw** February  8, 2024</sup>\r\n\r\nWhen running starlette/fastapi behing a proxy we got some errors when calling the app directly.\r\n\r\nwhen calling curl http://127.0.0.1:8000/products/, we get:\r\nroot_path: _/product_\r\nscope['path']: _/products_\r\nroute_path: _s_ (after apply the regex - https://github.com/encode/starlette/blob/master/starlette/_utils.py#L96)\r\nbecause the the root_path to be removed if calling directly the app is **\"product\"** and endpoint path is **/products**\r\n\r\n**Example Scenario**:\r\nlibs: \r\n```\r\nstarlette==0.37.2\r\nuvicorn==0.29.0\r\n```\r\ngist: https://gist.github.com/gabriel-f-santos/df75213fe6860e369a1e096611a767e5\r\nrun: uvicorn main:app --root-path /product\r\n\r\n\r\nCode causing the error:\r\nhttps://github.com/encode/starlette/blob/master/starlette/_utils.py#L96\r\n\r\n```\r\ndef get_route_path(scope: Scope) -> str:\r\n    root_path = scope.get(\"root_path\", \"\")\r\n    route_path = re.sub(r\"^\" + root_path, \"\", scope[\"path\"])\r\n    return route_path\r\n```\r\n\r\nFix suggestion:\r\n\r\n```\r\ndef get_route_path(scope: Scope) -> str:\r\n    root_path = scope.get(\"root_path\", \"\")\r\n    route_path = re.sub(r\"^\" + root_path + r\"(?=/|$)\", \"\", scope[\"path\"])\r\n    return route_path\r\n```\r\n\r\n\r\n<!-- POLAR PLEDGE BADGE START -->\r\n> [!IMPORTANT]\r\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\r\n> - We receive the funding once the issue is completed & confirmed by you.\r\n> - Thank you in advance for helping prioritize & fund our backlog.\r\n\r\n<a href=\"https://polar.sh/encode/starlette/issues/2599\">\r\n<picture>\r\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2599/pledge.svg?darkmode=1\">\r\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2599/pledge.svg\">\r\n</picture>\r\n</a>\r\n<!-- POLAR PLEDGE BADGE END -->\r\n",
+    "closed_at": "2024-05-24T06:02:10Z",
+    "created_at": "2024-05-22T15:28:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2599",
+    "number": 2599,
+    "state": "closed",
+    "title": "0.35.0 refactor of root_path handling is potentially returning incorrect route",
+    "user": "gabriel-f-santos"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-05-22T16:54:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2600",
+          "number": 2600,
+          "pull_request": {
+            "merged_at": "2024-09-01T15:12:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2600"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ensure accurate `root_path` removal in `get_route_path` function"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-24T06:02:10Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-05-24T06:02:10Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

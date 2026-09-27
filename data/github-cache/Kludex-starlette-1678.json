@@ -1,0 +1,826 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9561a474fb0ea5aa3f649b86ba3475be6cd076f2",
+      "sha": "9561a474fb0ea5aa3f649b86ba3475be6cd076f2"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc",
+      "sha": "dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9161fb87218421857054f7171cbe13691e269142",
+      "sha": "9161fb87218421857054f7171cbe13691e269142"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/274bdeb4b790d2b118e9eb791bf5f30ed435f742",
+      "sha": "274bdeb4b790d2b118e9eb791bf5f30ed435f742"
+    },
+    {
+      "committed_at": "2022-09-06T11:24:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e43a9244db770180d6624f142d544e272e29d98f",
+      "sha": "e43a9244db770180d6624f142d544e272e29d98f"
+    },
+    {
+      "committed_at": "2022-09-21T20:05:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13aae769d0d087a2a6af4383b143c89c068bfd79",
+      "sha": "13aae769d0d087a2a6af4383b143c89c068bfd79"
+    },
+    {
+      "committed_at": "2022-09-22T17:20:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/faae18e60906e8f055de4f12c6745b1955ea57d6",
+      "sha": "faae18e60906e8f055de4f12c6745b1955ea57d6"
+    },
+    {
+      "committed_at": "2022-09-23T14:46:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b0434ab2917b6eedef3c7a929456a0aa55c74c97",
+      "sha": "b0434ab2917b6eedef3c7a929456a0aa55c74c97"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-06-09T20:28:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1679",
+          "number": 1679,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1679"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecation warning to BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T13:47:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T20:12:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T20:44:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1691",
+          "number": 1691,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1691"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Experiment a high-level HTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-23T16:43:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5068",
+          "number": 5068,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Code after yield in the async dependecy executed before response has been sent to the client"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-06T20:36:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1715",
+          "number": 1715,
+          "pull_request": {
+            "merged_at": "2022-09-24T05:29:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1715"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-20T07:53:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perdy/starlette-prometheus/pull/41",
+          "number": 41,
+          "pull_request": {
+            "merged_at": "2024-02-05T12:41:14Z",
+            "url": "https://api.github.com/repos/perdy/starlette-prometheus/pulls/41"
+          },
+          "repository": {
+            "full_name": "perdy/starlette-prometheus"
+          },
+          "title": "Revamp implementation without BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-05T19:56:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1898",
+          "number": 1898,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1898"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-17T08:41:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/472",
+          "number": 472,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "AssertionError with middleware and TemplateResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-16T11:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/issues/573",
+          "number": 573,
+          "pull_request": {},
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Rewrite middleware as Pure ASGI middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-24T01:35:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/garyd203/xraysink/issues/94",
+          "number": 94,
+          "pull_request": {},
+          "repository": {
+            "full_name": "garyd203/xraysink"
+          },
+          "title": "Update documentation to follow current advice on use of BaseHTTPMiddleware (ie. \"don't\")"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-24T11:51:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DmitryBurnaev/starlette-web/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DmitryBurnaev/starlette-web"
+          },
+          "title": "Roadmap to 0.1"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 37,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 40,
+      "deletions": 3,
+      "filename": "starlette/middleware/base.py",
+      "sha": "586c9870dc1be3bd026091fa731a0e2f8460e83c",
+      "status": "modified"
+    },
+    {
+      "additions": 207,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 207,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "ed0734bd389063a1d3d6117d677c505ebc0a76ad",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Based on many previous discussions, I am proposing that we deprecate `BaseHTTPMiddleware`.\r\n\r\nWe'll put a deprecation warning in the constructor. In this warning we will give:\r\n- Some background on the issue\r\n- A date at which we will remove `BaseHTTPMiddleware`\r\n- Options for developers (basically help us fix it or migrate to ASGI middleware).\r\n\r\nThis will be a part of a multipronged approach consisting of:\r\n- ~Better documentation. We've already documented the limitations and issues with `BaseHTTPMiddleware` both in our docs and tests. #1656 will give us better documentation on creating ASGI middleware.~ This is now done!\r\n- ~I (and I think @Kludex as well) are prepared to personally contribute to downstream packages by porting their middlewares to pure ASGI middleware. We'll probably just look for any packages with >  X stars or something and make PRs.~ We've proposed (and merged some) upstream fixes into some of the most popular libraries using `BaseHTTPMiddleware` we could find on GitHub.\r\n- Providing an alternative implementation. #1691 proposes an alternative safer implementation of a simple request/response middleware. I'm not sure this is necessary now that we have better ASGI middleware docs, but it's an option.\r\n- Deprecating and eventually removing BaseHTTPMiddleware",
+    "body_last_edited_at": "2022-07-02T16:56:57Z",
+    "closed_at": "2023-05-31T20:00:55Z",
+    "created_at": "2022-06-09T20:20:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1678",
+    "labels": [
+      "clean up",
+      "refactor"
+    ],
+    "number": 1678,
+    "state": "closed",
+    "title": "Deprecating BaseHTTPMiddleware",
+    "user": "adriangb"
+  },
+  "pull_request": {
+    "closed_at": "2022-09-24T05:29:09Z",
+    "created_at": "2022-06-29T23:11:14Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1715",
+    "merge_commit_sha": "040d8c86b09f34be49e8c253d97a588973bc7308",
+    "merged_at": "2022-09-24T05:29:09Z",
+    "number": 1715,
+    "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`",
+    "user": "jhominal"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-06-09T20:20:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-09T20:20:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-09T20:28:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1679",
+          "number": 1679,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1679"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecation warning to BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T13:47:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T18:26:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-14T18:59:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-14T19:08:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-14T19:08:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-14T19:08:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-14T20:12:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T20:44:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1691",
+          "number": 1691,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1691"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Experiment a high-level HTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T22:44:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-18T16:34:32Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-06-18T16:34:32Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-06-23T16:43:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5068",
+          "number": 5068,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Code after yield in the async dependecy executed before response has been sent to the client"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-02T15:27:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T15:27:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-02T15:27:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-02T15:27:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-02T15:27:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-02T15:27:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-02T16:53:31Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "10628438f013f892cc49101b7a2fade1a7993948",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/10628438f013f892cc49101b7a2fade1a7993948",
+      "created_at": "2022-07-06T20:26:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-07-06T20:36:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1715",
+          "number": 1715,
+          "pull_request": {
+            "merged_at": "2022-09-24T05:29:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1715"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-20T07:53:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perdy/starlette-prometheus/pull/41",
+          "number": 41,
+          "pull_request": {
+            "merged_at": "2024-02-05T12:41:14Z",
+            "url": "https://api.github.com/repos/perdy/starlette-prometheus/pulls/41"
+          },
+          "repository": {
+            "full_name": "perdy/starlette-prometheus"
+          },
+          "title": "Revamp implementation without BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "commit_id": "4c50738d933ff1cadda3648978b7aad1306886ac",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/4c50738d933ff1cadda3648978b7aad1306886ac",
+      "created_at": "2022-08-16T11:08:03Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "274bdeb4b790d2b118e9eb791bf5f30ed435f742",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/274bdeb4b790d2b118e9eb791bf5f30ed435f742",
+      "created_at": "2022-09-03T16:51:06Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "040d8c86b09f34be49e8c253d97a588973bc7308",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/040d8c86b09f34be49e8c253d97a588973bc7308",
+      "created_at": "2022-09-24T05:29:11Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-10-05T19:56:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1898",
+          "number": 1898,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1898"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "commit_id": "394c4b680e6477887d89eeffb7c13831cb9ee8c5",
+      "commit_url": "https://api.github.com/repos/dudleyhunt86/starlette-develop-with-python/commits/394c4b680e6477887d89eeffb7c13831cb9ee8c5",
+      "created_at": "2022-10-07T22:16:48Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-10-27T00:52:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-27T04:59:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-27T09:19:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-17T08:41:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/472",
+          "number": 472,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "AssertionError with middleware and TemplateResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-16T11:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/issues/573",
+          "number": 573,
+          "pull_request": {},
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Rewrite middleware as Pure ASGI middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-04T20:33:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T20:35:58Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-06T06:00:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T06:19:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T09:32:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T09:38:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T09:44:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T09:52:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-09T08:57:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:57:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T08:58:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-09T22:06:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-09T22:13:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-09T22:29:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-09T23:41:06Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "cdf66eeff50ccce349df4bbbf91d2a2e292430db",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/cdf66eeff50ccce349df4bbbf91d2a2e292430db",
+      "created_at": "2023-02-13T07:48:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-02-24T01:35:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/garyd203/xraysink/issues/94",
+          "number": 94,
+          "pull_request": {},
+          "repository": {
+            "full_name": "garyd203/xraysink"
+          },
+          "title": "Update documentation to follow current advice on use of BaseHTTPMiddleware (ie. \"don't\")"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-24T11:51:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DmitryBurnaev/starlette-web/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DmitryBurnaev/starlette-web"
+          },
+          "title": "Roadmap to 0.1"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-13T13:56:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-13T14:00:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-13T14:07:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-13T23:10:10Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-03-13T23:10:10Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-05-31T20:00:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-31T20:00:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-31T20:00:42Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-31T20:00:54Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-05-31T20:00:55Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

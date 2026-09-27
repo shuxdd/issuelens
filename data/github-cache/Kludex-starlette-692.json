@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2023-12-05T17:09:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mamba-org/quetz/issues/679",
+          "number": 679,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mamba-org/quetz"
+          },
+          "title": "How to get https redirect_url for authorization"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "It would be handy if `HTTPSRedirectMiddleware` had an option to use the `X-Forwarded-Proto` header for redirecting on platforms like Heroku.",
+    "closed_at": "2019-10-29T15:23:18Z",
+    "created_at": "2019-10-28T09:52:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/692",
+    "number": 692,
+    "state": "closed",
+    "title": "Consider using X-Forwarded-Proto with HTTPSRedirectMiddleware",
+    "user": "shangxiao"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-29T05:02:20Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-10-29T15:23:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-05T17:09:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mamba-org/quetz/issues/679",
+          "number": 679,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mamba-org/quetz"
+          },
+          "title": "How to get https redirect_url for authorization"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-10-09T08:47:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e5cc119925a00a3073d25e2ed0713777fe0897c0",
+      "sha": "e5cc119925a00a3073d25e2ed0713777fe0897c0"
+    },
+    {
+      "committed_at": "2025-10-09T08:49:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0cbdb7bd31a4fe0f971572c85992326e2f5f4048",
+      "sha": "0cbdb7bd31a4fe0f971572c85992326e2f5f4048"
+    },
+    {
+      "committed_at": "2026-01-10T22:52:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f54ae1434d44680c0eb3488c7206f74f69edca40",
+      "sha": "f54ae1434d44680c0eb3488c7206f74f69edca40"
+    },
+    {
+      "committed_at": "2026-01-11T13:08:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bc529b03d06ff338b31fb14172365b2244da3526",
+      "sha": "bc529b03d06ff338b31fb14172365b2244da3526"
+    },
+    {
+      "committed_at": "2026-01-11T13:20:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cffe64635b40de616e2f962efde0545525aca966",
+      "sha": "cffe64635b40de616e2f962efde0545525aca966"
+    },
+    {
+      "committed_at": "2026-01-11T13:41:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/722181c61e51c7ad29bad200d4dda90db55fb035",
+      "sha": "722181c61e51c7ad29bad200d4dda90db55fb035"
+    },
+    {
+      "committed_at": "2026-01-18T09:48:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9",
+      "sha": "0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-10-09T08:47:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3036",
+          "number": 3036,
+          "pull_request": {
+            "merged_at": "2026-01-18T09:49:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3036"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Turn `State` into a `Mapping`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-05T12:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Wizarck/iguanatrader/pull/66",
+          "number": 66,
+          "pull_request": {
+            "merged_at": "2026-05-05T13:08:38Z",
+            "url": "https://api.github.com/repos/Wizarck/iguanatrader/pulls/66"
+          },
+          "repository": {
+            "full_name": "Wizarck/iguanatrader"
+          },
+          "title": "feat(slice-4): auth-jwt-cookie \u2014 JWT cookie session + Argon2id + login UI"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 52,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9/docs%2Flifespan.md",
+      "changes": 52,
+      "deletions": 0,
+      "filename": "docs/lifespan.md",
+      "sha": "6411049b6d31bc8d4a43c141e0d46690b34d5c39",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9/starlette%2Fdatastructures.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "starlette/datastructures.py",
+      "sha": "615874c9c3b3208d9e3cc8b3e8f5955b193e9d65",
+      "status": "modified"
+    },
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9/starlette%2Frequests.py",
+      "changes": 14,
+      "deletions": 5,
+      "filename": "starlette/requests.py",
+      "sha": "041ef25a21cc63afd0b1475e2c3c79503b7471c6",
+      "status": "modified"
+    },
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9/tests%2Ftest_applications.py",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "tests/test_applications.py",
+      "sha": "30e1d75046308409a48f48bf869a00ee4b545223",
+      "status": "modified"
+    },
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0f8e6d801c7ea7c3f70b0aeb2129990381b9fda9/tests%2Ftest_requests.py",
+      "changes": 22,
+      "deletions": 0,
+      "filename": "tests/test_requests.py",
+      "sha": "c17fac565550af2959c48712378a48f5a711aec5",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "\n### Discussed in https://github.com/Kludex/starlette/discussions/2562\n\n<div type='discussions-op-text'>\n\n<sup>Originally posted by **patrick91** April  3, 2024</sup>\nHi there! \r\n\r\nI was playing around with `request.state`, and I was wondering if we could make it generic, so that users can get better autocomplete on it (and maybe a bit of type safety too).\r\n\r\nThe way this would work is where you accept a `Request` you could also do `Request[MyStateType]`, and `request.state` would be of type `MyStateType`\r\n\r\nI think we can implement this in a backwards compatible way if we use `TypeVar` from typing extensions with a default value of any, like this:\r\n\r\n```python\r\nfrom typing import Any\r\nfrom typing_extensions import TypeVar\r\n\r\nRequestState = TypeVar(\"RequestState\", default=Any)  # this could also be `State`\r\n```\r\n\r\nThis means that any current code wouldn't throw an error, and power users could type the state var \ud83d\ude0a\r\n\r\nThe only issue I see at the moment is that `State` is a wrapper on a dict, but doesn't provide `getitem`, and my assumption is that types for State would be `TypedDicts` \ud83d\ude0a but is should be easy to add support for that. But I'm also saying this without knowing the reason why the state is a class on top of a dict, so I might be wrong :D </div>",
+    "body_last_edited_at": null,
+    "closed_at": "2026-01-18T09:49:56Z",
+    "created_at": "2025-09-11T06:59:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3005",
+    "number": 3005,
+    "state": "closed",
+    "title": "Make request.state generic",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2026-01-18T09:49:55Z",
+    "created_at": "2025-10-09T08:47:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3036",
+    "merge_commit_sha": "d8c7cf9aca95b31c7a70473d03c26bc8ce33cd74",
+    "merged_at": "2026-01-18T09:49:55Z",
+    "number": 3036,
+    "title": "Turn `State` into a `Mapping`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "4915a9309fcad58ac08b9fa550563d3287b531ad",
+    "committed_at": "2025-10-02T20:15:44Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/4915a9309fcad58ac08b9fa550563d3287b531ad"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-09-11T07:17:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-11T08:06:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-09-16T23:42:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-09-29T12:34:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-09T08:47:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3036",
+          "number": 3036,
+          "pull_request": {
+            "merged_at": "2026-01-18T09:49:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3036"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Turn `State` into a `Mapping`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-10-09T08:59:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-14T00:00:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-14T21:53:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-30T06:11:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-11-03T15:41:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-11-07T13:42:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-11-16T21:52:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-01-18T09:49:56Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-05-05T12:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Wizarck/iguanatrader/pull/66",
+          "number": 66,
+          "pull_request": {
+            "merged_at": "2026-05-05T13:08:38Z",
+            "url": "https://api.github.com/repos/Wizarck/iguanatrader/pulls/66"
+          },
+          "repository": {
+            "full_name": "Wizarck/iguanatrader"
+          },
+          "title": "feat(slice-4): auth-jwt-cookie \u2014 JWT cookie session + Argon2id + login UI"
+        }
+      }
+    }
+  ]
+}

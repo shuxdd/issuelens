@@ -1,0 +1,105 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-03-23T15:47:44Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2093"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2093"
+    ]
+  },
+  "case_id": "starlette-issue-2093",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2194",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Stop `body_stream` in case `more_body=False`' directly changes starlette/middleware/base.py with focused behavior test(s) tests/middleware/test_base.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-06-27T12:32:54Z",
+  "issue": {
+    "body": "- [x] Initially raised as a discussion in [the FastAPI repo](https://github.com/tiangolo/fastapi/discussions/7168#discussioncomment-5387343).\r\n\r\nConsider the following simple example of background tasks through Starlette:\r\n`server.py`\r\n```py\r\nimport logging\r\nfrom time import sleep\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.background import BackgroundTasks\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import JSONResponse, Response\r\nfrom starlette.routing import Route\r\n\r\nlogging.basicConfig(\r\n    level=logging.INFO,\r\n    format=\"[%(asctime)s] [%(levelname)s] %(message)s\",\r\n    datefmt=\"%Y-%m-%d %H:%M:%S\",\r\n)\r\n\r\n\r\nclass CustomMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(\r\n        self, request: Request, call_next: RequestResponseEndpoint\r\n    ) -> Response:\r\n        return await call_next(request)\r\n\r\n\r\ndef create_task(request: Request) -> JSONResponse:\r\n    logging.info(\"Entered POST method\")\r\n    tasks = BackgroundTasks()\r\n    tasks.add_task(background_task)\r\n    message = {\"status\": \"Task created\"}\r\n    return JSONResponse(message, background=tasks, status_code=201)\r\n\r\n\r\ndef background_task() -> None:\r\n    logging.info(\"Started background task\")\r\n    sleep(10)\r\n    logging.info(\"Finished background task\")\r\n\r\n\r\nroutes = [Route(\"/task\", endpoint=create_task, methods=[\"POST\"])]\r\nmiddleware = [Middleware(CustomMiddleware)]\r\napp = Starlette(routes=routes, middleware=middleware)\r\n```\r\n\r\nI start this code with `uvicorn server:app --reload`.\r\n\r\nThen I start the task twice in one connection using this code:\r\n`client.py`\r\n```py\r\nfrom httpx import Client\r\n\r\nwith Client(base_url=\"http://localhost:8000\") as client:\r\n    client.post(\"/task\")\r\n    client.post(\"/task\")\r\n```\r\n\r\nWhich results in a sequential execution of background tasks (and read timeout from the client as a consequence):\r\n```\r\n[2023-03-23 19:32:08] [INFO] Entered POST method\r\nINFO:     127.0.0.1:51448 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:32:08] [INFO] Started background task\r\n[2023-03-23 19:32:18] [INFO] Finished background task\r\n[2023-03-23 19:32:18] [INFO] Entered POST method\r\n[2023-03-23 19:32:18] [INFO] Started background task\r\n[2023-03-23 19:32:29] [INFO] Finished background task\r\n```\r\n\r\nIf I just send simple curl requests (`curl -X 'POST' 'http://127.0.0.1:8000/task'`) one after the other (so they are different connections), everything works as expected:\r\n```\r\n[2023-03-23 19:44:35] [INFO] Entered POST method\r\nINFO:     127.0.0.1:55528 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:44:35] [INFO] Started background task\r\n[2023-03-23 19:44:37] [INFO] Entered POST method\r\nINFO:     127.0.0.1:55532 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:44:37] [INFO] Started background task\r\n[2023-03-23 19:44:45] [INFO] Finished background task\r\n[2023-03-23 19:44:47] [INFO] Finished background task\r\n```\r\n\r\nIt looks like this regression was introduced in Starlette [0.23.1](https://github.com/encode/starlette/releases/tag/0.23.1), [this PR](https://github.com/encode/starlette/pull/1940). If I pin Starlette to 0.23.0 everything works fine.",
+    "number": 2093,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2093",
+    "title": "`HTTPMiddleware` breaks `BackgroundTasks` in the same connection"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2194 created_at 2023-06-27T12:32:54Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2194",
+    "repair_files": [
+      "starlette/middleware/base.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 2168e47052239da5df35d5353bb986f760c51cef",
+    "test_files": [
+      "tests/middleware/test_base.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/82ddb561d0adbf7f546b7177dd4adbf346a4e149/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "fa77bcccf725e01a25efd3880a09b56c87ec164b",
+        "source_url": "https://github.com/Kludex/starlette/commit/fa77bcccf725e01a25efd3880a09b56c87ec164b"
+      },
+      {
+        "sha": "a15e66dd801c21390890ea0070a7c6d883f180d2",
+        "source_url": "https://github.com/Kludex/starlette/commit/a15e66dd801c21390890ea0070a7c6d883f180d2"
+      },
+      {
+        "sha": "5bf2b1247c41c2558cb190902c7eba80fdb220c1",
+        "source_url": "https://github.com/Kludex/starlette/commit/5bf2b1247c41c2558cb190902c7eba80fdb220c1"
+      },
+      {
+        "sha": "b56c2111e42fd71409b0b040f9b38372e7a04bd1",
+        "source_url": "https://github.com/Kludex/starlette/commit/b56c2111e42fd71409b0b040f9b38372e7a04bd1"
+      },
+      {
+        "sha": "82ddb561d0adbf7f546b7177dd4adbf346a4e149",
+        "source_url": "https://github.com/Kludex/starlette/commit/82ddb561d0adbf7f546b7177dd4adbf346a4e149"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-06-27T12:32:54Z",
+      "number": 2194,
+      "source_url": "https://github.com/Kludex/starlette/pull/2194"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2194"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/82ddb561d0adbf7f546b7177dd4adbf346a4e149/tests%2Fmiddleware%2Ftest_base.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+    "committed_at": "2023-06-20T18:35:45Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2168e47052239da5df35d5353bb986f760c51cef"
+  },
+  "schema_version": "1.0"
+}

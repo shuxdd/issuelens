@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "What is your solution to have few `.env` (`.default`, `.production`?) files that share some settings and change another. I presume that ie. `integration` environment could still have `DEBUG=True` but different `DATABASE_URL` settings. The most common way to do it is to inherite/import one file from another and then override values when needed. Solution described in documentation shows how to load settings file, but not how to do it for real life application when we need to work with multiple environments. Do you have some habits in this case? How would you develop bigger application with many settings - would you assign the same values in multiple configs? ",
+    "closed_at": "2019-02-18T10:24:36Z",
+    "created_at": "2019-02-16T11:12:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/391",
+    "number": 391,
+    "state": "closed",
+    "title": "Project configuration for multiple environments",
+    "user": "kdebowski"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-16T13:50:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-18T10:24:35Z",
+      "event": "commented"
+    }
+  ]
+}

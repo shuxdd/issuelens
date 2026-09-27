@@ -1,0 +1,109 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-04-14T17:54:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Aureliolo/synthorg/pull/1335",
+          "number": 1335,
+          "pull_request": {
+            "merged_at": "2026-04-14T19:37:21Z",
+            "url": "https://api.github.com/repos/Aureliolo/synthorg/pulls/1335"
+          },
+          "repository": {
+            "full_name": "Aureliolo/synthorg"
+          },
+          "title": "feat: A2A external gateway implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-16T01:34:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/brockyeah/CardLister/pull/43",
+          "number": 43,
+          "pull_request": {
+            "merged_at": "2026-08-16T12:35:50Z",
+            "url": "https://api.github.com/repos/brockyeah/CardLister/pulls/43"
+          },
+          "repository": {
+            "full_name": "brockyeah/CardLister"
+          },
+          "title": "Weekly deep review: cache-header fixes, event-loop unblock, quantity crash, invariant tests, doc drift"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The starting point for issues should usually be a discussion...\r\nHi I am from Azure Function team, we are integrating starlette req/response to support http streaming. When streaming upload a large file and using starlette request stream function to iterate chunks on server side. each chunk size is 128kb. It hinders the uploading speed for large files. Wonder is there a way to configure the upload chunk size or this is by design? \r\n\r\n![image](https://github.com/encode/starlette/assets/12449837/5849a6a2-55b8-47a6-9a94-5ca743f91c93)\r\n![image](https://github.com/encode/starlette/assets/12449837/d106ee0e-0185-4195-a0a7-f858548177a2)\r\n\r\nhttps://github.com/encode/starlette/discussions\r\n\r\nPossible bugs may be raised as a \"Potential Issue\" discussion, feature requests may be raised as an \"Ideas\" discussion. We can then determine if the discussion needs to be escalated into an \"Issue\" or not.\r\n\r\nThis will help us ensure that the \"Issues\" list properly reflects ongoing or needed work on the project.\r\n\r\n---\r\n\r\n- [ ] Initially raised as discussion #...\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2590\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2590/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2590/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-08-03T12:16:15Z",
+    "created_at": "2024-05-07T21:50:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2590",
+    "number": 2590,
+    "state": "closed",
+    "title": "[FeatureRequest] Cant configure request.stream() chunk size -- always 128kb per chunk read",
+    "user": "YunchuWang"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-05-08T05:28:32Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2024-05-11T03:59:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-03T12:16:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-03T12:16:15Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-08-03T12:16:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-04-14T17:54:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Aureliolo/synthorg/pull/1335",
+          "number": 1335,
+          "pull_request": {
+            "merged_at": "2026-04-14T19:37:21Z",
+            "url": "https://api.github.com/repos/Aureliolo/synthorg/pulls/1335"
+          },
+          "repository": {
+            "full_name": "Aureliolo/synthorg"
+          },
+          "title": "feat: A2A external gateway implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-16T01:34:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/brockyeah/CardLister/pull/43",
+          "number": 43,
+          "pull_request": {
+            "merged_at": "2026-08-16T12:35:50Z",
+            "url": "https://api.github.com/repos/brockyeah/CardLister/pulls/43"
+          },
+          "repository": {
+            "full_name": "brockyeah/CardLister"
+          },
+          "title": "Weekly deep review: cache-header fixes, event-loop unblock, quantity crash, invariant tests, doc drift"
+        }
+      }
+    }
+  ]
+}

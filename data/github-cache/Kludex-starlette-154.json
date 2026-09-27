@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Might be a good one for a contributor to jump on.\r\n\r\nAdd `isort` to `scripts/lint` (In which case it should modify the files in-place) and to `scripts/test` (In which case it should check import ordering and fail/succeed).\r\n\r\nThen run isort over all our modules to make sure we've got consistent import ordering.\r\n\r\n(Aside: Does `black` have any built-in support for this?)",
+    "closed_at": "2018-10-29T14:46:43Z",
+    "created_at": "2018-10-29T11:22:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/154",
+    "number": 154,
+    "state": "closed",
+    "title": "Use `isort` for consistency, and low-footprint pull requests.",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

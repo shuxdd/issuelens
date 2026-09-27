@@ -1,0 +1,125 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-16T09:08:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7af2e62ff14ad1af95abe8ce32816b1709239e1a",
+      "sha": "7af2e62ff14ad1af95abe8ce32816b1709239e1a"
+    },
+    {
+      "committed_at": "2021-12-16T09:50:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c",
+      "sha": "a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-16T09:22:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1371",
+          "number": 1371,
+          "pull_request": {
+            "merged_at": "2021-12-16T10:03:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1371"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change github issues template"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/05d531483a37f1d4e023eece13dd801daba5e818/.github%2FISSUE_TEMPLATE%2F2-bug-report.md",
+      "changes": 53,
+      "deletions": 53,
+      "filename": ".github/ISSUE_TEMPLATE/2-bug-report.md",
+      "sha": "7c11706b705dfd4c01e707f62875699a54cdaff4",
+      "status": "removed"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/05d531483a37f1d4e023eece13dd801daba5e818/.github%2FISSUE_TEMPLATE%2F3-feature-request.md",
+      "changes": 33,
+      "deletions": 33,
+      "filename": ".github/ISSUE_TEMPLATE/3-feature-request.md",
+      "sha": "97336f516109dc34c82eee2e7eb1652658c86c6c",
+      "status": "removed"
+    },
+    {
+      "additions": 73,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c/.github%2FISSUE_TEMPLATE%2Fbug-report.yml",
+      "changes": 73,
+      "deletions": 0,
+      "filename": ".github/ISSUE_TEMPLATE/bug-report.yml",
+      "sha": "966090b2f9f373e3201515797f9fc71d44c37675",
+      "status": "added"
+    },
+    {
+      "additions": 36,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c/.github%2FISSUE_TEMPLATE%2Ffeature-request.yml",
+      "changes": 36,
+      "deletions": 0,
+      "filename": ".github/ISSUE_TEMPLATE/feature-request.yml",
+      "sha": "baf791041791e1c473b48f8590b7b587d5491379",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Use same template as `uvicorn` on issues:\r\n\r\n- https://github.com/encode/uvicorn/issues/new?assignees=&labels=&template=feature-request.yml\r\n- https://github.com/encode/uvicorn/blob/master/.github/ISSUE_TEMPLATE/feature-request.yml\r\n\r\nIt avoids people creating issues like this i.e. ignoring completely the template.",
+    "closed_at": "2021-12-16T10:03:27Z",
+    "created_at": "2021-12-15T22:34:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1370",
+    "number": 1370,
+    "state": "closed",
+    "title": "Use new GitHub issue template",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2021-12-16T10:03:27Z",
+    "created_at": "2021-12-16T09:22:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1371",
+    "merge_commit_sha": "61a9c91c38c3de8085ba853d52ebbb18246c171a",
+    "merged_at": "2021-12-16T10:03:27Z",
+    "number": 1371,
+    "title": "Change github issues template",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-16T08:57:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-16T09:06:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-16T09:22:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1371",
+          "number": 1371,
+          "pull_request": {
+            "merged_at": "2021-12-16T10:03:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1371"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change github issues template"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-16T10:03:27Z",
+      "event": "closed"
+    }
+  ]
+}

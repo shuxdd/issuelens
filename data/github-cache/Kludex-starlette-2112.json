@@ -1,0 +1,88 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2111\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **falkoschindler** April  4, 2023</sup>\r\nIt looks like there is something wrong in `StaticFiles.loopup_path`. On venvs on Windows we noticed a problem with the common prefix check.\r\n\r\nConsider the following test script (here I'm refering to our library called NiceGUI, but any other side package should give a similar result):\r\n\r\n```py\r\nfrom nicegui import ui\r\n\r\ndirectory = Path(ui.__file__).parent / 'static'\r\nprint(f'{directory = }')\r\nprint(f'{os.path.abspath(directory)  = }')\r\nprint(f'{os.path.realpath(directory) = }')\r\n```\r\n\r\nThis yields the following output:\r\n\r\n```\r\ndirectory = WindowsPath('C:/Users/username/Envs/venv_name/lib/site-packages/nicegui/static')\r\nos.path.abspath(directory)  = 'C:\\\\Users\\\\username\\\\Envs\\\\venv_name\\\\lib\\\\site-packages\\\\nicegui\\\\static'\r\nos.path.realpath(directory) = 'C:\\\\Users\\\\username\\\\Envs\\\\venv_name\\\\Lib\\\\site-packages\\\\nicegui\\\\static'\r\n```\r\n\r\nNote that `realpath` returns an uppercase \"Lib\" while `abspath` doesn't.\r\n\r\nThis causes the common prefix to be only \"C:\\Users\\username\\Envs\\venv_name\\\", which is outside of the `directory`. Therefore the following check is true and the directory is not served:\r\n\r\nhttps://github.com/encode/starlette/blob/f7bf74194358cceb5708f758989df89240c0c1aa/starlette/staticfiles.py#L172\r\n\r\nI'm not perfectly sure how to fix it. Maybe using `commonpath` instead of `commonprefix`? Maybe converting strings to lowercase first? Maybe using pathlib instead of os.path?\r\n\r\nAnyway, it's an issue which confused us quite a bit over here: https://github.com/zauberzeug/nicegui/issues/714</div>",
+    "closed_at": "2023-05-31T16:31:46Z",
+    "created_at": "2023-04-04T11:48:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2112",
+    "labels": [
+      "staticfiles",
+      "need confirmation"
+    ],
+    "number": 2112,
+    "state": "closed",
+    "title": "StaticFiles with follow_symlink not working correctly in venvs on Windows.",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-04-04T11:49:04Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-04-04T11:49:04Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-04-04T12:16:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-16T11:09:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-16T11:09:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-16T11:09:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-16T11:09:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-16T11:09:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-17T08:42:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-17T08:42:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-17T08:42:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-31T16:31:46Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hey,\r\n\r\nI have a simple test app (`starlette==0.13.0`) running and I noticed that requests only contain the first query parameter. All subsequent query params are trimmed out of the request url & query params:\r\n```\r\ncurl http://localhost:8000/v1/posts?foo=bar&show=yes&test=1\r\n```\r\nThe resulting `request` object in my view shows this:\r\n```\r\nURL('http://localhost:8000/v1/posts?foo=bar')\r\nQueryParams('foo=bar')\r\n```\r\n![image](https://user-images.githubusercontent.com/230757/70400988-6bcb2480-19e2-11ea-8887-c797eb34730a.png)\r\n![image](https://user-images.githubusercontent.com/230757/70401104-117e9380-19e3-11ea-824e-0dad5140a5ce.png)\r\n\r\n",
+    "closed_at": "2019-12-09T12:11:47Z",
+    "created_at": "2019-12-09T01:46:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/747",
+    "number": 747,
+    "state": "closed",
+    "title": "request.query_params & request.url missing query params",
+    "user": "erichaus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-09T09:31:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T09:31:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-09T09:31:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-09T12:11:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T15:46:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T15:48:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-09T15:48:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-09T17:09:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T19:31:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T19:44:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T20:18:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-09T20:57:09Z",
+      "event": "commented"
+    }
+  ]
+}

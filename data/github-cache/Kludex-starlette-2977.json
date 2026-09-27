@@ -1,0 +1,200 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-09-20T11:50:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03284373cdcf3ed13f80d5e7ad549ba3d743dca6",
+      "sha": "03284373cdcf3ed13f80d5e7ad549ba3d743dca6"
+    },
+    {
+      "committed_at": "2025-09-20T11:52:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4b8c5fe874ea2df8566338f51bd833e716646092",
+      "sha": "4b8c5fe874ea2df8566338f51bd833e716646092"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-09-10T04:48:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3002",
+          "number": 3002,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3002"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: #2977 -- Join multiple Cookie headers per RFC 7540."
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-20T11:50:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3029",
+          "number": 3029,
+          "pull_request": {
+            "merged_at": "2025-09-20T21:43:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3029"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support multiple cookie headers in `Request.cookies`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-09T08:31:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/er-Bilim/devio/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-08-10T17:34:34Z",
+            "url": "https://api.github.com/repos/er-Bilim/devio/pulls/5"
+          },
+          "repository": {
+            "full_name": "er-Bilim/devio"
+          },
+          "title": "test(back): add auth and progress test suite with CI"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4b8c5fe874ea2df8566338f51bd833e716646092/starlette%2Frequests.py",
+      "changes": 7,
+      "deletions": 3,
+      "filename": "starlette/requests.py",
+      "sha": "99e8b9e193df5f6b7de2d4cb9bbf627ab4c6ecc9",
+      "status": "modified"
+    },
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4b8c5fe874ea2df8566338f51bd833e716646092/tests%2Ftest_requests.py",
+      "changes": 13,
+      "deletions": 0,
+      "filename": "tests/test_requests.py",
+      "sha": "1799e89e050da1c3c9dfe939fe829d1c70193e43",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Only the first cookie in a header gets parsed. but multiple \"cookie\" headers may be sent and the server should concatenate them per [RFC 7540](https://datatracker.ietf.org/doc/html/rfc7540)\n\n```\n...\n   If there are multiple Cookie header fields after\n   decompression, these MUST be concatenated into a single octet string\n   using the two-octet delimiter of 0x3B, 0x20 (the ASCII string \"; \")\n   before being passed into a non-HTTP/2 context, such as an HTTP/1.1\n   connection, or a generic HTTP server application.\n\n   Therefore, the following two lists of Cookie header fields are\n   semantically equivalent.\n\n     cookie: a=b; c=d; e=f\n\n     cookie: a=b\n     cookie: c=d\n     cookie: e=f\n```\n\nThe issue lies here\nhttps://github.com/encode/starlette/blob/6ee94f2cac955eeae68d2898a8dec8cf17b48736/starlette/requests.py#L143\n\n---\n\n- [ ] Initially raised as discussion #2916 \n",
+    "body_last_edited_at": null,
+    "closed_at": "2025-09-20T21:43:27Z",
+    "created_at": "2025-08-05T18:50:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2977",
+    "labels": [
+      "bug"
+    ],
+    "number": 2977,
+    "state": "closed",
+    "title": "Request Header cookie parsing doesn't follow RFC 7540 spec",
+    "user": "brian316"
+  },
+  "pull_request": {
+    "closed_at": "2025-09-20T21:43:26Z",
+    "created_at": "2025-09-20T11:49:22Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3029",
+    "merge_commit_sha": "7f78881448d06ac2b296fc3533abbb0148fb9402",
+    "merged_at": "2025-09-20T21:43:26Z",
+    "number": 3029,
+    "title": "Support multiple cookie headers in `Request.cookies`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "f617177ab955f7e79e0d863a7c28adb6200b4acc",
+    "committed_at": "2025-09-20T10:53:13Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f617177ab955f7e79e0d863a7c28adb6200b4acc"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-08-08T06:29:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-08-08T06:29:25Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2025-08-08T10:43:36Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "61c2800f5a42b7d337ff3ccb469ea56c6e20d6c2",
+      "commit_url": "https://api.github.com/repos/11kkw/starlette/commits/61c2800f5a42b7d337ff3ccb469ea56c6e20d6c2",
+      "created_at": "2025-09-10T04:36:58Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-09-10T04:48:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3002",
+          "number": 3002,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3002"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: #2977 -- Join multiple Cookie headers per RFC 7540."
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-20T11:50:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3029",
+          "number": 3029,
+          "pull_request": {
+            "merged_at": "2025-09-20T21:43:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3029"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support multiple cookie headers in `Request.cookies`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-20T21:43:27Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-12-08T09:32:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-09T08:31:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/er-Bilim/devio/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-08-10T17:34:34Z",
+            "url": "https://api.github.com/repos/er-Bilim/devio/pulls/5"
+          },
+          "repository": {
+            "full_name": "er-Bilim/devio"
+          },
+          "title": "test(back): add auth and progress test suite with CI"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Currently the documentation on using the AuthenticationMiddleware doesn't indicate how to change the default error_handler used. \r\n\r\nI would suggest either updating the docs to ensure that the `on_error` parameter can be passed into the middleware invocation i.e. `app.add_middleware(AuthenticationMiddleware, backend=backends.AgentAuthBackend(), on_error=default_on_error)` or getting the `default_on_error` used by the AuthenticationMiddleware respect the application exception_handler",
+    "closed_at": "2019-02-08T07:51:49Z",
+    "created_at": "2019-02-02T06:51:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/376",
+    "number": 376,
+    "state": "closed",
+    "title": "Changing error handler when using the AuthenticationMiddleware",
+    "user": "gbozee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-08T07:51:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T07:51:49Z",
+      "event": "closed"
+    }
+  ]
+}

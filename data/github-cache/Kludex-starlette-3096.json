@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello I reported a security issue a week ago under the Security tab. Can you please acknowledge receipt of the issue?\n\nThanks!\n",
+    "closed_at": "2026-01-09T14:12:30Z",
+    "created_at": "2026-01-09T14:09:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3096",
+    "number": 3096,
+    "state": "closed",
+    "title": "security issue",
+    "user": "nvn1729"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-01-09T14:12:30Z",
+      "event": "closed"
+    }
+  ]
+}

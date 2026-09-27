@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Kudos for merging support for a Postgres middleware and wanting to support MySQL and SQLite in future.\r\n\r\nI was wondering if you see supporting other databases inside of starlette or if you'd rather have separate packages such as starlette-mongo-middleware, for example.",
+    "closed_at": "2018-12-04T18:12:11Z",
+    "created_at": "2018-12-04T17:36:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/248",
+    "number": 248,
+    "state": "closed",
+    "title": "Support for NoSQL databases",
+    "user": "Midnighter"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-04T18:12:11Z",
+      "event": "commented"
+    }
+  ]
+}

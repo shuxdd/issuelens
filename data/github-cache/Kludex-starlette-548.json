@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Although Starlette (correctly) does not allow `NaN` to be returned as part of a JSON response, it does allow `NaN` fields when receiving input data.\r\n\r\nFor example, the following would fail:\r\n\r\n```python\r\n# server.py\r\nimport uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route(\"/\", methods=[\"POST\"])\r\nasync def log(request):\r\n    return JSONResponse(await request.json(), 200)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host=\"127.0.0.1\", port=8000)\r\n```\r\n\r\n```python\r\n# crash.py\r\nimport requests\r\n\r\nrequests.post('http://localhost:8000', json={'oops': float('nan')})\r\n```\r\n\r\nIf that's something that we'd like to address, I'm happy to open a PR, which can do either of these things:\r\n\r\n1. Raise an `HTTPException(400, \"NaN, +Inf, -Inf are not allowed\")`\r\n2. Allow adding extra `**kwargs` to `request.json()` which would then be passed to `json.loads()` under the hood",
+    "closed_at": "2022-02-15T10:06:19Z",
+    "created_at": "2019-06-14T11:02:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/548",
+    "number": 548,
+    "state": "closed",
+    "title": "Starlette allows NaN as input JSON, but not as return JSON",
+    "user": "akalipetis"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-16T10:02:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-16T11:26:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-15T10:06:13Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Pulling this issue out from a seperate thread here... https://github.com/encode/starlette/pull/704#issuecomment-550247190\r\n\r\nHow do we best guide users around project layouts?\r\n\r\n* `starlette init`.\r\n* Pointers towards how to clone existing layouts.\r\n* Something else?",
+    "closed_at": "2026-02-14T11:39:41Z",
+    "created_at": "2019-11-06T13:43:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/705",
+    "number": 705,
+    "state": "closed",
+    "title": "Help users with new project layout",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-06T13:47:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-07T03:13:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-07T03:51:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-07T03:51:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-07T03:51:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-07T22:26:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-08T01:21:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-10T15:34:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-10T15:34:13Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-10T15:34:13Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-11T05:58:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-11T13:02:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-22T16:33:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-13T06:06:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-29T10:17:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-16T06:45:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-16T09:14:29Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2025-01-16T09:16:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-16T09:53:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-16T09:58:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-16T11:44:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-17T11:22:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-17T11:34:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-14T11:39:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-14T11:39:41Z",
+      "event": "closed"
+    }
+  ]
+}

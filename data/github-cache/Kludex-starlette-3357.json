@@ -195,6 +195,8 @@
     }
   ],
   "issue": {
+    "body": "- Initially raised as discussion #3321 \n\nSay I have the below Starlette app,\n```python\n# main.py\nfrom starlette.applications import Starlette\nfrom starlette.middleware import Middleware\nfrom starlette.middleware.trustedhost import TrustedHostMiddleware\nfrom starlette.responses import JSONResponse\nfrom starlette.routing import Route\n\n\nasync def homepage(request):\n    return JSONResponse({'hello': 'world'})\n\nroutes = [\n    Route(\"/\", endpoint=homepage)\n]\n\nmiddleware = [\n    Middleware(TrustedHostMiddleware, allowed_hosts=[\"[::1]\"])\n]\n\napp = Starlette(debug=True, routes=routes, middleware=middleware)\n```\n\nand run it with `uvicorn main:app --host '::1'`. When I go to http://[::1]:8000 in my browser, I get the \"Invalid host header\" response. This appears to be because Starlette is thinking the host is `\"[\"` based on the splitting logic in the middleware, https://github.com/Kludex/starlette/blob/70a3bd4276712f0ee11b161c8b14225a84316df1/starlette/middleware/trustedhost.py#L40.\nWhen I remove the `TrustedHostMiddleware`, I get the hello world response as expected.",
+    "body_last_edited_at": null,
     "closed_at": "2026-08-25T13:23:51Z",
     "created_at": "2026-07-03T04:26:27Z",
     "html_url": "https://github.com/Kludex/starlette/issues/3357",
@@ -214,6 +216,11 @@
     "user": "Kludex"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "04d7869c1ec3016fa11f58382a9ac7bc14b46662",
+    "committed_at": "2026-08-23T20:24:35Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/04d7869c1ec3016fa11f58382a9ac7bc14b46662"
+  },
   "timeline": [
     {
       "created_at": "2026-07-03T09:51:34Z",

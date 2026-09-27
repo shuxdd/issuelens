@@ -1,0 +1,237 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-05-13T10:25:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e0c383aa1b615cb7432da53af837c10cbc5bae1b",
+      "sha": "e0c383aa1b615cb7432da53af837c10cbc5bae1b"
+    },
+    {
+      "committed_at": "2019-05-13T10:26:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305",
+      "sha": "5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305"
+    },
+    {
+      "committed_at": "2019-05-13T12:09:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d6830cacca5b4439d483fe0ea1ca33a90af5bc1d",
+      "sha": "d6830cacca5b4439d483fe0ea1ca33a90af5bc1d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-05-13T10:37:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/511",
+          "number": 511,
+          "pull_request": {
+            "merged_at": "2019-05-13T14:24:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/511"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORS allowed origins"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-13T14:26:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/513",
+          "number": 513,
+          "pull_request": {
+            "merged_at": "2019-05-20T15:15:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/513"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS: preflight_response: cookie is not used here"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-25T14:06:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/florimondmanca/www/issues/89",
+          "number": 89,
+          "pull_request": {},
+          "repository": {
+            "full_name": "florimondmanca/www"
+          },
+          "title": "Consuming APIs in Angular: The Model-Adapter Pattern"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d6830cacca5b4439d483fe0ea1ca33a90af5bc1d/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "52904108426787df5d39707fa8ecdf4245aa36a0",
+      "status": "modified"
+    },
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d6830cacca5b4439d483fe0ea1ca33a90af5bc1d/tests%2Fmiddleware%2Ftest_cors.py",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "tests/middleware/test_cors.py",
+      "sha": "bcba70412932ee27f0ea6279d5be238ef6da1894",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d6830cacca5b4439d483fe0ea1ca33a90af5bc1d/tests%2Ftest_testclient.py",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "6569990fb96538903251dd37469d7d564bcf3cba",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "We've encountered cases where credentialed requests (ie. with cookies), followed by non-credentialed requests will get an `Access-Control-Allow-Origin` header in the response, containing the `Origin` from the previous credentialed request.\r\n\r\nExample:\r\n\r\n```python\r\nimport uvicorn\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.middleware.cors import CORSMiddleware\r\n\r\n\r\napp = Starlette()\r\napp.add_middleware(\r\n    CORSMiddleware,\r\n    allow_origins=[\"*\"],\r\n    allow_headers=[\"*\"],\r\n    allow_methods=[\"*\"],\r\n)\r\n\r\n\r\n@app.route(\"/\")\r\ndef homepage(request):\r\n    return PlainTextResponse(\"Homepage\", status_code=200)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host=\"0.0.0.0\", port=5100)\r\n```\r\n\r\n\r\n1. curl without a cookie, get `access-control-allow-origin: *` back \r\n```\r\n$ curl -v -H 'Origin: https://someplace.org' http://127.0.0.1:5100\r\n* Rebuilt URL to: http://127.0.0.1:5100/\r\n*   Trying 127.0.0.1...\r\n* TCP_NODELAY set\r\n* Connected to 127.0.0.1 (127.0.0.1) port 5100 (#0)\r\n> GET / HTTP/1.1\r\n> Host: 127.0.0.1:5100\r\n> User-Agent: curl/7.54.0\r\n> Accept: */*\r\n> Origin: https://someplace.org\r\n>\r\n< HTTP/1.1 200 OK\r\n< date: Mon, 13 May 2019 10:32:58 GMT\r\n< server: uvicorn\r\n< content-length: 8\r\n< content-type: text/plain; charset=utf-8\r\n< access-control-allow-origin: *\r\n```\r\n\r\n2. curl with a cookie, get the Origin header back as `access-control-allow-origin`:\r\n```\r\n$ curl -v -H 'Origin: https://someplace.org' --cookie \"foo=bar\"  http://127.0.0.1:5100\r\n* Rebuilt URL to: http://127.0.0.1:5100/\r\n*   Trying 127.0.0.1...\r\n* TCP_NODELAY set\r\n* Connected to 127.0.0.1 (127.0.0.1) port 5100 (#0)\r\n> GET / HTTP/1.1\r\n> Host: 127.0.0.1:5100\r\n> User-Agent: curl/7.54.0\r\n> Accept: */*\r\n> Cookie: foo=bar\r\n> Origin: https://someplace.org\r\n>\r\n< HTTP/1.1 200 OK\r\n< date: Mon, 13 May 2019 10:34:10 GMT\r\n< server: uvicorn\r\n< content-length: 8\r\n< content-type: text/plain; charset=utf-8\r\n< access-control-allow-origin: https://someplace.org\r\n```\r\n\r\n3. curl without the cookie header, get the erroneous `Origin` header from the previous request\r\n\r\n```\r\n$ curl -v -H 'Origin: https://someplace.org' http://127.0.0.1:5100\r\n* Rebuilt URL to: http://127.0.0.1:5100/\r\n*   Trying 127.0.0.1...\r\n* TCP_NODELAY set\r\n* Connected to 127.0.0.1 (127.0.0.1) port 5100 (#0)\r\n> GET / HTTP/1.1\r\n> Host: 127.0.0.1:5100\r\n> User-Agent: curl/7.54.0\r\n> Accept: */*\r\n> Origin: https://someplace.org\r\n>\r\n< HTTP/1.1 200 OK\r\n< date: Mon, 13 May 2019 10:34:46 GMT\r\n< server: uvicorn\r\n< content-length: 8\r\n< content-type: text/plain; charset=utf-8\r\n< access-control-allow-origin: https://someplace.org\r\n```",
+    "body_last_edited_at": null,
+    "closed_at": "2019-05-13T14:24:29Z",
+    "created_at": "2019-05-13T10:36:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/510",
+    "number": 510,
+    "state": "closed",
+    "title": "'access-control-allow-origin' header seems to \"leak\" between requests",
+    "user": "steinnes"
+  },
+  "pull_request": {
+    "closed_at": "2019-05-13T14:24:29Z",
+    "created_at": "2019-05-13T10:37:25Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/511",
+    "merge_commit_sha": "29584e25fcbfbba7d9948901977f05870cd8beff",
+    "merged_at": "2019-05-13T14:24:29Z",
+    "number": 511,
+    "title": "Fix CORS allowed origins",
+    "user": "steinnes"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305",
+    "committed_at": "2019-05-13T10:26:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-05-13T10:37:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/511",
+          "number": 511,
+          "pull_request": {
+            "merged_at": "2019-05-13T14:24:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/511"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORS allowed origins"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-13T14:05:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-13T14:05:53Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e551cf96d80042ba88f8a5e7f0ebeead6a48f88b",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/e551cf96d80042ba88f8a5e7f0ebeead6a48f88b",
+      "created_at": "2019-05-13T14:17:01Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "a82ef767461b4d78b5dee3223dff3e5435301c8a",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/a82ef767461b4d78b5dee3223dff3e5435301c8a",
+      "created_at": "2019-05-13T14:25:27Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-05-13T14:26:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/513",
+          "number": 513,
+          "pull_request": {
+            "merged_at": "2019-05-20T15:15:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/513"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS: preflight_response: cookie is not used here"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-13T14:27:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-13T14:27:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-13T14:27:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-25T14:06:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/florimondmanca/www/issues/89",
+          "number": 89,
+          "pull_request": {},
+          "repository": {
+            "full_name": "florimondmanca/www"
+          },
+          "title": "Consuming APIs in Angular: The Model-Adapter Pattern"
+        }
+      }
+    },
+    {
+      "commit_id": "fb0c2b4ee1b912a3b69e06d58162cb94f1880230",
+      "commit_url": "https://api.github.com/repos/hidraco/starlette/commits/fb0c2b4ee1b912a3b69e06d58162cb94f1880230",
+      "created_at": "2022-04-21T04:00:00Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "6a49250ca88c6be753a55a085547c43149a461ee",
+      "commit_url": "https://api.github.com/repos/dudleyhunt86/starlette-develop-with-python/commits/6a49250ca88c6be753a55a085547c43149a461ee",
+      "created_at": "2022-10-07T22:16:44Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "653b461be8567957a5c8fb44a3a65194457915a5",
+      "commit_url": "https://api.github.com/repos/azurelotus06/starlette/commits/653b461be8567957a5c8fb44a3a65194457915a5",
+      "created_at": "2024-06-27T20:38:55Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "0e2b8e466414dd6650be17b254901056840c5d03",
+      "commit_url": "https://api.github.com/repos/Kludex/jik/commits/0e2b8e466414dd6650be17b254901056840c5d03",
+      "created_at": "2024-08-16T09:37:11Z",
+      "event": "referenced"
+    }
+  ]
+}

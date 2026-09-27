@@ -1,0 +1,97 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-27T22:13:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/620",
+          "number": 620,
+          "pull_request": {
+            "merged_at": "2019-09-04T08:36:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document the `request.app` property."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "It's now possible to store [arbitrary state](https://www.starlette.io/requests/#other-state) on requests (via https://github.com/encode/starlette/pull/404); it would be great to be able to store arbitrary application state on the application and have it available in requests as well.\r\n\r\nIt seems common to use globals to configure things (e.g. [have a `settings.py` somewhere that's imported all over a project](https://www.starlette.io/config/#a-full-example)), but this seems far less sane (especially for tests, where you might want to verify various different settings) than providing configuration to your application and accessing it from there.\r\n\r\nhttps://github.com/encode/starlette/issues/64 provides a useful point at which state could be attached, potentially, if only there was somewhere to put it like the request state.\r\n\r\nWhat I have done for the moment is to use middleware to wrap up the things that I want to share with all requests and inject that in to the request state instead; it's an acceptable workaround for me, but if I was adding state in the lifecycle hooks I'd have to add the middleware there as well and it starts to get pretty messy.\r\n\r\nexample\r\n\r\n```python\r\nfrom myproject import settings\r\n@app.middleware('http')                                                      \r\nasync def provide_request_settings(request: Request, call_next):\r\n  \"\"\"Injects settings in to all requests\"\"\"                                  \r\n  request.state.settings = settings\r\n  return await call_next(request)                                         \r\n```",
+    "closed_at": "2019-08-27T09:01:21Z",
+    "created_at": "2019-08-22T22:16:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/612",
+    "number": 612,
+    "state": "closed",
+    "title": "Application State",
+    "user": "elyobo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-26T14:31:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T01:31:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T08:44:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T11:41:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T11:41:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-27T11:41:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-27T12:13:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T21:02:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T22:07:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T22:07:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-27T22:07:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-27T22:13:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/620",
+          "number": 620,
+          "pull_request": {
+            "merged_at": "2019-09-04T08:36:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document the `request.app` property."
+        }
+      }
+    }
+  ]
+}

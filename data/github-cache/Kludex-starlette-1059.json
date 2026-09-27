@@ -1,0 +1,245 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-12-27T09:04:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1911",
+          "number": 1911,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "POST with UploadFile returns 422 when called by client application"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-21T20:32:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/python-multipart/issues/31",
+          "number": 31,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/python-multipart"
+          },
+          "title": "Failing to parse non-standard line breaks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-15T08:59:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1514",
+          "number": 1514,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1514"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change multipart parser"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-22T07:38:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1888",
+          "number": 1888,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n```MultiPartParser``` class fails to parse a request body produced by the client but not Postman (or similar).\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom starlette.formparsers import MultiPartParser, FormParser\r\nfrom starlette.datastructures import Headers\r\nimport asyncio\r\n\r\n\r\nclient_body = b'--xoxoxoxoxoxoxoxoxoxo_1600710720987\\r\\nContent-Disposition: form-data; name=\"fasta\"; filename=\"sequences.fasta\"\\r\\nContent-Type: multipart/form-data\\r\\n\\r\\n>P23A07_IgM-1047:H:Q10C92:17/22:NID2093\\nCAGGTTTCAGTAG\\n--xoxoxoxoxoxoxoxoxoxo_1600710720987\\r\\nContent-Disposition: form-data; name=\"attributes\"; filename=\"attributes.tsv\"\\r\\nContent-Type: multipart/form-data\\r\\n\\r\\n\"Campaign ID\"\\t\"Plate Set ID\"\\t\"No\"\\n\\r\\n--xoxoxoxoxoxoxoxoxoxo_1600710720987--\\r\\n'\r\nclient_headers = Headers({'accept-encoding': 'gzip,deflate', 'content-length': '39940', 'content-type': 'multipart/form-data; boundary=xoxoxoxoxoxoxoxoxoxo_1600710720987', 'host': '10.0.5.13:80', 'connection': 'Keep-Alive', 'user-agent': 'KNIME Uploader'})\r\n\r\npostman_body = b'----------------------------850116600781883365617864\\r\\nContent-Disposition: form-data; name=\"attributes\"; filename=\"test-attribute_5.tsv\"\\r\\nContent-Type: text/tab-separated-values\\r\\n\\r\\n\"Campaign ID\"\\t\"Plate Set ID\"\\t\"No\"\\n\\r\\n----------------------------850116600781883365617864\\r\\nContent-Disposition: form-data; name=\"fasta\"; filename=\"test-sequence_correct_5.fasta\"\\r\\nContent-Type: application/octet-stream\\r\\n\\r\\n>P23G01_IgG1-1411:H:Q10C3:1/1:NID18\\r\\nCAGGTATTGAA\\r\\n\\r\\n----------------------------850116600781883365617864--\\r\\n'\r\npostman_headers = Headers({'content-type': 'multipart/form-data; boundary=--------------------------850116600781883365617864', 'user-agent': 'PostmanRuntime/7.26.0', 'accept': '*/*', 'cache-control': 'no-cache', 'host': '10.0.5.13:80', 'accept-encoding': 'gzip, deflate, br', 'connection': 'keep-alive', 'content-length': '2455'})\r\n\r\n\r\nasync def stream(message):\r\n\r\n    body = message.get(\"body\", b\"\")\r\n    if body:\r\n        yield body\r\n\r\nasync def client_test_multipart():\r\n\r\n    parser = MultiPartParser(client_headers, stream({\"body\": client_body}))\r\n    form = await parser.parse()\r\n    print([(k, v) for k, v in form.items()])\r\n    return form\r\n\r\nasync def postman_test_multipart():\r\n\r\n    parser = MultiPartParser(postman_headers, stream({\"body\": postman_body}))\r\n    form = await parser.parse()\r\n    print([(k, v) for k, v in form.items()])\r\n    return form\r\n\r\nloop = asyncio.get_event_loop()\r\nloop.run_until_complete(client_test_multipart())\r\nloop.run_until_complete(postman_test_multipart())\r\n```\r\n\r\n### Expected behavior\r\n\r\n`client_test_multipart` should read and return two files from the `client_body` as with `postman_test_multipart` and `postman_body`.\r\n\r\n### Actual behavior\r\n\r\n`client_test_multipart` reads only one file from the request body produced by the client.\r\n\r\n### Debugging material\r\n\r\n```shell\r\n[('fasta', <starlette.datastructures.UploadFile object at 0x7f091c0b1a20>)]\r\n[('attributes', <starlette.datastructures.UploadFile object at 0x7f091c0b1a58>), ('fasta', <starlette.datastructures.UploadFile object at 0x7f091c0b1828>)]\r\n```\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8\r\n- Starlette version: 0.13.6",
+    "closed_at": "2023-02-27T16:59:17Z",
+    "created_at": "2020-09-21T21:00:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1059",
+    "labels": [
+      "good first issue",
+      "multipart"
+    ],
+    "number": 1059,
+    "state": "closed",
+    "title": "Issue with MultiPartParser class",
+    "user": "aretasg"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-21T22:49:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-22T08:08:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-22T10:30:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-23T15:24:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-27T09:04:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1911",
+          "number": 1911,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "POST with UploadFile returns 422 when called by client application"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-21T20:32:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/python-multipart/issues/31",
+          "number": 31,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/python-multipart"
+          },
+          "title": "Failing to parse non-standard line breaks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-15T08:59:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1514",
+          "number": 1514,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1514"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change multipart parser"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-02T09:30:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-05T16:48:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-05T16:48:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-05T16:48:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-28T10:34:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-02T16:18:15Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-09-09T06:56:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-09T07:39:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-29T07:41:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-22T07:32:57Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2022-10-22T07:38:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1888",
+          "number": 1888,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-31T18:32:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T17:56:02Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-02-04T17:56:02Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-13T09:20:27Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-02-13T09:20:27Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-23T10:09:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-27T16:58:45Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-02-27T16:59:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-27T16:59:17Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-07-06T12:49:35Z",
+      "event": "commented"
+    }
+  ]
+}

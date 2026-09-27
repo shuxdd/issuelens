@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I've noticed once the builtin `SessionMiddleware` is used and you've got something stored in session, the `Set-Cookie` header will be included in the response headers every time (related starlette code [here](https://github.com/encode/starlette/blob/5f4fc85541f44013d1ed40fb77eb772db50fe02b/starlette/middleware/sessions.py#L53)), even when the session data is not changed at all.\r\n\r\nI think this header should only be sent back to the client when the session data is modified. As far as I know, Flask is behaving as expected, see their code [here](https://github.com/pallets/flask/blob/200ce9bd39c70a7782ef8ace0338ad71dbdb175d/src/flask/sessions.py#L278).",
+    "closed_at": "2020-02-17T10:26:14Z",
+    "created_at": "2020-02-17T04:26:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/828",
+    "number": 828,
+    "state": "closed",
+    "title": "Set-Cookie header should not be sent every time",
+    "user": "JokerQyou"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-17T04:33:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T10:02:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T10:10:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T10:26:14Z",
+      "event": "commented"
+    }
+  ]
+}

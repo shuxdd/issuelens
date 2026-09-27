@@ -1,0 +1,414 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-01-13T09:20:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4dfa3576f909fef54e7c7985840a713932d6b32e",
+      "sha": "4dfa3576f909fef54e7c7985840a713932d6b32e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-01-13T09:22:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/792",
+          "number": 792,
+          "pull_request": {
+            "merged_at": "2020-02-17T14:14:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/792"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow non latin-1 filename in FileResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2021-04-04T13:29:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1163",
+          "number": 1163,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1163"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Stream with utf8 filename"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-13T15:55:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ahmetoner/whisper-asr-webservice/issues/187",
+          "number": 187,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ahmetoner/whisper-asr-webservice"
+          },
+          "title": "UnicodeEncodeError: 'latin-1' codec can't encode character '\\u0119' in position 61: ordinal not in range(256)"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-12T12:19:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/open-webui/open-webui/pull/7807",
+          "number": 7807,
+          "pull_request": {
+            "url": "https://api.github.com/repos/open-webui/open-webui/pulls/7807"
+          },
+          "repository": {
+            "full_name": "open-webui/open-webui"
+          },
+          "title": "Fix encoding issues during download"
+        }
+      }
+    },
+    {
+      "created_at": "2025-04-23T19:21:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fal-ai/fal/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2025-04-24T15:30:36Z",
+            "url": "https://api.github.com/repos/fal-ai/fal/pulls/480"
+          },
+          "repository": {
+            "full_name": "fal-ai/fal"
+          },
+          "title": "fix: ignore hints that aren't latin-1 encodable to avoid crashing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-01T12:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/270",
+          "number": 270,
+          "pull_request": {
+            "merged_at": "2026-08-01T13:28:50Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/270"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "SR-9: ADMIN_KEY never reached any container, and three admin guards failed open"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T20:28:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Portocolom-Studio/potocolom/pull/277",
+          "number": 277,
+          "pull_request": {
+            "merged_at": "2026-08-13T11:29:07Z",
+            "url": "https://api.github.com/repos/Portocolom-Studio/potocolom/pulls/277"
+          },
+          "repository": {
+            "full_name": "Portocolom-Studio/potocolom"
+          },
+          "title": "Bind a dispatch to a token, and make outputs write-once"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4dfa3576f909fef54e7c7985840a713932d6b32e/starlette%2Fresponses.py",
+      "changes": 10,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "a7a748a83e2d2e059b0e94030b9e2275408f8e58",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4dfa3576f909fef54e7c7985840a713932d6b32e/tests%2Ftest_responses.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "3115099fa0bed488f4b520bca3ceeb4e734ea8f4",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi~ When i try to return a `FileResponse` with Chinese filename, i got such error:\r\n\r\n```\r\nUnicodeEncodeError: 'latin-1' codec can't encode character '\\u6708' in position 32: ordinal not in range(256)\r\n```\r\n\r\nThen i found all header items will be encode with `latin-1`, after i change it manually to `utf-8`, my problem was solved.\r\n\r\ne.g.\r\n\r\n- responses.Response.init_headers, line 63\r\n```python\r\nraw_headers = [\r\n    (k.lower().encode(\"latin-1\"), v.encode(\"latin-1\"))\r\n    for k, v in headers.items()\r\n]\r\n```\r\n\r\nSo may be it should encode with `self.charset` or give a custom parameter so that i can choose encoding to `utf-8`?\r\n\r\nThx for the great project~",
+    "body_last_edited_at": null,
+    "closed_at": "2020-02-17T14:14:31Z",
+    "created_at": "2020-01-13T04:45:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/790",
+    "number": 790,
+    "state": "closed",
+    "title": "response headers support custom encoding ",
+    "user": "0b1Kenobi"
+  },
+  "pull_request": {
+    "closed_at": "2020-02-17T14:14:31Z",
+    "created_at": "2020-01-13T09:22:19Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/792",
+    "merge_commit_sha": "1e406655fe82a5b89c3b39884a1de5779d457eee",
+    "merged_at": "2020-02-17T14:14:31Z",
+    "number": 792,
+    "title": "Allow non latin-1 filename in FileResponse",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5c43dde0ec0917673bb280bcd7ab0c37b78061b7",
+    "committed_at": "2020-01-09T15:11:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5c43dde0ec0917673bb280bcd7ab0c37b78061b7"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-01-13T09:22:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/792",
+          "number": 792,
+          "pull_request": {
+            "merged_at": "2020-02-17T14:14:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/792"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow non latin-1 filename in FileResponse"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-03T08:19:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-04T13:29:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1163",
+          "number": 1163,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1163"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Stream with utf8 filename"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-13T15:55:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ahmetoner/whisper-asr-webservice/issues/187",
+          "number": 187,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ahmetoner/whisper-asr-webservice"
+          },
+          "title": "UnicodeEncodeError: 'latin-1' codec can't encode character '\\u0119' in position 61: ordinal not in range(256)"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-12T12:19:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/open-webui/open-webui/pull/7807",
+          "number": 7807,
+          "pull_request": {
+            "url": "https://api.github.com/repos/open-webui/open-webui/pulls/7807"
+          },
+          "repository": {
+            "full_name": "open-webui/open-webui"
+          },
+          "title": "Fix encoding issues during download"
+        }
+      }
+    },
+    {
+      "created_at": "2025-04-23T19:21:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fal-ai/fal/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2025-04-24T15:30:36Z",
+            "url": "https://api.github.com/repos/fal-ai/fal/pulls/480"
+          },
+          "repository": {
+            "full_name": "fal-ai/fal"
+          },
+          "title": "fix: ignore hints that aren't latin-1 encodable to avoid crashing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-01T12:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/270",
+          "number": 270,
+          "pull_request": {
+            "merged_at": "2026-08-01T13:28:50Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/270"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "SR-9: ADMIN_KEY never reached any container, and three admin guards failed open"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T20:28:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Portocolom-Studio/potocolom/pull/277",
+          "number": 277,
+          "pull_request": {
+            "merged_at": "2026-08-13T11:29:07Z",
+            "url": "https://api.github.com/repos/Portocolom-Studio/potocolom/pulls/277"
+          },
+          "repository": {
+            "full_name": "Portocolom-Studio/potocolom"
+          },
+          "title": "Bind a dispatch to a token, and make outputs write-once"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I had a case where I was redirecting from a POST /token endpoint to the GET /docs endpoint. The redirectresponse `response = RedirectResponse(url=redirect_url)` was using the same http method POST for the redirect url /docs as was used for the /token endpoint.  After adding another decorator for @router.post(\"/docs\") to the endpoint (in addition to @router.get(\"/docs\"), it started working again.  Without it, I was getting the '405 Method not allowed' error. I didn't see any way of setting the method in the RedirectResponse. \r\n\r\nStarlette == 0.12.7  (FastAPI 0.36.0)",
+    "closed_at": "2019-09-03T11:48:29Z",
+    "created_at": "2019-09-02T17:26:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/632",
+    "number": 632,
+    "state": "closed",
+    "title": "RedirectResponse http method leakage?",
+    "user": "wshayes"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-02T23:42:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-03T11:48:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-03T11:48:29Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-09-03T11:48:29Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-03T11:48:29Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-01-03T07:58:55Z",
+      "event": "commented"
+    }
+  ]
+}

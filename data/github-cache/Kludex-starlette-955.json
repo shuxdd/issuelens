@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Facing issue with env file where variables are reused with syntax `${VAR_NAME}`.\r\n\r\n### .env\r\n```\r\nROOT_HOST=0.0.0.0\r\n\r\nMONGO_HOST=${ROOT_HOST}\r\nMONGO_PORT=27017\r\n\r\nMONGO_URL=${MONGO_HOST}:${MONGO_PORT}\r\n```\r\n### config.py\r\n```\r\nfrom starlette.config import Config\r\n\r\nconfig = Config('.env')\r\n\r\nMONGO_HOST = config('MONGO_HOST', cast=str)\r\n```\r\n\r\n`MONGO_HOST` should be \"0.0.0.0\" but not \"${ROOT_HOST}\" literally.\r\n\r\n## My context\r\nPython 3.6\r\nStarlette 0.13.2",
+    "closed_at": "2020-05-27T08:59:14Z",
+    "created_at": "2020-05-27T06:50:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/955",
+    "number": 955,
+    "state": "closed",
+    "title": "Config class cannot work with reused variables (${VAR_NAME})",
+    "user": "rappongy"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-27T08:59:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-28T04:53:37Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I am trying to replace an old Tornado proxy server with combo of Starlette and aiohttp SessionClient.\r\n\r\nHowever I keep getting `raise RuntimeError('Timeout context manager should be used '`\r\n\r\nMost examples I see is to use the event loop directly to wait until completion, but I don't think I should do that from inside Starlette's http request handler.",
+    "closed_at": "2019-06-16T09:25:34Z",
+    "created_at": "2019-06-16T06:20:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/553",
+    "number": 553,
+    "state": "closed",
+    "title": "Any examples on how to integrate with aiohttp client?",
+    "user": "didip"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-16T09:25:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-03T10:27:35Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2499\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **clickonben** February  9, 2024</sup>\r\nI found this through FastAPI but the code causing the problem appears to be in Starlette.\r\n```\r\nfrom fastapi import FastAPI, HTTPException\r\n\r\napp = FastAPI()\r\n\r\n@app.exception_handler(500)\r\ndef custom_exception_handler(request, exc):\r\n    print(f\"Oops! An HTTP error occurred: {exc}\")\r\n    return JSONResponse({\"detail\":\"Internal Server Error\"}, status_code=500)\r\n\r\n\r\n@app.get(\"/\")\r\ndef read_root():\r\n    raise HTTPException(status_code=500, detail=\"Internal Server Error\")\r\n```\r\n\r\nThis exception handler never gets called. When I dug into it I found the problem was this:\r\n\r\n```\r\ndef build_middleware_stack(self) -> ASGIApp:\r\n        debug = self.debug\r\n        error_handler = None\r\n        exception_handlers: dict[\r\n            typing.Any, typing.Callable[[Request, Exception], Response]\r\n        ] = {}\r\n\r\n        for key, value in self.exception_handlers.items():\r\n            if key in (500, Exception):\r\n                error_handler = value\r\n            else:\r\n                exception_handlers[key] = value\r\n\r\n        middleware = (\r\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\r\n            + self.user_middleware\r\n            + [\r\n                Middleware(\r\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\r\n                )\r\n            ]\r\n        )\r\n\r\n        app = self.router\r\n        for cls, args, kwargs in reversed(middleware):\r\n            app = cls(app=app, *args, **kwargs)\r\n        return app\r\n```\r\nin this file [https://github.com/encode/starlette/blob/master/starlette/applications.py](https://github.com/encode/starlette/blob/master/starlette/applications.py)\r\n\r\nI don't understand why it is doing this:\r\n\r\n```\r\nfor key, value in self.exception_handlers.items():\r\n    if key in (500, Exception):\r\n        error_handler = value\r\n    else:\r\n        exception_handlers[key] = value\r\n```\r\nbecause if I change it to this:\r\n\r\n```\r\nfor key, value in self.exception_handlers.items():\r\n    exception_handlers[key] = value\r\n```\r\nEverything works as expected and my error handler handles 500 errors the same as any other status code.</div>",
+    "closed_at": "2024-10-10T19:50:34Z",
+    "created_at": "2024-10-10T19:42:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2723",
+    "number": 2723,
+    "state": "closed",
+    "title": "Cannot add a custom handler for HTTPExceptions with status_code=500",
+    "user": "clickonben"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-10-10T19:50:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-10T19:50:34Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-10-10T20:00:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-10T20:07:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-10T20:11:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-11T14:56:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-11T14:56:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-10-11T14:56:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-10-11T15:27:06Z",
+      "event": "commented"
+    }
+  ]
+}

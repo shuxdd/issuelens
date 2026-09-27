@@ -1,0 +1,89 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-03-07T11:22:10Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/425"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/425"
+    ]
+  },
+  "case_id": "starlette-issue-425",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-562",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'allow use of characters out of latin-1 in multipart form values' directly changes starlette/formparsers.py with focused behavior test(s) tests/test_formparsers.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2019-06-24T18:11:27Z",
+  "issue": {
+    "body": "version starlette is __version__ = \"0.11.3\"\r\n\r\nin formparsers.py in line 218 following code  =>  items.append((field_name, data.decode(\"latin-1\")))\r\nneed change to => items.append((field_name, data.decode(\"utf-8\")))\r\n\r\nBecause, for example, the data in the Russian language is displayed as a scribble.\r\nI'm sure there's a more elegant solution.",
+    "number": 425,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/425",
+    "title": "Problem with formdata in utf-8, with non latinic symbol"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #562 created_at 2019-06-24T18:11:27Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #562",
+    "repair_files": [
+      "starlette/formparsers.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is f2e9115c0596519141b201a1025311d80e9a8730",
+    "test_files": [
+      "tests/test_formparsers.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f2e9115c0596519141b201a1025311d80e9a8730/starlette%2Fformparsers.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "f2e9115c0596519141b201a1025311d80e9a8730",
+        "source_url": "https://github.com/Kludex/starlette/commit/f2e9115c0596519141b201a1025311d80e9a8730"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2019-06-24T18:11:27Z",
+      "number": 562,
+      "source_url": "https://github.com/Kludex/starlette/pull/562"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/562"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f2e9115c0596519141b201a1025311d80e9a8730/tests%2Ftest_formparsers.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "f2e9115c0596519141b201a1025311d80e9a8730",
+    "committed_at": "2019-06-24T17:59:09Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f2e9115c0596519141b201a1025311d80e9a8730"
+  },
+  "schema_version": "1.0"
+}

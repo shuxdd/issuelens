@@ -1,0 +1,328 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-07-16T11:31:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/835f5a12e93ae6e86eaf513977a4a2b981b64b62",
+      "sha": "835f5a12e93ae6e86eaf513977a4a2b981b64b62"
+    },
+    {
+      "committed_at": "2019-07-16T11:36:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7629dcbeca823dd293bbdad2aca09d9b41c283fd",
+      "sha": "7629dcbeca823dd293bbdad2aca09d9b41c283fd"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-07-16T07:14:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/390",
+          "number": 390,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Customizing UploadFile"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-16T11:33:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/582",
+          "number": 582,
+          "pull_request": {
+            "merged_at": "2019-07-16T11:57:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/582"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Setting a finite size to SpooledTemporaryFile."
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-04T23:28:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/platiagro/datasets/pull/64",
+          "number": 64,
+          "pull_request": {
+            "merged_at": "2021-08-11T18:59:40Z",
+            "url": "https://api.github.com/repos/platiagro/datasets/pulls/64"
+          },
+          "repository": {
+            "full_name": "platiagro/datasets"
+          },
+          "title": "Correcting file upload."
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-29T14:38:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xynehq/paddle/pull/12",
+          "number": 12,
+          "pull_request": {
+            "url": "https://api.github.com/repos/xynehq/paddle/pulls/12"
+          },
+          "repository": {
+            "full_name": "xynehq/paddle"
+          },
+          "title": "feat(docling): Add docling support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-13T18:37:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aboydnw/persona-panel/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-07-13T22:19:14Z",
+            "url": "https://api.github.com/repos/aboydnw/persona-panel/pulls/3"
+          },
+          "repository": {
+            "full_name": "aboydnw/persona-panel"
+          },
+          "title": "feat: admin management, training playground, and multi-user panel (Plans 5-7)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T21:02:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mpairwe7/FinalYearProject/pull/152",
+          "number": 152,
+          "pull_request": {
+            "merged_at": "2026-07-18T21:16:17Z",
+            "url": "https://api.github.com/repos/mpairwe7/FinalYearProject/pulls/152"
+          },
+          "repository": {
+            "full_name": "mpairwe7/FinalYearProject"
+          },
+          "title": "feat(documents): chat attachments with analysis, grounding, and PDF reports"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T14:09:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ls1intum/edutelligence/pull/704",
+          "number": 704,
+          "pull_request": {
+            "merged_at": "2026-08-12T12:55:32Z",
+            "url": "https://api.github.com/repos/ls1intum/edutelligence/pulls/704"
+          },
+          "repository": {
+            "full_name": "ls1intum/edutelligence"
+          },
+          "title": "`Logos`: Add first-class Whisper support"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7629dcbeca823dd293bbdad2aca09d9b41c283fd/starlette%2Fdatastructures.py",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "starlette/datastructures.py",
+      "sha": "ae23e23736bac64056d3209ffb51a9d9a43e742c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Good day,\r\n\r\nWe are using FastAPI to access large (1GB) files through starlette UploadFile and we have noticed that all the file is loaded into RAM.\r\n\r\nLooking at the code I see that starlette uses SpooledTemporaryFile, however it initializes it [1] with default parameters, namely `max_size=0`. The thing is that SpooledTemporaryFile.write() methods calls `self._check()` to switch to disk IO, however with `max_size=0` it never does it [2] and hence the whole file is loaded to RAM.\r\n\r\nI suggest to starlette's UploadFile to:\r\n* Set positive `max_size` by default\r\n* Accept user-defined value from constructor\r\n\r\nWhat do you think?\r\n\r\n\r\n[1] https://github.com/encode/starlette/blob/594b95c1da8c4ed2aff5629ab5ce128a18b6931b/starlette/datastructures.py#L428\r\n\r\n[2] https://github.com/python/cpython/blob/master/Lib/tempfile.py#L650",
+    "closed_at": "2019-07-16T11:57:38Z",
+    "created_at": "2019-07-16T05:09:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/579",
+    "number": 579,
+    "state": "closed",
+    "title": "UploadFile hogs RAM",
+    "user": "haizaar"
+  },
+  "pull_request": {
+    "closed_at": "2019-07-16T11:57:38Z",
+    "created_at": "2019-07-16T11:33:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/582",
+    "merge_commit_sha": "9a6d00a4aef8dde7dfde71325fe26a3d5c3e4a91",
+    "merged_at": "2019-07-16T11:57:38Z",
+    "number": 582,
+    "title": "Setting a finite size to SpooledTemporaryFile.",
+    "user": "haizaar"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-07-16T07:14:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/390",
+          "number": 390,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Customizing UploadFile"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-16T08:53:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-16T10:52:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-16T10:57:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-16T11:01:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-16T11:06:47Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "835f5a12e93ae6e86eaf513977a4a2b981b64b62",
+      "commit_url": "https://api.github.com/repos/haizaar/starlette/commits/835f5a12e93ae6e86eaf513977a4a2b981b64b62",
+      "created_at": "2019-07-16T11:33:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-07-16T11:33:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/582",
+          "number": 582,
+          "pull_request": {
+            "merged_at": "2019-07-16T11:57:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/582"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Setting a finite size to SpooledTemporaryFile."
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-16T11:45:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-04T23:28:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/platiagro/datasets/pull/64",
+          "number": 64,
+          "pull_request": {
+            "merged_at": "2021-08-11T18:59:40Z",
+            "url": "https://api.github.com/repos/platiagro/datasets/pulls/64"
+          },
+          "repository": {
+            "full_name": "platiagro/datasets"
+          },
+          "title": "Correcting file upload."
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-28T16:35:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-04-29T14:38:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xynehq/paddle/pull/12",
+          "number": 12,
+          "pull_request": {
+            "url": "https://api.github.com/repos/xynehq/paddle/pulls/12"
+          },
+          "repository": {
+            "full_name": "xynehq/paddle"
+          },
+          "title": "feat(docling): Add docling support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-13T18:37:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aboydnw/persona-panel/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-07-13T22:19:14Z",
+            "url": "https://api.github.com/repos/aboydnw/persona-panel/pulls/3"
+          },
+          "repository": {
+            "full_name": "aboydnw/persona-panel"
+          },
+          "title": "feat: admin management, training playground, and multi-user panel (Plans 5-7)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T21:02:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mpairwe7/FinalYearProject/pull/152",
+          "number": 152,
+          "pull_request": {
+            "merged_at": "2026-07-18T21:16:17Z",
+            "url": "https://api.github.com/repos/mpairwe7/FinalYearProject/pulls/152"
+          },
+          "repository": {
+            "full_name": "mpairwe7/FinalYearProject"
+          },
+          "title": "feat(documents): chat attachments with analysis, grounding, and PDF reports"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T14:09:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ls1intum/edutelligence/pull/704",
+          "number": 704,
+          "pull_request": {
+            "merged_at": "2026-08-12T12:55:32Z",
+            "url": "https://api.github.com/repos/ls1intum/edutelligence/pulls/704"
+          },
+          "repository": {
+            "full_name": "ls1intum/edutelligence"
+          },
+          "title": "`Logos`: Add first-class Whisper support"
+        }
+      }
+    }
+  ]
+}

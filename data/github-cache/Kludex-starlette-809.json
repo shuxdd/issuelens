@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Coming over from [this issue](https://github.com/tiangolo/fastapi/issues/909) in the FastAPI repo. I ran into a problem declaring both path and query parameters in my views using dashes as is usually acceptable in urls and APIs. I learned a trick to get around it for query parameters but it looks like the `starlette.routing.PARAM_REGEX` disallows such a thing. Just wondering if there's a valid reason for this? Maybe just convention?\r\n\r\nThanks!",
+    "closed_at": "2020-01-29T10:12:13Z",
+    "created_at": "2020-01-23T17:41:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/809",
+    "number": 809,
+    "state": "closed",
+    "title": "Question, would like to use dashes instead of underscores in some path parameters",
+    "user": "Subaku"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-29T10:12:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-18T10:34:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-18T10:34:27Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-12-18T10:34:27Z",
+      "event": "subscribed"
+    }
+  ]
+}

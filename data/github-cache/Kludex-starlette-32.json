@@ -1,0 +1,155 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-07-26T13:26:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e2d6665fa5c32e77a3fe22836b14620a7f5999bb",
+      "sha": "e2d6665fa5c32e77a3fe22836b14620a7f5999bb"
+    },
+    {
+      "committed_at": "2018-07-26T13:32:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7b6b74ab88da9dca50384aa4c44872aa19e33ae7",
+      "sha": "7b6b74ab88da9dca50384aa4c44872aa19e33ae7"
+    },
+    {
+      "committed_at": "2018-07-26T13:35:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e",
+      "sha": "6a9a4b8a04b7f0b201c2d5a2750e751a9765796e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-07-26T13:29:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/272",
+          "number": 272,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Port Datasette to ASGI"
+        }
+      }
+    },
+    {
+      "created_at": "2018-07-26T13:39:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/33",
+          "number": 33,
+          "pull_request": {
+            "merged_at": "2018-07-26T13:41:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/33"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Correctly handle static files larger than 4096 bytes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/starlette%2Fresponse.py",
+      "changes": 6,
+      "deletions": 1,
+      "filename": "starlette/response.py",
+      "sha": "f189ef31d74f73d25baf507b5b00d262128d2b4b",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_response.py",
+      "changes": 5,
+      "deletions": 2,
+      "filename": "tests/test_response.py",
+      "sha": "bbfde256e5856cdd7f3d020e2b83e18a9f0acd30",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_staticfiles.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "d615ba663aad4a39d98114827dc371591e6db5d4",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Static files larger than 4096 bytes do not appear to be served correctly.\r\n\r\nHere's a test I just wrote that illustrates the problem: https://github.com/simonw/starlette/commit/e2d6665fa5c32e77a3fe22836b14620a7f5999bb\r\n\r\nRunning that test gives me the following output:\r\n\r\n```\r\n(venv) starlette $ PYTHONPATH=. pytest -k test_large_staticfile \r\n===================================================== test session starts ======================================================\r\nplatform darwin -- Python 3.6.5, pytest-3.6.1, py-1.5.3, pluggy-0.6.0\r\nrootdir: /Users/simonw/Dropbox/Development/starlette, inifile:\r\ncollected 43 items / 42 deselected                                                                                             \r\n\r\ntests/test_staticfiles.py F                                                                                              [100%]\r\n\r\n=========================================================== FAILURES ===========================================================\r\n____________________________________________________ test_large_staticfile _____________________________________________________\r\n\r\ntmpdir = local('/private/var/folders/jj/fngnv0810tn2lt_kd3911pdc0000gp/T/pytest-of-simonw/pytest-8/test_large_staticfile0')\r\n\r\n    def test_large_staticfile(tmpdir):\r\n        path = os.path.join(tmpdir, \"example.txt\")\r\n        content = \"this is a lot of content\" * 200\r\n        print(\"content len = \", len(content))\r\n        with open(path, \"w\") as file:\r\n            file.write(content)\r\n    \r\n        app = StaticFile(path=path)\r\n        client = TestClient(app)\r\n        response = client.get(\"/\")\r\n        assert response.status_code == 200\r\n>       assert len(content) == len(response.text)\r\nE       AssertionError: assert 4800 == 4096\r\nE        +  where 4800 = len('this is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of cont...is is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of content')\r\nE        +  and   4096 = len(' contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot...ontentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of')\r\nE        +    where ' contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot...ontentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of' = <Response [200]>.text\r\n\r\ntests/test_staticfiles.py:30: AssertionError\r\n```",
+    "body_last_edited_at": null,
+    "closed_at": "2018-07-26T13:41:06Z",
+    "created_at": "2018-07-26T13:28:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/32",
+    "number": 32,
+    "state": "closed",
+    "title": "Error serving static files larger than 4096 bytes",
+    "user": "simonw"
+  },
+  "pull_request": {
+    "closed_at": "2018-07-26T13:41:06Z",
+    "created_at": "2018-07-26T13:38:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/33",
+    "merge_commit_sha": "37d9d006557d0bde116c4176e3404c8b0bf90719",
+    "merged_at": "2018-07-26T13:41:06Z",
+    "number": 33,
+    "title": "Correctly handle static files larger than 4096 bytes",
+    "user": "simonw"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "590db3d6ea6c7f3b03013209822cda2c54dc38ae",
+    "committed_at": "2018-07-18T14:42:59Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/590db3d6ea6c7f3b03013209822cda2c54dc38ae"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-07-26T13:29:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/272",
+          "number": 272,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Port Datasette to ASGI"
+        }
+      }
+    },
+    {
+      "created_at": "2018-07-26T13:37:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-07-26T13:39:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/33",
+          "number": 33,
+          "pull_request": {
+            "merged_at": "2018-07-26T13:41:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/33"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Correctly handle static files larger than 4096 bytes"
+        }
+      }
+    },
+    {
+      "commit_id": "f1c3cc362d3a33522dd456b41b33381476f2e821",
+      "commit_url": "https://api.github.com/repos/simonw/datasette/commits/f1c3cc362d3a33522dd456b41b33381476f2e821",
+      "created_at": "2018-07-26T13:50:59Z",
+      "event": "referenced"
+    }
+  ]
+}

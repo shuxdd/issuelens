@@ -1,0 +1,115 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-03-30T06:48:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntooAJ/mpi-app/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-04-01T06:47:03Z",
+            "url": "https://api.github.com/repos/AntooAJ/mpi-app/pulls/21"
+          },
+          "repository": {
+            "full_name": "AntooAJ/mpi-app"
+          },
+          "title": "QA: Added infrastructure and database integration tests "
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T10:26:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vassu-v/Tackety/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/vassu-v/Tackety/pulls/3"
+          },
+          "repository": {
+            "full_name": "vassu-v/Tackety"
+          },
+          "title": "feat: complete webhook registration, resolve endpoint, and refactor e\u2026"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "TypeError: Client.__init__() got an unexpected keyword argument 'app' \r\n\r\nconnexion==3.0.5 \r\nstarlette-0.32.0\r\nhttpx-0.28.0\r\n",
+    "closed_at": "2024-11-30T09:58:08Z",
+    "created_at": "2024-11-29T10:26:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2771",
+    "number": 2771,
+    "state": "closed",
+    "title": "Breaking change in httpx=0.28.0 for starlette.testclient.TestClient",
+    "user": "vladislavkoz"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-11-29T10:39:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-29T10:47:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-29T11:03:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-29T12:55:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-30T09:58:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-30T09:58:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-11-30T09:58:14Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-03-30T06:48:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntooAJ/mpi-app/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-04-01T06:47:03Z",
+            "url": "https://api.github.com/repos/AntooAJ/mpi-app/pulls/21"
+          },
+          "repository": {
+            "full_name": "AntooAJ/mpi-app"
+          },
+          "title": "QA: Added infrastructure and database integration tests "
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T10:26:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vassu-v/Tackety/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/vassu-v/Tackety/pulls/3"
+          },
+          "repository": {
+            "full_name": "vassu-v/Tackety"
+          },
+          "title": "feat: complete webhook registration, resolve endpoint, and refactor e\u2026"
+        }
+      }
+    }
+  ]
+}

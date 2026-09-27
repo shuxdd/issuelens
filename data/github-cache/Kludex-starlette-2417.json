@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2416\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **aryaniyaps** January 13, 2024</sup>\r\nI have my custom errors which are subclasses of the `Exception` class itself\r\n\r\nHere's an example:\r\n\r\n```py\r\n# app/core/errors.py\r\nclass BaseError(Exception):\r\n    \"\"\"Base error class.\"\"\"\r\n\r\n    def __init__(self, message: str) -> None:\r\n        self.message = message\r\n        super().__init__(self.message)\r\n\r\n\r\nclass InvalidInputError(BaseError):\r\n    \"\"\"Indicate that the client has issued an invalid request.\"\"\"\r\n ```\r\n\r\nand this is my corresponding error handler:\r\n\r\n```py\r\n# app/core/error_handlers.py\r\nfrom fastapi import Request\r\nfrom .errors import InvalidInputError\r\n\r\nasync def handle_invalid_input_error(\r\n    _request: Request,\r\n    exception: InvalidInputError,\r\n) -> Response:\r\n    \"\"\"Handle InvalidInputError expections.\"\"\"\r\n    return ORJSONResponse(\r\n        content={\r\n            \"message\": exception.message,\r\n        },\r\n        status_code=status.HTTP_400_BAD_REQUEST,\r\n    )\r\n```\r\n\r\nI am using FastAPI but I believe that the error arises from the `add_exception_handler` method defined in starlette.\r\n\r\nWhile initializing my app like this:\r\n\r\n```py\r\n# app/__init__.py\r\nfrom fastapi import FastAPI\r\n\r\nfrom app.core.error_handlers import handle_invalid_input_error\r\nfrom app.core.errors import InvalidInputError\r\n\r\n\r\ndef create_app() -> FastAPI:\r\n    \"\"\"Initialize an app instance.\"\"\"\r\n    app = FastAPI(version=\"0.0.1\")\r\n    app.add_exception_handler(\r\n        InvalidInputError,\r\n        handler=handle_invalid_input_error,\r\n    )\r\n    return app\r\n\r\n```\r\n\r\nthis mypy error arises:\r\n\r\n```\r\nerror: Argument \"handler\" to \"add_exception_handler\" of \"Starlette\" has incompatible type \"Callable[[Request, InvalidInputError], Coroutine[Any, Any, Response]]\"; expected\r\n\"Callable[[Request, Exception], Response | Awaitable[Response]] | Callable[[WebSocket, Exception], Awaitable[None]]\"  [arg-type]\r\n            handler=handle_invalid_input_error,\r\n```\r\n</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2417\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2417/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2417/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-01-13T08:18:13Z",
+    "created_at": "2024-01-13T03:59:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2417",
+    "number": 2417,
+    "state": "closed",
+    "title": "Typing error for app.add_exception_handler (Argument \"handler\" to \"add_exception_handler\" of \"Starlette\" has incompatible type)",
+    "user": "aryaniyaps"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-01-13T08:18:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-13T08:18:14Z",
+      "event": "closed"
+    }
+  ]
+}

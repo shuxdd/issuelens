@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "This is not really an issue but more of a question/observation.\r\n\r\nI'm using both starlette and [httpx](https://github.com/encode/httpx) to implement a reverse proxy.\r\n\r\nThe classes being subtly different, piping a Starlette request into an httpx request, then piping a httpx response into a Starlette response is doable, but a little tedious:\r\n\r\n```python\r\nasync def proxy_model_forward(request: starlette.requests.Request):\r\n    # ...\r\n    # do some stuff depending on conditions\r\n\r\n    body = await request.body()\r\n    r: httpx.Response = await CLIENT.post(\r\n        endpoint, data=body, headers=request.headers.raw\r\n    )\r\n    headers = dict(r.headers.items())\r\n    return Response(content=r.content, status_code=r.status_code, headers=headers)\r\n\r\n```\r\n\r\nWas any thought given to make classes' APIs a little closer, for instance for header formats?\r\n\r\nThanks for reading.",
+    "closed_at": "2020-06-08T13:13:04Z",
+    "created_at": "2020-06-05T16:33:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/961",
+    "number": 961,
+    "state": "closed",
+    "title": "Converge {starlette,httpx}.{Request,Response}",
+    "user": "julien-c"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-08T13:13:04Z",
+      "event": "commented"
+    }
+  ]
+}

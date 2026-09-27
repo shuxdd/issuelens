@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "https://github.com/encode/starlette/blob/10b61f6cc28ec233ad3265b2822ae713dc26a68d/starlette/testclient.py#L70\r\n\r\nparams needs to be added back to path here, or urls like http://server/path;params will have the ;params chopped off. \r\n\r\n",
+    "closed_at": "2019-01-22T20:36:12Z",
+    "created_at": "2019-01-22T20:03:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/340",
+    "number": 340,
+    "state": "closed",
+    "title": "Params dropped in test client",
+    "user": "rjwittams"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-22T20:36:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-22T21:38:37Z",
+      "event": "commented"
+    }
+  ]
+}

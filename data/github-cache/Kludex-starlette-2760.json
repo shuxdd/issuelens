@@ -1,0 +1,107 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-11-22T01:41:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/uriyyo/fastapi-pagination/issues/1364",
+          "number": 1364,
+          "pull_request": {},
+          "repository": {
+            "full_name": "uriyyo/fastapi-pagination"
+          },
+          "title": "Function `paginate` with SqlModel hints an Unexpected type(s) error."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "![image](https://github.com/user-attachments/assets/4581d63d-a773-418b-9a15-0a8ea63c475d)\r\n\r\n```\r\nfrom fastapi import FastAPI, APIRouter, Request\r\nfrom fastapi.middleware.cors import CORSMiddleware\r\n\r\napp = FastAPI()\r\norigins = []\r\n\r\napp.add_middleware(\r\n    CORSMiddleware,\r\n    allow_origins=origins,\r\n    allow_credentials=True,\r\n    allow_methods=[\"*\"],\r\n    allow_headers=[\"*\"]\r\n)\r\n```\r\n\r\nstarlette v0.41.3",
+    "closed_at": "2024-11-21T07:51:41Z",
+    "created_at": "2024-11-21T02:13:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2760",
+    "number": 2760,
+    "state": "closed",
+    "title": "`add_middleware` hint `Expected type '_MiddlewareFactory[ParamSpec(\"P\")]', got 'Type[XXX]' instead`",
+    "user": "eastack"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-11-21T06:54:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-21T07:10:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-21T07:51:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-21T07:51:41Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-11-21T07:51:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-11-21T07:51:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-11-21T07:55:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-21T10:15:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-22T01:41:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/uriyyo/fastapi-pagination/issues/1364",
+          "number": 1364,
+          "pull_request": {},
+          "repository": {
+            "full_name": "uriyyo/fastapi-pagination"
+          },
+          "title": "Function `paginate` with SqlModel hints an Unexpected type(s) error."
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-02T16:16:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-23T01:53:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-25T12:30:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-25T12:30:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-03-25T12:30:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-22T15:33:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-22T15:34:03Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-05-31T12:45:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/pull/27",
+          "number": 27,
+          "pull_request": {
+            "merged_at": "2022-06-01T13:07:03Z",
+            "url": "https://api.github.com/repos/ciscorn/starlette-graphene3/pulls/27"
+          },
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Mention Dependency on python-multipart in README"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The full stack is:\r\n\r\n```ERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/usr/local/lib/python3.6/dist-packages/uvicorn/protocols/http/httptools_impl.py\", line 372, in run_asgi\r\n    result = await asgi(self.receive, self.send)\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/middleware/errors.py\", line 125, in asgi\r\n    raise exc from None\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/middleware/errors.py\", line 103, in asgi\r\n    await asgi(receive, _send)\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/exceptions.py\", line 74, in app\r\n    raise exc from None\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/exceptions.py\", line 63, in app\r\n    await instance(receive, sender)\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/routing.py\", line 41, in awaitable\r\n    response = await func(request)\r\n  File \"croco.py\", line 55, in upload\r\n    data = await request.form()\r\n  File \"/usr/local/lib/python3.6/dist-packages/starlette/requests.py\", line 182, in form\r\n    ), \"The `python-multipart` library must be installed to use form parsing.\"\r\nAssertionError: The `python-multipart` library must be installed to use form parsing.```\r\n---\r\nName: starlette\r\nVersion: 0.11.4\r\nSummary: The little ASGI library that shines.\r\nHome-page: https://github.com/encode/starlette\r\nAuthor: Tom Christie\r\nAuthor-email: tom@tomchristie.com\r\nLicense: BSD\r\nLocation: /usr/local/lib/python3.6/dist-packages\r\n---\r\nLet me know if I can provide more info.",
+    "closed_at": "2019-03-22T20:31:47Z",
+    "created_at": "2019-03-22T20:28:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/445",
+    "number": 445,
+    "state": "closed",
+    "title": "AssertionError: The `python-multipart` library must be installed to use form parsing.",
+    "user": "dejanbatanjac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-22T20:31:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-22T20:41:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-31T12:45:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/pull/27",
+          "number": 27,
+          "pull_request": {
+            "merged_at": "2022-06-01T13:07:03Z",
+            "url": "https://api.github.com/repos/ciscorn/starlette-graphene3/pulls/27"
+          },
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Mention Dependency on python-multipart in README"
+        }
+      }
+    }
+  ]
+}

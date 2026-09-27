@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello and many thanks for Starlette \ud83d\udc4d \r\n\r\nI search right way to reduce not needed dependencies of Starlette core (when installation). \r\n\r\nFor example:\r\n\r\n* I use classic REST (no need GraphQL);\r\n* I use Starlette as REST API server, only returned JSON data from database (no need jinja2);\r\n* No need YAML, docs generation and etc..\r\n\r\nMay I get true way to have `lite` or `slim` version of Starlette? \r\n\r\nIn (_my_) ideal World, I use Starlette `core` and add some libs if needed (not built-in on Starlette bundle). Only core features for REST API JSON.\r\n\r\nRespectfully.",
+    "closed_at": "2019-03-26T09:29:53Z",
+    "created_at": "2019-03-26T09:25:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/450",
+    "number": 450,
+    "state": "closed",
+    "title": "How to reduce not needed dependencies?",
+    "user": "koddr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-26T09:29:53Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-26T18:46:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6748cc126e834ff5138222912a6f8077f3277ea1",
+      "sha": "6748cc126e834ff5138222912a6f8077f3277ea1"
+    },
+    {
+      "committed_at": "2018-10-26T18:47:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/abc9126e8a2c2a527740b2ed8b5b5931d606b428",
+      "sha": "abc9126e8a2c2a527740b2ed8b5b5931d606b428"
+    },
+    {
+      "committed_at": "2018-10-26T22:55:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c88f7151107fc3ee0bb2f465d23b778902100b25",
+      "sha": "c88f7151107fc3ee0bb2f465d23b778902100b25"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-26T18:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2018-10-28T18:04:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/145"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Drop support for `StaticFile`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c88f7151107fc3ee0bb2f465d23b778902100b25/docs%2Fstaticfiles.md",
+      "changes": 9,
+      "deletions": 6,
+      "filename": "docs/staticfiles.md",
+      "sha": "f1b9d0a5649e9cbb952837057d8f1adc8a007bdd",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c88f7151107fc3ee0bb2f465d23b778902100b25/starlette%2Fresponses.py",
+      "changes": 22,
+      "deletions": 7,
+      "filename": "starlette/responses.py",
+      "sha": "09ac58f520dd9806a7a2c880db56919869ccfec5",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c88f7151107fc3ee0bb2f465d23b778902100b25/starlette%2Fstaticfiles.py",
+      "changes": 30,
+      "deletions": 30,
+      "filename": "starlette/staticfiles.py",
+      "sha": "b9b54cfe0160645db894e98207d7ddd1ae4a1f47",
+      "status": "modified"
+    },
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c88f7151107fc3ee0bb2f465d23b778902100b25/tests%2Ftest_responses.py",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "63d50767e2cc08835a5937f43cec7bff09873d6d",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c88f7151107fc3ee0bb2f465d23b778902100b25/tests%2Ftest_staticfiles.py",
+      "changes": 58,
+      "deletions": 57,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "bc7ef0fb605724f94dadbd9e1763c405b211ebf2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "We have `FileResponse` and `StaticFiles`.\r\n\r\nI think that including the `StaticFile` ASGI app complicates things unnecessarily, and that we should probably remove it.\r\n\r\n* Drop `StaticFile` app.\r\n* Put runtime checks that file exists, and file is a regular file in `FileResponse`.",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-28T18:04:17Z",
+    "created_at": "2018-08-28T15:08:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/50",
+    "number": 50,
+    "state": "closed",
+    "title": "Drop `StaticFile` app.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-28T18:04:17Z",
+    "created_at": "2018-10-26T18:55:36Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/145",
+    "merge_commit_sha": "cdb08bc644169454aedecb12c75a73e3e0660744",
+    "merged_at": "2018-10-28T18:04:17Z",
+    "number": 145,
+    "title": "Drop support for `StaticFile`",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "a32ea0a8e89567b24f3b8cd04847a1b01c9e98f0",
+    "committed_at": "2018-10-26T12:29:25Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a32ea0a8e89567b24f3b8cd04847a1b01c9e98f0"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-10-21T07:45:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-26T18:55:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2018-10-28T18:04:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/145"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Drop support for `StaticFile`"
+        }
+      }
+    }
+  ]
+}

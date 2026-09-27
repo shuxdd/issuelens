@@ -1,0 +1,157 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-09-09T16:48:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/502",
+          "number": 502,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "followup issue routing parameter"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-17T04:57:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/posit-dev/py-shiny/issues/352",
+          "number": 352,
+          "pull_request": {},
+          "repository": {
+            "full_name": "posit-dev/py-shiny"
+          },
+          "title": "Add `ui_pattern` to App"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "## Is your feature related to a problem? Please describe.\r\n\r\nIt would be helpful to have a clean way to insert new routes and mounts at the front of the route list. Specifically, if one has a Starlette app created by a library and that app includes a catch-all route (i.e. `\"/{path:path}\"`) then currently it is impossible to add any more specific routes without delving into the internals of the router (e.g. `app.routes.insert(0, new_route)` ).\r\n\r\nAn example of a situation where this is a problem is when trying to add additional routes to an application created with [JustPy](https://github.com/elimintz/justpy). JustPy creates its Starlette app, complete with a catch-all route, when the library is imported, making it impossible to add an API for the app without direct manipulation of the route table.\r\n\r\n## Describe the solution you would like.\r\n\r\nIdeally `Router.add_route()` and `Router.mount()` (and possibly their corresponding reflections in the `Starlette` class) should have a flag, defaulting to `False`, to indicate that the route should be added with highest priority instead of lowest priority.\r\n\r\n## Describe alternatives you considered\r\n\r\nOne alternative to expanding the API would be to explicitly document that direct manipulation of the list value in the `Starlette.routes` property is allowed. Doing this currently works, but it depends on the current implementation of the routing system and will break if that design were to change significantly. Adding the flag to the `mount()` and `add_route()` methods would allow for changes under the hood without breaking code.\r\n\r\n## Additional context\r\n\r\nMy use case is specifically to do with trying to add additional routes to an application built with [JustPy](https://github.com/elimintz/justpy), but there are likely other libraries that behave in similar ways.\r\n",
+    "closed_at": "2021-06-08T16:48:29Z",
+    "created_at": "2021-06-07T14:30:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1196",
+    "number": 1196,
+    "state": "closed",
+    "title": "Allow insertion of routes with higher priority than existing ones.",
+    "user": "nickovs"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-08T11:36:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-08T12:45:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-08T12:45:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-06-08T12:45:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-06-08T13:47:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-08T13:56:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-08T13:56:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-06-08T13:56:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-06-08T16:48:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-08T16:48:29Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-09-09T16:27:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-09T16:27:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-09T16:27:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-09T16:27:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-09T16:27:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-09T16:47:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-09T16:48:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/issues/502",
+          "number": 502,
+          "pull_request": {},
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "followup issue routing parameter"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-09T17:44:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-17T04:57:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/posit-dev/py-shiny/issues/352",
+          "number": 352,
+          "pull_request": {},
+          "repository": {
+            "full_name": "posit-dev/py-shiny"
+          },
+          "title": "Add `ui_pattern` to App"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-29T13:37:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-29T13:37:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-07-29T13:37:54Z",
+      "event": "subscribed"
+    }
+  ]
+}

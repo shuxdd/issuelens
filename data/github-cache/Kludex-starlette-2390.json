@@ -1,0 +1,184 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-09-20T20:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/defnull/multipart/issues/53",
+          "number": 53,
+          "pull_request": {},
+          "repository": {
+            "full_name": "defnull/multipart"
+          },
+          "title": "Name conflict with https://github.com/Kludex/python-multipart"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-05T14:17:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pypa/packaging-problems/issues/818",
+          "number": 818,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pypa/packaging-problems"
+          },
+          "title": "Import name conflict between two packages"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "We should have the multipart parsing on Starlette itself.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2390\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2390/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2390/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2026-06-10T17:10:40Z",
+    "created_at": "2023-12-29T09:34:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2390",
+    "labels": [
+      "feature"
+    ],
+    "number": 2390,
+    "state": "closed",
+    "title": "Drop `python-multipart` dependency",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-12-29T09:35:04Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-02-17T18:33:47Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2024-02-17T18:33:51Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2024-02-17T18:33:51Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2024-06-12T19:09:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-12T19:09:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-12T19:09:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-11T15:23:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-11T19:15:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:35:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:43:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-20T20:38:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-20T20:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/defnull/multipart/issues/53",
+          "number": 53,
+          "pull_request": {},
+          "repository": {
+            "full_name": "defnull/multipart"
+          },
+          "title": "Name conflict with https://github.com/Kludex/python-multipart"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-05T14:17:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pypa/packaging-problems/issues/818",
+          "number": 818,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pypa/packaging-problems"
+          },
+          "title": "Import name conflict between two packages"
+        }
+      }
+    },
+    {
+      "created_at": "2024-10-11T10:50:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-11T10:51:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-11T11:49:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-31T13:04:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-05T18:45:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-05T20:09:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-21T19:09:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-27T20:23:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-28T10:13:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-28T07:48:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-01T17:15:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-06-10T17:10:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-10T17:10:41Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-11T01:48:25Z",
+      "event": "unsubscribed"
+    }
+  ]
+}

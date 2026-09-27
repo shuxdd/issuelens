@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Is there any cons for inherit `Response` from `Exception` to be able to raise it?",
+    "closed_at": "2018-09-27T16:38:12Z",
+    "created_at": "2018-09-27T16:23:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/74",
+    "number": 74,
+    "state": "closed",
+    "title": "Rising Responses",
+    "user": "imbolc"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-27T16:38:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-27T17:02:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-27T17:13:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-27T17:33:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-09T01:17:29Z",
+      "event": "commented"
+    }
+  ]
+}

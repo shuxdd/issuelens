@@ -1,0 +1,79 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-01T04:19:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I've thought about doing so with regard to the templating, so that it does not have to be passed in via `context`, but https://github.com/encode/starlette/issues/495 looks like it would also help fixing state in this regard.\r\n\r\nFor templating it would be about saving the request there, and this could then be used instead of creating new objects then.",
+    "closed_at": "2019-05-02T08:11:27Z",
+    "created_at": "2019-05-01T03:57:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/497",
+    "number": 497,
+    "state": "closed",
+    "title": "Store single request object in scope",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-01T04:19:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T08:11:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-04T03:57:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-10T23:00:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-12T18:44:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-04T23:51:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-04T23:51:13Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-02-04T23:51:13Z",
+      "event": "subscribed"
+    }
+  ]
+}

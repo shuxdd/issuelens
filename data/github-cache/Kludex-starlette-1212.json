@@ -1,0 +1,171 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-24T21:00:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7148f418e252e18e1e2a633c1b80bc9ae8b3b24c",
+      "sha": "7148f418e252e18e1e2a633c1b80bc9ae8b3b24c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-06-24T20:46:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3405",
+          "number": 3405,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\"Starlette's Middleware docs\" link on \"Advanced Middleware\" documentation is broken"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-24T21:13:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1215",
+          "number": 1215,
+          "pull_request": {
+            "merged_at": "2021-06-25T07:46:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1215"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "mkdocs: Set site_url"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-25T07:31:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/pull/45",
+          "number": 45,
+          "pull_request": {
+            "merged_at": "2021-06-28T14:07:50Z",
+            "url": "https://api.github.com/repos/tomwojcik/starlette-context/pulls/45"
+          },
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "Plugin docs"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7148f418e252e18e1e2a633c1b80bc9ae8b3b24c/mkdocs.yml",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "mkdocs.yml",
+      "sha": "b1237aefb4ff3a31ed25367dc899dff750fe2848",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "It's not a bug with Starlette itself but I think it's the best way to let you know about the problem.\r\n\r\n1. When you google `starlette exceptions` the first result is [https://www.starlette.io/exceptions/](https://www.starlette.io/exceptions/) which 404s. The correct URL would be [https://www.starlette.io/exceptions.html](https://www.starlette.io/exceptions.html).\r\n2. Broken sitemap. `loc` is empty.\r\n```\r\n<url>\r\n<loc>None</loc>\r\n<lastmod>2021-06-23</lastmod>\r\n<changefreq>daily</changefreq>\r\n</url>\r\n```\r\n\r\n3. No proper HTTP -> HTTPS redirection.  http://starlette.io/ doesn't work.\r\n\r\n\r\nThese 3 issues combined make it more difficult to find proper sections of your docs using search engines.",
+    "closed_at": "2021-06-25T07:46:38Z",
+    "created_at": "2021-06-23T21:05:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1212",
+    "number": 1212,
+    "state": "closed",
+    "title": "Starlette docs has dead links, broken sitemap and missing redirection for http://",
+    "user": "tomwojcik"
+  },
+  "pull_request": {
+    "closed_at": "2021-06-25T07:46:38Z",
+    "created_at": "2021-06-24T21:13:45Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1215",
+    "merge_commit_sha": "66266369bba14613295f5320e4ab01b1524d4b83",
+    "merged_at": "2021-06-25T07:46:38Z",
+    "number": 1215,
+    "title": "mkdocs: Set site_url",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-24T20:46:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3405",
+          "number": 3405,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\"Starlette's Middleware docs\" link on \"Advanced Middleware\" documentation is broken"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-24T20:46:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-24T21:13:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1215",
+          "number": 1215,
+          "pull_request": {
+            "merged_at": "2021-06-25T07:46:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1215"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "mkdocs: Set site_url"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-24T21:27:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-25T07:31:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/pull/45",
+          "number": 45,
+          "pull_request": {
+            "merged_at": "2021-06-28T14:07:50Z",
+            "url": "https://api.github.com/repos/tomwojcik/starlette-context/pulls/45"
+          },
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "Plugin docs"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-25T07:46:38Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-06-25T18:45:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-25T18:45:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-06-25T18:45:31Z",
+      "event": "subscribed"
+    }
+  ]
+}

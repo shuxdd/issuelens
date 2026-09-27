@@ -1,0 +1,101 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2020-07-13T05:25:13Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/997"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/997"
+    ]
+  },
+  "case_id": "starlette-issue-997",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-998",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'fix wsgi PATH_INFO encoding' directly changes starlette/middleware/wsgi.py with focused behavior test(s) tests/middleware/test_wsgi.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2020-07-13T05:32:20Z",
+  "issue": {
+    "body": "![image](https://user-images.githubusercontent.com/25364828/87270540-fdfc5380-c502-11ea-9c54-dff760a1a689.png)\r\nGet error: \r\n![image](https://user-images.githubusercontent.com/25364828/87270591-25532080-c503-11ea-914c-dad8796fa325.png)\r\n\r\n![image](https://user-images.githubusercontent.com/25364828/87270805-dce83280-c503-11ea-96af-ead9ed9bd6f3.png)\r\n\r\nI glanced at the code and the problem is here:\r\n\r\nhttps://github.com/encode/starlette/blob/ced8c350c459f22381ae00064e204b4620aa3d58/starlette/middleware/wsgi.py#L17\r\n\r\nMaybe need to use the following code instead\r\n\r\n```python\r\n\"PATH_INFO\": scope[\"path\"].encode(\"utf8\").decode(\"latin1\"), \r\n```",
+    "number": 997,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/997",
+    "title": "WSGI Middleware Error in non-ascii path"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #998 created_at 2020-07-13T05:32:20Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #998",
+    "repair_files": [
+      "starlette/middleware/wsgi.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is ced8c350c459f22381ae00064e204b4620aa3d58",
+    "test_files": [
+      "tests/middleware/test_wsgi.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/wsgi.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5/starlette%2Fmiddleware%2Fwsgi.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "7c4b455162fbc2668eba42751c91fc2460113c9c",
+        "source_url": "https://github.com/Kludex/starlette/commit/7c4b455162fbc2668eba42751c91fc2460113c9c"
+      },
+      {
+        "sha": "087a82ec7e2b6aedae245ce2845c96cf3b55aed3",
+        "source_url": "https://github.com/Kludex/starlette/commit/087a82ec7e2b6aedae245ce2845c96cf3b55aed3"
+      },
+      {
+        "sha": "2bab4bdfa2d7237006cb9e2a9faf1869584a3bf8",
+        "source_url": "https://github.com/Kludex/starlette/commit/2bab4bdfa2d7237006cb9e2a9faf1869584a3bf8"
+      },
+      {
+        "sha": "4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5",
+        "source_url": "https://github.com/Kludex/starlette/commit/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2020-07-13T05:32:20Z",
+      "number": 998,
+      "source_url": "https://github.com/Kludex/starlette/pull/998"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/998"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_wsgi.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5/tests%2Fmiddleware%2Ftest_wsgi.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "ced8c350c459f22381ae00064e204b4620aa3d58",
+    "committed_at": "2020-06-29T11:39:10Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ced8c350c459f22381ae00064e204b4620aa3d58"
+  },
+  "schema_version": "1.0"
+}

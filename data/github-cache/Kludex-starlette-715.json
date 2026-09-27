@@ -1,0 +1,200 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-08T13:37:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/pydantic/issues/1379",
+          "number": 1379,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/pydantic"
+          },
+          "title": "Clarify behaviour of .dict() and Enum attributes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-04T19:15:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/930",
+          "number": 930,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/930"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Proposal: Custom Request Classes using type annotations"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-16T15:40:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/875",
+          "number": 875,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/875"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Customizable request class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-14T19:03:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1250",
+          "number": 1250,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Could  JSONResponse  provide  JsonEncoder class option on    JSONResponse.__init__ () ?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello,\r\n\r\nI have recently discovered Starlette and am about to deploy a couple of small services using it and I have to say that I am pretty excited about this framework. I've been looking for the simple functionality provided by `BackgroundTask` for awhile now. Thanks so much for all the work that has gone into this project!\r\n\r\nI am writing this issue because one of the things I typically do with HTTP APIs returning JSON is swap out the JSON libraries used for my own selection. I don't typically do this for performance (although it's a nice side benefit) so much as to control the ways in which JSON encoding and decoding happens. For example, I find that I'm dealing with UUIDs and `datetime`s a lot and it's nice to have them automatically encoded and decoded. I also tend to use [rapidjson](https://github.com/python-rapidjson/python-rapidjson) because it's quick and configurable (and it seems to see more development activity than [ujson](https://github.com/esnme/ultrajson), which hasn't been updated in 3 years...)\r\n\r\nMaybe an example would be helpful. In Starlette, I can construct a `Response` class like this:\r\n\r\n```python\r\nimport json\r\nimport typing\r\n\r\nimport rapidjson\r\nfrom starlette.responses import JSONResponse\r\n\r\n\r\nclass CustomJSONEncoder(json.JSONEncoder):\r\n    encode = rapidjson.Encoder(\r\n        skip_invalid_keys=False,\r\n        ensure_ascii=False,\r\n        indent=None,\r\n        sort_keys=False,\r\n        number_mode=rapidjson.NM_NATIVE,\r\n        datetime_mode=rapidjson.DM_ISO8601,\r\n        uuid_mode=rapidjson.UM_CANONICAL)\r\n\r\n\r\nclass RapidJSONResponse(JSONResponse):\r\n    media_type = \"application/json\"\r\n\r\n    def render(self, content: typing.Any) -> bytes:\r\n        return CustomJSONEncoder().encode(content).encode(\"utf-8\")\r\n```\r\n\r\nAnd then, in a handler, I can use it like this:\r\n\r\n```python\r\nasync def index(request):\r\n    conf = request.app.settings\r\n    return RapidJSONResponse(\r\n        {\r\n            \"status\": http_helpers.Success.status,\r\n            \"version\": conf.version,\r\n            \"test_uuid\": uuid.uuid4(),\r\n            \"test_datetime\": datetime.datetime.utcnow(),\r\n            \"message\": f\"Welcome to {conf.name}\",\r\n        }\r\n    )\r\n```\r\n\r\nAnd everything just works:\r\n\r\n```sh\r\nIn [1]: import requests\r\n\r\nIn [2]: requests.get(\"http://localhost:8000/\").json()\r\nOut[2]:\r\n{'status': 'success',\r\n 'version': 'local-dev',\r\n 'test_uuid': 'c774a5d5-26c8-4292-9d42-a4e77dcd8a50',\r\n 'test_datetime': '2019-11-13T05:10:21.610705',\r\n 'message': 'Welcome to Starlette!'}\r\n```\r\n\r\nHowever, it's not easy to see how to use a custom decoder in Starlette. I am thinking that I could make an configurable parameter in the `Starlette` application object and pull it out in the Request object, but I'm not sure what you would say to that.\r\n\r\nQ: Do you have suggestions for patching in a custom JSON decoder for JSON parsing in requests?\r\n\r\nQ: Are you interested in a patch that allows users to patch in their own customer JSON decoder for requests?",
+    "closed_at": "2022-02-15T09:53:31Z",
+    "created_at": "2019-11-13T05:17:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/715",
+    "labels": [
+      "feature"
+    ],
+    "number": 715,
+    "state": "closed",
+    "title": "Using Custom JSON Encoders and Decoders?",
+    "user": "erewok"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-13T09:23:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-13T14:12:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-03T22:17:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-08T13:37:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/pydantic/issues/1379",
+          "number": 1379,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/pydantic"
+          },
+          "title": "Clarify behaviour of .dict() and Enum attributes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-03T08:16:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-04T15:34:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-04T15:39:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-04T19:15:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/930",
+          "number": 930,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/930"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Proposal: Custom Request Classes using type annotations"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-04T19:17:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-04T19:17:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-04T19:17:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-04T19:17:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-04T19:17:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-05T11:20:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-05T11:23:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-16T15:40:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/875",
+          "number": 875,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/875"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Customizable request class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-14T19:03:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1250",
+          "number": 1250,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Could  JSONResponse  provide  JsonEncoder class option on    JSONResponse.__init__ () ?"
+        }
+      }
+    }
+  ]
+}

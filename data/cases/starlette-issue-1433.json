@@ -1,0 +1,105 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-01-25T23:51:33Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1433"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1433"
+    ]
+  },
+  "case_id": "starlette-issue-1433",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1459",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Prevent BaseHTTPMiddleware from hiding errors of StreamingResponse' directly changes starlette/middleware/base.py with focused behavior test(s) tests/middleware/test_base.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-01-31T08:33:33Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [X] The bug is reproducible against the latest release or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nLet's start with this PR: #1262\r\n\r\nIt's about preventing raise `anyio.ExceptionGroup` in views under a `BaseHTTPMiddleware`. PR resolve that problem with nonlocal variable that stores our exception. But in the case of sub-applications, it does not work. \r\n\r\nAs I can see (fyi I am not good at asyncio), in the case below, we reach and read a response before we raise an exception and store it to our nonlocal variable:\r\n\r\nfragment of `BaseHTTPMiddleware.__call__`\r\n```python\r\nasync def call_next(request: Request) -> Response:\r\n    app_exc: typing.Optional[Exception] = None\r\n    send_stream, recv_stream = anyio.create_memory_object_stream()\r\n\r\n    async def coro() -> None:\r\n        nonlocal app_exc\r\n\r\n        async with send_stream:\r\n            try:\r\n                task = await self.app(scope, request.receive, send_stream.send)\r\n            except Exception as exc:\r\n                app_exc = exc\r\n\r\n    task_group.start_soon(coro)\r\n\r\n    try:\r\n        message = await recv_stream.receive()\r\n    except anyio.EndOfStream:\r\n        if app_exc is not None:\r\n            raise app_exc\r\n        raise RuntimeError(\"No response returned.\")\r\n    \r\n    ...\r\n    response = StreamingResponse(\r\n        status_code=message[\"status\"], content=body_stream()\r\n    )\r\n    response.raw_headers = message[\"headers\"]\r\n    return response\r\n```\r\n\r\nin this moment: `except anyio.EndOfStream:` exception still no raised.\r\n\r\n### Steps to reproduce the bug\r\n\r\n```python\r\nimport httpx\r\nimport pytest\r\nfrom fastapi import FastAPI, APIRouter\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\n\r\n\r\nclass SomeError(Exception):\r\n    pass\r\n\r\n\r\nclass SomeMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(\r\n        self, request: Request, call_next: RequestResponseEndpoint\r\n    ) -> Response:\r\n        return await call_next(request)\r\n\r\n# Drop (or use not BaseHTTPMiddleware based) middleware and test works fine\r\napp = FastAPI(middleware=[Middleware(SomeMiddleware), ])\r\n\r\n\r\nasync def simple_route(request: Request):\r\n    raise SomeError\r\n\r\n\r\nanother_router = APIRouter(\r\n    routes=[Route('/simple-route/', simple_route, methods=['GET'])]\r\n)\r\nsub_app = FastAPI()\r\nsub_app.include_router(another_router)\r\napp.router.mount(f'/api', sub_app)\r\n\r\n\r\n@pytest.mark.asyncio\r\nasync def test_simple_route():\r\n    async with httpx.AsyncClient(app=app) as client:\r\n        with pytest.raises(SomeError):\r\n            await client.get(\"http://testserver/api/simple-route/\")\r\n\r\n```\r\n\r\n### Expected behavior\r\n\r\nAn exception was raised and caught by pytest exception\r\n\r\n### Actual behavior\r\n\r\nAn exception wasn't raised\r\n\r\n### Debugging material\r\n\r\n_No response_\r\n\r\n### Environment\r\n\r\nmacOS Monterey 12.0.1, starlette 0.17.1, Python 3.9.9\r\n\r\n\r\n### Additional context\r\n\r\n_No response_",
+    "number": 1433,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1433",
+    "title": "Raising Exceptions in sub-applications routes"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1459 created_at 2022-01-31T08:33:33Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1459",
+    "repair_files": [
+      "starlette/middleware/base.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 84820a25f2237c7c8fe7911f4fea2394f02994e8",
+    "test_files": [
+      "tests/middleware/test_base.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b5eee5e5e80448290014b4ec4896eaf6b87b5a0b/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "33744868727e1e412a42649105557ae5f7f5f592",
+        "source_url": "https://github.com/Kludex/starlette/commit/33744868727e1e412a42649105557ae5f7f5f592"
+      },
+      {
+        "sha": "6d848bbf206b1b1e4a3d339568afb1934404bbb8",
+        "source_url": "https://github.com/Kludex/starlette/commit/6d848bbf206b1b1e4a3d339568afb1934404bbb8"
+      },
+      {
+        "sha": "9109de57c31c3ff76ec71d7de275a12840a12d19",
+        "source_url": "https://github.com/Kludex/starlette/commit/9109de57c31c3ff76ec71d7de275a12840a12d19"
+      },
+      {
+        "sha": "09d68387b22d4fbe7d027168dd257e79851ba2c1",
+        "source_url": "https://github.com/Kludex/starlette/commit/09d68387b22d4fbe7d027168dd257e79851ba2c1"
+      },
+      {
+        "sha": "b5eee5e5e80448290014b4ec4896eaf6b87b5a0b",
+        "source_url": "https://github.com/Kludex/starlette/commit/b5eee5e5e80448290014b4ec4896eaf6b87b5a0b"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-01-31T08:33:33Z",
+      "number": 1459,
+      "source_url": "https://github.com/Kludex/starlette/pull/1459"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1459"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b5eee5e5e80448290014b4ec4896eaf6b87b5a0b/tests%2Fmiddleware%2Ftest_base.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+    "committed_at": "2022-01-30T11:55:31Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/84820a25f2237c7c8fe7911f4fea2394f02994e8"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,179 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-28T17:34:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/531",
+          "number": 531,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/531"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "WebSocketTestSession uses current event loop "
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-30T15:06:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ethyca/fides/pull/2267",
+          "number": 2267,
+          "pull_request": {
+            "merged_at": "2023-02-02T14:35:00Z",
+            "url": "https://api.github.com/repos/ethyca/fides/pulls/2267"
+          },
+          "repository": {
+            "full_name": "ethyca/fides"
+          },
+          "title": "Add option for users to protect all API endpoints"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi there! \r\n\r\nFirst of all, thanks for the beautiful framework!\r\n\r\nI'm in the middle of migrating one of my apps from Sanic to FastAPI and I'm a little bit stuck with testing web socket endpoints. \r\n\r\nIn the web socket handler I use redis connection pool (aioredis), which is created on the app startup (thanks to according event). However, in test whenever I try to access redis I keep getting this error:\r\n```\r\nRuntimeError: Task ...  attached to a different loop\r\n```\r\n\r\nI think the problem can be in this line:\r\nhttps://github.com/encode/starlette/blob/master/starlette/testclient.py#L266\r\n\r\nHere is what happening: to run events in test we use TestClient as context manager. Event handlers runs in current event loop, but WebSocketTestSession runs app in new event loop\r\n\r\nSo, my question is there specific reason to create new event loop in the WebSocketTestSession? It seems that we can just use current loop.\r\n\r\nTo illustrate the problem I created **pull request**:\r\nhttps://github.com/unmade/starlette/pull/1/files\r\n\r\nP.S: There seems to be incorrect return value in type annotation. I can fix it also:\r\nhttps://github.com/encode/starlette/blob/master/starlette/testclient.py#L444\r\nhttps://github.com/encode/starlette/blob/master/starlette/testclient.py#L426",
+    "closed_at": "2020-03-02T12:20:48Z",
+    "created_at": "2019-04-22T20:14:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/487",
+    "number": 487,
+    "state": "closed",
+    "title": "Should WebSocketTestSession use current event loop?",
+    "user": "unmade"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-23T16:28:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T11:41:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T11:41:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-24T11:41:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-24T11:52:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T17:50:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T17:50:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-24T17:50:36Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-27T15:57:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-28T17:34:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/531",
+          "number": 531,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/531"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "WebSocketTestSession uses current event loop "
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-28T18:57:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-26T06:12:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-26T06:45:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-26T07:55:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-26T07:55:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-26T07:55:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-26T16:07:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-26T16:07:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-26T16:07:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-02T12:20:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-02T12:20:48Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-03-02T12:20:48Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-02T12:20:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-01-29T14:30:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-30T15:06:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ethyca/fides/pull/2267",
+          "number": 2267,
+          "pull_request": {
+            "merged_at": "2023-02-02T14:35:00Z",
+            "url": "https://api.github.com/repos/ethyca/fides/pulls/2267"
+          },
+          "repository": {
+            "full_name": "ethyca/fides"
+          },
+          "title": "Add option for users to protect all API endpoints"
+        }
+      }
+    }
+  ]
+}

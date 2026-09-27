@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I write a route in below:\r\n```python\r\n@app.websocket_route(\"/wss_back\", name=\"run_in_backend\")\r\nasync def wss_back(session: WebSocket):\r\n    await session.accept()\r\n    data = await session.receive_json()\r\n    await run_code_in_subprocess(session)\r\n    await session.send_json({\"msgType\": 1, \"data\": \"good\"})\r\n    await session.close(1000)\r\n```\r\nBut I can't make sure client session will send message to the wss server.\r\n\r\nSo, I want to set a time for receive timeout ? How can I achieve this?\r\n\r\nIf `await websocket.receive_json()` than 5s, close the session.\r\n\r\nThanks in advance :).",
+    "closed_at": "2019-09-26T13:33:36Z",
+    "created_at": "2019-09-25T02:05:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/647",
+    "number": 647,
+    "state": "closed",
+    "title": "Have any way close the session when receive time too long?",
+    "user": "Dustyposa"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-25T02:09:40Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-09-26T13:33:36Z",
+      "event": "closed"
+    }
+  ]
+}

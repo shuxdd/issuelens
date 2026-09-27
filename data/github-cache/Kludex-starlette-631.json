@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have a package called `views` inside which I have separated modules for each resource, for example, I have a module called `users.py` which imports the `app` instance from top-level package and using `@app.route(\"/{some_variable}\")` decorator I have a `class User(HTTPEndpoint)`\r\n\r\nI am also importing the module into my `app.py` but the route doesn't seem to be registered. Am I missing something?\r\n\r\n```\r\n.\r\n\u251c\u2500\u2500 app.py\r\n\u2514\u2500\u2500 views\r\n    \u251c\u2500\u2500 __init__.py\r\n    \u2514\u2500\u2500 users.py\r\n```",
+    "closed_at": "2019-11-22T11:38:58Z",
+    "created_at": "2019-09-02T12:29:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/631",
+    "number": 631,
+    "state": "closed",
+    "title": "How to add routes from modules?",
+    "user": "PrasannaVenkadesh"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-07T07:06:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-22T11:38:58Z",
+      "event": "commented"
+    }
+  ]
+}

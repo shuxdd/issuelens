@@ -1,0 +1,89 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-15T20:31:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/901",
+          "number": 901,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider removing UJSONResponse from core"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'd like to add https://github.com/ijl/orjson as a JSON serializer and deserializer. The motivation is performance.\r\n\r\nIt's difficult to install, though, because it's a Rust extension. It assumes either a Rust nightly compiler or a prebuilt wheel. So if included, it's probably not appropriate for a `[full]` install, which requires a C compiler, but some other target.\r\n\r\nIt can also either replace `json.loads` or only be a renderer.\r\n\r\nTo validate the performance motivation, take the patch at the end, and run:\r\n\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse, UJSONResponse, OrJSONResponse\r\nimport uvicorn\r\nimport orjson\r\n\r\n\r\napp = Starlette()\r\n\r\n\r\nwith open('twitter.json') as fileh:\r\n    data = orjson.loads(fileh.read())\r\n\r\n\r\n@app.route('/')\r\nasync def root(request):\r\n    return OrJSONResponse(data)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host='0.0.0.0', port=8000, log_level=\"error\")\r\n\r\n```\r\n\r\n\r\nWIth `wrk -d 30 http://0.0.0.0:8000/`, I see:\r\n```\r\nJSONRenderer:\r\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\r\n    Latency    37.34ms   10.60ms  87.71ms   88.90%\r\n    Req/Sec   134.33      6.86   151.00     90.33%\r\n  8036 requests in 30.03s, 3.50GB read\r\nRequests/sec:    267.61\r\nTransfer/sec:    119.20MB\r\n\r\nUJSONRenderer:\r\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\r\n    Latency    21.48ms    6.10ms  51.77ms   88.84%\r\n    Req/Sec   233.76     27.50   282.00     51.83%\r\n  13976 requests in 30.03s, 6.16GB read\r\nRequests/sec:    465.41\r\nTransfer/sec:    209.98MB\r\n\r\nOrJSONRenderer:\r\n  Thread Stats   Avg      Stdev     Max   +/- Stdev\r\n    Latency     5.69ms    1.64ms  18.23ms   88.33%\r\n    Req/Sec     0.88k   101.75     1.01k    51.33%\r\n  52795 requests in 30.02s, 22.96GB read\r\nRequests/sec:   1758.78\r\nTransfer/sec:    783.36MB\r\n```\r\n\r\nPatch to test:\r\n```\r\ndiff --git a/requirements.txt b/requirements.txt\r\nindex aae4715..1b8a9c3 100644\r\n--- a/requirements.txt\r\n+++ b/requirements.txt\r\n@@ -7,6 +7,7 @@ python-multipart\r\n pyyaml\r\n requests\r\n ujson\r\n+orjson\r\n\r\n # Database backends\r\n asyncpg\r\ndiff --git a/setup.py b/setup.py\r\nindex 13189ad..d58ef5d 100644\r\n--- a/setup.py\r\n+++ b/setup.py\r\n@@ -53,6 +53,7 @@ setup(\r\n             'graphene',\r\n             'itsdangerous',\r\n             'jinja2',\r\n+            'orjson',\r\n             'python-multipart',\r\n             'pyyaml',\r\n             'requests',\r\ndiff --git a/starlette/requests.py b/starlette/requests.py\r\nindex 2132151..7463f0e 100644\r\n--- a/starlette/requests.py\r\n+++ b/starlette/requests.py\r\n@@ -12,6 +12,11 @@ try:\r\n except ImportError:  # pragma: nocover\r\n     parse_options_header = None  # type: ignore\r\n\r\n+try:\r\n+    from orjson import loads as json_loads\r\n+except ImportError:  # pragma: nocover\r\n+    from json import loads as json_loads  # type: ignore\r\n+\r\n\r\n class ClientDisconnect(Exception):\r\n     pass\r\n@@ -161,7 +166,7 @@ class Request(HTTPConnection):\r\n     async def json(self) -> typing.Any:\r\n         if not hasattr(self, \"_json\"):\r\n             body = await self.body()\r\n-            self._json = json.loads(body)\r\n+            self._json = json_loads(body)\r\n         return self._json\r\n\r\n     async def form(self) -> dict:\r\ndiff --git a/starlette/responses.py b/starlette/responses.py\r\nindex 3b8d275..e363c11 100644\r\n--- a/starlette/responses.py\r\n+++ b/starlette/responses.py\r\n@@ -19,6 +19,11 @@ except ImportError:  # pragma: nocover\r\n     aiofiles = None  # type: ignore\r\n     aio_stat = None  # type: ignore\r\n\r\n+try:\r\n+    import orjson\r\n+except ImportError:  # pragma: nocover\r\n+    orjson = None  # type: ignore\r\n+\r\n try:\r\n     import ujson\r\n except ImportError:  # pragma: nocover\r\n@@ -184,6 +189,13 @@ class JSONResponse(Response):\r\n         ).encode(\"utf-8\")\r\n\r\n\r\n+class OrJSONResponse(JSONResponse):\r\n+    media_type = \"application/json\"\r\n+\r\n+    def render(self, content: typing.Any) -> bytes:\r\n+        return orjson.dumps(content)\r\n+\r\n+\r\n class UJSONResponse(JSONResponse):\r\n     media_type = \"application/json\"\r\n\r\ndiff --git a/tests/test_responses.py b/tests/test_responses.py\r\nindex d4bafaf..6a86b56 100644\r\n--- a/tests/test_responses.py\r\n+++ b/tests/test_responses.py\r\n@@ -8,6 +8,7 @@ from starlette.background import BackgroundTask\r\n from starlette.requests import Request\r\n from starlette.responses import (\r\n     FileResponse,\r\n+    OrJSONResponse,\r\n     RedirectResponse,\r\n     Response,\r\n     StreamingResponse,\r\n@@ -43,6 +44,19 @@ def test_bytes_response():\r\n     assert response.content == b\"xxxxx\"\r\n\r\n\r\n+def test_orjson_response():\r\n+    def app(scope):\r\n+        async def asgi(receive, send):\r\n+            response = OrJSONResponse({\"hello\": \"world\"})\r\n+            await response(receive, send)\r\n+\r\n+        return asgi\r\n+\r\n+    client = TestClient(app)\r\n+    response = client.get(\"/\")\r\n+    assert response.json() == {\"hello\": \"world\"}\r\n+\r\n+\r\n def test_ujson_response():\r\n     def app(scope):\r\n         async def asgi(receive, send):\r\n\r\n```\r\n\r\nThoughts?",
+    "closed_at": "2019-01-04T09:42:38Z",
+    "created_at": "2019-01-04T00:33:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/304",
+    "number": 304,
+    "state": "closed",
+    "title": "Support orjson for JSON",
+    "user": "ijl"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-04T09:42:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T20:31:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/901",
+          "number": 901,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider removing UJSONResponse from core"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-13T09:35:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-10-23T22:09:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    }
+  ]
+}

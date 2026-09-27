@@ -1,0 +1,159 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-07-14T10:34:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1765",
+          "number": 1765,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1765"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\u2728 Remove body from requests with a status code that don't allow it"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-14T11:18:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5145",
+          "number": 5145,
+          "pull_request": {
+            "merged_at": "2022-07-14T11:19:43Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Fix removing body from status codes that do not support it"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-14T11:19:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4050",
+          "number": 4050,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "GZip Middleware Throws \"Response content longer than Content-Length\" when given a 304 empty-body response"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-28T21:47:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/almarklein/asgineer/issues/40",
+          "number": 40,
+          "pull_request": {},
+          "repository": {
+            "full_name": "almarklein/asgineer"
+          },
+          "title": "\"304 Not Modified\" is returning the wrong headers"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "## Related discussion\r\n\r\n- [x] Initially raised as discussion https://github.com/encode/starlette/discussions/1635\r\n\r\nI think this is worth as an issue/bug in Starlette, and I'm gonna work on it.\r\n\r\n## Description\r\n\r\nWhen a Starlette application sends a response with a status code that would have no content, e.g. 204, 304, but the response actually has content, it is accepted by Starlette as valid, the code looks valid, and there's no exception raised by Starlette, it sends the response ASGI message to the server like that.\r\n\r\nBut Uvicorn takes that as an erroneous message and raises an error of:\r\n\r\n```\r\nRuntimeError: Response content longer than Content-Length\r\n```\r\n\r\nSo, an application and code that would look fine in Starlette, and Starlette would accept as valid, results in an error in Uvicorn.\r\n\r\nThis means that Starlette is accepting some code from the user as valid, but sending an invalid message to Uvicorn.\r\n\r\n## Minimal Example\r\n\r\nHere's a minimal example to reproduce the issue with Starlette:\r\n\r\n```Python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Route\r\nfrom starlette.responses import Response\r\nfrom starlette.requests import Request\r\n\r\n\r\ndef endpoint(request: Request):\r\n    return Response(\"null\", status_code=204)\r\n\r\n\r\napp = Starlette(\r\n    routes=[Route(\"/\", endpoint=endpoint)],\r\n)\r\n```\r\n\r\nThen call the endpoint, e.g.:\r\n\r\n```console\r\n$ curl localhost:8000\r\n```\r\n\r\nThe problem is even more notorious when using FastAPI, as the same response from above is generated automatically because a function implicitly always returns `None` if nothing else is returned, and FastAPI will use a `JSONResponse` by default, so it will try to send the JSON string `\"null\"`:\r\n\r\n```Python\r\nfrom fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n\r\n@app.get(\"/\", status_code=204)\r\ndef endpoint():\r\n    print(\"Oh, hi mark\")\r\n```\r\n\r\n## On Uvicorn\r\n\r\nUvicorn checks if there's a `content-length` header and uses it to set the `expected_content_length`, if there's none, it is not modified and keeps its default of `0`.\r\n\r\nThen that default of `0` for `expected_content_length` is checked here, and that's where the error is raised: https://github.com/encode/uvicorn/blob/fd4386fefb8fe8a4568831a7d8b2930d5fb61455/uvicorn/protocols/http/httptools_impl.py#L532-L533\r\n\r\nThe only case where that is not affected is when `chunked_encoding` is used. And that is used by default when the `content-length` is not set **only if** the status code is not one of the status codes without body: https://github.com/encode/uvicorn/blob/fd4386fefb8fe8a4568831a7d8b2930d5fb61455/uvicorn/protocols/http/httptools_impl.py#L498-L505\r\n\r\nSo, from Uvicorn's point of view, Starlette is sending a bogus message.\r\n\r\n## Next steps\r\n\r\nI think this has to be solved on Starlette, not on Uvicorn.\r\n\r\nI think the sensible thing would be to remove the body of a request with a status code that doesn't contain a body, Uvicorn won't send that body either way, it will just error out.\r\n\r\nAnother option is to raise an exception to tell the user that they can't provide a body for a status code that doesn't contain a body, but it should be done in Starlette, not in Uvicorn. And if that was the approach chosen, then it would make sense to add a lot of typing `@overload`s to the `__init__` methods of the request classes with the `Literal` for each status code that would raise an error, and making the `content` as exclusively `None` in those overloads, to make those errors show up when editing and checking the code, not only at runtime (in production :scream:). This second option would be a lot more code and it wouldn't solve the problem for FastAPI, I would still have to do the first option above in FastAPI.\r\n",
+    "closed_at": "2022-08-31T10:11:10Z",
+    "created_at": "2022-07-14T09:20:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1764",
+    "number": 1764,
+    "state": "closed",
+    "title": "RuntimeError: Response content longer than Content-Length in Uvicorn, for status codes without body (e.g. 204, 304), in responses with Body",
+    "user": "tiangolo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-14T09:20:55Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2022-07-14T10:34:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1765",
+          "number": 1765,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1765"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\u2728 Remove body from requests with a status code that don't allow it"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-14T11:18:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5145",
+          "number": 5145,
+          "pull_request": {
+            "merged_at": "2022-07-14T11:19:43Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Fix removing body from status codes that do not support it"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-14T11:19:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4050",
+          "number": 4050,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "GZip Middleware Throws \"Response content longer than Content-Length\" when given a 304 empty-body response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-31T10:11:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-31T10:11:11Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-02-28T21:47:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/almarklein/asgineer/issues/40",
+          "number": 40,
+          "pull_request": {},
+          "repository": {
+            "full_name": "almarklein/asgineer"
+          },
+          "title": "\"304 Not Modified\" is returning the wrong headers"
+        }
+      }
+    }
+  ]
+}

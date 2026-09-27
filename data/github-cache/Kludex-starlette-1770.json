@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "`\r\n\r\n`\r\n",
+    "closed_at": "2022-07-19T09:06:27Z",
+    "created_at": "2022-07-19T08:59:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1770",
+    "number": 1770,
+    "state": "closed",
+    "title": "How to add authenticated decorator for a series of submounting routes?",
+    "user": "lzu-zhanghr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-19T09:06:28Z",
+      "event": "closed"
+    }
+  ]
+}

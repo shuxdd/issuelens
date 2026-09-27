@@ -1,0 +1,119 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-19T05:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/905",
+          "number": 905,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider passing scope validation function to `starlette.authentication.require`"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The requires scope uses an all check which can be problematic for certain endpoints using RBAC. This is because for endpoints where, say, Data-Science and Sales both have access it can start to get complicated. I wrote this and am currently using it as a solution. It's backward compatible. I would've forked and made a PR but I'm not in it for the glory hah\r\n\r\n```\r\nimport asyncio\r\nimport functools\r\nimport inspect\r\nimport typing\r\n\r\nfrom starlette.exceptions import HTTPException\r\nfrom starlette.requests import HTTPConnection, Request\r\nfrom starlette.responses import RedirectResponse, Response\r\nfrom starlette.websockets import WebSocket\r\n\r\n\r\ndef has_required_scope(conn: HTTPConnection, scopes: typing.Sequence[str], match_all: bool = True) -> bool:\r\n    if match_all:\r\n        return all(scope in conn.auth.scopes for scope in scopes)\r\n    else:\r\n        return any(scope in conn.auth.scopes for scope in scopes)\r\n\r\n\r\ndef requires(\r\n    scopes: typing.Union[str, typing.Sequence[str]],\r\n    status_code: int = 403,\r\n    redirect: str = None,\r\n    requires_all: bool = True\r\n) -> typing.Callable:\r\n    scopes_list = [scopes] if isinstance(scopes, str) else list(scopes)\r\n\r\n    def decorator(func: typing.Callable) -> typing.Callable:\r\n        type = None\r\n        sig = inspect.signature(func)\r\n        for idx, parameter in enumerate(sig.parameters.values()):\r\n            if parameter.name == \"request\" or parameter.name == \"websocket\":\r\n                type = parameter.name\r\n                break\r\n        else:\r\n            raise Exception(\r\n                f'No \"request\" or \"websocket\" argument on function \"{func}\"'\r\n            )\r\n\r\n        if type == \"websocket\":\r\n            # Handle websocket functions. (Always async)\r\n            @functools.wraps(func)\r\n            async def websocket_wrapper(\r\n                *args: typing.Any, **kwargs: typing.Any\r\n            ) -> None:\r\n                websocket = kwargs.get(\"websocket\", args[idx])\r\n                assert isinstance(websocket, WebSocket)\r\n\r\n                if not has_required_scope(websocket, scopes_list, requires_all):\r\n                    await websocket.close()\r\n                else:\r\n                    await func(*args, **kwargs)\r\n\r\n            return websocket_wrapper\r\n\r\n        elif asyncio.iscoroutinefunction(func):\r\n            # Handle async request/response functions.\r\n            @functools.wraps(func)\r\n            async def async_wrapper(\r\n                *args: typing.Any, **kwargs: typing.Any\r\n            ) -> Response:\r\n                request = kwargs.get(\"request\", args[idx])\r\n                assert isinstance(request, Request)\r\n\r\n                if not has_required_scope(request, scopes_list, requires_all):\r\n                    if redirect is not None:\r\n                        return RedirectResponse(url=request.url_for(redirect))\r\n                    raise HTTPException(status_code=status_code)\r\n                return await func(*args, **kwargs)\r\n\r\n            return async_wrapper\r\n\r\n        else:\r\n            # Handle sync request/response functions.\r\n            @functools.wraps(func)\r\n            def sync_wrapper(*args: typing.Any, **kwargs: typing.Any) -> Response:\r\n                request = kwargs.get(\"request\", args[idx])\r\n                assert isinstance(request, Request)\r\n\r\n                if not has_required_scope(request, scopes_list, requires_all):\r\n                    if redirect is not None:\r\n                        return RedirectResponse(url=request.url_for(redirect))\r\n                    raise HTTPException(status_code=status_code)\r\n                return func(*args, **kwargs)\r\n\r\n            return sync_wrapper\r\n\r\n    return decorator\r\n```\r\n\r\nExample:\r\n```\r\n@app.route('/v1/customer/{customer_id}/reports/unique-files')\r\n@requires(['DataScience', 'Manager', 'Sales'], requires_all=False)\r\nasync def unique_file_report(request):\r\n```",
+    "closed_at": "2022-02-14T12:04:45Z",
+    "created_at": "2019-09-20T03:13:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/643",
+    "number": 643,
+    "state": "closed",
+    "title": "Improved RBAC support for authentication.requires",
+    "user": "WillNye"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-17T18:13:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-22T09:49:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-23T13:54:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-23T13:54:52Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-23T13:54:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-23T15:28:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-23T15:28:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-23T15:28:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-06T15:53:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-06T15:53:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-04-06T15:53:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-06T15:53:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-04-06T15:53:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-19T05:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/905",
+          "number": 905,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consider passing scope validation function to `starlette.authentication.require`"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-13T04:42:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-15T00:48:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-29T16:05:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T12:45:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-02T17:03:23Z",
+      "event": "commented"
+    }
+  ]
+}

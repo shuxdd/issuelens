@@ -1,0 +1,299 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-04-22T21:37:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+      "sha": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37"
+    },
+    {
+      "committed_at": "2019-04-22T21:48:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/997bb591e6f15a53ba23ca70423944234b2af4ac",
+      "sha": "997bb591e6f15a53ba23ca70423944234b2af4ac"
+    },
+    {
+      "committed_at": "2019-04-25T19:28:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dd9a2c485463ba8a95bf0cf04409f0f82140dcb0",
+      "sha": "dd9a2c485463ba8a95bf0cf04409f0f82140dcb0"
+    },
+    {
+      "committed_at": "2019-04-25T19:40:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aca414b4d548083d41fa18fa7b5828526f9e69dc",
+      "sha": "aca414b4d548083d41fa18fa7b5828526f9e69dc"
+    },
+    {
+      "committed_at": "2019-05-12T20:57:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/40a2f0ea5ed9452fa3279d735d907e0959d43057",
+      "sha": "40a2f0ea5ed9452fa3279d735d907e0959d43057"
+    },
+    {
+      "committed_at": "2019-05-12T21:14:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dc505b266f6e2b40be645e03680ba3322a8afe97",
+      "sha": "dc505b266f6e2b40be645e03680ba3322a8afe97"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-04-22T21:40:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/488",
+          "number": 488,
+          "pull_request": {
+            "merged_at": "2019-08-01T16:17:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/488"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Send lifespan.startup.failed if exception occurs during startup"
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-22T21:52:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/350",
+          "number": 350,
+          "pull_request": {
+            "merged_at": "2019-08-01T16:18:32Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/350"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Add support for lifespan.startup.failed"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-31T10:45:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/281",
+          "number": 281,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Exception in registered events are ignored"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-29T15:27:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/873",
+          "number": 873,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "\"datasette -p 0 --root\" gives the wrong URL"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Frouting.py",
+      "changes": 11,
+      "deletions": 2,
+      "filename": "starlette/routing.py",
+      "sha": "a67bb499f9cc1dd367d7be7a8b0ad47a235b76f2",
+      "status": "modified"
+    },
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Ftestclient.py",
+      "changes": 11,
+      "deletions": 3,
+      "filename": "starlette/testclient.py",
+      "sha": "de47f521d413306ebab2c023abc8b14e6cfe1002",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Fmiddleware%2Ftest_lifespan.py",
+      "changes": 13,
+      "deletions": 1,
+      "filename": "tests/middleware/test_lifespan.py",
+      "sha": "4f381c1af1fba22f4661402898f532c0cac6a84b",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Ftest_testclient.py",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "6569990fb96538903251dd37469d7d564bcf3cba",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Related #431 #177  and mentioned here https://github.com/encode/uvicorn/issues/333#issuecomment-484885300\r\n\r\nScenario:\r\nI have a 'startup' event handler:\r\n```python\r\n@app.on_event('startup')\r\nasync def startup():\r\n    initialise()\r\n```\r\nand I am running under uvicorn for local dev just via the:\r\n```python\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n```\r\n\r\nIf there is an uncaught exception in the startup event handler, the exception will be swallowed (not logged) and uvicorn will continue to startup.\r\n\r\nThe only anomaly seen in the logs is that uvicorn will report:\r\n```\r\nASGI 'lifespan' protocol appears unsupported\r\n```\r\n\r\nI would like to see:\r\n- the exception and traceback logged\r\n- process aborted, since we haven't fully started up yet\r\n\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2019-08-01T16:17:52Z",
+    "created_at": "2019-04-19T14:42:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/486",
+    "number": 486,
+    "state": "closed",
+    "title": "Error in app startup event is not logged and does not prevent startup",
+    "user": "anentropic"
+  },
+  "pull_request": {
+    "closed_at": "2019-08-01T16:17:52Z",
+    "created_at": "2019-04-22T21:40:06Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/488",
+    "merge_commit_sha": "d395a673d67cc60b7dfa447c3caf508979e018de",
+    "merged_at": "2019-08-01T16:17:52Z",
+    "number": 488,
+    "title": "Send lifespan.startup.failed if exception occurs during startup",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+    "committed_at": "2019-04-22T21:37:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-04-22T17:20:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-22T17:20:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-22T17:20:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-22T18:47:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-22T18:47:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-22T18:47:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-22T20:20:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-22T21:40:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/488",
+          "number": 488,
+          "pull_request": {
+            "merged_at": "2019-08-01T16:17:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/488"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Send lifespan.startup.failed if exception occurs during startup"
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-22T21:41:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-22T21:41:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-04-22T21:41:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-04-22T21:52:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/350",
+          "number": 350,
+          "pull_request": {
+            "merged_at": "2019-08-01T16:18:32Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/350"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Add support for lifespan.startup.failed"
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-24T18:40:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T18:46:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-31T10:45:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-31T10:45:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/281",
+          "number": 281,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Exception in registered events are ignored"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-31T11:09:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-31T11:09:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-31T11:09:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-29T15:27:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/873",
+          "number": 873,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "\"datasette -p 0 --root\" gives the wrong URL"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,188 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-02-03T11:40:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f769acd46dbdd47829cace5cb2d3796c956a0a8e",
+      "sha": "f769acd46dbdd47829cace5cb2d3796c956a0a8e"
+    },
+    {
+      "committed_at": "2022-02-03T15:16:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e698099f0c4e4154cd55faa0ac0dfd8ace6b6b47",
+      "sha": "e698099f0c4e4154cd55faa0ac0dfd8ace6b6b47"
+    },
+    {
+      "committed_at": "2022-02-03T15:47:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7004dd72d3a9865b5c65199130ffda4191c15e88",
+      "sha": "7004dd72d3a9865b5c65199130ffda4191c15e88"
+    },
+    {
+      "committed_at": "2022-02-04T10:44:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/430b9fd14a4276860625cb6b20671395f07eb8c0",
+      "sha": "430b9fd14a4276860625cb6b20671395f07eb8c0"
+    },
+    {
+      "committed_at": "2022-02-04T10:44:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b5f70d55b5884a3c0693e24159b6b643d4b2949e",
+      "sha": "b5f70d55b5884a3c0693e24159b6b643d4b2949e"
+    },
+    {
+      "committed_at": "2022-02-04T10:48:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1",
+      "sha": "655854b7edf0e0a2f8c1c2547428afbf06d3a3d1"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-02-03T11:41:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1472",
+          "number": 1472,
+          "pull_request": {
+            "merged_at": "2022-02-04T10:51:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1472"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace WebSocket assertions with RuntimeError"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-04T07:16:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redhat-et/robotics-playground/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-07-04T10:28:48Z",
+            "url": "https://api.github.com/repos/redhat-et/robotics-playground/pulls/8"
+          },
+          "repository": {
+            "full_name": "redhat-et/robotics-playground"
+          },
+          "title": "feat: Phase 1 \u2014 Skeleton UI Shell + Mock Backend"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 36,
+      "blob_url": "https://github.com/Kludex/starlette/blob/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1/starlette%2Fwebsockets.py",
+      "changes": 45,
+      "deletions": 9,
+      "filename": "starlette/websockets.py",
+      "sha": "03ed19972aada03a2accd8eff70bc631184aa409",
+      "status": "modified"
+    },
+    {
+      "additions": 133,
+      "blob_url": "https://github.com/Kludex/starlette/blob/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1/tests%2Ftest_websockets.py",
+      "changes": 134,
+      "deletions": 1,
+      "filename": "tests/test_websockets.py",
+      "sha": "e3a52762a0dc7747830f2fcf7808f66897dd53f5",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [X] There are no similar issues or pull requests for this yet.\r\n- [X] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nThere are `assert` statements in the source code which raise a vague and hard to debug `AssertionError`. For example on [this line](https://github.com/encode/starlette/blob/f12c92a21500d484b3d48f965bb605c1bbe193bc/starlette/websockets.py#L58).\r\n\r\nIf some kind of exception (for example something along the lines of: `WebSocketMessageType`) were raised it would make debugging a lot clearer. I spent a lot more time than I should have just working out where exactly this `AssertionError` was coming from and what the root cause was.\r\n\r\n\r\n\r\n### Describe the solution you would like.\r\n\r\nThis is by no means the right solution but at least it's an idea of the kind of thing that might help:\r\n\r\n```python\r\nclass WebSocketMessageType(Exception):\r\n    pass\r\n\r\nclass WebSocket(HTTPConnection):\r\n    ...\r\n    async def send(self, message: Message) -> None:\r\n        \"\"\"\r\n        Send ASGI websocket messages, ensuring valid state transitions.\r\n        \"\"\"\r\n        if self.application_state == WebSocketState.CONNECTING:\r\n            message_type = message[\"type\"]\r\n            if message_type not in {\"websocket.accept\", \"websocket.close\"}:\r\n                raise WebSocketMessageType(\"expected message_type to be websocket.accept or websocket.close\")\r\n            if message_type == \"websocket.close\":\r\n                self.application_state = WebSocketState.DISCONNECTED\r\n            else:\r\n                self.application_state = WebSocketState.CONNECTED\r\n            await self._send(message)\r\n        elif self.application_state == WebSocketState.CONNECTED:\r\n            message_type = message[\"type\"]\r\n            if message_type not in {\"websocket.send\", \"websocket.close\"}:\r\n                raise WebSocketMessageType(\"expected message_type to be websocket.send or websocket.close\")\r\n            if message_type == \"websocket.close\":\r\n                self.application_state = WebSocketState.DISCONNECTED\r\n            await self._send(message)\r\n        else:\r\n            raise RuntimeError('Cannot call \"send\" once a close message has been sent.')\r\n```\r\n\r\n### Describe alternatives you considered\r\n\r\n_No response_\r\n\r\n### Additional context\r\n\r\nThe error I was seeing:\r\n\r\n```\r\nERROR    root:a_file.py:31 {'message': 'Job processing failed', 'job': <Job coro=<<coroutine object a_class.a_method at 0x7f6d7a7c1ec0>>>, 'exception': AssertionError()}\r\nNoneType: None\r\n```\r\n\r\nAnd this would be it with a `raise` statement: admittedly there is still no mention of `starlette` so a user would still have to diagnose that as the root cause.\r\n\r\n```\r\nERROR    root:a_file.py:31 {'message': 'Job processing failed', 'job': <Job coro=<<coroutine object a_class.a_method at 0x7fb99c2ed940>>>, 'exception': WebSocketMessageType('expected message_type to be websocket.accept or websocket.close')}\r\nNoneType: None\r\n```\r\n\r\nAlso, I have no idea where that `NoneType: None` is coming from or what that means.",
+    "body_last_edited_at": "2022-02-02T18:51:18Z",
+    "closed_at": "2022-02-04T10:51:04Z",
+    "created_at": "2022-02-02T18:50:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1471",
+    "labels": [
+      "bug"
+    ],
+    "number": 1471,
+    "state": "closed",
+    "title": "Where assert statements are guarding against invalid ASGI messaging, use RuntimeError instead.",
+    "user": "dave-fitzgerald-bc"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-04T10:51:04Z",
+    "created_at": "2022-02-03T11:41:58Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1472",
+    "merge_commit_sha": "424351cb231c67798a65c091b0b7d42790f5e444",
+    "merged_at": "2022-02-04T10:51:04Z",
+    "number": 1472,
+    "title": "Replace WebSocket assertions with RuntimeError",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+    "committed_at": "2022-02-03T11:34:25Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a6d3d8f0179cb1c2ac283bb5db779f6075854a66"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-02-03T09:34:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T09:43:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T10:13:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T10:19:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T10:39:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T10:53:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T11:41:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1472",
+          "number": 1472,
+          "pull_request": {
+            "merged_at": "2022-02-04T10:51:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1472"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace WebSocket assertions with RuntimeError"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-04T10:51:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-07-04T07:16:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redhat-et/robotics-playground/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-07-04T10:28:48Z",
+            "url": "https://api.github.com/repos/redhat-et/robotics-playground/pulls/8"
+          },
+          "repository": {
+            "full_name": "redhat-et/robotics-playground"
+          },
+          "title": "feat: Phase 1 \u2014 Skeleton UI Shell + Mock Backend"
+        }
+      }
+    }
+  ]
+}

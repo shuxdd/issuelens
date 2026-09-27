@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "This week we discovered that would couldn't build our startlette application due to a very strange depenency error with `anisio8601`.  We are doing a full install of starlette 0.12.0 (`starlette[full]`). After using `pipdeptree` to track things down, I discovered that, `graphene` a startlette dependency has a dependency on `aniso8601`. \r\n\r\n`pipdeptree` show me the following\r\n\r\n```\r\nWarning!!! Possibly conflicting dependencies found:\r\n* relativetimebuilder==2.0.0\r\n - aniso8601 [required: >=7.0.0,<8.0.0, installed: 5.1.0]\r\n------------------------------------------------------------------------\r\nWarning!! Cyclic dependencies found:\r\n* aniso8601 => relativetimebuilder => aniso8601\r\n* relativetimebuilder => aniso8601 => relativetimebuilder\r\n```\r\n\r\ngraphene requires `aniso8601==5.1.0` and then there is some weird circular dependency as you see above.  \r\n\r\nMy solution, for now, which is not ideal, is to install starlette with minimal dependencies and then add only the ones that I am using `itsdangerouse` and `python-multipart`.\r\n\r\nAnyway, let me know what you think.  ",
+    "closed_at": "2019-06-14T10:38:14Z",
+    "created_at": "2019-06-13T16:35:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/542",
+    "number": 542,
+    "state": "closed",
+    "title": "issue with graphene dependency and starlette[full] installation",
+    "user": "vchendrix"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-14T00:06:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-14T10:38:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-14T13:29:32Z",
+      "event": "commented"
+    }
+  ]
+}

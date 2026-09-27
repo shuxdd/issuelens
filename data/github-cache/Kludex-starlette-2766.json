@@ -1,0 +1,391 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-11-25T14:02:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c28f6c52627732110e4063a3f8d6786d60bde871",
+      "sha": "c28f6c52627732110e4063a3f8d6786d60bde871"
+    },
+    {
+      "committed_at": "2025-03-20T09:34:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6057aec51ec2e704c381067388af31ac00bf2b43",
+      "sha": "6057aec51ec2e704c381067388af31ac00bf2b43"
+    },
+    {
+      "committed_at": "2025-03-20T09:53:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2d479b63f69c5362d9e013ccfc90214904b95b07",
+      "sha": "2d479b63f69c5362d9e013ccfc90214904b95b07"
+    },
+    {
+      "committed_at": "2025-03-20T10:30:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/531b9312234b530232f122b5313e409c3bc60811",
+      "sha": "531b9312234b530232f122b5313e409c3bc60811"
+    },
+    {
+      "committed_at": "2026-05-07T11:40:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/98dfdc8bd55d32f355c810e503fcd501367ed1e7",
+      "sha": "98dfdc8bd55d32f355c810e503fcd501367ed1e7"
+    },
+    {
+      "committed_at": "2026-08-30T06:38:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7576e0d61d02b22f3cc1faaf8a0ae78db72782c6",
+      "sha": "7576e0d61d02b22f3cc1faaf8a0ae78db72782c6"
+    },
+    {
+      "committed_at": "2026-08-30T06:38:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a687613f161d34c5f885eec2d035b3c381e48888",
+      "sha": "a687613f161d34c5f885eec2d035b3c381e48888"
+    },
+    {
+      "committed_at": "2026-08-30T06:40:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/40cf9695caf476721b47f3ca969db0eb57daed42",
+      "sha": "40cf9695caf476721b47f3ca969db0eb57daed42"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-11-25T14:10:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2767",
+          "number": 2767,
+          "pull_request": {
+            "merged_at": "2026-08-30T06:42:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2767"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace RuntimeError with WebSocketDisconnected"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-04T00:46:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3172",
+          "number": 3172,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3172"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect instead of RuntimeError on send after close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-04T01:00:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3173",
+          "number": 3173,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3173"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect instead of RuntimeError on send after close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-01T13:45:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3312",
+          "number": 3312,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3312"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect after websocket close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T03:20:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3382",
+          "number": 3382,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3382"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(websockets): raise WebSocketDisconnect after close on send"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T07:20:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3383",
+          "number": 3383,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3383"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(websockets): raise WebSocketDisconnect after app already closed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-29T11:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Deathcharge/samsarix-chat-engine/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-07-29T11:57:57Z",
+            "url": "https://api.github.com/repos/Deathcharge/samsarix-chat-engine/pulls/2"
+          },
+          "repository": {
+            "full_name": "Deathcharge/samsarix-chat-engine"
+          },
+          "title": "Productize Samsarix Chat Engine and add its Samsarix roadmap"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-27T08:28:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3477",
+          "number": 3477,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3477"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect when send() is called after disconnect"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/40cf9695caf476721b47f3ca969db0eb57daed42/starlette%2Fwebsockets.py",
+      "changes": 16,
+      "deletions": 5,
+      "filename": "starlette/websockets.py",
+      "sha": "cf48e87ea07d35b63a9e79ab54bc6b575c1a0d83",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/40cf9695caf476721b47f3ca969db0eb57daed42/tests%2Ftest_websockets.py",
+      "changes": 12,
+      "deletions": 6,
+      "filename": "tests/test_websockets.py",
+      "sha": "6ed8f78f1dc287b81c20025ecfeb7db0ec6dec83",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2762",
+    "body_last_edited_at": null,
+    "closed_at": "2026-08-30T06:42:02Z",
+    "created_at": "2024-11-25T13:26:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2766",
+    "number": 2766,
+    "state": "closed",
+    "title": "Replace `RuntimeError` with `WebSocketDisconnected` once the socket has been disconnected",
+    "user": "ruitcatarino"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-30T06:42:01Z",
+    "created_at": "2024-11-25T14:10:57Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2767",
+    "merge_commit_sha": "e7a0b007b601f5e4ff98424333fd2fb794a3f1e6",
+    "merged_at": "2026-08-30T06:42:01Z",
+    "number": 2767,
+    "title": "Replace RuntimeError with WebSocketDisconnected",
+    "user": "ruitcatarino"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "009a3bab62c4e3f1479914b08a3291cfe86e5e9e",
+    "committed_at": "2024-11-24T15:00:32Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/009a3bab62c4e3f1479914b08a3291cfe86e5e9e"
+  },
+  "timeline": [
+    {
+      "created_at": "2024-11-25T14:10:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2767",
+          "number": 2767,
+          "pull_request": {
+            "merged_at": "2026-08-30T06:42:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2767"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace RuntimeError with WebSocketDisconnected"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-04T11:46:47Z",
+      "event": "connected"
+    },
+    {
+      "created_at": "2025-04-25T22:15:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-02-15T21:59:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-04T00:46:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3172",
+          "number": 3172,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3172"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect instead of RuntimeError on send after close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-04T01:00:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3173",
+          "number": 3173,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3173"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect instead of RuntimeError on send after close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-22T05:57:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-01T13:45:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3312",
+          "number": 3312,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3312"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect after websocket close"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T03:20:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3382",
+          "number": 3382,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3382"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(websockets): raise WebSocketDisconnect after close on send"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T07:20:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3383",
+          "number": 3383,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3383"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(websockets): raise WebSocketDisconnect after app already closed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-29T11:59:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Deathcharge/samsarix-chat-engine/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-07-29T11:57:57Z",
+            "url": "https://api.github.com/repos/Deathcharge/samsarix-chat-engine/pulls/2"
+          },
+          "repository": {
+            "full_name": "Deathcharge/samsarix-chat-engine"
+          },
+          "title": "Productize Samsarix Chat Engine and add its Samsarix roadmap"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-27T08:28:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3477",
+          "number": 3477,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3477"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise WebSocketDisconnect when send() is called after disconnect"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-30T06:42:02Z",
+      "event": "closed"
+    }
+  ]
+}

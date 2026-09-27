@@ -1,0 +1,811 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-12-01T10:54:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8fcf61b6876ecd9f18a207fad2a2338ecf71d769",
+      "sha": "8fcf61b6876ecd9f18a207fad2a2338ecf71d769"
+    },
+    {
+      "committed_at": "2023-12-01T10:54:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27cd865b024af78625ca6a8dfd72c4bdd239d3e6",
+      "sha": "27cd865b024af78625ca6a8dfd72c4bdd239d3e6"
+    },
+    {
+      "committed_at": "2023-12-01T11:02:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f684f3bd2f1296db4536aafb2a91011ee94a75f3",
+      "sha": "f684f3bd2f1296db4536aafb2a91011ee94a75f3"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-10T14:49:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/1290",
+          "number": 1290,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Remove superfluous `root_path` from logging messages"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-22T11:55:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/1385",
+          "number": 1385,
+          "pull_request": {
+            "merged_at": "2022-09-11T13:38:14Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/1385"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Use path with query string on WebSockets logs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-22T13:26:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1774",
+          "number": 1774,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1774"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Handle scope[\"root_path\"] and scope[\"path\"] as per ASGI spec "
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-04T16:54:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/343",
+          "number": 343,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Should frameworks change scope values?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-11T13:37:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/1384",
+          "number": 1384,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Access logs for mounted apps doesnt not contain the root path"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-13T15:10:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5373",
+          "number": 5373,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5373"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Fix mount subapp with APIRouter"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-30T06:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jowilf/starlette-admin/issues/32",
+          "number": 32,
+          "pull_request": {},
+          "repository": {
+            "full_name": "jowilf/starlette-admin"
+          },
+          "title": "Suggestion for URLs"
+        }
+      }
+    },
+    {
+      "created_at": "2023-08-28T16:19:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/refstudio/refstudio/issues/424",
+          "number": 424,
+          "pull_request": {},
+          "repository": {
+            "full_name": "refstudio/refstudio"
+          },
+          "title": "Log the full path of an HTTP request"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-29T15:26:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2352",
+          "number": 2352,
+          "pull_request": {
+            "merged_at": "2023-12-01T12:55:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2352"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not overwrite `\"path\"` and `\"root_path\"` scope keys"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-01T18:30:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/widgetti/solara/issues/410",
+          "number": 410,
+          "pull_request": {},
+          "repository": {
+            "full_name": "widgetti/solara"
+          },
+          "title": "Bug: mounting under starlette 0.33 is broken"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-05T10:05:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/widgetti/solara/pull/413",
+          "number": 413,
+          "pull_request": {
+            "merged_at": "2023-12-08T09:38:39Z",
+            "url": "https://api.github.com/repos/widgetti/solara/pulls/413"
+          },
+          "repository": {
+            "full_name": "widgetti/solara"
+          },
+          "title": "fix: support starlette 0.33"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-08T22:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ray-project/ray/pull/43058",
+          "number": 43058,
+          "pull_request": {
+            "merged_at": "2024-02-12T20:19:12Z",
+            "url": "https://api.github.com/repos/ray-project/ray/pulls/43058"
+          },
+          "repository": {
+            "full_name": "ray-project/ray"
+          },
+          "title": "[serve] Unpin `fastapi` version"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-05T22:47:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DataDog/dd-trace-py/pull/8613",
+          "number": 8613,
+          "pull_request": {
+            "url": "https://api.github.com/repos/DataDog/dd-trace-py/pulls/8613"
+          },
+          "repository": {
+            "full_name": "DataDog/dd-trace-py"
+          },
+          "title": "fix(starlette): fixes incorrect handling of path/root_path in older starlette versions"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-27T08:32:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BerriAI/litellm/issues/22272",
+          "number": 22272,
+          "pull_request": {},
+          "repository": {
+            "full_name": "BerriAI/litellm"
+          },
+          "title": "[Bug]: Built-in LLM Passthrough Routes Fail with SERVER_ROOT_PATH"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-15T21:48:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/getsentry/sentry-python/issues/6577",
+          "number": 6577,
+          "pull_request": {},
+          "repository": {
+            "full_name": "getsentry/sentry-python"
+          },
+          "title": "ASGI integration doubles the mount prefix in request.url for Starlette Mounted sub-apps (root_path + path)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-20T07:00:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/getkanchi/kanchi/pull/137",
+          "number": 137,
+          "pull_request": {
+            "merged_at": "2026-06-22T15:40:44Z",
+            "url": "https://api.github.com/repos/getkanchi/kanchi/pulls/137"
+          },
+          "repository": {
+            "full_name": "getkanchi/kanchi"
+          },
+          "title": "feat: serve frontend from FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T09:47:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karanhudia/borg-ui/pull/808",
+          "number": 808,
+          "pull_request": {
+            "merged_at": "2026-08-14T02:42:34Z",
+            "url": "https://api.github.com/repos/karanhudia/borg-ui/pulls/808"
+          },
+          "repository": {
+            "full_name": "karanhudia/borg-ui"
+          },
+          "title": "fix(auth): resolve endpoint policy from concrete request path (unblocks fastapi 0.141)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-15T20:31:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rocketride-org/rocketride-server/pull/1993",
+          "number": 1993,
+          "pull_request": {
+            "merged_at": "2026-09-09T18:32:05Z",
+            "url": "https://api.github.com/repos/rocketride-org/rocketride-server/pulls/1993"
+          },
+          "repository": {
+            "full_name": "rocketride-org/rocketride-server"
+          },
+          "title": "feat(apps): app-2 app platform support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-17T14:24:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/opendatahub-io/kserve/pull/1999",
+          "number": 1999,
+          "pull_request": {
+            "merged_at": "2026-09-17T23:19:45Z",
+            "url": "https://api.github.com/repos/opendatahub-io/kserve/pulls/1999"
+          },
+          "repository": {
+            "full_name": "opendatahub-io/kserve"
+          },
+          "title": "260917 sync upstream"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frequests.py",
+      "changes": 4,
+      "deletions": 3,
+      "filename": "starlette/requests.py",
+      "sha": "83a52aca1e425dea3547f960c1965b2e21a6b0af",
+      "status": "modified"
+    },
+    {
+      "additions": 21,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frouting.py",
+      "changes": 30,
+      "deletions": 9,
+      "filename": "starlette/routing.py",
+      "sha": "b167f3513b1d9b24f1c2d6431b6dfb3f5df5a4c3",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Fstaticfiles.py",
+      "changes": 5,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "f36d5866482dc35b3a9b62a08d0207acb346717e",
+      "status": "modified"
+    },
+    {
+      "additions": 56,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/tests%2Ftest_routing.py",
+      "changes": 58,
+      "deletions": 2,
+      "filename": "tests/test_routing.py",
+      "sha": "1e99e335bb6a1dec1f7e946e974ce76787cd8f1e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\nAccoring to https://github.com/django/asgiref/issues/229#issuecomment-765583185, `scope[\"path\"]` includes the `scope[\"root_path\"]`.\r\nSo if root_path is `/foo` and request for `/foo/bar` has come, the upstream application servers (such as uvicorn) are passing `scope[\"path\"] == \"/foo/bar\" and scope[\"root_path\"] == \"/foo\"`, which is correct behavior. \r\n\r\nBut starlette does not conform this. It assumes `scope[\"path\"]` is a remainder of stripping `scope[\"root_path\"]` from original request path. In this case, `scope[\"path\"] == \"/bar\" and scope[\"root_path\"] == \"/foo\"`. This ASGI incompatible assumption can be seen [here](https://github.com/encode/starlette/blob/6af5c515e0a896cbf3f86ee043b88f6c24200bcf/starlette/routing.py#L368) or [here](https://github.com/encode/starlette/blob/6af5c515e0a896cbf3f86ee043b88f6c24200bcf/starlette/datastructures.py#L23) and many other places.\r\n\r\nThe following \"To reproduce\" section shows just one aspect of this wrong assumption.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n1. Save `main.py` as follows.\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Route, Mount\r\n\r\n\r\nclass Bar:\r\n    async def __call__(self, scope, receive, send):\r\n        await PlainTextResponse(f\"bar {scope['root_path']=} {scope['path']=}\")(scope, receive, send)\r\n\r\nclass FooBar:\r\n    async def __call__(self, scope, receive, send):\r\n        await PlainTextResponse(f\"foobar {scope['root_path']=} {scope['path']=}\")(scope, receive, send)\r\n\r\nroutes =[\r\n    Route('/bar', endpoint=Bar()),\r\n    Mount('/foo', routes=[\r\n        Route('/bar', endpoint=FooBar())\r\n    ])\r\n]\r\napp = Starlette(routes=routes)\r\n```\r\n\r\n2. Run `uvicorn main:app --port 8000 --root-path /foo`\r\n3. Access by `curl http://localhost:8000/foo/bar`\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nReceives\r\n```\r\nbar scope['root_path']='/foo' scope['path']='/foo/bar'\r\n```\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nReceives\r\n```\r\nfoobar scope['root_path']='/foo/foo' scope['path']='/bar'\r\n```\r\n\r\nSome points here are,\r\n1. `scope['path']` does not include `scope['root_path']` , which is ASGI incompatible.\r\n2. `FooBar` ASGI handler is called. It does not take `scope['root_path']` into account when routing.\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8.2\r\n- Starlette version: 0.17.0\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nThis may be a root cause of [this issue in fastapi](https://github.com/tiangolo/fastapi/issues/2872)\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/1336\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/1336/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/1336/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:27Z",
+    "closed_at": "2023-12-01T12:55:47Z",
+    "created_at": "2021-11-15T05:56:20Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1336",
+    "labels": [
+      "bug",
+      "refactor",
+      "help wanted"
+    ],
+    "number": 1336,
+    "state": "closed",
+    "title": "Handling of `scope[\"root_path\"]` and `scope[\"path\"]` differs from ASGI spec",
+    "user": "silane"
+  },
+  "pull_request": {
+    "closed_at": "2023-12-01T12:55:46Z",
+    "created_at": "2023-11-29T15:26:10Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2352",
+    "merge_commit_sha": "e8f0dcd54e4ceec47e02c45f5275374e292339ad",
+    "merged_at": "2023-12-01T12:55:46Z",
+    "number": 2352,
+    "title": "Do not overwrite `\"path\"` and `\"root_path\"` scope keys",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+    "committed_at": "2023-11-23T02:01:17Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-11-27T10:32:46Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-27T10:32:46Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-27T15:16:49Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2021-12-10T14:49:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/1290",
+          "number": 1290,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Remove superfluous `root_path` from logging messages"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-22T11:55:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/1385",
+          "number": 1385,
+          "pull_request": {
+            "merged_at": "2022-09-11T13:38:14Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/1385"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Use path with query string on WebSockets logs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-22T18:11:32Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2022-05-22T18:11:37Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-07-05T04:46:41Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2022-07-22T09:04:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-22T09:04:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-22T09:04:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-22T09:38:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-22T09:38:52Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "f00a4679ac12254a342b73c03d3b28ef880cadb0",
+      "commit_url": "https://api.github.com/repos/frankie567/starlette/commits/f00a4679ac12254a342b73c03d3b28ef880cadb0",
+      "created_at": "2022-07-22T12:39:29Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-07-22T13:26:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1774",
+          "number": 1774,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1774"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Handle scope[\"root_path\"] and scope[\"path\"] as per ASGI spec "
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-04T16:54:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/343",
+          "number": 343,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Should frameworks change scope values?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-11T13:37:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/1384",
+          "number": 1384,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Access logs for mounted apps doesnt not contain the root path"
+        }
+      }
+    },
+    {
+      "commit_id": "7ce42bc2c78d189b38cb642a6e9ce66bf290b688",
+      "commit_url": "https://api.github.com/repos/frankie567/starlette/commits/7ce42bc2c78d189b38cb642a6e9ce66bf290b688",
+      "created_at": "2022-09-11T13:49:02Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-13T15:10:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5373",
+          "number": 5373,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5373"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Fix mount subapp with APIRouter"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-30T06:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jowilf/starlette-admin/issues/32",
+          "number": 32,
+          "pull_request": {},
+          "repository": {
+            "full_name": "jowilf/starlette-admin"
+          },
+          "title": "Suggestion for URLs"
+        }
+      }
+    },
+    {
+      "created_at": "2023-05-31T16:28:56Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-05-31T16:28:56Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-08-28T16:19:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/refstudio/refstudio/issues/424",
+          "number": 424,
+          "pull_request": {},
+          "repository": {
+            "full_name": "refstudio/refstudio"
+          },
+          "title": "Log the full path of an HTTP request"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-27T13:35:53Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-11-27T13:35:53Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-11-29T15:26:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2352",
+          "number": 2352,
+          "pull_request": {
+            "merged_at": "2023-12-01T12:55:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2352"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not overwrite `\"path\"` and `\"root_path\"` scope keys"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-01T12:55:48Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-12-01T18:30:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/widgetti/solara/issues/410",
+          "number": 410,
+          "pull_request": {},
+          "repository": {
+            "full_name": "widgetti/solara"
+          },
+          "title": "Bug: mounting under starlette 0.33 is broken"
+        }
+      }
+    },
+    {
+      "commit_id": "95b7f4ba25a873cefdafd1f973ca828f9fa21722",
+      "commit_url": "https://api.github.com/repos/widgetti/solara/commits/95b7f4ba25a873cefdafd1f973ca828f9fa21722",
+      "created_at": "2023-12-05T10:05:00Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-12-05T10:05:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/widgetti/solara/pull/413",
+          "number": 413,
+          "pull_request": {
+            "merged_at": "2023-12-08T09:38:39Z",
+            "url": "https://api.github.com/repos/widgetti/solara/pulls/413"
+          },
+          "repository": {
+            "full_name": "widgetti/solara"
+          },
+          "title": "fix: support starlette 0.33"
+        }
+      }
+    },
+    {
+      "commit_id": "a6b2a296a52d661342f6af5066187dd394224964",
+      "commit_url": "https://api.github.com/repos/widgetti/solara/commits/a6b2a296a52d661342f6af5066187dd394224964",
+      "created_at": "2023-12-08T09:38:42Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-02-08T22:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ray-project/ray/pull/43058",
+          "number": 43058,
+          "pull_request": {
+            "merged_at": "2024-02-12T20:19:12Z",
+            "url": "https://api.github.com/repos/ray-project/ray/pulls/43058"
+          },
+          "repository": {
+            "full_name": "ray-project/ray"
+          },
+          "title": "[serve] Unpin `fastapi` version"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-05T22:47:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DataDog/dd-trace-py/pull/8613",
+          "number": 8613,
+          "pull_request": {
+            "url": "https://api.github.com/repos/DataDog/dd-trace-py/pulls/8613"
+          },
+          "repository": {
+            "full_name": "DataDog/dd-trace-py"
+          },
+          "title": "fix(starlette): fixes incorrect handling of path/root_path in older starlette versions"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-27T08:32:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BerriAI/litellm/issues/22272",
+          "number": 22272,
+          "pull_request": {},
+          "repository": {
+            "full_name": "BerriAI/litellm"
+          },
+          "title": "[Bug]: Built-in LLM Passthrough Routes Fail with SERVER_ROOT_PATH"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-15T21:48:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/getsentry/sentry-python/issues/6577",
+          "number": 6577,
+          "pull_request": {},
+          "repository": {
+            "full_name": "getsentry/sentry-python"
+          },
+          "title": "ASGI integration doubles the mount prefix in request.url for Starlette Mounted sub-apps (root_path + path)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-20T07:00:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/getkanchi/kanchi/pull/137",
+          "number": 137,
+          "pull_request": {
+            "merged_at": "2026-06-22T15:40:44Z",
+            "url": "https://api.github.com/repos/getkanchi/kanchi/pulls/137"
+          },
+          "repository": {
+            "full_name": "getkanchi/kanchi"
+          },
+          "title": "feat: serve frontend from FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T09:47:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karanhudia/borg-ui/pull/808",
+          "number": 808,
+          "pull_request": {
+            "merged_at": "2026-08-14T02:42:34Z",
+            "url": "https://api.github.com/repos/karanhudia/borg-ui/pulls/808"
+          },
+          "repository": {
+            "full_name": "karanhudia/borg-ui"
+          },
+          "title": "fix(auth): resolve endpoint policy from concrete request path (unblocks fastapi 0.141)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-15T20:31:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rocketride-org/rocketride-server/pull/1993",
+          "number": 1993,
+          "pull_request": {
+            "merged_at": "2026-09-09T18:32:05Z",
+            "url": "https://api.github.com/repos/rocketride-org/rocketride-server/pulls/1993"
+          },
+          "repository": {
+            "full_name": "rocketride-org/rocketride-server"
+          },
+          "title": "feat(apps): app-2 app platform support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-17T14:24:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/opendatahub-io/kserve/pull/1999",
+          "number": 1999,
+          "pull_request": {
+            "merged_at": "2026-09-17T23:19:45Z",
+            "url": "https://api.github.com/repos/opendatahub-io/kserve/pulls/1999"
+          },
+          "repository": {
+            "full_name": "opendatahub-io/kserve"
+          },
+          "title": "260917 sync upstream"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "We have a FastApi/uvicorn websockets service.  During testing we can routinely (but not deterministically) trigger an AssertError from `websockets.receive_bytes()`:\r\n```\r\nSynchrony: 7.45: Synchrony.edge: Exception: AssertionError: error:\r\nTraceback (most recent call last):\r\n  File \"/app/synchrony.py\", line 190, in edge\r\n    if await call() is None: break\r\n  File \"/app/synchrony.py\", line 170, in recv\r\n    payload = await websocket.receive_bytes()\r\n  File \"/usr/local/lib/python3.9/site-packages/starlette/websockets.py\", line 89, in receive_bytes\r\n    assert self.application_state == WebSocketState.CONNECTED\r\nAssertionError\r\n```\r\nThis happens (sometimes) during testing when we `$ kill <clientPID>` an active client that is using the service.  That is, when the connection to the service is abruptly terminated.  When we stand up the same service behind PyPi websockets we do not see such a failure.\r\n\r\nFor each connection there are multiple async tasks running.  Another task is doing `await websocket.close()`, which triggers a RuntimeError in deep in the starlette async close code, prior to (or concurrent with) the above failure.  Documentation is hard to find, so it's not clear that starlette websockets promise an idempotent close() method.  Nonetheless, AssertionError, by definition, means there's a code issue...\r\n\r\nIf there is interest I can post other (large) related stack traces.\r\n\r\nThanks.",
+    "closed_at": "2022-02-16T11:28:27Z",
+    "created_at": "2021-12-15T22:21:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1369",
+    "number": 1369,
+    "state": "closed",
+    "title": "websocket.receive_bytes() AssertionError ",
+    "user": "hughsw"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-16T02:23:02Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2021-12-16T14:10:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-21T17:09:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T10:20:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-04T10:58:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-16T11:28:27Z",
+      "event": "commented"
+    }
+  ]
+}

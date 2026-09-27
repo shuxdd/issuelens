@@ -1,0 +1,63 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-03-19T09:49:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Peewee usage"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Firstly, apologies for asking this question in your issues but I wasn't sure of where a better forum would be. \r\n\r\nI realize it isn't the aim of this project to be an everything, Django style solution, but I have to imagine that most use cases for starlette would involve working with some-sort of database. **As most popular database solutions are sync rather than async, does anyone have a suggestion for where to look for a good async solution?** Additionally, are there any recommendations for how to go about integrating one with starlette? Might something like Flask-SQLAlchemy, although not async friendly, be adapted, so as to at least keep it thread safe?\r\n\r\nThanks for any input!\r\n\r\nI really love everything about starlette so far, more so with the overall API than with the performance itself, though that is great too.\r\n\r\n",
+    "closed_at": "2018-10-21T17:34:34Z",
+    "created_at": "2018-10-20T23:54:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/136",
+    "number": 136,
+    "state": "closed",
+    "title": "Database Integration Recommendation(s)?",
+    "user": "cw-andrews"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-21T07:06:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-21T07:19:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-21T16:08:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-21T17:34:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-19T09:49:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Peewee usage"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-09-29T18:28:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/76",
+          "number": 76,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/76"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for CORS"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Related to https://github.com/encode/starlette/issues/1\r\n\r\nI'm having trouble figuring out an appropriate pattern for including CORS support. My use-case is that I am connecting a React app to an ASGI backend that uses Starlette's routing and response classes, but enabling CORS support would require altering the response class headers which cannot be accomplished simply by wrapping the ASGI app at this point.\r\n\r\nWhat should CORS support look like in Starlette?\r\n\r\nAn example of my use-case can be found [here](https://github.com/erm/apistar-react/blob/master/app.py), it uses APIStar and a CORS extension to achieve what I want to do with Starlette as well. Below is my work-in-progress attempt at an ASGI CORS middleware that I would ultimately like to work into Starlette somehow.\r\n\r\n\r\n```python3\r\nfrom starlette import PlainTextResponse\r\nfrom starlette.datastructures import Headers\r\n\r\nACCESS_CONTROL_ALLOW_ORIGIN = b\"Access-Control-Allow-Origin\"\r\nACCESS_CONTROL_EXPOSE_HEADERS = b\"Access-Control-Expose-Headers\"\r\nACCESS_CONTROL_ALLOW_CREDENTIALS = b\"Access-Control-Allow-Credentials\"\r\nACCESS_CONTROL_ALLOW_HEADERS = b\"Access-Control-Allow-Headers\"\r\nACCESS_CONTROL_ALLOW_METHODS = b\"Access-Control-Allow-Methods\"\r\nACCESS_CONTROL_MAX_AGE = b\"Access-Control-Max-Age\"\r\nACCESS_CONTROL_REQUEST_METHOD = b\"Access-Control-Request-Method\"\r\nACCESS_CONTROL_REQUEST_HEADERS = b\"Access-Control-Request-Headers\"\r\n\r\n\r\nDEFAULT_OPTIONS = {\r\n    \"allow_origin\": [b\"*\"],\r\n    \"allow_credentials\": False,\r\n    \"allow_headers\": [b\"*\"],\r\n    \"allow_methods\": [\r\n        b\"GET\",\r\n        b\"HEAD\",\r\n        b\"POST\",\r\n        b\"OPTIONS\",\r\n        b\"PUT\",\r\n        b\"PATCH\",\r\n        b\"DELETE\",\r\n    ],\r\n    \"expose_headers\": [b\"\"],\r\n    \"max_age\": b\"86400\",\r\n}\r\n\r\n\r\nclass CORSMiddleware:\r\n    def __init__(self, app, options=None):\r\n        self.app = app\r\n        self.options = options or DEFAULT_OPTIONS\r\n\r\n    def __call__(self, scope):\r\n        headers = Headers(scope.get(\"headers\", []))\r\n        origin = headers.get(\"origin\", None)\r\n        if origin is None:\r\n            return self.app(scope)\r\n\r\n        allow_origin = self.options[\"allow_origin\"]\r\n        if origin not in allow_origin and b\"*\" not in allow_origin:\r\n            return PlainTextResponse(\"Origin not allowed\", status_code=400)\r\n\r\n        if scope[\"method\"] == \"OPTIONS\":\r\n            method = headers.get(ACCESS_CONTROL_REQUEST_METHOD, None)\r\n            if method is None:\r\n                return PlainTextResponse(\r\n                    \"Access-Control-Request-Method header missing\", status_code=400\r\n                )\r\n\r\n        cors_headers = []\r\n        if origin != \"*\" and len(allow_origin) > 1:  # todo double-check this\r\n            cors_headers.append((b\"vary\", b\"origin\"))\r\n\r\n        cors_allow_origin = b\", \".join(self.options[\"allow_origin\"])\r\n        cors_allow_credentials = self.options[\"allow_credentials\"]\r\n        cors_allow_headers = b\", \".join(self.options[\"allow_headers\"])\r\n        cors_allow_methods = b\", \".join(self.options[\"allow_methods\"])\r\n        cors_expose_headers = b\", \".join(self.options[\"expose_headers\"])\r\n        cors_max_age = self.options[\"max_age\"]\r\n\r\n        cors_headers.append((ACCESS_CONTROL_ALLOW_ORIGIN, cors_allow_origin))\r\n        cors_headers.append((ACCESS_CONTROL_ALLOW_METHODS, cors_allow_methods))\r\n        cors_headers.append((ACCESS_CONTROL_ALLOW_HEADERS, cors_allow_headers))\r\n        cors_headers.append((ACCESS_CONTROL_ALLOW_CREDENTIALS, cors_allow_credentials))\r\n        cors_headers.append((ACCESS_CONTROL_EXPOSE_HEADERS, cors_expose_headers))\r\n        cors_headers.append((ACCESS_CONTROL_MAX_AGE, cors_max_age))\r\n\r\n        scope[\"headers\"].extend(cors_headers)\r\n        print(scope[\"headers\"])\r\n\r\n        return self.app(scope)\r\n```",
+    "closed_at": "2018-10-05T15:38:02Z",
+    "created_at": "2018-07-29T06:22:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/34",
+    "number": 34,
+    "state": "closed",
+    "title": "CORS support",
+    "user": "jordaneremieff"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-08-01T08:06:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-08-04T02:40:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-08-04T02:40:27Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-08-17T15:41:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-08-27T09:24:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-29T18:28:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/76",
+          "number": 76,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/76"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for CORS"
+        }
+      }
+    },
+    {
+      "created_at": "2018-09-30T05:28:53Z",
+      "event": "reopened"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "https://github.com/encode/starlette/blob/0673aebb14f33ac9c19f2aa71ea28f7a65b43017/starlette/datastructures.py#L467:L471\r\n\r\nIn some applications, there might be a need to use the `whence` feature. This might be a special use case but in some of our data applications, the `pandas` is leveraging the `whence` API and it would be really good if we don't have to manually handle that with `self._file.seek(offset, whence)` ourselves.",
+    "closed_at": "2022-07-06T07:44:08Z",
+    "created_at": "2022-07-06T07:27:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1737",
+    "number": 1737,
+    "state": "closed",
+    "title": "Provide `whence` feature in file handling",
+    "user": "meysam81"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-06T07:44:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-06T07:44:08Z",
+      "event": "closed"
+    }
+  ]
+}

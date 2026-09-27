@@ -1,0 +1,55 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1253\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **flashgorman-chorus** July 26, 2021</sup>\r\nI have installed `GZipMiddleware` with a `minimize_size` set to 1024.  When I make a request that returns a response smaller than 1024, I expect the response will not be compressed and the `Content-Encoding` header will not be set to `gzip`.\r\n\r\nMy testing, however, shows that the responses are always compressed and `Content-Encoding` is always set to `gzip`.\r\n\r\nDebugging the code, I see `send_with_gzip` is called but `message[\"more_body\"]` is set to `True` the first time through, no matter what, from `testclient.py`:\r\n\r\n```python\r\n    async def stream_response(self, send: Send) -> None:\r\n        await send(\r\n            {\r\n                \"type\": \"http.response.start\",\r\n                \"status\": self.status_code,\r\n                \"headers\": self.raw_headers,\r\n            }\r\n        )\r\n        async for chunk in self.body_iterator:\r\n            if not isinstance(chunk, bytes):\r\n                chunk = chunk.encode(self.charset)\r\n            await send({\"type\": \"http.response.body\", \"body\": chunk, \"more_body\": True})\r\n\r\n        await send({\"type\": \"http.response.body\", \"body\": b\"\", \"more_body\": False})\r\n```\r\n\r\nAs a result, the key block of code in `gzip.py` that I expected to enter is skipped:\r\n\r\n```python\r\nif len(body) < self.minimum_size and not more_body:\r\n    # Don't apply GZip to small outgoing responses.\r\n    await self.send(self.initial_message)\r\n    await self.send(message)\r\n```\r\n\r\nSince `more_body` is `True`, it never enters this block.  Perhaps this is just an aberration of the test client?  Or I am doing something wrong?</div>",
+    "closed_at": "2023-01-12T08:01:20Z",
+    "created_at": "2023-01-11T12:18:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2003",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2003,
+    "state": "closed",
+    "title": "GZipMiddleware appears to not honor minimize_size",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-01-11T12:18:57Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-12T08:01:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-12T08:01:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-05-03T09:50:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-03T09:50:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-03T09:50:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-03T09:56:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-03T12:06:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-03T12:08:45Z",
+      "event": "commented"
+    }
+  ]
+}

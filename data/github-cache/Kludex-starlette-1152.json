@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Is your feature related to a problem? Please describe.\r\n\r\n`StreamingResponse` currently doesn't provide a natural way to release resources or do any tear-down. I can provide a `BackgroundTask` to `StreamingResponse`, but if an exception is thrown (either from the asgi send, or from my iterator itself), the task is never run.\r\n\r\nMy use case: I'm building an HTTP bridge that streams data from bittorrent. `StreamingResponse` is a natural choice. My app has a singleton bittorrent client which downloads data from the swarm, and prioritizes among the active requests to my app. This downloading is slow, so it downloads data with a large buffer. If a request errors out, I want to notify the bittorrent client as quickly as possible, so it doesn't continue to download data unnecessarily.\r\n\r\n## Describe the solution you would like.\r\n\r\nOne of\r\n* Change `StreamingResponse` to always run its `BackgroundTask`, e.g. in a `finally: ` block in its `__call__`. I expect this isn't acceptable since it would break some consumers. But I'm struggling to think of the case where a consumer really *wants* the task to not be run in the event of an error, so maybe this is the right choice\r\n* Add an argument `StreamingResponse(background=task, always_run_background=True)`, to ensure the task gets run as described above.\r\n\r\n## Describe alternatives you considered\r\n\r\n* *Do teardown in gc*: I could use a `weakref` with finalizer (or `Iterable` with a `__del__`) to do the cleanup. Depending on when gc runs, my cleanup code might not run immediately and I might continue to download unnecessary data. There are also a lot of arcane restrictions on what code may/should run in finalizers; I would much rather not need to think about these\r\n* *Subclass `StreamingResponse` myself*: Easy enough, but awkward. I need to either re-implement `__call__`, or do some things to ensure I don't call the `BackgroundTask` twice:\r\n```python\r\nclass AlwaysRunStreamingResponse(StreamingResponse):\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        try:\r\n            super().__call__(scope, receive, send)\r\n        except Exception:\r\n            # This will have been run in the non-error case, only have to run it here\r\n            await self.background()\r\n            raise",
+    "closed_at": "2021-03-18T10:06:55Z",
+    "created_at": "2021-03-17T21:37:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1152",
+    "number": 1152,
+    "state": "closed",
+    "title": "Feature Request: option to unconditionally run BackgroundTask in StreamingResponse",
+    "user": "AllSeeingEyeTolledEweSew"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "So, here's the simplest code, using the quickstart example from Starlette's documentation, in a file `test.py`:\r\n\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nimport uvicorn\r\nimport logging\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route('/')\r\nasync def homepage(request):\r\n    return JSONResponse({'hello': 'world'})\r\n\r\n\r\nif __name__ == '__main__':\r\n    logging.info('Starting server')\r\n    uvicorn.run(app, host='0.0.0.0', port=8000, log_level='debug')\r\n```\r\n\r\nIf we run this directly, with `python -m test`, there is no logging out put in the console. If we either disable the penultimate line (`logging.info(...`), or if we run it externally (`uvicorn test:app`), we get the regular logging output:\r\n\r\n```\r\n$ uvicorn test:app\r\nINFO: Started server process [18682]\r\nINFO: Waiting for application startup.\r\nINFO: Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\n```\r\n\r\nSo, in the case of running `uvicorn` programatically and logging stuff in our code, the logging fails to appear. The `log_level` argument has no effect either way.",
+    "closed_at": "2018-10-29T16:00:25Z",
+    "created_at": "2018-10-22T19:07:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/141",
+    "number": 141,
+    "state": "closed",
+    "title": "Logging in code disables Starlette logging when called programatically",
+    "user": "berislavlopac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-22T19:59:21Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2018-10-22T20:17:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T23:57:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-25T16:42:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-27T15:55:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-27T15:55:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-10-27T15:55:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-10-29T16:01:29Z",
+      "event": "commented"
+    }
+  ]
+}

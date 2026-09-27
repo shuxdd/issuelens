@@ -13,8 +13,22 @@
     ]
   },
   "case_id": "starlette-issue-1552",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1553",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Apply right name to `Route` when created from methods' directly changes starlette/routing.py with focused behavior test(s) tests/test_routing.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
   "investigation_cutoff": "2022-03-25T10:25:47Z",
   "issue": {
+    "body": "Discussion was done at https://gitter.im/encode/community. Bug was confirmed by @Kludex.\r\n\r\n## Description\r\nmethods don't get detected on `is_function`, then we assume that `<object>.__class__.__name__ ` will give the right name (my_method on the example below) for it, but it actually gets the \"method\" name, which is wrong.\r\n\r\nUnexpected behaviour seem to originate from: https://github.com/encode/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L87\r\n\r\n## Minimal example\r\n```python\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def my_function(request):\r\n    return JSONResponse({'endpoint_type': 'function'})\r\n\r\n\r\nclass MyClass:\r\n    def __call__(self, request):\r\n        return JSONResponse({'endpoint_type': 'class'})\r\n\r\n\r\nclass MySpecialEndpointObject:\r\n    async def my_method(self, request):\r\n        return JSONResponse({'endpoint_type': 'method'})\r\n\r\n\r\nendpoint_obj = MySpecialEndpointObject()\r\nfunction_route = Route('/functionEndpoint', my_function)\r\nclass_route = Route('/classEndpoint', MyClass())\r\nmethod_route = Route('/methodEndpoint', endpoint_obj.my_method)\r\n\r\nassert function_route.name == \"my_function\"\r\nassert class_route.name == \"MyClass\"\r\nassert method_route.name == \"my_method\"  # AssertionError\r\n```\r\n\r\n## Actual behavior\r\n\r\nValue of `method_route.name` is `\"method\"`.\r\n\r\n## Expected behavior\r\n\r\nValue of `method_route.name` is `\"my_method\"`.\r\n\r\nIt could also be `\"MySpecialEndpointObject_my_method\"`. Reason here is to prevent ambiguity.",
     "number": 1552,
     "repository": "Kludex/starlette",
     "source_url": "https://github.com/Kludex/starlette/issues/1552",

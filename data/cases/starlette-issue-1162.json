@@ -1,0 +1,97 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-04-01T19:37:50Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1162"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1162"
+    ]
+  },
+  "case_id": "starlette-issue-1162",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1164",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'use quote instead of quote_plus for RedirectResponse location header' directly changes starlette/responses.py with focused behavior test(s) tests/test_responses.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-04-14T15:28:55Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\n`RedirectResponse` replaces url paths with spaces or `%20` with the `+` character. This happens as the `location` header is written after passing the url to `quote_plus`: https://github.com/encode/starlette/blob/master/starlette/responses.py#L181\r\n\r\nIf part of the path was a path param (with a space in it), this then modified those path params.\r\n\r\nWe currently encounter this with trailing slash redirects, which return a RedirectResponse.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def homepage(request):\r\n    name = request.path_params[\"name\"]\r\n    return JSONResponse({\"hello\": name})\r\n\r\n\r\napp = Starlette(routes=[Route(\"/{name}/greeting\", homepage)])\r\n\r\n\r\nfrom starlette.testclient import TestClient\r\n\r\nclient = TestClient(app)\r\n\r\n\r\ndef test_redirect_homepage():\r\n    name = \"bob%20ross\"\r\n    url = f\"{name}/greeting\"\r\n    for u in [url, url + \"/\"]:\r\n        resp = client.get(u)\r\n        assert url in str(resp.url)\r\n```\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\n\r\nExpect that the location header would contain the url to redirect to without modification. If needed, it could replace the actual space character with `%20`, instead, but it's not clear to me that is necessary, after looking through the http specs.\r\n\r\nThis could be accomplished with swapping `urllib.quote_plus` for `urllib.quote` in `RedirectResponse`.\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n\r\nSpaces are being replaced with the `+` character. \r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: <!-- eg Linux/Windows/macOS. --> macOS\r\n- Python version: <!-- eg 3.8.5 (get it with `$ python -V`). --> 3.8.8\r\n- Starlette version: <!-- eg 0.13.8 (get it with `$ pip show starlette`). --> 0.13.6 (also separately tested 0.14.2)",
+    "number": 1162,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1162",
+    "title": "RedirectResponse call to `quote_plus` replaces spaces & `%20`'s with `+` character"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1164 created_at 2021-04-14T15:28:55Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1164",
+    "repair_files": [
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is f5ecb53895b3220b78bb5ced592d7c26e8b3b6fa",
+    "test_files": [
+      "tests/test_responses.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f1a4409c843117fdb2a1e51ed436cd57053d7a98/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "6a23aea7da0152ac347dcaf0a56e053118bf868a",
+        "source_url": "https://github.com/Kludex/starlette/commit/6a23aea7da0152ac347dcaf0a56e053118bf868a"
+      },
+      {
+        "sha": "d11d8a2f2c76c56a139e5574cf0f14ae20f64261",
+        "source_url": "https://github.com/Kludex/starlette/commit/d11d8a2f2c76c56a139e5574cf0f14ae20f64261"
+      },
+      {
+        "sha": "f1a4409c843117fdb2a1e51ed436cd57053d7a98",
+        "source_url": "https://github.com/Kludex/starlette/commit/f1a4409c843117fdb2a1e51ed436cd57053d7a98"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-04-14T15:28:55Z",
+      "number": 1164,
+      "source_url": "https://github.com/Kludex/starlette/pull/1164"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1164"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f1a4409c843117fdb2a1e51ed436cd57053d7a98/tests%2Ftest_responses.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "f5ecb53895b3220b78bb5ced592d7c26e8b3b6fa",
+    "committed_at": "2021-04-06T20:38:48Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f5ecb53895b3220b78bb5ced592d7c26e8b3b6fa"
+  },
+  "schema_version": "1.0"
+}

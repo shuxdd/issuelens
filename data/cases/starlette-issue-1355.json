@@ -1,0 +1,97 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-12-10T09:19:29Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1355"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1355"
+    ]
+  },
+  "case_id": "starlette-issue-1355",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1356",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Add support for functools.partial in WebsocketRoute' directly changes starlette/routing.py with focused behavior test(s) tests/test_routing.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-12-10T14:24:53Z",
+  "issue": {
+    "body": "### Checklist\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\nAccessing a WebSocketRoute with async function wrapped in functools.partial raises TypeError.\r\n\r\n### To reproduce\r\n```python\r\nimport functools\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import WebSocketRoute\r\n\r\nasync def handle_ws(ws):\r\n    pass\r\n\r\napp = Starlette(debug=True, routes=[\r\n    WebSocketRoute(\"/\", functools.partial(handle_ws)),\r\n])\r\n```\r\n\r\nInstall `uvicorn[standard]`, run with `uvicorn bug:app`.\r\nAccess `ws://localhost:8000` with e.g. [wscat](https://github.com/websockets/wscat).\r\n\r\n### Expected behavior\r\nWebSocketRoute should work with functools.partial just like Route.\r\n\r\n### Actual behavior\r\nThe route fails because it is treated as an ASGI application (ref. https://github.com/encode/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L279-L284).\r\n\r\n### Debugging material\r\n```\r\nTraceback (most recent call last):\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 199, in run_asgi\r\n    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 146, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 58, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/starlette/routing.py\", line 656, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/tmp/bug/venv/lib/python3.9/site-packages/starlette/routing.py\", line 315, in handle\r\n    await self.app(scope, receive, send)\r\nTypeError: handle_ws() takes 1 positional argument but 3 were given\r\n```\r\n\r\n### Environment\r\n- OS: Arch Linux\r\n- Python version: 3.9.9\r\n- Starlette version: 0.17.1\r\n\r\n### Additional context\r\nSupport for functools.partial for Route was introduced in #984.\r\nThose changes to `Route.__init__` fix this bug too but just copying them feels unsustainable.",
+    "number": 1355,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1355",
+    "title": "WebSocketRoute does not work with functools.partial"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1356 created_at 2021-12-10T14:24:53Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1356",
+    "repair_files": [
+      "starlette/routing.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is f53faba229e3fa2844bc3753e233d9c1f54cca52",
+    "test_files": [
+      "tests/test_routing.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/464d43c6ed04448a1427af1f49e9a5eec426d2e9/starlette%2Frouting.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "cd8d58901f10b2deaf01711c7c6f02c0d21adffa",
+        "source_url": "https://github.com/Kludex/starlette/commit/cd8d58901f10b2deaf01711c7c6f02c0d21adffa"
+      },
+      {
+        "sha": "318ca783b8712f4cb0d463bcf4637fa8075ea2c2",
+        "source_url": "https://github.com/Kludex/starlette/commit/318ca783b8712f4cb0d463bcf4637fa8075ea2c2"
+      },
+      {
+        "sha": "464d43c6ed04448a1427af1f49e9a5eec426d2e9",
+        "source_url": "https://github.com/Kludex/starlette/commit/464d43c6ed04448a1427af1f49e9a5eec426d2e9"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-12-10T14:24:53Z",
+      "number": 1356,
+      "source_url": "https://github.com/Kludex/starlette/pull/1356"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1356"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/464d43c6ed04448a1427af1f49e9a5eec426d2e9/tests%2Ftest_routing.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+    "committed_at": "2021-12-07T09:04:54Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f53faba229e3fa2844bc3753e233d9c1f54cca52"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,92 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-01T23:54:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/499",
+          "number": 499,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/499"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add pluggable session backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-15T06:23:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/676",
+          "number": 676,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/676"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session Backend"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Currently sessions always use signed cookies.\r\n\r\nReally we'd also like to have cache backend and database backend support, so that we're providing a a common interface to a range of available backends.",
+    "closed_at": "2022-02-14T15:17:36Z",
+    "created_at": "2018-12-18T14:53:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/284",
+    "labels": [
+      "feature"
+    ],
+    "number": 284,
+    "state": "closed",
+    "title": "Session backends",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-01T23:54:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/499",
+          "number": 499,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/499"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add pluggable session backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-15T06:23:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/676",
+          "number": 676,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/676"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session Backend"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-14T15:17:36Z",
+      "event": "commented"
+    }
+  ]
+}

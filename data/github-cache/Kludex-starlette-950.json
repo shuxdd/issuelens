@@ -1,0 +1,595 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-09-22T16:34:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/33b0ac8896a0ab2972bfe4a077213185fd22855b",
+      "sha": "33b0ac8896a0ab2972bfe4a077213185fd22855b"
+    },
+    {
+      "committed_at": "2024-09-22T16:43:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e282912011f13db8efd67c8080828753d1bf598c",
+      "sha": "e282912011f13db8efd67c8080828753d1bf598c"
+    },
+    {
+      "committed_at": "2024-09-22T16:44:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/22317640ec5f7836b7e835f4d6ccc109a2c5c028",
+      "sha": "22317640ec5f7836b7e835f4d6ccc109a2c5c028"
+    },
+    {
+      "committed_at": "2024-09-22T17:00:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6160bc3a9a62300e5a13c2dc553534910b90574b",
+      "sha": "6160bc3a9a62300e5a13c2dc553534910b90574b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-05-17T20:51:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette-media/issues/8",
+          "number": 8,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette-media"
+          },
+          "title": "Serve mp4 video that can be viewed in a browser"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-15T16:20:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1896",
+          "number": 1896,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "When return a big file by FileResponse, How to realize resuming transfer on the server side"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-23T11:29:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/huggingface/dataset-viewer/pull/103",
+          "number": 103,
+          "pull_request": {
+            "merged_at": "2021-12-23T11:29:27Z",
+            "url": "https://api.github.com/repos/huggingface/dataset-viewer/pulls/103"
+          },
+          "repository": {
+            "full_name": "huggingface/dataset-viewer"
+          },
+          "title": "fix: \ud83d\udc1b serve the asserts from nginx instead of starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-16T09:20:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1696",
+          "number": 1696,
+          "pull_request": {
+            "merged_at": "2022-06-16T18:37:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1696"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add baize.asgi.FileResponse to docs"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-07T21:01:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1999",
+          "number": 1999,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1999"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for range headers to `FileResponse`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-30T17:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/2377",
+          "number": 2377,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Support Range Requests on Static Files"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-22T16:35:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2697",
+          "number": 2697,
+          "pull_request": {
+            "merged_at": "2024-09-23T01:20:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for HTTP Range to `FileResponse`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 198,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6160bc3a9a62300e5a13c2dc553534910b90574b/starlette%2Fresponses.py",
+      "changes": 210,
+      "deletions": 12,
+      "filename": "starlette/responses.py",
+      "sha": "cf8d6e6b4971062ba4ec1e38a40f5b2d0713ea0e",
+      "status": "modified"
+    },
+    {
+      "additions": 144,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6160bc3a9a62300e5a13c2dc553534910b90574b/tests%2Ftest_responses.py",
+      "changes": 152,
+      "deletions": 8,
+      "filename": "tests/test_responses.py",
+      "sha": "359516c75d4c19530b595e981c56a55f6b48780e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I'm trying to embed an mp4 file on a page using the following HTML:\r\n\r\n    <video controls width=\"600\">\r\n        <source src=\"/media/video.mp4\" type=\"video/mp4\">\r\n    </video>\r\n\r\nThe video file is being served by a Starlette `FileResponse`.\r\n\r\nI'm getting this error in Safari:\r\n\r\n<img width=\"1188\" alt=\"localhost_8001_live-photos_and_Real-time_HTML_Editor\" src=\"https://user-images.githubusercontent.com/9599/82159505-66042580-9843-11ea-9927-189842b54154.png\">\r\n\r\nIt looks to me like Safari is trying to make an HTTP range request in order to stream the video - but Starlette doesn't support that option.\r\n\r\nI tried adding `accept-ranges: none` as a response header but that didn't seem to fix the problem.\r\n\r\nSo... it would be great if Starlette could handle range requests so you could use it to serve video files to Safari!\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/950\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/950/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/950/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:39Z",
+    "closed_at": "2024-09-23T01:20:22Z",
+    "created_at": "2020-05-17T20:37:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/950",
+    "labels": [
+      "feature",
+      "clean up"
+    ],
+    "number": 950,
+    "state": "closed",
+    "title": "Support for HTTP range requests (for FileResponse)",
+    "user": "simonw"
+  },
+  "pull_request": {
+    "closed_at": "2024-09-23T01:20:21Z",
+    "created_at": "2024-09-22T16:34:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2697",
+    "merge_commit_sha": "69ed26a85956ef4bd0161807eb27abf49be7cd3c",
+    "merged_at": "2024-09-23T01:20:21Z",
+    "number": 2697,
+    "title": "Add support for HTTP Range to `FileResponse`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "2d0dde8defe9e3d4df0baacdb20faf273152f1cb",
+    "committed_at": "2024-09-08T09:49:21Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2d0dde8defe9e3d4df0baacdb20faf273152f1cb"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-05-17T20:51:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette-media/issues/8",
+          "number": 8,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette-media"
+          },
+          "title": "Serve mp4 video that can be viewed in a browser"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-20T12:11:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-06T03:19:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-15T16:20:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1896",
+          "number": 1896,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "When return a big file by FileResponse, How to realize resuming transfer on the server side"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:04:03Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-20T20:40:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-15T20:47:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-21T21:21:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-21T21:21:09Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-21T21:21:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-07T14:55:12Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "80d4c1725fe449365c09b2791a2cb5a69543894a",
+      "commit_url": "https://api.github.com/repos/huggingface/dataset-viewer/commits/80d4c1725fe449365c09b2791a2cb5a69543894a",
+      "created_at": "2021-12-23T11:29:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-12-23T11:29:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/huggingface/dataset-viewer/pull/103",
+          "number": 103,
+          "pull_request": {
+            "merged_at": "2021-12-23T11:29:27Z",
+            "url": "https://api.github.com/repos/huggingface/dataset-viewer/pulls/103"
+          },
+          "repository": {
+            "full_name": "huggingface/dataset-viewer"
+          },
+          "title": "fix: \ud83d\udc1b serve the asserts from nginx instead of starlette"
+        }
+      }
+    },
+    {
+      "commit_id": "bfa69af4095c372dc5aed42c5f01ad93f99fbf54",
+      "commit_url": "https://api.github.com/repos/huggingface/dataset-viewer/commits/bfa69af4095c372dc5aed42c5f01ad93f99fbf54",
+      "created_at": "2021-12-23T11:29:28Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "045bb3165ebcccd161f924c8fc26fc8ce261f4fd",
+      "commit_url": "https://api.github.com/repos/huggingface/dataset-viewer/commits/045bb3165ebcccd161f924c8fc26fc8ce261f4fd",
+      "created_at": "2021-12-23T11:30:24Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-04-29T20:20:14Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2022-05-19T04:20:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-19T04:20:05Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-19T04:20:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-19T05:15:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-19T05:15:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-19T05:15:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-27T01:37:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-27T01:39:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-27T01:39:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-27T01:39:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-31T06:01:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-16T09:20:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1696",
+          "number": 1696,
+          "pull_request": {
+            "merged_at": "2022-06-16T18:37:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1696"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add baize.asgi.FileResponse to docs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T06:22:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-15T06:22:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-15T06:22:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-15T06:51:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-15T06:51:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-15T06:51:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-17T06:21:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T06:21:46Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-17T06:21:46Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-17T17:04:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T17:04:24Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-17T17:04:24Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-17T18:32:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T18:50:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T18:54:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T19:02:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T19:04:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T19:33:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-18T05:52:09Z",
+      "event": "unlabeled"
+    },
+    {
+      "commit_id": "2612f83fc15f68cab6cbeb0f1ef1ae7344c262ea",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/2612f83fc15f68cab6cbeb0f1ef1ae7344c262ea",
+      "created_at": "2023-01-07T21:00:52Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-01-07T21:01:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1999",
+          "number": 1999,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1999"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for range headers to `FileResponse`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-07T22:09:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T17:55:14Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-04T17:55:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-08T06:18:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-08T06:18:13Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-04-08T06:18:13Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-04-08T06:27:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-08T06:27:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-04-08T06:27:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-04-08T06:44:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-26T00:41:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-10-24T15:20:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-10-31T18:56:44Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "1249393d91cdf937f146b67fbeee72c8e3454d39",
+      "commit_url": "https://api.github.com/repos/mattstern31/datasets-server-storage-admin/commits/1249393d91cdf937f146b67fbeee72c8e3454d39",
+      "created_at": "2023-11-11T15:37:46Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "8ac08fe6dbfcd10c1619d406ad9ee58db81ff571",
+      "commit_url": "https://api.github.com/repos/mattstern31/datasets-server-storage-admin/commits/8ac08fe6dbfcd10c1619d406ad9ee58db81ff571",
+      "created_at": "2023-11-11T15:37:47Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-11-21T10:49:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-21T10:49:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-11-21T10:49:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-07-30T17:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/2377",
+          "number": 2377,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Support Range Requests on Static Files"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-17T23:23:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-22T16:35:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2697",
+          "number": 2697,
+          "pull_request": {
+            "merged_at": "2024-09-23T01:20:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for HTTP Range to `FileResponse`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-22T16:49:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-22T16:49:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-09-22T16:49:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-09-23T01:20:22Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-09-23T06:15:46Z",
+      "event": "commented"
+    }
+  ]
+}

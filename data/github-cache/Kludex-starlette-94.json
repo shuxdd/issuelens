@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Like most CORS implementations, we leave enforcement strictly as a browser concern, and just make sure that we're setting the correct headers for the browser to deal with that.\r\n\r\nIf we wanted we *could* strictly enforce the policy server-side too. That might be useful for eg. ensuring that it's easier to test, that developers get logs that reflect any cors failures, etc...\r\n\r\nWe do some similar checks in `preflight_response`, which *does* provide useful informative responses, either 400 or 200.\r\n\r\nIf we add server-side enforcement, then I think it should probably be optional, but default to being on. `enforce_server_side=True`.\r\n\r\nWe'd want to use the same sort of checking, and useful errors as we currently do in `preflight_response`, and accumulate the different error types (origin, method, headers, credentials).\r\n\r\nAlso worth noting that `preflight_response` doesn't currently check for the existence of `cookies` against `allow_credentials`. (It doesn't strictly need to but if we're going to add server-side enforcement then it ought to be used in both places.)\r\n",
+    "closed_at": "2018-10-09T16:00:49Z",
+    "created_at": "2018-10-09T09:02:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/94",
+    "number": 94,
+    "state": "closed",
+    "title": "Option to enforce CORS server-side",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-09T15:35:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-09T16:00:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-09T16:01:12Z",
+      "event": "commented"
+    }
+  ]
+}

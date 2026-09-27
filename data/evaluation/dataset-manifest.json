@@ -1,0 +1,356 @@
+{
+  "build_metadata": {
+    "accepted_reviews": 51,
+    "application_commit": "53e17a3de364a216c6a9dbfe711bcf1948a51d8e",
+    "builder_version": "cases-v2",
+    "candidate_high_water_issue_number": 3572,
+    "rejected_reviews": 29
+  },
+  "dataset_version": "starlette-eval-v1",
+  "file_hashes": {
+    "candidate-manifest.json": "49fd82273fcc8f93ec15ff330f9918ba012a783e99aa96d2ef853d78058a16f0",
+    "cases/starlette-issue-1099.json": "d64bf3f33f424562df2ea4b8f5244de022038acb57010f89737231115616e10b",
+    "cases/starlette-issue-1123.json": "3a0e61b09dbb03e81ee6488c115be87a730be81ebe54abd262838dd9e108b382",
+    "cases/starlette-issue-1125.json": "259322e2501bf7caa6b7725858028320034b9b9bd1150590f6a1916b400e3675",
+    "cases/starlette-issue-1138.json": "26f33c77efb94abb4a7785d962191a79e7be2844d7b72a90974bfbc77b51645e",
+    "cases/starlette-issue-1162.json": "0b852018cdf47dd45170f534ee5f614131ae87098fd33557ddc79bc0c0e745bb",
+    "cases/starlette-issue-1255.json": "bff460237ec5390a89a479bcc86898aa93197ecf7eb9bf1584ef55a00f39d641",
+    "cases/starlette-issue-1303.json": "7aa3bac7aacbdb3eda0e0d025e8adeab40f126cab27ed764a3a35700bf2d4c27",
+    "cases/starlette-issue-1317.json": "8df53823650e62c9c369d80da933a8afb0ca6ef4bf8950b8b0392c48662650cb",
+    "cases/starlette-issue-1336.json": "88a4fb98d4434bd8286a62c441ff92455a568c41fdbb87ccef3db30aca32ceec",
+    "cases/starlette-issue-1355.json": "432836fb3b2bf5303734c746f3aa08464765d81e052226b7d6c42069301bce39",
+    "cases/starlette-issue-139.json": "1c611a04964112d9431225cc2ac1a3be227503381ec2d19533e99518bd29bca6",
+    "cases/starlette-issue-1433.json": "6cd080797429099b7d50041e5e2c7ea4ec3c874e6b91d152529229d7abf1928f",
+    "cases/starlette-issue-1438.json": "67f0798ca31445ad3322560c75abc54c24a7f214a8efa5ff90fc946c9d910f54",
+    "cases/starlette-issue-1471.json": "2e8cc0b01cf830431085938d5f65c3782c3c840a18c99fc0863bac8a4851f000",
+    "cases/starlette-issue-1552.json": "bab6b143faee05f6442b2f661a6ade43ca67bc59ccc54a1e9485fd97fa65c67b",
+    "cases/starlette-issue-1578.json": "99bfed7e698a2a0fce0f1fc92e32c89740d37ef75ca1e4629deb60136f3989d2",
+    "cases/starlette-issue-1588.json": "2a5354534766a8d793af7f306930dc6e9db179689b983d4c4d4477da111d5dfa",
+    "cases/starlette-issue-185.json": "3ce655a32f0222df86e0155cc64380a9cf10bf7aaf5ea2ea03e157bd920ab93c",
+    "cases/starlette-issue-1878.json": "08da837db2db139dfb7c9d0f41975f251141eff562f666719c715cc2c1e920cc",
+    "cases/starlette-issue-1952.json": "c89604d3d58fba41f21df72ae9fff8d6c3fd8d870de50684c8af08488755284c",
+    "cases/starlette-issue-2002.json": "b560c2551a6ddbecdcf07912f0f8a812920a14dd4f074c8b5eecbe4c18dede09",
+    "cases/starlette-issue-2093.json": "8f31d7b85f1f6d94154f5ce5caba29a38d8bc386a2d16c14700931ef0dfdbb79",
+    "cases/starlette-issue-2134.json": "7bf73db3baf8c278beb41ed53a82379e46ba30357f403cf8504d318e22bf115c",
+    "cases/starlette-issue-2227.json": "b3cf57e1b78e97b4b91fe31a2d87d77dfba94a0af30d5ac054a69c72aa6b971d",
+    "cases/starlette-issue-2295.json": "1040e6da54c09b85e3fbc62eb6cf36c95331f7a8c79efff379a458c1b914fc33",
+    "cases/starlette-issue-2298.json": "4e3a8b4a4a737324b17e24732835bea552196c2cf0893a25a1296ab0f019ac1e",
+    "cases/starlette-issue-2306.json": "544a8974a6f9410e597e8e5508043a2928b373e65386f3086a8aae843783a5b3",
+    "cases/starlette-issue-233.json": "dfc62b61e9b21f6c602e7a4f9865f20690ee9489f866ec913e3b19cf6441cdf5",
+    "cases/starlette-issue-2516.json": "cddfc0d9d65dc7fe2bccdcdf7a945d3621604d72cccd4685d3318f795b6f81f3",
+    "cases/starlette-issue-2625.json": "ef33c477831885938fc8fc9c00b13ecfac59c4102e88c966c198064c11f3ff64",
+    "cases/starlette-issue-2646.json": "fdd68e134b664c6982b09b6f3b910eca7598344921aa02d0b2d407af306d796b",
+    "cases/starlette-issue-2692.json": "5559d02561face33d861cbee1edf425824be37fbdba8af8318c0c6ffa8e338b4",
+    "cases/starlette-issue-2766.json": "017168fb4cb9c4664a118a1a10f57d1f306c426ff0f327a6d7a9818713708ccc",
+    "cases/starlette-issue-2783.json": "744d69a7bbeab1c5bd1713f6e295a52c8047eb42cd9dd0b1b4a6d026da720586",
+    "cases/starlette-issue-289.json": "0b15f175f5da0918dd8f2e2efc8f53965807d3a637e3411704de6a2e6352d874",
+    "cases/starlette-issue-32.json": "37643e6f20fdc72a207cc76bbf00b087b099d4eafdba669a03cac60a89d8644a",
+    "cases/starlette-issue-425.json": "591c9f442e41cc5ce2e63924572159db5b8123c58de258198cff3d6ef8c0e1b5",
+    "cases/starlette-issue-464.json": "d89de523f9e42bc899100628ceaddebea00fe6f0c47567fa8c5733bc9259bbfe",
+    "cases/starlette-issue-472.json": "6e71c78a02b1ca3eb078c9a2dc4f4a8b188da8a324c120786ce1ac33d94f3f6d",
+    "cases/starlette-issue-486.json": "a519ccd7d27ad959be144e2c387e21fcfb32f4f69116822677bc9fb8cb99dab9",
+    "cases/starlette-issue-493.json": "97526d8f514206b0ca0b3d0f398f57a2727a1c1e4f3bde921612af77a9f28b0d",
+    "cases/starlette-issue-495.json": "bcee4fc4f84b4db7b438065ba61042631e26fdd47186d318ff8025239d52ef61",
+    "cases/starlette-issue-622.json": "5197359abfca6678a42870142c4381c51e06ef9295112946d55356c4f7a6c34f",
+    "cases/starlette-issue-746.json": "2bd84869d9d6b81fb0fbb1a1b1ba40b6834235a76cba538c33114f2c5a74c8a0",
+    "cases/starlette-issue-790.json": "a9a8a7376415400b378921dbc6017cb1baefe77940f19c4b4ad30ca805f63b7d",
+    "cases/starlette-issue-793.json": "c3bb08b40a466036551be4301dbb4c0a061e0af5b32292362600571f612410de",
+    "cases/starlette-issue-847.json": "a5ab294f8e5cae723e9ccedb0a3d5a80086c8e8321ebc0f9acc19354c675b9af",
+    "cases/starlette-issue-866.json": "e85b5653fdb7bcba36e1d1f8f95dd4f498a6dc226c4620f62e46b909487de59a",
+    "cases/starlette-issue-886.json": "6ba865c903a7978d41e27d8f3f086d433641b8a4a3fc24506c8239ad392e3692",
+    "cases/starlette-issue-947.json": "19c3c743fdcdbb6d9fe00acaa8770ae4f126873bacbfa1473a58ab4f675424e5",
+    "cases/starlette-issue-997.json": "3652d87a5d65ae39c83a47595b7e3d90cd9b99c5628f99fb802c8ff78586f3be",
+    "evaluation/gold/starlette-issue-1099.json": "3e53f7e827d6e9ed4ed20992aa0a54116e79a3eee803eac9425ee755266356f3",
+    "evaluation/gold/starlette-issue-1123.json": "2d8900fee675311cec61a35be31f9483dfbf7ca9895b1e1899a4263d39d9e6a0",
+    "evaluation/gold/starlette-issue-1125.json": "e6834f2657bbb0f5e5bb98020857437368b2c0b99704a6e54e535a8bee10a326",
+    "evaluation/gold/starlette-issue-1138.json": "eb65050b4d47be13fd467e9056a99dd82e3a03b7d448a06cba0cc8598061fe30",
+    "evaluation/gold/starlette-issue-1162.json": "cbf7222960f426c598ca96bc55fb90528af6832840d3556f1d66dff2b85435d7",
+    "evaluation/gold/starlette-issue-1255.json": "fc4726ffb40b3002aaba03d961a3e109861411abce7dc0f7c11c2b97eb7af63c",
+    "evaluation/gold/starlette-issue-1303.json": "789a29da140f7f2db67b36a42a1cbc20c4a1c9a49ec0b2f7aaac7742413bc274",
+    "evaluation/gold/starlette-issue-1317.json": "a735d17abfdf6acdfdc50757aaf6ce413939b01f9c3132fd074bdbcec13d689c",
+    "evaluation/gold/starlette-issue-1336.json": "9674aea0882f104c6210f5fbbe5218235929645c99e2359f715d5a78d9e6ec39",
+    "evaluation/gold/starlette-issue-1355.json": "38c32dcd01c79c6182659d52bb1ac309f93f254549e8b5219abed743722a24dd",
+    "evaluation/gold/starlette-issue-139.json": "2a2ffc6c3a0d47ca6967dacf586b3e6dbca62a58cfe3219abb20dfe8e9918ef5",
+    "evaluation/gold/starlette-issue-1433.json": "99ef56c321c4fb71da6b83671a4113b6f52111aa2ea29c3aea63e931b518fc06",
+    "evaluation/gold/starlette-issue-1438.json": "a0bae38f77c317bb9b25fa270447f909acbe313112d904eb60ccfc766e1afc4f",
+    "evaluation/gold/starlette-issue-1471.json": "de2eabc1cc31a5dce08bc4d997abdc8d52617b4477ae3aab32df81a60fc717ff",
+    "evaluation/gold/starlette-issue-1552.json": "35f461205e5e7d37615b8cfaf0751ca2f9046ace177de314cab4dd5bc9f9a1f0",
+    "evaluation/gold/starlette-issue-1578.json": "90b8d3df3ae18754f760435517f63db7c9b0bb3061d1663a9b4b71fab8d908eb",
+    "evaluation/gold/starlette-issue-1588.json": "dff8ffa6d89845a9ebc3be26fe247b2b16c1f3e5c9e9de8317cdb86bbfcf555d",
+    "evaluation/gold/starlette-issue-185.json": "c56823b5e1e99fa042134c80e1cbe333b3a3e190586851eb0b9f28a533904101",
+    "evaluation/gold/starlette-issue-1878.json": "cddeec0de1dc4f9ece4eae21e5f3559b99cf3605218663da0dd5ac5d663af2df",
+    "evaluation/gold/starlette-issue-1952.json": "324dad2b6ff799cd8347ee9265d0a4de45d282d79abf6cb231e8194476c82da2",
+    "evaluation/gold/starlette-issue-2002.json": "986ad077a564c7b5b70bdfd62157fd090683d6dc5c711ef3250ab9ec1b6d312b",
+    "evaluation/gold/starlette-issue-2093.json": "2f423d185df24fb9a94cc0a66b1ff3c7f15b982f366f00b2e42a8f2eccf17d0f",
+    "evaluation/gold/starlette-issue-2134.json": "decf6d4d79f57374108932ac1396c580aedb506ba7bd4ee1d9d2ef5a3e1d7af9",
+    "evaluation/gold/starlette-issue-2227.json": "de8199fce5ed0c2ed9e9fe1e8cdf130d8a250b5636fb96aaf85b87b3e654edda",
+    "evaluation/gold/starlette-issue-2295.json": "1028d5b132393fffa5c6c271915dc729762678858c8f84a94c630dabf88ed079",
+    "evaluation/gold/starlette-issue-2298.json": "d60c23794cbbc280856aabe54bcfd5f7c67fe41ecc6f167817b0bd4e29be8542",
+    "evaluation/gold/starlette-issue-2306.json": "fb408eddd584c74e72a10fe3f1e0e0ef503394d8c54ad644e2f098dddb334a72",
+    "evaluation/gold/starlette-issue-233.json": "1e6cc1febace970c1474edd228274e0487efb26401fb638b3289aa7ef9e2f468",
+    "evaluation/gold/starlette-issue-2516.json": "a7c0816643ad1e4c38289dfc45f48e619edcc3c743470f03a5294d49f52711a1",
+    "evaluation/gold/starlette-issue-2625.json": "983b58146f8909e8d9c44c110474caddbf7be2b6c25f21513479aa4483a9b5d7",
+    "evaluation/gold/starlette-issue-2646.json": "47e894c60b615e6851e3b6e6b1d6c9fbc4c531fa48fcb83354e0aaa5d470089e",
+    "evaluation/gold/starlette-issue-2692.json": "85e17a817d5eda920e24bbcfdac68edf8b0341ea7c022c0ac11ed78add7c827f",
+    "evaluation/gold/starlette-issue-2766.json": "50007c64465c27d954e5e1953b86cb449bdc221f01639d9dba138f35e3a09853",
+    "evaluation/gold/starlette-issue-2783.json": "1a1fe5004acb228a0e36fbe0fb7ea168e3053da4980c18bd37fe79e8f7982f07",
+    "evaluation/gold/starlette-issue-289.json": "8d6d42e9af938676380d1ac8c271b73040e312dd618810fd0310b0a51e563f9b",
+    "evaluation/gold/starlette-issue-32.json": "947acc5848ba2e5bac61ac98771dcb9d7231def0bf7d91c0ff097997cc404752",
+    "evaluation/gold/starlette-issue-425.json": "7d16f60fdd58266473ee75d60793bdfd347e26fc181e8d817866cf7d87b08458",
+    "evaluation/gold/starlette-issue-464.json": "6efe0ffdf7c972d176aa80bfba8412e82922b736352e1111a699d3fe189918c8",
+    "evaluation/gold/starlette-issue-472.json": "60dab78216943d52331df248ea3ec707e1c376265ac291f90c9ec3ec9a252e99",
+    "evaluation/gold/starlette-issue-486.json": "d9a53ddf9d41c0c55227d73f38d40847224a730ca974b03797b2dfeff4209201",
+    "evaluation/gold/starlette-issue-493.json": "dd5282a15c7f361f8946a67ff024716d856142c718549b7fcffa05b3af4977d5",
+    "evaluation/gold/starlette-issue-495.json": "2dfdbe8e2328fbae62d92eab59a3ff4552463dfe0d02990d57e7f08e137123ef",
+    "evaluation/gold/starlette-issue-622.json": "9480660d4ca5868ec1a8b7c8af86f917bc2a85c37021637e876db83baaf717ec",
+    "evaluation/gold/starlette-issue-746.json": "a4fc89d2bf00ae32c2570ad1202f50b7c7dd7c8fb2b0dbf12fc9a306f2a931a8",
+    "evaluation/gold/starlette-issue-790.json": "b0b62c56c023f1d9958b15979f28908074c5573cfe933ace3943d1082964eef8",
+    "evaluation/gold/starlette-issue-793.json": "6863ec100c9b39f7a8465baf89f36ea91db72283af6212e81770243770095a54",
+    "evaluation/gold/starlette-issue-847.json": "4517917a7914e920a01afea9af8ccefc50ce5e5c63d3305221706ee8cf9c91a6",
+    "evaluation/gold/starlette-issue-866.json": "6872d547cc7a47c1872001b4ed174d69e9f3c91f82cb42b027980b91a201482a",
+    "evaluation/gold/starlette-issue-886.json": "8694b4510711154012bb239042dea25fb3a0ae47224d413b8421e68526ae754b",
+    "evaluation/gold/starlette-issue-947.json": "9262a6d5bf2c2f535df04e77fad733ef0dea56403f92d74d5ee71a0e1e766360",
+    "evaluation/gold/starlette-issue-997.json": "b06cc60d74053d08d3d80cd0f1c0869132a856ed6840b2db505627b585a14bc3",
+    "reviews.json": "b5ec71785552a4ce001bfafbc04ec610cf48577e52cac3278f4fc8d73acad1bc",
+    "screening-report.json": "13c9d8771bec89e180eec390ed68c50769dfe5b307bc8c7acfecd4168885ae7b"
+  },
+  "frozen": true,
+  "leak_check": {
+    "checked_cases": 51,
+    "repair_evidence_access": "evaluation_only",
+    "status": "passed"
+  },
+  "preregistered_metrics": {
+    "citation_validity_minimum": 0.9,
+    "file_recall_at": [
+      5,
+      10
+    ],
+    "g4_vs_g1_recall_or_citation_gain_minimum": 0.05,
+    "g4_vs_g1_root_cause_accuracy_gain_minimum": 0.1,
+    "root_cause_ranking": [
+      "MRR",
+      "nDCG@10"
+    ],
+    "root_cause_recall_at_10_minimum": 0.7,
+    "root_cause_score_2_minimum": 0.65
+  },
+  "repair_series": {
+    "starlette-repair-series-1041": [
+      "starlette-issue-793"
+    ],
+    "starlette-repair-series-1147": [
+      "starlette-issue-233"
+    ],
+    "starlette-repair-series-1164": [
+      "starlette-issue-1162"
+    ],
+    "starlette-repair-series-1220": [
+      "starlette-issue-1123"
+    ],
+    "starlette-repair-series-1227": [
+      "starlette-issue-1138"
+    ],
+    "starlette-repair-series-1262": [
+      "starlette-issue-1255"
+    ],
+    "starlette-repair-series-1322": [
+      "starlette-issue-1317"
+    ],
+    "starlette-repair-series-1349": [
+      "starlette-issue-1125",
+      "starlette-issue-1588",
+      "starlette-issue-1303"
+    ],
+    "starlette-repair-series-1356": [
+      "starlette-issue-1355"
+    ],
+    "starlette-repair-series-1395": [
+      "starlette-issue-1099",
+      "starlette-issue-472"
+    ],
+    "starlette-repair-series-142": [
+      "starlette-issue-139"
+    ],
+    "starlette-repair-series-1444": [
+      "starlette-issue-886"
+    ],
+    "starlette-repair-series-1459": [
+      "starlette-issue-1433"
+    ],
+    "starlette-repair-series-1472": [
+      "starlette-issue-1471"
+    ],
+    "starlette-repair-series-1553": [
+      "starlette-issue-1552"
+    ],
+    "starlette-repair-series-1580": [
+      "starlette-issue-1578"
+    ],
+    "starlette-repair-series-1648": [
+      "starlette-issue-746"
+    ],
+    "starlette-repair-series-1692": [
+      "starlette-issue-495",
+      "starlette-issue-847",
+      "starlette-issue-493"
+    ],
+    "starlette-repair-series-1715": [
+      "starlette-issue-1438"
+    ],
+    "starlette-repair-series-1908": [
+      "starlette-issue-1878"
+    ],
+    "starlette-repair-series-195": [
+      "starlette-issue-185"
+    ],
+    "starlette-repair-series-1953": [
+      "starlette-issue-1952"
+    ],
+    "starlette-repair-series-2017": [
+      "starlette-issue-2002"
+    ],
+    "starlette-repair-series-2159": [
+      "starlette-issue-2134"
+    ],
+    "starlette-repair-series-2194": [
+      "starlette-issue-2093"
+    ],
+    "starlette-repair-series-2231": [
+      "starlette-issue-2227"
+    ],
+    "starlette-repair-series-2334": [
+      "starlette-issue-2298"
+    ],
+    "starlette-repair-series-2352": [
+      "starlette-issue-1336"
+    ],
+    "starlette-repair-series-2376": [
+      "starlette-issue-2306"
+    ],
+    "starlette-repair-series-2427": [
+      "starlette-issue-947"
+    ],
+    "starlette-repair-series-2620": [
+      "starlette-issue-2516"
+    ],
+    "starlette-repair-series-2711": [
+      "starlette-issue-2646"
+    ],
+    "starlette-repair-series-2716": [
+      "starlette-issue-2692"
+    ],
+    "starlette-repair-series-2767": [
+      "starlette-issue-2766"
+    ],
+    "starlette-repair-series-2808": [
+      "starlette-issue-2783"
+    ],
+    "starlette-repair-series-2810": [
+      "starlette-issue-2295"
+    ],
+    "starlette-repair-series-2812": [
+      "starlette-issue-2625"
+    ],
+    "starlette-repair-series-291": [
+      "starlette-issue-289"
+    ],
+    "starlette-repair-series-33": [
+      "starlette-issue-32"
+    ],
+    "starlette-repair-series-488": [
+      "starlette-issue-486"
+    ],
+    "starlette-repair-series-562": [
+      "starlette-issue-425"
+    ],
+    "starlette-repair-series-563": [
+      "starlette-issue-464"
+    ],
+    "starlette-repair-series-623": [
+      "starlette-issue-622"
+    ],
+    "starlette-repair-series-792": [
+      "starlette-issue-790"
+    ],
+    "starlette-repair-series-867": [
+      "starlette-issue-866"
+    ],
+    "starlette-repair-series-998": [
+      "starlette-issue-997"
+    ]
+  },
+  "schema_version": "2.0",
+  "series_cross_check": {
+    "status": "passed"
+  },
+  "splits": {
+    "development": [
+      "starlette-issue-32",
+      "starlette-issue-139",
+      "starlette-issue-185",
+      "starlette-issue-289",
+      "starlette-issue-486",
+      "starlette-issue-425",
+      "starlette-issue-464",
+      "starlette-issue-622",
+      "starlette-issue-790",
+      "starlette-issue-866",
+      "starlette-issue-997",
+      "starlette-issue-793",
+      "starlette-issue-233",
+      "starlette-issue-1162",
+      "starlette-issue-1123",
+      "starlette-issue-1138",
+      "starlette-issue-1255",
+      "starlette-issue-1317",
+      "starlette-issue-1125",
+      "starlette-issue-1588",
+      "starlette-issue-1303"
+    ],
+    "primary": [
+      "starlette-issue-1355",
+      "starlette-issue-1099",
+      "starlette-issue-886",
+      "starlette-issue-1433",
+      "starlette-issue-1471",
+      "starlette-issue-1552",
+      "starlette-issue-1578",
+      "starlette-issue-746",
+      "starlette-issue-495",
+      "starlette-issue-847",
+      "starlette-issue-1438",
+      "starlette-issue-1878",
+      "starlette-issue-1952",
+      "starlette-issue-472",
+      "starlette-issue-2002",
+      "starlette-issue-493",
+      "starlette-issue-2134",
+      "starlette-issue-2093",
+      "starlette-issue-2227",
+      "starlette-issue-2298",
+      "starlette-issue-1336",
+      "starlette-issue-2306",
+      "starlette-issue-947",
+      "starlette-issue-2516",
+      "starlette-issue-2646",
+      "starlette-issue-2692",
+      "starlette-issue-2766",
+      "starlette-issue-2783",
+      "starlette-issue-2295",
+      "starlette-issue-2625"
+    ],
+    "stability": [
+      "starlette-issue-1355",
+      "starlette-issue-1433",
+      "starlette-issue-1578",
+      "starlette-issue-847",
+      "starlette-issue-1952",
+      "starlette-issue-493",
+      "starlette-issue-2227",
+      "starlette-issue-2306",
+      "starlette-issue-2646",
+      "starlette-issue-2783"
+    ]
+  }
+}

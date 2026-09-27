@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Build of my pull request feat/sse is failing with:\r\n`tarlette/middleware/wsgi.py:91: error: Argument 1 to \"wait_for\" has incompatible type \"Task[None]\"; expected \"Union[Future[<nothing>], Generator[Any, None, <nothing>], Awaitable[<nothing>]]\"`\r\n\r\nThis file is not part of my new feature branch but rather from master. \r\nLooks to me that also other pull requests are failing due to this.\r\n\r\nHow to proceed?",
+    "closed_at": "2019-12-17T10:57:00Z",
+    "created_at": "2019-12-11T20:09:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/749",
+    "number": 749,
+    "state": "closed",
+    "title": "feat/sse",
+    "user": "sysid"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-17T10:57:00Z",
+      "event": "commented"
+    }
+  ]
+}

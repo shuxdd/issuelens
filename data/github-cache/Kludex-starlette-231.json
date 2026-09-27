@@ -1,0 +1,180 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-27T01:01:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/45247f5d28d0ef372b4d00cf5e8c9fcbcae66433",
+      "sha": "45247f5d28d0ef372b4d00cf5e8c9fcbcae66433"
+    },
+    {
+      "committed_at": "2022-01-27T09:30:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3568a13ee8ad3fcf54cc797201a695cdcdf96859",
+      "sha": "3568a13ee8ad3fcf54cc797201a695cdcdf96859"
+    },
+    {
+      "committed_at": "2022-01-27T12:55:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3c76feacb8ef25c77036d3c4f6667a3c22639d27",
+      "sha": "3c76feacb8ef25c77036d3c4f6667a3c22639d27"
+    },
+    {
+      "committed_at": "2022-01-27T13:04:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0f716191a388a6c4b77a8c84c6d6d633c74096bd",
+      "sha": "0f716191a388a6c4b77a8c84c6d6d633c74096bd"
+    },
+    {
+      "committed_at": "2022-01-27T13:17:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/172a47978a68fc2d7865f59dc5c0d98efcddde84",
+      "sha": "172a47978a68fc2d7865f59dc5c0d98efcddde84"
+    },
+    {
+      "committed_at": "2022-01-27T13:19:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9589d806f89266afa55b293ab9d2197a46d3ed17",
+      "sha": "9589d806f89266afa55b293ab9d2197a46d3ed17"
+    },
+    {
+      "committed_at": "2022-01-27T13:20:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fcabad43a67e33e7e5099d3762307c2b6dfb2754",
+      "sha": "fcabad43a67e33e7e5099d3762307c2b6dfb2754"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-04-01T09:07:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/458",
+          "number": 458,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/458"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement custom convertor registration"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-27T01:03:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1437",
+          "number": 1437,
+          "pull_request": {
+            "merged_at": "2022-01-28T16:48:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1437"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom URL convertor register"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 29,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/docs%2Frouting.md",
+      "changes": 31,
+      "deletions": 2,
+      "filename": "docs/routing.md",
+      "sha": "5a76d7bc491a66399644643dd07efb55972e0345",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/starlette%2Fconvertors.py",
+      "changes": 4,
+      "deletions": 0,
+      "filename": "starlette/convertors.py",
+      "sha": "d90a9cd15e507986998a714e751c127e7113366a",
+      "status": "modified"
+    },
+    {
+      "additions": 56,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/tests%2Ftest_convertors.py",
+      "changes": 56,
+      "deletions": 0,
+      "filename": "tests/test_convertors.py",
+      "sha": "167ea96aa44d60ff9afb7e9ebd9fe17fd1391877",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "To solve application task in https://github.com/encode/starlette/issues/230 I use my own defined convertor:\r\n```python\r\n#!/usr/bin/env python3\r\n# -*- coding: utf-8 -*-\r\n\r\nimport starlette.convertors as conv\r\n\r\nclass UnderscoreConvertor(conv.Convertor):\r\n    regex = \".*\"\r\n\r\n    def convert(self, value: str) -> str:\r\n        return \"_\" + value\r\n\r\n    def to_string(self, value: str) -> str:\r\n        return value[1:]\r\n\r\nconv.CONVERTOR_TYPES['underscore'] = UnderscoreConvertor()\r\n\r\n\r\n\r\nfrom starlette.applications import Starlette\r\n\r\nfrom starlette.responses import PlainTextResponse\r\n\r\nimport uvicorn\r\n\r\napp = Starlette()\r\n\r\n@app.route(\"/test/{username:underscore}\")\r\ndef http_test(request):\r\n    username = request.path_params['username']\r\n    return PlainTextResponse(username + \"\\n\")\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=8080)\r\n```\r\n\r\nSo feature request is allowing user-defined converters in more acceptable way. Something like:\r\n`starlette.convertors.add(\"underscore\", UnderscoreConverter())`",
+    "body_last_edited_at": null,
+    "closed_at": "2022-01-28T16:48:22Z",
+    "created_at": "2018-11-22T08:59:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/231",
+    "labels": [
+      "clean up"
+    ],
+    "number": 231,
+    "state": "closed",
+    "title": "Add user-defined converters to routing",
+    "user": "em92"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-28T16:48:22Z",
+    "created_at": "2022-01-27T01:03:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1437",
+    "merge_commit_sha": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+    "merged_at": "2022-01-28T16:48:22Z",
+    "number": 1437,
+    "title": "Add custom URL convertor register",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "2b54f427613ebd1a6ccb2031aa97364e2d5070a5",
+    "committed_at": "2022-01-27T00:15:19Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2b54f427613ebd1a6ccb2031aa97364e2d5070a5"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-11-22T10:52:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-01T09:07:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/458",
+          "number": 458,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/458"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement custom convertor registration"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-27T01:03:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1437",
+          "number": 1437,
+          "pull_request": {
+            "merged_at": "2022-01-28T16:48:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1437"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom URL convertor register"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:48:22Z",
+      "event": "closed"
+    }
+  ]
+}

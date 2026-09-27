@@ -1,0 +1,149 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-14T09:39:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/42902fb66d86516867ee8053cd492fe27e101b58",
+      "sha": "42902fb66d86516867ee8053cd492fe27e101b58"
+    },
+    {
+      "committed_at": "2021-12-17T08:30:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/701fd95517dad7a2a137874c1d8c0d3d1f2c4155",
+      "sha": "701fd95517dad7a2a137874c1d8c0d3d1f2c4155"
+    },
+    {
+      "committed_at": "2021-12-22T12:52:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0837ad2dc268443a4488015666f8e23b2db43060",
+      "sha": "0837ad2dc268443a4488015666f8e23b2db43060"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-04-12T20:58:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1139",
+          "number": 1139,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1139"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Accept exception_handlers as Mapping"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-14T09:11:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1360",
+          "number": 1360,
+          "pull_request": {
+            "merged_at": "2021-12-22T12:57:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1360"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `exception_handlers` type hints"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0837ad2dc268443a4488015666f8e23b2db43060/starlette%2Fapplications.py",
+      "changes": 12,
+      "deletions": 4,
+      "filename": "starlette/applications.py",
+      "sha": "9f05dc286d9167105a238184436afec5aaf6a180",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0837ad2dc268443a4488015666f8e23b2db43060/starlette%2Fexceptions.py",
+      "changes": 9,
+      "deletions": 2,
+      "filename": "starlette/exceptions.py",
+      "sha": "bc3b5b27bd9cf08bbdbd1aecc6c447784d725bb9",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\nRelated, but not the same:\r\n* #1034 \r\n* #1139 \r\n* #949\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\n### To reproduce\r\n\r\nGiven an example.py: \r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.exceptions import HTTPException\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\n\r\ndef handle_http_exception(request: Request, exc: HTTPException) -> Response:\r\n    return Response('foo')\r\n\r\n\r\nexception_handlers = {\r\n    HTTPException: handle_http_exception\r\n}\r\napp = Starlette(exception_handlers=exception_handlers)\r\n```\r\n\r\n### Expected behavior\r\n\r\nMypy does not present an error.\r\n\r\n### Actual behavior\r\n\r\n```console\r\n$ mypy example.py\r\nexample.py:14: error: Argument \"exception_handlers\" to \"Starlette\" has incompatible type \"Dict[Type[HTTPException], Callable[[Request, HTTPException], Response]]\"; expected \"Optional[Dict[Union[int, Type[Exception]], Callable[..., Any]]]\"\r\nFound 1 error in 1 file (checked 1 source file)\r\n```\r\n\r\n### Debugging material\r\n\r\nNone\r\n\r\n### Environment\r\n\r\n- OS: Debian (`Linux ... 4.19.0-14-amd64 #1 SMP Debian 4.19.171-2 (2021-01-30) x86_64 GNU/Linux`)\r\n- Python version: `Python 3.9.1`\r\n- Starlette version: `starlette==0.14.2`\r\n\r\n### Additional context\r\n\r\nFor propriety:\r\n\r\nhttps://github.com/encode/starlette/blob/master/docs/exceptions.md#L42\r\n\r\nhttps://github.com/encode/starlette/blob/ed73b97c9b8f4aa527eed88032c04ce9fe109a3c/starlette/applications.py#L44\r\n\r\nI think this is a Starlette issue and not a mypy issue; apologies if I'm wrong here.",
+    "closed_at": "2021-12-22T12:57:29Z",
+    "created_at": "2021-02-18T07:29:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1142",
+    "labels": [
+      "typing"
+    ],
+    "number": 1142,
+    "state": "closed",
+    "title": "mypy complains about `exception_handlers` dict with `HTTPException` key",
+    "user": "natanlao"
+  },
+  "pull_request": {
+    "closed_at": "2021-12-22T12:57:29Z",
+    "created_at": "2021-12-14T09:11:12Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1360",
+    "merge_commit_sha": "d0252aaf052a97e7f09c19d9bfa46d1c9501e910",
+    "merged_at": "2021-12-22T12:57:29Z",
+    "number": 1360,
+    "title": "Fix `exception_handlers` type hints",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-02-19T03:11:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-11T19:07:07Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-04-12T20:58:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1139",
+          "number": 1139,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1139"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Accept exception_handlers as Mapping"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-14T09:11:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1360",
+          "number": 1360,
+          "pull_request": {
+            "merged_at": "2021-12-22T12:57:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1360"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `exception_handlers` type hints"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-22T12:57:29Z",
+      "event": "closed"
+    }
+  ]
+}

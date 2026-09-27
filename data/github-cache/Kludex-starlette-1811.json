@@ -1,0 +1,114 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-05-06T21:28:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/lidless-labs/watchtower/pull/22",
+          "number": 22,
+          "pull_request": {
+            "merged_at": "2026-05-06T22:19:37Z",
+            "url": "https://api.github.com/repos/lidless-labs/watchtower/pulls/22"
+          },
+          "repository": {
+            "full_name": "lidless-labs/watchtower"
+          },
+          "title": "fix(websocket): broadcast under snapshot, not lock-held send"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-30T16:21:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rmusser01/tldw_server/pull/2143",
+          "number": 2143,
+          "pull_request": {
+            "merged_at": "2026-05-30T16:39:28Z",
+            "url": "https://api.github.com/repos/rmusser01/tldw_server/pulls/2143"
+          },
+          "repository": {
+            "full_name": "rmusser01/tldw_server"
+          },
+          "title": "Add MCP Unified Stage 4C gateway WebSocket transport"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1780\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **yoniker** August  1, 2022</sup>\r\nHow can the server detect a situation when the client didn't receive a message sent by the server, \r\nspecifically when the client disconnected not gracefully (=without closing the websocket explicitly)?\r\n\r\nTo my understanding, this should have raised an exception, but it doesn't.\r\nThe first time when Starlette notices that anything is wrong, is when the ping interval times out.\r\n\r\nTo easily see that, run the following server:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.endpoints import HTTPEndpoint\r\nfrom starlette.routing import Route\r\nfrom starlette.endpoints import WebSocketEndpoint\r\nfrom starlette.routing import Route, WebSocketRoute\r\nimport json\r\n\r\n\r\nwebsockets = dict()\r\n\r\n\r\nclass SayHealthy(HTTPEndpoint):\r\n    async def get(self, request):\r\n        return JSONResponse({'status': 'websockets service is healthy!'})\r\n\r\n\r\nclass RelayMessageToWebsocket(HTTPEndpoint):\r\n    async def post(self,request):\r\n        try:\r\n            receiver_id = request.path_params['user_id']\r\n            data = await request.json()\r\n            websocket = websockets[receiver_id]\r\n            try:\r\n                await websocket.send(json.dumps(data))\r\n            except Exception as e:\r\n                if receiver_id in websockets: del websockets[receiver_id]\r\n                raise e\r\n            print('Success: message was sent!')\r\n            return JSONResponse({'result': 'message_sent'})\r\n        except:\r\n            print('Error: message was not sent')\r\n            return JSONResponse({'result': 'message_not_sent'})\r\n\r\n\r\nclass WebsocketBehavior(WebSocketEndpoint):\r\n    encoding = 'json'\r\n\r\n    async def on_connect(self, websocket):\r\n        user_id = websocket.headers.get('user_id')\r\n        print(f'on connect called with user_id={user_id}')\r\n        websockets[user_id] = websocket\r\n        await websocket.accept()\r\n\r\n    async def on_receive(self, websocket, data):\r\n        print('on recieve called')\r\n        #await websocket.send_json(data={'Got this':data})\r\n        print(f'Got this from websocket:{data}')\r\n\r\n    async def on_disconnect(self, websocket, close_code):\r\n        print('on disconnect called')\r\n        try:\r\n            user_id = websocket.headers.get('user_id')\r\n            del websockets[user_id]\r\n            print(f'deleted {user_id} from websockets dict')\r\n        except:\r\n            pass\r\n\r\n\r\nroutes = [\r\n    Route(\"/websockets/healthcheck\", SayHealthy),\r\n    Route('/websockets/message_user/{user_id}',RelayMessageToWebsocket),\r\nWebSocketRoute(\"/websockets/register\", WebsocketBehavior)\r\n]\r\n\r\n\r\n\r\n\r\napp = Starlette(routes=routes)\r\n\r\n\r\n\r\n\r\n```\r\n\r\nand run it with a higher ping interval:\r\n`import uvicorn\r\nuvicorn.run('app:app',host='0.0.0.0', port=5000,ws_ping_interval=300, ws_ping_timeout=300)`\r\n\r\nFor the client, use a mobile phone, and put the phone in airplane mode while it is connected to the server.\r\nCall the server via the endpoint /websockets/send_message/<user_id>.\r\nThe server will happily describe all of the messages as \"sent\" for 5 minutes.\r\n\r\nIf this behavior is expected (to my understanding exception should have been raised), how can I check if the message was actually received by the client? \r\n\r\n</div>",
+    "closed_at": "2022-08-15T06:12:54Z",
+    "created_at": "2022-08-14T08:06:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1811",
+    "labels": [
+      "websocket",
+      "good first issue",
+      "need confirmation"
+    ],
+    "number": 1811,
+    "state": "closed",
+    "title": "Disconnected websocket - No exception is raised when sending a message!",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-14T08:06:29Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-14T08:06:29Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-15T06:00:53Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-15T06:12:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-15T06:12:54Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-05-06T21:28:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/lidless-labs/watchtower/pull/22",
+          "number": 22,
+          "pull_request": {
+            "merged_at": "2026-05-06T22:19:37Z",
+            "url": "https://api.github.com/repos/lidless-labs/watchtower/pulls/22"
+          },
+          "repository": {
+            "full_name": "lidless-labs/watchtower"
+          },
+          "title": "fix(websocket): broadcast under snapshot, not lock-held send"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-30T16:21:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rmusser01/tldw_server/pull/2143",
+          "number": 2143,
+          "pull_request": {
+            "merged_at": "2026-05-30T16:39:28Z",
+            "url": "https://api.github.com/repos/rmusser01/tldw_server/pulls/2143"
+          },
+          "repository": {
+            "full_name": "rmusser01/tldw_server"
+          },
+          "title": "Add MCP Unified Stage 4C gateway WebSocket transport"
+        }
+      }
+    }
+  ]
+}

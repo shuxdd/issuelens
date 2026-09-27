@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-1578",
+  "changed_files": [
+    {
+      "path": "starlette/_pep562.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/starlette%2F_pep562.py",
+      "status": "added"
+    },
+    {
+      "path": "starlette/status.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/starlette%2Fstatus.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/status.py",
+      "snapshot_commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+      "source_url": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/status.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/status.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'BUG: Incorrect WebSocket status code 1005 description, missing status code 1006' originates in starlette/status.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_status.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3d7dc1d65a6341d5c827357f88c3545401d69875/tests%2Ftest_status.py",
+      "status": "added"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [ X] The bug is reproducible against the latest release and/or `master`.\r\n- [ X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nPassing a web.StreamReader returned from AioBoto S3 get_object() function to a StreamingResponse results in a hung connection. I can't yet tell if this is because of an incompatibility between the StreamingResponse and the aiohttp web.StreamReader, or if this is a bug.\r\n\r\n### To reproduce\r\n\r\n```python\r\nimport logging\r\nimport aioboto3\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import StreamingResponse\r\nfrom starlette.routing import Route\r\n\r\nlogger = logging.getLogger(__name__)\r\n\r\nasync def read_bytes(s3_obj):\r\n    chunk_size = 1024\r\n    async with s3_obj[\"Body\"] as stream:\r\n        file_data = await stream.read(chunk_size)\r\n        while file_data:\r\n            yield file_data\r\n            file_data = await stream.read(chunk_size)\r\n\r\n\r\nasync def yield_bytes(s3_ob):\r\n    while True:\r\n        chunk = await s3_ob[\"Body\"].readchunk()\r\n        yield chunk[0]\r\n        if chunk[1]:\r\n            break\r\n\r\n\r\nasync def proxy_fragment_request(request):\r\n\r\n    boto3_session = aioboto3.Session()\r\n    async with boto3_session.client(\r\n            \"s3\",\r\n            endpoint_url='http://minios3server.local',\r\n            aws_access_key_id='SOMEKEY',\r\n            aws_secret_access_key='SOMEPASS',\r\n    ) as s3:\r\n        bucket = 'bucket1'\r\n        blob_s3_key = 'bigfile'  # bigfile is only around 30KB\r\n        s3_ob = await s3.get_object(Bucket=bucket, Key=blob_s3_key)\r\n\r\n        # return StreamingResponse(yield_bytes(s3_ob))\r\n        # return StreamingResponse(read_bytes(s3_ob))\r\n        return StreamingResponse(s3_ob[\"Body\"])\r\n\r\nroutes = [\r\n    Route(\"/tests3\", endpoint=proxy_fragment_request),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n\r\n\r\ndef main():\r\n    import uvicorn\r\n\r\n    logger = logging.getLogger('')\r\n    logger.setLevel(logging.DEBUG)\r\n    ch = logging.StreamHandler()\r\n    ch.setLevel(logging.DEBUG)\r\n    formatter = logging.Formatter(\r\n        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'\r\n    )\r\n    ch.setFormatter(formatter)\r\n    logger.addHandler(ch)\r\n    uvicorn.run(app, http='h11', loop='uvloop', log_level=0)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    main()\r\n\r\n```\r\n\r\n### Expected behavior\r\n\r\nFull file streamed to the client\r\n\r\n### Actual behavior\r\n\r\nStreaming stops after first 4KB read\r\n\r\n### Debugging material\r\n\r\nI have tried the following functions to abstract away the StreamReader, but with similar results:\r\n\r\n```python\r\nasync def read_bytes(s3_obj):\r\n    chunk_size = 1024\r\n    async with s3_obj[\"Body\"] as stream:\r\n        file_data = await stream.read(chunk_size)\r\n        while file_data:\r\n            yield file_data\r\n            file_data = await stream.read(chunk_size)\r\nreturn StreamingResponse(read_bytes(s3_ob))\r\n\r\nasync def yield_bytes(s3_ob):\r\n    while True:\r\n        chunk = await s3_ob[\"Body\"].readchunk()\r\n        yield chunk[0]\r\n        if chunk[1]:\r\n            break\r\nreturn StreamingResponse(yield_bytes(s3_ob))\r\n\r\n```\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.9.0\r\n- Starlette version: 0.16.0 (tested back to the version that starts checking for for AsyncIterator)\r\n\r\n### Additional context\r\n\r\nI tracked the execution chain through to aiohttp waiting for the reader to request more data (or at least that's what I think it's doing) in aiohttp/streams.py line 306. i.e.:\r\n\r\n```python\r\n        waiter = self._waiter = self._loop.create_future()\r\n        try:\r\n            if self._timer:\r\n                with self._timer:\r\n                    await waiter  ## <---------- last call I see\r\n            else:\r\n                await waiter\r\n        finally:\r\n            self._waiter = None\r\n```\r\n\r\n\r\nWeirdly I get the following log entry from starlette before all the data is transferred:\r\nINFO:     127.0.0.1:35494 - \"GET /tests3 HTTP/1.1\" 200 OK\r\nWhich I thought should only get printed at the end of the transaction.\r\n\r\nWhen I ctrl-c the app it still believes there are open connections:\r\n2021-10-15 13:14:23,702 - uvicorn.error - INFO - Shutting down\r\n2021-10-15 13:14:23,803 - uvicorn.error - INFO - Waiting for connections to close. (CTRL+C to force quit)",
+    "closed_at": "2021-12-15T22:20:54Z",
+    "created_at": "2021-10-15T02:16:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1310",
+    "number": 1310,
+    "state": "closed",
+    "title": "StreamReader not reading all chunks in aioboto3 s3 get_object response",
+    "user": "scattym"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-11-27T15:33:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T19:15:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T22:20:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T22:20:54Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-12-15T22:29:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-15T17:11:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-15T17:11:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-15T17:11:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-16T08:43:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-16T08:43:42Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2025-03-05T08:55:24Z",
+      "event": "subscribed"
+    }
+  ]
+}

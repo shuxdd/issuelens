@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Starlette redirects on missing or redundant trailing slash. In pair with additional `--root-path` parameter on uvicorn it redirects to a wrong URI. Looks like starlette appends the same URI with filled or removed slash, but it's not considering root-path configuration, so that the path contains duplicated root.\r\n\r\n### To reproduce\r\n\r\n1. Configure endpoint without trailing slash - e.g. `/products`\r\n2. Execute starlette application with uvicorn and pass `--root-path` parameter - e.g. `/api/v1/`\r\n3. Call your endpoint with a redundant trailing slash - `/api/v1/products/`\r\n4. Check 307 redirection path on your logs\r\n\r\n### Expected behavior\r\n\r\nStarlette redirects to `/api/v1/products`\r\n\r\n### Actual behavior\r\n\r\nStarlette redirects to `/api/v1/api/v1/products`\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: Linux/MacOS\r\n- Python version: 3.9.0\r\n- Starlette version: 0.13.6\r\n",
+    "closed_at": "2021-05-13T14:06:18Z",
+    "created_at": "2021-01-22T04:00:36Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1130",
+    "number": 1130,
+    "state": "closed",
+    "title": "Duplicated root-path on 307 redirection",
+    "user": "tsunday"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-05-12T07:06:11Z",
+      "event": "commented"
+    }
+  ]
+}

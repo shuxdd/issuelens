@@ -1,0 +1,61 @@
+{
+  "case_id": "starlette-issue-1336",
+  "changed_files": [
+    {
+      "path": "starlette/requests.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frequests.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frouting.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Fstaticfiles.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/requests.py",
+      "snapshot_commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+      "source_url": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/requests.py"
+    },
+    {
+      "path": "starlette/routing.py",
+      "snapshot_commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+      "source_url": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/routing.py"
+    },
+    {
+      "path": "starlette/staticfiles.py",
+      "snapshot_commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+      "source_url": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/staticfiles.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/requests.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/routing.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/staticfiles.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Handling of `scope[\"root_path\"]` and `scope[\"path\"]` differs from ASGI spec' originates in starlette/requests.py, starlette/routing.py, starlette/staticfiles.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/tests%2Ftest_routing.py",
+      "status": "modified"
+    }
+  ]
+}

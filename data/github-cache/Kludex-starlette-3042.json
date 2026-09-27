@@ -1,0 +1,237 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-10-16T17:12:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b681dae3f491a5803d03000ef0eeff66ea2abf6e",
+      "sha": "b681dae3f491a5803d03000ef0eeff66ea2abf6e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-10-16T14:08:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3043",
+          "number": 3043,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3043"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update copyright information in LICENSE.md"
+        }
+      }
+    },
+    {
+      "created_at": "2025-10-16T17:15:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3044",
+          "number": 3044,
+          "pull_request": {
+            "merged_at": "2025-10-16T17:17:25Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3044"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Revert \"Add Marcelo Trylesinski to the license (#3025)\""
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b681dae3f491a5803d03000ef0eeff66ea2abf6e/LICENSE.md",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "LICENSE.md",
+      "sha": "d16a60ec5b9963ef86b35a52ac92227014618e6c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Both Starlette & Uvicorn have recently updated their licenses. ([ref](https://github.com/Kludex/starlette/pull/3025), [ref](https://github.com/Kludex/uvicorn/pull/2699))\n\nRather than *asking the license holder for consent*, Marcelo checked in [with ChatGPT](https://bsky.app/profile/marcelotryle.bsky.social/post/3lypucjyakc2x).\n\nI've requested the change be reverted: As the license holder, changes there require my consent.\n\n*There's some related discussions worth having around community positioning for `uvicorn` and `starlette`, though I'd like to start on a clear footing by reverting the licensing changes & ensuring that authorship and maintainership is [correctly](https://github.com/Kludex/starlette/pull/3033/files) [attributed](https://github.com/Kludex/uvicorn/pull/2719/files).*",
+    "closed_at": "2026-02-04T08:53:30Z",
+    "created_at": "2025-10-16T10:01:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3042",
+    "number": 3042,
+    "state": "closed",
+    "title": "Licensing changes.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2025-10-16T17:17:25Z",
+    "created_at": "2025-10-16T17:12:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3044",
+    "merge_commit_sha": "0f0edcf8007412d9536bf8714c5815ce8f5dba4b",
+    "merged_at": "2025-10-16T17:17:25Z",
+    "number": 3044,
+    "title": "Revert \"Add Marcelo Trylesinski to the license (#3025)\"",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-10-16T10:21:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T11:54:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T12:52:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T14:08:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T14:08:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3043",
+          "number": 3043,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3043"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update copyright information in LICENSE.md"
+        }
+      }
+    },
+    {
+      "created_at": "2025-10-16T14:56:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T15:39:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-16T16:15:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T16:31:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T17:15:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3044",
+          "number": 3044,
+          "pull_request": {
+            "merged_at": "2025-10-16T17:17:25Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3044"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Revert \"Add Marcelo Trylesinski to the license (#3025)\""
+        }
+      }
+    },
+    {
+      "created_at": "2025-10-16T18:05:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-16T18:36:45Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-10-16T18:36:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-16T21:32:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-17T03:53:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-17T05:45:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-19T08:50:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-20T06:05:45Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e7a0ff61c02e755f1cbf49b78600ccb4a4069a7a",
+      "commit_url": "https://api.github.com/repos/buildroot/buildroot/commits/e7a0ff61c02e755f1cbf49b78600ccb4a4069a7a",
+      "created_at": "2025-10-25T21:10:46Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-10-27T01:42:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-11-12T10:58:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-12-10T20:16:24Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-02-03T20:33:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-04T08:53:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-04T08:53:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-02-04T10:02:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-04T10:05:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-02-04T10:05:41Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2026-02-04T10:21:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-10T01:42:42Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-25T15:58:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-29T05:46:33Z",
+      "event": "subscribed"
+    }
+  ]
+}

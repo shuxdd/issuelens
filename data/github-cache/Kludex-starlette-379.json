@@ -1,0 +1,160 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-02-14T17:27:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/370",
+          "number": 370,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Finesse database backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-02-15T18:24:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/27",
+          "number": 27,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "SQLAlchemy QueuePool limits"
+        }
+      }
+    },
+    {
+      "created_at": "2019-03-06T16:41:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/420",
+          "number": 420,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Globally importable request object"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-25T10:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/volfpeter/fasthx/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/volfpeter/fasthx/pulls/6"
+          },
+          "repository": {
+            "full_name": "volfpeter/fasthx"
+          },
+          "title": "Pass endpoint dependencies to Jinja context via request.state"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "From this: https://github.com/encode/starlette/issues/374#issuecomment-461684385\r\n\r\nI think we should probably support a public interface for storing arbitary per-request state, within the ASGI scope.\r\n\r\nThat could either be:\r\n\r\n1. `request['whatever'] = ...` - Expose the ASGI scope, and let the user handle it directly if they really need to.\r\n2. `request.scope['whatever'] = ...` - Same as before, but let's move it into a different bit of public API.\r\n3. `request.state.whatever = ...` - Store arbitrary state, and always keep it isolated from the rest of the namespace in the ASGI scope. (Implementation wise, store it all in a scope['state'] dictionary)\r\n\r\nWith (1) and (2) we might need to think a bit about mutability and it's implications. Eg. If the scope is modified, do we update the `request.url`, `request.headers` or whatever else it might affect? Probably we just put a disclaimer on \"request.scope\" gives you access to the underlying ASGI scope - make sure you've got a bit of an idea what you're doing.\r\n\r\nIncidentally, I think I prefer (2) over the \"request is dict-like\" interface that we currently have.",
+    "closed_at": "2019-02-19T13:14:54Z",
+    "created_at": "2019-02-08T10:00:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/379",
+    "labels": [
+      "feature"
+    ],
+    "number": 379,
+    "state": "closed",
+    "title": "Generic interface for storing per-request state.",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-08T10:00:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T10:01:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T15:59:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-13T10:11:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:27:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/370",
+          "number": 370,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Finesse database backends"
+        }
+      }
+    },
+    {
+      "created_at": "2019-02-15T18:24:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/27",
+          "number": 27,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "SQLAlchemy QueuePool limits"
+        }
+      }
+    },
+    {
+      "created_at": "2019-03-06T16:41:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/420",
+          "number": 420,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Globally importable request object"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-25T10:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/volfpeter/fasthx/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/volfpeter/fasthx/pulls/6"
+          },
+          "repository": {
+            "full_name": "volfpeter/fasthx"
+          },
+          "title": "Pass endpoint dependencies to Jinja context via request.state"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-09-20T12:58:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a96b16e8c1c01b66c580cf7f28408ce1e7936806",
+      "sha": "a96b16e8c1c01b66c580cf7f28408ce1e7936806"
+    },
+    {
+      "committed_at": "2018-09-20T12:59:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ae59b64e52260735474ce86b697df682fea69bf2",
+      "sha": "ae59b64e52260735474ce86b697df682fea69bf2"
+    },
+    {
+      "committed_at": "2018-09-20T14:25:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fb0facc2f2fc30bf93577a2dee824e6b04ee11ab",
+      "sha": "fb0facc2f2fc30bf93577a2dee824e6b04ee11ab"
+    },
+    {
+      "committed_at": "2018-09-24T13:07:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03bbcc47824d99b4180e93fdc4b42e4a55d137ac",
+      "sha": "03bbcc47824d99b4180e93fdc4b42e4a55d137ac"
+    },
+    {
+      "committed_at": "2018-09-27T09:41:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f0c3935d237d66ddcdfd0bacb4f2e521cbc82f81",
+      "sha": "f0c3935d237d66ddcdfd0bacb4f2e521cbc82f81"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-09-20T13:01:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/62",
+          "number": 62,
+          "pull_request": {
+            "merged_at": "2018-10-02T10:26:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/62"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Class-based websocket handler"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 119,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0c3935d237d66ddcdfd0bacb4f2e521cbc82f81/docs%2Fendpoints.md",
+      "changes": 121,
+      "deletions": 2,
+      "filename": "docs/endpoints.md",
+      "sha": "a6c99143fd7ca346e125087db8404463433318a4",
+      "status": "modified"
+    },
+    {
+      "additions": 66,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0c3935d237d66ddcdfd0bacb4f2e521cbc82f81/starlette%2Fendpoints.py",
+      "changes": 67,
+      "deletions": 1,
+      "filename": "starlette/endpoints.py",
+      "sha": "608f28ad3665c7e265ad427c3c04c06f7f882518",
+      "status": "modified"
+    },
+    {
+      "additions": 94,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0c3935d237d66ddcdfd0bacb4f2e521cbc82f81/tests%2Ftest_endpoints.py",
+      "changes": 98,
+      "deletions": 4,
+      "filename": "tests/test_endpoints.py",
+      "sha": "ec93bec211b1b62bb0bf9868d1443c1bfcdd5a9d",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Provide a class-based websocket handler.\r\n\r\n```\r\nfrom starlette.endpoints import WebSocketEndpoint\r\n\r\n\r\nclass App(WebSocketEndpoint):\r\n    async def on_connect(self, websocket, **kwargs):\r\n        ...\r\n    async def on_receive(self, websocket, data):\r\n        ...\r\n    async def on_disconnect(self, websocket):\r\n        ...\r\n```",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-02T12:30:10Z",
+    "created_at": "2018-09-05T11:04:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/58",
+    "number": 58,
+    "state": "closed",
+    "title": "`WebSocketEndpoint`",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-02T10:26:20Z",
+    "created_at": "2018-09-20T13:01:14Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/62",
+    "merge_commit_sha": "1ce4c89149d6bea8d0ccb1196df0b6037d13aa02",
+    "merged_at": "2018-10-02T10:26:20Z",
+    "number": 62,
+    "title": "Class-based websocket handler",
+    "user": "jordaneremieff"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "12e4ef60d74526fd6e5e02bfc832e712132634c7",
+    "committed_at": "2018-09-20T09:00:25Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/12e4ef60d74526fd6e5e02bfc832e712132634c7"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-09-19T10:08:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-19T11:55:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-20T13:01:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/62",
+          "number": 62,
+          "pull_request": {
+            "merged_at": "2018-10-02T10:26:20Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/62"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Class-based websocket handler"
+        }
+      }
+    },
+    {
+      "created_at": "2018-09-20T14:00:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-21T10:07:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-21T10:07:05Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-09-21T10:07:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-09-21T10:40:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-24T13:58:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-24T14:10:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-24T14:53:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-24T15:00:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-24T17:14:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-25T08:44:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-25T14:16:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-30T05:13:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-30T07:36:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-30T08:00:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-02T12:30:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-02T12:30:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-10-02T12:30:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-09-01T09:14:11Z",
+      "event": "commented"
+    }
+  ]
+}

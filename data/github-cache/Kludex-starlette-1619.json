@@ -1,0 +1,122 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-05-03T07:37:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c7991b1b2e63d1ab1222b1b664d8766ef57c1399",
+      "sha": "c7991b1b2e63d1ab1222b1b664d8766ef57c1399"
+    },
+    {
+      "committed_at": "2022-05-03T07:38:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/17070b0f36a2995165f83a3e8336391c8db98f2a",
+      "sha": "17070b0f36a2995165f83a3e8336391c8db98f2a"
+    },
+    {
+      "committed_at": "2022-05-04T14:41:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b8043704bf5a26099c04124fabab778275ac2e68",
+      "sha": "b8043704bf5a26099c04124fabab778275ac2e68"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-05-03T07:37:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1620",
+          "number": 1620,
+          "pull_request": {
+            "merged_at": "2022-05-05T09:04:11Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Skip test when brotli is installed"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b8043704bf5a26099c04124fabab778275ac2e68/tests%2Ftest_requests.py",
+      "changes": 5,
+      "deletions": 0,
+      "filename": "tests/test_requests.py",
+      "sha": "033df1e6aa94cf5e3848283baa9084d0848d41ae",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b8043704bf5a26099c04124fabab778275ac2e68/tests%2Ftest_websockets.py",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "tests/test_websockets.py",
+      "sha": "c1ec1153e7df0e12b01dca58ab5ef3b6f06e2ea2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1618\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **mgorny** May  3, 2022</sup>\r\nIf `Brotli` or `brotlicffi` is installed on the system, urllib3 includes it in its `accept-encoding`. This causes starlette's tests to fail on mismatched `accept-encoding`.\r\n\r\nTo reproduce:\r\n\r\n```pytb\r\n$ python -m venv .venv\r\n$ . .venv/bin/activate\r\n$ pip install -r requirements.txt\r\n[...]\r\n$ pip install Brotli\r\nCollecting Brotli\r\n  Using cached Brotli-1.0.9-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (2.7 MB)\r\nInstalling collected packages: Brotli\r\nSuccessfully installed Brotli-1.0.9\r\n$ pytest -v\r\n========================================================= test session starts =========================================================\r\nplatform linux -- Python 3.10.4, pytest-7.1.2, pluggy-1.0.0 -- /tmp/starlette/.venv/bin/python\r\ncachedir: .pytest_cache\r\nrootdir: /tmp/starlette, configfile: setup.cfg\r\nplugins: anyio-3.5.0\r\ncollected 568 items                                                                                                                   \r\n\r\n[...]\r\n============================================================== FAILURES ===============================================================\r\n____________________________________________________ test_request_headers[asyncio] ____________________________________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})\r\n\r\n    def test_request_headers(test_client_factory):\r\n        async def app(scope, receive, send):\r\n            request = Request(scope, receive)\r\n            headers = dict(request.headers)\r\n            response = JSONResponse({\"headers\": headers})\r\n            await response(scope, receive, send)\r\n    \r\n        client = test_client_factory(app)\r\n        response = client.get(\"/\", headers={\"host\": \"example.org\"})\r\n>       assert response.json() == {\r\n            \"headers\": {\r\n                \"host\": \"example.org\",\r\n                \"user-agent\": \"testclient\",\r\n                \"accept-encoding\": \"gzip, deflate\",\r\n                \"accept\": \"*/*\",\r\n                \"connection\": \"keep-alive\",\r\n            }\r\n        }\r\nE       AssertionError: assert {'headers': {...le.org', ...}} == {'headers': {...le.org', ...}}\r\nE         Differing items:\r\nE         {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate, br', 'connection': 'keep-alive', 'host': 'example.org', ...}} != {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'keep-alive', 'host': 'example.org', ...}}\r\nE         Full diff:\r\nE           {\r\nE            'headers': {'accept': '*/*',\r\nE         -              'accept-encoding': 'gzip, deflate',\r\nE         +              'accept-encoding': 'gzip, deflate, br',...\r\nE         \r\nE         ...Full output truncated (6 lines hidden), use '-vv' to show\r\n\r\ntests/test_requests.py:48: AssertionError\r\n_____________________________________________________ test_request_headers[trio] ______________________________________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='trio', backend_options={})\r\n\r\n    def test_request_headers(test_client_factory):\r\n        async def app(scope, receive, send):\r\n            request = Request(scope, receive)\r\n            headers = dict(request.headers)\r\n            response = JSONResponse({\"headers\": headers})\r\n            await response(scope, receive, send)\r\n    \r\n        client = test_client_factory(app)\r\n        response = client.get(\"/\", headers={\"host\": \"example.org\"})\r\n>       assert response.json() == {\r\n            \"headers\": {\r\n                \"host\": \"example.org\",\r\n                \"user-agent\": \"testclient\",\r\n                \"accept-encoding\": \"gzip, deflate\",\r\n                \"accept\": \"*/*\",\r\n                \"connection\": \"keep-alive\",\r\n            }\r\n        }\r\nE       AssertionError: assert {'headers': {...le.org', ...}} == {'headers': {...le.org', ...}}\r\nE         Differing items:\r\nE         {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate, br', 'connection': 'keep-alive', 'host': 'example.org', ...}} != {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'keep-alive', 'host': 'example.org', ...}}\r\nE         Full diff:\r\nE           {\r\nE            'headers': {'accept': '*/*',\r\nE         -              'accept-encoding': 'gzip, deflate',\r\nE         +              'accept-encoding': 'gzip, deflate, br',...\r\nE         \r\nE         ...Full output truncated (6 lines hidden), use '-vv' to show\r\n\r\ntests/test_requests.py:48: AssertionError\r\n___________________________________________________ test_websocket_headers[asyncio] ___________________________________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})\r\n\r\n    def test_websocket_headers(test_client_factory):\r\n        async def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n            websocket = WebSocket(scope, receive=receive, send=send)\r\n            headers = dict(websocket.headers)\r\n            await websocket.accept()\r\n            await websocket.send_json({\"headers\": headers})\r\n            await websocket.close()\r\n    \r\n        client = test_client_factory(app)\r\n        with client.websocket_connect(\"/\") as websocket:\r\n            expected_headers = {\r\n                \"accept\": \"*/*\",\r\n                \"accept-encoding\": \"gzip, deflate\",\r\n                \"connection\": \"upgrade\",\r\n                \"host\": \"testserver\",\r\n                \"user-agent\": \"testclient\",\r\n                \"sec-websocket-key\": \"testserver==\",\r\n                \"sec-websocket-version\": \"13\",\r\n            }\r\n            data = websocket.receive_json()\r\n>           assert data == {\"headers\": expected_headers}\r\nE           AssertionError: assert {'headers': {...server', ...}} == {'headers': {...server', ...}}\r\nE             Differing items:\r\nE             {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate, br', 'connection': 'upgrade', 'host': 'testserver', ...}} != {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'upgrade', 'host': 'testserver', ...}}\r\nE             Full diff:\r\nE               {\r\nE                'headers': {'accept': '*/*',\r\nE             -              'accept-encoding': 'gzip, deflate',\r\nE             +              'accept-encoding': 'gzip, deflate, br',...\r\nE             \r\nE             ...Full output truncated (8 lines hidden), use '-vv' to show\r\n\r\ntests/test_websockets.py:71: AssertionError\r\n____________________________________________________ test_websocket_headers[trio] _____________________________________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='trio', backend_options={})\r\n\r\n    def test_websocket_headers(test_client_factory):\r\n        async def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n            websocket = WebSocket(scope, receive=receive, send=send)\r\n            headers = dict(websocket.headers)\r\n            await websocket.accept()\r\n            await websocket.send_json({\"headers\": headers})\r\n            await websocket.close()\r\n    \r\n        client = test_client_factory(app)\r\n        with client.websocket_connect(\"/\") as websocket:\r\n            expected_headers = {\r\n                \"accept\": \"*/*\",\r\n                \"accept-encoding\": \"gzip, deflate\",\r\n                \"connection\": \"upgrade\",\r\n                \"host\": \"testserver\",\r\n                \"user-agent\": \"testclient\",\r\n                \"sec-websocket-key\": \"testserver==\",\r\n                \"sec-websocket-version\": \"13\",\r\n            }\r\n            data = websocket.receive_json()\r\n>           assert data == {\"headers\": expected_headers}\r\nE           AssertionError: assert {'headers': {...server', ...}} == {'headers': {...server', ...}}\r\nE             Differing items:\r\nE             {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate, br', 'connection': 'upgrade', 'host': 'testserver', ...}} != {'headers': {'accept': '*/*', 'accept-encoding': 'gzip, deflate', 'connection': 'upgrade', 'host': 'testserver', ...}}\r\nE             Full diff:\r\nE               {\r\nE                'headers': {'accept': '*/*',\r\nE             -              'accept-encoding': 'gzip, deflate',\r\nE             +              'accept-encoding': 'gzip, deflate, br',...\r\nE             \r\nE             ...Full output truncated (8 lines hidden), use '-vv' to show\r\n\r\ntests/test_websockets.py:71: AssertionError\r\n======================================================= short test summary info =======================================================\r\nXFAIL tests/middleware/test_base.py::test_contextvars[asyncio-CustomMiddlewareUsingBaseHTTPMiddleware]\r\n  BaseHTTPMiddleware creates a TaskGroup which copies the contextand erases any changes to it made within the TaskGroup\r\nXFAIL tests/middleware/test_base.py::test_contextvars[trio-CustomMiddlewareUsingBaseHTTPMiddleware]\r\n  BaseHTTPMiddleware creates a TaskGroup which copies the contextand erases any changes to it made within the TaskGroup\r\nSKIPPED [3] tests/conftest.py:11: Trio not supported (yet!)\r\n======================================== 4 failed, 559 passed, 3 skipped, 2 xfailed in 40.59s =========================================\r\n```</div>",
+    "body_last_edited_at": null,
+    "closed_at": "2022-05-05T09:04:11Z",
+    "created_at": "2022-05-03T07:25:09Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1619",
+    "labels": [
+      "bug",
+      "clean up"
+    ],
+    "number": 1619,
+    "state": "closed",
+    "title": "Test failures if `Brotli` is installed",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-05T09:04:11Z",
+    "created_at": "2022-05-03T07:37:44Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1620",
+    "merge_commit_sha": "d425c84b105c9df9a29d24cef01422d699e3574f",
+    "merged_at": "2022-05-05T09:04:11Z",
+    "number": 1620,
+    "title": "Skip test when brotli is installed",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+    "committed_at": "2022-05-03T05:32:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/830f3486537916bae6b46948ff922adc14a22b7c"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-05-03T07:27:58Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-05-03T07:27:58Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-05-03T07:37:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1620",
+          "number": 1620,
+          "pull_request": {
+            "merged_at": "2022-05-05T09:04:11Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1620"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Skip test when brotli is installed"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-05T09:04:11Z",
+      "event": "closed"
+    }
+  ]
+}

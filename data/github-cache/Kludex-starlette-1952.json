@@ -1,0 +1,178 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-11-16T07:37:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a1969975905d80e737c37bfa24c0676d7ddd3d30",
+      "sha": "a1969975905d80e737c37bfa24c0676d7ddd3d30"
+    },
+    {
+      "committed_at": "2022-11-16T07:45:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e9ca01371ac3c4fd1b129ed2fe28c4bd9fc5abb9",
+      "sha": "e9ca01371ac3c4fd1b129ed2fe28c4bd9fc5abb9"
+    },
+    {
+      "committed_at": "2022-11-16T18:45:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/edd666a5152839486ef9ec27951a81250246f046",
+      "sha": "edd666a5152839486ef9ec27951a81250246f046"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-11-16T07:50:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1953",
+          "number": 1953,
+          "pull_request": {
+            "merged_at": "2022-11-16T18:56:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1953"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TestClient for extra unquote in query parameters (#1952)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-18T14:02:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5659",
+          "number": 5659,
+          "pull_request": {
+            "merged_at": "2022-11-27T14:46:06Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5659"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06 Bump Starlette to version `0.22.0` to fix bad encoding for query parameters in `TestClient`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/edd666a5152839486ef9ec27951a81250246f046/starlette%2Ftestclient.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/testclient.py",
+      "sha": "8de1e3e317d5e43df20d3885200bf031bddc3865",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/edd666a5152839486ef9ec27951a81250246f046/tests%2Ftest_testclient.py",
+      "changes": 13,
+      "deletions": 1,
+      "filename": "tests/test_testclient.py",
+      "sha": "84fcfbafd2478d928376f0713b31efa68a7b2a09",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1946\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **azogue** November 15, 2022</sup>\r\nAfter the change to `httpx` for the `TestClient` in **v0.21.0** (), the query parameters are not properly encoded? when sending requests with it, and **strings are corrupted** when received in the endpoints.\r\n\r\nQuick example to show the problem:\r\n\r\n```python\r\nimport logging\r\nfrom fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n@app.get(\"/example\")\r\nasync def _show_encoding_error(look_for: str):\r\n    return {\"found\": look_for}\r\n\r\nif __name__ == '__main__':\r\n    from starlette.testclient import TestClient\r\n\r\n    with TestClient(app) as client:\r\n        params = {\"look_for\": \"plain text\"}\r\n        resp = client.get(\"/example\", params=params).json()\r\n        logging.warning(resp)\r\n        assert resp[\"found\"] == \"plain text\"\r\n\r\n        params = {\"look_for\": \"Espa\u00f1a\"}\r\n        resp = client.get(\"/example\", params=params).json()\r\n        logging.warning(resp)\r\n        assert resp[\"found\"] == \"Espa\u00f1a\", resp[\"found\"]\r\n```\r\n\r\nThe example app works as expected if called from the SwaggerUI or from another python process using a plain `httpx.Client`, so it appears something broke with the new wrapping for `TestClient` \ud83e\udd72\r\n\r\n```python\r\nimport httpx\r\n\r\nparams = {\"look_for\": \"Espa\u00f1a\"}\r\nwith httpx.Client(base_url=\"http://localhost:8000/\") as client:\r\n    resp = client.get(\"/example\", params=params).json()\r\n    assert resp[\"found\"] == \"Espa\u00f1a\"\r\n```\r\n\r\n#### Details\r\n\r\nFirst issued in fastapi repo: https://github.com/tiangolo/fastapi/issues/5646, before checking the `TestClient` comes from here \ud83d\ude48\r\n\r\nEnvironment:\r\n- macOS M1 arm64\r\n- fastapi v0.87.0\r\n- starlette v0.21.0\r\n- httpx v0.23.0\r\n\r\n\r\n\r\n</div>",
+    "body_last_edited_at": null,
+    "closed_at": "2022-11-16T19:22:02Z",
+    "created_at": "2022-11-16T06:26:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1952",
+    "labels": [
+      "testclient",
+      "good first issue"
+    ],
+    "number": 1952,
+    "state": "closed",
+    "title": "Bad encoding in query parameters with new TestClient using httpx.Client",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-11-16T18:56:26Z",
+    "created_at": "2022-11-16T07:50:27Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1953",
+    "merge_commit_sha": "24887d681593795b5c0025d54fce744227313464",
+    "merged_at": "2022-11-16T18:56:26Z",
+    "number": 1953,
+    "title": "Fix TestClient for extra unquote in query parameters (#1952)",
+    "user": "azogue"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+    "committed_at": "2022-11-05T16:17:32Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/bf5d7357b544b48b96844d3274ea558df079571d"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-11-16T06:26:43Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-11-16T06:26:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-11-16T07:24:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-16T07:50:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1953",
+          "number": 1953,
+          "pull_request": {
+            "merged_at": "2022-11-16T18:56:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1953"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TestClient for extra unquote in query parameters (#1952)"
+        }
+      }
+    },
+    {
+      "commit_id": "24887d681593795b5c0025d54fce744227313464",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/24887d681593795b5c0025d54fce744227313464",
+      "created_at": "2022-11-16T18:56:28Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-11-16T19:22:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-16T19:22:02Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-11-18T14:02:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5659",
+          "number": 5659,
+          "pull_request": {
+            "merged_at": "2022-11-27T14:46:06Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5659"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06 Bump Starlette to version `0.22.0` to fix bad encoding for query parameters in `TestClient`"
+        }
+      }
+    },
+    {
+      "commit_id": "5ff0057f9e691e9db7445f2563457b6b789b3777",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/5ff0057f9e691e9db7445f2563457b6b789b3777",
+      "created_at": "2023-02-13T07:48:14Z",
+      "event": "referenced"
+    }
+  ]
+}

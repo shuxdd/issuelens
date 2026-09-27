@@ -1,0 +1,71 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-12-29T03:56:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/296",
+          "number": 296,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/296"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for AWS Lambda ALB event source"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I would like to add some sort of \"driver\" for AWS Lambda.\r\n\r\nWe want to use starlette to develop our API backend on AWS Lambda. At some later date, we might want to move off Lambda (depending on cost, etc). For that reason, we want to build the API in such a way that we can readily move to a full uvicorn+starlette stack with minimal changes.\r\n\r\nI've been investigating the starlette for this purpose. I'm not a starlette expert. If one were to build a \"driver\" for AWS Lambda, how would that work? An outline for a good performant solution would be helpful so that we can implement the corresponding code in the best way possible",
+    "closed_at": "2018-12-29T10:49:57Z",
+    "created_at": "2018-12-21T03:07:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/286",
+    "number": 286,
+    "state": "closed",
+    "title": "Support for AWS Lambda",
+    "user": "rajeev"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-29T03:56:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/296",
+          "number": 296,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/296"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for AWS Lambda ALB event source"
+        }
+      }
+    },
+    {
+      "created_at": "2018-12-29T10:49:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-29T10:49:57Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-11-11T03:58:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-11T03:58:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-11T03:58:51Z",
+      "event": "subscribed"
+    }
+  ]
+}

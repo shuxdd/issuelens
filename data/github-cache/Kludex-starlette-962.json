@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have recently started developing an application with starlette. But after working with Flask I kinda missed the routing with decorators. I wondered if it would be possible to create a decorator similar to Flask for routes. Starlette allows to add routes with `Starlette.add_route`. If you combine this with the parameters given in Flask's implementation (args: url, kwargs: method(s)) it shouldn't be impossible. Is there a reason against such a implementation of routing? And if not could this be implemented to make routing easier, please.\r\n\r\nRegards,\r\nCobalt\r\n",
+    "closed_at": "2020-06-07T22:25:38Z",
+    "created_at": "2020-06-07T12:09:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/962",
+    "number": 962,
+    "state": "closed",
+    "title": "[Feature Request] Routing with decorators",
+    "user": "Chaostheorie"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-07T12:46:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-07T22:25:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-07T22:25:38Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-06-08T11:01:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-08T13:24:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-08T13:31:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-20T20:43:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-03T16:24:50Z",
+      "event": "commented"
+    }
+  ]
+}

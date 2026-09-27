@@ -1,0 +1,526 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-01-04T11:20:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/77117ab9f123e7b68eb7fbbeb052c43aa0199046",
+      "sha": "77117ab9f123e7b68eb7fbbeb052c43aa0199046"
+    },
+    {
+      "committed_at": "2025-01-04T11:34:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8d211e74704376a4785b710683dd623d68cead6b",
+      "sha": "8d211e74704376a4785b710683dd623d68cead6b"
+    },
+    {
+      "committed_at": "2025-01-04T11:34:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4e439578157ebe03fb58a0c79f9e0c75c695104d",
+      "sha": "4e439578157ebe03fb58a0c79f9e0c75c695104d"
+    },
+    {
+      "committed_at": "2025-01-04T12:01:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7fbe6885f4ec61380bcf9be41c3fd3fe4d22c267",
+      "sha": "7fbe6885f4ec61380bcf9be41c3fd3fe4d22c267"
+    },
+    {
+      "committed_at": "2025-01-25T12:41:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/77cf393980e5d08e2948c53079bd3e41392a58a8",
+      "sha": "77cf393980e5d08e2948c53079bd3e41392a58a8"
+    },
+    {
+      "committed_at": "2025-02-08T22:32:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a15aca9909d71379b5b0d26b239cf68bc82d158d",
+      "sha": "a15aca9909d71379b5b0d26b239cf68bc82d158d"
+    },
+    {
+      "committed_at": "2025-02-21T15:43:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/26d5e42d751239b1c33c93d8b854d389d5d2ade4",
+      "sha": "26d5e42d751239b1c33c93d8b854d389d5d2ade4"
+    },
+    {
+      "committed_at": "2025-02-22T11:43:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6fa2ce47d0875c8c620ea39743094ef43e8071a0",
+      "sha": "6fa2ce47d0875c8c620ea39743094ef43e8071a0"
+    },
+    {
+      "committed_at": "2025-02-22T11:43:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b72be56fede24b2e4740c2dd637ffec0d1cb828d",
+      "sha": "b72be56fede24b2e4740c2dd637ffec0d1cb828d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-12-08T19:03:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1109",
+          "number": 1109,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1109"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "add basic timeout support for testclient"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-04T11:22:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2840",
+          "number": 2840,
+          "pull_request": {
+            "merged_at": "2025-02-22T11:45:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2840"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecated warnings to `TestClient` on use of `timeout` argument"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-04T11:52:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2841",
+          "number": 2841,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2841"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecation warning to `timeout` in `TestClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-05-07T07:37:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/YuriSilenok/23-2P9_kv.ur/pull/32",
+          "number": 32,
+          "pull_request": {
+            "merged_at": "2025-05-07T07:44:25Z",
+            "url": "https://api.github.com/repos/YuriSilenok/23-2P9_kv.ur/pulls/32"
+          },
+          "repository": {
+            "full_name": "YuriSilenok/23-2P9_kv.ur"
+          },
+          "title": "Unit Test API when a&b ==0, c!=0"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-09T08:14:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mNandhu/Hestia/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mNandhu/Hestia"
+          },
+          "title": "Clean up pytest warnings (datetime.utcnow, TestClient timeout, asyncio.Future loop, SQLAlchemy defaults)"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-09T09:34:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mNandhu/Hestia/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2025-09-09T10:01:16Z",
+            "url": "https://api.github.com/repos/mNandhu/Hestia/pulls/4"
+          },
+          "repository": {
+            "full_name": "mNandhu/Hestia"
+          },
+          "title": "Clean up pytest warnings (datetime.utcnow, TestClient timeout, asyncio.Future loop, SQLAlchemy defaults)"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-29T02:56:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SkyDominator/simulation/issues/58",
+          "number": 58,
+          "pull_request": {},
+          "repository": {
+            "full_name": "SkyDominator/simulation"
+          },
+          "title": "Backend Security Test: failure and warning"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-29T02:56:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SkyDominator/simulation/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2025-09-29T03:34:36Z",
+            "url": "https://api.github.com/repos/SkyDominator/simulation/pulls/59"
+          },
+          "repository": {
+            "full_name": "SkyDominator/simulation"
+          },
+          "title": "Fix Backend Security Test: Improve pip-audit vulnerability detection robustness"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T17:19:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tylerwillis/panopticon/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2026-07-30T23:22:43Z",
+            "url": "https://api.github.com/repos/tylerwillis/panopticon/pulls/59"
+          },
+          "repository": {
+            "full_name": "tylerwillis/panopticon"
+          },
+          "title": "Install GitHub CLI in every task container"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-18T16:29:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/akashdalwala2007-collab/Thermocell-ai/pull/2",
+          "number": 2,
+          "pull_request": {
+            "url": "https://api.github.com/repos/akashdalwala2007-collab/Thermocell-ai/pulls/2"
+          },
+          "repository": {
+            "full_name": "akashdalwala2007-collab/Thermocell-ai"
+          },
+          "title": "Phase 1 implementation"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b72be56fede24b2e4740c2dd637ffec0d1cb828d/starlette%2Ftestclient.py",
+      "changes": 7,
+      "deletions": 0,
+      "filename": "starlette/testclient.py",
+      "sha": "d54025e52d7ec2996d3a6fbdea9c390291067063",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b72be56fede24b2e4740c2dd637ffec0d1cb828d/tests%2Ftest_testclient.py",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "tests/test_testclient.py",
+      "sha": "c6a3edafc14e33da5203808a18ca4519da06ceb0",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n`timeout` parameter exposed in `testclient.request` has no effect. Looking through the code, it seems as though we use the same interface as `requests` package but only a subset of those features are supported by `testclient`\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n```python\r\nimport time\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.testclient import TestClient\r\n\r\nmock_service = Starlette()\r\n\r\n\r\n@mock_service.route(\"/slow_response\")\r\ndef slow_response(request):\r\n    time.sleep(0.01)\r\n    return JSONResponse({\"mock\": \"slow example\"})\r\n\r\n\r\ndef test_timeout():\r\n    \"\"\" no timeout exception raised -- this test passes when it should fail \"\"\"\r\n    client = TestClient(mock_service, raise_server_exceptions=True)\r\n    response = client.get(\"/slow_response\", timeout=0.001)\r\n    assert response.json() == {\"mock\": \"slow example\"}\r\n```\r\n\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\n\r\nA TimeoutException should be raised if the timeout specified in request is shorter than the time the request takes.\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n\r\nNo timeout exceptions are raised when setting timeout.\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nIn CI/CD context, testing our own endpoints which, during integration testing, may timeout, is very helpful. If this is unsupported, it might be nice to have a list of differences between the interface of requests/testclient (this might include #1102).\r\n\r\nI did look a bit how the requests package implemented their timeout exceptions, and to be completely honest I got a bit lost going down the rabbit hole of `requests` -> `urllib3` -> `http.client`.  Since we're using a different adapter for the testclient, it might be some work to reimplement all the way down the timeout exceptions in the same way.\r\n\r\nI did notice that the `async_asgi_testclient` works with a timeout. Of course, it requires an async endpoint. But [their implementation](https://github.com/vinissimus/async-asgi-testclient/blob/f42d1f8ce9fd826d80dbe35e3ba123166c6a2b44/async_asgi_testclient/utils.py#L111-L113) might still be useful? \r\n\r\nFound that `httpx` had a similar issue with timeout having no effect when mounting an app with its client.",
+    "body_last_edited_at": null,
+    "closed_at": "2025-02-22T11:45:08Z",
+    "created_at": "2020-12-08T16:04:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1108",
+    "labels": [
+      "testclient",
+      "good first issue"
+    ],
+    "number": 1108,
+    "state": "closed",
+    "title": "TestClient.request does not honor timeout",
+    "user": "falkben"
+  },
+  "pull_request": {
+    "closed_at": "2025-02-22T11:45:07Z",
+    "created_at": "2025-01-04T11:22:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2840",
+    "merge_commit_sha": "135e3af00a507714a4e391ab8d11b835399aa1a4",
+    "merged_at": "2025-02-22T11:45:06Z",
+    "number": 2840,
+    "title": "Add deprecated warnings to `TestClient` on use of `timeout` argument",
+    "user": "iudeen"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "0109dce29b76c64e93c56c01fa5020860f935ed3",
+    "committed_at": "2025-01-04T09:52:50Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/0109dce29b76c64e93c56c01fa5020860f935ed3"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-12-08T19:03:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1109",
+          "number": 1109,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1109"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "add basic timeout support for testclient"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-04T20:26:47Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-02-08T11:46:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T11:47:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T10:49:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T11:00:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T14:24:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T14:24:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-06T14:24:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-04T05:28:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-04T09:07:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-04T09:07:10Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2025-01-04T09:08:15Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2025-01-04T11:22:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2840",
+          "number": 2840,
+          "pull_request": {
+            "merged_at": "2025-02-22T11:45:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2840"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecated warnings to `TestClient` on use of `timeout` argument"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-04T11:52:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2841",
+          "number": 2841,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2841"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add deprecation warning to `timeout` in `TestClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-22T11:45:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-02-27T09:32:02Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-05-07T07:37:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/YuriSilenok/23-2P9_kv.ur/pull/32",
+          "number": 32,
+          "pull_request": {
+            "merged_at": "2025-05-07T07:44:25Z",
+            "url": "https://api.github.com/repos/YuriSilenok/23-2P9_kv.ur/pulls/32"
+          },
+          "repository": {
+            "full_name": "YuriSilenok/23-2P9_kv.ur"
+          },
+          "title": "Unit Test API when a&b ==0, c!=0"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-09T08:14:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mNandhu/Hestia/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mNandhu/Hestia"
+          },
+          "title": "Clean up pytest warnings (datetime.utcnow, TestClient timeout, asyncio.Future loop, SQLAlchemy defaults)"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-09T09:34:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mNandhu/Hestia/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2025-09-09T10:01:16Z",
+            "url": "https://api.github.com/repos/mNandhu/Hestia/pulls/4"
+          },
+          "repository": {
+            "full_name": "mNandhu/Hestia"
+          },
+          "title": "Clean up pytest warnings (datetime.utcnow, TestClient timeout, asyncio.Future loop, SQLAlchemy defaults)"
+        }
+      }
+    },
+    {
+      "commit_id": "7dbeb1e90d9eb9e85aaf74e86590f4656023977c",
+      "commit_url": "https://api.github.com/repos/berland/ert/commits/7dbeb1e90d9eb9e85aaf74e86590f4656023977c",
+      "created_at": "2025-09-11T11:29:51Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "64f4869fd62cd48c416f6b95f620ad0c0c7291f7",
+      "commit_url": "https://api.github.com/repos/berland/ert/commits/64f4869fd62cd48c416f6b95f620ad0c0c7291f7",
+      "created_at": "2025-09-11T11:30:46Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "59965bee4c7fb8f2d4560a67aa439ed96242d97e",
+      "commit_url": "https://api.github.com/repos/berland/ert/commits/59965bee4c7fb8f2d4560a67aa439ed96242d97e",
+      "created_at": "2025-09-12T13:28:06Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "ca8312638c3a006913377b48ee05feb89bd77a29",
+      "commit_url": "https://api.github.com/repos/equinor/ert/commits/ca8312638c3a006913377b48ee05feb89bd77a29",
+      "created_at": "2025-09-17T06:55:59Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-09-29T02:56:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SkyDominator/simulation/issues/58",
+          "number": 58,
+          "pull_request": {},
+          "repository": {
+            "full_name": "SkyDominator/simulation"
+          },
+          "title": "Backend Security Test: failure and warning"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-29T02:56:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SkyDominator/simulation/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2025-09-29T03:34:36Z",
+            "url": "https://api.github.com/repos/SkyDominator/simulation/pulls/59"
+          },
+          "repository": {
+            "full_name": "SkyDominator/simulation"
+          },
+          "title": "Fix Backend Security Test: Improve pip-audit vulnerability detection robustness"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T17:19:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tylerwillis/panopticon/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2026-07-30T23:22:43Z",
+            "url": "https://api.github.com/repos/tylerwillis/panopticon/pulls/59"
+          },
+          "repository": {
+            "full_name": "tylerwillis/panopticon"
+          },
+          "title": "Install GitHub CLI in every task container"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-18T16:29:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/akashdalwala2007-collab/Thermocell-ai/pull/2",
+          "number": 2,
+          "pull_request": {
+            "url": "https://api.github.com/repos/akashdalwala2007-collab/Thermocell-ai/pulls/2"
+          },
+          "repository": {
+            "full_name": "akashdalwala2007-collab/Thermocell-ai"
+          },
+          "title": "Phase 1 implementation"
+        }
+      }
+    }
+  ]
+}

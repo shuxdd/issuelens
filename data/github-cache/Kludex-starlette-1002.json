@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi!\r\n\r\nI use example from the docs:\r\n\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Mount\r\nfrom starlette.staticfiles import StaticFiles\r\n\r\nroutes = [\r\n    Mount('/static', app=StaticFiles(directory='static', html=True), name=\"static\"),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\n\r\nThe code saved in .py file in a directory which has sub-directory named 'static'.\r\nThat sub-directory has file named 'index.html'.\r\nI run app using uvicorn.\r\n\r\nThe bug:\r\nWhen I access http://localhost:8000/static/index.html the response is 404 even though that file is present.\r\n\r\nI have tried:\r\n* Using absolute path for directory parameter.\r\n* Using html=True in StaticFiles constructor\r\n\r\nThe result is still the same.\r\n\r\nIs there something else that I should add to my app to make it work? The docs leave the impression that this is all I have to do.\r\n\r\nI have Windows OS.",
+    "closed_at": "2020-07-20T12:38:04Z",
+    "created_at": "2020-07-19T14:16:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1002",
+    "number": 1002,
+    "state": "closed",
+    "title": "StaticFiles return 404",
+    "user": "indeets-vasily"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-07-19T19:16:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-19T19:30:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-20T10:27:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-20T12:38:04Z",
+      "event": "commented"
+    }
+  ]
+}

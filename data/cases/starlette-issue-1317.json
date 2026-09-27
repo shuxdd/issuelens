@@ -1,0 +1,127 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-10-19T15:50:11Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1317"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1317"
+    ]
+  },
+  "case_id": "starlette-issue-1317",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1322",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Fix port issue on host-based routing' directly changes starlette/routing.py with focused behavior test(s) tests/test_routing.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-10-26T05:06:57Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\nWhen adding a host-based routes, `host` value can accept the port and does not process it in any way. But `Host.matches()` cuts off the port number ([`routing.py:432`](https://github.com/encode/starlette/blob/master/starlette/routing.py#L432))\r\n\r\n### Expected behavior\r\nWhen adding, cut off the port, or \u0441onsider it when matching.\r\n\r\n### Actual behavior\r\n```python\r\nimport uvicorn as uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Host, Router, Route\r\n\r\napp = Starlette(routes=[\r\n    Host('127.0.0.1:8889', app=Router(routes=[Route('/', lambda *a, **k: PlainTextResponse('Hello World'))])),\r\n])\r\n\r\nuvicorn.run(app, port=8889)\r\n```\r\n\r\nBreakpoint at [`routing.py:433`](https://github.com/encode/starlette/blob/master/starlette/routing.py#L433)\r\n![breakpoint variables](https://user-images.githubusercontent.com/29860366/137943818-4a9ba822-d0ae-4c56-9ca2-03cce844ecba.png)\r\n\r\n- Starlette version: 0.16.0\r\n",
+    "number": 1317,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1317",
+    "title": "\ud83d\udc1b Different `Host` behavior for setting `host` argument and getting `Host` header"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1322 created_at 2021-10-26T05:06:57Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1322",
+    "repair_files": [
+      "docs/routing.md",
+      "starlette/routing.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is d87c93eda4c546771fb51c60a21e8f245905f7f6",
+    "test_files": [
+      "tests/test_routing.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/routing.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/docs%2Frouting.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/starlette%2Frouting.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "7219ea040f881b2c363c9f192703ad6fd4ff5e30",
+        "source_url": "https://github.com/Kludex/starlette/commit/7219ea040f881b2c363c9f192703ad6fd4ff5e30"
+      },
+      {
+        "sha": "1e7c31b34a9d80b62fcc2a3dbee84ec1ba7612d6",
+        "source_url": "https://github.com/Kludex/starlette/commit/1e7c31b34a9d80b62fcc2a3dbee84ec1ba7612d6"
+      },
+      {
+        "sha": "2d7e5c9007667d0dca934cfc6890925928c2b554",
+        "source_url": "https://github.com/Kludex/starlette/commit/2d7e5c9007667d0dca934cfc6890925928c2b554"
+      },
+      {
+        "sha": "1f3be61f9f118448d136034b077fbf9bbec04fd0",
+        "source_url": "https://github.com/Kludex/starlette/commit/1f3be61f9f118448d136034b077fbf9bbec04fd0"
+      },
+      {
+        "sha": "b53867ee62613d318b2bce8bf4ab82eca5620849",
+        "source_url": "https://github.com/Kludex/starlette/commit/b53867ee62613d318b2bce8bf4ab82eca5620849"
+      },
+      {
+        "sha": "74ecba98969db200b9e50bf116ef0c06255264b1",
+        "source_url": "https://github.com/Kludex/starlette/commit/74ecba98969db200b9e50bf116ef0c06255264b1"
+      },
+      {
+        "sha": "cca446459e071b3238a195e11d4763f3f78339cd",
+        "source_url": "https://github.com/Kludex/starlette/commit/cca446459e071b3238a195e11d4763f3f78339cd"
+      },
+      {
+        "sha": "fa6fd611a6f1cd99e93b6a8ce95e39ba012c92a2",
+        "source_url": "https://github.com/Kludex/starlette/commit/fa6fd611a6f1cd99e93b6a8ce95e39ba012c92a2"
+      },
+      {
+        "sha": "92c488299383e2af4a66aa3d3cb865c37935cd78",
+        "source_url": "https://github.com/Kludex/starlette/commit/92c488299383e2af4a66aa3d3cb865c37935cd78"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-10-26T05:06:57Z",
+      "number": 1322,
+      "source_url": "https://github.com/Kludex/starlette/pull/1322"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1322"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/tests%2Ftest_routing.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "d87c93eda4c546771fb51c60a21e8f245905f7f6",
+    "committed_at": "2021-10-25T07:51:12Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/d87c93eda4c546771fb51c60a21e8f245905f7f6"
+  },
+  "schema_version": "1.0"
+}

@@ -94,6 +94,8 @@
     }
   ],
   "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2300\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **Waghabond** October 12, 2023</sup>\r\nThe TestClient just delegates the url merging to the join method of the httpx.URL object.\r\n\r\nThis causes the base path configuration to be ignored in some cases.\r\n\r\neg. \r\nThis how the merge is done in the Starlette TestClient's request() method.\r\n```python\r\nurl = self.base_url.join(url)\r\n```\r\nIt creates unintuitive behaviour in the following example (which i think is a common way to use the test client)\r\n```python\r\nclient = testclient.TestClient(app, base_url=\"http://testserver/api/v1/\")\r\n\r\nresult = client.base_url.join(\"/this-should-append-onto-the-end-of-the-base-url\")\r\n# result in reality is URL('http://testserver/this-should-append-onto-the-end-of-the-base-url'), the /api/v1 has disappeared.\r\nresult = client.base_url.join(\"this-works-as-expected\")\r\n# result is URL('http://testserver/api/v1/this-works-as-expected'), \r\n```\r\n\r\nthe way that httpx performs this merge is via the following code (i've lifted it straight from the httpx source code):\r\n\r\n```python\r\ndef _merge_url(self, url: URLTypes) -> URL:\r\n    \"\"\"\r\n    Merge a URL argument together with any 'base_url' on the client,\r\n    to create the URL used for the outgoing request.\r\n    \"\"\"\r\n    merge_url = URL(url)\r\n    if merge_url.is_relative_url:\r\n        # To merge URLs we always append to the base URL. To get this\r\n        # behaviour correct we always ensure the base URL ends in a '/'\r\n        # separator, and strip any leading '/' from the merge URL.\r\n        #\r\n        # So, eg...\r\n        #\r\n        # >>> client = Client(base_url=\"https://www.example.com/subpath\")\r\n        # >>> client.base_url\r\n        # URL('https://www.example.com/subpath/')\r\n        # >>> client.build_request(\"GET\", \"/path\").url\r\n        # URL('https://www.example.com/subpath/path')\r\n        merge_raw_path = self.base_url.raw_path + merge_url.raw_path.lstrip(b\"/\")\r\n        return self.base_url.copy_with(raw_path=merge_raw_path)\r\n    return merge_url\r\n```\r\n\r\nStarlette should be doing this the same way.\r\n</div>\r\n\r\n<!-- POLAR PLEDGE BADGE START -->\r\n> [!IMPORTANT]\r\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\r\n> - We receive the funding once the issue is completed & confirmed by you.\r\n> - Thank you in advance for helping prioritize & fund our backlog.\r\n\r\n<a href=\"https://polar.sh/encode/starlette/issues/2306\">\r\n<picture>\r\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2306/pledge.svg?darkmode=1\">\r\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2306/pledge.svg\">\r\n</picture>\r\n</a>\r\n<!-- POLAR PLEDGE BADGE END -->\r\n",
+    "body_last_edited_at": "2023-10-25T01:29:22Z",
     "closed_at": "2023-12-16T13:55:21Z",
     "created_at": "2023-10-18T07:19:13Z",
     "html_url": "https://github.com/Kludex/starlette/issues/2306",
@@ -116,6 +118,11 @@
     "user": "Kludex"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+    "committed_at": "2023-12-16T12:51:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/9a213c1321593fcf9344161b043bdd7d1e600e24"
+  },
   "timeline": [
     {
       "created_at": "2023-10-18T07:21:27Z",

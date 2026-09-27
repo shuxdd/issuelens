@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I want to save request to ContextVar so I can use it anywhere. Here is code sample:\r\n```python\r\nfrom contextvars import ContextVar\r\n\r\nimport uvicorn\r\nfrom fastapi import FastAPI\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.requests import Request\r\n\r\nctx: ContextVar[Request] = ContextVar(\"request\")\r\napp = FastAPI()\r\n\r\n\r\nclass RequestContextMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request: Request, call_next):\r\n        token = ctx.set(request)\r\n        try:\r\n            response = await call_next(request)\r\n        finally:\r\n            ctx.reset(token)\r\n        return response\r\n\r\napp.add_middleware(RequestContextMiddleware)\r\n\r\nasync def root(request: Request, body: str):\r\n    print(1, request._stream_consumed)\r\n    print(2, request._body)\r\n    ctx_request = ctx.get()\r\n    print(3, ctx_request._body)\r\n\r\n\r\napp.add_api_route(\"/\", root, methods=[\"POST\"])\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app)\r\n\r\n```\r\nOutput:\r\n```\r\n1 True\r\n2 \"the request data\"\r\n...\r\n    print(ctx_request._body)\r\n          ^^^^^^^^^^^^^^^^^\r\nAttributeError: '_CachedRequest' object has no attribute '_body'. Did you mean: 'body'?\r\n```\r\nso, my question is\r\n- Why middleware will read body?\r\n- Why the ctx_request._body get empty, but the request._body in param is worked\r\n",
+    "closed_at": "2024-09-29T18:19:16Z",
+    "created_at": "2024-08-13T16:14:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2669",
+    "number": 2669,
+    "state": "closed",
+    "title": "request body get empty when using middleware to save request to contextvar",
+    "user": "LoadingZhang"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-08-13T17:31:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-13T17:34:37Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2024-08-13T17:39:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-13T17:39:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-13T17:39:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-13T17:41:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T18:19:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T18:19:16Z",
+      "event": "closed"
+    }
+  ]
+}

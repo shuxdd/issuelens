@@ -1,0 +1,179 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-06-17T08:37:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/eb9ce5b05eff01256c04872d8ce478cc7612a7fb",
+      "sha": "eb9ce5b05eff01256c04872d8ce478cc7612a7fb"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-06-13T23:27:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/544",
+          "number": 544,
+          "pull_request": {
+            "merged_at": "2019-06-17T13:35:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/544"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "feat: ServerErrorMiddleware improved"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-28T12:21:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1386",
+          "number": 1386,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1386"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "New exception page."
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 88,
+      "blob_url": "https://github.com/Kludex/starlette/blob/eb9ce5b05eff01256c04872d8ce478cc7612a7fb/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 104,
+      "deletions": 16,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "0d153ac46c1653ee548ccb4b56514fedcd48f79f",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Right now we just display a raw `format_trackback()`.\r\n\r\nIt'd make sense to have a proper page with lines of context around each file in the stack, and local variables at each point. (As with Django or Werkzeug's debugger pages)",
+    "closed_at": "2022-02-15T11:01:06Z",
+    "created_at": "2018-07-18T12:17:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/30",
+    "labels": [
+      "clean up",
+      "help wanted"
+    ],
+    "number": 30,
+    "state": "closed",
+    "title": "Include more information in `DebugMiddleware`.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2019-06-17T13:35:06Z",
+    "created_at": "2019-06-13T23:26:54Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/544",
+    "merge_commit_sha": "c5e40dcf03197fd0575de5ebd0cf6136ec0c0f3b",
+    "merged_at": "2019-06-17T13:35:06Z",
+    "number": 544,
+    "title": "feat: ServerErrorMiddleware improved",
+    "user": "marcosschroh"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-02T16:13:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T17:26:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T17:26:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-02T17:26:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-02T18:24:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-03T17:00:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-04T14:50:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-13T23:27:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/544",
+          "number": 544,
+          "pull_request": {
+            "merged_at": "2019-06-17T13:35:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/544"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "feat: ServerErrorMiddleware improved"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-18T17:30:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T18:34:23Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-14T18:34:53Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-28T12:21:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1386",
+          "number": 1386,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1386"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "New exception page."
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-28T12:21:27Z",
+      "event": "connected"
+    },
+    {
+      "created_at": "2022-02-15T11:01:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-20T12:12:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-20T12:12:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-06-20T12:12:58Z",
+      "event": "subscribed"
+    }
+  ]
+}

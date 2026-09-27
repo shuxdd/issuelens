@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-10-08T20:40:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/64",
+          "number": 64,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Startup / Shutdown events"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Are there any plans to include a way to attach objects which share an app's lifetime, for example database connections and similar? Or is that supposed to be handled my middleware somehow? Thanks!",
+    "closed_at": "2018-09-20T14:48:54Z",
+    "created_at": "2018-09-20T14:06:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/63",
+    "number": 63,
+    "state": "closed",
+    "title": "Application configuration",
+    "user": "berislavlopac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-20T14:48:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-08T20:40:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/64",
+          "number": 64,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Startup / Shutdown events"
+        }
+      }
+    }
+  ]
+}

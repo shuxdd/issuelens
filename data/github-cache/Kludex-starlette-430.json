@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "When mounting an app (e.g. Django) through `WSGIMiddleware` it seems to be required to also adjust `PATH_INFO` accordingly.\r\n\r\nWith the following, Django would e.g. redirect to \"/admin/\" (without the outer \"/dj\" prefix).\r\n\r\n```python\r\ndjapp = django.core.wsgi.get_wsgi_application()\r\napp.mount(\"/dj\", app=WSGIMiddleware(djapp))\r\n```\r\n\r\nI've got this working through an additional \"path_prefix\" argument for WSGIMiddleware, but I think it makes sense to either prepend the mount path in `build_environ` always (using `\"PATH_INFO\": scope[\"root_path\"] + scope[\"path\"]`, and making it visible to the mounted app though), or handle e.g. \"Location\" response headers by prepending it there.\r\nThe latter could likely result in redirect-loops, and does not help with Django POSTing to \"/admin/login\" then.\r\n\r\nI've not investigated too much into this yet, what do you think?",
+    "closed_at": "2019-03-11T14:41:23Z",
+    "created_at": "2019-03-08T22:16:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/430",
+    "number": 430,
+    "state": "closed",
+    "title": "Path prefix for PATH_INFO with WSGIMiddleware",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-08T23:02:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-09T20:57:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-09T21:28:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-10T07:41:37Z",
+      "event": "commented"
+    }
+  ]
+}

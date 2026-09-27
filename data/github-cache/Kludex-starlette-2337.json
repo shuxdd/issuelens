@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "We have the following scenario ( fastapi + starlette with async functions)\r\n- user upload file  => our app will load and analyze the file => send to other rest servers for analyze the text => return response to user.\r\n- it will take long time for `load and analyze the file`,  if we run the logical in caller thread, it will block all other new connections to our server. so have to create thread or just use [starlette.starlette.background.BackgroundTask](https://github.com/encode/starlette/blob/master/starlette/background.py#L15). \r\n- BUT I found [starlette.BackgroundTask](https://github.com/encode/starlette/blob/master/starlette/background.py#L15) can NOT return any data to caller. so I have to write a similar class `BackgroundWithResultTask` just for add \"return\" \r\n\r\n# sample caller code\r\n```python\r\n  task = BackgroundWithResultTask(self.loader_mgr.load_file, file_path)   # return task result without block other request, \r\n  parsed_docs = await task()\r\n  return await other_rest_request(parsed_docs)\r\n```\r\n\r\n# change code(just modify return type and add 2 return)\r\n```python\r\nclass BackgroundTask:\r\n    def __init__(\r\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\r\n    ) -> None:\r\n        self.func = func\r\n        self.args = args\r\n        self.kwargs = kwargs\r\n        self.is_async = is_async_callable(func)\r\n\r\n    async def __call__(self) -> typing.Any:     # return Any\r\n        if self.is_async:\r\n            return await self.func(*self.args, **self.kwargs)   # add return\r\n        else:\r\n            return await run_in_threadpool(self.func, *self.args, **self.kwargs)  # add return\r\n```\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2337\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2337/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2337/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-11-17T09:23:21Z",
+    "created_at": "2023-11-17T02:14:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2337",
+    "number": 2337,
+    "state": "closed",
+    "title": "how about return BackgroundTask result ",
+    "user": "fishjam"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-11-17T09:23:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-17T09:23:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-11-17T09:23:27Z",
+      "event": "closed"
+    }
+  ]
+}

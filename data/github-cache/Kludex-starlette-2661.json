@@ -1,0 +1,68 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi there,\r\n\r\nI'm creating this issue to find out how many developers are actually using Starlette with Trio.\r\n\r\nIf you use trio, can you please give a \ud83d\ude80, and comment here?\r\nIf you use AsyncIO, please give a \ud83c\udf89 .",
+    "closed_at": "2024-08-12T06:58:46Z",
+    "created_at": "2024-08-06T07:14:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2661",
+    "number": 2661,
+    "state": "closed",
+    "title": "Who uses Trio?",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-08-06T07:15:00Z",
+      "event": "pinned"
+    },
+    {
+      "created_at": "2024-08-11T15:22:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T06:58:46Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-08-12T13:25:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T13:51:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:24:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:28:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:28:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-12T14:28:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-12T14:29:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:31:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-12T14:35:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-19T06:40:56Z",
+      "event": "unpinned"
+    }
+  ]
+}

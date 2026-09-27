@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Application below (**main.py**) works well when running via gunicorn (*with uvicorn worker*), `/status` endpoint returns `OK` without errors. But when I tried to add test (**test_main.py**) - I get `AssertionError: DatabaseBackend is not running`. Am I missing something?\r\n\r\n**main.py**\r\n```\r\nfrom os import getenv\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import Response\r\nfrom starlette.requests import Request as StarletteRequest\r\nfrom starlette.middleware.sessions import SessionMiddleware\r\nfrom starlette.middleware.database import DatabaseMiddleware\r\nfrom starlette.datastructures import DatabaseURL, Secret\r\n\r\nDATABASE_URL = DatabaseURL('postgresql:///dbname?user=postgres&host=/postgres/.s.PGSQL.5432')\r\nSECRET_KEY = Secret(getenv('SECRET_KEY', 'change-me'))\r\n\r\nSERVER = Starlette()\r\nSERVER.add_middleware(DatabaseMiddleware, database_url=DATABASE_URL, rollback_on_shutdown=False)\r\nSERVER.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)\r\n\r\n@SERVER.route('/status')\r\nasync def status(request: StarletteRequest) -> Response: # pylint: disable=unused-argument\r\n    return Response('OK')\r\n```\r\n\r\n**test_main.py**\r\n```\r\nimport unittest\r\nfrom starlette.status import HTTP_200_OK\r\nfrom starlette.testclient import TestClient\r\nfrom main import SERVER\r\n\r\nclass MainTestCase(unittest.TestCase):\r\n    def test_status(self):\r\n        client = TestClient(SERVER)\r\n        result = client.get('/status')\r\n        self.assertEqual(result.status_code, HTTP_200_OK)\r\n        self.assertEqual(result.text, 'OK')\r\n```",
+    "closed_at": "2018-12-28T11:33:13Z",
+    "created_at": "2018-12-27T20:45:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/294",
+    "number": 294,
+    "state": "closed",
+    "title": "'AssertionError: DatabaseBackend is not running' when using TestClient",
+    "user": "HarrySky"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-28T09:43:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-28T11:33:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-28T11:33:13Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-12-28T11:34:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-28T16:08:22Z",
+      "event": "commented"
+    }
+  ]
+}

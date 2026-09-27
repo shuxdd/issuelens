@@ -1,0 +1,77 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-04-17T05:10:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vinissimus/async-asgi-testclient/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2019-04-17T10:33:06Z",
+            "url": "https://api.github.com/repos/vinissimus/async-asgi-testclient/pulls/3"
+          },
+          "repository": {
+            "full_name": "vinissimus/async-asgi-testclient"
+          },
+          "title": "flag on the testclient to catch unhandle server exceptions"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "A Simple endpoint like:\r\n```\r\nasync def view_raiser(request):\r\n    assert 1 == 0\r\n```\r\nWhen I run under uvicorn, the exception logged on the console is:\r\n\r\n```\r\nERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/jordi/Documents/vinissimus/checkout/env/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 368, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/home/jordi/Documents/vinissimus/checkout/env/lib/python3.7/site-packages/uvicorn/middleware/asgi2.py\", line 6, in __call__\r\n    instance = self.app(scope)\r\nTypeError: 'NoneType' object is not callable\r\nINFO: ('127.0.0.1', 37596) - \"GET /auth/raise HTTP/1.1\" 500\r\n```\r\nSame happens with hypercorn.\r\n\r\nI'm not pretty sure if this is the expected behaviour. At least on the wsgi world you found the full stack of the error on your server logs.\r\n",
+    "closed_at": "2019-04-17T13:51:58Z",
+    "created_at": "2019-04-17T04:51:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/484",
+    "number": 484,
+    "state": "closed",
+    "title": "Exceptions are not propagated to server error",
+    "user": "jordic"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "909827e5adc50f8c7d1c242712b7670ffb7c3d88",
+      "commit_url": "https://api.github.com/repos/vinissimus/async-asgi-testclient/commits/909827e5adc50f8c7d1c242712b7670ffb7c3d88",
+      "created_at": "2019-04-17T05:09:10Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-04-17T05:10:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vinissimus/async-asgi-testclient/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2019-04-17T10:33:06Z",
+            "url": "https://api.github.com/repos/vinissimus/async-asgi-testclient/pulls/3"
+          },
+          "repository": {
+            "full_name": "vinissimus/async-asgi-testclient"
+          },
+          "title": "flag on the testclient to catch unhandle server exceptions"
+        }
+      }
+    },
+    {
+      "commit_id": "83bcf42a76a7a3c571395b45f7705917897aeed0",
+      "commit_url": "https://api.github.com/repos/vinissimus/async-asgi-testclient/commits/83bcf42a76a7a3c571395b45f7705917897aeed0",
+      "created_at": "2019-04-17T10:33:06Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-04-17T13:51:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T14:12:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T14:19:00Z",
+      "event": "commented"
+    }
+  ]
+}

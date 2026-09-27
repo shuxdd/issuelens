@@ -1,0 +1,524 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-11T18:17:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ceee4830b385cc16b7d5b8e325aa05d7a18baf09",
+      "sha": "ceee4830b385cc16b7d5b8e325aa05d7a18baf09"
+    },
+    {
+      "committed_at": "2021-09-30T20:32:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ad29baadbedc7ef0b58b23ac5a30a91afd87fcde",
+      "sha": "ad29baadbedc7ef0b58b23ac5a30a91afd87fcde"
+    },
+    {
+      "committed_at": "2021-10-02T10:35:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/48bc30d11977c65c98d312ab7fc17c8ecfe86a60",
+      "sha": "48bc30d11977c65c98d312ab7fc17c8ecfe86a60"
+    },
+    {
+      "committed_at": "2021-10-02T12:01:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bd9ed14b639b0e525cfdc709c915b5460a836e0d",
+      "sha": "bd9ed14b639b0e525cfdc709c915b5460a836e0d"
+    },
+    {
+      "committed_at": "2021-10-02T12:01:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92568bd79936c7fe56653189a735effdf54d1ef8",
+      "sha": "92568bd79936c7fe56653189a735effdf54d1ef8"
+    },
+    {
+      "committed_at": "2021-10-02T12:07:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1",
+      "sha": "850c4559ed7f16cb7f41aff1367f7b90a32a3cc1"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-08-31T17:56:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2018-09-05T09:29:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/55"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Name changes"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T18:26:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1198",
+          "number": 1198,
+          "pull_request": {
+            "merged_at": "2021-10-03T15:21:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\ud83d\udd25 Remove GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-18T17:33:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server Sent Events"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-10T14:40:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4034",
+          "number": 4034,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "When there would be a version 1.0?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-03T19:18:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1888",
+          "number": 1888,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-23T09:02:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2384",
+          "number": 2384,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2384"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/README.md",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "README.md",
+      "sha": "a7d94904dfd362773ce8c4e57369d3763c49691f",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/docs%2Fgraphql.md",
+      "changes": 119,
+      "deletions": 113,
+      "filename": "docs/graphql.md",
+      "sha": "9b00106bb2ae3c8293c2ebdb9ebf6859014cea8c",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/docs%2Fimg%2Fgraphiql.png",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "docs/img/graphiql.png",
+      "sha": "7851993f7f0b5d20de637b8a6c23ddef01b8c558",
+      "status": "removed"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/docs%2Findex.md",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "docs/index.md",
+      "sha": "a9ec4106f90bd7f9266ef3206c0966ebff3b3f2a",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/requirements.txt",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "requirements.txt",
+      "sha": "59cc2edf7ecfd20abb6b02855de7d4b182275f00",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/setup.cfg",
+      "changes": 7,
+      "deletions": 7,
+      "filename": "setup.cfg",
+      "sha": "b3f84dca1e1a8838cd0d11a0741adfffa0d24b3c",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/setup.py",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "setup.py",
+      "sha": "3b8d32e16b0f6d63ea2de7a2a97d924c948f9ae5",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/starlette%2Fgraphql.py",
+      "changes": 275,
+      "deletions": 275,
+      "filename": "starlette/graphql.py",
+      "sha": "6e5d6ec6af09e2196eb9addd2819108392d92d27",
+      "status": "removed"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/850c4559ed7f16cb7f41aff1367f7b90a32a3cc1/tests%2Fconftest.py",
+      "changes": 3,
+      "deletions": 3,
+      "filename": "tests/conftest.py",
+      "sha": "4f210b3bd6c498e58878458d14ca2ab4de3ac3b2",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6c556f6c5e4aa70173a84f6e6854390241231021/tests%2Ftest_graphql.py",
+      "changes": 152,
+      "deletions": 152,
+      "filename": "tests/test_graphql.py",
+      "sha": "8492439f833ca0b7533da07de3d43517c0607440",
+      "status": "removed"
+    }
+  ],
+  "issue": {
+    "body": "## Introduce `App` first in README / Docs intro.\r\n\r\n* Promote the `app = App()` style, but then go on to demonstrate plain ASGI style example, and discuss design philosophy of \"everything is just ASGI\" , interoperable, eg. use `TestClient` with Channels.\r\n\r\n## Naming\r\n\r\n* `WebSocketSession` as just `WebSocket`? Rename `session` variable as `websocket` in docs?\r\n* Drop `StaticFile`, and just leave `StaticFiles` and `FileResponse`.\r\n* Module naming - should it be `starlette.requests`/`starlette.responses` instead of `starlette.request`/`starlette.response`? Would fit `websockets` and align better with documentation titles.\r\n* `App` should perhaps be `Starlette` instead. Less likely to be confused with plain ASGI `App` class examples, and mirrors eg. `flask.Flask` and `sanic.Sanic`.\r\n* Class based views instead as `HTTPEndpoint` and `WebSocketEndpoint`?\r\n\r\n- Zero-dependencies\r\n\r\nEnsure that `requests` is only required if `TestClient` is used. Ensure that `aiofiles` is only required if `FileResponse`/`StaticFiles` is used. We *could* choose to push `FileResponse` into the `starlette.staticfiles` module, and only ever import `aiofiles` from there.\r\n\r\n## Features\r\n\r\nSee https://github.com/encode/starlette/milestone/1\r\n\r\n* URL Reversing\r\n* Cookies\r\n* Form support\r\n* Class based views\r\n* Exception handling\r\n* Middleware\r\n* StartUp / Shutdown events\r\n* Background tasks\r\n\r\n## Later\r\n\r\n* Server Sent Events\r\n* HTTP/2 (and server push)\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/51\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/51/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/51/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:17Z",
+    "closed_at": "2026-03-22T19:37:10Z",
+    "created_at": "2018-08-29T10:45:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/51",
+    "number": 51,
+    "state": "closed",
+    "title": "Version 1.0",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2021-10-03T15:21:38Z",
+    "created_at": "2021-06-11T18:21:43Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1198",
+    "merge_commit_sha": "28088573aebc70807ef2aa422000cddb93b57a70",
+    "merged_at": "2021-10-03T15:21:38Z",
+    "number": 1198,
+    "title": "\ud83d\udd25 Remove GraphQL support",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-08-31T17:56:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2018-09-05T09:29:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/55"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Name changes"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-01T13:35:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:18:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:26:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:34:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-08T13:39:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-26T15:47:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T08:48:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T08:48:05Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-27T08:48:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-27T18:47:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-02T13:31:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-30T17:50:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-05T00:58:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-05T01:32:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-05T01:32:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-05T01:32:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-26T19:44:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-26T19:44:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-26T19:44:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-22T12:51:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-22T12:51:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-25T19:54:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-26T18:55:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-28T14:13:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T10:22:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T10:42:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T17:58:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-11T18:26:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1198",
+          "number": 1198,
+          "pull_request": {
+            "merged_at": "2021-10-03T15:21:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\ud83d\udd25 Remove GraphQL support"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-18T17:33:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server Sent Events"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-10T14:40:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4034",
+          "number": 4034,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "When there would be a version 1.0?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-06T06:10:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-03T19:18:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1888",
+          "number": 1888,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-23T09:02:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2384",
+          "number": 2384,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2384"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 1.0.0"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-04T18:07:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-11T07:19:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-02T19:32:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-13T05:03:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-14T14:20:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:20:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:21:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:21:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:21:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:21:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T14:21:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-14T16:06:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-18T15:29:31Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2026-03-22T19:37:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-22T19:37:10Z",
+      "event": "closed"
+    }
+  ]
+}

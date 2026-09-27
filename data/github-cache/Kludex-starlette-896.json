@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "As far as I can see, Starlette does not support named routes.\r\n\r\nNamed routes are probably the first feature I look for in a web framework.  I trust everyone here is familiar with the reason (basically decoupling URLs from everything else and making URLs easy to change), but if not, here's an explanation:\r\nhttps://stackoverflow.com/a/52231573",
+    "closed_at": "2020-04-13T02:46:58Z",
+    "created_at": "2020-04-12T23:01:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/896",
+    "number": 896,
+    "state": "closed",
+    "title": "We need named routes",
+    "user": "nandoflorestan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-13T00:35:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-13T06:32:22Z",
+      "event": "commented"
+    }
+  ]
+}

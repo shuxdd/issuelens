@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Some more examples for file uploads and handling would greatly improve documentation.",
+    "closed_at": "2019-03-27T17:23:47Z",
+    "created_at": "2019-03-22T22:25:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/446",
+    "number": 446,
+    "state": "closed",
+    "title": "Documentation: File upload examples",
+    "user": "Immortalin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-27T17:12:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T17:23:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T17:23:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-01-21T00:42:00Z",
+      "event": "commented"
+    }
+  ]
+}

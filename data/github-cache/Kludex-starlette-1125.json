@@ -1,0 +1,172 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-11-29T17:39:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/781948a89676738532841414fb2fc5b9ae2f20b9",
+      "sha": "781948a89676738532841414fb2fc5b9ae2f20b9"
+    },
+    {
+      "committed_at": "2022-01-09T06:12:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/852d5080f5d573f51a932a500009ae0b01c4f8b4",
+      "sha": "852d5080f5d573f51a932a500009ae0b01c4f8b4"
+    },
+    {
+      "committed_at": "2022-02-03T11:19:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0e0e2c73c0e944851b5c8ab310a0b7322c2d881a",
+      "sha": "0e0e2c73c0e944851b5c8ab310a0b7322c2d881a"
+    },
+    {
+      "committed_at": "2022-02-03T11:23:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/54d89af28b8a3dad3f83e21aa6cdef871caf8c6d",
+      "sha": "54d89af28b8a3dad3f83e21aa6cdef871caf8c6d"
+    },
+    {
+      "committed_at": "2022-02-03T11:27:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/53bfd9f24b1d26d6146f9830ec8f9ab6691cee56",
+      "sha": "53bfd9f24b1d26d6146f9830ec8f9ab6691cee56"
+    },
+    {
+      "committed_at": "2022-02-03T11:31:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cc0daefee73f667daca58954fd98d870d9ee4232",
+      "sha": "cc0daefee73f667daca58954fd98d870d9ee4232"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-11-29T17:48:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1349",
+          "number": 1349,
+          "pull_request": {
+            "merged_at": "2022-02-03T11:34:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1349"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise a more obvious exception when form data is missing \"boundary\"."
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cc0daefee73f667daca58954fd98d870d9ee4232/starlette%2Fformparsers.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/formparsers.py",
+      "sha": "fd19492293750629e35ca58d7e6eb6eeb8674ae1",
+      "status": "modified"
+    },
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cc0daefee73f667daca58954fd98d870d9ee4232/tests%2Ftest_formparsers.py",
+      "changes": 17,
+      "deletions": 0,
+      "filename": "tests/test_formparsers.py",
+      "sha": "3d4b0a199314bc1b0ee54da84fce945b9b440419",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nNot actually a bug, but insufficient input validation.\r\n\r\n### To reproduce\r\n\r\nProvide POST input (e.g. with postman) with content-type 'multipart/form-data' but without _boundary_ parameter.\r\n\r\n### Expected behavior\r\n\r\nShall return 4xx error code. According to rfc7578 boundary is a required parameter.\r\n\r\n### Actual behavior\r\n\r\n_None_ boundary is passed to multipart library and an exception is raised there.\r\n\r\n### Debugging material\r\n\r\n```\r\nTypeError: can't concat NoneType to bytes\r\n  File \"starlette/middleware/trustedhost.py\", line 51, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/middleware/sessions.py\", line 75, in __call__\r\n    await self.app(scope, receive, send_wrapper)\r\n  File \"cpms/middleware.py\", line 55, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/middleware/authentication.py\", line 48, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"starlette/routing.py\", line 582, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"starlette/routing.py\", line 243, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/routing.py\", line 54, in app\r\n    response = await func(request)\r\n  File \"starlette/authentication.py\", line 69, in async_wrapper\r\n    return await func(*args, **kwargs)\r\n  File \"cpms/views/files.py\", line 90, in decorator\r\n    return await endpoint(request)\r\n  File \"cpms/views/files.py\", line 133, in upload_files\r\n    for f_name, f_value in (await request.form()).items():\r\n  File \"starlette/requests.py\", line 240, in form\r\n    self._form = await multipart_parser.parse()\r\n  File \"starlette/formparsers.py\", line 181, in parse\r\n    parser = multipart.MultipartParser(boundary, callbacks)\r\n  File \"multipart/multipart.py\", line 1042, in __init__\r\n    self.boundary = b'\\r\\n--' + boundary\r\n```\r\n\r\n### Environment\r\n\r\n- OS: OpenBSD 6.7\r\n- Python version: 3.7.9\r\n- Starlette version: 0.14.1\r\n\r\n### Additional context\r\n\r\nThe problem occurs due insufficient checking of the input on line 166 of starlette/formparsers.py\r\n`      boundary = params.get(b\"boundary\")`\r\n\r\nIt is better to replace it with:\r\n`      boundary = params[b\"boundary\"]`\r\nso exception at early stage will be raised.\r\n\r\nOr make an additional input validation.\r\n```\r\n      boundary = params.get(b\"boundary\")\r\n      if not boundary:\r\n          raise HTTPException(status_code=400)\r\n```\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2022-02-03T11:34:26Z",
+    "created_at": "2021-01-15T06:53:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1125",
+    "labels": [
+      "bug"
+    ],
+    "number": 1125,
+    "state": "closed",
+    "title": "Insufficient input validation of content-type 'multipart/form-data'",
+    "user": "toxadx"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-03T11:34:26Z",
+    "created_at": "2021-11-29T17:48:41Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1349",
+    "merge_commit_sha": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+    "merged_at": "2022-02-03T11:34:26Z",
+    "number": 1349,
+    "title": "Raise a more obvious exception when form data is missing \"boundary\".",
+    "user": "toxadx"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35",
+    "committed_at": "2021-11-29T13:32:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-11-27T15:58:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T15:58:53Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-29T16:15:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-29T17:48:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1349",
+          "number": 1349,
+          "pull_request": {
+            "merged_at": "2022-02-03T11:34:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1349"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise a more obvious exception when form data is missing \"boundary\"."
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    }
+  ]
+}

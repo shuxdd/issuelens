@@ -1,0 +1,73 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-07-23T10:45:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shipwebdotjp/obsidian-ai-hub/pull/72",
+          "number": 72,
+          "pull_request": {
+            "merged_at": "2026-07-23T13:09:35Z",
+            "url": "https://api.github.com/repos/shipwebdotjp/obsidian-ai-hub/pulls/72"
+          },
+          "repository": {
+            "full_name": "shipwebdotjp/obsidian-ai-hub"
+          },
+          "title": "HITL\u57fa\u76e4\u6539\u5584: lease\u5b89\u5168\u6027, v15, \u8cea\u554f\u30e2\u30c7\u30eb, \u627f\u8a8d\u4e00\u672c\u5316"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [ X] The bug is reproducible against the latest release and/or `master`.\r\n- [X ] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\nNo matter what kind of REST call (GET, POST), the method always returns 405 Method not Allowed.\r\n\r\n### To reproduce\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Route\r\nfrom starlette.responses import JSONResponse\r\nimport uvicorn\r\nimport asyncio\r\n\r\n\r\nasync def model_predict(request):\r\n\r\n    return JSONResponse({'hello': 'world'})\r\n\r\n\r\nroutes = [\r\n    Route('/predict', model_predict, methods=['GET'])\r\n]\r\n\r\napp = Starlette(debug=True, routes=routes)\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n\r\n```\r\n\r\n\r\n\r\n### Expected behavior\r\nShould return hello world\r\n\r\n### Actual behavior\r\nReturns 405 Method not Allowed\r\n\r\n### Debugging material\r\n\r\n\r\nNOTE:\r\nINFO:     Started server process [4920]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)\r\nINFO:     127.0.0.1:52065 - \"POST /predict HTTP/1.1\" 405 Method Not Allowed\r\n### Environment\r\n\r\n- OS: <!-- eg Linux/Windows/macOS. -->\r\nPy version: 3.7 & 3.8\r\nStarlette version: 0.13.8 & 0.14.1\r\n",
+    "closed_at": "2021-04-12T20:54:07Z",
+    "created_at": "2020-12-29T12:12:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1119",
+    "number": 1119,
+    "state": "closed",
+    "title": "405 on all methods",
+    "user": "mhenrichsen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-01-01T10:53:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-01T10:53:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-01-01T10:53:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-01-22T10:52:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-12T20:54:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-07-23T10:45:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shipwebdotjp/obsidian-ai-hub/pull/72",
+          "number": 72,
+          "pull_request": {
+            "merged_at": "2026-07-23T13:09:35Z",
+            "url": "https://api.github.com/repos/shipwebdotjp/obsidian-ai-hub/pulls/72"
+          },
+          "repository": {
+            "full_name": "shipwebdotjp/obsidian-ai-hub"
+          },
+          "title": "HITL\u57fa\u76e4\u6539\u5584: lease\u5b89\u5168\u6027, v15, \u8cea\u554f\u30e2\u30c7\u30eb, \u627f\u8a8d\u4e00\u672c\u5316"
+        }
+      }
+    }
+  ]
+}

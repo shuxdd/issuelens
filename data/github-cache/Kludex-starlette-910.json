@@ -1,0 +1,57 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-28T10:57:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/918",
+          "number": 918,
+          "pull_request": {
+            "merged_at": "2020-04-28T12:33:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/918"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added StarletteOpentracing to the third party middleware docs"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Thanks for a great project. Porting some older Flask app to FastAPI/Starlette as we speak.\r\n\r\nAs in some app's we used the tracing functionality of https://github.com/opentracing-contrib/python-flask and there didn't seem to exist an complete implementation for Starlette:\r\n\r\nhttps://github.com/acidjunk/starlette-opentracing and https://pypi.org/project/Starlette-OpenTracing/\r\n\r\nFeel free to close this ticket. I can cook up a PR if you want to add it to the Starlette Docs (section 3th party middleware)",
+    "closed_at": "2020-04-23T08:32:27Z",
+    "created_at": "2020-04-22T15:20:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/910",
+    "number": 910,
+    "state": "closed",
+    "title": "New 3th party middleware for OpenTracing.io",
+    "user": "acidjunk"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-23T08:32:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-28T10:57:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/918",
+          "number": 918,
+          "pull_request": {
+            "merged_at": "2020-04-28T12:33:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/918"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added StarletteOpentracing to the third party middleware docs"
+        }
+      }
+    }
+  ]
+}

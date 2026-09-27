@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Same class of problem as #3528, but in the sibling method.\n\n```python\nfrom starlette.datastructures import URL\n\nprint(URL('http://x/?a=1').replace_query_params(c=['d', 'e']))\n# http://x/?c=%5B%27d%27%2C+%27e%27%5D  -- the repr of the list, one param\n\nprint(URL('http://x/').replace_query_params(c=('d', 'e')))\n# http://x/?c=%28%27d%27%2C+%27e%27%29  -- same for tuples\n```\n\nExpected `http://x/?c=d&c=e` in both cases, matching repeated-key query encoding and the behavior of `include_query_params` after the fix for #3528.\n\nThe cause is the same one-liner pattern: `urlencode([(str(key), str(value)) ...])` stringifies the sequence instead of emitting one pair per item. Happy to send a PR mirroring the #3528 approach if that sounds right.\n\nEnv: starlette 1.6.0 (main @ d9ed5b0 range), Python 3.14.4, Linux.",
+    "closed_at": "2026-09-22T06:14:07Z",
+    "created_at": "2026-09-22T06:13:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3572",
+    "labels": [
+      "duplicate"
+    ],
+    "number": 3572,
+    "state": "closed",
+    "title": "replace_query_params stringifies list and tuple values instead of expanding to repeated keys",
+    "user": "ege-arhan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-09-22T06:14:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-09-22T06:14:07Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2026-09-22T06:14:07Z",
+      "event": "closed"
+    }
+  ]
+}

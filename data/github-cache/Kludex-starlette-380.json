@@ -1,0 +1,97 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-07-08T15:38:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dpgaspar/Flask-AppBuilder/issues/406",
+          "number": 406,
+          "pull_request": {},
+          "repository": {
+            "full_name": "dpgaspar/Flask-AppBuilder"
+          },
+          "title": "Running with a url base root other than '/'"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "We have:\r\n```python\r\n# new_app.py\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\n\r\napp = Starlette()\r\n\r\n@app.route('/method1')\r\nasync def homepage(request):\r\n    return PlainTextResponse(\"method1\")\r\n```\r\n\r\n```python\r\n# old_app.py\r\nfrom flask import Flask\r\napp = Flask(__name__)\r\n\r\n@app.route(\"/method2\")\r\ndef hello():\r\n    return \"method2\"\r\n```\r\n\r\n```python\r\n# main.py\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.middleware.wsgi import WSGIMiddleware\r\n\r\nimport uvicorn\r\n\r\nfrom old_app import app as old_app\r\nfrom new_app import app as new_app\r\n\r\napp = Starlette()\r\napp.debug = True\r\n\r\napp.mount(\"\", new_app)\r\napp.mount(\"\", WSGIMiddleware(old_app.wsgi_app))\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n```\r\n\r\nIn current implementation:\r\n- /method1 returns \"method1\"\r\n- /method2 returns 404 error\r\n\r\nIf we change order of mounts like this:\r\n```\r\napp.mount(\"\", WSGIMiddleware(old_app.wsgi_app))\r\napp.mount(\"\", new_app)\r\n```\r\n\r\n- /method1 returns 404 error\r\n- /method2 returns \"method2\"\r\n\r\nHow to make /method1 and /method2 both to work?",
+    "closed_at": "2019-02-11T09:08:13Z",
+    "created_at": "2019-02-09T08:44:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/380",
+    "number": 380,
+    "state": "closed",
+    "title": "Combining mountpoints",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-09T10:20:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-09T15:02:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-09T15:02:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-02-09T15:02:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-02-11T09:08:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-08T15:38:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dpgaspar/Flask-AppBuilder/issues/406",
+          "number": 406,
+          "pull_request": {},
+          "repository": {
+            "full_name": "dpgaspar/Flask-AppBuilder"
+          },
+          "title": "Running with a url base root other than '/'"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    }
+  ]
+}

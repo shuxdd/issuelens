@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "If startup events could receive the Starlette app object, modifying state could become a lot easier. My use case is injecting database and aiohttp connections into app state to not incur penalty of bootstrapping a database connection on the first request.\r\n\r\nI tried to look into it and make a PR, but got confused in Router object :sad:\r\n\r\nIf I used Starlette.add_event_handler or Starlette.on_event decorator, I could be able to do this. Problem is -- these are now discouraged. For which reason? Can the app be somehow launched before configuration takes place? If I construct an app object in the function and return it, this should not be a problem. Flask apps sometimes use this pattern.",
+    "closed_at": "2019-11-26T09:04:59Z",
+    "created_at": "2019-11-26T08:59:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/736",
+    "number": 736,
+    "state": "closed",
+    "title": "Question: Application object in startup events with configuration in Starlette.__init__()?",
+    "user": "vikanezrimaya"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-26T09:04:59Z",
+      "event": "commented"
+    }
+  ]
+}

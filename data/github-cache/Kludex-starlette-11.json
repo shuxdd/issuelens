@@ -1,0 +1,163 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-09-29T17:26:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/816b3a2769d766ab33c0da7ffb1daa8584809804",
+      "sha": "816b3a2769d766ab33c0da7ffb1daa8584809804"
+    },
+    {
+      "committed_at": "2018-10-05T17:34:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/837fe7d1b12dc56a2c422377096e3f4dfdd5fe91",
+      "sha": "837fe7d1b12dc56a2c422377096e3f4dfdd5fe91"
+    },
+    {
+      "committed_at": "2018-10-05T17:37:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d87f068649eda659a1ab19baaf5892c6d777d677",
+      "sha": "d87f068649eda659a1ab19baaf5892c6d777d677"
+    },
+    {
+      "committed_at": "2018-10-06T07:31:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e",
+      "sha": "9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-09-29T16:09:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/75",
+          "number": 75,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/75"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add cookies support."
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-05T17:37:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/86",
+          "number": 86,
+          "pull_request": {
+            "merged_at": "2018-10-06T12:08:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/86"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cookies"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 14,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e/starlette%2Frequests.py",
+      "changes": 16,
+      "deletions": 2,
+      "filename": "starlette/requests.py",
+      "sha": "054cc09e74ffcf15dfed2297f81612fd38f42e8f",
+      "status": "modified"
+    },
+    {
+      "additions": 34,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e/starlette%2Fresponses.py",
+      "changes": 38,
+      "deletions": 4,
+      "filename": "starlette/responses.py",
+      "sha": "7b34ec6715cf2b444e35c30c11b347bbfdc455d7",
+      "status": "modified"
+    },
+    {
+      "additions": 23,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e/tests%2Ftest_requests.py",
+      "changes": 23,
+      "deletions": 0,
+      "filename": "tests/test_requests.py",
+      "sha": "ef665188a39bb171273a43e0f7291ce349bf74c2",
+      "status": "modified"
+    },
+    {
+      "additions": 45,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9bcc01c1ac5f9e3591627a2e35818cfe647dfc5e/tests%2Ftest_responses.py",
+      "changes": 45,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "5cdc6e1273eccfb66ae49c11632d8ecc74fcd834",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Add `request.cookies` and `response.cookies`.\r\n\r\nNot much work to do, since https://docs.python.org/3/library/http.cookies.html supports everything we'd need.",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-06T12:09:56Z",
+    "created_at": "2018-06-26T13:55:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/11",
+    "number": 11,
+    "state": "closed",
+    "title": "Cookies",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-06T12:08:17Z",
+    "created_at": "2018-10-05T17:37:58Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/86",
+    "merge_commit_sha": "d1ba5d67226f556f1d5d46b7990c19bbbff4695d",
+    "merged_at": "2018-10-06T12:08:17Z",
+    "number": 86,
+    "title": "Cookies",
+    "user": "jordaneremieff"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "67fd28adc282c3a1cb9a20a6e14eaa4e16c1e910",
+    "committed_at": "2018-10-05T15:39:11Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/67fd28adc282c3a1cb9a20a6e14eaa4e16c1e910"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-09-29T16:09:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/75",
+          "number": 75,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/75"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add cookies support."
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-05T17:37:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/86",
+          "number": 86,
+          "pull_request": {
+            "merged_at": "2018-10-06T12:08:17Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/86"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cookies"
+        }
+      }
+    }
+  ]
+}

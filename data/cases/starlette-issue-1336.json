@@ -1,0 +1,109 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-08-26T09:25:27Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1336"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1336"
+    ]
+  },
+  "case_id": "starlette-issue-1336",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2352",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Do not overwrite `\"path\"` and `\"root_path\"` scope keys' directly changes starlette/requests.py, starlette/routing.py, starlette/staticfiles.py with focused behavior test(s) tests/test_routing.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-11-29T15:26:10Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\nAccoring to https://github.com/django/asgiref/issues/229#issuecomment-765583185, `scope[\"path\"]` includes the `scope[\"root_path\"]`.\r\nSo if root_path is `/foo` and request for `/foo/bar` has come, the upstream application servers (such as uvicorn) are passing `scope[\"path\"] == \"/foo/bar\" and scope[\"root_path\"] == \"/foo\"`, which is correct behavior. \r\n\r\nBut starlette does not conform this. It assumes `scope[\"path\"]` is a remainder of stripping `scope[\"root_path\"]` from original request path. In this case, `scope[\"path\"] == \"/bar\" and scope[\"root_path\"] == \"/foo\"`. This ASGI incompatible assumption can be seen [here](https://github.com/encode/starlette/blob/6af5c515e0a896cbf3f86ee043b88f6c24200bcf/starlette/routing.py#L368) or [here](https://github.com/encode/starlette/blob/6af5c515e0a896cbf3f86ee043b88f6c24200bcf/starlette/datastructures.py#L23) and many other places.\r\n\r\nThe following \"To reproduce\" section shows just one aspect of this wrong assumption.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n1. Save `main.py` as follows.\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Route, Mount\r\n\r\n\r\nclass Bar:\r\n    async def __call__(self, scope, receive, send):\r\n        await PlainTextResponse(f\"bar {scope['root_path']=} {scope['path']=}\")(scope, receive, send)\r\n\r\nclass FooBar:\r\n    async def __call__(self, scope, receive, send):\r\n        await PlainTextResponse(f\"foobar {scope['root_path']=} {scope['path']=}\")(scope, receive, send)\r\n\r\nroutes =[\r\n    Route('/bar', endpoint=Bar()),\r\n    Mount('/foo', routes=[\r\n        Route('/bar', endpoint=FooBar())\r\n    ])\r\n]\r\napp = Starlette(routes=routes)\r\n```\r\n\r\n2. Run `uvicorn main:app --port 8000 --root-path /foo`\r\n3. Access by `curl http://localhost:8000/foo/bar`\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nReceives\r\n```\r\nbar scope['root_path']='/foo' scope['path']='/foo/bar'\r\n```\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nReceives\r\n```\r\nfoobar scope['root_path']='/foo/foo' scope['path']='/bar'\r\n```\r\n\r\nSome points here are,\r\n1. `scope['path']` does not include `scope['root_path']` , which is ASGI incompatible.\r\n2. `FooBar` ASGI handler is called. It does not take `scope['root_path']` into account when routing.\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8.2\r\n- Starlette version: 0.17.0\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nThis may be a root cause of [this issue in fastapi](https://github.com/tiangolo/fastapi/issues/2872)\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/1336\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/1336/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/1336/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "number": 1336,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1336",
+    "title": "Handling of `scope[\"root_path\"]` and `scope[\"path\"]` differs from ASGI spec"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2352 created_at 2023-11-29T15:26:10Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2352",
+    "repair_files": [
+      "starlette/requests.py",
+      "starlette/routing.py",
+      "starlette/staticfiles.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+    "test_files": [
+      "tests/test_routing.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/requests.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frequests.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Frouting.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/starlette%2Fstaticfiles.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "8fcf61b6876ecd9f18a207fad2a2338ecf71d769",
+        "source_url": "https://github.com/Kludex/starlette/commit/8fcf61b6876ecd9f18a207fad2a2338ecf71d769"
+      },
+      {
+        "sha": "27cd865b024af78625ca6a8dfd72c4bdd239d3e6",
+        "source_url": "https://github.com/Kludex/starlette/commit/27cd865b024af78625ca6a8dfd72c4bdd239d3e6"
+      },
+      {
+        "sha": "f684f3bd2f1296db4536aafb2a91011ee94a75f3",
+        "source_url": "https://github.com/Kludex/starlette/commit/f684f3bd2f1296db4536aafb2a91011ee94a75f3"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-11-29T15:26:10Z",
+      "number": 2352,
+      "source_url": "https://github.com/Kludex/starlette/pull/2352"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2352"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f684f3bd2f1296db4536aafb2a91011ee94a75f3/tests%2Ftest_routing.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+    "committed_at": "2023-11-23T02:01:17Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223"
+  },
+  "schema_version": "1.0"
+}

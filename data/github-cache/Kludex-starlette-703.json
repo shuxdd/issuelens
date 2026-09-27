@@ -1,0 +1,101 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-07-04T03:56:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/2026-DSWU-Hearing/HEARING-BE/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-07-04T03:56:35Z",
+            "url": "https://api.github.com/repos/2026-DSWU-Hearing/HEARING-BE/pulls/3"
+          },
+          "repository": {
+            "full_name": "2026-DSWU-Hearing/HEARING-BE"
+          },
+          "title": "backend: \uc778\uc99d \ubcf4\uc548 \uac15\ud654 + \ubc29\ud574\uae08\uc9c0/\uc571\ud478\uc2dc + \uc18c\ub9ac \uce74\ud0c8\ub85c\uadf8 \ub9c8\uc774\uadf8\ub808\uc774\uc158"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T01:08:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/psamin/project_flock/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T01:31:48Z",
+            "url": "https://api.github.com/repos/psamin/project_flock/pulls/9"
+          },
+          "repository": {
+            "full_name": "psamin/project_flock"
+          },
+          "title": "Phase 2: walking skeleton \u2014 scouts move, write beliefs, render in a browser"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm trying to \"lock down\" a websocket endpoint like so:\r\n```\r\nclass ChatWebSocketEndpoint(WebSocketEndpoint):\r\n\r\n    allow_anonymous = False\r\n\r\n    async def on_connect(self, websocket: WebSocket) -> None:\r\n        if not websocket.user.is_authenticated and not self.allow_anonymous:\r\n            await websocket.close(status.WS_1008_POLICY_VIOLATION)\r\n            log.warning(f\"unauthenticated connection attempt\")\r\n            return\r\n        await super().on_connect(websocket)\r\n```\r\nStarlette completes the close, client gets a 403 status, but after exiting the `on_disconnect` I get this exception:\r\n```\r\n\ufffc File \"/home/rod/Projects/tailored-labs/emotive_chat/manage.py\", line 20, in <module>\r\n  main()\r\n\ufffc File \"/home/rod/Projects/tailored-labs/emotive_chat/manage.py\", line 14, in main\r\n  uvicorn.run(app, host='0.0.0.0', port=8000)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/uvicorn/main.py\", line 279, in run\r\n  server.run()\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/uvicorn/main.py\", line 307, in run\r\n  loop.run_until_complete(self.serve(sockets=sockets))\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 156, in run_asgi\r\n  self.logger.error(msg, exc_info=exc)\r\nFile \"/home/rod/.pyenv/versions/3.7.3/lib/python3.7/logging/__init__.py\", line 67, in error\r\nFile \"/home/rod/.pyenv/versions/3.7.3/lib/python3.7/logging/__init__.py\", line 1820, in _LogErrorReplacement\r\n  logger = self.logger\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 152, in run_asgi\r\n  result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/applications.py\", line 134, in __call__\r\n  await self.error_middleware(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 143, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/middleware/authentication.py\", line 48, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/exceptions.py\", line 53, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 590, in __call__\r\n  await route(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 352, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 590, in __call__\r\n  await route(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 352, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 590, in __call__\r\n  await route(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/routing.py\", line 264, in __call__\r\n  await self.app(scope, receive, send)\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/endpoints.py\", line 74, in dispatch\r\n  raise exc from None\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/endpoints.py\", line 65, in dispatch\r\n  message = await websocket.receive()\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/starlette/websockets.py\", line 40, in receive\r\n  message = await self._receive()\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 232, in asgi_receive\r\n  data = await self.recv()\r\nFile \"/home/rod/.local/share/virtualenvs/emotive_chat-sxd5cU2a/lib/python3.7/site-packages/websockets/protocol.py\", line 470, in recv\r\n  return_when=asyncio.FIRST_COMPLETED,\r\nFile \"/home/rod/.pyenv/versions/3.7.3/lib/python3.7/asyncio/tasks.py\", line 361, in wait\r\n  fs = {ensure_future(f, loop=loop) for f in set(fs)}\r\nFile \"/home/rod/.pyenv/versions/3.7.3/lib/python3.7/asyncio/tasks.py\", line 361, in <setcomp>\r\n  fs = {ensure_future(f, loop=loop) for f in set(fs)}\r\nFile \"/home/rod/.pyenv/versions/3.7.3/lib/python3.7/asyncio/tasks.py\", line 592, in ensure_future\r\n  raise TypeError('An asyncio.Future, a coroutine or an awaitable is '\r\n\r\nbuiltins.TypeError: An asyncio.Future, a coroutine or an awaitable is required\r\n```",
+    "closed_at": "2019-11-15T16:50:47Z",
+    "created_at": "2019-11-04T17:50:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/703",
+    "number": 703,
+    "state": "closed",
+    "title": "websocket.close() in on_connect() raises builtins.TypeError: An asyncio.Future, a coroutine or an awaitable is required",
+    "user": "rmorison"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-15T16:50:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-15T16:50:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-09-10T18:29:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-04T03:56:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/2026-DSWU-Hearing/HEARING-BE/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-07-04T03:56:35Z",
+            "url": "https://api.github.com/repos/2026-DSWU-Hearing/HEARING-BE/pulls/3"
+          },
+          "repository": {
+            "full_name": "2026-DSWU-Hearing/HEARING-BE"
+          },
+          "title": "backend: \uc778\uc99d \ubcf4\uc548 \uac15\ud654 + \ubc29\ud574\uae08\uc9c0/\uc571\ud478\uc2dc + \uc18c\ub9ac \uce74\ud0c8\ub85c\uadf8 \ub9c8\uc774\uadf8\ub808\uc774\uc158"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T01:08:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/psamin/project_flock/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T01:31:48Z",
+            "url": "https://api.github.com/repos/psamin/project_flock/pulls/9"
+          },
+          "repository": {
+            "full_name": "psamin/project_flock"
+          },
+          "title": "Phase 2: walking skeleton \u2014 scouts move, write beliefs, render in a browser"
+        }
+      }
+    }
+  ]
+}

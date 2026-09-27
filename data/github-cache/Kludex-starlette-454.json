@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Event Dispatcher\r\n\r\n\r\n## Motivation\r\nEvents (signals) is a common utility in a modern frameworks.\r\nThey let your application to react on various events triggered within request/application lifecycle.\r\nAlso, this is a good instrument for a 3rd-party plugin developers.\r\n\r\n## RFC\r\nIn this RFC I propose to add `EventDispatcher` class to manage events.\r\nThis is a class with the following API:\r\n```python\r\nclass EventDispatcher:\r\n    def subscribe(self, event_class, listener_callable)\r\n    def unsubscribe(self, event_class, listener_callable)\r\n    def unsubscribe_all(self, event_class)\r\n    async def trigger(event_instance)\r\n```\r\n\r\nThe `trigger` method is asynchronous due to listeners may access files or read the database. \r\n\r\nThe `event` is an arbitrary class instance. \r\n\r\n### Usage\r\n```python\r\ndef on_app_start(event):\r\n    print('app started')\r\n\r\nclass AppStarted:\r\n    def __init__(self, app)\r\n        self.app = app\r\n\r\napp = Starlette()\r\nevents = EventDispatcher()\r\nevents.subscribe(AppStarted, on_app_start)\r\n\r\n# this may live in starlette's app and fired in lifespan hooks\r\nawait events.trigger(AppStarted(app))\r\n```\r\n\r\n### Extras\r\nAs a part of this, Starlette may provide these events out of the box:\r\n`AppStarted` - lifespan start\r\n`AppFinished` - lifespan shutdown\r\n`HTTPRequestStarted`, `HTTPRequestFinished`, `HTTPRequestErrored`, `WebsocketConnected`, `WebsocketDisconnected`\r\n\r\nIf it works, I will submit a PR.",
+    "closed_at": "2019-03-28T12:38:09Z",
+    "created_at": "2019-03-28T11:58:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/454",
+    "number": 454,
+    "state": "closed",
+    "title": "Events (signals) dispatcher",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-28T12:38:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-16T15:34:34Z",
+      "event": "subscribed"
+    }
+  ]
+}

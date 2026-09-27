@@ -1,0 +1,57 @@
+{
+  "case_id": "starlette-issue-493",
+  "changed_files": [
+    {
+      "path": "starlette/_exception_handler.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2F_exception_handler.py",
+      "status": "added"
+    },
+    {
+      "path": "starlette/middleware/exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Fmiddleware%2Fexceptions.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Frouting.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/middleware/exceptions.py",
+      "snapshot_commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+      "source_url": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/middleware/exceptions.py"
+    },
+    {
+      "path": "starlette/routing.py",
+      "snapshot_commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+      "source_url": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/routing.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/middleware/exceptions.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/routing.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Question about Request.Body()' originates in starlette/middleware/exceptions.py, starlette/routing.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_exceptions.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_routing.py",
+      "status": "modified"
+    }
+  ]
+}

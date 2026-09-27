@@ -1,0 +1,102 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-08-29T22:31:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8225382ba723f3d7c5eaca36dea0a4618c073f59",
+      "sha": "8225382ba723f3d7c5eaca36dea0a4618c073f59"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-08-29T22:31:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/623",
+          "number": 623,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:41:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/623"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "don't return \"error\" in graphql response when no error occurs"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/starlette%2Fgraphql.py",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "starlette/graphql.py",
+      "sha": "3af6b04a1835b337c38db1d984e6109428111058",
+      "status": "modified"
+    },
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/tests%2Ftest_graphql.py",
+      "changes": 16,
+      "deletions": 8,
+      "filename": "tests/test_graphql.py",
+      "sha": "25f4a5bae0b5ac4814cc9fce51668bcb3c6f362d",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The [GraphQL Spec](https://graphql.github.io/graphql-spec/June2018/#sec-Errors) states that:\r\n> If no errors were encountered during the requested operation, the errors entry should not be present in the result.\r\n\r\nCurrently, if no errors are encountered, starlette will return `{\"data\": {...}, \"errors\": null}`. \r\nThis is only a small thing, but enough to break some clients.\r\n\r\nI have a PR for this incoming.",
+    "body_last_edited_at": null,
+    "closed_at": "2019-10-15T12:41:36Z",
+    "created_at": "2019-08-29T22:18:08Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/622",
+    "number": 622,
+    "state": "closed",
+    "title": "GraphQL response should not include error key if no error occured",
+    "user": "joshainglis"
+  },
+  "pull_request": {
+    "closed_at": "2019-10-15T12:41:36Z",
+    "created_at": "2019-08-29T22:31:54Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/623",
+    "merge_commit_sha": "006fb2ab7ed1465c7c493c7bd2f159f8c16ee949",
+    "merged_at": "2019-10-15T12:41:36Z",
+    "number": 623,
+    "title": "don't return \"error\" in graphql response when no error occurs",
+    "user": "joshainglis"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "0e75f9f2b8454f84d86d6196131e85dadc465583",
+    "committed_at": "2019-08-27T22:11:03Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/0e75f9f2b8454f84d86d6196131e85dadc465583"
+  },
+  "timeline": [
+    {
+      "commit_id": "8225382ba723f3d7c5eaca36dea0a4618c073f59",
+      "commit_url": "https://api.github.com/repos/joshainglis/starlette/commits/8225382ba723f3d7c5eaca36dea0a4618c073f59",
+      "created_at": "2019-08-29T22:31:19Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-29T22:31:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/623",
+          "number": 623,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:41:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/623"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "don't return \"error\" in graphql response when no error occurs"
+        }
+      }
+    }
+  ]
+}

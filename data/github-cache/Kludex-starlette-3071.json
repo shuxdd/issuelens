@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The starting point for issues should usually be a discussion...\n\nhttps://github.com/Kludex/starlette/discussions\n\nPossible bugs may be raised as a \"Potential Issue\" discussion, feature requests may be raised as an \"Ideas\" discussion. We can then determine if the discussion needs to be escalated into an \"Issue\" or not.\n\nThis will help us ensure that the \"Issues\" list properly reflects ongoing or needed work on the project.\n\n---\n\n- [/] Initially raised as discussion #3050 \n\nI raised this as a discussion but it's been three weeks and have not had any responses.\n\nTo repeat the gist:\n\nBefore 0.45.1 we were able to retry requests upon SQLAlchemy errors from here but now, since MemoryObjectReceiveStream is closed automatically upon exceptions in BaseHTTPMiddleware, something we were handling ourselves, our use case is broken and we're unable to find a workaround.\n",
+    "closed_at": "2025-11-23T12:36:07Z",
+    "created_at": "2025-11-18T14:25:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3071",
+    "number": 3071,
+    "state": "closed",
+    "title": "Closing MemoryObjectReceiveStream breaks retries of BaseHTTPMiddleware",
+    "user": "negillett"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-11-23T12:36:07Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-11-23T12:36:14Z",
+      "event": "commented"
+    }
+  ]
+}

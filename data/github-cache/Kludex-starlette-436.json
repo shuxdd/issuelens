@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-23T06:31:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1313",
+          "number": 1313,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks not working properly"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I took the code from here - https://www.starlette.io/background/\r\nand made it as - \r\n\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.background import BackgroundTask\r\n\r\napp = Starlette()\r\n\r\n@app.route('/user/signup', methods=['POST'])\r\nasync def signup(request):\r\n    data = await request.json()\r\n    username = data['username']\r\n    email = data['email']\r\n    task = BackgroundTask(send_welcome_email, to_address=email)\r\n    message = {'status': 'Signup successful'}\r\n    return JSONResponse(message, background=task)\r\n\r\nasync def send_welcome_email(to_address):\r\n    a = 1\r\n    for i in range(1, 10000):\r\n        # do long task\r\n        a*=i\r\n```\r\n\r\nHowever, the `send_welcome_email` doesn't seem to be behaving in an async way.\r\nWhat I want is for the response to be returned immediately, and then the `send_welcome_email` function should get executed.\r\n\r\nWhat am I doing wrong here?",
+    "closed_at": "2019-03-14T09:17:04Z",
+    "created_at": "2019-03-14T05:10:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/436",
+    "number": 436,
+    "state": "closed",
+    "title": "Background tasks doesn't seem to work in an async manner",
+    "user": "unography"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-14T09:17:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-19T10:31:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-23T06:31:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1313",
+          "number": 1313,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks not working properly"
+        }
+      }
+    }
+  ]
+}

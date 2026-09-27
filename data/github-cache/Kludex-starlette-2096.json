@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Is it possible to process requests directly using Starlette without using a routing table and if so, how?\r\n\r\nFor instance (in Go), it's possible to handle a request directly with a Handler and then perform path based routing manually:\r\n\r\n```go\r\nfunc ManualRouteHandler(w http.ResponseWriter, req *http.Request) {\r\n\tcleanPath := path.Clean(req.URL.Path)\r\n\tif strings.HasPrefix(cleanPath, \"/api\") {\r\n\t\t// if the the path starts with /api, use the apiHandler\r\n\t\t// pass down the response and request to the next handler\r\n\t\tapiHandler.ServeHTTP(w, req)\r\n\t\treturn\r\n\t} else {\r\n\t\t// if it's any other path, use the fileHandler\r\n\t\t// pass down the response and request to the next handler\r\n\t\tfileHandler.ServeHTTP(w, req)\r\n\t\treturn\r\n\t}\r\n}\r\n```\r\n\r\nThank you!\r\n\r\n",
+    "closed_at": "2023-03-29T08:18:25Z",
+    "created_at": "2023-03-28T11:15:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2096",
+    "number": 2096,
+    "state": "closed",
+    "title": "Routeless Routing:  Manual user path matching",
+    "user": "yaq-cc"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-03-28T11:40:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-29T08:18:24Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-03-29T08:18:25Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

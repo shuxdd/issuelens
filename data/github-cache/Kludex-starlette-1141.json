@@ -1,0 +1,112 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-29T04:25:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4e13daa07056406b3be633fd57d3ea57d840ffc6",
+      "sha": "4e13daa07056406b3be633fd57d3ea57d840ffc6"
+    },
+    {
+      "committed_at": "2021-07-04T10:07:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/212b85ab21c39c63e831f980960453e3d43b2737",
+      "sha": "212b85ab21c39c63e831f980960453e3d43b2737"
+    },
+    {
+      "committed_at": "2021-07-15T17:46:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cae39ca74b8bfe81c02ee3e2c62ba7472321b07a",
+      "sha": "cae39ca74b8bfe81c02ee3e2c62ba7472321b07a"
+    },
+    {
+      "committed_at": "2021-07-19T17:15:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2a41f0cac5fa8cf39c705d6d800963c38b97eb07",
+      "sha": "2a41f0cac5fa8cf39c705d6d800963c38b97eb07"
+    },
+    {
+      "committed_at": "2021-09-16T17:45:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7107e62831b3895776d7600593450d1962ec9761",
+      "sha": "7107e62831b3895776d7600593450d1962ec9761"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-06-29T04:28:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1226",
+          "number": 1226,
+          "pull_request": {
+            "merged_at": "2021-09-16T17:50:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1226"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "update-database-docs"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7107e62831b3895776d7600593450d1962ec9761/docs%2Fdatabase.md",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "docs/database.md",
+      "sha": "aa6cb74edfd66c41768cd9f14ae35211a85da8f4",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "1.https://www.starlette.io/database/\r\nUsing the low-level API:\r\n\r\n```\r\nasync def populate_note(request):\r\n    transaction = await database.transaction()\r\n    try:\r\n        # This database insert occurs within a transaction.\r\n        # It will be rolled back by the `RuntimeError`.\r\n        query = notes.insert().values(text=\"you won't see me\", completed=True)\r\n        await database.execute(query)\r\n        raise RuntimeError()\r\n    except:\r\n        transaction.rollback()\r\n        raise\r\n    else:\r\n        transaction.commit()\r\n```\r\nmissing 'await' before ' transaction.rollback()' and ' transaction.commit()'\r\n\r\n2.but in https://www.encode.io/databases/connections_and_transactions/\r\n\r\n```\r\ntransaction = await database.transaction()\r\ntry:\r\n    await transaction.start()\r\n    ...\r\nexcept:\r\n    await transaction.rollback()\r\nelse:\r\n    await transaction.commit()\r\n```\r\nit's unable work nomaly,and after reomve 'await transaction.start()',it's working.\r\nwhy?",
+    "closed_at": "2021-09-16T17:50:00Z",
+    "created_at": "2021-02-17T13:27:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1141",
+    "labels": [
+      "documentation"
+    ],
+    "number": 1141,
+    "state": "closed",
+    "title": "Transactions error",
+    "user": "jiangshujsf"
+  },
+  "pull_request": {
+    "closed_at": "2021-09-16T17:50:00Z",
+    "created_at": "2021-06-29T04:28:26Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1226",
+    "merge_commit_sha": "85ab09d1b7c0c3307f8cdb96342e6440ca4a2b54",
+    "merged_at": "2021-09-16T17:50:00Z",
+    "number": 1226,
+    "title": "update-database-docs",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-04-12T20:51:23Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-29T04:28:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1226",
+          "number": 1226,
+          "pull_request": {
+            "merged_at": "2021-09-16T17:50:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1226"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "update-database-docs"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-16T17:50:00Z",
+      "event": "closed"
+    }
+  ]
+}

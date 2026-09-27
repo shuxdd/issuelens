@@ -1,0 +1,33 @@
+{
+  "case_id": "starlette-issue-1433",
+  "changed_files": [
+    {
+      "path": "starlette/middleware/base.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b5eee5e5e80448290014b4ec4896eaf6b87b5a0b/starlette%2Fmiddleware%2Fbase.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/middleware/base.py",
+      "snapshot_commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+      "source_url": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/starlette/middleware/base.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/middleware/base.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Raising Exceptions in sub-applications routes' originates in starlette/middleware/base.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_base.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b5eee5e5e80448290014b4ec4896eaf6b87b5a0b/tests%2Fmiddleware%2Ftest_base.py",
+      "status": "modified"
+    }
+  ]
+}

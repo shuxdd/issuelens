@@ -1,0 +1,95 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-22T22:21:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/612",
+          "number": 612,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Application State"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Refs https://github.com/django/asgiref/pull/63\r\n\r\nAdd `@app.startup` and `@app.shutdown` decorators that call into code on lifespan startup/shutdown.\r\n\r\nEg...\r\n\r\n```python\r\napp = Starlette()\r\n\r\n@app.startup\r\nasync def initialize_database_connection_pool():\r\n    ...\r\n\r\n@app.shutdown\r\nasync def close_database_connection():\r\n    ...\r\n```\r\n\r\nYou'll be able to add multiple startup/shutdown events.",
+    "closed_at": "2018-10-09T14:47:52Z",
+    "created_at": "2018-09-20T14:48:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/64",
+    "number": 64,
+    "state": "closed",
+    "title": "Startup / Shutdown events",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-20T15:43:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-20T16:20:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-04T05:13:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-04T07:55:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-04T08:12:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-04T08:12:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-10-04T08:12:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-10-08T20:40:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-09T14:53:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-09T14:53:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-10-09T14:53:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-10-09T15:22:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-22T22:21:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/612",
+          "number": 612,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Application State"
+        }
+      }
+    }
+  ]
+}

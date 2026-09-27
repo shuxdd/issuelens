@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "will it be possible to get multiple folder to deliver static content ? \r\n\r\neg \r\n\r\n```\r\napp = Router(routes=[\r\n    Mount('/static', app=StaticFiles(directory=['static', '/home/foxmask/static'], packages=['bootstrap4']), name=\"static\"),\r\n])\r\n```\r\nthis will allow to avoid \r\n\r\n```\r\napp.mount('/static', StaticFiles(directory=\"/home/foxmask/static/\"))  # use to delivery files\r\napp.mount('/static-css', StaticFiles(directory=\"static/css\"))\r\napp.mount('/static-js', StaticFiles(directory=\"static/js\"))\r\n```",
+    "closed_at": "2019-06-10T12:52:39Z",
+    "created_at": "2019-06-10T12:11:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/537",
+    "number": 537,
+    "state": "closed",
+    "title": "multiple static folders",
+    "user": "ghost"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-10T12:52:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-10T12:53:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-10T13:09:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-21T09:12:52Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2695\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **tomchristie** September 19, 2024</sup>\r\nQuoting from #2680...\r\n\r\n> I'm making some changes to the Starlette documentation to make it more modern and appealing.\r\n>\r\n> I intend to do the same with Uvicorn, and I intend to add a sponsors tab.\r\n\r\nYep, adding sponsors to the Starlette docs would be fantastic.\r\n\r\nI'd suggest [a unified approach across the encode docs](https://github.com/encode/template/issues/1)?\r\nPerhaps let's take an agile approach and deal with this incrementally.\r\n\r\n We could start with a unified approach for httpx, starlette, and uvicorn...\r\n\r\n* https://www.python-httpx.org/ (Docs have a sponsor tab)\r\n* https://www.uvicorn.org/ (Docs have a sponsor tab)\r\n* https://www.starlette.io/\r\n\r\nPerhaps we could start with...\r\n\r\n* Use the same layout for the Starlette docs as Uvicorn and HTTPX.\r\n* Add \"Fund Encode\" links pointing to the [sponsorship page](https://github.com/sponsors/encode)?\r\n\r\n<img width=\"203\" alt=\"image\" src=\"https://github.com/user-attachments/assets/1e985530-d209-4541-ae11-41a8ab7a7ad4\">\r\n</div>",
+    "closed_at": "2025-04-12T09:46:00Z",
+    "created_at": "2024-10-13T16:42:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2726",
+    "number": 2726,
+    "state": "closed",
+    "title": "Adding sponsors to the docs.",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-10-29T10:44:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-08T14:26:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-10T13:18:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-12T09:46:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-12T09:46:01Z",
+      "event": "closed"
+    }
+  ]
+}

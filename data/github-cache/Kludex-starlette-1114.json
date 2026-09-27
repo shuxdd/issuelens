@@ -1,0 +1,172 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-03-28T11:30:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/45a1ffad5cd989b224bb83b8731b47c668add0dc",
+      "sha": "45a1ffad5cd989b224bb83b8731b47c668add0dc"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-02-19T06:51:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1129",
+          "number": 1129,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Exception causes are being removed."
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-28T11:38:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1158",
+          "number": 1158,
+          "pull_request": {
+            "merged_at": "2021-03-29T15:02:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1158"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't use 'raise exc from None' because it suppresses exception causes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/45a1ffad5cd989b224bb83b8731b47c668add0dc/starlette%2Fendpoints.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/endpoints.py",
+      "sha": "2504dd84dd63fb1e569fbea19e4b3d0786ac7575",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/45a1ffad5cd989b224bb83b8731b47c668add0dc/starlette%2Fexceptions.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/exceptions.py",
+      "sha": "a99177a02f5236ad6b879353750c33d603f1c08c",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/45a1ffad5cd989b224bb83b8731b47c668add0dc/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "30f5570ca88f2900f04dd1d4845eef70ef4489c7",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/45a1ffad5cd989b224bb83b8731b47c668add0dc/starlette%2Ftestclient.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/testclient.py",
+      "sha": "bb4b75fde45e66839e4dc4c7c8ce4ab3b1ae9791",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nEven though I use exception chaining (`raise ... from`) in my app, the original exception info gets deleted because Starlette handles exceptions with `raise .. from None` at the outer scope.\r\nHere is a MWE:\r\n\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.endpoints import HTTPEndpoint\r\nfrom starlette.responses import HTMLResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nclass TemplateRenderingError(Exception): pass\r\n\r\n\r\nclass Homepage(HTTPEndpoint):\r\n    async def get(self, request):\r\n        try:\r\n            content = '{a}'.format()\r\n        except KeyError as e:\r\n            raise TemplateRenderingError from e\r\n        return HTMLResponse(content)\r\n\r\napp = Starlette(debug=True, routes=[\r\n    Route('/', Homepage),\r\n])\r\n```\r\n\r\nRun the server, load `/`, then look at the console output.\r\n\r\nWhat I expect to get is a chained exception:\r\n\r\n\r\n```\r\nERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \".\\star_bug.py\", line 13, in get\r\n    content = '{a}'.format()\r\nKeyError: 'a'\r\n\r\nThe above exception was the direct cause of the following exception:\r\n\r\nTraceback (most recent call last):\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 394, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\uvicorn\\middleware\\proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 184, in __call__\r\n    raise exc\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\exceptions.py\", line 84, in __call__\r\n    raise exc\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\routing.py\", line 582, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\routing.py\", line 243, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\endpoints.py\", line 30, in dispatch\r\n    response = await handler(request)\r\n  File \".\\star_bug.py\", line 15, in get\r\n    raise TemplateRenderingError from e\r\nstar_bug.TemplateRenderingError\r\n```\r\n\r\nWhat I get is only the final exception:\r\n\r\n\r\n```\r\nERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 394, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\uvicorn\\middleware\\proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 184, in __call__\r\n    raise exc\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\exceptions.py\", line 83, in __call__\r\n    raise exc from None\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\routing.py\", line 582, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\routing.py\", line 243, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"c:\\otree\\ve-nodj\\lib\\site-packages\\starlette\\endpoints.py\", line 30, in dispatch\r\n    response = await handler(request)\r\n  File \".\\star_bug.py\", line 15, in get\r\n    raise TemplateRenderingError from e\r\n```\r\n\r\nStarlette uses `raise exc from None` in 4 places:\r\n- `ExceptionMiddleware.__call__`\r\n- `ServerErrorMiddleware.__call__`\r\n- `WebSocketEndpoint.dispatch`\r\n- `_ASGIAdapter.send`\r\n\r\nIt seems to me that in all 4 cases the `from None` could hide intentional context about users' errors.\r\n\r\nHaving the chained traceback would be very valuable both for reading the console output and for programmatic use\r\n(I want to make a middleware that looks at the `.__cause__` attribute of certain exceptions to deliver a more relevant error message). I'm happy to provide more details on my use case.",
+    "closed_at": "2021-03-29T15:02:22Z",
+    "created_at": "2020-12-15T13:02:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1114",
+    "number": 1114,
+    "state": "closed",
+    "title": "\"raise exc from None\" interferes with exception chaining",
+    "user": "oTree-org"
+  },
+  "pull_request": {
+    "closed_at": "2021-03-29T15:02:22Z",
+    "created_at": "2021-03-28T11:38:11Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1158",
+    "merge_commit_sha": "1222e78a15336162d190060f76c8ccee4b011d6b",
+    "merged_at": "2021-03-29T15:02:22Z",
+    "number": 1158,
+    "title": "Don't use 'raise exc from None' because it suppresses exception causes",
+    "user": "oTree-org"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-12-28T18:32:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-21T07:50:06Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2021-02-19T06:51:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1129",
+          "number": 1129,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Exception causes are being removed."
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-20T00:20:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-20T00:54:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-17T08:29:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-25T14:45:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-28T11:38:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1158",
+          "number": 1158,
+          "pull_request": {
+            "merged_at": "2021-03-29T15:02:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1158"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't use 'raise exc from None' because it suppresses exception causes"
+        }
+      }
+    },
+    {
+      "commit_id": "7d636f8fe969bbca454cc8dcb5ac7ca01f63c8f8",
+      "commit_url": "https://api.github.com/repos/bugsnag/bugsnag-python/commits/7d636f8fe969bbca454cc8dcb5ac7ca01f63c8f8",
+      "created_at": "2022-02-15T16:36:19Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-12-04T07:52:35Z",
+      "event": "subscribed"
+    }
+  ]
+}

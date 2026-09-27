@@ -1,0 +1,66 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-03-13T16:46:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/genericmoniker/mirror/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "genericmoniker/mirror"
+          },
+          "title": "Graceful server shutdown"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi there!\r\n\r\nThere is a common situation when you need to make some operations after application startup. For example - when you want to create models before each test case. For now, there is no way to make it happen in Starlette if your ORM needs to be already initialized before model creation.\r\n\r\n```python\r\n@pytest.fixture()\r\ndef client(event_loop):\r\n    \"\"\"\r\n    Make a 'client' fixture available to test cases.\r\n    \"\"\"\r\n    # Our fixture is created within a context manager. This ensures that\r\n    # application startup and shutdown run for every test case.\r\n    with TestClient(app) as test_client:\r\n        event_loop.run_until_complete(database.gino.create_all())\r\n        yield test_client\r\n        event_loop.run_until_complete(database.gino.drop_all())\r\n```\r\ngets:\r\n```\r\nERROR tests/api/test_item_types.py::test_item_types - gino.exceptions.UninitializedError: Gino engine is not initialized.\r\n```\r\n\r\nOn the other hand, we have Sanic, which has this signal, and such behavior as above is not a problem at all. I hope we can discuss this point and probably define some signals inside Starlette. Thanks!",
+    "closed_at": "2022-02-08T11:45:26Z",
+    "created_at": "2020-07-06T19:11:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/993",
+    "labels": [
+      "feature"
+    ],
+    "number": 993,
+    "state": "closed",
+    "title": "Feature request: Add after_startup and before_shutdown events",
+    "user": "drjackild"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-07-07T11:31:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T11:01:09Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-16T01:37:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-13T16:46:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/genericmoniker/mirror/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "genericmoniker/mirror"
+          },
+          "title": "Graceful server shutdown"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-08T11:45:26Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I noticed that a really weird thing that can happen when setting `request.session` objects that are too large (without any trace/notice that it is happening).\r\n\r\nI noticed this when using authlib with fastapi, but the actual framework and library doesn't matter; what matters is that this sequence of events was happening:\r\n\r\n1. (request 1) authlib sets some internal state in the `request.session` for oauth redirect\r\n2. (request 2) then, on callback, authlib deletes the internal state after checking that the authorization flow was successful (so far, so good)\r\n3. (still in request 2) then, I do an oopsie and unknowingly set a cookie that is too large (>=4096 bytes)\r\n\r\nHere are a couple of reasonable things one might expect in response to this:\r\n- throw an error, tell me that I can't do this because the session object is too large\r\n- just return the cookie with the deleted cookie (i.e. the state of the session after step 2)\r\n\r\nWhat _actually_ ends up happening is that the session state after 1 gets returned, _no_ error or warning message or any sort of indication is being displayed that this is happening, and you go on a wild goose chase thinking it's an authlib issue.\r\n\r\nI wasted 4 hours on this and at the very least would like to document this issue for posterity, but this is clearly an issue that needs to be reported to the user as an error or even a log, instead of just silently reverting back to the _previous_ state of the request.session (i.e. the state _before_ authlib even cleared the `request.session` in request number 2.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2412\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2412/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2412/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-01-12T08:21:09Z",
+    "created_at": "2024-01-12T01:02:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2412",
+    "number": 2412,
+    "state": "closed",
+    "title": "Warn users if setting too large of a session object",
+    "user": "JaneJeon"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-01-12T08:21:09Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-01-12T08:21:09Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

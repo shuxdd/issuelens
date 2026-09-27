@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-28T21:33:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/145",
+          "number": 145,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Passwords containing special characters are not decoded correctly"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I found this helpful for working around https://github.com/encode/databases/issues/145\r\n\r\n```python3\r\nclass SafeConfig(Config):\r\n    \"\"\"Subclass of starlette.config.Config, but it will urlencode\r\n       values if requested.\"\"\"\r\n    def __call__(self,\r\n                 key: str,\r\n                 cast: type = None,\r\n                 default: typing.Any = undefined,\r\n                 encode: bool = False) -> typing.Any:\r\n        return self.get(key, cast=cast, default=default, encode=encode)\r\n\r\n    def get(self,\r\n            key: str,\r\n            cast: type = None,\r\n            default: typing.Any = undefined,\r\n            encode: bool = False) -> typing.Any:\r\n        value = None\r\n        if key in self.environ:\r\n            value = self.environ[key]\r\n        elif key in self.file_values:\r\n            value = self.file_values[key]\r\n        elif default is not undefined:\r\n            value = default\r\n        if value:\r\n            if encode:\r\n                value = quote(value)\r\n            return self._perform_cast(key, value, cast)\r\n        raise KeyError(f\"Config '{key}' is missing, and has no default.\")\r\n```\r\n\r\nI'd prefer to have the function arguments be `def __call__(self, key, *, cast, default, encode)`, but that breaks from the superclass arguments.  It seems safer though as all of them except `key` are optional.",
+    "closed_at": "2022-02-03T11:02:21Z",
+    "created_at": "2019-10-28T21:32:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/695",
+    "number": 695,
+    "state": "closed",
+    "title": "add urlencode support to Config",
+    "user": "taybin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-28T21:33:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/145",
+          "number": 145,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Passwords containing special characters are not decoded correctly"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-03T11:02:21Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-05-12T19:15:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fisayo-dev/verifyng/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-05-12T19:16:53Z",
+            "url": "https://api.github.com/repos/fisayo-dev/verifyng/pulls/8"
+          },
+          "repository": {
+            "full_name": "fisayo-dev/verifyng"
+          },
+          "title": "Day 4: Full pipeline working - upload to trust score"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The mechanism for background tasks works like this:\r\n\r\n```python\r\n    async def __call__(self) -> None:\r\n        for task in self.tasks:\r\n            await task()\r\n```\r\n\r\nIs this by design? Should this be `asyncio.gather(*[task() for task in self.tasks])`?",
+    "closed_at": "2019-06-19T09:18:32Z",
+    "created_at": "2019-06-14T17:33:27Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/549",
+    "number": 549,
+    "state": "closed",
+    "title": "BackgroundTasks are not executed concurrently",
+    "user": "patrys"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-14T21:23:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-14T21:49:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-19T09:18:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-10-21T14:57:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-04T06:48:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-04T06:48:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-01-04T06:48:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-05-12T19:15:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fisayo-dev/verifyng/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-05-12T19:16:53Z",
+            "url": "https://api.github.com/repos/fisayo-dev/verifyng/pulls/8"
+          },
+          "repository": {
+            "full_name": "fisayo-dev/verifyng"
+          },
+          "title": "Day 4: Full pipeline working - upload to trust score"
+        }
+      }
+    }
+  ]
+}

@@ -4,8 +4,9 @@ IssueLens is an evidence-driven investigation system for open-source issues.
 
 ## Current capabilities
 
-- Ten versioned, time-sliced Starlette cases with leak checks and source
-  traceability.
+- Fifty-one versioned, time-sliced Starlette cases with leak checks and source
+  traceability, including a frozen 30-case primary set and 10-case stability
+  subset.
 - A reproducible vector, BM25 hybrid, and reranked retrieval comparison for the
   first fixed case, including offline regression thresholds.
 - An English structured investigation report and a controlled investigation
@@ -33,8 +34,9 @@ evaluation inputs (see `docs/adr/0002-versioned-files-as-evaluation-source-of-tr
   before the cutoff (`docs/adr/0001-time-sliced-evaluation.md`).
 - Repair evidence (closing PR files, commits, tests) is marked `evaluation_only`
   and never enters the investigation context.
-- Cached responses in `data/github-cache/` contain metadata only; issue bodies,
-  PR discussions, and diff patches are not stored or redistributed.
+- Cached responses in `data/github-cache/` contain the public Issue body needed
+  for investigation plus minimal metadata. Comments, PR bodies/discussions,
+  diff patches, and repair file contents are not stored or redistributed.
 - Every data object carries a `source_url` pointing back to GitHub, and
   `data/screening-report.json` records the filtering funnel with exclusion
   reasons.
@@ -51,6 +53,9 @@ evaluation inputs (see `docs/adr/0002-versioned-files-as-evaluation-source-of-tr
 - `data/` is committed to Git, so rebuilding is optional and only needs the
   versioned inputs (`data/github-cache/`, `data/repository-snapshots/`,
   `data/reviews.json`).
+- The formal v2 review queue records 80 project-author decisions. Two candidates
+  fail the final time-slice gate; the remaining decisions produce 51 accepted
+  cases and the frozen split in `data/evaluation/dataset-manifest.json`.
 - Validate the committed dataset (schema, source traceability, and leak checks):
 
   ```shell

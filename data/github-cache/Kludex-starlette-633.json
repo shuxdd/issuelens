@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hey all, an optional trailing slash seems to be pretty standard on most websites, but in Starlette, you must add separate routes to handle them. Example: \r\n\r\n```\r\nroutes = [\r\n    Route('/', PlainTextResponse(\"home\")),\r\n    Route('/test', PlainTextResponse(\"test\")),\r\n    Route('/test/', PlainTextResponse(\"I need to be added separately?!\"))\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\n\r\nCould a `route = route.rstrip(\"/\")` please be added to https://github.com/encode/starlette/blob/master/starlette/routing.py in `class Router` before running the match so these routes don't have to be manually added? Thanks!",
+    "closed_at": "2019-11-06T21:16:41Z",
+    "created_at": "2019-09-04T07:46:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/633",
+    "number": 633,
+    "state": "closed",
+    "title": "Strip trailing slash ( / ) from URL route strings.",
+    "user": "gnat"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-11T22:21:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-11T22:46:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-06T20:53:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-28T03:46:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-28T15:03:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-28T15:03:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-01-28T15:03:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-01-28T15:13:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-28T15:13:43Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-01-28T15:13:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-04T12:21:14Z",
+      "event": "subscribed"
+    }
+  ]
+}

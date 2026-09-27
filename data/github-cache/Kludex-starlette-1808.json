@@ -1,0 +1,43 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1806\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **Goldziher** August 11, 2022</sup>\r\nHiya,\r\n\r\nSo I got a bug report in Starlite --> https://github.com/starlite-api/starlite/issues/354. Testing this out it appears that Starlette does not serve index.html in html=True mode, because stat_result is empty. The documentation state:\r\n\r\n```text\r\nhtml - Run in HTML mode. Automatically loads index.html for directories if such file exist.\r\n```\r\n\r\nSee: https://www.starlette.io/staticfiles/\r\n\r\nYet, the actual code is:\r\n\r\n```python\r\n        if stat_result and stat.S_ISREG(stat_result.st_mode):\r\n            # We have a static file to serve.\r\n            return self.file_response(full_path, stat_result, scope)\r\n\r\n        elif stat_result and stat.S_ISDIR(stat_result.st_mode) and self.html:\r\n            # We're in HTML mode, and have got a directory URL.\r\n            # Check if we have 'index.html' file to serve.\r\n            index_path = os.path.join(path, \"index.html\")\r\n            full_path, stat_result = await anyio.to_thread.run_sync(\r\n                self.lookup_path, index_path\r\n            )\r\n            if stat_result is not None and stat.S_ISREG(stat_result.st_mode):\r\n                if not scope[\"path\"].endswith(\"/\"):\r\n                    # Directory URLs should redirect to always end in \"/\".\r\n                    url = URL(scope=scope)\r\n                    url = url.replace(path=url.path + \"/\")\r\n                    return RedirectResponse(url=url)\r\n                return self.file_response(full_path, stat_result, scope)\r\n\r\n        if self.html:\r\n            # Check for '404.html' if we're in HTML mode.\r\n            full_path, stat_result = await anyio.to_thread.run_sync(\r\n                self.lookup_path, \"404.html\"\r\n            )\r\n            if stat_result and stat.S_ISREG(stat_result.st_mode):\r\n                return FileResponse(\r\n                    full_path,\r\n                    stat_result=stat_result,\r\n                    method=scope[\"method\"],\r\n                    status_code=404,\r\n                )\r\n```\r\n\r\nNote that the call to `self.lookup_path` with `index.html` is gated on the state_result not being `None`, this in effect requires a named declaration of `index.html` -- thus a request to `static/` will result in 404 whereas a request to `static/index.html` will result in 200 with the index.html being sent. </div>",
+    "closed_at": "2022-08-11T19:47:04Z",
+    "created_at": "2022-08-11T19:34:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1808",
+    "labels": [
+      "staticfiles"
+    ],
+    "number": 1808,
+    "state": "closed",
+    "title": "html mode does not serve index",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-11T19:34:36Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-11T19:34:42Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-11T19:46:35Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2022-08-11T19:47:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-11T19:47:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-09-19T08:02:49Z",
+      "event": "commented"
+    }
+  ]
+}

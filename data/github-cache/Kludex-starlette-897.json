@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Is your feature request related to a problem\r\nYes.\r\nCurrently, fastapi support raise HttpExpection in dependency and return a response struct like this:\r\n{detail: \"error\"}.\r\n\r\nI want to be able to return a self-defined response, but I can't because now I can only return {\"detail\": xxxxx}\r\n\r\nThe solution you would like\r\nFor example, I want to\r\nreturn HttpException(status_code=200, data={\"haha\":\"Hello\", \"code\": 20000}),\r\nand the frontend recieve successful reponse struct like this:\r\n{\r\ndata:{\"haha\":\"Hello\", \"code\": 20000},\r\ncode: 200\r\n}\r\n\r\nThank you!",
+    "closed_at": "2020-04-14T08:47:54Z",
+    "created_at": "2020-04-13T18:58:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/897",
+    "number": 897,
+    "state": "closed",
+    "title": "return response directly in dependency",
+    "user": "jendy2012"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-14T08:47:54Z",
+      "event": "commented"
+    }
+  ]
+}

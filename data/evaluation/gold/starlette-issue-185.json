@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-185",
+  "changed_files": [
+    {
+      "path": "docs/staticfiles.md",
+      "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/docs%2Fstaticfiles.md",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/starlette%2Fstaticfiles.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/staticfiles.py",
+      "snapshot_commit": "58888bb53fa54991479d8a9a4c32d6b41b334b2c",
+      "source_url": "https://github.com/Kludex/starlette/blob/58888bb53fa54991479d8a9a4c32d6b41b334b2c/starlette/staticfiles.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/staticfiles.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Check directory exists when instantiating `StaticFiles`' originates in starlette/staticfiles.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/tests%2Ftest_staticfiles.py",
+      "status": "modified"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-11-01T11:12:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7e1a29caeebddf7b3c0784fdfd137c7899900c50",
+      "sha": "7e1a29caeebddf7b3c0784fdfd137c7899900c50"
+    },
+    {
+      "committed_at": "2025-11-01T11:16:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/40b0f4117ef013820cd4f6cf9b68ed58afd92105",
+      "sha": "40b0f4117ef013820cd4f6cf9b68ed58afd92105"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-10-31T10:16:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3053",
+          "number": 3053,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3053"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "rfc-conformity for cache validation"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-01T11:15:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3057",
+          "number": 3057,
+          "pull_request": {
+            "merged_at": "2025-11-01T11:17:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3057"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ignore `if-modified-since` if `if-none-match` is present"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/40b0f4117ef013820cd4f6cf9b68ed58afd92105/starlette%2Fstaticfiles.py",
+      "changes": 9,
+      "deletions": 6,
+      "filename": "starlette/staticfiles.py",
+      "sha": "a458fd7d8aa5d1cd61add58fd4c65588fff220ec",
+      "status": "modified"
+    },
+    {
+      "additions": 18,
+      "blob_url": "https://github.com/Kludex/starlette/blob/40b0f4117ef013820cd4f6cf9b68ed58afd92105/tests%2Ftest_staticfiles.py",
+      "changes": 18,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "1bf53ff9ca5a9c3a353a3dbc7efef2d0f407d247",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I have spent the day debugging into a caching problem that is already described in #2891 .\n\nThis problem might not appear so bad, because usually when you change the file, the mtime of the file changes as well. I am, however currently in an environment where the mtime of each static file is always set to unix epoch zero and i have no influence on changing that.\n\nThis leads to the following behavior:\n\n1. check wheter if-none-match equals etag\n2. get resulting difference, falsely leading to the if-modified-since check instead of returning false\n3. comparing if-modified-since (which in my case is unix epoch zero) which the file's mtime (which is always unix epoch zero)\n4. falsely determining that the files must be the same thus falsely returning 304\n\nIf this was implemented according to RFC7232, this would work without a problem even for my weird case.\n\nPlease consider merging #2891 . The problem is already solved.",
+    "body_last_edited_at": null,
+    "closed_at": "2025-11-01T11:17:36Z",
+    "created_at": "2025-10-30T17:02:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3052",
+    "number": 3052,
+    "state": "closed",
+    "title": "staticfile caching breaks if mtimes are not available even though etags differ.",
+    "user": "grindhold"
+  },
+  "pull_request": {
+    "closed_at": "2025-11-01T11:17:35Z",
+    "created_at": "2025-11-01T11:12:58Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3057",
+    "merge_commit_sha": "3d480dd7d5adf474d0736c67a2a3064e88226837",
+    "merged_at": "2025-11-01T11:17:34Z",
+    "number": 3057,
+    "title": "Ignore `if-modified-since` if `if-none-match` is present",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "da0605243010715356be69693a524f2300011948",
+    "committed_at": "2025-11-01T09:50:40Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/da0605243010715356be69693a524f2300011948"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-10-30T17:03:57Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2025-10-30T17:04:29Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2025-10-31T10:16:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3053",
+          "number": 3053,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3053"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "rfc-conformity for cache validation"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-01T11:15:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3057",
+          "number": 3057,
+          "pull_request": {
+            "merged_at": "2025-11-01T11:17:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3057"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ignore `if-modified-since` if `if-none-match` is present"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-01T11:17:36Z",
+      "event": "closed"
+    }
+  ]
+}

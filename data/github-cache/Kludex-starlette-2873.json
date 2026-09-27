@@ -1,0 +1,106 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2025-02-18T12:34:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2646",
+          "number": 2646,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When the directory itself being a symlink does not work."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "in update 0.42.0 an extra indent was added to line 158 in staticfiles.py and this broke the symlinks, which leads to the error:\n\n```\nif os.path.commonpath([full_path, directory]) != directory:\n       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen ntpath>\", line 850, in commonpath\nValueError: Paths don't have the same drive\n```\n\non the current version 0.45.3 this is not fixed\n\n![Image](https://github.com/user-attachments/assets/48ec31f9-2c7d-41f5-aa34-b0808be04cd7)",
+    "closed_at": "2025-03-08T08:04:19Z",
+    "created_at": "2025-02-17T16:03:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2873",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2873,
+    "state": "closed",
+    "title": "in update 0.42.0 an extra indent broke the symlinks",
+    "user": "Noone746458"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-02-17T19:33:23Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2025-02-17T19:33:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-17T19:44:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T10:20:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T10:24:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T10:28:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T11:36:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T11:48:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T12:12:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T12:34:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2646",
+          "number": 2646,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When the directory itself being a symlink does not work."
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-05T17:22:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-08T08:04:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-08T08:04:19Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-03-08T08:04:20Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-03-08T08:04:20Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm trying to listen for data on a websocket while simultaneously doing some work in another function. \r\n```\r\ndata = await websocket.receive_json()\r\nwhile True:\r\n    try:\r\n        done, pending = await asyncio.wait({eval_worker(data, websocket), websocket.receive_json()}, return_when=asyncio.FIRST_COMPLETED)\r\n        # do stuff with done\r\n    except Exception:\r\n        return\r\n```\r\nIt results in this error: ```\r\nERROR:    Task exception was never retrieved\r\nfuture: <Task finished name='Task-9' coro=<WebSocket.receive_json() done, defined at /***/venv/lib/python3.8/site-packages/starlette/websockets.py:94> exception=WebSocketDisconnect(1000)>\r\nTraceback (most recent call last):\r\n  File \"/***/venv/lib/python3.8/site-packages/starlette/websockets.py\", line 98, in receive_json\r\n    self._raise_on_disconnect(message)\r\n  File \"/***/venv/lib/python3.8/site-packages/starlette/websockets.py\", line 80, in _raise_on_disconnect\r\n    raise WebSocketDisconnect(message[\"code\"])\r\nstarlette.websockets.WebSocketDisconnect: 1000```\r\nI passed the websocket object to the function so that it can send data while it is also listening. I understand that this could be problematic, but even when I don't pass the websocket to the function it results in the same disconnect error.\r\nAny insight?",
+    "closed_at": "2020-05-14T07:22:46Z",
+    "created_at": "2020-03-20T16:36:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/871",
+    "number": 871,
+    "state": "closed",
+    "title": "Unexpected disconnect when using asyncio.wait()",
+    "user": "kmani314"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-13T22:31:54Z",
+      "event": "commented"
+    }
+  ]
+}

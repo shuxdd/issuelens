@@ -1,0 +1,97 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-26T06:32:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e375b4d10e3b07ae713515dfe32d109cbc9c19b",
+      "sha": "1e375b4d10e3b07ae713515dfe32d109cbc9c19b"
+    },
+    {
+      "committed_at": "2021-06-26T13:34:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4878ba1a48d9db1593bc93b5adabd61e60e96d73",
+      "sha": "4878ba1a48d9db1593bc93b5adabd61e60e96d73"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-06-26T06:35:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1218",
+          "number": 1218,
+          "pull_request": {
+            "merged_at": "2021-06-27T12:26:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1218"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make Jinja2Templates.get_env private & rename"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4878ba1a48d9db1593bc93b5adabd61e60e96d73/starlette%2Ftemplating.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/templating.py",
+      "sha": "36f613fdfd9481f0bd7ca7f471c523d5bf9f61be",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\nThank you very much for your project! We are using it intensively through FastAPI.\r\n\r\nWhile I was exploring the code base and looking how to use `Jinja2Templates`, I noticed the method `get_env`. At first I thought it was a getter for the environment, but eventually realized it is only called in the constructor of the class.\r\n\r\nIt would make much more sense to me if the method was called `_get_env`. This would signal that it should not be used outside of the class (or at least that the caller needs to know what she is doing).\r\n\r\nFor example, if I want to add filters or globals to the environment, I should write:\r\n\r\n```\r\ntemplates = Jinja2Templates(...)\r\ntemplates.env.globals[...] = ...\r\n```\r\n\r\ninstead of:\r\n\r\n```\r\ntemplates = Jinja2Templates(...)\r\ntemplates.get_env().globals[...] = ...\r\n```\r\n\r\nAs of current implementation, the second snippet has no effect.\r\n\r\nThank you very much for considering this request!",
+    "closed_at": "2021-06-27T12:26:14Z",
+    "created_at": "2021-06-04T07:27:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1194",
+    "labels": [
+      "clean up"
+    ],
+    "number": 1194,
+    "state": "closed",
+    "title": "Consider making `starlette.templating.Jinja2Templates.get_env` \"protected\"",
+    "user": "mristin"
+  },
+  "pull_request": {
+    "closed_at": "2021-06-27T12:26:14Z",
+    "created_at": "2021-06-26T06:35:57Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1218",
+    "merge_commit_sha": "070d749f66999206c4c71cb203a2ea400e0b3c00",
+    "merged_at": "2021-06-27T12:26:14Z",
+    "number": 1218,
+    "title": "Make Jinja2Templates.get_env private & rename",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-11T21:18:40Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-26T06:35:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1218",
+          "number": 1218,
+          "pull_request": {
+            "merged_at": "2021-06-27T12:26:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1218"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make Jinja2Templates.get_env private & rename"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-27T12:26:14Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "If I need to hit some external GET api, how do I do it from starlette? Or do I use some other library like requests?",
+    "closed_at": "2020-03-21T10:19:19Z",
+    "created_at": "2020-03-20T22:34:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/872",
+    "number": 872,
+    "state": "closed",
+    "title": "How to create a http request from starlette?",
+    "user": "jodusan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-20T22:46:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-21T10:19:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-21T10:19:19Z",
+      "event": "closed"
+    }
+  ]
+}

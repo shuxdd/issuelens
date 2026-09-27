@@ -1,0 +1,119 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-06-14T04:46:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/546",
+          "number": 546,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/546"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update requests.py"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-20T16:42:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/osm-search/Nominatim/issues/3920",
+          "number": 3920,
+          "pull_request": {},
+          "repository": {
+            "full_name": "osm-search/Nominatim"
+          },
+          "title": "Replace use of eval() in BDD tests with JSON parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-21T21:10:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mbalzert1978/fit_back/issues/97",
+          "number": 97,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mbalzert1978/fit_back"
+          },
+          "title": "Typechecker `ty` einf\u00fchren \u2014 statische Typen werden heute von niemandem gepr\u00fcft"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "From https://www.starlette.io/requests/:\r\n> Other state\r\n>\r\n> If you want to store additional information on the request you can do so using request.state.\r\n>\r\n> For example:\r\n>\r\n> request.state.time_started = time.time()\r\n\r\nThis causes mypy errors since any accessed/set attributes aren't present in the `State` class. As far as I can tell, there isn't a good way to tell mypy to expect certain attributes to potentially be set.\r\n\r\nI could imagine solutions that somehow make `Request.state` generic, and those would probably be the most type-safe, but that seems like it would take a lot of work for little gain, and could make the API a little uglier.\r\n\r\nAs a workaround, I propose adding a `def __getattr__` in an `if typing.TYPE_CHECKING:` block within the class definition. This will silence the mypy errors without changing anything about how the class behaves during runtime.\r\n\r\nOne counter-argument to this approach would be that this would prevent state attribute accesses from being called out by mypy even if you want the warnings. But then you'd have to add `# type: ignore` to disable it, and would lose any ability to check the continued validity going forward. Given the suggested usage pattern, I just don't see much value to keeping these errors (though I could be convinced otherwise).\r\n\r\nAlternatively, the state could be replaced by a `Dict[str, Any]` (or something that behaves more like one anyway), or given one as an attribute.",
+    "closed_at": "2019-06-19T09:14:59Z",
+    "created_at": "2019-06-14T04:45:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/545",
+    "number": 545,
+    "state": "closed",
+    "title": "mypy errors when accessing Request.state",
+    "user": "dmontagu"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-14T04:45:59Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-06-14T04:46:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/546",
+          "number": 546,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/546"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update requests.py"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-14T09:16:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-01-20T16:42:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/osm-search/Nominatim/issues/3920",
+          "number": 3920,
+          "pull_request": {},
+          "repository": {
+            "full_name": "osm-search/Nominatim"
+          },
+          "title": "Replace use of eval() in BDD tests with JSON parsing"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-21T21:10:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mbalzert1978/fit_back/issues/97",
+          "number": 97,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mbalzert1978/fit_back"
+          },
+          "title": "Typechecker `ty` einf\u00fchren \u2014 statische Typen werden heute von niemandem gepr\u00fcft"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "From https://asgi.readthedocs.io/en/latest/specs/www.html#connection-scope\r\n\r\n> server: A two-item iterable of [host, port], where host is the listening address for this server as a unicode string, and port is the integer listening port. Optional, defaults to None.\r\n\r\nhttps://github.com/encode/starlette/blob/master/starlette/datastructures.py#L11 doesn't handle that option, it assumes scope[\"server\"] is always a two-pair\r\n\r\n",
+    "closed_at": "2018-10-15T08:36:05Z",
+    "created_at": "2018-10-14T21:05:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/108",
+    "number": 108,
+    "state": "closed",
+    "title": "scope[\"server\"] can be None",
+    "user": "gdamjan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-15T08:36:17Z",
+      "event": "commented"
+    }
+  ]
+}

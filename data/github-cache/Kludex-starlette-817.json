@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,\r\n\r\nI'm struggling to get a WebSocketEndpoint up and running. When I try to wscat I see `\"WARNING:  Invalid HTTP request received.\"` in the app logs and get `\"error: Client network socket disconnected before secure TLS connection was established\"` as a response to wscat.\r\n\r\nHere's my app:\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.endpoints import WebSocketEndpoint\r\nfrom starlette.routing import Route, WebSocketRoute\r\n\r\nclass WebsocketServer(WebSocketEndpoint):\r\n    encoding = \"bytes\"\r\n\r\n    async def on_connect(self, websocket):\r\n        print(\"on connect\")\r\n\r\n    async def on_receive(self, websocket, data):\r\n        print(\"on receive\")        \r\n\r\n    async def on_disconnect(self, websocket, close_code):\r\n        print(\"on disconnect\")\r\n\r\nroutes = [\r\n    WebSocketRoute(\"/ws\", endpoint=WebsocketServer),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\n\r\nThanks in advance for any help.",
+    "closed_at": "2020-02-04T21:19:07Z",
+    "created_at": "2020-02-04T17:36:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/817",
+    "number": 817,
+    "state": "closed",
+    "title": "\"Invalid HTTP request received\" with class-based WebSocketEndpoint ",
+    "user": "mariaines"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-04T21:19:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-04T21:19:07Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Title: Static files and admin panel assets not loading correctly behind a proxy with root_path in FastAPI\n\nDescription:\n\nI\u2019m running a FastAPI application behind a reverse proxy (Nginx) and have configured root_path in the FastAPI app as described in the official documentation:\nhttps://fastapi.tiangolo.com/advanced/behind-a-proxy/\n\nHowever, static files (e.g., CSS, JS) and possibly other paths are not resolving correctly.\n\nI\u2019m using starlette-admin, and the admin panel attempts to load assets using paths like:\n`<link rel=\"stylesheet\" href=\"{{ url_for(__name__ ~ ':statics', path='css/tabler.min.css') }}\">`\n\nMy FastAPI setup:\n```\napp = FastAPI(\n    version=\"0.0.1\",\n    prefix=\"/api/\",\n    root_path=\"/api/\",\n    root_path_in_servers=False,\n    lifespan=lifespan \n           )\n\nadmin = Admin(title = 'Code.\u2764\ufe0f Admin',\n                templates_dir=\"admin_templates/templates\",\n                statics_dir=\"admin_templates/statics\",\n                auth_provider=MyAuthProvider(),\n              )\n```\n\nThese static paths return 404 errors. I\u2019ve tried the following without success:\n\t\u2022\tServing static files manually via FastAPI routes\n\t\u2022\tSetting up separate static file routing in Nginx\n\t\u2022\tConfirming that root_path correctly prepends /api to URLs\n\t\u2022\tRewriting asset paths using Nginx and directly injecting correct URLs\n\nDespite all of this, the admin panel fails to load any static assets and cannot function beyond the initial page. I cannot navigate to sub-pages, and CSS/JS files do not load.\n\nExample errors:\n`INFO:     185.215.54.133:0 - \"GET /admin/users/list HTTP/1.0\" 404 Not Found\nINFO:     185.215.54.133:0 - \"GET /admin/statics/css/tabler.min.css HTTP/1.0\" 404 Not Found\nINFO:     185.215.54.133:0 - \"GET /admin/statics/css/fontawesome.min.css HTTP/1.0\" 404 Not Found\nINFO:     185.215.54.133:0 - \"GET /admin/statics/js/vendor/jquery.min.js HTTP/1.0\" 404 Not Found\nINFO:     185.215.54.133:0 - \"GET /admin/statics/js/vendor/js.cookie.min.js HTTP/1.0\" 404 Not Found\nINFO:     185.215.54.133:0 - \"GET /admin/statics/js/vendor/tabler.min.js HTTP/1.0\" 404 Not Found\n`\n\nAdditionally, without setting root_path, Swagger UI does not work behind a proxy \u2014 which is already a critical issue on its own.\n",
+    "closed_at": "2025-07-21T19:38:14Z",
+    "created_at": "2025-07-21T19:36:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2966",
+    "number": 2966,
+    "state": "closed",
+    "title": "root_path does not suported",
+    "user": "dandaniel5"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-07-21T19:38:14Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2025-07-21T19:38:14Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

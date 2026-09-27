@@ -1,0 +1,259 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-09-20T09:24:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/645",
+          "number": 645,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/645"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make it easier to override route/request behaviors"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-01T21:04:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/521",
+          "number": 521,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "msgpack response if client asks for application/x-msgpack"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-04T13:15:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1848",
+          "number": 1848,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Documentation \"Custom Request and APIRoute class\" GZipMiddleware reference"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T16:41:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Divyanshu-kumar14/apogee/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-08-13T16:47:49Z",
+            "url": "https://api.github.com/repos/Divyanshu-kumar14/apogee/pulls/4"
+          },
+          "repository": {
+            "full_name": "Divyanshu-kumar14/apogee"
+          },
+          "title": "perf: implement Phase 1 performance optimizations"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Dear maintainers,\r\n\r\nI am looking for the appropriate way to unzip clients requests which are gzip encoded. Looking at the ``GZipMiddleware`` it seems that it only zip responses but do not care about requests.\r\n\r\nThus I tried to do it at the dispatch level without success. I did something like:\r\n\r\n```python\r\n@app.middleware(\"http\")\r\nasync def dispatch(request, call_next):\r\n    plain_body = gzip.decompress(request.body())\r\n    request._body = plain_body  # I don't think it is the appropriate way\r\n    response = await call_next(request)  # hangs here\r\n    return response\r\n```\r\nI am not extremely familiar with the inner-working of starlette so I don't know how to \"push back in the queue\" the decoded the request with the decoded body. If found no middlewares doing similar things.\r\n\r\nAnyone can pinpoint me the appropriate way to do it ?\r\n\r\nThank you in advance for your help :wink: ",
+    "closed_at": "2019-11-02T21:47:09Z",
+    "created_at": "2019-09-20T07:52:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/644",
+    "number": 644,
+    "state": "closed",
+    "title": "GZipMiddleware (unzipping encoded requests)",
+    "user": "RobinDavid"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-20T08:37:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-20T08:55:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-20T09:24:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/645",
+          "number": 645,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/645"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make it easier to override route/request behaviors"
+        }
+      }
+    },
+    {
+      "created_at": "2019-09-20T15:04:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-20T16:36:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-20T18:12:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-20T18:12:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-20T18:12:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-20T22:11:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-01T21:04:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/521",
+          "number": 521,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "msgpack response if client asks for application/x-msgpack"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-02T21:47:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-02T21:53:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-02T21:53:48Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-02T21:53:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-02T22:03:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-02T22:07:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-02T22:27:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-08T03:01:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-04T13:15:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1848",
+          "number": 1848,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Documentation \"Custom Request and APIRoute class\" GZipMiddleware reference"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-19T14:58:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-20T08:18:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-06-30T16:51:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-13T16:41:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Divyanshu-kumar14/apogee/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-08-13T16:47:49Z",
+            "url": "https://api.github.com/repos/Divyanshu-kumar14/apogee/pulls/4"
+          },
+          "repository": {
+            "full_name": "Divyanshu-kumar14/apogee"
+          },
+          "title": "perf: implement Phase 1 performance optimizations"
+        }
+      }
+    }
+  ]
+}

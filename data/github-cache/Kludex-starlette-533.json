@@ -1,0 +1,172 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-11-30T11:09:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1102",
+          "number": 1102,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient.request does not honor stream=True"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-30T04:18:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sreerevanth/AgentWatch/pull/101",
+          "number": 101,
+          "pull_request": {
+            "url": "https://api.github.com/repos/sreerevanth/AgentWatch/pulls/101"
+          },
+          "repository": {
+            "full_name": "sreerevanth/AgentWatch"
+          },
+          "title": "fix: resolve asyncio.to_thread thread-leakage via non-blocking HTTP approval mechanism"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T15:46:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DNSdecoded/IndicRAG/pull/12",
+          "number": 12,
+          "pull_request": {
+            "merged_at": "2026-07-26T10:35:09Z",
+            "url": "https://api.github.com/repos/DNSdecoded/IndicRAG/pulls/12"
+          },
+          "repository": {
+            "full_name": "DNSdecoded/IndicRAG"
+          },
+          "title": "Release 2.4.0 \u2014 Gemini 3.6 Flash, multi-user isolation & session config"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Trying to write tests for my app based on Starlette, I noticed that queries I do against my API using `TestClient` take a long time to complete because the client waits for background tasks spawned on the server.\r\n\r\nThis behavior slows done my tests unnecessarily, since I don't care about the completion of those background tasks in most cases. Is there a way to disable it and make the `TestClient` behave like a normal client of the API?",
+    "closed_at": "2022-02-15T09:56:55Z",
+    "created_at": "2019-06-03T10:40:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/533",
+    "labels": [
+      "testclient"
+    ],
+    "number": 533,
+    "state": "closed",
+    "title": "TestClient waits for background tasks",
+    "user": "teskje"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-10T09:06:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-11T11:54:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-11T12:09:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-15T08:31:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-20T19:36:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-13T11:35:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-13T11:35:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-13T11:35:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-29T18:40:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-29T18:56:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T11:30:14Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-11-30T11:09:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1102",
+          "number": 1102,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient.request does not honor stream=True"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-20T12:39:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-15T09:56:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-30T04:18:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sreerevanth/AgentWatch/pull/101",
+          "number": 101,
+          "pull_request": {
+            "url": "https://api.github.com/repos/sreerevanth/AgentWatch/pulls/101"
+          },
+          "repository": {
+            "full_name": "sreerevanth/AgentWatch"
+          },
+          "title": "fix: resolve asyncio.to_thread thread-leakage via non-blocking HTTP approval mechanism"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T15:46:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DNSdecoded/IndicRAG/pull/12",
+          "number": 12,
+          "pull_request": {
+            "merged_at": "2026-07-26T10:35:09Z",
+            "url": "https://api.github.com/repos/DNSdecoded/IndicRAG/pulls/12"
+          },
+          "repository": {
+            "full_name": "DNSdecoded/IndicRAG"
+          },
+          "title": "Release 2.4.0 \u2014 Gemini 3.6 Flash, multi-user isolation & session config"
+        }
+      }
+    }
+  ]
+}

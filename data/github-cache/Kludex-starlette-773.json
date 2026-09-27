@@ -1,0 +1,60 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "i have a starlette app that uses `@app.[route|on_event]` decorators for routing but would like to switch to the recommended `Starlette(routes=..., on_startup=...)`.\r\n\r\none thing i'm confusing about: how can i access app state via startup/shutdown handlers? currently i have the following:\r\n```py\r\nfrom my_middleware import GetDatabaseConnectionMiddleware\r\n\r\napp = Starlette()\r\n# some middleware that gets a connection from app.state.connection_pool\r\n# and adds it to the request's scope\r\napp.add_middleware(GetDatabaseConnectionMiddleware)\r\n\r\n@app.on_event(\"startup\")\r\nasync def startup():\r\n    app.state.connection_pool = await asyncpg.create_pool(\r\n        dsn=DATABASE_URL, min_size=2, max_size=2\r\n    )\r\n```\r\n\r\ni think this is a bit messy but seemed like the most obvious way to set app state in the startup handler. i'm not sure how i'd do the same when app is created after the functions are defined, though. any ideas on how to do this?",
+    "closed_at": "2020-01-14T13:42:47Z",
+    "created_at": "2019-12-29T21:50:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/773",
+    "number": 773,
+    "state": "closed",
+    "title": "accessing app state on startup/shutdown handlers",
+    "user": "zhammer"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-31T08:24:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-31T08:24:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-31T08:24:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-31T17:20:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-31T17:20:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-31T17:20:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-01-14T13:42:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-21T17:38:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-24T10:37:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-24T10:37:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-24T10:37:53Z",
+      "event": "subscribed"
+    }
+  ]
+}

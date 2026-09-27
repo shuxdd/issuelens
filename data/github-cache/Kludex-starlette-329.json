@@ -1,0 +1,67 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-03-02T14:02:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/9",
+          "number": 9,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Support raw-string queries"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Looking through PostgresBackend, every method calls `compile()`. The docs state that raw SQL queries are supported too - can you give an example?\r\n\r\nExample query: `SELECT now();`",
+    "closed_at": "2019-02-11T09:11:47Z",
+    "created_at": "2019-01-20T13:46:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/329",
+    "number": 329,
+    "state": "closed",
+    "title": "Example code for raw SQL query",
+    "user": "tobiasmuehl"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-25T15:59:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-31T14:21:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-31T14:21:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-01-31T14:21:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-02-11T09:11:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-02T14:02:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/9",
+          "number": 9,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Support raw-string queries"
+        }
+      }
+    }
+  ]
+}

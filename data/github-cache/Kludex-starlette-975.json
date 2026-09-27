@@ -1,0 +1,213 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-06-16T09:25:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/976",
+          "number": 976,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/976"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow TestClient to be used as an async context manager (#975)"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-16T09:41:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/1024",
+          "number": 1024,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "ASGI Lifespan events are not sent when using `app` parameter to `AsyncClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-11T21:53:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/392",
+          "number": 392,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "ASGI Lifespan events are not sent when using `app` parameter to `AsyncClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T19:58:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhyansraj/mcp-mesh/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2026-05-17T20:25:25Z",
+            "url": "https://api.github.com/repos/dhyansraj/mcp-mesh/pulls/1038"
+          },
+          "repository": {
+            "full_name": "dhyansraj/mcp-mesh"
+          },
+          "title": "docs+test: SSE gateway shapes \u2014 body parsing inside async-gen deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-19T08:51:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Arvindh95/grp-support/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-05-20T01:39:57Z",
+            "url": "https://api.github.com/repos/Arvindh95/grp-support/pulls/1"
+          },
+          "repository": {
+            "full_name": "Arvindh95/grp-support"
+          },
+          "title": "rag-api: multi-agent RFS analysis service (W1-W9, M1-M4)"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I use pytest in combination with [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio), so all of my unit tests are coroutines. Currently I have a fixture that replaces the `TestClient`'s existing `__enter__` and `__exit__` methods to be usable asynchronously directly:\r\n```python\r\n@pytest.fixture\r\nasync def client():\r\n    tc = TestClient(app)\r\n    tc.send_queue = asyncio.Queue()\r\n    tc.receive_queue = asyncio.Queue()\r\n    tc.task = asyncio.create_task(tc.lifespan())\r\n    await tc.wait_startup()\r\n    try:\r\n        yield tc\r\n    finally:\r\n        await tc.wait_shutdown()\r\n```\r\nIt would be nice if the TestClient provided `__aenter__` and `__aexit__` methods to do this automatically as an [async context manager](https://www.python.org/dev/peps/pep-0492/#asynchronous-context-managers-and-async-with). I can provide a pull request if you want.",
+    "closed_at": "2022-02-08T12:37:40Z",
+    "created_at": "2020-06-15T19:44:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/975",
+    "labels": [
+      "feature",
+      "testclient"
+    ],
+    "number": 975,
+    "state": "closed",
+    "title": "TestClient as async context manager",
+    "user": "retnikt"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "102f47ece32898fc9bf3777b9701b68654e5f578",
+      "commit_url": "https://api.github.com/repos/retnikt/starlette/commits/102f47ece32898fc9bf3777b9701b68654e5f578",
+      "created_at": "2020-06-16T08:13:40Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-06-16T09:24:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-16T09:25:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/976",
+          "number": 976,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/976"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow TestClient to be used as an async context manager (#975)"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-16T09:41:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/1024",
+          "number": 1024,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "ASGI Lifespan events are not sent when using `app` parameter to `AsyncClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:29:06Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-11T11:30:15Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-04-11T15:15:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T12:37:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-11T21:53:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/392",
+          "number": 392,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "ASGI Lifespan events are not sent when using `app` parameter to `AsyncClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T19:58:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhyansraj/mcp-mesh/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2026-05-17T20:25:25Z",
+            "url": "https://api.github.com/repos/dhyansraj/mcp-mesh/pulls/1038"
+          },
+          "repository": {
+            "full_name": "dhyansraj/mcp-mesh"
+          },
+          "title": "docs+test: SSE gateway shapes \u2014 body parsing inside async-gen deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-19T08:51:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Arvindh95/grp-support/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-05-20T01:39:57Z",
+            "url": "https://api.github.com/repos/Arvindh95/grp-support/pulls/1"
+          },
+          "repository": {
+            "full_name": "Arvindh95/grp-support"
+          },
+          "title": "rag-api: multi-agent RFS analysis service (W1-W9, M1-M4)"
+        }
+      }
+    }
+  ]
+}

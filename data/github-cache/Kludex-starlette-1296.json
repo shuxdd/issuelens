@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "**The problem:**\r\nPyCharm gives ugly type check warning when I try to run FastAPI app with uvicorn programmatically passing to `uvicorn.run()` the application instance of the FastAPI class.\r\n\r\nI have created the issue in the FastAPI repository and they say the problem is since FastAPI extends from Starlette the issue is that Starlette is not typed to an `ASGIApplication`, i.e. fix must be done in the Starlette code:\r\nhttps://github.com/tiangolo/fastapi/issues/3927\r\n\r\n**Steps to reproduce:**\r\nCopy and paste to PyCharm the example code from the official FastAPI documentation [Debugging \u2192 Call](https://fastapi.tiangolo.com/tutorial/debugging/?h=uvicorn#call-uvicorn) uvicorn\r\nPyCharm will highlight the `app` argument at the last line `uvicorn.run(app, host=\"0.0.0.0\", port=8000)` with warning:\r\n`Expected type 'Union[Type[ASGI2Protocol], (Union[HTTPScope, WebSocketScope, LifespanScope], () -> Awaitable[Union[HTTPRequestEvent, HTTPDisconnectEvent, WebSocketConnectEvent, WebSocketReceiveEvent, WebSocketDisconnectEvent, LifespanStartupEvent, LifespanShutdownEvent]], (Union[HTTPResponseStartEvent, HTTPResponseBodyEvent, HTTPServerPushEvent, HTTPDisconnectEvent, WebSocketAcceptEvent, WebSocketSendEvent, WebSocketResponseStartEvent, WebSocketResponseBodyEvent, WebSocketCloseEvent, LifespanStartupCompleteEvent, LifespanStartupFailedEvent, LifespanShutdownCompleteEvent, LifespanShutdownFailedEvent]) -> Awaitable[None]) -> Awaitable[None], str]', got 'FastAPI' instead`",
+    "closed_at": "2021-10-02T12:14:16Z",
+    "created_at": "2021-10-02T12:12:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1296",
+    "number": 1296,
+    "state": "closed",
+    "title": "Starlette is not typed to an ASGIApplication \u2192 Type check warning in PyCharm with FastAPI and Uvicorn",
+    "user": "eshfield"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-02T12:14:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-02T12:14:16Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-10-02T12:39:36Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-04-19T14:42:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/486",
+          "number": 486,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Error in app startup event is not logged and does not prevent startup"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "With an error during app startup, pytest will hang after exiting.\r\n\r\n```python\r\n@app.on_event(\"startup\")\r\nasync def startup():\r\n    assert 0\r\n```\r\n\r\n`Ctrl-C` then shows this:\r\n```\r\n=================================== 1 error in 0.34 seconds ====================================\r\n^CException ignored in: <module 'threading' from '/usr/lib/python3.7/threading.py'>\r\nTraceback (most recent call last):\r\n  File \"/usr/lib/python3.7/threading.py\", line 1273, in _shutdown\r\n    t.join()\r\n  File \"/usr/lib/python3.7/threading.py\", line 1032, in join\r\n    self._wait_for_tstate_lock()\r\n  File \"/usr/lib/python3.7/threading.py\", line 1048, in _wait_for_tstate_lock\r\n    elif lock.acquire(block, timeout):\r\nKeyboardInterrupt\r\n```\r\n\r\nThis appears to be related to the test client's lifespan task, but have not really investigated much: https://github.com/blueyed/starlette/blob/8297495d4eb08842b0dc36a1d9bc89f7246ad449/starlette/testclient.py#L409",
+    "closed_at": "2022-01-28T23:16:16Z",
+    "created_at": "2019-03-09T18:36:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/431",
+    "number": 431,
+    "state": "closed",
+    "title": "Error in app startup makes test runner hang",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-09T18:51:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T22:33:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T22:35:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T23:38:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-19T14:42:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/486",
+          "number": 486,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Error in app startup event is not logged and does not prevent startup"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-30T02:01:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-28T23:16:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-28T23:16:16Z",
+      "event": "closed"
+    }
+  ]
+}

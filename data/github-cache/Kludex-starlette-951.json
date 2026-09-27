@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have been looking around and so far have not found a solution to add a progress bar to an application I am building.\r\n\r\nI have a simple form that allows a user to input a long list of \"lookups\". I then loop over each request (using httpx) and then provide a final list of values back. This usually takes less than a few seconds, but could also be longer. So I would like to add a simple progress bar on the UI to let the user know it is still running.\r\n\r\nDoes someone have a tip or solution on how they think I could add a progress bar to the UI?\r\n\r\n\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/951\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/951/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/951/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2020-05-25T08:11:30Z",
+    "created_at": "2020-05-24T21:54:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/951",
+    "number": 951,
+    "state": "closed",
+    "title": "UI Progress Bar",
+    "user": "devsetgo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-25T08:11:25Z",
+      "event": "commented"
+    }
+  ]
+}

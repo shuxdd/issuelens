@@ -1,0 +1,93 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-11T14:00:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/507",
+          "number": 507,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/507"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom headers to HTTPException"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-12T11:36:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/262",
+          "number": 262,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/262"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [security improvement] Mask internal errors and prevent information leakage"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I would like to be able to raise `HTTPException` with custom headers.\r\n\r\nI'm willing to implement it and send a PR if this is something acceptable for Starlette.\r\n\r\nCurrently, that's not possible. As the headers would have to be set in an exception handler, and it wouldn't have a way to know the associated realms of a specific exception raised.\r\n\r\n---\r\n\r\nUse case:\r\n\r\nI would like to be able to raise an authentication error 401 Unauthorized, including `WWW-Authenticate`, with a specific type (like `Basic`) and possibly, with a specific set of realms.\r\n\r\n---\r\n\r\nWhat do you think? Would that be acceptable/desirable in Starlette?",
+    "closed_at": "2019-01-04T14:41:27Z",
+    "created_at": "2018-12-28T16:23:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/295",
+    "number": 295,
+    "state": "closed",
+    "title": "HTTPException with headers - pull request proposal",
+    "user": "tiangolo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-04T13:14:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-04T16:06:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-11T14:00:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/507",
+          "number": 507,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/507"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom headers to HTTPException"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-12T11:36:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/262",
+          "number": 262,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/262"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [security improvement] Mask internal errors and prevent information leakage"
+        }
+      }
+    }
+  ]
+}

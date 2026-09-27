@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-02-21T14:01:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/842",
+          "number": 842,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "NoMatchFound when including router"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Example\r\n```\r\nimport uvicorn\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.staticfiles import StaticFiles\r\nfrom starlette.responses import PlainTextResponse\r\n\r\napp1 = Starlette()\r\nsub_app = Starlette()\r\n\r\nsub_app.mount('/static', StaticFiles(directory='/static/subapp', check_dir=False), name='static')\r\napp1.mount('/subapp', sub_app, name='index')\r\n\r\n@sub_app.route('/test', name='index')\r\ndef test(request):\r\n    return PlainTextResponse(request.url_for('index:static', path='/js/file.js'))\r\n\r\ndef main(args):\r\n    uvicorn.run(app1, host=\"0.0.0.0\", port=5000, debug=True, access_log=True)\r\n\r\nif __name__ == '__main__':\r\n    main(sys.argv[1:])\r\n\r\n```\r\n\r\nExpected result\r\n`/subapp/static/js/file.js`\r\n\r\nResult\r\n`starlette.routing.NoMatchFound`\r\n\r\n\r\nThe `path` kwarg seens to be the problem, this is set to \"\" in the `Mount.url_path_for` but not set back on the `remaining_params`",
+    "closed_at": "2019-10-07T14:54:00Z",
+    "created_at": "2019-10-02T21:51:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/654",
+    "number": 654,
+    "state": "closed",
+    "title": "`url_for` for static files from a sub-application gives NoMatchFound error",
+    "user": "loek17"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-07T14:54:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-21T14:01:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/842",
+          "number": 842,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "NoMatchFound when including router"
+        }
+      }
+    }
+  ]
+}

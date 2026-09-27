@@ -1,0 +1,141 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I've been thinking about how best to mature Starlette as it becomes more and more capable for large-scale projects. **The key thing I want the framework to focus on is low-complexity of the underlying stack.**\r\n\r\nRather than have a monolithic application object, where we put all the functionality on, I'd like to see us focus on independent components. I think this is really important, because it makes it *so much* easier to understand the stack that you're building on top of. Components are independently testable, can be understood in isolation, and can be swapped out or adapted more easily.\r\n\r\nOne example here is we currently have `template_dirs` on the application instance. That makes it less clear what interactions the application instance might have with template dirs under the hood. Instead we should keep all the templating properly independent from other parts of the stack.\r\n\r\nA related aspect of this is routing. Right now we promote the decorator style, which is convenient. I think we should move towards promoting a more explicit style made up of the actual `BaseRoute` instances that the `Router` class uses. The reason here is that it explicitly surfaces information about how the underlying stack function. If you want to implement an alternative to `Route`, `WebSocketRoute`, `Mount`, `Host`, it's already more clear how you'd do that. Even the call stack that gets passed through is being made more explicit. \"Look at this class implementation if you want to understand what's happening here\".\r\n\r\nHere's a sketch of how a more explicit style would fit together:\r\n\r\n**settings.py**\r\n\r\n```python\r\nDEBUG = config(...)\r\nDATABASE_URL = config(...)\r\n```\r\n\r\n**resources.py**\r\n\r\n```python\r\ncache = Cache(...)\r\ndatabase = Database(...)\r\ntemplates = Jinja2Templates(...)\r\n```\r\n\r\n**routing.py**\r\n\r\n```python\r\nroutes = [\r\n    Route(...),\r\n    Route(...),\r\n    WebSocketRoute(...),\r\n    Mount(...)\r\n]\r\n```\r\n\r\n**application.py**\r\n\r\n```python\r\nmiddleware = [\r\n    ...\r\n]\r\n\r\napp = Starlette(routes=routes, middleware=...)\r\n```",
+    "closed_at": "2022-02-14T12:02:37Z",
+    "created_at": "2019-02-18T11:29:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/396",
+    "number": 396,
+    "state": "closed",
+    "title": "Roadmap",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-18T11:49:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-18T11:50:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-18T15:48:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-19T14:11:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-20T12:40:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-20T12:40:07Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-02-20T12:40:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-03-01T23:47:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-01T23:47:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-03-01T23:47:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-03-08T17:15:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-11T11:29:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-19T16:34:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T06:05:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T06:46:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T09:17:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-27T11:19:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-28T22:36:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-23T00:59:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T19:50:40Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "7a73df21449c3e09b2dfaa2b7669ea92ba765eee",
+      "commit_url": "https://api.github.com/repos/mvolfik/starlette-websockets-demo/commits/7a73df21449c3e09b2dfaa2b7669ea92ba765eee",
+      "created_at": "2021-01-20T14:24:57Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-02-14T12:02:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-05-30T04:10:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    }
+  ]
+}

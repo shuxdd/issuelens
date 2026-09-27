@@ -1,0 +1,159 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-04-26T13:43:43Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2134"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2134"
+    ]
+  },
+  "case_id": "starlette-issue-2134",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2159",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Add env argument to Jinja2Templates, remove **env_options. (ref #2134)' directly changes starlette/templating.py with focused behavior test(s) tests/test_templates.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-05-31T10:35:23Z",
+  "issue": {
+    "body": "In our project we're using Jinja templates like so:\r\n\r\n```python\r\nfrom jinja2 import ChoiceLoader, PackageLoader, PrefixLoader, FileSystemLoader\r\nfrom fastapi.templating import Jinja2Templates\r\n\r\ntemplate_loader = ChoiceLoader(\r\n    [\r\n        FileSystemLoader(\"name/web/templates\"),\r\n        PrefixLoader({\"govuk_frontend_jinja\": PackageLoader(\"govuk_frontend_jinja\")}),\r\n    ]\r\n)\r\n\r\n# Use a custom template loader and avoid the default directory option.\r\ntemplates = Jinja2Templates(directory=\"null\", loader=template_loader)\r\n```\r\n\r\nAt the moment we use a generic \"null\" which is not used since in the code if you provide your own loader the default file system loader is bypassed.\r\nhttps://github.com/encode/starlette/blob/882ab6998e9b9ea73b9237552ef295faae3d2c62/starlette/templating.py#L85-L86\r\n\r\nWith this in mind, if a loader is passed should the directory parameter be entirely optional?\r\n\r\nShould the API allow this?\r\n\r\n```python\r\ntemplates = Jinja2Templates(loader=template_loader)\r\n```\r\n",
+    "number": 2134,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2134",
+    "title": "When using a custom Jinja loader, directory parameter is unnecessary but still required."
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2159 created_at 2023-05-31T10:35:23Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2159",
+    "repair_files": [
+      "docs/templates.md",
+      "starlette/templating.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 94225d0901b7826213716c50c761129c8b7d0944",
+    "test_files": [
+      "tests/test_templates.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/templates.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/docs%2Ftemplates.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/templating.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/starlette%2Ftemplating.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "93d98ad7b0c8e43b72167986f04185d06914465c",
+        "source_url": "https://github.com/Kludex/starlette/commit/93d98ad7b0c8e43b72167986f04185d06914465c"
+      },
+      {
+        "sha": "89c5d286822e74ea115062672b3a56a972e25cc8",
+        "source_url": "https://github.com/Kludex/starlette/commit/89c5d286822e74ea115062672b3a56a972e25cc8"
+      },
+      {
+        "sha": "f764843437d79f78e065205bdbbc173cf1e1134b",
+        "source_url": "https://github.com/Kludex/starlette/commit/f764843437d79f78e065205bdbbc173cf1e1134b"
+      },
+      {
+        "sha": "39ee96e0a2434f212424fdb7d16e8379c9f0e08e",
+        "source_url": "https://github.com/Kludex/starlette/commit/39ee96e0a2434f212424fdb7d16e8379c9f0e08e"
+      },
+      {
+        "sha": "7c9f4fc63a6ca8c243f093d4980398d123f624b3",
+        "source_url": "https://github.com/Kludex/starlette/commit/7c9f4fc63a6ca8c243f093d4980398d123f624b3"
+      },
+      {
+        "sha": "5969aecff148418346087525c5c454fdc817d751",
+        "source_url": "https://github.com/Kludex/starlette/commit/5969aecff148418346087525c5c454fdc817d751"
+      },
+      {
+        "sha": "a3e8975d28842ae82c993ff4081c3e3612c7adb6",
+        "source_url": "https://github.com/Kludex/starlette/commit/a3e8975d28842ae82c993ff4081c3e3612c7adb6"
+      },
+      {
+        "sha": "89079117bf82cd8b63101af0ac4202420a4eb990",
+        "source_url": "https://github.com/Kludex/starlette/commit/89079117bf82cd8b63101af0ac4202420a4eb990"
+      },
+      {
+        "sha": "f603512df93e4ba6d55a0411f93c209647e82637",
+        "source_url": "https://github.com/Kludex/starlette/commit/f603512df93e4ba6d55a0411f93c209647e82637"
+      },
+      {
+        "sha": "aeb1726af0bec5fb703aad182e81676c78923c2d",
+        "source_url": "https://github.com/Kludex/starlette/commit/aeb1726af0bec5fb703aad182e81676c78923c2d"
+      },
+      {
+        "sha": "15c70ed42f44824ae0ca2fc37489a61679564d41",
+        "source_url": "https://github.com/Kludex/starlette/commit/15c70ed42f44824ae0ca2fc37489a61679564d41"
+      },
+      {
+        "sha": "abdd56de075958e54e59443f3f1bef285d71b642",
+        "source_url": "https://github.com/Kludex/starlette/commit/abdd56de075958e54e59443f3f1bef285d71b642"
+      },
+      {
+        "sha": "d305e67d47a1dad71c7b7078f63a363a519a3040",
+        "source_url": "https://github.com/Kludex/starlette/commit/d305e67d47a1dad71c7b7078f63a363a519a3040"
+      },
+      {
+        "sha": "c8c28225399b4704c2f451c451876b107916eb6d",
+        "source_url": "https://github.com/Kludex/starlette/commit/c8c28225399b4704c2f451c451876b107916eb6d"
+      },
+      {
+        "sha": "9e0029988256cf85598753776e4dfdb9a23e9602",
+        "source_url": "https://github.com/Kludex/starlette/commit/9e0029988256cf85598753776e4dfdb9a23e9602"
+      },
+      {
+        "sha": "06b6ba7e4853afd62a898f61382d0ef681081533",
+        "source_url": "https://github.com/Kludex/starlette/commit/06b6ba7e4853afd62a898f61382d0ef681081533"
+      },
+      {
+        "sha": "a2d06bc24da7454e02895fe437f587a8fde86000",
+        "source_url": "https://github.com/Kludex/starlette/commit/a2d06bc24da7454e02895fe437f587a8fde86000"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-05-31T10:35:23Z",
+      "number": 2159,
+      "source_url": "https://github.com/Kludex/starlette/pull/2159"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2159"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_templates.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/tests%2Ftest_templates.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+    "committed_at": "2023-05-24T09:27:22Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/94225d0901b7826213716c50c761129c8b7d0944"
+  },
+  "schema_version": "1.0"
+}

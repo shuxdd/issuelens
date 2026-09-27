@@ -1,0 +1,67 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-07-16T13:49:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/17",
+          "number": 17,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/17"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Routing decorator"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I am very interested in contributing to some common middleware for ASGI, and this seems like it is the perfect place to do that, however I have a few questions about how much Starlette is aiming to achieve:\r\n\r\nHow much functionality will this project implement?\r\n\r\nHow much functionality does it intend to leave up to particular frameworks?\r\n\r\nWill it potentially become a more traditional framework itself, or is the intention to remain a small library?\r\n\r\n\r\n",
+    "closed_at": "2018-06-26T08:18:39Z",
+    "created_at": "2018-06-25T17:59:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3",
+    "number": 3,
+    "state": "closed",
+    "title": "Starlette's scope",
+    "user": "jordaneremieff"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-06-25T18:31:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-06-25T21:31:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-06-26T08:18:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-06-26T08:18:39Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-07-16T13:49:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/17",
+          "number": 17,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/17"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Routing decorator"
+        }
+      }
+    }
+  ]
+}

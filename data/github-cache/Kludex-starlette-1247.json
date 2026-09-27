@@ -1,0 +1,110 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-30T11:53:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1446",
+          "number": 1446,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1446"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "`TestClient` timeout simulates `http.disconnect`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-18T14:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/pull/77",
+          "number": 77,
+          "pull_request": {
+            "merged_at": "2023-10-21T03:15:33Z",
+            "url": "https://api.github.com/repos/stephenhillier/starlette_exporter/pulls/77"
+          },
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "Use status code 499 for requests where the client closed the connection"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen using the TestClient provided by the starlette framework, `http.disconnect` are not received. This is a problem if trying to test streaming.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\nImplement simple app:\r\n```python\r\nasync def app(scope, receive, send):\r\n    await send({\r\n        'type': 'http.response.start',\r\n        'status': 200,\r\n    })\r\n    while True:\r\n        message = await receive()\r\n        print('message', message)\r\n        if message['type'] == 'http.disconnect':\r\n            break\r\n```\r\n\r\nWrite test using provided TestClient, which closes the connection during \"processing\":\r\n```python\r\nfrom bug import app\r\nfrom starlette.testclient import TestClient\r\n\r\nclient = TestClient(app)\r\n\r\ndef test_client():\r\n    response = client.post('/', stream=True)\r\n    print('response.status', response.status)\r\n    response.close()\r\n```\r\n\r\n\r\n### Expected behavior\r\n\r\nThe server behaviour should be the same if using TestClient or Uvicorn. If I run the application provided above with Uvicorn:\r\n\r\n```bash\r\nuvicorn bug:app\r\n```\r\n\r\nAnd write a test using the normal `requests` as follows:\r\n```python\r\nimport requests\r\n\r\ndef test_server():\r\n    response = requests.post('http://localhost:8000/', stream=True)\r\n    print('response.status', response.status)\r\n    response.close()\r\n```\r\n\r\nThe `http.disconnect` event is received. This should be the same for the `TestClient`\r\n\r\n### Actual behavior\r\n\r\nNo `http.disconnect` event is received by the app when using `TestClient`.\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8.10\r\n- Starlette version: 0.16.0\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n",
+    "closed_at": "2022-09-06T14:29:13Z",
+    "created_at": "2021-07-20T17:48:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1247",
+    "labels": [
+      "testclient"
+    ],
+    "number": 1247,
+    "state": "closed",
+    "title": "Disconnect event not received when using TestClient",
+    "user": "AGhost-7"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-08-16T21:15:44Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-27T15:43:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T11:53:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1446",
+          "number": 1446,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1446"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "`TestClient` timeout simulates `http.disconnect`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-09T05:25:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-17T06:23:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T14:29:13Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-10-18T14:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/pull/77",
+          "number": 77,
+          "pull_request": {
+            "merged_at": "2023-10-21T03:15:33Z",
+            "url": "https://api.github.com/repos/stephenhillier/starlette_exporter/pulls/77"
+          },
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "Use status code 499 for requests where the client closed the connection"
+        }
+      }
+    }
+  ]
+}

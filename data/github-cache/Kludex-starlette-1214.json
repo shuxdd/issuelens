@@ -1,0 +1,259 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-09T11:37:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ac0e133a934d831622e23d2bdb3c37e8d6e58d27",
+      "sha": "ac0e133a934d831622e23d2bdb3c37e8d6e58d27"
+    },
+    {
+      "committed_at": "2022-01-12T09:18:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/25fc967e1d19e2426b9d9e7501639887a2640dd6",
+      "sha": "25fc967e1d19e2426b9d9e7501639887a2640dd6"
+    },
+    {
+      "committed_at": "2022-01-16T13:37:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/02aca620a2a5b92f97c857245a7aee50da9619a2",
+      "sha": "02aca620a2a5b92f97c857245a7aee50da9619a2"
+    },
+    {
+      "committed_at": "2022-01-17T18:36:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1cc984460a44994e641f704c5c6595cb82b91e74",
+      "sha": "1cc984460a44994e641f704c5c6595cb82b91e74"
+    },
+    {
+      "committed_at": "2022-01-19T09:39:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1b2b01fb4e68ed23c77085b53e24859d14c4174e",
+      "sha": "1b2b01fb4e68ed23c77085b53e24859d14c4174e"
+    },
+    {
+      "committed_at": "2022-01-19T09:39:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e6c96621fb7af72aa5a9ff9b1cb4754c7f7e63b5",
+      "sha": "e6c96621fb7af72aa5a9ff9b1cb4754c7f7e63b5"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-01-09T14:22:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1401",
+          "number": 1401,
+          "pull_request": {
+            "merged_at": "2022-01-19T13:38:57Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1401"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow `env_options` in ``Jinja2Templates`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-03T12:23:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/tifeatures/pull/9",
+          "number": 9,
+          "pull_request": {
+            "url": "https://api.github.com/repos/developmentseed/tifeatures/pulls/9"
+          },
+          "repository": {
+            "full_name": "developmentseed/tifeatures"
+          },
+          "title": "Allow directory with template overrides"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-26T13:59:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2134",
+          "number": 2134,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When using a custom Jinja loader, directory parameter is unnecessary but still required."
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 14,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e6c96621fb7af72aa5a9ff9b1cb4754c7f7e63b5/docs%2Ftemplates.md",
+      "changes": 14,
+      "deletions": 0,
+      "filename": "docs/templates.md",
+      "sha": "181cd1fefb03e7acad2ea9a44a664b4f3a4beb25",
+      "status": "modified"
+    },
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e6c96621fb7af72aa5a9ff9b1cb4754c7f7e63b5/starlette%2Ftemplating.py",
+      "changes": 13,
+      "deletions": 4,
+      "filename": "starlette/templating.py",
+      "sha": "a44edddc20d173788a572c110fad0245faaf9a69",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I would like to be able to have multiple directories included in the Jinja2Template response. This allows for well structured applications with sub-application separation.  For example in flask the individual blueprints can register their own template directory and the templates in that directory can also reference/include templates from the parent project on up. This enables having base templates with the look and feel of the site at the parent level and then the page content in the sub-project.\r\n\r\nThere is an implementation out there (https://github.com/accent-starlette/starlette-core/blob/master/starlette_core/templating.py) but I'd like to see it built in. Especially since the referenced implementation isn't in PyPI.",
+    "closed_at": "2022-02-08T11:43:18Z",
+    "created_at": "2021-06-24T13:32:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1214",
+    "number": 1214,
+    "state": "closed",
+    "title": "Support multiple template directories for large projects",
+    "user": "nickleman"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-19T13:38:57Z",
+    "created_at": "2022-01-09T11:41:17Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1401",
+    "merge_commit_sha": "3e6b26d83666e09fb7f7b3e280402afe6a7646f0",
+    "merged_at": "2022-01-19T13:38:57Z",
+    "number": 1401,
+    "title": "Allow `env_options` in ``Jinja2Templates`",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-24T16:08:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-24T21:40:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-26T07:17:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-26T07:17:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-06-26T07:17:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-06-26T10:44:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-26T11:05:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-26T11:30:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-15T16:00:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-09T14:22:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1401",
+          "number": 1401,
+          "pull_request": {
+            "merged_at": "2022-01-19T13:38:57Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1401"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow `env_options` in ``Jinja2Templates`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-09T14:24:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-09T15:43:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-09T15:43:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-09T15:43:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-09T16:17:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-09T16:17:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-09T16:17:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-19T13:47:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-19T15:59:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-19T16:07:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T11:43:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-03T12:23:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/tifeatures/pull/9",
+          "number": 9,
+          "pull_request": {
+            "url": "https://api.github.com/repos/developmentseed/tifeatures/pulls/9"
+          },
+          "repository": {
+            "full_name": "developmentseed/tifeatures"
+          },
+          "title": "Allow directory with template overrides"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-26T13:59:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2134",
+          "number": 2134,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "When using a custom Jinja loader, directory parameter is unnecessary but still required."
+        }
+      }
+    }
+  ]
+}

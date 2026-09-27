@@ -1,0 +1,205 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-12-12T15:58:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1490",
+          "number": 1490,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow to order the middleware list"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-19T14:00:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction"
+          },
+          "title": "Update from task 14854a42-6d9c-45b8-aa7a-64d2ce10f42c"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T19:53:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ByronWilliamsCPA/llc-manager/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-04-20T22:12:51Z",
+            "url": "https://api.github.com/repos/ByronWilliamsCPA/llc-manager/pulls/4"
+          },
+          "repository": {
+            "full_name": "ByronWilliamsCPA/llc-manager"
+          },
+          "title": "chore: consolidate divergent clones, align with standards, fix pre-existing Phase 0 bugs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T10:11:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/15",
+          "number": 15,
+          "pull_request": {
+            "merged_at": "2026-08-03T10:24:19Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/15"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "Feature/backend fastapi template core"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hackermike/care-platform/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-08-09T23:00:26Z",
+            "url": "https://api.github.com/repos/hackermike/care-platform/pulls/10"
+          },
+          "repository": {
+            "full_name": "hackermike/care-platform"
+          },
+          "title": "Set security headers on every response"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi! \r\nIn this [code](https://github.com/encode/starlette/blob/b95acea973c20eea3e7cbbca42d09b1f5d4a3412/starlette/applications.py#L126) you add middleware to 0 index in stack, but in [this code](https://github.com/encode/starlette/blob/b95acea973c20eea3e7cbbca42d09b1f5d4a3412/starlette/applications.py#L90) you build middleware stack\r\n with reverse list of middlewares... WUT? \r\n\r\nThat is, adding add middleware goes at the 0 index of the list, but at the same time initialization goes in the normal order",
+    "closed_at": "2021-10-24T15:49:56Z",
+    "created_at": "2020-11-15T22:12:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1092",
+    "number": 1092,
+    "state": "closed",
+    "title": "[QUESTION] add_middleware code question",
+    "user": "uvicorn"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-15T22:13:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-15T22:14:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-08T06:13:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-24T15:49:56Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-12-12T15:58:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1490",
+          "number": 1490,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow to order the middleware list"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-19T14:00:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction"
+          },
+          "title": "Update from task 14854a42-6d9c-45b8-aa7a-64d2ce10f42c"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T19:53:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ByronWilliamsCPA/llc-manager/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-04-20T22:12:51Z",
+            "url": "https://api.github.com/repos/ByronWilliamsCPA/llc-manager/pulls/4"
+          },
+          "repository": {
+            "full_name": "ByronWilliamsCPA/llc-manager"
+          },
+          "title": "chore: consolidate divergent clones, align with standards, fix pre-existing Phase 0 bugs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T10:11:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/15",
+          "number": 15,
+          "pull_request": {
+            "merged_at": "2026-08-03T10:24:19Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/15"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "Feature/backend fastapi template core"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hackermike/care-platform/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-08-09T23:00:26Z",
+            "url": "https://api.github.com/repos/hackermike/care-platform/pulls/10"
+          },
+          "repository": {
+            "full_name": "hackermike/care-platform"
+          },
+          "title": "Set security headers on every response"
+        }
+      }
+    }
+  ]
+}

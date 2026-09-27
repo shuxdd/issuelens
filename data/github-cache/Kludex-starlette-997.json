@@ -1,0 +1,205 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-07-13T05:28:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c4b455162fbc2668eba42751c91fc2460113c9c",
+      "sha": "7c4b455162fbc2668eba42751c91fc2460113c9c"
+    },
+    {
+      "committed_at": "2020-07-14T02:54:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/087a82ec7e2b6aedae245ce2845c96cf3b55aed3",
+      "sha": "087a82ec7e2b6aedae245ce2845c96cf3b55aed3"
+    },
+    {
+      "committed_at": "2020-07-15T17:56:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2bab4bdfa2d7237006cb9e2a9faf1869584a3bf8",
+      "sha": "2bab4bdfa2d7237006cb9e2a9faf1869584a3bf8"
+    },
+    {
+      "committed_at": "2020-07-15T18:13:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5",
+      "sha": "4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-07-13T05:20:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/182",
+          "number": 182,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "WSGI Error in non-ascii path"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-13T05:21:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/abersheeran/a2wsgi/issues/1",
+          "number": 1,
+          "pull_request": {},
+          "repository": {
+            "full_name": "abersheeran/a2wsgi"
+          },
+          "title": "WSGI Middleware Error in non-ascii path"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-13T05:32:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/998",
+          "number": 998,
+          "pull_request": {
+            "merged_at": "2020-07-15T18:27:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/998"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix wsgi PATH_INFO encoding"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-20T14:50:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/961",
+          "number": 961,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "WSGI middleware error in non-latin1 path"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5/starlette%2Fmiddleware%2Fwsgi.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/wsgi.py",
+      "sha": "8f7d92711c8b4c0939a6302199d2f6d26d03b56b",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4ed639d8ed7fdc490523f9ff6e939aa5f305c6d5/tests%2Fmiddleware%2Ftest_wsgi.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "tests/middleware/test_wsgi.py",
+      "sha": "c35fda42664204c50f3c46730cf3a26eecd7ed74",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "![image](https://user-images.githubusercontent.com/25364828/87270540-fdfc5380-c502-11ea-9c54-dff760a1a689.png)\r\nGet error: \r\n![image](https://user-images.githubusercontent.com/25364828/87270591-25532080-c503-11ea-914c-dad8796fa325.png)\r\n\r\n![image](https://user-images.githubusercontent.com/25364828/87270805-dce83280-c503-11ea-96af-ead9ed9bd6f3.png)\r\n\r\nI glanced at the code and the problem is here:\r\n\r\nhttps://github.com/encode/starlette/blob/ced8c350c459f22381ae00064e204b4620aa3d58/starlette/middleware/wsgi.py#L17\r\n\r\nMaybe need to use the following code instead\r\n\r\n```python\r\n\"PATH_INFO\": scope[\"path\"].encode(\"utf8\").decode(\"latin1\"), \r\n```",
+    "body_last_edited_at": "2020-07-13T05:25:13Z",
+    "closed_at": "2020-07-15T18:27:18Z",
+    "created_at": "2020-07-13T04:31:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/997",
+    "number": 997,
+    "state": "closed",
+    "title": "WSGI Middleware Error in non-ascii path",
+    "user": "abersheeran"
+  },
+  "pull_request": {
+    "closed_at": "2020-07-15T18:27:18Z",
+    "created_at": "2020-07-13T05:32:20Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/998",
+    "merge_commit_sha": "85b9c2642b6b806c0d0c33e5418914893a5789f6",
+    "merged_at": "2020-07-15T18:27:18Z",
+    "number": 998,
+    "title": "fix wsgi PATH_INFO encoding",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "ced8c350c459f22381ae00064e204b4620aa3d58",
+    "committed_at": "2020-06-29T11:39:10Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ced8c350c459f22381ae00064e204b4620aa3d58"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-07-13T05:20:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/182",
+          "number": 182,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "WSGI Error in non-ascii path"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-13T05:21:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/abersheeran/a2wsgi/issues/1",
+          "number": 1,
+          "pull_request": {},
+          "repository": {
+            "full_name": "abersheeran/a2wsgi"
+          },
+          "title": "WSGI Middleware Error in non-ascii path"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-13T05:32:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/998",
+          "number": 998,
+          "pull_request": {
+            "merged_at": "2020-07-15T18:27:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/998"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix wsgi PATH_INFO encoding"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-15T18:27:18Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-02-20T14:50:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/961",
+          "number": 961,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "WSGI middleware error in non-latin1 path"
+        }
+      }
+    }
+  ]
+}

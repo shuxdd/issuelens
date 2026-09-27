@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2500\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **Flecart** February 10, 2024</sup>\r\nCurrently there is experimentation for a `Partitioned` attribute for the cookies. [See docs here](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies).\r\n\r\nThis attribute is important for third party cookies to work when in the future `SameSite=None; Secure` cookies will stop working\r\nFor example Chrome is starting to block them for some users https://developers.google.com/privacy-sandbox/3pcd#report-issues.\r\nExample: this is a common warning for third party cookies on Chrome:\r\n```txt\r\nCookies with the SameSite=None; Secure and not Partitioned attributes that operate in cross-site contexts are third-party cookies. In future Chrome versions, reading third-party cookies will be blocked. This behavior protects user data from cross-site tracking.\r\nPlease refer to the article linked to learn more about preparing your site to avoid potential breakage.\r\n```\r\n\r\nSo I would like to suggest to add this attribute for the cookie to prepare for the future blocks on standard third party cookies.\r\n\r\n\r\nUseful links:\r\nhttps://datatracker.ietf.org/doc/html/draft-cutler-httpbis-partitioned-cookies#section-2.1\r\nhttps://github.com/privacycg/CHIPS\r\nhttps://github.com/python/cpython/issues/112713</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2507\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2507/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2507/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-02-15T14:21:53Z",
+    "created_at": "2024-02-12T08:00:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2507",
+    "number": 2507,
+    "state": "closed",
+    "title": "Add `Partitioned` cookie attribute",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-02-12T09:41:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-15T14:21:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-15T14:21:54Z",
+      "event": "closed"
+    }
+  ]
+}

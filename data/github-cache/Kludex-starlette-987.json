@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Why I can't add context values to GraphQLApp.handle_graphql? I mean something like that:\r\ngraphql_app.handle_graphql(request=request, context_values={'db_session': session})",
+    "closed_at": "2021-02-05T19:41:40Z",
+    "created_at": "2020-06-26T23:31:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/987",
+    "number": 987,
+    "state": "closed",
+    "title": "Context Values",
+    "user": "MabaKalox"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T10:47:02Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-01-14T01:35:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:41:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:41:40Z",
+      "event": "closed"
+    }
+  ]
+}

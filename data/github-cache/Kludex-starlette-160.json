@@ -1,0 +1,44 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Example:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware.cors import CORSMiddleware\r\nfrom starlette.requests import Request\r\nfrom starlette.routing import Router, Route\r\nimport uvicorn\r\n\r\nfrom views import FooView\r\n\r\n\r\napp = Starlette(debug=True)\r\n# need middleware, so I use Starlette app\r\napp.add_middleware(\r\n    CORSMiddleware, allow_origins=[\"*\"], allow_headers=[\"*\"], allow_methods=[\"*\"]\r\n)\r\nrouter = Router([\r\n    Route('/foo', endpoint=FooView),\r\n])\r\napp.mount('/', router)  # << doesn't work for some reason\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=4000)\r\n```\r\n",
+    "closed_at": "2018-11-05T11:11:36Z",
+    "created_at": "2018-10-29T22:12:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/160",
+    "number": 160,
+    "state": "closed",
+    "title": "[question] how to mount router into Starlette app? `app.mount('/', router)` does't work",
+    "user": "vanyakosmos"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-29T22:24:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-29T22:25:19Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-10-29T22:47:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-29T22:51:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-30T23:15:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-30T23:15:19Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-10-30T23:15:19Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-08-06T07:49:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bd9bf48dabef8110785388bed3e90f95e5de4082",
+      "sha": "bd9bf48dabef8110785388bed3e90f95e5de4082"
+    },
+    {
+      "committed_at": "2024-08-06T09:27:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ad7a72be88d86aaf3c9b8e2d14b6227d4af18300",
+      "sha": "ad7a72be88d86aaf3c9b8e2d14b6227d4af18300"
+    },
+    {
+      "committed_at": "2024-08-06T10:34:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/18f0d6757fb76048bf577e39593951f984735b49",
+      "sha": "18f0d6757fb76048bf577e39593951f984735b49"
+    },
+    {
+      "committed_at": "2024-08-06T15:01:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/98a81d9d5d5907ffb9e9e6955d7905746bd0715d",
+      "sha": "98a81d9d5d5907ffb9e9e6955d7905746bd0715d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-06-10T14:40:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2615",
+          "number": 2615,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Python 3.13.0b2: `test_gzip_ignored_for_responses_with_encoding_set[trio]` fails with a `ValueError: I/O operation on closed file`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-06T13:56:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2662",
+          "number": 2662,
+          "pull_request": {
+            "merged_at": "2024-08-06T15:08:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2662"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support Python 3.13"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/98a81d9d5d5907ffb9e9e6955d7905746bd0715d/.github%2Fworkflows%2Ftest-suite.yml",
+      "changes": 2,
+      "deletions": 1,
+      "filename": ".github/workflows/test-suite.yml",
+      "sha": "fac94603928643768cd5caf0f115eeda4073d3be",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/98a81d9d5d5907ffb9e9e6955d7905746bd0715d/pyproject.toml",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "pyproject.toml",
+      "sha": "f2721c870f86ea11d122cc0a1a1a15d92bebe724",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/98a81d9d5d5907ffb9e9e6955d7905746bd0715d/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 11,
+      "deletions": 4,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "3fc4a44024e5aa62e037cba391ecdbc82d201ef4",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/98a81d9d5d5907ffb9e9e6955d7905746bd0715d/starlette%2Fmiddleware%2Fgzip.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "starlette/middleware/gzip.py",
+      "sha": "0579e0410acc7e113f3cc176c3d5b0a31db25121",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Two tests fail with Python 3.13.0b2 on a missing key 'content-type'. I run then during the RPM build on version 0.37.2.\r\n@musicinmybrain reports it can be reproduced via a virtual environment: `pip install -e .[full]; pip install -r requirements.txt; pip install --update trio; python -m pytest`)\r\n\r\n```\r\n___________________________ test_debug_html[asyncio] ___________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})\r\n\r\n    def test_debug_html(test_client_factory: TestClientFactory) -> None:\r\n        async def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n            raise RuntimeError(\"Something went wrong\")\r\n    \r\n        app = ServerErrorMiddleware(app, debug=True)\r\n        client = test_client_factory(app, raise_server_exceptions=False)\r\n        response = client.get(\"/\", headers={\"Accept\": \"text/html, */*\"})\r\n        assert response.status_code == 500\r\n>       assert response.headers[\"content-type\"].startswith(\"text/html\")\r\n\r\ntests/middleware/test_errors.py:53: \r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n\r\nself = Headers({}), key = 'content-type'\r\n\r\n    def __getitem__(self, key: str) -> str:\r\n        \"\"\"\r\n        Return a single header value.\r\n    \r\n        If there are multiple headers with the same key, then we concatenate\r\n        them with commas. See: https://tools.ietf.org/html/rfc7230#section-3.2.2\r\n        \"\"\"\r\n        normalized_key = key.lower().encode(self.encoding)\r\n    \r\n        items = [\r\n            header_value.decode(self.encoding)\r\n            for _, header_key, header_value in self._list\r\n            if header_key == normalized_key\r\n        ]\r\n    \r\n        if items:\r\n            return \", \".join(items)\r\n    \r\n>       raise KeyError(key)\r\nE       KeyError: 'content-type'\r\n\r\n/usr/lib/python3.13/site-packages/httpx/_models.py:228: KeyError\r\n____________________________ test_debug_html[trio] _____________________________\r\n\r\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='trio', backend_options={})\r\n\r\n    def test_debug_html(test_client_factory: TestClientFactory) -> None:\r\n        async def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n            raise RuntimeError(\"Something went wrong\")\r\n    \r\n        app = ServerErrorMiddleware(app, debug=True)\r\n        client = test_client_factory(app, raise_server_exceptions=False)\r\n        response = client.get(\"/\", headers={\"Accept\": \"text/html, */*\"})\r\n        assert response.status_code == 500\r\n>       assert response.headers[\"content-type\"].startswith(\"text/html\")\r\n\r\ntests/middleware/test_errors.py:53: \r\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n\r\nself = Headers({}), key = 'content-type'\r\n\r\n    def __getitem__(self, key: str) -> str:\r\n        \"\"\"\r\n        Return a single header value.\r\n    \r\n        If there are multiple headers with the same key, then we concatenate\r\n        them with commas. See: https://tools.ietf.org/html/rfc7230#section-3.2.2\r\n        \"\"\"\r\n        normalized_key = key.lower().encode(self.encoding)\r\n    \r\n        items = [\r\n            header_value.decode(self.encoding)\r\n            for _, header_key, header_value in self._list\r\n            if header_key == normalized_key\r\n        ]\r\n    \r\n        if items:\r\n            return \", \".join(items)\r\n    \r\n>       raise KeyError(key)\r\nE       KeyError: 'content-type'\r\n\r\n/usr/lib/python3.13/site-packages/httpx/_models.py:228: KeyError\r\n```\r\n\r\n---\r\n\r\n- [x] Initially raised as discussion #2610\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2614\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2614/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2614/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-08-06T18:06:30Z",
+    "created_at": "2024-06-10T14:38:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2614",
+    "number": 2614,
+    "state": "closed",
+    "title": "Python 3.13.0b2: KeyError: 'content-type' in `test_debug_html[asyncio]` and `test_debug_html[trio]`",
+    "user": "befeleme"
+  },
+  "pull_request": {
+    "closed_at": "2024-08-06T15:08:22Z",
+    "created_at": "2024-08-06T07:49:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2662",
+    "merge_commit_sha": "55cbba94563690ffe088470cf3e6d922eb40cced",
+    "merged_at": "2024-08-06T15:08:22Z",
+    "number": 2662,
+    "title": "Support Python 3.13",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-06-10T14:38:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-06-10T14:38:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-06-10T14:40:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2615",
+          "number": 2615,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Python 3.13.0b2: `test_gzip_ignored_for_responses_with_encoding_set[trio]` fails with a `ValueError: I/O operation on closed file`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-23T15:01:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-07-23T15:16:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T08:23:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T13:56:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2662",
+          "number": 2662,
+          "pull_request": {
+            "merged_at": "2024-08-06T15:08:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2662"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support Python 3.13"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-06T18:06:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T18:06:30Z",
+      "event": "closed"
+    }
+  ]
+}

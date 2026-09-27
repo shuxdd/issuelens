@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm mentioning this feature because I can imagine wanting it in the future, not because I actually need it right now.\r\n\r\nOne of the popular features of [Pyramid](https://pyramid.readthedocs.io/en/latest/index.html) is that it offers, in addition to regular url dispatch, the option of \"traversal\"-based routing. \r\n\r\n> A traversal uses the URL (Universal Resource Locator) to find a resource located in a resource tree, which is a set of nested dictionary-like objects. Traversal is done by using each segment of the path portion of the URL to navigate through the resource tree. You might think of this as looking up files and directories in a file system. Traversal walks down the path until it finds a published resource, analogous to a file system \"directory\" or \"file\". The resource found as the result of a traversal becomes the context of the request. Then, the view lookup subsystem is used to find some view code willing to \"publish\" this resource by generating a response.\r\n\r\nFor example, with \r\n\r\n```py\r\ndef get_root(request):\r\n    return Resource({'a': Resource({'b': Resource({'c': Resource()})})})\r\n```\r\n\r\nNavigating to `/a/b/c` will return the innermost resource. Any object providing `__getitem__` can be used in the route lookup, as the nested `Resource`s are being used here.\r\n\r\nThe Pyramid docs on traversal are extensive:\r\n\r\n\r\n- [Quick example](https://pyramid.readthedocs.io/en/latest/narr/hellotraversal.html)\r\n- [Much ado about traversal](https://pyramid.readthedocs.io/en/latest/narr/muchadoabouttraversal.html)\r\n- [Traversal details](https://pyramid.readthedocs.io/en/latest/narr/traversal.html)\r\n- [Combining Traversal and URL Dispatch](https://pyramid.readthedocs.io/en/latest/narr/hybrid.html)\r\n- [Resources](https://pyramid.readthedocs.io/en/latest/narr/resources.html)",
+    "closed_at": "2020-01-29T11:15:13Z",
+    "created_at": "2020-01-14T07:07:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/797",
+    "number": 797,
+    "state": "closed",
+    "title": "Resource-traversal routing ",
+    "user": "jtrakk"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-14T07:08:56Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-01-29T11:15:13Z",
+      "event": "commented"
+    }
+  ]
+}

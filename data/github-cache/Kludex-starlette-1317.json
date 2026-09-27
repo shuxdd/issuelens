@@ -1,0 +1,193 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-10-26T05:04:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7219ea040f881b2c363c9f192703ad6fd4ff5e30",
+      "sha": "7219ea040f881b2c363c9f192703ad6fd4ff5e30"
+    },
+    {
+      "committed_at": "2021-10-26T22:41:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e7c31b34a9d80b62fcc2a3dbee84ec1ba7612d6",
+      "sha": "1e7c31b34a9d80b62fcc2a3dbee84ec1ba7612d6"
+    },
+    {
+      "committed_at": "2021-10-26T22:50:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2d7e5c9007667d0dca934cfc6890925928c2b554",
+      "sha": "2d7e5c9007667d0dca934cfc6890925928c2b554"
+    },
+    {
+      "committed_at": "2021-10-26T22:53:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1f3be61f9f118448d136034b077fbf9bbec04fd0",
+      "sha": "1f3be61f9f118448d136034b077fbf9bbec04fd0"
+    },
+    {
+      "committed_at": "2021-10-29T01:03:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b53867ee62613d318b2bce8bf4ab82eca5620849",
+      "sha": "b53867ee62613d318b2bce8bf4ab82eca5620849"
+    },
+    {
+      "committed_at": "2021-10-29T06:57:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/74ecba98969db200b9e50bf116ef0c06255264b1",
+      "sha": "74ecba98969db200b9e50bf116ef0c06255264b1"
+    },
+    {
+      "committed_at": "2021-11-04T17:51:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cca446459e071b3238a195e11d4763f3f78339cd",
+      "sha": "cca446459e071b3238a195e11d4763f3f78339cd"
+    },
+    {
+      "committed_at": "2021-11-15T21:55:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fa6fd611a6f1cd99e93b6a8ce95e39ba012c92a2",
+      "sha": "fa6fd611a6f1cd99e93b6a8ce95e39ba012c92a2"
+    },
+    {
+      "committed_at": "2021-11-24T22:14:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92c488299383e2af4a66aa3d3cb865c37935cd78",
+      "sha": "92c488299383e2af4a66aa3d3cb865c37935cd78"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-10-26T05:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1322",
+          "number": 1322,
+          "pull_request": {
+            "merged_at": "2021-11-25T14:11:25Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1322"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix port issue on host-based routing"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/docs%2Frouting.md",
+      "changes": 7,
+      "deletions": 3,
+      "filename": "docs/routing.md",
+      "sha": "f19c57b7054c8b7a771c5361725c3e2cb21cc0a6",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/starlette%2Frouting.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/routing.py",
+      "sha": "f9474b4a13c00e95728658c540d28ea94374e076",
+      "status": "modified"
+    },
+    {
+      "additions": 26,
+      "blob_url": "https://github.com/Kludex/starlette/blob/92c488299383e2af4a66aa3d3cb865c37935cd78/tests%2Ftest_routing.py",
+      "changes": 26,
+      "deletions": 0,
+      "filename": "tests/test_routing.py",
+      "sha": "e1374cc5d9409f301e2d302e9532f8c39b41709e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\nWhen adding a host-based routes, `host` value can accept the port and does not process it in any way. But `Host.matches()` cuts off the port number ([`routing.py:432`](https://github.com/encode/starlette/blob/master/starlette/routing.py#L432))\r\n\r\n### Expected behavior\r\nWhen adding, cut off the port, or \u0441onsider it when matching.\r\n\r\n### Actual behavior\r\n```python\r\nimport uvicorn as uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Host, Router, Route\r\n\r\napp = Starlette(routes=[\r\n    Host('127.0.0.1:8889', app=Router(routes=[Route('/', lambda *a, **k: PlainTextResponse('Hello World'))])),\r\n])\r\n\r\nuvicorn.run(app, port=8889)\r\n```\r\n\r\nBreakpoint at [`routing.py:433`](https://github.com/encode/starlette/blob/master/starlette/routing.py#L433)\r\n![breakpoint variables](https://user-images.githubusercontent.com/29860366/137943818-4a9ba822-d0ae-4c56-9ca2-03cce844ecba.png)\r\n\r\n- Starlette version: 0.16.0\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2021-11-25T14:11:25Z",
+    "created_at": "2021-10-19T15:50:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1317",
+    "number": 1317,
+    "state": "closed",
+    "title": "\ud83d\udc1b Different `Host` behavior for setting `host` argument and getting `Host` header",
+    "user": "WhiteApfel"
+  },
+  "pull_request": {
+    "closed_at": "2021-11-25T14:11:26Z",
+    "created_at": "2021-10-26T05:06:57Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1322",
+    "merge_commit_sha": "7c7ec5a7f72de360bafa938d14e2e1d6f4b6cb69",
+    "merged_at": "2021-11-25T14:11:25Z",
+    "number": 1322,
+    "title": "Fix port issue on host-based routing",
+    "user": "WhiteApfel"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "d87c93eda4c546771fb51c60a21e8f245905f7f6",
+    "committed_at": "2021-10-25T07:51:12Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/d87c93eda4c546771fb51c60a21e8f245905f7f6"
+  },
+  "timeline": [
+    {
+      "commit_id": "f995a7b0ce0aae0a52a726bf58483f058b0d4705",
+      "commit_url": "https://api.github.com/repos/WhiteApfel/starlette/commits/f995a7b0ce0aae0a52a726bf58483f058b0d4705",
+      "created_at": "2021-10-19T17:54:12Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "b69cabc49b094a226b4f588635d10fe4cc6ce35a",
+      "commit_url": "https://api.github.com/repos/WhiteApfel/starlette/commits/b69cabc49b094a226b4f588635d10fe4cc6ce35a",
+      "created_at": "2021-10-19T17:54:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-10-26T01:14:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-26T01:14:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-26T01:14:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-26T05:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1322",
+          "number": 1322,
+          "pull_request": {
+            "merged_at": "2021-11-25T14:11:25Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1322"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix port issue on host-based routing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-26T07:38:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-26T07:38:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-26T07:38:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-26T22:47:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-27T07:12:46Z",
+      "event": "connected"
+    },
+    {
+      "created_at": "2021-11-25T14:11:26Z",
+      "event": "closed"
+    }
+  ]
+}

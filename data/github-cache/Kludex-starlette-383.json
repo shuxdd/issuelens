@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "sub_app.py\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse, RedirectResponse\r\n\r\nsub_app = Starlette()\r\n\r\n\r\n@sub_app.route(\"/method1\")\r\ndef http_method1(request):\r\n    return RedirectResponse(sub_app.url_path_for('http_method2'))\r\n\r\n@sub_app.route(\"/method2\")\r\ndef http_method2(request):\r\n    return PlainTextResponse(\"method2\")\r\n```\r\n\r\nmain.py:\r\n```python\r\nfrom starlette.applications import Starlette\r\n\r\nfrom sub_app import sub_app\r\n\r\napp = Starlette()\r\n\r\napp.mount(\"/sub_app\", sub_app)\r\n\r\nif __name__ == \"__main__\":\r\n    import uvicorn\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n\r\n```\r\n\r\nExpecting that `/sub_app/method1` will redirect to `/sub_app/method2`. In fact in it redirects to `/method2` which is incorrect.\r\n\r\nReason of that, is `sub_app.url_path_for('http_method2')` returns `/method2`. Looks like sub_app does not know, that it is mounted via `/sub_app`",
+    "closed_at": "2019-02-11T12:43:38Z",
+    "created_at": "2019-02-11T12:22:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/383",
+    "number": 383,
+    "state": "closed",
+    "title": "Incorrect redirect location",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-11T12:33:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-11T12:43:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-11T12:44:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-12T00:03:58Z",
+      "event": "commented"
+    }
+  ]
+}

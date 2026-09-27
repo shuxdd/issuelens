@@ -1,0 +1,115 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-02-11T14:21:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5f20c6e7d9b4c4863d0e9d0fed0eadaa7ff5850e",
+      "sha": "5f20c6e7d9b4c4863d0e9d0fed0eadaa7ff5850e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-02-11T13:02:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2033",
+          "number": 2033,
+          "pull_request": {
+            "merged_at": "2023-02-11T14:24:57Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2033"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix test not passing in 32-bit architectures (fixes #2032)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5f20c6e7d9b4c4863d0e9d0fed0eadaa7ff5850e/tests%2Ftest_responses.py",
+      "changes": 12,
+      "deletions": 6,
+      "filename": "tests/test_responses.py",
+      "sha": "284bda1efd11e4546e7b2169f87a2ec8567f46e7",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The following test will never success in 32-bit platforms, as the date goes beyond the maximum value that `time_t` can hold, causing an overflow exception. I suggest to add a skip on these platforms for these tests or rework them to not to break.\r\n\r\nBroken tests:\r\n* [test_set_cookie](https://github.com/encode/starlette/blob/337ae243b10d3c20db53b77bc3c7718bb4f1a164/tests/test_responses.py#L294)\r\n* [test_expires_on_set_cookie](https://github.com/encode/starlette/blob/master/tests/test_responses.py#L334)\r\n\r\nWe are skipping these tests in openSUSE as we build for `i586` and `armv7l` archs, but it would be nice to take them into account.\r\n\r\nHere is an excerpt of one of the errors:\r\n```\r\n\r\n[   40s] ___________________ test_expires_on_set_cookie[asyncio-int] ____________________\r\n[   40s] \r\n[   40s] test_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})\r\n[   40s] monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0xf38e7988>\r\n[   40s] expires = 10\r\n[   40s] \r\n[   40s]     @pytest.mark.parametrize(\r\n[   40s]         \"expires\",\r\n[   40s]         [\r\n[   40s]             pytest.param(\r\n[   40s]                 dt.datetime(2100, 1, 22, 12, 0, 10, tzinfo=dt.timezone.utc), id=\"datetime\"\r\n[   40s]             ),\r\n[   40s]             pytest.param(\"Fri, 22 Jan 2100 12:00:10 GMT\", id=\"str\"),\r\n[   40s]             pytest.param(10, id=\"int\"),\r\n[   40s]         ],\r\n[   40s]     )\r\n[   40s]     def test_expires_on_set_cookie(test_client_factory, monkeypatch, expires):\r\n[   40s]         # Mock time used as a reference for `Expires` by stdlib `SimpleCookie`.\r\n[   40s]         mocked_now = dt.datetime(2100, 1, 22, 12, 0, 0, tzinfo=dt.timezone.utc)\r\n[   40s]         monkeypatch.setattr(time, \"time\", lambda: mocked_now.timestamp())\r\n[   40s]     \r\n[   40s]         async def app(scope, receive, send):\r\n[   40s]             response = Response(\"Hello, world!\", media_type=\"text/plain\")\r\n[   40s]             response.set_cookie(\"mycookie\", \"myvalue\", expires=expires)\r\n[   40s]             await response(scope, receive, send)\r\n[   40s]     \r\n[   40s]         client = test_client_factory(app)\r\n[   40s] >       response = client.get(\"/\")\r\n[   40s] \r\n[   40s] tests/test_responses.py:345: \r\n[   40s] _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n[   40s] starlette/testclient.py:492: in get\r\n[   40s]     return super().get(\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:1045: in get\r\n[   40s]     return self.request(\r\n[   40s] starlette/testclient.py:458: in request\r\n[   40s]     return super().request(\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:821: in request\r\n[   40s]     return self.send(request, auth=auth, follow_redirects=follow_redirects)\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:908: in send\r\n[   40s]     response = self._send_handling_auth(\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:936: in _send_handling_auth\r\n[   40s]     response = self._send_handling_redirects(\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:973: in _send_handling_redirects\r\n[   40s]     response = self._send_single_request(request)\r\n[   40s] /usr/lib/python3.8/site-packages/httpx/_client.py:1009: in _send_single_request\r\n[   40s]     response = transport.handle_request(request)\r\n[   40s] starlette/testclient.py:337: in handle_request\r\n[   40s]     raise exc\r\n[   40s] starlette/testclient.py:334: in handle_request\r\n[   40s]     portal.call(self.app, scope, receive, send)\r\n[   40s] /usr/lib/python3.8/site-packages/anyio/from_thread.py:283: in call\r\n[   40s]     return cast(T_Retval, self.start_task_soon(func, *args).result())\r\n[   40s] /usr/lib/python3.8/concurrent/futures/_base.py:437: in result\r\n[   40s]     return self.__get_result()\r\n[   40s] /usr/lib/python3.8/concurrent/futures/_base.py:389: in __get_result\r\n[   40s]     raise self._exception\r\n[   40s] /usr/lib/python3.8/site-packages/anyio/from_thread.py:219: in _call_func\r\n[   40s]     retval = await retval\r\n[   40s] tests/test_responses.py:341: in app\r\n[   40s]     response.set_cookie(\"mycookie\", \"myvalue\", expires=expires)\r\n[   40s] starlette/responses.py:140: in set_cookie\r\n[   40s]     cookie_val = cookie.output(header=\"\").strip()\r\n[   40s] /usr/lib/python3.8/http/cookies.py:502: in output\r\n[   40s]     result.append(value.output(attrs, header))\r\n[   40s] /usr/lib/python3.8/http/cookies.py:372: in output\r\n[   40s]     return \"%s %s\" % (header, self.OutputString(attrs))\r\n[   40s] /usr/lib/python3.8/http/cookies.py:408: in OutputString\r\n[   40s]     append(\"%s=%s\" % (self._reserved[key], _getdate(value)))\r\n[   40s] _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n[   40s] \r\n[   40s] future = 10, weekdayname = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', ...]\r\n[   40s] monthname = [None, 'Jan', 'Feb', 'Mar', 'Apr', 'May', ...]\r\n[   40s] \r\n[   40s]     def _getdate(future=0, weekdayname=_weekdayname, monthname=_monthname):\r\n[   40s]         from time import gmtime, time\r\n[   40s]         now = time()\r\n[   40s] >       year, month, day, hh, mm, ss, wd, y, z = gmtime(now + future)\r\n[   40s] E       OverflowError: timestamp out of range for platform time_t\r\n```\r\n\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2023-02-11T14:31:53Z",
+    "created_at": "2023-02-11T11:48:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2032",
+    "number": 2032,
+    "state": "closed",
+    "title": "Broken tests on 32-bit platforms: `test_set_cookie` and `test_expires_on_set_cookie`",
+    "user": "kraptor"
+  },
+  "pull_request": {
+    "closed_at": "2023-02-11T14:24:57Z",
+    "created_at": "2023-02-11T13:00:49Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2033",
+    "merge_commit_sha": "5771a78c14d577bd1743ed2e948c91589dd30e20",
+    "merged_at": "2023-02-11T14:24:57Z",
+    "number": 2033,
+    "title": "Fix test not passing in 32-bit architectures (fixes #2032)",
+    "user": "kraptor"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "337ae243b10d3c20db53b77bc3c7718bb4f1a164",
+    "committed_at": "2023-02-08T05:20:19Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/337ae243b10d3c20db53b77bc3c7718bb4f1a164"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-02-11T11:49:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-11T11:54:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-11T12:02:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-11T12:47:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-11T13:02:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2033",
+          "number": 2033,
+          "pull_request": {
+            "merged_at": "2023-02-11T14:24:57Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2033"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix test not passing in 32-bit architectures (fixes #2032)"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-11T14:31:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-11T14:31:53Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-02-21T18:57:27Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I face following error in ubuntu16\r\nHowever it working fine in suse12\r\n\r\npython version 3.7.4\r\n\r\n```\r\nUbuntu 16\r\nDistributor ID: Ubuntu\r\nDescription:    Ubuntu 16.04.6 LTS\r\nRelease:        16.04\r\nCodename:       xenial\r\n```\r\n\r\n```\r\nSuse 12 \r\nDistributor ID:\tSUSE\r\nDescription:\tSUSE Linux Enterprise Server 12 SP2\r\nRelease:\t12.2\r\nCodename:\tn/a\r\n```\r\n\r\n##################################################################\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware.sessions import SessionMiddleware\r\nfrom starlette.responses import Response\r\nfrom starlette.requests import Request\r\n\r\napp = Starlette()\r\napp.add_middleware(SessionMiddleware, secret_key=\"whatever the secret is\")\r\n\r\n@app.route(\"/\")\r\nasync def root(request: Request):\r\n    response = Response('Hello, world!', media_type='text/plain')\r\n    return response\r\n```\r\n##################################################################\r\n\r\n\r\n```\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 390, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/fastapi/applications.py\", line 179, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/starlette/applications.py\", line 111, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc from None\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/starlette/middleware/sessions.py\", line 42, in __call__\r\n    data = self.signer.unsign(data, max_age=self.max_age)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/itsdangerous/timed.py\", line 66, in unsign\r\n    raise sig_error\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/itsdangerous/timed.py\", line 52, in unsign\r\n    result = Signer.unsign(self, value)\r\n  File \"/home/webserver/env/lib/python3.7/site-packages/itsdangerous/signer.py\", line 165, in unsign\r\n    raise BadSignature(\"No %r found in value\" % self.sep)\r\nitsdangerous.exc.BadSignature: No b'.' found in value\r\n\r\n```",
+    "closed_at": "2020-09-11T02:08:18Z",
+    "created_at": "2020-09-10T07:47:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1053",
+    "number": 1053,
+    "state": "closed",
+    "title": "itsdangerous.exc.BadSignature: No b'.' found in value",
+    "user": "sunny-repo88"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T02:08:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T02:08:18Z",
+      "event": "closed"
+    }
+  ]
+}

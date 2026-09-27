@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-04T00:02:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/657",
+          "number": 657,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "json encoding in WebSocketEndpoint raises AttributeError (instead of more meaningful Runtime error) when message is {'bytes': None, 'text': 'a', 'type': 'websocket.receive'}"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Starlette uses bytes to send/receive json (instead of text). Is there a reason for this?\r\n\r\nText sounds more natural, since python's json module returns `str`.\r\n\r\nAiohttp for example uses text: https://github.com/aio-libs/aiohttp/blob/94e7b49e26f0e7cb4b7823764066fa7a62b09200/aiohttp/web_ws.py#L294-L296 \r\n\r\nI couldn't find any standard that specifies this.\r\n\r\nJS libraries don't seem to implement any json interface, but people usually do `JSON.parse(...)` which would fail in this case (depending on the environment).",
+    "closed_at": "2019-01-25T15:27:40Z",
+    "created_at": "2019-01-21T11:57:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/332",
+    "number": 332,
+    "state": "closed",
+    "title": "Websockets: json as text instead of bytes",
+    "user": "JoseKilo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-21T12:04:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-21T12:42:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-04T00:02:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/657",
+          "number": 657,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "json encoding in WebSocketEndpoint raises AttributeError (instead of more meaningful Runtime error) when message is {'bytes': None, 'text': 'a', 'type': 'websocket.receive'}"
+        }
+      }
+    }
+  ]
+}

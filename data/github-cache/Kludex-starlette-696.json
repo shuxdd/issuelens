@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Not sure on how to structure starlette project as many circular dependencies pop up. How should Database connection /  App creation / Endpoints(controllers?) / views be organized?\r\n\r\nAnyones example could be helpful (im using gino as orm)",
+    "closed_at": "2019-10-29T16:40:22Z",
+    "created_at": "2019-10-29T11:48:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/696",
+    "number": 696,
+    "state": "closed",
+    "title": "Is there some boilerplate structure of project?",
+    "user": "jodusan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-29T16:40:22Z",
+      "event": "commented"
+    }
+  ]
+}

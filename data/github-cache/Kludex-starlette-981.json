@@ -1,0 +1,93 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-07-21T19:46:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1759",
+          "number": 1759,
+          "pull_request": {
+            "merged_at": "2020-07-22T06:25:33Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1759"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Updates starlette dependency to 0.13.6 due to vulnerability in 0.13.4"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-11T08:36:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/RBozydar/cat_tracker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-12T09:23:49Z",
+            "url": "https://api.github.com/repos/RBozydar/cat_tracker/pulls/5"
+          },
+          "repository": {
+            "full_name": "RBozydar/cat_tracker"
+          },
+          "title": "feat: ground-up rebuild \u2014 FastAPI backend + Vite/React PWA"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "If you pass in an absolute path by using an URL formatted like this: http://localhost:5000/staticmount/c%3a%5cwindows%5cwin.ini\r\n\r\nThen you can read any file on the host machine.\r\n\r\nThis is because of the following python behavior:\r\n\r\n```python\r\n>>> dir = \"c:\\workspace\\somepoject\\somepackag\\statics\"\r\n>>> path = \"c:\\windows\\win.ini\"\r\n>>> os.path.join(dir, path)\r\n'c:\\\\windows\\\\win.ini'\r\n```\r\n\r\nSo staticfiles.py needs to be updated by placing in a check for absolute paths inside lookup_path(...).",
+    "closed_at": "2020-07-16T14:18:30Z",
+    "created_at": "2020-06-23T20:21:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/981",
+    "number": 981,
+    "state": "closed",
+    "title": "Arbitrary path traversal possible with StaticFiles",
+    "user": "erinpentecost"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-25T14:15:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-21T19:46:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1759",
+          "number": 1759,
+          "pull_request": {
+            "merged_at": "2020-07-22T06:25:33Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1759"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Updates starlette dependency to 0.13.6 due to vulnerability in 0.13.4"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-11T08:36:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/RBozydar/cat_tracker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-12T09:23:49Z",
+            "url": "https://api.github.com/repos/RBozydar/cat_tracker/pulls/5"
+          },
+          "repository": {
+            "full_name": "RBozydar/cat_tracker"
+          },
+          "title": "feat: ground-up rebuild \u2014 FastAPI backend + Vite/React PWA"
+        }
+      }
+    }
+  ]
+}

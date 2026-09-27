@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "What is your opinion about having a service locator API in the framework?\r\nWith this, we can use contracts to inject dependencies as well as easily share and replace components.\r\nAlso this would be a very nice feature for extension writers as they would be able to independently expose services.\r\n\r\nhttp://code.activestate.com/recipes/413268/\r\nhttps://fastapi.tiangolo.com/tutorial/dependencies/first-steps/\r\n\r\nWe also can use type hints for automatic service resolution.\r\nhttps://laravel.com/docs/5.7/container\r\nhttps://symfony.com/doc/current/service_container.html\r\n\r\n",
+    "closed_at": "2019-03-02T21:05:10Z",
+    "created_at": "2019-03-02T11:56:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/416",
+    "number": 416,
+    "state": "closed",
+    "title": "APIs for service locator/IoC?",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-02T21:05:10Z",
+      "event": "commented"
+    }
+  ]
+}

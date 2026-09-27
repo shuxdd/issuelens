@@ -1,0 +1,121 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-04-24T05:54:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f442cb2bd69b0eea65429e3091791718e28a68b6",
+      "sha": "f442cb2bd69b0eea65429e3091791718e28a68b6"
+    },
+    {
+      "committed_at": "2022-04-24T05:59:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7d8b12e6fd53cddacdaa8d8bcdb422701c5934da",
+      "sha": "7d8b12e6fd53cddacdaa8d8bcdb422701c5934da"
+    },
+    {
+      "committed_at": "2022-04-24T05:59:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0db6f716ae3d790958340cf09ac3f4d949e39186",
+      "sha": "0db6f716ae3d790958340cf09ac3f4d949e39186"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-04-24T05:54:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1605",
+          "number": 1605,
+          "pull_request": {
+            "merged_at": "2022-04-24T06:17:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1605"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `BackgroundTasks` behavior when an error happens"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0db6f716ae3d790958340cf09ac3f4d949e39186/docs%2Fbackground.md",
+      "changes": 4,
+      "deletions": 0,
+      "filename": "docs/background.md",
+      "sha": "a6bfd8c5f0362e3c00f6a31ece0118d9235ecf40",
+      "status": "modified"
+    },
+    {
+      "additions": 32,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0db6f716ae3d790958340cf09ac3f4d949e39186/tests%2Ftest_background.py",
+      "changes": 33,
+      "deletions": 1,
+      "filename": "tests/test_background.py",
+      "sha": "fbe9dbf1b7dfd2e056fd2e35b34799e5ff7ad671",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1584\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **cancan101** April 13, 2022</sup>\r\nThis is somewhat a request for documentation and somewhat of a suggestion.\r\n\r\nRight now if there are more than one task added to a `BackgroundTasks` and then when the tasks are run it raises an Exception, subsequent tasks are not run. This is likely unexpected where the developer would expect the remaining tasks to run (especially given the ordering might be arbitrary).\r\nhttps://github.com/encode/starlette/blob/165592fb89ad26383b4a8122b4829bdfe4c64d60/starlette/background.py#L41-L43\r\n\r\nthis doesn't seem to be documented here: https://www.starlette.io/background/#backgroundtasks\r\n\r\nI suggest at the very least documenting this and possibly having a flag to catch error and then continue with the other tasks, perhaps then throwing a combined error set at the end.</div>\r\n\r\nPR to improve documentation regarding this behavior, and a test case, are also welcome.",
+    "body_last_edited_at": null,
+    "closed_at": "2022-04-24T06:17:07Z",
+    "created_at": "2022-04-15T18:10:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1589",
+    "labels": [
+      "documentation"
+    ],
+    "number": 1589,
+    "state": "closed",
+    "title": "Document `BackgroundTasks` behavior with multiple tasks",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-04-24T06:17:08Z",
+    "created_at": "2022-04-24T05:54:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1605",
+    "merge_commit_sha": "decc5279335f105837987505e3e477463a996f3e",
+    "merged_at": "2022-04-24T06:17:07Z",
+    "number": 1605,
+    "title": "Document `BackgroundTasks` behavior when an error happens",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5a9b41475ae1f54942ee67f90154f5da8f36e117",
+    "committed_at": "2022-04-24T04:48:50Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5a9b41475ae1f54942ee67f90154f5da8f36e117"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-04-15T18:11:26Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-04-15T18:36:23Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-24T05:54:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1605",
+          "number": 1605,
+          "pull_request": {
+            "merged_at": "2022-04-24T06:17:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1605"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `BackgroundTasks` behavior when an error happens"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-24T06:17:08Z",
+      "event": "closed"
+    }
+  ]
+}

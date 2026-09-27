@@ -1,0 +1,89 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-06-21T01:46:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2710cf2d64d5478fc53d5ccda0fd1578be61ee13",
+      "sha": "2710cf2d64d5478fc53d5ccda0fd1578be61ee13"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-06-21T01:47:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2951",
+          "number": 2951,
+          "pull_request": {
+            "merged_at": "2025-06-21T01:54:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2951"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use `Self` in `TestClient.__enter__`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2710cf2d64d5478fc53d5ccda0fd1578be61ee13/starlette%2Ftestclient.py",
+      "changes": 7,
+      "deletions": 1,
+      "filename": "starlette/testclient.py",
+      "sha": "575b1a71f22bea0976f2fa22b62e041e934ec8ba",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "In our FastAPI tests we switch between different test users that we have as fixtures a lot, and I found that sub-classing TestClient is a nice way to switch between them via `client.as_user(user_42).get(...)` if I do this:\n\n```python\nclass MyTestClient(TestClient):\n    \"\"\"Enhanced test client that can authenticate as different users via bearer tokens.\"\"\"\n\n    def as_user(self, user: User) -> Self:\n        self.headers.update(create_access_token(user).headers)\n        return self\n\n@pytest.fixture\ndef client(db, test_user) -> Generator[MyTestClient]:\n    app.dependency_overrides[get_session] = lambda: db\n    with MyTestClient(app) as test_client:\n        yield test_client.as_user(test_user)\n\n    app.dependency_overrides.clear()\n\n```\nUnfortunately pyright gives this error incorrectly claiming that `client.as_user` doesn't exist:\n```\n error: Cannot access attribute \"as_user\" for class \"TestClient\"\n    Attribute \"as_user\" is unknown (reportAttributeAccessIssue)\n```\n\nThe problem is that you have a hard-coded return type annotation on `TestClient.__enter__` that doesn't work with sub-classes:\nhttps://github.com/encode/starlette/blob/739ea4928b11d4b4cb2b366ccad11405ef3034c4/starlette/testclient.py#L670\n\nI gather you can't use `typing.Self` yet?\nIs there some other way to fix that type annotation?\n\nFor now I'll do a manual `typing.cast` as workaround.",
+    "closed_at": "2025-06-21T01:54:44Z",
+    "created_at": "2025-06-20T19:11:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2950",
+    "number": 2950,
+    "state": "closed",
+    "title": "TestClient.__enter__ return type error for subclasses",
+    "user": "cdeil"
+  },
+  "pull_request": {
+    "closed_at": "2025-06-21T01:54:44Z",
+    "created_at": "2025-06-21T01:46:42Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2951",
+    "merge_commit_sha": "e741635e5452ba8013d926bddf2be3a292910dca",
+    "merged_at": "2025-06-21T01:54:44Z",
+    "number": 2951,
+    "title": "Use `Self` in `TestClient.__enter__`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-06-21T01:19:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-21T01:47:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2951",
+          "number": 2951,
+          "pull_request": {
+            "merged_at": "2025-06-21T01:54:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2951"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use `Self` in `TestClient.__enter__`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-06-21T01:54:44Z",
+      "event": "closed"
+    }
+  ]
+}

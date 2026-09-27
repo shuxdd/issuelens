@@ -168,6 +168,8 @@
     }
   ],
   "issue": {
+    "body": "It came from [here](https://github.com/encode/starlette/commit/fd038f3070c302bff17ef7d173dbb0b007617733#diff-59eaf7e36ef8b186735f99bca714455f02f04cee26e014dc89120417996d35b2R121).  @ version [0.41.3](https://github.com/encode/starlette/releases/tag/0.41.3)\r\n\r\nNeed to make this variable customizable.",
+    "body_last_edited_at": "2024-12-05T10:01:09Z",
     "closed_at": "2024-12-28T04:57:21Z",
     "created_at": "2024-12-05T10:00:31Z",
     "html_url": "https://github.com/Kludex/starlette/issues/2785",
@@ -187,6 +189,11 @@
     "user": "iudeen"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+    "committed_at": "2024-12-26T08:00:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835"
+  },
   "timeline": [
     {
       "created_at": "2024-12-06T11:49:04Z",

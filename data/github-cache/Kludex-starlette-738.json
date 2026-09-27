@@ -1,0 +1,97 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-06-22T01:33:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aruneem-bhowmick/orca/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2026-06-22T01:45:57Z",
+            "url": "https://api.github.com/repos/aruneem-bhowmick/orca/pulls/59"
+          },
+          "repository": {
+            "full_name": "aruneem-bhowmick/orca"
+          },
+          "title": "feat(orca-web): add service proxy routers for OrcaMind, OrcaLab, and OrcaNet"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T09:54:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA/TensorRT-LLM/pull/17493",
+          "number": 17493,
+          "pull_request": {
+            "merged_at": "2026-09-03T05:03:56Z",
+            "url": "https://api.github.com/repos/NVIDIA/TensorRT-LLM/pulls/17493"
+          },
+          "repository": {
+            "full_name": "NVIDIA/TensorRT-LLM"
+          },
+          "title": "[TRTLLM-15277][feat] BREAKING: Redesign VisualGen reference inputs and server-to-worker IPC"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\n\r\nwhen submitting a form that gets processed like (using `fastapi` and `starlette`'s `Request` object):\r\n```\r\n@app.post(\"/apps/bgp\")\r\nasync def do_lookup_bgp_network_prefix(\r\n    request: starlette.requests.Request,\r\n):\r\n    form_data = await request.form()\r\n    print(form_data)\r\n    print(form_data[\"netelement_location\"])\r\n    print(form_data[\"routing_prefix\"])\r\n```\r\n\r\nI can see the following in the logs:\r\n```\r\nFormData([('netelement_location', 'ch__zrh03a'), ('netelement_location', 'us__nyc01b'), ('routing_prefix', '1.1.1.1')])\r\nus__nyc01b\r\n1.1.1.1\r\n```\r\n\r\nThe issue is that I don't know how-to access the **list** of values transmitted using the form field `netelement_location `.\r\nUsing `form_data[\"netelement_location\"]` gets only the last value..\r\n\r\nCould you please advise ?",
+    "closed_at": "2019-12-01T13:57:43Z",
+    "created_at": "2019-11-30T19:34:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/738",
+    "number": 738,
+    "state": "closed",
+    "title": "[QUESTION] how-to consume multiple values in a form field",
+    "user": "lite31"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-01T13:57:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-01T13:57:43Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-22T01:33:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aruneem-bhowmick/orca/pull/59",
+          "number": 59,
+          "pull_request": {
+            "merged_at": "2026-06-22T01:45:57Z",
+            "url": "https://api.github.com/repos/aruneem-bhowmick/orca/pulls/59"
+          },
+          "repository": {
+            "full_name": "aruneem-bhowmick/orca"
+          },
+          "title": "feat(orca-web): add service proxy routers for OrcaMind, OrcaLab, and OrcaNet"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T09:54:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA/TensorRT-LLM/pull/17493",
+          "number": 17493,
+          "pull_request": {
+            "merged_at": "2026-09-03T05:03:56Z",
+            "url": "https://api.github.com/repos/NVIDIA/TensorRT-LLM/pulls/17493"
+          },
+          "repository": {
+            "full_name": "NVIDIA/TensorRT-LLM"
+          },
+          "title": "[TRTLLM-15277][feat] BREAKING: Redesign VisualGen reference inputs and server-to-worker IPC"
+        }
+      }
+    }
+  ]
+}

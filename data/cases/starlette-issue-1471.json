@@ -1,0 +1,109 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-02-02T18:51:18Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1471"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1471"
+    ]
+  },
+  "case_id": "starlette-issue-1471",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1472",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Replace WebSocket assertions with RuntimeError' directly changes starlette/websockets.py with focused behavior test(s) tests/test_websockets.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-02-03T11:41:58Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [X] There are no similar issues or pull requests for this yet.\r\n- [X] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nThere are `assert` statements in the source code which raise a vague and hard to debug `AssertionError`. For example on [this line](https://github.com/encode/starlette/blob/f12c92a21500d484b3d48f965bb605c1bbe193bc/starlette/websockets.py#L58).\r\n\r\nIf some kind of exception (for example something along the lines of: `WebSocketMessageType`) were raised it would make debugging a lot clearer. I spent a lot more time than I should have just working out where exactly this `AssertionError` was coming from and what the root cause was.\r\n\r\n\r\n\r\n### Describe the solution you would like.\r\n\r\nThis is by no means the right solution but at least it's an idea of the kind of thing that might help:\r\n\r\n```python\r\nclass WebSocketMessageType(Exception):\r\n    pass\r\n\r\nclass WebSocket(HTTPConnection):\r\n    ...\r\n    async def send(self, message: Message) -> None:\r\n        \"\"\"\r\n        Send ASGI websocket messages, ensuring valid state transitions.\r\n        \"\"\"\r\n        if self.application_state == WebSocketState.CONNECTING:\r\n            message_type = message[\"type\"]\r\n            if message_type not in {\"websocket.accept\", \"websocket.close\"}:\r\n                raise WebSocketMessageType(\"expected message_type to be websocket.accept or websocket.close\")\r\n            if message_type == \"websocket.close\":\r\n                self.application_state = WebSocketState.DISCONNECTED\r\n            else:\r\n                self.application_state = WebSocketState.CONNECTED\r\n            await self._send(message)\r\n        elif self.application_state == WebSocketState.CONNECTED:\r\n            message_type = message[\"type\"]\r\n            if message_type not in {\"websocket.send\", \"websocket.close\"}:\r\n                raise WebSocketMessageType(\"expected message_type to be websocket.send or websocket.close\")\r\n            if message_type == \"websocket.close\":\r\n                self.application_state = WebSocketState.DISCONNECTED\r\n            await self._send(message)\r\n        else:\r\n            raise RuntimeError('Cannot call \"send\" once a close message has been sent.')\r\n```\r\n\r\n### Describe alternatives you considered\r\n\r\n_No response_\r\n\r\n### Additional context\r\n\r\nThe error I was seeing:\r\n\r\n```\r\nERROR    root:a_file.py:31 {'message': 'Job processing failed', 'job': <Job coro=<<coroutine object a_class.a_method at 0x7f6d7a7c1ec0>>>, 'exception': AssertionError()}\r\nNoneType: None\r\n```\r\n\r\nAnd this would be it with a `raise` statement: admittedly there is still no mention of `starlette` so a user would still have to diagnose that as the root cause.\r\n\r\n```\r\nERROR    root:a_file.py:31 {'message': 'Job processing failed', 'job': <Job coro=<<coroutine object a_class.a_method at 0x7fb99c2ed940>>>, 'exception': WebSocketMessageType('expected message_type to be websocket.accept or websocket.close')}\r\nNoneType: None\r\n```\r\n\r\nAlso, I have no idea where that `NoneType: None` is coming from or what that means.",
+    "number": 1471,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1471",
+    "title": "Where assert statements are guarding against invalid ASGI messaging, use RuntimeError instead."
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1472 created_at 2022-02-03T11:41:58Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1472",
+    "repair_files": [
+      "starlette/websockets.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+    "test_files": [
+      "tests/test_websockets.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/websockets.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1/starlette%2Fwebsockets.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "f769acd46dbdd47829cace5cb2d3796c956a0a8e",
+        "source_url": "https://github.com/Kludex/starlette/commit/f769acd46dbdd47829cace5cb2d3796c956a0a8e"
+      },
+      {
+        "sha": "e698099f0c4e4154cd55faa0ac0dfd8ace6b6b47",
+        "source_url": "https://github.com/Kludex/starlette/commit/e698099f0c4e4154cd55faa0ac0dfd8ace6b6b47"
+      },
+      {
+        "sha": "7004dd72d3a9865b5c65199130ffda4191c15e88",
+        "source_url": "https://github.com/Kludex/starlette/commit/7004dd72d3a9865b5c65199130ffda4191c15e88"
+      },
+      {
+        "sha": "430b9fd14a4276860625cb6b20671395f07eb8c0",
+        "source_url": "https://github.com/Kludex/starlette/commit/430b9fd14a4276860625cb6b20671395f07eb8c0"
+      },
+      {
+        "sha": "b5f70d55b5884a3c0693e24159b6b643d4b2949e",
+        "source_url": "https://github.com/Kludex/starlette/commit/b5f70d55b5884a3c0693e24159b6b643d4b2949e"
+      },
+      {
+        "sha": "655854b7edf0e0a2f8c1c2547428afbf06d3a3d1",
+        "source_url": "https://github.com/Kludex/starlette/commit/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-02-03T11:41:58Z",
+      "number": 1472,
+      "source_url": "https://github.com/Kludex/starlette/pull/1472"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1472"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_websockets.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/655854b7edf0e0a2f8c1c2547428afbf06d3a3d1/tests%2Ftest_websockets.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+    "committed_at": "2022-02-03T11:34:25Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a6d3d8f0179cb1c2ac283bb5db779f6075854a66"
+  },
+  "schema_version": "1.0"
+}

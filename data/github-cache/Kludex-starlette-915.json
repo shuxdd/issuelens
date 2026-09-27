@@ -1,0 +1,92 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I saw some hints in this issue https://github.com/encode/starlette/issues/202 , but it's not enough for me to see the big picture. I believe it's very important to have periodic tasks in a framework so if starlette have this feature you should put a sample into the docs.",
+    "closed_at": "2020-05-04T10:10:38Z",
+    "created_at": "2020-04-28T00:30:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/915",
+    "number": 915,
+    "state": "closed",
+    "title": "Sample required in docs for periodic timers",
+    "user": "realsby"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-01T14:25:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-01T14:25:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-01T14:25:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-01T15:38:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-01T15:38:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-01T15:38:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-02T12:25:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-02T12:25:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-02T12:25:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-04T10:10:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-02T07:50:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-02T07:50:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-10-02T07:50:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-02T13:20:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-02T16:00:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-02T16:00:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-10-02T16:00:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-02T16:27:13Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-10-02T16:51:46Z",
+      "event": "commented"
+    }
+  ]
+}

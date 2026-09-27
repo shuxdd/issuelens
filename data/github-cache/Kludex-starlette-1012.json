@@ -1,0 +1,540 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-08-11T14:30:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/39e03d520ae7b4f5268ffe2516ec23093d6812f2",
+      "sha": "39e03d520ae7b4f5268ffe2516ec23093d6812f2"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-08-01T13:38:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-03T04:25:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1018",
+          "number": 1018,
+          "pull_request": {
+            "merged_at": "2020-08-04T23:55:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1018"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix high memory usage when using BaseHTTPMiddleware middleware classes and streaming responses"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-11T14:38:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2020-08-13T12:48:19Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-12T14:33:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-17T09:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/18",
+          "number": 18,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "rewrite middleware to pure ASGI"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-23T20:18:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/47",
+          "number": 47,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "Consider removing `RawContextMiddleware` and keeping only `ContextMiddleware` after resolving memory usage issue"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/420",
+          "number": 420,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Globally importable request object"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-31T13:11:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2453",
+          "number": 2453,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fetching API docs occasionally fails at starlette framework middleware issue with streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-11T19:33:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LuthienResearch/luthien-proxy/pull/54",
+          "number": 54,
+          "pull_request": {
+            "url": "https://api.github.com/repos/LuthienResearch/luthien-proxy/pulls/54"
+          },
+          "repository": {
+            "full_name": "LuthienResearch/luthien-proxy"
+          },
+          "title": "Add request size limits to V2 gateway"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-16T14:48:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NotThatRob/HomeBase/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "NotThatRob/HomeBase"
+          },
+          "title": "Critical: CSRF Middleware Consumes Request Body, Breaking All Form POST Routes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/39e03d520ae7b4f5268ffe2516ec23093d6812f2/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/middleware/base.py",
+      "sha": "b347a6a2ddbe0b9470c96e20355d96c6a130647c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "We've been running into memory issues when providing very large async generators to a streaming response.  We have these generators producing large (larger than memory set) responses in a way that allows us to only keep small chunks in memory at a time.  However, it looks like the BaseHTTPMiddleware implementation uses an asyncio queue to store the individual chunks:\r\n\r\nhttps://github.com/encode/starlette/blob/master/starlette/middleware/base.py#L30\r\n\r\nThis prevents any network backpressure handling -- if the client that is receiving the streaming response is on a slow connection, the queue will happily grow without bound and consume all memory, triggering kernel out-of-memory, when the ideal handling here would be for send to block (yield) when this happens.  I believe this would naturally happen if there were no queue here at all, so I am wondering why it needs to be here?\r\n\r\nWould a PR to remove the queueing be accepted?\r\n\r\nIf not, what is the appropriate way to override this to not use a queue?  We can write our own, but the use of BaseHTTPMiddleware is hardcoded: https://github.com/encode/starlette/blob/519f5750b5e797bb3d4805fd29657674304ce397/starlette/applications.py#L197, leaving only some fairly hacky approaches to preventing this queueing.",
+    "closed_at": "2021-06-23T08:20:13Z",
+    "created_at": "2020-07-27T17:22:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1012",
+    "labels": [
+      "bug"
+    ],
+    "number": 1012,
+    "state": "closed",
+    "title": "Memory usage streaming large responses",
+    "user": "via"
+  },
+  "pull_request": {
+    "closed_at": "2020-08-13T12:48:19Z",
+    "created_at": "2020-08-11T14:38:57Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1028",
+    "merge_commit_sha": "f5a08d019ade528ae3a855f7e52a5500b233cb0a",
+    "merged_at": "2020-08-13T12:48:19Z",
+    "number": 1028,
+    "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware",
+    "user": "erewok"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-07-27T18:42:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-27T18:51:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-31T08:25:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-31T14:11:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-31T14:11:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-07-31T14:11:49Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-08-01T13:38:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-01T17:14:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-01T17:14:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-01T17:14:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-01T17:14:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-01T17:14:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-03T04:25:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1018",
+          "number": 1018,
+          "pull_request": {
+            "merged_at": "2020-08-04T23:55:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1018"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix high memory usage when using BaseHTTPMiddleware middleware classes and streaming responses"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-04T23:55:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-08-05T17:00:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-05T17:00:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-05T17:00:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-05T17:07:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-05T17:07:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-05T17:07:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-11T14:38:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2020-08-13T12:48:19Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-12T14:33:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T12:51:32Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2020-08-13T12:56:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-17T09:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/18",
+          "number": 18,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "rewrite middleware to pure ASGI"
+        }
+      }
+    },
+    {
+      "commit_id": "91b6021225f4fed4171ef680fe88396ba1f3d1d0",
+      "commit_url": "https://api.github.com/repos/mvdbeek/galaxy/commits/91b6021225f4fed4171ef680fe88396ba1f3d1d0",
+      "created_at": "2021-02-20T12:01:28Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "2545965425f007cfcf725be8286dc06bf9c1995d",
+      "commit_url": "https://api.github.com/repos/mvdbeek/galaxy/commits/2545965425f007cfcf725be8286dc06bf9c1995d",
+      "created_at": "2021-02-20T12:05:10Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-23T08:04:46Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "03cbc86fe7a30e587c3e494bb6bcfe563f9e949e",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/03cbc86fe7a30e587c3e494bb6bcfe563f9e949e",
+      "created_at": "2021-06-23T08:17:13Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-23T08:20:13Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "119c427474a45bd1297f5adcde864b2874dd8c4f",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/119c427474a45bd1297f5adcde864b2874dd8c4f",
+      "created_at": "2021-06-23T08:31:03Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-23T20:18:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/47",
+          "number": 47,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "Consider removing `RawContextMiddleware` and keeping only `ContextMiddleware` after resolving memory usage issue"
+        }
+      }
+    },
+    {
+      "commit_id": "b71aba2ae7ff7180675bc8aa91c1943b0ed84e5d",
+      "commit_url": "https://api.github.com/repos/atviriduomenys/spinta/commits/b71aba2ae7ff7180675bc8aa91c1943b0ed84e5d",
+      "created_at": "2022-02-28T10:43:58Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-06-17T20:24:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/420",
+          "number": 420,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Globally importable request object"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-31T13:11:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2453",
+          "number": 2453,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fetching API docs occasionally fails at starlette framework middleware issue with streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-11T19:33:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LuthienResearch/luthien-proxy/pull/54",
+          "number": 54,
+          "pull_request": {
+            "url": "https://api.github.com/repos/LuthienResearch/luthien-proxy/pulls/54"
+          },
+          "repository": {
+            "full_name": "LuthienResearch/luthien-proxy"
+          },
+          "title": "Add request size limits to V2 gateway"
+        }
+      }
+    },
+    {
+      "commit_id": "fd96d993783ed12a6cb67990eef2192a15a8bc41",
+      "commit_url": "https://api.github.com/repos/jordigilh/kubernaut/commits/fd96d993783ed12a6cb67990eef2192a15a8bc41",
+      "created_at": "2026-02-04T03:35:26Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "1b64af163121b0a69df6625478c1dc37e1ec7b84",
+      "commit_url": "https://api.github.com/repos/jiach72/carbonos/commits/1b64af163121b0a69df6625478c1dc37e1ec7b84",
+      "created_at": "2026-02-10T03:09:05Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "3d1ed384d3d9232b40aeda9075f79bc3f2fba707",
+      "commit_url": "https://api.github.com/repos/liuyangyi0/argus/commits/3d1ed384d3d9232b40aeda9075f79bc3f2fba707",
+      "created_at": "2026-04-09T06:59:32Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-04-16T14:48:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NotThatRob/HomeBase/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "NotThatRob/HomeBase"
+          },
+          "title": "Critical: CSRF Middleware Consumes Request Body, Breaking All Form POST Routes"
+        }
+      }
+    },
+    {
+      "commit_id": "434b246cee3717c6a174d793e704716e1b7f38d0",
+      "commit_url": "https://api.github.com/repos/sunholo-data/gde-ap-agent/commits/434b246cee3717c6a174d793e704716e1b7f38d0",
+      "created_at": "2026-06-08T09:48:59Z",
+      "event": "referenced"
+    }
+  ]
+}

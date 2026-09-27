@@ -1,0 +1,69 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-02T07:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/888",
+          "number": 888,
+          "pull_request": {
+            "merged_at": "2020-04-15T08:46:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow exceptions in middleware to surface when using TestClient"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "This test:\r\n\r\n```\r\ndef test_middleware_run_during_statup():\r\n    from starlette.applications import Starlette\r\n    from starlette.middleware import Middleware\r\n\r\n    called = []\r\n\r\n    class SampleMiddleware:\r\n        def __init__(self, app):\r\n            self.app = app\r\n\r\n        async def __call__(self, scope, receive, send):\r\n            called.append('called')\r\n            await self.app(scope, receive, send)\r\n\r\n    app = Starlette(\r\n        middleware=[Middleware(SampleMiddleware)],\r\n    )\r\n\r\n    with TestClient(app):\r\n        pass\r\n\r\n    assert called == []\r\n```\r\n\r\n..fails as follows:\r\n```\r\n>       assert called == []\r\nE       AssertionError: assert ['called'] == []\r\n```\r\n\r\nWhy is the middleware being called before any requests have been issues to the test client?",
+    "closed_at": "2020-04-01T10:48:39Z",
+    "created_at": "2020-04-01T07:33:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/887",
+    "number": 887,
+    "state": "closed",
+    "title": "TypeError: 'NoneType' object is not subscriptable when middleware raises an exception.",
+    "user": "cjw296"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-01T07:36:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-01T10:48:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-01T11:49:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-01T11:50:45Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-04-02T07:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/888",
+          "number": 888,
+          "pull_request": {
+            "merged_at": "2020-04-15T08:46:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/888"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow exceptions in middleware to surface when using TestClient"
+        }
+      }
+    }
+  ]
+}

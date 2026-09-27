@@ -1,0 +1,43 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I ran into what seems to be a bug in starlette's get function in TestClient.\r\n\r\nI get an unexpected behavior when running the test beneath.\r\n```import pytest\r\nfrom fastapi import FastAPI\r\nfrom pydantic import constr\r\nfrom starlette.testclient import TestClient\r\n\r\nr_id = r\"^\\w+$\"\r\napp = FastAPI()\r\nconstranedString = constr(regex=r_id)\r\n\r\n\r\n@app.get(\"/route/{x}\")\r\nasync def route(x: constrainedString):\r\n    return x\r\n\r\n\r\n@pytest.mark.parametrize(argnames=\"val\", argvalues=[\"0;\", \";\", \"0;0\"])\r\ndef test_call(val):\r\n    client = TestClient(app)\r\n    resp = client.get(f\"/route/{val}\")\r\n\r\n    assert response.status_code == 422\r\n```\r\n\r\nWhen calling get on the test client with val as path parameter\r\n```\r\nEntering test with:\r\nval=\"0;\"\r\nCalling:\r\nclient.get(\"/route/0;\")\r\n```\r\n I expect that my check will return status code 422, but starlette TestClient uses urllib which modifies the input Before it reaches my check, giving it an unwanted behavior.\r\n```\r\nEntering route(x):\r\nx = \"0\"\r\nexpected:\r\nx = \"0;\"\r\n```\r\n\r\nIn production it behaves as expected, and returns status code 422 if you use that same value.\r\nIs it really up to the TestClient to make sure that we do not have characters that are either url reserved or url unsafe etc.?\r\n\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8.0\r\n- Starlette version: 0.13.6\r\n\r\n**EDIT** - Add plain starlette example and explanation\r\n\r\nIt's been a while since I created this issue, but I looked at it a little bit and I will try to explain the issue better.\r\n\r\nIn _starlette.testclient.TestClient_ the function _request_ uses _urljoin_ to join _test_client.base_url_ and _url_.\r\n\r\n```url = urljoin(self.base_url, url)```\r\n\r\nThe function _urllib.parse.urljoin_ does more than just joining the _url_ and _base_ (look at _urllib.parse.urlparse_ for example), in this case it has an unwanted side effect and strip trailing _;_.\r\n\r\n```\r\nfrom unittest.mock import patch, MagicMock\r\n\r\nimport pytest\r\nfrom starlette.testclient import TestClient\r\n\r\n\r\n@pytest.mark.parametrize(argnames=\"url\", argvalues=[\"0;\", \";\", \"0;0\", \";0\", \";;\", \"0;;\", \"\"])\r\ndef test_diff(url):\r\n    base_url = \"http://testserver\"\r\n    expected_url = \"/\".join((base_url, url)) if url else base_url\r\n    test_client = TestClient(app=MagicMock())\r\n    with patch(\"requests.sessions.Session.request\") as session_mock:\r\n        test_client.get(url)\r\n        assert expected_url == session_mock.call_args.args[1]\r\n```\r\n\r\nIn the test example above, sending in \"0;\" as _url_ to _test_client.get(url)_ then the _session_mock.request_ function will receive \"http://testserver/0\" instead of \"http://testserver/0;\" which is the behavior when using the actual _requests.sessions.Session.request_ function.\r\n\r\nTL;DR; When using _starlette.testclient.TestClient_, it does not behave the same way as it's parent _requests.Session_ when calling the function _request_.",
+    "closed_at": "2022-01-31T11:10:46Z",
+    "created_at": "2020-09-25T08:27:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1060",
+    "labels": [
+      "testclient"
+    ],
+    "number": 1060,
+    "state": "closed",
+    "title": "TestClient Get modify url",
+    "user": "abhubcbc"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-02-04T20:33:50Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-01-30T12:08:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-31T11:10:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-31T19:02:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-31T19:02:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-31T19:02:31Z",
+      "event": "subscribed"
+    }
+  ]
+}

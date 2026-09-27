@@ -1,0 +1,811 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-08-16T08:30:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2094",
+          "number": 2094,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Custom Exception not being catch python-FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-11T01:10:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4025",
+          "number": 4025,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Unable to catch `Exception` via exception_handlers since FastAPI 0.70.0"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-01T20:28:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/pull/59",
+          "number": 59,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tomwojcik/starlette-context/pulls/59"
+          },
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "drop error_response, add error detail and support for serialization"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-30T19:45:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/775",
+          "number": 775,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "cors and error status 500 and handle it in frontend"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-08T14:35:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4071",
+          "number": 4071,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "HTTP_500_INTERNAL_SERVER_ERROR cause a CORS error on frontend"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-13T14:43:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xlwings/xlwings/issues/2231",
+          "number": 2231,
+          "pull_request": {},
+          "repository": {
+            "full_name": "xlwings/xlwings"
+          },
+          "title": "feature request - print to console with office script"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-03T09:56:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi-practices/fastapi-best-architecture/pull/166",
+          "number": 166,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi-practices/fastapi-best-architecture/pulls/166"
+          },
+          "repository": {
+            "full_name": "fastapi-practices/fastapi-best-architecture"
+          },
+          "title": "fix cors exception."
+        }
+      }
+    },
+    {
+      "created_at": "2025-12-16T15:23:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3081",
+          "number": 3081,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3081"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Pass 500/Exception handlers to both error middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-08T18:01:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/gumnut-ai/immich-adapter/pull/46",
+          "number": 46,
+          "pull_request": {
+            "merged_at": "2026-01-09T18:57:19Z",
+            "url": "https://api.github.com/repos/gumnut-ai/immich-adapter/pulls/46"
+          },
+          "repository": {
+            "full_name": "gumnut-ai/immich-adapter"
+          },
+          "title": "GUM-198: standardizes HTTP error responses to use Immich's expected format"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-07T12:40:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/12",
+          "number": 12,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/12"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: Add standard security headers for defense-in-depth"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-23T19:49:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/METResearchGroup/social_agent_simulation_platform/pull/285",
+          "number": 285,
+          "pull_request": {
+            "merged_at": "2026-03-25T02:08:49Z",
+            "url": "https://api.github.com/repos/METResearchGroup/social_agent_simulation_platform/pulls/285"
+          },
+          "repository": {
+            "full_name": "METResearchGroup/social_agent_simulation_platform"
+          },
+          "title": "Refactor Exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-13T11:01:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/archon-research/stl/pull/193",
+          "number": 193,
+          "pull_request": {
+            "merged_at": "2026-04-13T12:52:00Z",
+            "url": "https://api.github.com/repos/archon-research/stl/pulls/193"
+          },
+          "repository": {
+            "full_name": "archon-research/stl"
+          },
+          "title": "[VEC-69] Add request id middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T10:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhruvhaldar/horizon/pull/76",
+          "number": 76,
+          "pull_request": {
+            "merged_at": "2026-04-21T11:56:18Z",
+            "url": "https://api.github.com/repos/dhruvhaldar/horizon/pulls/76"
+          },
+          "repository": {
+            "full_name": "dhruvhaldar/horizon"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [MEDIUM] Add HTTP security headers middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T11:41:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/178",
+          "number": 178,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/178"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [MEDIUM] Prevent sensitive information leakage in error responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-25T20:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Eshajha19/agri/pull/166",
+          "number": 166,
+          "pull_request": {
+            "merged_at": "2026-04-26T04:33:58Z",
+            "url": "https://api.github.com/repos/Eshajha19/agri/pulls/166"
+          },
+          "repository": {
+            "full_name": "Eshajha19/agri"
+          },
+          "title": "CODE REFACTOR: Missing Content-Security-Policy Headers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-10T17:53:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/evoila/meho/pull/156",
+          "number": 156,
+          "pull_request": {
+            "merged_at": "2026-05-10T18:37:14Z",
+            "url": "https://api.github.com/repos/evoila/meho/pulls/156"
+          },
+          "repository": {
+            "full_name": "evoila/meho"
+          },
+          "title": "feat(backend): add audit-log schema + synchronous audit middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-13T20:17:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/emirerben/nova/pull/132",
+          "number": 132,
+          "pull_request": {
+            "merged_at": "2026-05-13T20:21:46Z",
+            "url": "https://api.github.com/repos/emirerben/nova/pulls/132"
+          },
+          "repository": {
+            "full_name": "emirerben/nova"
+          },
+          "title": "fix(uploads): 'failed to fetch' on PNG upload (PIL OSError + missing CORS on 500)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-12T04:46:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/smorinlabs/py-launch-blueprint/pull/399",
+          "number": 399,
+          "pull_request": {
+            "merged_at": "2026-06-12T06:15:20Z",
+            "url": "https://api.github.com/repos/smorinlabs/py-launch-blueprint/pulls/399"
+          },
+          "repository": {
+            "full_name": "smorinlabs/py-launch-blueprint"
+          },
+          "title": "feat(web): bake in rest api best practices (contract, config, observability)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T12:21:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/1542",
+          "number": 1542,
+          "pull_request": {
+            "merged_at": "2026-07-28T03:34:29Z",
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/1542"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat: card-forge \u6a21\u5757 + \u4e09\u4f53\u878d\u5408\u914d\u5957 + \u5bf9\u8bdd\u6389\u843d\u5361\u7247\u95ed\u73af & \u793e\u533a\u767b\u5f55 (M1/M2/M5)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.cors import CORSMiddleware\r\nfrom starlette.responses import JSONResponse\r\n\r\napp = Starlette(routes=routes, middleware=middleware)\r\n\r\nasync def not_found(request, exc):\r\n    return JSONResponse(content={\"error\": 404}, status_code=exc.status_code)\r\n\r\nasync def server_error(request, exc):\r\n    return JSONResponse(content={\"error\": 500}, status_code=exc.status_code)\r\n\r\nexception_handlers = {\r\n    404: not_found,\r\n    500: server_error\r\n}\r\n\r\nmiddleware = [\r\n    Middleware(CORSMiddleware, allow_origins=['*'])\r\n]\r\n\r\napp = Starlette(routes=routes, middleware=middleware, exception_handlers=exception_handlers)\r\n```\r\n\r\n### Expected behavior\r\n\r\nboth 404 and 500 errors will respond with their relevant json response, and correct CORS headers\r\n\r\n### Actual behavior\r\n\r\nthe 404 error will response with correct CORS headers but the 500 error will not.\r\n\r\n### Debugging material\r\n\r\nBecause `Exception` and `500` are special cased in `build_middleware_stack` any error bubbles up to the outer most `ServerErrorMiddleware` which is outside the other middleware, instead of being handled by the `ExceptionMiddleware` and passing through the custom middleware.\r\n\r\nsee: https://github.com/encode/starlette/blob/master/starlette/applications.py#L74-L77\r\n\r\nI can see four possible fixes, none of them perfect...\r\n\r\n- handle custom 500 errors in `ExceptionMiddleware` and prevent `ServerErrorMiddleware` showing its helpful debug info when a custom handler is present.\r\n- have `ServerErrorMiddleware` run the response of the error handler through the middleware stack again, and if that fails resort to existing behaviour, adding a bunch of complexity.\r\n- move the debuging info to a separate middleware and put that in front of the ErrorMiddleware, which would then cause it to trigger for every exception, but would allow `ExceptionMiddleware` handle 500s as expected, and `ServerErrorMiddleware` becomes a last resort.\r\n- update https://www.starlette.io/exceptions/ to explain 500 errors are handled differently, and to get the above behaviour something like the following work-around is required:\r\n\r\n  ```py\r\n  @app.middleware(\"http\")\r\n  def exception_middleware(request, call_next)\r\n      try:\r\n          return await call_next(request)\r\n      except Exception:\r\n          return JSONResponse(content={\"error\": 500}, status_code=500))\r\n  ```\r\n\r\n### Environment\r\n\r\n- OS: N/A\r\n- Python version: N/A\r\n- Starlette version: 0.13.6 and master branch\r\n\r\n### Additional Context\r\n\r\n#1116  seems to be have similar but refers to the generic `error_response` on `ServerErrorMiddleware`, this is similar but specifically about custom error handlers so i didn't want to hijack that issue.\r\n",
+    "closed_at": "2022-02-11T15:44:05Z",
+    "created_at": "2021-04-28T12:24:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1175",
+    "number": 1175,
+    "state": "closed",
+    "title": "Custom 500 or Exception handlers do not run through middleware like other handled exceptions.",
+    "user": "danielknell"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-04-28T13:08:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-19T22:18:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-16T08:30:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2094",
+          "number": 2094,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Custom Exception not being catch python-FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-11T01:10:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4025",
+          "number": 4025,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Unable to catch `Exception` via exception_handlers since FastAPI 0.70.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-13T19:44:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-01T20:28:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/pull/59",
+          "number": 59,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tomwojcik/starlette-context/pulls/59"
+          },
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "drop error_response, add error detail and support for serialization"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-11T15:39:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T15:46:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T15:52:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T15:52:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-11T15:52:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-11T16:55:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T17:31:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-24T06:06:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-24T15:37:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-30T19:45:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/775",
+          "number": 775,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "cors and error status 500 and handle it in frontend"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-26T14:39:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-26T14:42:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-26T14:49:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-26T14:53:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-26T14:53:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-26T14:53:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-26T15:11:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-26T15:11:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-26T15:11:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-13T01:32:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-24T10:17:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-08T14:35:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4071",
+          "number": 4071,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "HTTP_500_INTERNAL_SERVER_ERROR cause a CORS error on frontend"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-03T21:41:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-13T14:43:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xlwings/xlwings/issues/2231",
+          "number": 2231,
+          "pull_request": {},
+          "repository": {
+            "full_name": "xlwings/xlwings"
+          },
+          "title": "feature request - print to console with office script"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-03T09:56:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi-practices/fastapi-best-architecture/pull/166",
+          "number": 166,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi-practices/fastapi-best-architecture/pulls/166"
+          },
+          "repository": {
+            "full_name": "fastapi-practices/fastapi-best-architecture"
+          },
+          "title": "fix cors exception."
+        }
+      }
+    },
+    {
+      "created_at": "2025-04-23T17:50:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-03T11:58:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-12-16T15:23:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3081",
+          "number": 3081,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3081"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Pass 500/Exception handlers to both error middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-08T18:01:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/gumnut-ai/immich-adapter/pull/46",
+          "number": 46,
+          "pull_request": {
+            "merged_at": "2026-01-09T18:57:19Z",
+            "url": "https://api.github.com/repos/gumnut-ai/immich-adapter/pulls/46"
+          },
+          "repository": {
+            "full_name": "gumnut-ai/immich-adapter"
+          },
+          "title": "GUM-198: standardizes HTTP error responses to use Immich's expected format"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-27T22:31:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-07T12:40:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/12",
+          "number": 12,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/12"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: Add standard security headers for defense-in-depth"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-23T19:49:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/METResearchGroup/social_agent_simulation_platform/pull/285",
+          "number": 285,
+          "pull_request": {
+            "merged_at": "2026-03-25T02:08:49Z",
+            "url": "https://api.github.com/repos/METResearchGroup/social_agent_simulation_platform/pulls/285"
+          },
+          "repository": {
+            "full_name": "METResearchGroup/social_agent_simulation_platform"
+          },
+          "title": "Refactor Exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-13T11:01:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/archon-research/stl/pull/193",
+          "number": 193,
+          "pull_request": {
+            "merged_at": "2026-04-13T12:52:00Z",
+            "url": "https://api.github.com/repos/archon-research/stl/pulls/193"
+          },
+          "repository": {
+            "full_name": "archon-research/stl"
+          },
+          "title": "[VEC-69] Add request id middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T10:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhruvhaldar/horizon/pull/76",
+          "number": 76,
+          "pull_request": {
+            "merged_at": "2026-04-21T11:56:18Z",
+            "url": "https://api.github.com/repos/dhruvhaldar/horizon/pulls/76"
+          },
+          "repository": {
+            "full_name": "dhruvhaldar/horizon"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [MEDIUM] Add HTTP security headers middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-20T11:41:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AGI-Corporation/CMMC/pull/178",
+          "number": 178,
+          "pull_request": {
+            "url": "https://api.github.com/repos/AGI-Corporation/CMMC/pulls/178"
+          },
+          "repository": {
+            "full_name": "AGI-Corporation/CMMC"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [MEDIUM] Prevent sensitive information leakage in error responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-25T20:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Eshajha19/agri/pull/166",
+          "number": 166,
+          "pull_request": {
+            "merged_at": "2026-04-26T04:33:58Z",
+            "url": "https://api.github.com/repos/Eshajha19/agri/pulls/166"
+          },
+          "repository": {
+            "full_name": "Eshajha19/agri"
+          },
+          "title": "CODE REFACTOR: Missing Content-Security-Policy Headers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-10T17:53:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/evoila/meho/pull/156",
+          "number": 156,
+          "pull_request": {
+            "merged_at": "2026-05-10T18:37:14Z",
+            "url": "https://api.github.com/repos/evoila/meho/pulls/156"
+          },
+          "repository": {
+            "full_name": "evoila/meho"
+          },
+          "title": "feat(backend): add audit-log schema + synchronous audit middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-13T20:17:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/emirerben/nova/pull/132",
+          "number": 132,
+          "pull_request": {
+            "merged_at": "2026-05-13T20:21:46Z",
+            "url": "https://api.github.com/repos/emirerben/nova/pulls/132"
+          },
+          "repository": {
+            "full_name": "emirerben/nova"
+          },
+          "title": "fix(uploads): 'failed to fetch' on PNG upload (PIL OSError + missing CORS on 500)"
+        }
+      }
+    },
+    {
+      "commit_id": "40291318cc9aeb207eda10ed1d1fb845b004b8fd",
+      "commit_url": "https://api.github.com/repos/emirerben/nova/commits/40291318cc9aeb207eda10ed1d1fb845b004b8fd",
+      "created_at": "2026-05-13T20:21:48Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-06-12T04:46:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/smorinlabs/py-launch-blueprint/pull/399",
+          "number": 399,
+          "pull_request": {
+            "merged_at": "2026-06-12T06:15:20Z",
+            "url": "https://api.github.com/repos/smorinlabs/py-launch-blueprint/pulls/399"
+          },
+          "repository": {
+            "full_name": "smorinlabs/py-launch-blueprint"
+          },
+          "title": "feat(web): bake in rest api best practices (contract, config, observability)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T12:21:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/1542",
+          "number": 1542,
+          "pull_request": {
+            "merged_at": "2026-07-28T03:34:29Z",
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/1542"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat: card-forge \u6a21\u5757 + \u4e09\u4f53\u878d\u5408\u914d\u5957 + \u5bf9\u8bdd\u6389\u843d\u5361\u7247\u95ed\u73af & \u793e\u533a\u767b\u5f55 (M1/M2/M5)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ]
+}

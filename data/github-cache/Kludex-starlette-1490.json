@@ -1,0 +1,299 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-04-19T14:00:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction"
+          },
+          "title": "Update from task 14854a42-6d9c-45b8-aa7a-64d2ce10f42c"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-01T16:33:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alin9661/HypeChain/pull/26",
+          "number": 26,
+          "pull_request": {
+            "merged_at": "2026-06-01T18:46:41Z",
+            "url": "https://api.github.com/repos/alin9661/HypeChain/pulls/26"
+          },
+          "repository": {
+            "full_name": "alin9661/HypeChain"
+          },
+          "title": "docs(backend-py): Diataxis documentation for the FastAPI backend"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-02T13:02:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ananthanarayanan431/cognee-project/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-07-03T14:29:48Z",
+            "url": "https://api.github.com/repos/ananthanarayanan431/cognee-project/pulls/4"
+          },
+          "repository": {
+            "full_name": "ananthanarayanan431/cognee-project"
+          },
+          "title": "Voice bot"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-27T04:56:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vikas0686/Aktilot/pull/39",
+          "number": 39,
+          "pull_request": {
+            "merged_at": "2026-07-27T07:40:50Z",
+            "url": "https://api.github.com/repos/vikas0686/Aktilot/pulls/39"
+          },
+          "repository": {
+            "full_name": "vikas0686/Aktilot"
+          },
+          "title": "Fix high-priority enterprise-readiness audit findings"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T10:11:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/15",
+          "number": 15,
+          "pull_request": {
+            "merged_at": "2026-08-03T10:24:19Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/15"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "Feature/backend fastapi template core"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T06:53:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/matthiasn/lotti/pull/3844",
+          "number": 3844,
+          "pull_request": {
+            "merged_at": "2026-08-09T18:58:07Z",
+            "url": "https://api.github.com/repos/matthiasn/lotti/pulls/3844"
+          },
+          "repository": {
+            "full_name": "matthiasn/lotti"
+          },
+          "title": "feat(matrix): provisioning service and admin UI for sync account bundles"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hackermike/care-platform/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-08-09T23:00:26Z",
+            "url": "https://api.github.com/repos/hackermike/care-platform/pulls/10"
+          },
+          "repository": {
+            "full_name": "hackermike/care-platform"
+          },
+          "title": "Set security headers on every response"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] There are no similar issues or pull requests for this yet.\n- [X] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\n\n### Is your feature related to a problem? Please describe.\n\n```\r\n    def add_middleware(self, middleware_class: type, **options: typing.Any) -> None:\r\n        self.user_middleware.insert(0, Middleware(middleware_class, **options))\r\n        self.middleware_stack = self.build_middleware_stack()\r\n```\r\n\r\nThe adding of a new middleware is done after the first position.\r\nThere is not a method to reordered the list of middleware\n\n### Describe the solution you would like.\n\nAdd q \n\n### Describe alternatives you considered\n\n_No response_\n\n### Additional context\n\n_No response_",
+    "closed_at": "2022-02-09T15:23:00Z",
+    "created_at": "2022-02-09T15:01:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1490",
+    "number": 1490,
+    "state": "closed",
+    "title": "Allow to order the middleware list",
+    "user": "sylvainmouquet"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-09T15:08:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-12T15:58:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-12T15:58:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-12-12T15:58:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-12-12T15:58:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-12-12T15:58:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-12-12T19:51:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-13T00:46:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-04-19T14:00:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/sentinel-iq-cmpass-nasa-rul-prediction"
+          },
+          "title": "Update from task 14854a42-6d9c-45b8-aa7a-64d2ce10f42c"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-01T16:33:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alin9661/HypeChain/pull/26",
+          "number": 26,
+          "pull_request": {
+            "merged_at": "2026-06-01T18:46:41Z",
+            "url": "https://api.github.com/repos/alin9661/HypeChain/pulls/26"
+          },
+          "repository": {
+            "full_name": "alin9661/HypeChain"
+          },
+          "title": "docs(backend-py): Diataxis documentation for the FastAPI backend"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-02T13:02:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ananthanarayanan431/cognee-project/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-07-03T14:29:48Z",
+            "url": "https://api.github.com/repos/ananthanarayanan431/cognee-project/pulls/4"
+          },
+          "repository": {
+            "full_name": "ananthanarayanan431/cognee-project"
+          },
+          "title": "Voice bot"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-27T04:56:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vikas0686/Aktilot/pull/39",
+          "number": 39,
+          "pull_request": {
+            "merged_at": "2026-07-27T07:40:50Z",
+            "url": "https://api.github.com/repos/vikas0686/Aktilot/pulls/39"
+          },
+          "repository": {
+            "full_name": "vikas0686/Aktilot"
+          },
+          "title": "Fix high-priority enterprise-readiness audit findings"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T10:11:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/15",
+          "number": 15,
+          "pull_request": {
+            "merged_at": "2026-08-03T10:24:19Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/15"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "Feature/backend fastapi template core"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T06:53:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/matthiasn/lotti/pull/3844",
+          "number": 3844,
+          "pull_request": {
+            "merged_at": "2026-08-09T18:58:07Z",
+            "url": "https://api.github.com/repos/matthiasn/lotti/pulls/3844"
+          },
+          "repository": {
+            "full_name": "matthiasn/lotti"
+          },
+          "title": "feat(matrix): provisioning service and admin UI for sync account bundles"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hackermike/care-platform/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-08-09T23:00:26Z",
+            "url": "https://api.github.com/repos/hackermike/care-platform/pulls/10"
+          },
+          "repository": {
+            "full_name": "hackermike/care-platform"
+          },
+          "title": "Set security headers on every response"
+        }
+      }
+    }
+  ]
+}

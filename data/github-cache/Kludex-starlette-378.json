@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "When you use a TestClient for a PUT or POST request,  including a JSON document as the  request body, the class crashes. It tries to assign to a data argument in a request using the package 'requests', whereas in the newest version of the requests package the parameter used for passing the json document is named 'json'.\r\nBest regards.",
+    "closed_at": "2019-02-07T09:59:15Z",
+    "created_at": "2019-02-07T09:53:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/378",
+    "number": 378,
+    "state": "closed",
+    "title": "TestClient",
+    "user": "Lucioric2000"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-07T09:59:15Z",
+      "event": "closed"
+    }
+  ]
+}

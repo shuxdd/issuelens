@@ -1,0 +1,105 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-28T15:30:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f0761b63496a7868f3b87955f3b8e9a0924ccd5e",
+      "sha": "f0761b63496a7868f3b87955f3b8e9a0924ccd5e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-28T15:40:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/150",
+          "number": 150,
+          "pull_request": {
+            "merged_at": "2018-10-28T18:02:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/150"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix FormParser returning \"%20\" in place of spaces"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0761b63496a7868f3b87955f3b8e9a0924ccd5e/starlette%2Fformparsers.py",
+      "changes": 19,
+      "deletions": 10,
+      "filename": "starlette/formparsers.py",
+      "sha": "6d83320d677a1722264436d34fae1b9f7f674a4d",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I switched one microservice from Flask to Starlette and got unexpected form parsing problem.\r\nThis code will return %20 in places where spaces were supposed to be:\r\n```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.requests import Request as StarletteRequest\r\n\r\nSERVER = Starlette()\r\n\r\n@SERVER.route(\"/send\", methods=[\"POST\"])\r\nasync def send_endpoint(request: StarletteRequest) -> PlainTextResponse:\r\n    form = await request.form()\r\n    if \"number\" in form and \"name\" in form:\r\n        number = form[\"number\"]\r\n        name = form[\"name\"]\r\n        return PlainTextResponse(\"Number: \" + number + \" ; Name: \" + name)\r\n```\r\n\r\nMaybe there are other issues with form parsing (x-www-form-urlencoded).",
+    "closed_at": "2019-01-14T12:28:16Z",
+    "created_at": "2018-10-28T08:09:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/149",
+    "number": 149,
+    "state": "closed",
+    "title": "Form field names do not escape perfect encoding",
+    "user": "HarrySky"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-28T18:02:26Z",
+    "created_at": "2018-10-28T15:40:22Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/150",
+    "merge_commit_sha": "a395726dbeda31179483e601de30f8512fa019d4",
+    "merged_at": "2018-10-28T18:02:26Z",
+    "number": 150,
+    "title": "Fix FormParser returning \"%20\" in place of spaces",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-28T15:26:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-28T15:40:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/150",
+          "number": 150,
+          "pull_request": {
+            "merged_at": "2018-10-28T18:02:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/150"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix FormParser returning \"%20\" in place of spaces"
+        }
+      }
+    },
+    {
+      "created_at": "2018-12-31T15:47:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-02T12:05:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-13T14:46:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-13T17:50:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-13T17:51:28Z",
+      "event": "commented"
+    }
+  ]
+}

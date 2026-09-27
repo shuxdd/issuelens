@@ -72,6 +72,8 @@
     }
   ],
   "issue": {
+    "body": "According to the ASGI specification [1](https://asgi.readthedocs.io/en/latest/specs/www.html#http-connection-scope), the `raw_path` field is defined as:\r\n\r\n> raw_path (byte string) \u2013 The original HTTP path component, excluding any query string, unmodified from the bytes that were received by the web server.\r\n\r\nIn Starlette's `TestClient`, the `raw_path` is directly taken from the `httpx` request without modification:\r\n\r\nhttps://github.com/encode/starlette/blob/2d0dde8defe9e3d4df0baacdb20faf273152f1cb/starlette/testclient.py#L307\r\nhttps://github.com/encode/starlette/blob/2d0dde8defe9e3d4df0baacdb20faf273152f1cb/starlette/testclient.py#L254\r\n\r\nHowever, `httpx`'s definition of `raw_path` includes the query string, which differs from the ASGI specification. This discrepancy was previously noted in a related issue on `httpx` [2](https://github.com/encode/httpx/issues/2810).\r\n\r\n### Proposed Solution:\r\n\r\nTo align with the ASGI specification, the `raw_path` in Starlette's `TestClient` should be adjusted to exclude the query string before being passed to the ASGI application.\r\n\r\n### References:\r\n- [1] ASGI Specification: [https://asgi.readthedocs.io/en/latest/specs/www.html#http-connection-scope](https://asgi.readthedocs.io/en/latest/specs/www.html#http-connection-scope)\r\n- [2] Related httpx Issue: [https://github.com/encode/httpx/issues/2810](https://github.com/encode/httpx/issues/2810)",
+    "body_last_edited_at": null,
     "closed_at": "2024-11-18T19:28:45Z",
     "created_at": "2024-09-13T02:07:56Z",
     "html_url": "https://github.com/Kludex/starlette/issues/2692",
@@ -94,6 +96,11 @@
     "user": "raptium"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+    "committed_at": "2024-10-02T06:49:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e11684013fe5ca084f5bd4e54830512a4dff9618"
+  },
   "timeline": [
     {
       "created_at": "2024-09-15T19:17:48Z",

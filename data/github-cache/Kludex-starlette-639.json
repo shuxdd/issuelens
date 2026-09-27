@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "This is a bug report.\r\n\r\nThis is a very hard to catch bug, that I have no idea how to reproduce. It happens very sparingly. \r\nBasically, I have a very simple starlette application that also has a wildcard route registered. 99.99% of the time, the routing works the way I expect, where the specific route (in this case _/csp-reports) goes to the correct function. But occasionally, it goes to the catch all instead. \r\n\r\nBelow is an example stack trace\r\n\r\n```\r\nShouldNotBeHere(): Exception in ASGI application\r\n  File \"/usr/local/lib/python3.7/site-packages/uvicorn/protocols/http/h11_impl.py\", line 375, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n File \"/usr/local/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py\", line 37, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/applications.py\", line 133, in __call__\r\n    await self.error_middleware(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 177, in __call__\r\n    raise exc from None\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 155, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/exceptions.py\", line 73, in __call__\r\n    raise exc from None\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/exceptions.py\", line 62, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/routing.py\", line 590, in __call__\r\n    await route(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/routing.py\", line 208, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/routing.py\", line 41, in app\r\n    response = await func(request)\r\n  File \"/app/heimdall/core.py\", line 30, in catchall\r\n    raise ShouldNotBeHere()\r\n```\r\n\r\n\r\nMy starlette app is this:\r\n```\r\nimport json\r\nimport os\r\n\r\nimport uvicorn\r\nfrom canopy import client\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import JSONResponse\r\n\r\napp = Starlette(debug=False)\r\n\r\nLOCAL_DEV = os.getenv('IS_LOCAL', 'false').lower() == 'true'\r\n\r\n\r\n@app.route('/heartbeat', methods=['GET', 'HEAD'])\r\nasync def heartbeat(request):\r\n    return JSONResponse({'message': 'bro, we good?'})\r\n\r\n\r\n@app.route('/_/csp-reports', methods=['POST'])\r\nasync def csp_reports(request: Request):\r\n    body = await request.body()\r\n    report = json.loads(body.decode())\r\n    print(json.dumps({'report': 'CSP-REPORT', 'contents': report}))\r\n    return JSONResponse({'message': 'roger roger'})\r\n\r\n\r\n@app.route('/{path:path}')\r\nasync def catchall(request: Request):\r\n    raise ShouldNotBeHere()\r\n\r\n\r\ndef main():\r\n    uvicorn.run(app, host='0.0.0.0', port=8000, http='h11', headers=[('Server', 'heimdall')],\r\n                proxy_headers=True, log_level='warning')\r\n```\r\n\r\nAny idea what could be causing the routing to occasionally resolve in a different order?",
+    "closed_at": "2019-09-17T20:20:05Z",
+    "created_at": "2019-09-17T20:18:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/639",
+    "number": 639,
+    "state": "closed",
+    "title": "Starlette race condition? on catch all routing",
+    "user": "nhumrich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-17T20:20:05Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-09-17T20:20:31Z",
+      "event": "commented"
+    }
+  ]
+}

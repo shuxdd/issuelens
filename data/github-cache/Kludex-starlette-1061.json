@@ -1,0 +1,44 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nThe `WSGIMiddleware` `__init__` takes in a parameter, `workers` that is unused:\r\nhttps://github.com/encode/starlette/blob/8dac5c2c7c986121f57c6741f01b1df300eb5faa/starlette/middleware/wsgi.py#L56-L59\r\n\r\n### To reproduce\r\n\r\nstatic inspection of source code\r\n\r\n### Expected behavior\r\n\r\nEither use the parameter, or mark it as deprecated.\r\n\r\n### Actual behavior\r\n\r\nno indication that the parameter is unused.\r\n\r\n### Debugging material\r\nn/a\r\n\r\n### Environment\r\nn/a\r\n\r\n### Additional context\r\nn/a",
+    "closed_at": "2020-09-29T08:11:24Z",
+    "created_at": "2020-09-29T02:37:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1061",
+    "number": 1061,
+    "state": "closed",
+    "title": "Unused worker parameter to WSGIMiddleware",
+    "user": "cancan101"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-29T08:11:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-29T08:11:24Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-09-29T13:34:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-29T13:40:52Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-09-29T16:43:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-29T17:01:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-08T05:03:39Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2020-01-13T04:45:39Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/790"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/790"
+    ]
+  },
+  "case_id": "starlette-issue-790",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-792",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Allow non latin-1 filename in FileResponse' directly changes starlette/responses.py with focused behavior test(s) tests/test_responses.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2020-01-13T09:22:19Z",
+  "issue": {
+    "body": "Hi~ When i try to return a `FileResponse` with Chinese filename, i got such error:\r\n\r\n```\r\nUnicodeEncodeError: 'latin-1' codec can't encode character '\\u6708' in position 32: ordinal not in range(256)\r\n```\r\n\r\nThen i found all header items will be encode with `latin-1`, after i change it manually to `utf-8`, my problem was solved.\r\n\r\ne.g.\r\n\r\n- responses.Response.init_headers, line 63\r\n```python\r\nraw_headers = [\r\n    (k.lower().encode(\"latin-1\"), v.encode(\"latin-1\"))\r\n    for k, v in headers.items()\r\n]\r\n```\r\n\r\nSo may be it should encode with `self.charset` or give a custom parameter so that i can choose encoding to `utf-8`?\r\n\r\nThx for the great project~",
+    "number": 790,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/790",
+    "title": "response headers support custom encoding "
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #792 created_at 2020-01-13T09:22:19Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #792",
+    "repair_files": [
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 5c43dde0ec0917673bb280bcd7ab0c37b78061b7",
+    "test_files": [
+      "tests/test_responses.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/4dfa3576f909fef54e7c7985840a713932d6b32e/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "4dfa3576f909fef54e7c7985840a713932d6b32e",
+        "source_url": "https://github.com/Kludex/starlette/commit/4dfa3576f909fef54e7c7985840a713932d6b32e"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2020-01-13T09:22:19Z",
+      "number": 792,
+      "source_url": "https://github.com/Kludex/starlette/pull/792"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/792"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/4dfa3576f909fef54e7c7985840a713932d6b32e/tests%2Ftest_responses.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "5c43dde0ec0917673bb280bcd7ab0c37b78061b7",
+    "committed_at": "2020-01-09T15:11:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5c43dde0ec0917673bb280bcd7ab0c37b78061b7"
+  },
+  "schema_version": "1.0"
+}

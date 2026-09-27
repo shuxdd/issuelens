@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-2306",
+  "changed_files": [
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+      "source_url": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by \"TestClient doesn't merge urls in the same way as the httpx client, and I think it should.\" originates in starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_session.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Fmiddleware%2Ftest_session.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b96d7799b8fd363df33936848e1804555f9a0465/tests%2Ftest_testclient.py",
+      "status": "modified"
+    }
+  ]
+}

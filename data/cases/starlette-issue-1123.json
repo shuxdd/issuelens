@@ -1,0 +1,157 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-01-11T06:18:34Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1123"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1123"
+    ]
+  },
+  "case_id": "starlette-issue-1123",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1220",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Handle staticfiles OSError exceptions' directly changes starlette/staticfiles.py with focused behavior test(s) tests/test_staticfiles.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-06-27T14:23:35Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n`StaticFiles` causes Internal Server Error when user accesses existing files as directory (e.g. `/static/somefile.txt/foobar`)\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n1. create virtual env and activate it with `python -m venv venv && source venv/bin/activate`\r\n2. install dependencies with `pip install starlette uvicorn aiofiles`\r\n3. setup application as follows:\r\n\r\ndirectory structure:\r\n```\r\n.\r\n\u251c\u2500\u2500 poc.py\r\n\u251c\u2500\u2500 static\r\n\u2502   \u2514\u2500\u2500 sample.txt\r\n\u2514\u2500\u2500 venv\r\n```\r\n\r\npoc.py\r\n```py\r\n# code from https://www.starlette.io/staticfiles/\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Mount\r\nfrom starlette.staticfiles import StaticFiles\r\n\r\n\r\nroutes = [\r\n    Mount(\"/static\", app=StaticFiles(directory=\"static\"), name=\"static\"),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\n\r\n4. run application with `uvicorn poc:app`\r\n5. access `http://127.0.0.1:8000/static/sample.txt/foo`\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\n`StaticFiles` returns \"404 Not Found\" HTTP response (as Apache HTTP Server and Nginx does).\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n`StaticFiles` returns \"500 Internal Server Error\" HTTP response.\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\nconsole log with tracebacks:\r\n```\r\nINFO:     Started server process [13052]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\nINFO:     127.0.0.1:64288 - \"GET /static/sample.txt/foo HTTP/1.1\" 500 Internal Server Error\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py\", line 394, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc from None\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/routing.py\", line 582, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/routing.py\", line 392, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/staticfiles.py\", line 97, in __call__\r\n    response = await self.get_response(path, scope)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/staticfiles.py\", line 114, in get_response\r\n    full_path, stat_result = await self.lookup_path(path)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/starlette/staticfiles.py\", line 154, in lookup_path\r\n    stat_result = await aio_stat(full_path)\r\n  File \"/Users/xkhorasan/programs/test_starlette/venv/lib/python3.9/site-packages/aiofiles/os.py\", line 13, in run\r\n    return await loop.run_in_executor(executor, pfunc)\r\n  File \"/usr/local/Cellar/python@3.9/3.9.1_2/Frameworks/Python.framework/Versions/3.9/lib/python3.9/concurrent/futures/thread.py\", line 52, in run\r\n    result = self.fn(*self.args, **self.kwargs)\r\nNotADirectoryError: [Errno 20] Not a directory: '/Users/xkhorasan/programs/test_starlette/static/sample.txt/foo'\r\n```\r\n\r\n### Environment\r\n\r\n- OS: macOS\r\n- Python version: 3.9.1\r\n- Starlette version:  0.14.1\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nApache HTTP Server and Nginx treat this case (access existing file as directory) as \"404 Not Found\".\r\nSamples:\r\n* Apache HTTP Server: https://httpd.apache.org/images/httpd_logo_wide_new.png/foo\r\n* Nginx: https://nginx.org/download/nginx-1.18.0.tar.gz/foo",
+    "number": 1123,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1123",
+    "title": "`StaticFiles` causes Internal Server Error when user accesses existing files as directory"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1220 created_at 2021-06-27T14:23:35Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1220",
+    "repair_files": [
+      "starlette/staticfiles.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 070d749f66999206c4c71cb203a2ea400e0b3c00",
+    "test_files": [
+      "tests/test_staticfiles.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/200f684b5097ff1844117bd045bb61fbf52af57c/starlette%2Fstaticfiles.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "25899c6080398b84e5ed5a9a3ad24c5054ba1018",
+        "source_url": "https://github.com/Kludex/starlette/commit/25899c6080398b84e5ed5a9a3ad24c5054ba1018"
+      },
+      {
+        "sha": "5d5664b0b32c6de69eb56d556aefc398dca71d82",
+        "source_url": "https://github.com/Kludex/starlette/commit/5d5664b0b32c6de69eb56d556aefc398dca71d82"
+      },
+      {
+        "sha": "beaabc4e99b3461eb73f90f05732b64c29bde57f",
+        "source_url": "https://github.com/Kludex/starlette/commit/beaabc4e99b3461eb73f90f05732b64c29bde57f"
+      },
+      {
+        "sha": "1c5c9e01967442c1bd41b0307b7a212401d7a0cc",
+        "source_url": "https://github.com/Kludex/starlette/commit/1c5c9e01967442c1bd41b0307b7a212401d7a0cc"
+      },
+      {
+        "sha": "54486f0d34f05a2a33d9d8e676b1d00cd52a10f7",
+        "source_url": "https://github.com/Kludex/starlette/commit/54486f0d34f05a2a33d9d8e676b1d00cd52a10f7"
+      },
+      {
+        "sha": "93803e3a09f5013f355134023f73fc62bbf57b32",
+        "source_url": "https://github.com/Kludex/starlette/commit/93803e3a09f5013f355134023f73fc62bbf57b32"
+      },
+      {
+        "sha": "64b7c25f4411253e0e280b9180627acac0f9bffa",
+        "source_url": "https://github.com/Kludex/starlette/commit/64b7c25f4411253e0e280b9180627acac0f9bffa"
+      },
+      {
+        "sha": "2ba2e298decc658221879bccd3203d37ce8590cf",
+        "source_url": "https://github.com/Kludex/starlette/commit/2ba2e298decc658221879bccd3203d37ce8590cf"
+      },
+      {
+        "sha": "f43fa8ee2c2b5ecf158ce77fea6c93e588f353cd",
+        "source_url": "https://github.com/Kludex/starlette/commit/f43fa8ee2c2b5ecf158ce77fea6c93e588f353cd"
+      },
+      {
+        "sha": "f14a34e0ea1d60809c6ae67cb484496ea4204698",
+        "source_url": "https://github.com/Kludex/starlette/commit/f14a34e0ea1d60809c6ae67cb484496ea4204698"
+      },
+      {
+        "sha": "0bcbd054e7513bf18b45eaa4d54d38f247eaea2c",
+        "source_url": "https://github.com/Kludex/starlette/commit/0bcbd054e7513bf18b45eaa4d54d38f247eaea2c"
+      },
+      {
+        "sha": "88b7eef4748edc3b158a485ddf37a3330df82c86",
+        "source_url": "https://github.com/Kludex/starlette/commit/88b7eef4748edc3b158a485ddf37a3330df82c86"
+      },
+      {
+        "sha": "f17f693a1494ea0a178bda63b20ada06cc231c20",
+        "source_url": "https://github.com/Kludex/starlette/commit/f17f693a1494ea0a178bda63b20ada06cc231c20"
+      },
+      {
+        "sha": "fc544f0c8612e33333234a63f616c0ff32bb6ac6",
+        "source_url": "https://github.com/Kludex/starlette/commit/fc544f0c8612e33333234a63f616c0ff32bb6ac6"
+      },
+      {
+        "sha": "d7835ca379591ab786ac0c910b6b56c69bceb77f",
+        "source_url": "https://github.com/Kludex/starlette/commit/d7835ca379591ab786ac0c910b6b56c69bceb77f"
+      },
+      {
+        "sha": "dab4d880190dae6728eeddf2c0e4801ece49bc62",
+        "source_url": "https://github.com/Kludex/starlette/commit/dab4d880190dae6728eeddf2c0e4801ece49bc62"
+      },
+      {
+        "sha": "1fd2daf46e6d687a647ff295878ebbc3e8355c4d",
+        "source_url": "https://github.com/Kludex/starlette/commit/1fd2daf46e6d687a647ff295878ebbc3e8355c4d"
+      },
+      {
+        "sha": "200f684b5097ff1844117bd045bb61fbf52af57c",
+        "source_url": "https://github.com/Kludex/starlette/commit/200f684b5097ff1844117bd045bb61fbf52af57c"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-06-27T14:23:35Z",
+      "number": 1220,
+      "source_url": "https://github.com/Kludex/starlette/pull/1220"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1220"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/200f684b5097ff1844117bd045bb61fbf52af57c/tests%2Ftest_staticfiles.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "070d749f66999206c4c71cb203a2ea400e0b3c00",
+    "committed_at": "2021-06-27T12:26:14Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/070d749f66999206c4c71cb203a2ea400e0b3c00"
+  },
+  "schema_version": "1.0"
+}

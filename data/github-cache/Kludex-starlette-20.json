@@ -1,0 +1,442 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-02-20T17:45:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f3e826d0016023e2b79454c1adbf6519f70c8d2b",
+      "sha": "f3e826d0016023e2b79454c1adbf6519f70c8d2b"
+    },
+    {
+      "committed_at": "2020-02-24T17:51:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2fcb3f54162f8edfa7512947c0cf1a794acd71ec",
+      "sha": "2fcb3f54162f8edfa7512947c0cf1a794acd71ec"
+    },
+    {
+      "committed_at": "2020-02-24T18:15:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b03f95c62eb2fd5c296aae3a3d3693756569f93c",
+      "sha": "b03f95c62eb2fd5c296aae3a3d3693756569f93c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-02-20T17:48:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/839",
+          "number": 839,
+          "pull_request": {
+            "merged_at": "2020-02-26T13:15:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/839"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add listener task to cancel streaming response in case of an early disconnect"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-22T13:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/cortexlabs/cortex/issues/1149",
+          "number": 1149,
+          "pull_request": {},
+          "repository": {
+            "full_name": "cortexlabs/cortex"
+          },
+          "title": "Support and document server-sent-events"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-06T01:09:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "Question: How to handle client disconnection?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-10T12:19:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/14",
+          "number": 14,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "How can I make pub-sub pattern with sse-starlette? Any suggestion?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-19T12:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fullonic/brotli-asgi/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2022-09-28T11:18:04Z",
+            "url": "https://api.github.com/repos/fullonic/brotli-asgi/pulls/21"
+          },
+          "repository": {
+            "full_name": "fullonic/brotli-asgi"
+          },
+          "title": "Feature: Allow excluding handlers from being compressed"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-27T19:26:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "Async behavior will turn to blocking behavior while working with GzipMiddleWare"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-19T05:16:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ApexYash11/portfolio/pull/29",
+          "number": 29,
+          "pull_request": {
+            "merged_at": "2026-06-19T05:18:25Z",
+            "url": "https://api.github.com/repos/ApexYash11/portfolio/pulls/29"
+          },
+          "repository": {
+            "full_name": "ApexYash11/portfolio"
+          },
+          "title": "Refactor LLM evaluation content for clarity and structure"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b03f95c62eb2fd5c296aae3a3d3693756569f93c/starlette%2Fresponses.py",
+      "changes": 17,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "2dab841c5a8c2bc54cb148806baac893cfbc08f2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Helpers for sending SSE event streams over HTTP connections.\r\n\r\nRelated resources:\r\n\r\n* https://github.com/encode/uvicorn/commit/07c6c18945ab4f4167118e717e197adce3aee3da#r29630623\r\n* https://github.com/aio-libs/aiohttp-sse",
+    "closed_at": "2021-09-18T17:33:06Z",
+    "created_at": "2018-07-12T11:23:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/20",
+    "labels": [
+      "feature"
+    ],
+    "number": 20,
+    "state": "closed",
+    "title": "Server Sent Events",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2020-02-26T13:15:47Z",
+    "created_at": "2020-02-20T17:48:45Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/839",
+    "merge_commit_sha": "3de541cfe299a2a6a3741937633c81ad99d65a6a",
+    "merged_at": "2020-02-26T13:15:47Z",
+    "number": 839,
+    "title": "Add listener task to cancel streaming response in case of an early disconnect",
+    "user": "Kamforka"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-26T11:08:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T08:49:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:14:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:38:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:53:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:53:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-14T09:53:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-14T11:14:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T11:14:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-14T11:14:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-14T14:11:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T21:48:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T09:52:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T14:00:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T14:11:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T14:52:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T14:59:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T15:38:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T15:44:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T17:44:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T19:23:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T19:55:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T19:59:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-17T21:35:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T09:57:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T11:13:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T11:47:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T16:12:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T16:21:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-20T10:48:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-20T17:48:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/839",
+          "number": 839,
+          "pull_request": {
+            "merged_at": "2020-02-26T13:15:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/839"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add listener task to cancel streaming response in case of an early disconnect"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-22T13:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/cortexlabs/cortex/issues/1149",
+          "number": 1149,
+          "pull_request": {},
+          "repository": {
+            "full_name": "cortexlabs/cortex"
+          },
+          "title": "Support and document server-sent-events"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-05T22:13:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-06T01:09:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "Question: How to handle client disconnection?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-06T06:49:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-06T08:10:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-06T08:10:24Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-10-06T08:10:24Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-12-10T12:19:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/14",
+          "number": 14,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "How can I make pub-sub pattern with sse-starlette? Any suggestion?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-25T13:36:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-18T17:23:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-18T17:33:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-18T17:33:06Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-07-19T12:45:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fullonic/brotli-asgi/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2022-09-28T11:18:04Z",
+            "url": "https://api.github.com/repos/fullonic/brotli-asgi/pulls/21"
+          },
+          "repository": {
+            "full_name": "fullonic/brotli-asgi"
+          },
+          "title": "Feature: Allow excluding handlers from being compressed"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-27T19:26:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sysid/sse-starlette/issues/84",
+          "number": 84,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sysid/sse-starlette"
+          },
+          "title": "Async behavior will turn to blocking behavior while working with GzipMiddleWare"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-19T05:16:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ApexYash11/portfolio/pull/29",
+          "number": 29,
+          "pull_request": {
+            "merged_at": "2026-06-19T05:18:25Z",
+            "url": "https://api.github.com/repos/ApexYash11/portfolio/pulls/29"
+          },
+          "repository": {
+            "full_name": "ApexYash11/portfolio"
+          },
+          "title": "Refactor LLM evaluation content for clarity and structure"
+        }
+      }
+    }
+  ]
+}

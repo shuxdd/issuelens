@@ -1,0 +1,78 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-04-03T15:21:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/modelcontextprotocol/python-sdk/pull/2383",
+          "number": 2383,
+          "pull_request": {
+            "url": "https://api.github.com/repos/modelcontextprotocol/python-sdk/pulls/2383"
+          },
+          "repository": {
+            "full_name": "modelcontextprotocol/python-sdk"
+          },
+          "title": "fix(streamable_http): allow Content-Type header override"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2340\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **muxacarin** November 22, 2023</sup>\r\nI am using fastapi (which using starlette), and when I return data with Korean character (and possibly none-alphabet character), encoding is wrong.\r\n\r\nIt is double-encoded: it was encoded in UTF-8, then the resulting bytes were interpreted as ISO-8859-1 (or a similar encoding) and encoded in UTF-8 again. (answer from GitHub copilot)\r\n\r\nexample: \"\ud53c\ub178\ud0a4\uc624\ub7a9\" expected to be encoded to %ED%94%BC%EB%85%B8%ED%82%A4%EC%98%A4%EB%9E%A9 (in url encoded form), but resulted in %C3%AD%C2%94%C2%BC%C3%AB%C2%85%C2%B8%C3%AD%C2%82%C2%A4%C3%AC%C2%98%C2%A4%C3%AB%C2%9E%C2%A9\r\n\r\nAnd when I change media_type of JSONResponse to \"application/json; charset=utf-8\", this issue solved</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2342\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2342/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2342/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-22T08:22:02Z",
+    "created_at": "2023-11-22T09:53:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2342",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2342,
+    "state": "closed",
+    "title": "Change media_type of JSONResponse to \"application/json; charset=utf-8\"",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-11-22T09:53:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-11-22T09:54:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-22T09:54:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-24T19:33:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-22T08:22:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-22T08:22:02Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-04-03T15:21:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/modelcontextprotocol/python-sdk/pull/2383",
+          "number": 2383,
+          "pull_request": {
+            "url": "https://api.github.com/repos/modelcontextprotocol/python-sdk/pulls/2383"
+          },
+          "repository": {
+            "full_name": "modelcontextprotocol/python-sdk"
+          },
+          "title": "fix(streamable_http): allow Content-Type header override"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-24T15:06:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/257",
+          "number": 257,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How can I use path types in path variables?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I am trying to pass an entire path to a route as a path parameter:\r\n\r\n```\r\napp.route('/data/{full_path}')\r\n....\r\n```\r\n\r\nIf I access `.../data/abc/123/this/that.txt`, I'd like to have `full_path` return `abc/123/this/that.txt`. I didn't start reading source yet (yes, lazy), but I did not see an obvious example or approach in the docs. Is that possible with starlette? ",
+    "closed_at": "2019-05-24T09:45:52Z",
+    "created_at": "2019-05-23T20:53:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/525",
+    "number": 525,
+    "state": "closed",
+    "title": "[question] Possible to have a path parameter containing '/'?",
+    "user": "seandavi"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-24T03:07:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T09:45:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T09:45:52Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-05-24T09:45:52Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-24T09:45:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-24T15:06:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/257",
+          "number": 257,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How can I use path types in path variables?"
+        }
+      }
+    }
+  ]
+}

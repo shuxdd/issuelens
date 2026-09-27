@@ -1,0 +1,63 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-08T18:20:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1400",
+          "number": 1400,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1400"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Set `request` in template context"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "As present, Starlette's templating requires that the response variable be passed explicitly. This requires `TemplateResponse('index.html', {'request': request})` to be written everywhere, thus I have been playing around with the idea of performing the render in the middleware where the request would be available, thus avoiding the need of passing it explicitly.\r\n\r\nTo do this, I tried adding a subclass of `Response` like so:\r\n\r\n```\r\nclass TemplateResponse(Response):\r\n    def __init__(self, template, context={}, status_code=200, headers={}, media_type='text/html', background=None):\r\n        self.template = jinja2_env.get_template(template)\r\n        self.context = context\r\n        headers['X-Templated-Response'] = '1'\r\n        super().__init__('', status_code, headers, media_type, background)\r\n```\r\n\r\n... and then render in the middleware and return the \"real\" response like so:\r\n\r\n```\r\nclass TemplatingMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request, call_next):\r\n        response = await call_next(request)\r\n        if response.headers.get('X-Templated-Response'):\r\n            del response.headers['X-Templated-Response']\r\n            content = response.template.render({\r\n                **response.context,\r\n                'config': self.app.config,\r\n                'request': request\r\n            })\r\n            response = Response(content, response.status_code, response.headers, response.media_type)\r\n        return response\r\n```\r\n\r\nHowever, it appears that all responses get converted to a `StreamingResponse` object preventing me from achieving this goal.\r\n\r\nIs there a way to preserve the original \"TemplateResponse\" object; or is there another way of achieving this?",
+    "closed_at": "2022-01-11T11:07:57Z",
+    "created_at": "2019-04-13T15:39:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/482",
+    "number": 482,
+    "state": "closed",
+    "title": "Rendering templates without explicitly passing request",
+    "user": "supriyo-biswas"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-17T15:26:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-08T18:20:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1400",
+          "number": 1400,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1400"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Set `request` in template context"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-11T11:07:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-11T11:07:58Z",
+      "event": "closed"
+    }
+  ]
+}

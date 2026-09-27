@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Recently I've started developing an application (game backend server) with starlette and I'm considering using websockets for bidirectional communication. This server has (best case) a running websocket with each player and the websockets are grouped via rooms. This means though that a websocket may be open for around 20-45 minutes. Are starlette websockets able to free the corresponding thread/ worker if an request from the player is awaited?\r\n\r\nThanks in advance,\r\nCobalt",
+    "closed_at": "2020-08-12T14:39:51Z",
+    "created_at": "2020-06-10T15:50:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/965",
+    "number": 965,
+    "state": "closed",
+    "title": "[Question] starlette websocket behavior",
+    "user": "Chaostheorie"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-12T14:39:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:39:51Z",
+      "event": "closed"
+    }
+  ]
+}

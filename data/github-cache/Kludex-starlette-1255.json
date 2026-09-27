@@ -1,0 +1,256 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-08-11T10:18:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/58defbc240cab68e57e52385346eed0a395fd580",
+      "sha": "58defbc240cab68e57e52385346eed0a395fd580"
+    },
+    {
+      "committed_at": "2021-10-22T00:04:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ccb6e2afc503e51129fe2d494445152327638fe8",
+      "sha": "ccb6e2afc503e51129fe2d494445152327638fe8"
+    },
+    {
+      "committed_at": "2021-10-22T12:30:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/18a720931fc2528042ab8e0138fd1b0228c62b73",
+      "sha": "18a720931fc2528042ab8e0138fd1b0228c62b73"
+    },
+    {
+      "committed_at": "2021-10-22T13:23:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/34c1f359995552d5b9a7c47669ab8fc5613610cf",
+      "sha": "34c1f359995552d5b9a7c47669ab8fc5613610cf"
+    },
+    {
+      "committed_at": "2021-10-28T16:36:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f0142dfdfda6fe6247d36cea53df082576bc271e",
+      "sha": "f0142dfdfda6fe6247d36cea53df082576bc271e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-08-11T09:21:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1262",
+          "number": 1262,
+          "pull_request": {
+            "merged_at": "2021-10-28T16:50:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1262"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Prevent anyio.ExceptionGroup in error views under a BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-04T14:12:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/4145",
+          "number": 4145,
+          "pull_request": {
+            "merged_at": "2022-01-07T09:34:28Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/4145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f Upgrade Starlette to 0.17.1"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0142dfdfda6fe6247d36cea53df082576bc271e/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 10,
+      "deletions": 1,
+      "filename": "starlette/middleware/base.py",
+      "sha": "423f40777ebfb8ae86b9cddbf63b7240e4c6427f",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f0142dfdfda6fe6247d36cea53df082576bc271e/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 5,
+      "deletions": 2,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "c6bfd49fc89826af064106d034397faacded59d2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [X] The bug is reproducible against the latest release and/or `master`.\r\n- [ ] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhile working on [reproducible builds](https://reproducible-builds.org/) for [openSUSE](https://en.opensuse.org/openSUSE:Reproducible_Builds), I found that our `python-starlette-0.16.0` package failed 1 test when running in a 1-core-VM (usually this happens due to differences in scheduling/timing)\r\n\r\n\r\n\r\n### To reproduce\r\n\r\nmaybe run tests as `taskset 1 pytest`\r\n\r\nor on Debian or openSUSE run\r\n```\r\nosc checkout openSUSE:Factory/python-starlette && cd $_\r\nosc build --vm-type=kvm --noservice --clean -j1 standard\r\n```\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\ntests should pass\r\n\r\n### Actual behavior\r\n\r\n`test_custom_middleware[trio]` fails\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n\r\n### Debugging material\r\n\r\n```\r\n =================================== FAILURES ===================================\r\n _________________________ test_custom_middleware[trio] _________________________\r\n \r\n test_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='trio', backend_options={})\r\n \r\n     def test_custom_middleware(test_client_factory):\r\n         client = test_client_factory(app)\r\n         response = client.get(\"/\")\r\n         assert response.headers[\"Custom-Header\"] == \"Example\"\r\n     \r\n         with pytest.raises(Exception):\r\n >           response = client.get(\"/exc\")\r\n \r\n tests/middleware/test_base.py:56: \r\n _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n /usr/lib/python3.9/site-packages/requests/sessions.py:555: in get\r\n     return self.request('GET', url, **kwargs)\r\n starlette/testclient.py:468: in request\r\n     return super().request(\r\n /usr/lib/python3.9/site-packages/requests/sessions.py:542: in request\r\n     resp = self.send(prep, **send_kwargs)\r\n /usr/lib/python3.9/site-packages/requests/sessions.py:655: in send\r\n     r = adapter.send(request, **kwargs)\r\n starlette/testclient.py:266: in send\r\n     raise exc\r\n starlette/testclient.py:263: in send\r\n     portal.call(self.app, scope, receive, send)\r\n /usr/lib/python3.9/site-packages/anyio/from_thread.py:229: in call\r\n     return self.start_task_soon(func, *args).result()\r\n /usr/lib64/python3.9/concurrent/futures/_base.py:445: in result\r\n     return self.__get_result()\r\n /usr/lib64/python3.9/concurrent/futures/_base.py:390: in __get_result\r\n     raise self._exception\r\n /usr/lib/python3.9/site-packages/anyio/from_thread.py:176: in _call_func\r\n     retval = await retval\r\n starlette/applications.py:112: in __call__\r\n     await self.middleware_stack(scope, receive, send)\r\n starlette/middleware/errors.py:159: in __call__\r\n     await self.app(scope, receive, _send)\r\n starlette/middleware/base.py:57: in __call__\r\n     task_group.cancel_scope.cancel()\r\n _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \r\n \r\n self = <anyio._backends._trio.TaskGroup object at 0x7f1d7c50a5b0>\r\n exc_type = <class 'RuntimeError'>\r\n exc_val = RuntimeError('No response returned.')\r\n exc_tb = <traceback object at 0x7f1d7c5294c0>\r\n \r\n     async def __aexit__(self, exc_type: Optional[Type[BaseException]],\r\n                         exc_val: Optional[BaseException],\r\n                         exc_tb: Optional[TracebackType]) -> Optional[bool]:\r\n         try:\r\n             return await self._nursery_manager.__aexit__(exc_type, exc_val, exc_tb)\r\n         except trio.MultiError as exc:\r\n >           raise ExceptionGroup(exc.exceptions) from None\r\n E           anyio._backends._trio.ExceptionGroup: 2 exceptions were raised in the task group:\r\n E           ----------------------------\r\n E           Traceback (most recent call last):\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/middleware/base.py\", line 30, in coro\r\n E               await self.app(scope, request.receive, send_stream.send)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/exceptions.py\", line 82, in __call__\r\n E               raise exc\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/exceptions.py\", line 71, in __call__\r\n E               await self.app(scope, receive, sender)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/routing.py\", line 656, in __call__\r\n E               await route.handle(scope, receive, send)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/routing.py\", line 259, in handle\r\n E               await self.app(scope, receive, send)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/routing.py\", line 63, in app\r\n E               response = await run_in_threadpool(func, request)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/concurrency.py\", line 39, in run_in_threadpool\r\n E               return await anyio.to_thread.run_sync(func, *args)\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/to_thread.py\", line 28, in run_sync\r\n E               return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/_backends/_trio.py\", line 170, in run_sync_in_worker_thread\r\n E               return await run_sync(wrapper, cancellable=cancellable, limiter=limiter)\r\n E             File \"/usr/lib/python3.9/site-packages/trio/_threads.py\", line 205, in to_thread_run_sync\r\n E               return await trio.lowlevel.wait_task_rescheduled(abort)\r\n E             File \"/usr/lib/python3.9/site-packages/trio/_core/_traps.py\", line 166, in wait_task_rescheduled\r\n E               return (await _async_yield(WaitTaskRescheduled(abort_func))).unwrap()\r\n E             File \"/usr/lib/python3.9/site-packages/outcome/_sync.py\", line 111, in unwrap\r\n E               raise captured_error\r\n E             File \"/usr/lib/python3.9/site-packages/trio/_threads.py\", line 155, in do_release_then_return_result\r\n E               return result.unwrap()\r\n E             File \"/usr/lib/python3.9/site-packages/outcome/_sync.py\", line 111, in unwrap\r\n E               raise captured_error\r\n E             File \"/usr/lib/python3.9/site-packages/trio/_threads.py\", line 168, in worker_fn\r\n E               ret = sync_fn(*args)\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/_backends/_trio.py\", line 168, in wrapper\r\n E               return func(*args)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/tests/middleware/test_base.py\", line 28, in exc\r\n E               raise Exception()\r\n E           Exception\r\n E           ----------------------------\r\n E           Traceback (most recent call last):\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/streams/memory.py\", line 78, in receive\r\n E               return self.receive_nowait()\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/streams/memory.py\", line 73, in receive_nowait\r\n E               raise WouldBlock\r\n E           anyio.WouldBlock\r\n E           \r\n E           During handling of the above exception, another exception occurred:\r\n E           \r\n E           Traceback (most recent call last):\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/middleware/base.py\", line 35, in call_next\r\n E               message = await recv_stream.receive()\r\n E             File \"/usr/lib/python3.9/site-packages/anyio/streams/memory.py\", line 98, in receive\r\n E               raise EndOfStream\r\n E           anyio.EndOfStream\r\n E           \r\n E           During handling of the above exception, another exception occurred:\r\n E           \r\n E           Traceback (most recent call last):\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/middleware/base.py\", line 55, in __call__\r\n E               response = await self.dispatch_func(request, call_next)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/tests/middleware/test_base.py\", line 12, in dispatch\r\n E               response = await call_next(request)\r\n E             File \"/home/abuild/rpmbuild/BUILD/starlette-0.16.0/starlette/middleware/base.py\", line 37, in call_next\r\n E               raise RuntimeError(\"No response returned.\")\r\n E           RuntimeError: No response returned.\r\n \r\n /usr/lib/python3.9/site-packages/anyio/_backends/_trio.py:141: ExceptionGroup\r\n =========================== short test summary info ============================\r\n SKIPPED [3] tests/conftest.py:14: Trio not supported (yet!)\r\n =================== 1 failed, 464 passed, 3 skipped in 4.95s ===================\r\n```\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: Linux = openSUSE Tumbleweed 20210726 \r\n- Python version: 3.9\r\n- Starlette version: 0.16.0\r\n\r\n### Additional context\r\n\r\nThis bug was found while working on [reproducible builds for openSUSE](https://en.opensuse.org/openSUSE:Reproducible_Builds).",
+    "body_last_edited_at": null,
+    "closed_at": "2021-10-28T16:50:33Z",
+    "created_at": "2021-07-29T12:55:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1255",
+    "labels": [
+      "bug",
+      "clean up"
+    ],
+    "number": 1255,
+    "state": "closed",
+    "title": "test_custom_middleware[trio] fails on 1-core-VM",
+    "user": "bmwiedemann"
+  },
+  "pull_request": {
+    "closed_at": "2021-10-28T16:50:34Z",
+    "created_at": "2021-08-11T09:21:21Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1262",
+    "merge_commit_sha": "6c9bc55af7d9d202c2bc1299c9a65e844640c197",
+    "merged_at": "2021-10-28T16:50:33Z",
+    "number": 1262,
+    "title": "Prevent anyio.ExceptionGroup in error views under a BaseHTTPMiddleware",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "e45c5793611bfec606cd9c5d56887ddc67f77c38",
+    "committed_at": "2021-07-19T07:08:36Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e45c5793611bfec606cd9c5d56887ddc67f77c38"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-08-11T08:18:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-11T08:18:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-11T08:18:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-08-11T08:18:50Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-08-11T08:18:50Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-08-11T08:19:12Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-11T08:19:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-08-11T09:21:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1262",
+          "number": 1262,
+          "pull_request": {
+            "merged_at": "2021-10-28T16:50:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1262"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Prevent anyio.ExceptionGroup in error views under a BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-28T16:50:33Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-11-01T18:01:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-01T18:01:19Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-01T18:01:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-01T18:20:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-01T22:18:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-01T22:18:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-01T22:18:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-02T07:39:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-04T14:12:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/4145",
+          "number": 4145,
+          "pull_request": {
+            "merged_at": "2022-01-07T09:34:28Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/4145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f Upgrade Starlette to 0.17.1"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-26T11:25:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-11T23:52:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-08T16:58:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-08T16:58:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-04-08T16:58:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-04-26T18:34:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-27T07:51:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-27T07:59:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-27T07:59:31Z",
+      "event": "locked"
+    }
+  ]
+}

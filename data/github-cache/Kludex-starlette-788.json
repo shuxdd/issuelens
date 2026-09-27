@@ -1,0 +1,421 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-04-11T06:39:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/634",
+          "number": 634,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/634"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat(memory): \u8d1f\u9762\u60c5\u7eea\u547d\u4e2d\u540e\u5373\u65f6\u964d\u8bdd\u9898\u63d0\u53ca\u5e76\u652f\u6301\u957f\u671f\u56de\u907f"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-03T15:53:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/meiiie/wiii/pull/222",
+          "number": 222,
+          "pull_request": {
+            "merged_at": "2026-05-03T16:09:09Z",
+            "url": "https://api.github.com/repos/meiiie/wiii/pulls/222"
+          },
+          "repository": {
+            "full_name": "meiiie/wiii"
+          },
+          "title": "phase-10: production wiring (replay + rotation, Postgres event log, edge endpoints)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-23T02:49:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/linguistic76/skuel/pull/25",
+          "number": 25,
+          "pull_request": {
+            "merged_at": "2026-05-23T03:15:46Z",
+            "url": "https://api.github.com/repos/linguistic76/skuel/pulls/25"
+          },
+          "repository": {
+            "full_name": "linguistic76/skuel"
+          },
+          "title": "fix: tolerate empty application/json body (FastHTML parse_form gap)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-23T03:01:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AnswerDotAI/fasthtml/pull/880",
+          "number": 880,
+          "pull_request": {
+            "merged_at": "2026-06-27T02:46:25Z",
+            "url": "https://api.github.com/repos/AnswerDotAI/fasthtml/pulls/880"
+          },
+          "repository": {
+            "full_name": "AnswerDotAI/fasthtml"
+          },
+          "title": "Treat an empty application/json body as {} in parse_form"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-26T19:12:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/reprewindai-dev/veklom-byos-backend/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-05-26T19:20:58Z",
+            "url": "https://api.github.com/repos/reprewindai-dev/veklom-byos-backend/pulls/6"
+          },
+          "repository": {
+            "full_name": "reprewindai-dev/veklom-byos-backend"
+          },
+          "title": "Fix/workspace GitHub entitlements e2e"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-03T22:50:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/riteshbonthalakoti/HELPDESK.AI/pull/1627",
+          "number": 1627,
+          "pull_request": {
+            "merged_at": "2026-06-05T10:42:57Z",
+            "url": "https://api.github.com/repos/riteshbonthalakoti/HELPDESK.AI/pulls/1627"
+          },
+          "repository": {
+            "full_name": "riteshbonthalakoti/HELPDESK.AI"
+          },
+          "title": "[Architecture] Refactor Blanket Exception Handling & Fix Swallowed Errors"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-16T23:12:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Wizarck/hermes-agent/pull/14",
+          "number": 14,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Wizarck/hermes-agent/pulls/14"
+          },
+          "repository": {
+            "full_name": "Wizarck/hermes-agent"
+          },
+          "title": "feat: WhatsApp role-router overlay (WS2/WS3) + waba-routing dashboard plugin"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-25T12:32:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Silentely/eSIM-Tools/pull/86",
+          "number": 86,
+          "pull_request": {
+            "merged_at": "2026-06-25T14:15:17Z",
+            "url": "https://api.github.com/repos/Silentely/eSIM-Tools/pulls/86"
+          },
+          "repository": {
+            "full_name": "Silentely/eSIM-Tools"
+          },
+          "title": "\u2728 feat: QR \u7801\u672c\u5730\u6253\u5305 + Edge Function \u76f4\u63a5\u751f\u6210"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-26T03:43:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ahmdelbaz28-ux/BAZspark/pull/94",
+          "number": 94,
+          "pull_request": {
+            "url": "https://api.github.com/repos/ahmdelbaz28-ux/BAZspark/pulls/94"
+          },
+          "repository": {
+            "full_name": "ahmdelbaz28-ux/BAZspark"
+          },
+          "title": "V143 Phase 0: Celery worker + IFC dispatcher + web-ifc scaffold + PAT security policy"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-29T22:45:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA/TensorRT-LLM/pull/15736",
+          "number": 15736,
+          "pull_request": {
+            "url": "https://api.github.com/repos/NVIDIA/TensorRT-LLM/pulls/15736"
+          },
+          "repository": {
+            "full_name": "NVIDIA/TensorRT-LLM"
+          },
+          "title": "[#15735][feat] KV-cache transfer/staging between two TRT-LLM instances"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-26T20:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jaylfc/taOS/pull/2541",
+          "number": 2541,
+          "pull_request": {
+            "merged_at": "2026-08-26T22:03:17Z",
+            "url": "https://api.github.com/repos/jaylfc/taOS/pulls/2541"
+          },
+          "repository": {
+            "full_name": "jaylfc/taOS"
+          },
+          "title": "fix(auth): non-object JSON body is a 400, not a 500"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Currently, `await request.json()` will raise JSONDecodeError if the HTTP request body is empty. This is due to `json.loads(b'')`.\r\n\r\nIs it better to return an empty `{}` instead of raising a JSONDecodeError?\r\n\r\nI find this when I'm developing the validation tool for starlette([spectree](https://github.com/0b01001001/spectree)). When I'm trying to validate JSON data in the request, it raises this exception. I already fixed it by using `json.loads(await request.body() or '{}')`([detail](https://github.com/0b01001001/spectree/pull/20/commits/15d569f411d1c0b0b746fab65abdacff94286ba3)).\r\n\r\nBut I guess this part should be done by users. So if the users want to get data from the JSON body, they need to `try: await request.json()` or parse the `request.body()`. Otherwise, they may get an exception (although it doesn't affect the service). That seems not very elegant.",
+    "closed_at": "2020-01-08T02:18:25Z",
+    "created_at": "2020-01-07T16:52:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/788",
+    "number": 788,
+    "state": "closed",
+    "title": "Question: is it better to return an empty {} or raise JSONDecodeError for \"await req.json()\"",
+    "user": "kemingy"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-08T01:58:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-08T02:18:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-08T02:18:25Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-01-08T08:54:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-04-11T06:39:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/634",
+          "number": 634,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/634"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat(memory): \u8d1f\u9762\u60c5\u7eea\u547d\u4e2d\u540e\u5373\u65f6\u964d\u8bdd\u9898\u63d0\u53ca\u5e76\u652f\u6301\u957f\u671f\u56de\u907f"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-03T15:53:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/meiiie/wiii/pull/222",
+          "number": 222,
+          "pull_request": {
+            "merged_at": "2026-05-03T16:09:09Z",
+            "url": "https://api.github.com/repos/meiiie/wiii/pulls/222"
+          },
+          "repository": {
+            "full_name": "meiiie/wiii"
+          },
+          "title": "phase-10: production wiring (replay + rotation, Postgres event log, edge endpoints)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-23T02:49:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/linguistic76/skuel/pull/25",
+          "number": 25,
+          "pull_request": {
+            "merged_at": "2026-05-23T03:15:46Z",
+            "url": "https://api.github.com/repos/linguistic76/skuel/pulls/25"
+          },
+          "repository": {
+            "full_name": "linguistic76/skuel"
+          },
+          "title": "fix: tolerate empty application/json body (FastHTML parse_form gap)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-23T03:01:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AnswerDotAI/fasthtml/pull/880",
+          "number": 880,
+          "pull_request": {
+            "merged_at": "2026-06-27T02:46:25Z",
+            "url": "https://api.github.com/repos/AnswerDotAI/fasthtml/pulls/880"
+          },
+          "repository": {
+            "full_name": "AnswerDotAI/fasthtml"
+          },
+          "title": "Treat an empty application/json body as {} in parse_form"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-26T19:12:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/reprewindai-dev/veklom-byos-backend/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-05-26T19:20:58Z",
+            "url": "https://api.github.com/repos/reprewindai-dev/veklom-byos-backend/pulls/6"
+          },
+          "repository": {
+            "full_name": "reprewindai-dev/veklom-byos-backend"
+          },
+          "title": "Fix/workspace GitHub entitlements e2e"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-03T22:50:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/riteshbonthalakoti/HELPDESK.AI/pull/1627",
+          "number": 1627,
+          "pull_request": {
+            "merged_at": "2026-06-05T10:42:57Z",
+            "url": "https://api.github.com/repos/riteshbonthalakoti/HELPDESK.AI/pulls/1627"
+          },
+          "repository": {
+            "full_name": "riteshbonthalakoti/HELPDESK.AI"
+          },
+          "title": "[Architecture] Refactor Blanket Exception Handling & Fix Swallowed Errors"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-16T23:12:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Wizarck/hermes-agent/pull/14",
+          "number": 14,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Wizarck/hermes-agent/pulls/14"
+          },
+          "repository": {
+            "full_name": "Wizarck/hermes-agent"
+          },
+          "title": "feat: WhatsApp role-router overlay (WS2/WS3) + waba-routing dashboard plugin"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-25T12:32:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Silentely/eSIM-Tools/pull/86",
+          "number": 86,
+          "pull_request": {
+            "merged_at": "2026-06-25T14:15:17Z",
+            "url": "https://api.github.com/repos/Silentely/eSIM-Tools/pulls/86"
+          },
+          "repository": {
+            "full_name": "Silentely/eSIM-Tools"
+          },
+          "title": "\u2728 feat: QR \u7801\u672c\u5730\u6253\u5305 + Edge Function \u76f4\u63a5\u751f\u6210"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-26T03:43:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ahmdelbaz28-ux/BAZspark/pull/94",
+          "number": 94,
+          "pull_request": {
+            "url": "https://api.github.com/repos/ahmdelbaz28-ux/BAZspark/pulls/94"
+          },
+          "repository": {
+            "full_name": "ahmdelbaz28-ux/BAZspark"
+          },
+          "title": "V143 Phase 0: Celery worker + IFC dispatcher + web-ifc scaffold + PAT security policy"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-29T22:45:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA/TensorRT-LLM/pull/15736",
+          "number": 15736,
+          "pull_request": {
+            "url": "https://api.github.com/repos/NVIDIA/TensorRT-LLM/pulls/15736"
+          },
+          "repository": {
+            "full_name": "NVIDIA/TensorRT-LLM"
+          },
+          "title": "[#15735][feat] KV-cache transfer/staging between two TRT-LLM instances"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-26T20:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jaylfc/taOS/pull/2541",
+          "number": 2541,
+          "pull_request": {
+            "merged_at": "2026-08-26T22:03:17Z",
+            "url": "https://api.github.com/repos/jaylfc/taOS/pulls/2541"
+          },
+          "repository": {
+            "full_name": "jaylfc/taOS"
+          },
+          "title": "fix(auth): non-object JSON body is a 400, not a 500"
+        }
+      }
+    }
+  ]
+}

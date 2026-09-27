@@ -1,0 +1,121 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-04-13T10:54:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scsc-init/homepage_init_backend/pull/310",
+          "number": 310,
+          "pull_request": {
+            "merged_at": "2026-04-13T12:19:20Z",
+            "url": "https://api.github.com/repos/scsc-init/homepage_init_backend/pulls/310"
+          },
+          "repository": {
+            "full_name": "scsc-init/homepage_init_backend"
+          },
+          "title": "\u2728\ud504\ub7f0\ud2b8\uc5d4\ub4dc html \ub2e4\uc6b4\ub85c\ub4dc \uae30\ub2a5 \uad00\ub828 \uc218\uc815\uc0ac\ud56d"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "from flask import send_from_directory\r\n send_from_directory(\".\", \"my-api.yaml\")\r\n\r\nHow to replace this in Starlette thanks\r\n\r\n\r\n\r\n\r\n",
+    "closed_at": "2021-12-08T14:08:45Z",
+    "created_at": "2019-09-20T14:14:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/646",
+    "number": 646,
+    "state": "closed",
+    "title": "FileResponse: RuntimeError: File at path {self.path} does not exist when Dockerized?",
+    "user": "scheung38"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-23T10:55:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-02T12:07:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-02T12:07:09Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-02T12:07:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-02T12:20:42Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-10-04T13:13:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-04T13:13:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-04T13:13:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-08T14:04:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-08T14:04:27Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-08T14:04:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-08T14:04:27Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-08T14:04:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-08T14:08:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-08T14:08:45Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-12-08T14:08:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-08T14:08:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-04-13T10:54:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scsc-init/homepage_init_backend/pull/310",
+          "number": 310,
+          "pull_request": {
+            "merged_at": "2026-04-13T12:19:20Z",
+            "url": "https://api.github.com/repos/scsc-init/homepage_init_backend/pulls/310"
+          },
+          "repository": {
+            "full_name": "scsc-init/homepage_init_backend"
+          },
+          "title": "\u2728\ud504\ub7f0\ud2b8\uc5d4\ub4dc html \ub2e4\uc6b4\ub85c\ub4dc \uae30\ub2a5 \uad00\ub828 \uc218\uc815\uc0ac\ud56d"
+        }
+      }
+    }
+  ]
+}

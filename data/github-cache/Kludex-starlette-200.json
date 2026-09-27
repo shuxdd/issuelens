@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-09T16:33:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/201",
+          "number": 201,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "the raw \"Response\" should'nt mandatory a content ... no ?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "It's not the place to post that ...\r\nBut perhaps, somebody has already tested that ...\r\n\r\nI've setuped a starlette app, on GoogleAppEngine standard env (2nd generation/python37)\r\nwith an app.yaml with an entrypoint like thoses (tested with the 2 variants): \r\n- gunicorn -w 2 -k uvicorn.workers.UvicornWorker -b :$PORT main:app\r\n- uvicorn --host 0.0.0.0 --port $PORT main:app\r\n\r\nOn local (dev_appserver) or in the cloud (appspot's instance)\r\nThings seems to work (except: streamed responses are sended in one block, websockets doesn't seems to be available)\r\n\r\nBut on the appspot's instance : some simple requests ends in 500, with this simple message in the logs : \r\n\r\n    The process handling this request unexpectedly died. This is likely to cause a new process to be used for the next request to your application. (Error code 203) \r\n\r\nhitting F5, and requests works .... til the next error.\r\n\r\nSeems unstable ...\r\n\r\nsomeone has got better results on gae/py37 ?\r\nshould it work ?",
+    "closed_at": "2018-11-09T17:29:35Z",
+    "created_at": "2018-11-08T17:49:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/200",
+    "number": 200,
+    "state": "closed",
+    "title": "Starlette doesn't work well on AppEngine/python37 standard environment",
+    "user": "manatlan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-08T18:21:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T16:33:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/201",
+          "number": 201,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "the raw \"Response\" should'nt mandatory a content ... no ?"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-09T16:43:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T16:58:09Z",
+      "event": "commented"
+    }
+  ]
+}

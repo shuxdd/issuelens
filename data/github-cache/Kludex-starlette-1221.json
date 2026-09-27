@@ -1,0 +1,183 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-27T18:34:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8c90ca5016f97479c9d837a83923ccc0a09abf37",
+      "sha": "8c90ca5016f97479c9d837a83923ccc0a09abf37"
+    },
+    {
+      "committed_at": "2021-06-28T05:44:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0be67a863fd63eb6a56fe1290c64ba7df02d3107",
+      "sha": "0be67a863fd63eb6a56fe1290c64ba7df02d3107"
+    },
+    {
+      "committed_at": "2021-09-16T17:51:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/eed3bbe931544b3c5af312b0f9c3d1e53be4e786",
+      "sha": "eed3bbe931544b3c5af312b0f9c3d1e53be4e786"
+    },
+    {
+      "committed_at": "2021-11-27T16:02:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3b4e291242706aaa2aa15a843aec1da04aa87749",
+      "sha": "3b4e291242706aaa2aa15a843aec1da04aa87749"
+    },
+    {
+      "committed_at": "2021-11-27T16:17:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5747527345b9263b7f66db6ef3aabaad4d1a2d3b",
+      "sha": "5747527345b9263b7f66db6ef3aabaad4d1a2d3b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-06-27T18:34:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1222",
+          "number": 1222,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1222"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow for custom head method in HTTPEndpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T16:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1346",
+          "number": 1346,
+          "pull_request": {
+            "merged_at": "2021-11-27T17:40:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1346"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow head method httpendpoint"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5747527345b9263b7f66db6ef3aabaad4d1a2d3b/starlette%2Fendpoints.py",
+      "changes": 7,
+      "deletions": 1,
+      "filename": "starlette/endpoints.py",
+      "sha": "e0b7be8dea0415b7422b64046a218ac757b8f112",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nI am unable to set a custom head method for a HTTPEndpoint\r\n\r\n### How to reproduce\r\n\r\nPython:\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Route\r\nfrom starlette.responses import Response\r\nfrom starlette.endpoints import HTTPEndpoint\r\n\r\nclass TestHandler(HTTPEndpoint):\r\n    async def head(self, request):\r\n        print(\"Called head\")\r\n        return Response(\"head\")\r\n\r\n    async def get(self, request):\r\n        print(\"Called get\")\r\n        return Response(\"get\")\r\n\r\nroutes = [\r\n    Route(\"/\", TestHandler),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\nThen run uvicorn, and call `curl -XHEAD localhost:8000/` and `curl -XGET localhost:8000/`\r\n\r\nYou will see in uvicorn logs, both times the get handler gets called.\r\n```\r\nCalled get\r\nINFO:     127.0.0.1:53438 - \"HEAD / HTTP/1.1\" 200 OK\r\nCalled get\r\nINFO:     127.0.0.1:53440 - \"GET / HTTP/1.1\" 200 OK\r\n```\r\n\r\n### Expected behavior\r\n\r\nWhen calling the HEAD method, it should invoke the head() function\r\n\r\n### Actual behavior\r\n\r\nWhen calling the HEAD method, it invokes the get() function\r\n\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: Python 3.9.5\r\n- Starlette version: 0.15.0\r\n\r\n### Additional context\r\n\r\nThe issue is caused by the following code:\r\nhttps://github.com/encode/starlette/blob/master/starlette/endpoints.py#L26\r\n\r\nIt should see if there is a head method, and if so, don't call the get method when head is requested\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n",
+    "closed_at": "2021-11-27T17:40:58Z",
+    "created_at": "2021-06-27T18:10:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1221",
+    "number": 1221,
+    "state": "closed",
+    "title": "Cannot define a custom HEAD handler in HTTPEndpoint",
+    "user": "theblazehen"
+  },
+  "pull_request": {
+    "closed_at": "2021-11-27T17:40:58Z",
+    "created_at": "2021-11-27T16:17:49Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1346",
+    "merge_commit_sha": "82b75f7f2c933e76a417dc5db066412d1e8c5ae9",
+    "merged_at": "2021-11-27T17:40:58Z",
+    "number": 1346,
+    "title": "Allow head method httpendpoint",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "8c90ca5016f97479c9d837a83923ccc0a09abf37",
+      "commit_url": "https://api.github.com/repos/theblazehen/starlette/commits/8c90ca5016f97479c9d837a83923ccc0a09abf37",
+      "created_at": "2021-06-27T18:34:37Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-27T18:34:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1222",
+          "number": 1222,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1222"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow for custom head method in HTTPEndpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-27T19:00:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-27T19:10:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T16:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1346",
+          "number": 1346,
+          "pull_request": {
+            "merged_at": "2021-11-27T17:40:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1346"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow head method httpendpoint"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T17:40:58Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "82b75f7f2c933e76a417dc5db066412d1e8c5ae9",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/82b75f7f2c933e76a417dc5db066412d1e8c5ae9",
+      "created_at": "2021-11-27T17:40:59Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "0ef02fbc0e75e36f361be5d065062cbca55082df",
+      "commit_url": "https://api.github.com/repos/hidraco/starlette/commits/0ef02fbc0e75e36f361be5d065062cbca55082df",
+      "created_at": "2022-04-21T04:00:02Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "92eff0de9c08d9384f9a6df5695ff89af696cd28",
+      "commit_url": "https://api.github.com/repos/dudleyhunt86/starlette-develop-with-python/commits/92eff0de9c08d9384f9a6df5695ff89af696cd28",
+      "created_at": "2022-10-07T22:16:47Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "5b0549503aa7b6234981efc12e51f2adfbd5dab1",
+      "commit_url": "https://api.github.com/repos/azurelotus06/starlette/commits/5b0549503aa7b6234981efc12e51f2adfbd5dab1",
+      "created_at": "2024-06-27T20:38:58Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "a91a19bee742f5bffd426fe1daac23e78ac2642c",
+      "commit_url": "https://api.github.com/repos/Kludex/jik/commits/a91a19bee742f5bffd426fe1daac23e78ac2642c",
+      "created_at": "2024-08-16T09:37:14Z",
+      "event": "referenced"
+    }
+  ]
+}

@@ -1,0 +1,634 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-08-10T08:35:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/18a480c794a51844b92984ab1daf0a1e03753215",
+      "sha": "18a480c794a51844b92984ab1daf0a1e03753215"
+    },
+    {
+      "committed_at": "2026-08-10T09:01:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9efd653b1d474db27050c9b050d388747caf70e7",
+      "sha": "9efd653b1d474db27050c9b050d388747caf70e7"
+    },
+    {
+      "committed_at": "2026-08-10T09:06:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0df4d49102a5a6820b9af31306a5e84b1f5b9810",
+      "sha": "0df4d49102a5a6820b9af31306a5e84b1f5b9810"
+    },
+    {
+      "committed_at": "2026-08-10T09:19:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bfdc4c96fccf6fe03d799646b3cb02825a04879f",
+      "sha": "bfdc4c96fccf6fe03d799646b3cb02825a04879f"
+    },
+    {
+      "committed_at": "2026-08-10T09:24:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/75b39e9788f3680191fd15626d5de1a74e6a3e30",
+      "sha": "75b39e9788f3680191fd15626d5de1a74e6a3e30"
+    },
+    {
+      "committed_at": "2026-08-10T09:33:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/11e78792609f41a23a49270efd79cb2127c91103",
+      "sha": "11e78792609f41a23a49270efd79cb2127c91103"
+    },
+    {
+      "committed_at": "2026-08-11T08:52:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e1427bfaea499a115e45d0fe8c46e4433b04156",
+      "sha": "1e1427bfaea499a115e45d0fe8c46e4433b04156"
+    },
+    {
+      "committed_at": "2026-08-11T08:54:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ec2fd3bb539ee427356ca2e2ec257f99d1d3732d",
+      "sha": "ec2fd3bb539ee427356ca2e2ec257f99d1d3732d"
+    },
+    {
+      "committed_at": "2026-08-23T06:34:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c82f7c13e5352bc20b1489f04f47fe242ea8b5c6",
+      "sha": "c82f7c13e5352bc20b1489f04f47fe242ea8b5c6"
+    },
+    {
+      "committed_at": "2026-08-23T06:41:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f8bc82d66c72d69148708782c776be18d0012172",
+      "sha": "f8bc82d66c72d69148708782c776be18d0012172"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-05-25T19:12:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/issues/833",
+          "number": 833,
+          "pull_request": {},
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Consider using route information instead of URL for Starlette transactions"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-13T04:47:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1286",
+          "number": 1286,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1286"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "feat: Add route-level middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-15T19:18:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/issues/99",
+          "number": 99,
+          "pull_request": {},
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "access-control-allow-methods is \"DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT\" while only post defined"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-24T15:05:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1649",
+          "number": 1649,
+          "pull_request": {
+            "merged_at": "2022-09-21T19:02:41Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1649"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add Mount(..., middleware=[...])"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-11T00:52:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/newrelic/newrelic-python-agent/issues/475",
+          "number": 475,
+          "pull_request": {},
+          "repository": {
+            "full_name": "newrelic/newrelic-python-agent"
+          },
+          "title": "Configurable web transaction name"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-10T05:12:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/1323",
+          "number": 1323,
+          "pull_request": {
+            "merged_at": "2022-10-22T13:29:53Z",
+            "url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/pulls/1323"
+          },
+          "repository": {
+            "full_name": "open-telemetry/opentelemetry-python-contrib"
+          },
+          "title": "feat(instrumentation/asgi): add target to metrics"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-27T09:50:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2349",
+          "number": 2349,
+          "pull_request": {
+            "merged_at": "2023-12-01T10:35:15Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2349"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add middleware per `Route`/`WebSocketRoute`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:43:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3438",
+          "number": 3438,
+          "pull_request": {
+            "merged_at": "2026-08-23T06:49:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3438"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add OpenTelemetry middleware"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/README.md",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "README.md",
+      "sha": "8f82029dfb0823751f8f76dfb54f88a52576881e",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/docs%2Findex.md",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "docs/index.md",
+      "sha": "a0749b65e8a991b7cd57aa2b7a412efc28036c7b",
+      "status": "modified"
+    },
+    {
+      "additions": 58,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/docs%2Fmiddleware.md",
+      "changes": 58,
+      "deletions": 0,
+      "filename": "docs/middleware.md",
+      "sha": "502872c56816c75cf5d03fb0cc27c3bff706deb2",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/pyproject.toml",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "pyproject.toml",
+      "sha": "84d094f8e02bbe28d44dbb262746cc7214e740ee",
+      "status": "modified"
+    },
+    {
+      "additions": 98,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/starlette%2Fmiddleware%2Fopentelemetry.py",
+      "changes": 98,
+      "deletions": 0,
+      "filename": "starlette/middleware/opentelemetry.py",
+      "sha": "9ef6dc62cb1742e9d4256a619fa023807f7e1dd7",
+      "status": "added"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/starlette%2Frouting.py",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "starlette/routing.py",
+      "sha": "9795f4e948128f325c4e6c38dfed324b750df43a",
+      "status": "modified"
+    },
+    {
+      "additions": 452,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/tests%2Fmiddleware%2Ftest_opentelemetry.py",
+      "changes": 452,
+      "deletions": 0,
+      "filename": "tests/middleware/test_opentelemetry.py",
+      "sha": "b25389e4dbb0a482de915ca9f7bdf35e3d4542b5",
+      "status": "added"
+    },
+    {
+      "additions": 44,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f8bc82d66c72d69148708782c776be18d0012172/uv.lock",
+      "changes": 45,
+      "deletions": 1,
+      "filename": "uv.lock",
+      "sha": "146371434cd500913da6123bab4a096223482a7f",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Is there a way to obtain which route the request is taking in middleware? Right now, the only available thing is `request.url.path`, which doesn't give me a nice name for metrics.\r\n\r\nI see in https://github.com/steinnes/timing-asgi/blob/master/timing_asgi/integrations/starlette.py that it basically just loops through all the routes to obtain the matching one. Is there a better way to do it?\r\n\r\nLooping in that manner also runs into an issue where if there are multiple matching routes, like\r\n`/resource/default/1`\r\n`/resource/1/1`\r\nit can't find the right one since they both match.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/685\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/685/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/685/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:20Z",
+    "closed_at": "2026-08-23T06:49:44Z",
+    "created_at": "2019-10-22T21:35:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/685",
+    "labels": [
+      "feature"
+    ],
+    "number": 685,
+    "state": "closed",
+    "title": "Include routing information for middleware",
+    "user": "cypai"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-23T06:49:43Z",
+    "created_at": "2026-08-10T08:37:34Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3438",
+    "merge_commit_sha": "9c594b56e8da9c3d8c35baa40f357e7bc94f6d02",
+    "merged_at": "2026-08-23T06:49:43Z",
+    "number": 3438,
+    "title": "Add OpenTelemetry middleware",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "398e5a3430eb1ddd33e1d48d766efe41426e231f",
+    "committed_at": "2026-08-10T06:38:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/398e5a3430eb1ddd33e1d48d766efe41426e231f"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-11-06T09:06:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-06T09:06:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-06T09:06:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-06T10:11:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-06T13:02:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-24T21:38:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-24T22:26:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T13:58:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T13:58:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-28T13:58:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-28T14:01:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T15:00:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T15:00:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-28T15:00:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-28T16:00:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T16:00:43Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-28T16:00:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-28T16:18:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-28T16:18:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-28T16:18:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-25T19:12:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/issues/833",
+          "number": 833,
+          "pull_request": {},
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Consider using route information instead of URL for Starlette transactions"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-29T03:56:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-22T13:09:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-22T13:09:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-22T13:09:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-07-24T17:47:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-12T20:30:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-13T04:47:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1286",
+          "number": 1286,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1286"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "feat: Add route-level middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-15T19:18:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/issues/99",
+          "number": 99,
+          "pull_request": {},
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "access-control-allow-methods is \"DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT\" while only post defined"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-24T15:05:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1649",
+          "number": 1649,
+          "pull_request": {
+            "merged_at": "2022-09-21T19:02:41Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1649"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add Mount(..., middleware=[...])"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-11T00:51:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-11T00:52:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/newrelic/newrelic-python-agent/issues/475",
+          "number": 475,
+          "pull_request": {},
+          "repository": {
+            "full_name": "newrelic/newrelic-python-agent"
+          },
+          "title": "Configurable web transaction name"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-10T04:58:23Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "5468671e7a719af14a20ded2bd2151004f0fcaa6",
+      "commit_url": "https://api.github.com/repos/sk-/opentelemetry-python-contrib/commits/5468671e7a719af14a20ded2bd2151004f0fcaa6",
+      "created_at": "2022-09-10T05:12:05Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-10T05:12:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/open-telemetry/opentelemetry-python-contrib/pull/1323",
+          "number": 1323,
+          "pull_request": {
+            "merged_at": "2022-10-22T13:29:53Z",
+            "url": "https://api.github.com/repos/open-telemetry/opentelemetry-python-contrib/pulls/1323"
+          },
+          "repository": {
+            "full_name": "open-telemetry/opentelemetry-python-contrib"
+          },
+          "title": "feat(instrumentation/asgi): add target to metrics"
+        }
+      }
+    },
+    {
+      "commit_id": "086213c41844c3767471bd4a295f015969993e5a",
+      "commit_url": "https://api.github.com/repos/sk-/opentelemetry-python-contrib/commits/086213c41844c3767471bd4a295f015969993e5a",
+      "created_at": "2022-09-10T05:12:58Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-21T19:02:43Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-09-21T20:41:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-21T21:27:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-21T21:27:07Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-21T21:27:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-21T21:36:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-21T21:36:59Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-09-21T21:36:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-21T21:36:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-21T21:53:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-21T22:03:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-21T22:26:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-25T18:17:10Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-11-27T09:50:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2349",
+          "number": 2349,
+          "pull_request": {
+            "merged_at": "2023-12-01T10:35:15Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2349"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add middleware per `Route`/`WebSocketRoute`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:43:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3438",
+          "number": 3438,
+          "pull_request": {
+            "merged_at": "2026-08-23T06:49:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3438"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add OpenTelemetry middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:49:44Z",
+      "event": "closed"
+    }
+  ]
+}

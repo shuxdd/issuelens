@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi, i'm getting this error whe i run my app\r\n\r\n`Traceback (most recent call last):\r\n  File \"C:\\Bitnami\\envs\\AsyncPassEnv\\Scripts\\uvicorn-script.py\", line 11, in <module>\r\n    load_entry_point('uvicorn==0.10.8', 'console_scripts', 'uvicorn')()\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\click\\core.py\", line 764, in __call__\r\n    return self.main(*args, **kwargs)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\click\\core.py\", line 717, in main\r\n    rv = self.invoke(ctx)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\click\\core.py\", line 956, in invoke\r\n    return ctx.invoke(self.callback, **ctx.params)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\click\\core.py\", line 555, in invoke\r\n    return callback(*args, **kwargs)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\main.py\", line 290, in main\r\n    run(**kwargs)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\main.py\", line 313, in run\r\n    server.run()\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\main.py\", line 341, in run\r\n    loop.run_until_complete(self.serve(sockets=sockets))\r\n  File \"C:\\Bitnami\\djangostack-2.2.6-1\\python\\lib\\asyncio\\base_events.py\", line 579, in run_until_complete\r\n    return future.result()\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\main.py\", line 348, in serve\r\n    config.load()\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\config.py\", line 274, in load\r\n    self.loaded_app = import_from_string(self.app)\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\importer.py\", line 23, in import_from_string\r\n    raise exc from None\r\n  File \"c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\uvicorn\\importer.py\", line 20, in import_from_string\r\n    module = importlib.import_module(module_str)\r\n  File \"C:\\Bitnami\\djangostack-2.2.6-1\\python\\lib\\importlib\\__init__.py\", line 127, in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n  File \"<frozen importlib._bootstrap>\", line 1006, in _gcd_import\r\n  File \"<frozen importlib._bootstrap>\", line 983, in _find_and_load\r\n  File \"<frozen importlib._bootstrap>\", line 967, in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 677, in _load_unlocked\r\n  File \"<frozen importlib._bootstrap_external>\", line 728, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\r\n  File \".\\main.py\", line 5, in <module>\r\n    from starlette.middleware import Middleware\r\nImportError: cannot import name 'Middleware' from 'starlette.middleware' (c:\\bitnami\\envs\\asyncpassenv\\lib\\site-packages\\starlette\\middleware\\__init__.py)`\r\n\r\nusing starlette version 0.12.9",
+    "closed_at": "2019-11-21T17:21:29Z",
+    "created_at": "2019-11-21T16:51:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/724",
+    "number": 724,
+    "state": "closed",
+    "title": "ImportError: cannot import name 'Middleware' from 'starlette.middleware'",
+    "user": "ghostzero192"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-21T17:21:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-21T17:21:29Z",
+      "event": "closed"
+    }
+  ]
+}

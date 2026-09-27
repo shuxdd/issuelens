@@ -1,0 +1,60 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I don't see any info on how to correctly use scopes, but everyone seems to know how it works since there are no questions. Can someone point in direction where I should look in order to understand the auth/token mechanism? \r\n\r\nIs it the same concept from some other framework under a different name? \r\n\r\n(I'd gladly send a PR with better docs, since currently it's super-basic docs)\r\n\r\nThanks",
+    "closed_at": "2019-09-02T12:23:22Z",
+    "created_at": "2019-08-31T10:24:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/627",
+    "number": 627,
+    "state": "closed",
+    "title": "How to use scopes for auth?",
+    "user": "jodusan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-31T20:35:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-31T21:26:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-31T21:26:16Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-31T21:26:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-31T22:15:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-31T22:15:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-31T22:15:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-02T12:23:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-02T12:23:22Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-09-02T12:23:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-02T12:23:22Z",
+      "event": "subscribed"
+    }
+  ]
+}

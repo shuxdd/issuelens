@@ -1,0 +1,93 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-10-11T13:24:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ab5161d6de52a1b5817fd1ba93f7e8f2f05962cf",
+      "sha": "ab5161d6de52a1b5817fd1ba93f7e8f2f05962cf"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-10-11T13:26:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/665",
+          "number": 665,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:35:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/665"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix __init__ code in custom HTTP middleware example"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ab5161d6de52a1b5817fd1ba93f7e8f2f05962cf/docs%2Fmiddleware.md",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "docs/middleware.md",
+      "sha": "17cd6b834a4ed4e8bc1891dc8f5909551124b583",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Writing middleware for #660 (Too Early) and stumbled upon an error when was following Middleware documentation:\r\n\r\n`AttributeError: 'EarlyDataMiddleware' object has no attribute 'dispatch_func'`\r\n\r\nI believe that `__init__` method in documentation:\r\n\r\n```\r\nclass CustomHeaderMiddleware(BaseHTTPMiddleware):\r\n    def __init__(self, app, header_value='Example'):\r\n        self.app = app\r\n        self.header_value = header_value\r\n...\r\n```\r\n\r\nShould be used with super:\r\n\r\n```\r\nclass CustomHeaderMiddleware(BaseHTTPMiddleware):\r\n    def __init__(self, app, header_value='Example'):\r\n        super().__init__(app)\r\n        self.header_value = header_value\r\n...\r\n```\r\n\r\nI can open a Pull Request that fixes documentation.",
+    "closed_at": "2019-10-24T16:12:35Z",
+    "created_at": "2019-10-10T14:56:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/663",
+    "number": 663,
+    "state": "closed",
+    "title": "Wrong custom middleware documentation",
+    "user": "HarrySky"
+  },
+  "pull_request": {
+    "closed_at": "2019-10-15T12:35:38Z",
+    "created_at": "2019-10-11T13:26:45Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/665",
+    "merge_commit_sha": "fe8634953803efb987b435584b7c445b51076f1a",
+    "merged_at": "2019-10-15T12:35:38Z",
+    "number": 665,
+    "title": "Fix __init__ code in custom HTTP middleware example",
+    "user": "HarrySky"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-11T09:55:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-11T13:26:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/665",
+          "number": 665,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:35:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/665"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix __init__ code in custom HTTP middleware example"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-24T16:12:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-24T16:12:36Z",
+      "event": "closed"
+    }
+  ]
+}

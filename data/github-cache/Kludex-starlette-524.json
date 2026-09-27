@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "While trying to get my head around the suggestions @tomchristie made in #522, it appears that the example is a little out of date now.\r\n\r\nAm I right in understanding that:\r\n\r\n```\r\napp.add_middleware(\r\n    DatabaseMiddleware,\r\n    database_url=settings.DATABASE_URL,\r\n    rollback_on_shutdown=settings.TESTING\r\n)\r\n```\r\n\r\n...is now:\r\n\r\n```\r\ndatabase = databases.Database(settings.DATABASE_URL, force_rollback=settings.TESTING)\r\n\r\n@app.on_event(\"startup\")\r\nasync def startup():\r\n    await database.connect()\r\n\r\n@app.on_event(\"shutdown\")\r\nasync def shutdown():\r\n    await database.disconnect()\r\n```\r\n\r\n?",
+    "closed_at": "2020-01-29T11:37:53Z",
+    "created_at": "2019-05-22T06:13:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/524",
+    "number": 524,
+    "state": "closed",
+    "title": "https://www.starlette.io/config/#a-full-example out of date (DatabaseMiddleware -> Database)?",
+    "user": "cjw296"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-22T06:14:20Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-05-23T08:45:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T16:28:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-29T11:37:53Z",
+      "event": "commented"
+    }
+  ]
+}

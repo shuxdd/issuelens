@@ -1,0 +1,69 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-05-05T11:12:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Hwara/micro-mart/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-05-07T03:35:59Z",
+            "url": "https://api.github.com/repos/Hwara/micro-mart/pulls/24"
+          },
+          "repository": {
+            "full_name": "Hwara/micro-mart"
+          },
+          "title": "[FEATURE] Phase 6 - api-gateway \uad6c\ud604"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I am trying to change the content-type header of my response but this results in a duplicate header.\r\nI am using FastAPI by the way.\r\n\r\nMy code:\r\n```python\r\nfrom starlette.responses import Response\r\n\r\n@app.get('/content-type-test')\r\nasync def content_type_test(response: Response):\r\n    response.headers['content-type'] = 'application/geo+json'\r\n    return {}\r\n```\r\nHere the result that I receive (notice the duplicate content-type header):\r\n```console\r\ncurl -v http://127.0.0.1:8000/content-type-test\r\n*   Trying 127.0.0.1...\r\n* TCP_NODELAY set\r\n* Connected to 127.0.0.1 (127.0.0.1) port 8000 (#0)\r\n> GET /content-type-test HTTP/1.1\r\n> Host: 127.0.0.1:8000\r\n> User-Agent: curl/7.58.0\r\n> Accept: */*\r\n>\r\n< HTTP/1.1 200 OK\r\n< date: Mon, 28 Oct 2019 12:02:44 GMT\r\n< server: uvicorn\r\n< content-length: 2\r\n< content-type: application/json\r\n< content-type: application/geo+json\r\n<\r\n* Connection #0 to host 127.0.0.1 left intact\r\n{}\r\n```",
+    "closed_at": "2019-10-30T15:02:41Z",
+    "created_at": "2019-10-28T12:16:36Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/693",
+    "number": 693,
+    "state": "closed",
+    "title": "Duplicate content-type response header",
+    "user": "mvanderheijden"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-30T15:02:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-30T15:02:41Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-11-04T09:18:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-04T22:16:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-05T11:12:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Hwara/micro-mart/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-05-07T03:35:59Z",
+            "url": "https://api.github.com/repos/Hwara/micro-mart/pulls/24"
+          },
+          "repository": {
+            "full_name": "Hwara/micro-mart"
+          },
+          "title": "[FEATURE] Phase 6 - api-gateway \uad6c\ud604"
+        }
+      }
+    }
+  ]
+}

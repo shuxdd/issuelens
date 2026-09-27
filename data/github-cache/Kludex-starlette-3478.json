@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "## Summary\n\n`Route.url_path_for()` (and therefore `Starlette.url_path_for()` / `Request.url_for()`) can silently corrupt the generated URL when one path parameter's value contains a substring that looks like another path parameter's placeholder syntax (e.g. `\"{id}\"`) in the same route. The value that was supposed to be substituted literally gets overwritten by whatever value is later substituted for the parameter whose placeholder it happens to resemble.\n\nRoot cause: `replace_params()` in `starlette/routing.py` builds the final path with a sequence of whole-string `str.replace()` calls, one per parameter:\n\n```python\nfor key, value in list(path_params.items()):\n    if \"{\" + key + \"}\" in path:\n        convertor = param_convertors[key]\n        value = convertor.to_string(value)\n        path = path.replace(\"{\" + key + \"}\", value)\n        path_params.pop(key)\n```\n\nBecause each call replaces `\"{key}\"` everywhere it currently appears in the *partially substituted* path, a value injected by an earlier substitution that happens to look like `\"{other_key}\"` gets matched and overwritten by that later substitution. `StringConvertor.to_string()` only rejects values containing `\"/\"` or empty strings, so a value equal to `\"{id}\"` (or any other `\"{param_name}\"` text) is accepted without complaint.\n\n## Reproduction\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import PlainTextResponse\nfrom starlette.routing import Route\n\n\nasync def endpoint(request):\n    return PlainTextResponse(\"ok\")\n\n\napp = Starlette(routes=[Route(\"/{category}/{id}\", endpoint, name=\"item\")])\n\nurl = app.url_path_for(\"item\", category=\"{id}\", id=\"42\")\nprint(url)\n\nurl2 = app.url_path_for(\"item\", id=\"42\", category=\"{id}\")\nprint(url2)\n\napp3 = Starlette(routes=[Route(\"/{a}/{b}/{c}\", endpoint, name=\"chain\")])\nurl3 = app3.url_path_for(\"chain\", a=\"{b}\", b=\"{c}\", c=\"final\")\nprint(url3)\n```\n\nAlso reproduces through the commonly used `Request.url_for()`:\n\n```python\nasync def endpoint(request):\n    return PlainTextResponse(str(request.url_for(\"item\", category=\"{id}\", id=\"42\")))\n\napp = Starlette(routes=[Route(\"/{category}/{id}\", endpoint, name=\"item\")])\n```\n`GET /anything/anything` on this app returns `http://testserver/42/42`.\n\n## Actual\n\n```\n/42/42\n/{id}/42\n/final/final/final\n```\n\nThe result depends on kwarg iteration order, and in the first/third cases the value provided for `category` (and for `a`/`b` in the chained case) is silently discarded and replaced with a different parameter's value.\n\n## Expected\n\nThe literal value passed for each path parameter should end up in its own path segment regardless of what it looks like or what order the parameters are processed in, e.g. something like `/%7Bid%7D/42` (or `/{id}/42` if the library intentionally doesn't URL-encode path segments) for the first call, and the same segment for the second call and the `a`/`b` segments of the third call.\n\n## Environment\n\n- starlette: 1.6.0 (current `main`, commit `d9ed5b0f98fdf081fb138473129b72eb035153a3`)\n- Python: 3.13.3\n- OS: Windows 11\n",
+    "closed_at": "2026-08-27T20:38:36Z",
+    "created_at": "2026-08-27T20:15:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3478",
+    "number": 3478,
+    "state": "closed",
+    "title": "url_path_for()/url_for() corrupts a path parameter when its value resembles another parameter's placeholder",
+    "user": "VANDRANKI"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-08-27T20:38:36Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2026-08-27T20:38:36Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-05-31T10:28:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/93d98ad7b0c8e43b72167986f04185d06914465c",
+      "sha": "93d98ad7b0c8e43b72167986f04185d06914465c"
+    },
+    {
+      "committed_at": "2023-05-31T10:37:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/89c5d286822e74ea115062672b3a56a972e25cc8",
+      "sha": "89c5d286822e74ea115062672b3a56a972e25cc8"
+    },
+    {
+      "committed_at": "2023-05-31T10:39:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f764843437d79f78e065205bdbbc173cf1e1134b",
+      "sha": "f764843437d79f78e065205bdbbc173cf1e1134b"
+    },
+    {
+      "committed_at": "2023-06-01T09:53:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/39ee96e0a2434f212424fdb7d16e8379c9f0e08e",
+      "sha": "39ee96e0a2434f212424fdb7d16e8379c9f0e08e"
+    },
+    {
+      "committed_at": "2023-06-01T09:59:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c9f4fc63a6ca8c243f093d4980398d123f624b3",
+      "sha": "7c9f4fc63a6ca8c243f093d4980398d123f624b3"
+    },
+    {
+      "committed_at": "2023-06-03T09:05:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5969aecff148418346087525c5c454fdc817d751",
+      "sha": "5969aecff148418346087525c5c454fdc817d751"
+    },
+    {
+      "committed_at": "2023-06-03T09:05:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a3e8975d28842ae82c993ff4081c3e3612c7adb6",
+      "sha": "a3e8975d28842ae82c993ff4081c3e3612c7adb6"
+    },
+    {
+      "committed_at": "2023-06-03T09:05:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/89079117bf82cd8b63101af0ac4202420a4eb990",
+      "sha": "89079117bf82cd8b63101af0ac4202420a4eb990"
+    },
+    {
+      "committed_at": "2023-06-03T09:05:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f603512df93e4ba6d55a0411f93c209647e82637",
+      "sha": "f603512df93e4ba6d55a0411f93c209647e82637"
+    },
+    {
+      "committed_at": "2023-06-03T09:05:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aeb1726af0bec5fb703aad182e81676c78923c2d",
+      "sha": "aeb1726af0bec5fb703aad182e81676c78923c2d"
+    },
+    {
+      "committed_at": "2023-06-03T09:21:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/15c70ed42f44824ae0ca2fc37489a61679564d41",
+      "sha": "15c70ed42f44824ae0ca2fc37489a61679564d41"
+    },
+    {
+      "committed_at": "2023-06-03T09:26:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/abdd56de075958e54e59443f3f1bef285d71b642",
+      "sha": "abdd56de075958e54e59443f3f1bef285d71b642"
+    },
+    {
+      "committed_at": "2023-06-03T09:29:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d305e67d47a1dad71c7b7078f63a363a519a3040",
+      "sha": "d305e67d47a1dad71c7b7078f63a363a519a3040"
+    },
+    {
+      "committed_at": "2023-06-05T15:51:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c8c28225399b4704c2f451c451876b107916eb6d",
+      "sha": "c8c28225399b4704c2f451c451876b107916eb6d"
+    },
+    {
+      "committed_at": "2023-06-05T15:58:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9e0029988256cf85598753776e4dfdb9a23e9602",
+      "sha": "9e0029988256cf85598753776e4dfdb9a23e9602"
+    },
+    {
+      "committed_at": "2023-06-05T16:26:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/06b6ba7e4853afd62a898f61382d0ef681081533",
+      "sha": "06b6ba7e4853afd62a898f61382d0ef681081533"
+    },
+    {
+      "committed_at": "2023-06-05T18:03:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a2d06bc24da7454e02895fe437f587a8fde86000",
+      "sha": "a2d06bc24da7454e02895fe437f587a8fde86000"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-05-31T10:35:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2159",
+          "number": 2159,
+          "pull_request": {
+            "merged_at": "2023-06-05T18:20:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2159"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add env argument to Jinja2Templates, remove **env_options. (ref #2134)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/docs%2Ftemplates.md",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "docs/templates.md",
+      "sha": "ba9c4255b545c1c4827a49ca5eac45c6f1ec1cc4",
+      "status": "modified"
+    },
+    {
+      "additions": 41,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/starlette%2Ftemplating.py",
+      "changes": 43,
+      "deletions": 2,
+      "filename": "starlette/templating.py",
+      "sha": "ec9ca193dcad95379543a67bd97549717e5a05d4",
+      "status": "modified"
+    },
+    {
+      "additions": 34,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a2d06bc24da7454e02895fe437f587a8fde86000/tests%2Ftest_templates.py",
+      "changes": 34,
+      "deletions": 0,
+      "filename": "tests/test_templates.py",
+      "sha": "1f1909f4b94234430a457173d639b62e4aa73009",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "In our project we're using Jinja templates like so:\r\n\r\n```python\r\nfrom jinja2 import ChoiceLoader, PackageLoader, PrefixLoader, FileSystemLoader\r\nfrom fastapi.templating import Jinja2Templates\r\n\r\ntemplate_loader = ChoiceLoader(\r\n    [\r\n        FileSystemLoader(\"name/web/templates\"),\r\n        PrefixLoader({\"govuk_frontend_jinja\": PackageLoader(\"govuk_frontend_jinja\")}),\r\n    ]\r\n)\r\n\r\n# Use a custom template loader and avoid the default directory option.\r\ntemplates = Jinja2Templates(directory=\"null\", loader=template_loader)\r\n```\r\n\r\nAt the moment we use a generic \"null\" which is not used since in the code if you provide your own loader the default file system loader is bypassed.\r\nhttps://github.com/encode/starlette/blob/882ab6998e9b9ea73b9237552ef295faae3d2c62/starlette/templating.py#L85-L86\r\n\r\nWith this in mind, if a loader is passed should the directory parameter be entirely optional?\r\n\r\nShould the API allow this?\r\n\r\n```python\r\ntemplates = Jinja2Templates(loader=template_loader)\r\n```\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2023-06-05T22:58:28Z",
+    "created_at": "2023-04-26T13:43:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2134",
+    "labels": [
+      "clean up",
+      "staticfiles"
+    ],
+    "number": 2134,
+    "state": "closed",
+    "title": "When using a custom Jinja loader, directory parameter is unnecessary but still required.",
+    "user": "NickColley"
+  },
+  "pull_request": {
+    "closed_at": "2023-06-05T18:20:37Z",
+    "created_at": "2023-05-31T10:35:23Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2159",
+    "merge_commit_sha": "d155d3b5882f9277c4b7e5e5ba5d355ee6e3e1d9",
+    "merged_at": "2023-06-05T18:20:37Z",
+    "number": 2159,
+    "title": "Add env argument to Jinja2Templates, remove **env_options. (ref #2134)",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+    "committed_at": "2023-05-24T09:27:22Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/94225d0901b7826213716c50c761129c8b7d0944"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-04-26T13:59:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-26T13:59:16Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-04-26T13:59:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-04-26T14:01:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:30:50Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2023-05-24T09:30:55Z",
+      "event": "unassigned"
+    },
+    {
+      "created_at": "2023-05-24T09:35:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:35:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-24T09:35:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-24T09:36:15Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:36:22Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:48:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:48:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-24T09:48:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-24T09:54:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-31T10:35:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2159",
+          "number": 2159,
+          "pull_request": {
+            "merged_at": "2023-06-05T18:20:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2159"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add env argument to Jinja2Templates, remove **env_options. (ref #2134)"
+        }
+      }
+    },
+    {
+      "created_at": "2023-05-31T10:36:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-31T16:11:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-31T16:11:12Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2023-05-31T16:11:19Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-31T16:11:29Z",
+      "event": "milestoned"
+    },
+    {
+      "commit_id": "d155d3b5882f9277c4b7e5e5ba5d355ee6e3e1d9",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/d155d3b5882f9277c4b7e5e5ba5d355ee6e3e1d9",
+      "created_at": "2023-06-05T18:20:39Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-06-05T22:34:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-05T22:58:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-05T22:58:28Z",
+      "event": "closed"
+    }
+  ]
+}

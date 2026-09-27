@@ -1,0 +1,72 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "UJSONResponse uses `ujson.dumps(content, ensure_ascii=False)`, but default for ujson is to also escape forward slashes. The result is that UJSONResponse and JSONResponse produce different results:\r\n```\r\n>>> import json\r\n>>> import ujson\r\n>>> s = \"https://google.com/\"\r\n>>> print(json.dumps(s))\r\n\"https://google.com/\"\r\n>>> print(ujson.dumps(s))\r\n\"https:\\/\\/google.com\\/\"\r\n```\r\n\r\n`escape_forward_slashes=False` can be added to UJSONResponse to fix that:\r\n```\r\nclass UJSONResponse(JSONResponse):\r\n    media_type = \"application/json\"\r\n\r\n    def render(self, content: typing.Any) -> bytes:\r\n        assert ujson is not None, \"ujson must be installed to use UJSONResponse\"\r\n        return ujson.dumps(content, ensure_ascii=False, escape_forward_slashes=False).encode(\"utf-8\")\r\n```",
+    "closed_at": "2020-03-09T15:20:49Z",
+    "created_at": "2020-03-06T06:53:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/856",
+    "number": 856,
+    "state": "closed",
+    "title": "UJSONResponse and JSONResponse produce different results",
+    "user": "Spacehug"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-06T07:45:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T09:13:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T09:13:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-06T09:13:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-06T09:15:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T14:18:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T14:46:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T14:46:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-06T14:46:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-06T15:02:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-06T15:02:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-06T15:02:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-07T19:33:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-09T15:20:49Z",
+      "event": "commented"
+    }
+  ]
+}

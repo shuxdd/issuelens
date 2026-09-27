@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "It would be really nice to have a virtual hosts support (like with tornado) : \r\n\r\n> We support virtual hosts with the `add_handlers` method, which takes in a host regular expression as the first argument:\r\n> \r\n> ```\r\n> application.add_handlers(r\"www\\.myhost\\.com\", [\r\n>     (r\"/article/([0-9]+)\", ArticleHandler),\r\n> ])\r\n> ```\r\n> If there\u2019s no match for the current request\u2019s host, then default_host parameter value is matched against host regular expressions.\r\n\r\nI've seen some references to a `base_url` variable in the code, but it doesn't seem possible to actively set it.\r\n\r\nThe point is to have only one instance of `uvicorn` with one instance of `Starlette` but being able to handle multiple domains or subdomains.",
+    "closed_at": "2019-01-30T15:16:00Z",
+    "created_at": "2019-01-27T15:56:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/360",
+    "number": 360,
+    "state": "closed",
+    "title": "Support virtual hosts",
+    "user": "studer"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-28T16:00:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-28T16:06:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-28T20:11:09Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2018-07-26T13:28:59Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/32"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/32"
+    ]
+  },
+  "case_id": "starlette-issue-32",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-33",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Correctly handle static files larger than 4096 bytes' directly changes starlette/response.py with focused behavior test(s) tests/test_response.py, tests/test_staticfiles.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2018-07-26T13:38:33Z",
+  "issue": {
+    "body": "Static files larger than 4096 bytes do not appear to be served correctly.\r\n\r\nHere's a test I just wrote that illustrates the problem: https://github.com/simonw/starlette/commit/e2d6665fa5c32e77a3fe22836b14620a7f5999bb\r\n\r\nRunning that test gives me the following output:\r\n\r\n```\r\n(venv) starlette $ PYTHONPATH=. pytest -k test_large_staticfile \r\n===================================================== test session starts ======================================================\r\nplatform darwin -- Python 3.6.5, pytest-3.6.1, py-1.5.3, pluggy-0.6.0\r\nrootdir: /Users/simonw/Dropbox/Development/starlette, inifile:\r\ncollected 43 items / 42 deselected                                                                                             \r\n\r\ntests/test_staticfiles.py F                                                                                              [100%]\r\n\r\n=========================================================== FAILURES ===========================================================\r\n____________________________________________________ test_large_staticfile _____________________________________________________\r\n\r\ntmpdir = local('/private/var/folders/jj/fngnv0810tn2lt_kd3911pdc0000gp/T/pytest-of-simonw/pytest-8/test_large_staticfile0')\r\n\r\n    def test_large_staticfile(tmpdir):\r\n        path = os.path.join(tmpdir, \"example.txt\")\r\n        content = \"this is a lot of content\" * 200\r\n        print(\"content len = \", len(content))\r\n        with open(path, \"w\") as file:\r\n            file.write(content)\r\n    \r\n        app = StaticFile(path=path)\r\n        client = TestClient(app)\r\n        response = client.get(\"/\")\r\n        assert response.status_code == 200\r\n>       assert len(content) == len(response.text)\r\nE       AssertionError: assert 4800 == 4096\r\nE        +  where 4800 = len('this is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of cont...is is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of content')\r\nE        +  and   4096 = len(' contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot...ontentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of')\r\nE        +    where ' contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot...ontentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of contentthis is a lot of' = <Response [200]>.text\r\n\r\ntests/test_staticfiles.py:30: AssertionError\r\n```",
+    "number": 32,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/32",
+    "title": "Error serving static files larger than 4096 bytes"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #33 created_at 2018-07-26T13:38:33Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #33",
+    "repair_files": [
+      "starlette/response.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 590db3d6ea6c7f3b03013209822cda2c54dc38ae",
+    "test_files": [
+      "tests/test_response.py",
+      "tests/test_staticfiles.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/response.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/starlette%2Fresponse.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "e2d6665fa5c32e77a3fe22836b14620a7f5999bb",
+        "source_url": "https://github.com/Kludex/starlette/commit/e2d6665fa5c32e77a3fe22836b14620a7f5999bb"
+      },
+      {
+        "sha": "7b6b74ab88da9dca50384aa4c44872aa19e33ae7",
+        "source_url": "https://github.com/Kludex/starlette/commit/7b6b74ab88da9dca50384aa4c44872aa19e33ae7"
+      },
+      {
+        "sha": "6a9a4b8a04b7f0b201c2d5a2750e751a9765796e",
+        "source_url": "https://github.com/Kludex/starlette/commit/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2018-07-26T13:38:33Z",
+      "number": 33,
+      "source_url": "https://github.com/Kludex/starlette/pull/33"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/33"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_response.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_response.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_staticfiles.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "590db3d6ea6c7f3b03013209822cda2c54dc38ae",
+    "committed_at": "2018-07-18T14:42:59Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/590db3d6ea6c7f3b03013209822cda2c54dc38ae"
+  },
+  "schema_version": "1.0"
+}

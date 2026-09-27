@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi\r\n\r\nIs there a way to get a background task and cancel it? I'm not able to figure it out by reading the documentation\r\n\r\nThanks",
+    "closed_at": "2020-06-19T16:31:45Z",
+    "created_at": "2020-06-15T14:54:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/973",
+    "number": 973,
+    "state": "closed",
+    "title": "Get and stop Background Task",
+    "user": "mikkelam"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-15T19:57:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-19T16:31:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-19T16:31:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-19T16:31:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-19T16:31:45Z",
+      "event": "closed"
+    }
+  ]
+}

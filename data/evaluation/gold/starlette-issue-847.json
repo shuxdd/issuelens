@@ -1,0 +1,52 @@
+{
+  "case_id": "starlette-issue-847",
+  "changed_files": [
+    {
+      "path": "starlette/middleware/base.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Fmiddleware%2Fbase.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/requests.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Frequests.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/middleware/base.py",
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+      "source_url": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py"
+    },
+    {
+      "path": "starlette/requests.py",
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+      "source_url": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/middleware/base.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/requests.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Middleware Request parse Hangs forever' originates in starlette/middleware/base.py, starlette/requests.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_base.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Fmiddleware%2Ftest_base.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_requests.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Ftest_requests.py",
+      "status": "modified"
+    }
+  ]
+}

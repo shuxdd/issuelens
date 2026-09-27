@@ -1,0 +1,85 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-08-23T13:40:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/21bcbc1fa967b960ca9b5715af631850acf937b9",
+      "sha": "21bcbc1fa967b960ca9b5715af631850acf937b9"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2026-08-23T13:41:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3467",
+          "number": 3467,
+          "pull_request": {
+            "merged_at": "2026-08-23T13:42:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3467"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `WebSocketException` code as required"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/21bcbc1fa967b960ca9b5715af631850acf937b9/docs%2Fexceptions.md",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "docs/exceptions.md",
+      "sha": "75c5a732341cd027f3cc79f7ea466e269f5dcb37",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The [exceptions docs](https://www.starlette.io/exceptions/) document `WebSocketException` with a default:\n\n> `WebSocketException(code=1008, reason=None)`\n\nBut `code` is a required positional argument \u2014 calling it without arguments raises `TypeError`.\n\n**Version:** starlette 1.6.0\n**Python:** 3.13.14\n\n```python\nimport inspect\nfrom starlette.exceptions import WebSocketException\n\nprint(inspect.signature(WebSocketException.__init__))\n# (self, code: 'int', reason: 'str | None' = None) -> 'None'\n\nWebSocketException()\n# TypeError: WebSocketException.__init__() missing 1 required positional argument: 'code'\n```\n\nSo either the signature should get the documented default (`code: int = 1008`), or the docs should show `(code, reason=None)` without a default. Since `1008` (\"Policy Violation\") is also what the docstring implies as the natural choice, adding the default to the code seems the friendlier fix.\n\nTiny PR either way \u2014 happy to send one once maintainers say which side they prefer.\n",
+    "closed_at": "2026-08-23T13:42:59Z",
+    "created_at": "2026-08-23T02:58:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3460",
+    "number": 3460,
+    "state": "closed",
+    "title": "Docs show WebSocketException(code=1008, reason=None) but code is a required argument",
+    "user": "Mukller"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-23T13:42:58Z",
+    "created_at": "2026-08-23T13:41:03Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3467",
+    "merge_commit_sha": "ce1252b7f04ead918f9287afbed3524ace1c2f96",
+    "merged_at": "2026-08-23T13:42:58Z",
+    "number": 3467,
+    "title": "Document `WebSocketException` code as required",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-08-23T13:41:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3467",
+          "number": 3467,
+          "pull_request": {
+            "merged_at": "2026-08-23T13:42:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3467"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `WebSocketException` code as required"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T13:42:59Z",
+      "event": "closed"
+    }
+  ]
+}

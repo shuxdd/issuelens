@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I was wondering if it would be worth it to split the workflows and trigger possible documentation workflows without the need of a new release?",
+    "closed_at": "2023-01-13T16:42:21Z",
+    "created_at": "2023-01-13T16:42:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2009",
+    "number": 2009,
+    "state": "closed",
+    "title": "Separate docs workflow",
+    "user": "tarsilcol"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-01-13T16:42:22Z",
+      "event": "closed"
+    }
+  ]
+}

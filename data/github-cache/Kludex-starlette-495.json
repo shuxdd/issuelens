@@ -1,0 +1,1589 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-04-29T19:06:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ec382274541720a688131053ec7247c4c5965f8d",
+      "sha": "ec382274541720a688131053ec7247c4c5965f8d"
+    },
+    {
+      "committed_at": "2023-05-04T13:33:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a3ba02cb732ac47ab66e172d4201c1f7dd41f699",
+      "sha": "a3ba02cb732ac47ab66e172d4201c1f7dd41f699"
+    },
+    {
+      "committed_at": "2023-05-04T14:24:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/96d5b4999b29b19c6dc6430858e096ac7dc46e65",
+      "sha": "96d5b4999b29b19c6dc6430858e096ac7dc46e65"
+    },
+    {
+      "committed_at": "2023-05-04T16:48:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f913447db466ada33f2b78a6f3428401983844c2",
+      "sha": "f913447db466ada33f2b78a6f3428401983844c2"
+    },
+    {
+      "committed_at": "2023-05-04T17:27:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/84c84f0322e45fa56d624a2f3ce59bc4ac53b246",
+      "sha": "84c84f0322e45fa56d624a2f3ce59bc4ac53b246"
+    },
+    {
+      "committed_at": "2023-05-04T17:30:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b4d5a7982cd14deda311934edff4c4493232e1a7",
+      "sha": "b4d5a7982cd14deda311934edff4c4493232e1a7"
+    },
+    {
+      "committed_at": "2023-05-04T17:31:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298",
+      "sha": "fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298"
+    },
+    {
+      "committed_at": "2023-05-31T20:00:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9162cb3984fd68e7416455111dcb0f6889542762",
+      "sha": "9162cb3984fd68e7416455111dcb0f6889542762"
+    },
+    {
+      "committed_at": "2023-06-01T18:39:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e60d982d88f08fb07cd4e40951022597ae8f11f",
+      "sha": "1e60d982d88f08fb07cd4e40951022597ae8f11f"
+    },
+    {
+      "committed_at": "2023-06-01T18:44:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/68efb83cf38784be7e89e0583923dca2055b733b",
+      "sha": "68efb83cf38784be7e89e0583923dca2055b733b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-04-30T02:24:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/180",
+          "number": 180,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Response from the server is never received in case of using middleware."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T02:24:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/191",
+          "number": 191,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Blocking on ``request.form()`` if middleware consumed it first."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T12:23:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/493",
+          "number": 493,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Question about Request.Body()"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-01T03:57:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/497",
+          "number": 497,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Store single request object in scope"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T18:16:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/500",
+          "number": 500,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "#493 and #495 cache body content"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-19T01:27:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/394",
+          "number": 394,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Awaiting request body in middleware blocks the application"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-19T03:51:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/375",
+          "number": 375,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Access request body when reusing FastAPI's exception handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2019-09-30T10:02:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/575",
+          "number": 575,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Catch exception type of Exception and process body request"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-01T21:06:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/521",
+          "number": 521,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "msgpack response if client asks for application/x-msgpack"
+        }
+      }
+    },
+    {
+      "created_at": "2021-01-05T22:41:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2585",
+          "number": 2585,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Get the request body of post or get in request"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T00:01:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2021-02-05T15:32:39Z",
+            "url": "https://api.github.com/repos/elastic/apm-agent-python/pulls/1038"
+          },
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Fix for hang on capture_body: error in starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2021-04-14T16:43:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/honeybadger-io/honeybadger-python/issues/78",
+          "number": 78,
+          "pull_request": {},
+          "repository": {
+            "full_name": "honeybadger-io/honeybadger-python"
+          },
+          "title": "Honeybadger FastAPI plugin."
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-30T16:04:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/pull/1174",
+          "number": 1174,
+          "pull_request": {
+            "merged_at": "2021-07-06T15:29:47Z",
+            "url": "https://api.github.com/repos/elastic/apm-agent-python/pulls/1174"
+          },
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Update test framework for starlette 0.15.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-19T20:16:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/globality-corp/microcosm-fastapi/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2021-08-26T07:07:17Z",
+            "url": "https://api.github.com/repos/globality-corp/microcosm-fastapi/pulls/11"
+          },
+          "repository": {
+            "full_name": "globality-corp/microcosm-fastapi"
+          },
+          "title": "Logging implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-04T17:51:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4238",
+          "number": 4238,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "PUT request gets stuck in endless loop"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-08T07:03:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1479",
+          "number": 1479,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1479"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "persist request state into asgi scope extension"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-23T11:06:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1702",
+          "number": 1702,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cache Request in scope via __new__ method"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T11:03:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jpwahle/cs-insights-prediction-endpoint/issues/19",
+          "number": 19,
+          "pull_request": {},
+          "repository": {
+            "full_name": "jpwahle/cs-insights-prediction-endpoint"
+          },
+          "title": "RPC Server Wrapper"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-06T18:54:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mdsol/mauth-client-python/pull/34",
+          "number": 34,
+          "pull_request": {
+            "merged_at": "2022-09-08T19:02:25Z",
+            "url": "https://api.github.com/repos/mdsol/mauth-client-python/pulls/34"
+          },
+          "repository": {
+            "full_name": "mdsol/mauth-client-python"
+          },
+          "title": "[MCC-961880] Add `MAuthASGIMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-03T14:09:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-25T13:49:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4683",
+          "number": 4683,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Logging incoming requests and returned responses "
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-27T22:18:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/piccolo-orm/piccolo_api/issues/235",
+          "number": 235,
+          "pull_request": {},
+          "repository": {
+            "full_name": "piccolo-orm/piccolo_api"
+          },
+          "title": "Feature to modify body and query_parameters in `PiccoloCRUD`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-03T21:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tzal3x/twitter_clone/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2023-07-03T21:41:49Z",
+            "url": "https://api.github.com/repos/Tzal3x/twitter_clone/pulls/52"
+          },
+          "repository": {
+            "full_name": "Tzal3x/twitter_clone"
+          },
+          "title": "38 add logger page facing up"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-17T20:27:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/1812",
+          "number": 1812,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "connexion.request.{body, form, etc}() seem to hang"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-30T14:51:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/python-openapi/openapi-core/pull/738",
+          "number": 738,
+          "pull_request": {
+            "merged_at": "2024-02-13T09:17:59Z",
+            "url": "https://api.github.com/repos/python-openapi/openapi-core/pulls/738"
+          },
+          "repository": {
+            "full_name": "python-openapi/openapi-core"
+          },
+          "title": "FastAPI integration"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-28T22:23:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2387",
+          "number": 2387,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2387"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix: Caching of request body for passing down to middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-16T18:20:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/noverde/faster-sam/pull/190",
+          "number": 190,
+          "pull_request": {
+            "url": "https://api.github.com/repos/noverde/faster-sam/pulls/190"
+          },
+          "repository": {
+            "full_name": "noverde/faster-sam"
+          },
+          "title": "Refactor/adjusts middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-13T09:18:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiondemand/AIOD-rest-api/issues/485",
+          "number": 485,
+          "pull_request": {},
+          "repository": {
+            "full_name": "aiondemand/AIOD-rest-api"
+          },
+          "title": "Provide more information in error log"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-12T15:33:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tadata-org/fastapi_mcp/issues/226",
+          "number": 226,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tadata-org/fastapi_mcp"
+          },
+          "title": "Request body contention when using FastAPI middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-03T21:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/kubeflow/mlflow-integration/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-04-07T19:39:37Z",
+            "url": "https://api.github.com/repos/kubeflow/mlflow-integration/pulls/6"
+          },
+          "repository": {
+            "full_name": "kubeflow/mlflow-integration"
+          },
+          "title": "Add support for resourceName granular RBAC"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-21T22:04:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aws-samples/aurora-dsql-samples/pull/935",
+          "number": 935,
+          "pull_request": {
+            "merged_at": "2026-04-24T16:33:02Z",
+            "url": "https://api.github.com/repos/aws-samples/aurora-dsql-samples/pulls/935"
+          },
+          "repository": {
+            "full_name": "aws-samples/aurora-dsql-samples"
+          },
+          "title": "fix: address AppSec security findings for sample-amazon-aurora-dsql-agent"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-11T03:40:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AutomatosAI/automatos-ai/pull/535",
+          "number": 535,
+          "pull_request": {
+            "merged_at": "2026-07-11T11:39:29Z",
+            "url": "https://api.github.com/repos/AutomatosAI/automatos-ai/pulls/535"
+          },
+          "repository": {
+            "full_name": "AutomatosAI/automatos-ai"
+          },
+          "title": "feat(prd-194): Wave-2 untrusted edges \u2014 reject, dedup, fail closed (P2-13)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-19T16:18:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tyler-R-Kendrick/slm-training/pull/458",
+          "number": 458,
+          "pull_request": {
+            "merged_at": "2026-07-19T16:25:52Z",
+            "url": "https://api.github.com/repos/Tyler-R-Kendrick/slm-training/pulls/458"
+          },
+          "repository": {
+            "full_name": "Tyler-R-Kendrick/slm-training"
+          },
+          "title": "Add peer-federated OTLP hub with live active-run streaming"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T13:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OpenVoiceOS/ovos-opendata-server/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OpenVoiceOS/ovos-opendata-server/pulls/6"
+          },
+          "repository": {
+            "full_name": "OpenVoiceOS/ovos-opendata-server"
+          },
+          "title": "feat: modular app package, packaging, test suite + CI that runs it"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T15:31:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AlfaGideon/TG-MMO-RPG/pull/47",
+          "number": 47,
+          "pull_request": {
+            "merged_at": "2026-08-02T15:35:57Z",
+            "url": "https://api.github.com/repos/AlfaGideon/TG-MMO-RPG/pulls/47"
+          },
+          "repository": {
+            "full_name": "AlfaGideon/TG-MMO-RPG"
+          },
+          "title": "Fix Cloudflare Tunnel 502/1033 errors (middleware + tunnel watcher)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T22:13:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shresthkapoor7/sediment/pull/111",
+          "number": 111,
+          "pull_request": {
+            "merged_at": "2026-08-19T01:29:36Z",
+            "url": "https://api.github.com/repos/shresthkapoor7/sediment/pulls/111"
+          },
+          "repository": {
+            "full_name": "shresthkapoor7/sediment"
+          },
+          "title": "Feature/special notes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 80,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 84,
+      "deletions": 4,
+      "filename": "starlette/middleware/base.py",
+      "sha": "2ff0e047b0c179c8a6d6e73a92ff7ce8953b1d9a",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Frequests.py",
+      "changes": 7,
+      "deletions": 4,
+      "filename": "starlette/requests.py",
+      "sha": "dbcaad87500e7b72a5b72e6be00555c2bc10dcf7",
+      "status": "modified"
+    },
+    {
+      "additions": 422,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 425,
+      "deletions": 3,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "f7dcf521c908f4ec0fac96ea9f2979a9e458cfe6",
+      "status": "modified"
+    },
+    {
+      "additions": 68,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Ftest_requests.py",
+      "changes": 70,
+      "deletions": 2,
+      "filename": "tests/test_requests.py",
+      "sha": "a8f62b39e070a8b6dc4d35c5eaacb7ea6653dca9",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\n\r\n\r\nclass SampleMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request: Request, call_next):\r\n        _ = await request.form()\r\n        return await call_next(request)\r\n\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route('/test', methods=['POST'])\r\nasync def test(request):\r\n    _ = await request.form()  # blocked, because middleware already consumed request body\r\n    return PlainTextResponse('Hello, world!')\r\n\r\n\r\napp.add_middleware(SampleMiddleware)\r\n```\r\n\r\n```\r\n$ uvicorn test:app --reload\r\n```\r\n\r\n```\r\n$ curl -d \"a=1\" http://127.0.0.1:8000/test\r\n# request is blocked\r\n```",
+    "body_last_edited_at": "2019-04-30T02:20:31Z",
+    "closed_at": "2023-06-01T18:57:30Z",
+    "created_at": "2019-04-30T02:19:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/495",
+    "number": 495,
+    "state": "closed",
+    "title": "Consume request body in middleware is problematic",
+    "user": "yihuang"
+  },
+  "pull_request": {
+    "closed_at": "2023-06-01T18:57:28Z",
+    "created_at": "2022-06-15T03:13:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1692",
+    "merge_commit_sha": "554b9e21f6161a6d83b4ebb90909282114266317",
+    "merged_at": "2023-06-01T18:57:28Z",
+    "number": 1692,
+    "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+    "committed_at": "2022-06-11T06:30:50Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/daf29136df53ff03fb291644a4e564b6b37b4857"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-04-30T02:24:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/180",
+          "number": 180,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Response from the server is never received in case of using middleware."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T02:24:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/191",
+          "number": 191,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Blocking on ``request.form()`` if middleware consumed it first."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T12:23:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/493",
+          "number": 493,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Question about Request.Body()"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-01T03:51:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-01T03:55:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-01T03:57:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/497",
+          "number": 497,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Store single request object in scope"
+        }
+      }
+    },
+    {
+      "commit_id": "d388e06d16db09931e424db6ba767317393da17b",
+      "commit_url": "https://api.github.com/repos/ricardomomm/starlette/commits/d388e06d16db09931e424db6ba767317393da17b",
+      "created_at": "2019-05-02T18:12:17Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-05-02T18:16:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/500",
+          "number": 500,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "#493 and #495 cache body content"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-20T14:20:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-19T01:27:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/394",
+          "number": 394,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Awaiting request body in middleware blocks the application"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-19T08:14:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-19T03:39:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-19T03:39:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-19T03:39:42Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-19T03:51:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/375",
+          "number": 375,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Access request body when reusing FastAPI's exception handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2019-09-30T10:02:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/575",
+          "number": 575,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Catch exception type of Exception and process body request"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-01T21:06:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/521",
+          "number": 521,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "msgpack response if client asks for application/x-msgpack"
+        }
+      }
+    },
+    {
+      "created_at": "2020-01-16T09:42:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-16T19:21:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-17T14:36:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-18T00:39:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-18T00:39:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-01-18T00:39:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-08T22:49:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-08T22:49:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-08T22:49:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-01-05T22:41:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2585",
+          "number": 2585,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Get the request body of post or get in request"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-05T00:01:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2021-02-05T15:32:39Z",
+            "url": "https://api.github.com/repos/elastic/apm-agent-python/pulls/1038"
+          },
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Fix for hang on capture_body: error in starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-04T11:38:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T11:38:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T11:38:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-25T22:06:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-25T22:25:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-25T22:25:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-25T22:25:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-25T22:25:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-25T22:25:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-25T23:29:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-25T23:29:43Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-25T23:29:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-26T20:02:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-26T20:02:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-26T20:02:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-31T09:05:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-31T09:05:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-31T09:05:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-04-14T16:43:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/honeybadger-io/honeybadger-python/issues/78",
+          "number": 78,
+          "pull_request": {},
+          "repository": {
+            "full_name": "honeybadger-io/honeybadger-python"
+          },
+          "title": "Honeybadger FastAPI plugin."
+        }
+      }
+    },
+    {
+      "commit_id": "04566bc1d1ed3fa0b06b28eb39b5c1f037ddfd04",
+      "commit_url": "https://api.github.com/repos/rollbar/pyrollbar/commits/04566bc1d1ed3fa0b06b28eb39b5c1f037ddfd04",
+      "created_at": "2021-04-29T16:24:24Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-29T16:41:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-30T16:04:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/pull/1174",
+          "number": 1174,
+          "pull_request": {
+            "merged_at": "2021-07-06T15:29:47Z",
+            "url": "https://api.github.com/repos/elastic/apm-agent-python/pulls/1174"
+          },
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Update test framework for starlette 0.15.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-26T17:08:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-26T17:11:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-19T20:16:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/globality-corp/microcosm-fastapi/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2021-08-26T07:07:17Z",
+            "url": "https://api.github.com/repos/globality-corp/microcosm-fastapi/pulls/11"
+          },
+          "repository": {
+            "full_name": "globality-corp/microcosm-fastapi"
+          },
+          "title": "Logging implementation"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-28T05:53:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T22:59:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T22:59:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-28T22:59:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-30T11:08:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-04T17:51:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4238",
+          "number": 4238,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "PUT request gets stuck in endless loop"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-12T10:23:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T07:03:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1479",
+          "number": 1479,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1479"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "persist request state into asgi scope extension"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-15T23:36:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-16T08:57:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-16T21:49:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-18T13:19:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-23T10:55:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-23T11:06:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1702",
+          "number": 1702,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cache Request in scope via __new__ method"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T11:03:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jpwahle/cs-insights-prediction-endpoint/issues/19",
+          "number": 19,
+          "pull_request": {},
+          "repository": {
+            "full_name": "jpwahle/cs-insights-prediction-endpoint"
+          },
+          "title": "RPC Server Wrapper"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-06T18:54:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mdsol/mauth-client-python/pull/34",
+          "number": 34,
+          "pull_request": {
+            "merged_at": "2022-09-08T19:02:25Z",
+            "url": "https://api.github.com/repos/mdsol/mauth-client-python/pulls/34"
+          },
+          "repository": {
+            "full_name": "mdsol/mauth-client-python"
+          },
+          "title": "[MCC-961880] Add `MAuthASGIMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-15T11:17:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-15T11:17:52Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-15T11:17:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-16T08:55:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-16T08:55:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-16T08:55:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-10-03T14:09:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-25T13:49:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4683",
+          "number": 4683,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Logging incoming requests and returned responses "
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-09T16:45:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-10T12:02:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-25T20:15:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-25T21:14:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-25T22:05:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T18:57:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-06-27T22:18:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/piccolo-orm/piccolo_api/issues/235",
+          "number": 235,
+          "pull_request": {},
+          "repository": {
+            "full_name": "piccolo-orm/piccolo_api"
+          },
+          "title": "Feature to modify body and query_parameters in `PiccoloCRUD`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-03T21:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tzal3x/twitter_clone/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2023-07-03T21:41:49Z",
+            "url": "https://api.github.com/repos/Tzal3x/twitter_clone/pulls/52"
+          },
+          "repository": {
+            "full_name": "Tzal3x/twitter_clone"
+          },
+          "title": "38 add logger page facing up"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-17T20:27:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/1812",
+          "number": 1812,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "connexion.request.{body, form, etc}() seem to hang"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-30T14:51:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/python-openapi/openapi-core/pull/738",
+          "number": 738,
+          "pull_request": {
+            "merged_at": "2024-02-13T09:17:59Z",
+            "url": "https://api.github.com/repos/python-openapi/openapi-core/pulls/738"
+          },
+          "repository": {
+            "full_name": "python-openapi/openapi-core"
+          },
+          "title": "FastAPI integration"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-28T22:23:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2387",
+          "number": 2387,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2387"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix: Caching of request body for passing down to middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-16T18:20:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/noverde/faster-sam/pull/190",
+          "number": 190,
+          "pull_request": {
+            "url": "https://api.github.com/repos/noverde/faster-sam/pulls/190"
+          },
+          "repository": {
+            "full_name": "noverde/faster-sam"
+          },
+          "title": "Refactor/adjusts middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-13T09:18:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aiondemand/AIOD-rest-api/issues/485",
+          "number": 485,
+          "pull_request": {},
+          "repository": {
+            "full_name": "aiondemand/AIOD-rest-api"
+          },
+          "title": "Provide more information in error log"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-12T15:33:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tadata-org/fastapi_mcp/issues/226",
+          "number": 226,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tadata-org/fastapi_mcp"
+          },
+          "title": "Request body contention when using FastAPI middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-03T21:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/kubeflow/mlflow-integration/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-04-07T19:39:37Z",
+            "url": "https://api.github.com/repos/kubeflow/mlflow-integration/pulls/6"
+          },
+          "repository": {
+            "full_name": "kubeflow/mlflow-integration"
+          },
+          "title": "Add support for resourceName granular RBAC"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-21T22:04:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aws-samples/aurora-dsql-samples/pull/935",
+          "number": 935,
+          "pull_request": {
+            "merged_at": "2026-04-24T16:33:02Z",
+            "url": "https://api.github.com/repos/aws-samples/aurora-dsql-samples/pulls/935"
+          },
+          "repository": {
+            "full_name": "aws-samples/aurora-dsql-samples"
+          },
+          "title": "fix: address AppSec security findings for sample-amazon-aurora-dsql-agent"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-11T03:40:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AutomatosAI/automatos-ai/pull/535",
+          "number": 535,
+          "pull_request": {
+            "merged_at": "2026-07-11T11:39:29Z",
+            "url": "https://api.github.com/repos/AutomatosAI/automatos-ai/pulls/535"
+          },
+          "repository": {
+            "full_name": "AutomatosAI/automatos-ai"
+          },
+          "title": "feat(prd-194): Wave-2 untrusted edges \u2014 reject, dedup, fail closed (P2-13)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-19T16:18:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tyler-R-Kendrick/slm-training/pull/458",
+          "number": 458,
+          "pull_request": {
+            "merged_at": "2026-07-19T16:25:52Z",
+            "url": "https://api.github.com/repos/Tyler-R-Kendrick/slm-training/pulls/458"
+          },
+          "repository": {
+            "full_name": "Tyler-R-Kendrick/slm-training"
+          },
+          "title": "Add peer-federated OTLP hub with live active-run streaming"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T13:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OpenVoiceOS/ovos-opendata-server/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OpenVoiceOS/ovos-opendata-server/pulls/6"
+          },
+          "repository": {
+            "full_name": "OpenVoiceOS/ovos-opendata-server"
+          },
+          "title": "feat: modular app package, packaging, test suite + CI that runs it"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-02T15:31:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AlfaGideon/TG-MMO-RPG/pull/47",
+          "number": 47,
+          "pull_request": {
+            "merged_at": "2026-08-02T15:35:57Z",
+            "url": "https://api.github.com/repos/AlfaGideon/TG-MMO-RPG/pulls/47"
+          },
+          "repository": {
+            "full_name": "AlfaGideon/TG-MMO-RPG"
+          },
+          "title": "Fix Cloudflare Tunnel 502/1033 errors (middleware + tunnel watcher)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T22:13:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shresthkapoor7/sediment/pull/111",
+          "number": 111,
+          "pull_request": {
+            "merged_at": "2026-08-19T01:29:36Z",
+            "url": "https://api.github.com/repos/shresthkapoor7/sediment/pulls/111"
+          },
+          "repository": {
+            "full_name": "shresthkapoor7/sediment"
+          },
+          "title": "Feature/special notes"
+        }
+      }
+    }
+  ]
+}

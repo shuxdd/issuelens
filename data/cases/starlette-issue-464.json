@@ -1,0 +1,95 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-04-14T18:38:47Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/464"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/464"
+    ]
+  },
+  "case_id": "starlette-issue-464",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-563",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Make 307 the default redirect status code' directly changes starlette/middleware/httpsredirect.py, starlette/responses.py with focused behavior test(s) tests/middleware/test_https_redirect.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2019-06-24T22:10:37Z",
+  "issue": {
+    "body": "Hi,\r\nI stumbled upon a quirk in starlette that is not properly documented. It seems like all of my HTTP request to a route without trailing slash are being redirected to route with trailing slashes. Say I am hitting `http://hostname/mountpoint/api` it will be redirected (302) to `http://hostname/mountpoint/api/`. This messed up your api calls; if you call POST to `http://hostname/mountpoint/api` it will be redirected to GET `http://hostname/mountpoint/api/`.\r\n\r\nI dig on the source and see this redirect_slashes flag and setting it to False fix this. I feel this behavior (the auto redirection) should be documented.",
+    "number": 464,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/464",
+    "title": "Use \"308 Permanent Redirect\" for redirect slashes behavior."
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #563 created_at 2019-06-24T22:10:37Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #563",
+    "repair_files": [
+      "starlette/middleware/httpsredirect.py",
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 3f702238247c99089eac76880965b32bd050f3cb",
+    "test_files": [
+      "tests/middleware/test_https_redirect.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/httpsredirect.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fmiddleware%2Fhttpsredirect.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "3f702238247c99089eac76880965b32bd050f3cb",
+        "source_url": "https://github.com/Kludex/starlette/commit/3f702238247c99089eac76880965b32bd050f3cb"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2019-06-24T22:10:37Z",
+      "number": 563,
+      "source_url": "https://github.com/Kludex/starlette/pull/563"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/563"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_https_redirect.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/tests%2Fmiddleware%2Ftest_https_redirect.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "3f702238247c99089eac76880965b32bd050f3cb",
+    "committed_at": "2019-06-24T22:03:49Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/3f702238247c99089eac76880965b32bd050f3cb"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-09-25T13:46:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/551",
+          "number": 551,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Production configuration of gunicorn"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "hi guys,\r\nso i am looking to go to production using starlette or a derivative of starlette (fastapi,etc).\r\n\r\nI'm looking at this as my starting script for a production configuration of gunicorn - https://github.com/tiangolo/uvicorn-gunicorn-docker/blob/master/python3.7/gunicorn_conf.py\r\n\r\nis this good enough ? I'm not sure if i should be using threads (because of the async nature of starlette) or other gunicorn configs\r\n\r\nOn reading documentation of gunicorn with uvicorn, there are lines like this\r\n\r\n> \"Gunicorn provides a different set of configuration options to Uvicorn, so some options such as --limit-concurrency are not yet supported when running with Gunicorn\"\r\n\r\nThis is for a medium-high traffic site. any help would be much appreciated.",
+    "closed_at": "2019-12-18T10:54:20Z",
+    "created_at": "2019-09-19T17:51:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/642",
+    "number": 642,
+    "state": "closed",
+    "title": "[question] production configuration of gunicorn",
+    "user": "sandys"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-25T13:46:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/551",
+          "number": 551,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Production configuration of gunicorn"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-18T10:54:20Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-23T10:21:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/44f757d2934d92677b9fca223a00c5791ed213d6",
+      "sha": "44f757d2934d92677b9fca223a00c5791ed213d6"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-23T10:25:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/142",
+          "number": 142,
+          "pull_request": {
+            "merged_at": "2018-10-26T12:29:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/142"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return an iterator over keys for Headers and QueryParams"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-24T11:44:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/the-momentum/open-wearables/pull/1344",
+          "number": 1344,
+          "pull_request": {
+            "merged_at": "2026-07-24T14:22:43Z",
+            "url": "https://api.github.com/repos/the-momentum/open-wearables/pulls/1344"
+          },
+          "repository": {
+            "full_name": "the-momentum/open-wearables"
+          },
+          "title": "chore: SDK logs validation, optional response logging on 4xx"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/44f757d2934d92677b9fca223a00c5791ed213d6/starlette%2Fdatastructures.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/datastructures.py",
+      "sha": "019dab01237dbdc85e821d3e5191a585b3ffd8ac",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/44f757d2934d92677b9fca223a00c5791ed213d6/tests%2Ftest_datastructures.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "tests/test_datastructures.py",
+      "sha": "3533e911e41a9761f1beb9eafc7919d7f0cadbba",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The `QueryParams` and `Headers` multidict classes' `__iter__` method returns key/value pairs instead of just keys which is what I would expect from a Python mapping.\r\n\r\nI haven't seen an implementation like this and checked a few from Django, Werkzeug, urllib3, and aio-lib's multidict.\r\n\r\nWas this intentional or should it be changed?\r\n\r\nThanks!",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-26T12:29:44Z",
+    "created_at": "2018-10-22T10:43:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/139",
+    "number": 139,
+    "state": "closed",
+    "title": "MultiDict __iter__ returns tuples instead of just keys",
+    "user": "ryankask"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-26T12:29:26Z",
+    "created_at": "2018-10-23T10:25:22Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/142",
+    "merge_commit_sha": "a32ea0a8e89567b24f3b8cd04847a1b01c9e98f0",
+    "merged_at": "2018-10-26T12:29:26Z",
+    "number": 142,
+    "title": "Return an iterator over keys for Headers and QueryParams",
+    "user": "ryankask"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "7b8d4920c23c60c7476344357cac42fbb7906ce2",
+    "committed_at": "2018-10-22T14:10:11Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/7b8d4920c23c60c7476344357cac42fbb7906ce2"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-10-22T13:42:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T17:02:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T20:26:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-23T10:25:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/142",
+          "number": 142,
+          "pull_request": {
+            "merged_at": "2018-10-26T12:29:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/142"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return an iterator over keys for Headers and QueryParams"
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-25T12:06:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-24T11:44:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/the-momentum/open-wearables/pull/1344",
+          "number": 1344,
+          "pull_request": {
+            "merged_at": "2026-07-24T14:22:43Z",
+            "url": "https://api.github.com/repos/the-momentum/open-wearables/pulls/1344"
+          },
+          "repository": {
+            "full_name": "the-momentum/open-wearables"
+          },
+          "title": "chore: SDK logs validation, optional response logging on 4xx"
+        }
+      }
+    }
+  ]
+}

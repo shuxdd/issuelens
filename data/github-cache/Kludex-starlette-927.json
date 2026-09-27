@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Looks like status_code is ignored when redirect param is set so every redirect is made with 307. It would be nice if we can set at least 303 status_code that changes posts to get and destroys body.",
+    "closed_at": "2020-05-04T09:31:50Z",
+    "created_at": "2020-05-03T14:26:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/927",
+    "number": 927,
+    "state": "closed",
+    "title": "[FR] Ability to change redirect status code in requires decorator",
+    "user": "oczkers"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-03T14:26:21Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-05-04T09:31:50Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "35cdf9a6e58634d21c48a823b43f9f8b71ab832c",
+      "commit_url": "https://api.github.com/repos/oczkers/starlette/commits/35cdf9a6e58634d21c48a823b43f9f8b71ab832c",
+      "created_at": "2020-05-04T09:55:19Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "6e7bff214335de3f9f785dcff09194d294f53a64",
+      "commit_url": "https://api.github.com/repos/oczkers/starlette/commits/6e7bff214335de3f9f785dcff09194d294f53a64",
+      "created_at": "2020-05-04T10:08:05Z",
+      "event": "referenced"
+    }
+  ]
+}

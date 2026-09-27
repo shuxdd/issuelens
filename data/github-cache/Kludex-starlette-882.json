@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-23T03:36:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pulls/1"
+          },
+          "repository": {
+            "full_name": "Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project"
+          },
+          "title": "feat: initialize CloudCompliance Sentinel MVP"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello,\r\nIs it normal that relative paths used to declare Jinja2Templates(directory='relative/path') and StaticFiles('relative/staticdir') are inherited of current directory from which I start the application and not the starlette application directory ?\r\n\r\nTo fix it i wrote,\r\n```python\r\nparent_dir_path = os.path.dirname(os.path.realpath(__file__))\r\nos.chdir(parent_dir_path)\r\n```\r\nand I can declare relative path from the application directory to be independant of OS current directory \r\nBut is this behavior really wished ?\r\n\r\n(if details needed  I launch starlette webapp inside a shell script with \r\n```bash\r\n$ uvicorn myapp:my_app_Starlette_variable\r\n```\r\nmyapp is the /src/app/app package  and my my_app_Starlette_variable is inside a __init__.py )\r\n",
+    "closed_at": "2020-03-30T10:03:06Z",
+    "created_at": "2020-03-30T09:14:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/882",
+    "number": 882,
+    "state": "closed",
+    "title": "Relative path used for Jinja2Templates and StaticFiles",
+    "user": "wh6b"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-30T10:03:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-23T03:36:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pulls/1"
+          },
+          "repository": {
+            "full_name": "Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project"
+          },
+          "title": "feat: initialize CloudCompliance Sentinel MVP"
+        }
+      }
+    }
+  ]
+}

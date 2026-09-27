@@ -1,0 +1,498 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-08-11T14:30:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/39e03d520ae7b4f5268ffe2516ec23093d6812f2",
+      "sha": "39e03d520ae7b4f5268ffe2516ec23093d6812f2"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-08-11T04:01:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-11T14:38:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2020-08-13T12:48:19Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-12T14:33:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-13T15:48:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1157",
+          "number": 1157,
+          "pull_request": {
+            "merged_at": "2021-06-18T14:48:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1157"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "anyio integration"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-23T08:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1012",
+          "number": 1012,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Memory usage streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-21T05:31:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1699",
+          "number": 1699,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1699"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid unexpected background task cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-22T19:36:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1697",
+          "number": 1697,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow yielding a new response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T10:42:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/juspay/clairvoyance/pull/964",
+          "number": 964,
+          "pull_request": {
+            "merged_at": "2026-08-03T11:32:08Z",
+            "url": "https://api.github.com/repos/juspay/clairvoyance/pulls/964"
+          },
+          "repository": {
+            "full_name": "juspay/clairvoyance"
+          },
+          "title": "(feat): add 0 downtime support during pod restarts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-25T13:44:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rick1330/ibex-harness/pull/592",
+          "number": 592,
+          "pull_request": {
+            "merged_at": "2026-08-25T15:09:05Z",
+            "url": "https://api.github.com/repos/Rick1330/ibex-harness/pulls/592"
+          },
+          "repository": {
+            "full_name": "Rick1330/ibex-harness"
+          },
+          "title": "feat(obs): phase 2.5 exit gate with local LGTM stack (m2.5.G7)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/39e03d520ae7b4f5268ffe2516ec23093d6812f2/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/middleware/base.py",
+      "sha": "b347a6a2ddbe0b9470c96e20355d96c6a130647c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Here's a small test case based on FastAPI\r\n```python\r\nfrom fastapi import FastAPI, Request, Response\r\n\r\napp = FastAPI()\r\n\r\n@app.middleware('http')\r\nasync def foo(request: Request, call_next):\r\n    resp = await call_next(request)\r\n    if resp.status_code == 404:\r\n        return Response('Oh no!')\r\n    return resp\r\n\r\n@app.get('/meow')\r\ndef meow():\r\n    return 'Meow!'\r\n```\r\n\r\nCalling a nonexistent endpoint on this server will result in this error log at some point:\r\n```\r\nERROR:    Task was destroyed but it is pending!\r\ntask: <Task pending name='Task-4' coro=<BaseHTTPMiddleware.call_next.<locals>.coro() done, defined at /usr/lib/python3.8/site-packages/starlette/middleware/base.py:36> wait_for=<Future cancelled>>\r\n```\r\n\r\nThe problem is that the response returned from call_next is not used, and the coroutine started in BaseHTTPMiddleware.call_next keeps blocking on `queue.put` until the Task object is GC'd.\r\n\r\nThis seems to be a new issue in 0.13.7 as in previous versions the queue was not limited and didn't block.\r\n\r\n",
+    "closed_at": "2020-08-14T03:53:38Z",
+    "created_at": "2020-08-08T15:19:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1022",
+    "labels": [
+      "bug"
+    ],
+    "number": 1022,
+    "state": "closed",
+    "title": "\"Task was destroyed but it is pending!\" error when middleware dispatch func discards response from call_next",
+    "user": "itayperl"
+  },
+  "pull_request": {
+    "closed_at": "2020-08-13T12:48:19Z",
+    "created_at": "2020-08-11T14:38:57Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1028",
+    "merge_commit_sha": "f5a08d019ade528ae3a855f7e52a5500b233cb0a",
+    "merged_at": "2020-08-13T12:48:19Z",
+    "number": 1028,
+    "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware",
+    "user": "erewok"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-09T01:44:09Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-08-09T01:48:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-11T03:57:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-11T03:57:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-11T03:57:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-11T04:01:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-11T06:08:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-11T06:08:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-11T06:08:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-11T14:38:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2020-08-13T12:48:19Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove maxsize arg from Queue constructor in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-11T14:43:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:33:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-14T03:53:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-14T03:53:38Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "63cfcb9ef029406e39852a09592199309a139f22",
+      "commit_url": "https://api.github.com/repos/uSpike/starlette/commits/63cfcb9ef029406e39852a09592199309a139f22",
+      "created_at": "2021-06-13T15:47:38Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-13T15:48:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1157",
+          "number": 1157,
+          "pull_request": {
+            "merged_at": "2021-06-18T14:48:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1157"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "anyio integration"
+        }
+      }
+    },
+    {
+      "commit_id": "42592d68e5d7fd044b79d7846eabe7f33961527c",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/42592d68e5d7fd044b79d7846eabe7f33961527c",
+      "created_at": "2021-06-18T14:48:45Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-06-23T08:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1012",
+          "number": 1012,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Memory usage streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "commit_id": "4be294c1f4af9430bf0179ed6f9e867bc6659ed3",
+      "commit_url": "https://api.github.com/repos/hidraco/starlette/commits/4be294c1f4af9430bf0179ed6f9e867bc6659ed3",
+      "created_at": "2022-04-21T04:00:01Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-06-21T05:31:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1699",
+          "number": 1699,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1699"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid unexpected background task cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-22T19:36:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1697",
+          "number": 1697,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow yielding a new response"
+        }
+      }
+    },
+    {
+      "commit_id": "527a63e9525666e522952a3b47ef8cf57de376ef",
+      "commit_url": "https://api.github.com/repos/dudleyhunt86/starlette-develop-with-python/commits/527a63e9525666e522952a3b47ef8cf57de376ef",
+      "created_at": "2022-10-07T22:16:46Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "9ce1f1cfa6907a25b62a812a559e5df2369f7cf9",
+      "commit_url": "https://api.github.com/repos/azurelotus06/starlette/commits/9ce1f1cfa6907a25b62a812a559e5df2369f7cf9",
+      "created_at": "2024-06-27T20:38:58Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "cdc6ce00030845010bb68ec49fcec085b933eb2e",
+      "commit_url": "https://api.github.com/repos/Kludex/jik/commits/cdc6ce00030845010bb68ec49fcec085b933eb2e",
+      "created_at": "2024-08-16T09:37:13Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-07-31T10:42:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/juspay/clairvoyance/pull/964",
+          "number": 964,
+          "pull_request": {
+            "merged_at": "2026-08-03T11:32:08Z",
+            "url": "https://api.github.com/repos/juspay/clairvoyance/pulls/964"
+          },
+          "repository": {
+            "full_name": "juspay/clairvoyance"
+          },
+          "title": "(feat): add 0 downtime support during pod restarts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-25T13:44:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rick1330/ibex-harness/pull/592",
+          "number": 592,
+          "pull_request": {
+            "merged_at": "2026-08-25T15:09:05Z",
+            "url": "https://api.github.com/repos/Rick1330/ibex-harness/pulls/592"
+          },
+          "repository": {
+            "full_name": "Rick1330/ibex-harness"
+          },
+          "title": "feat(obs): phase 2.5 exit gate with local LGTM stack (m2.5.G7)"
+        }
+      }
+    }
+  ]
+}

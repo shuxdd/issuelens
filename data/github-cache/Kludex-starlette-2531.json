@@ -1,0 +1,71 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "## Situation\r\n\r\n- Since #2191 and the resulting release 0.29.0, `request` required argument has been added to `TemplateResponse` constructor to become a replacement for passing `request` as key-value pair into `context` argument.\r\n- In theory, this should open up previously reserved `request` keyword as a variable name that coder can use in Jinja template.\r\n\r\n## Reproduction\r\n\r\nFor example, one should be able to run FastAPI server:\r\n\r\n```python\r\nfrom fastapi import FastAPI, Request\r\nfrom fastapi.responses import HTMLResponse\r\nfrom fastapi.templating import Jinja2Templates\r\n\r\napp = FastAPI()\r\ntemplates = Jinja2Templates(directory=\"templates\")\r\n\r\n@app.get(\"/items/{id}\", response_class=HTMLResponse)\r\nasync def read_item(request: Request, id: str):\r\n    return templates.TemplateResponse(\r\n        request = request,\r\n        name = \"item.html\",\r\n        context = {\r\n            \"id\": id,\r\n            \"request\": \"value the user wants to template into request variable\",\r\n        }\r\n    )\r\n```\r\n\r\nwith `templates/item.html`\r\n\r\n```html\r\n<html>\r\n<body>\r\nid is {{ id }} and request is {{ request }}\r\n</body>\r\n</html>\r\n```\r\n\r\nHowever, this will raise:\r\n\r\n```\r\n  File \"/usr/local/lib/python3.12/site-packages/starlette/templating.py\", line 45, in __call__\r\n    extensions = request.get(\"extensions\", {})\r\n                 ^^^^^^^^^^^\r\nAttributeError: 'str' object has no attribute 'get'\r\n```\r\n\r\nwhen `/items/whateverid` is accessed.\r\n\r\n## Cause\r\n\r\nWhen all arguments to `TemplateResponse` are keyword arguments, `request: Request` is obtained from one of the keyword arguments:\r\n\r\nhttps://github.com/encode/starlette/blob/39dccd911251dfa886775493ed6cefcb15549bc2/starlette/templating.py#L218\r\n\r\nHowever, this `request: Request` is never passed to `_TemplateResponse` which will still try to find `request: Request` from `context`.\r\n\r\nhttps://github.com/encode/starlette/blob/39dccd911251dfa886775493ed6cefcb15549bc2/starlette/templating.py#L44\r\n\r\n- In this case, it will find `request: str` instead leading to the previously mentioned error.\r\n- Or in the case that user didn't supply any `request` key in `context`, it will set `request` to `{}` which should also be undesirable.\r\n\r\n<!-- POLAR PLEDGE BADGE START -->\r\n> [!IMPORTANT]\r\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\r\n> - We receive the funding once the issue is completed & confirmed by you.\r\n> - Thank you in advance for helping prioritize & fund our backlog.\r\n\r\n<a href=\"https://polar.sh/encode/starlette/issues/2531\">\r\n<picture>\r\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2531/pledge.svg?darkmode=1\">\r\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2531/pledge.svg\">\r\n</picture>\r\n</a>\r\n<!-- POLAR PLEDGE BADGE END -->\r\n",
+    "closed_at": "2024-03-21T12:44:30Z",
+    "created_at": "2024-03-01T14:50:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2531",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2531,
+    "state": "closed",
+    "title": "Bug: `_TemplateResponse` is still relying on `request` key from `context` which maybe different from  `request` argument to `TemplateResponse`.",
+    "user": "apiwat-chantawibul"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-03-01T15:29:16Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2024-03-01T15:29:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-03-20T19:39:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-20T19:39:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-03-20T19:39:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-03-20T19:39:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-03-20T19:39:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-03-21T06:58:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-21T12:43:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-21T12:43:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-03-21T12:43:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-03-21T12:44:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-21T12:44:31Z",
+      "event": "closed"
+    }
+  ]
+}

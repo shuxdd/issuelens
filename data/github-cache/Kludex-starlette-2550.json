@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I want to change the request body value of simple_invoke,would you give me a demo? I can't change request body value.\r\nBased on my experience with Java and C #, I believe this can be solved, but I am not very familiar with FastAPI . Can you help me?\r\nThanks!\r\n```py\r\ndef add_one(x: int) -> int:\r\n    \"\"\"Add one to the given number.\"\"\"\r\n    return x + 1\r\n\r\n\r\nchain = RunnableLambda(add_one)\r\n\r\napi_handler = APIHandler(chain, path=\"/simple\")\r\n\r\n\r\n# First register the endpoints without documentation\r\n@app.post(\"/simple/invoke\", include_in_schema=False)\r\nasync def simple_invoke(request: Request) -> Response:\r\n    \"\"\"Handle a request.\"\"\"\r\n    ### NOTE: I want change the value of request body at this position !!!! for example:  if  value of request body equals '1',I want change it to '100'\r\n    return await api_handler.invoke(request)\r\n```\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2550\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2550/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2550/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-03-25T09:33:49Z",
+    "created_at": "2024-03-25T07:42:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2550",
+    "number": 2550,
+    "state": "closed",
+    "title": "How to change the value of request body?",
+    "user": "Songjiadong"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-03-25T09:33:49Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-03-25T09:33:49Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

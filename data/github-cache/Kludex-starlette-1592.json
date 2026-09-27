@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "#1397 made Response __init__ to fail if status_code is set to None.\r\nSome libs apparently init Response prior to actually defining status_code, e.g. [fastapi](https://github.com/tiangolo/fastapi)",
+    "closed_at": "2022-04-15T19:04:34Z",
+    "created_at": "2022-04-15T18:57:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1592",
+    "number": 1592,
+    "state": "closed",
+    "title": "Response init fails if status_code is None",
+    "user": "syldman"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-04-15T19:04:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-15T19:04:34Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-04-15T19:04:44Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-04-15T19:05:56Z",
+      "event": "unlocked"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2020-01-13T10:20:23Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/793"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/793"
+    ]
+  },
+  "case_id": "starlette-issue-793",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1041",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'fix 793: allow custom async iterator' directly changes starlette/responses.py with focused behavior test(s) tests/test_responses.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2020-09-03T11:41:45Z",
+  "issue": {
+    "body": "[PEP-492 asynchronous iterators](https://www.python.org/dev/peps/pep-0492/#asynchronous-iterators-and-async-for) have the following signature:\r\n\r\n```python\r\nclass AsyncIterable:\r\n    def __aiter__(self):\r\n        return self\r\n\r\n    async def __anext__(self):\r\n        data = await self.fetch_data()\r\n        if data:\r\n            return data\r\n        else:\r\n            raise StopAsyncIteration\r\n```\r\n\r\nFor example, the Azure storage python library returns such an asynchronous iterator for blob downloading. I can't pass it to Starlette though; it will execute in the threadpool and crash there:\r\n\r\n```\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 385, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/fastapi/applications.py\", line 142, in __call__\r\n    await super().__call__(scope, receive, send)  # pragma: no cover\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/applications.py\", line 134, in __call__\r\n    await self.error_middleware(scope, receive, send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/middleware/errors.py\", line 178, in __call__\r\n    raise exc from None\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/middleware/errors.py\", line 156, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/exceptions.py\", line 73, in __call__\r\n    raise exc from None\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/exceptions.py\", line 62, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/routing.py\", line 590, in __call__\r\n    await route(scope, receive, send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/routing.py\", line 208, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/routing.py\", line 44, in app\r\n    await response(scope, receive, send)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/responses.py\", line 196, in __call__\r\n    async for chunk in self.body_iterator:\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/concurrency.py\", line 45, in iterate_in_threadpool\r\n    yield await run_in_threadpool(_next, iterator)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/concurrency.py\", line 25, in run_in_threadpool\r\n    return await loop.run_in_executor(None, func, *args)\r\n  File \"/home/korijn/.pyenv/versions/3.6.8/lib/python3.6/concurrent/futures/thread.py\", line 56, in run\r\n    result = self.fn(*self.args, **self.kwargs)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/contextvars/__init__.py\", line 38, in run\r\n    return callable(*args, **kwargs)\r\n  File \"/home/korijn/.local/share/virtualenvs/aiotest--vQHOsY--/home/korijn/.pyenv/shims/python/lib/python3.6/site-packages/starlette/concurrency.py\", line 37, in _next\r\n    return next(iterator)\r\nTypeError: '_AsyncChunkIterator' object is not an iterator\r\n```\r\n\r\nI have to wrap the iterator in an asynchronous generator function for it to work:\r\n\r\n```\r\n    async def chunks_generator():\r\n        async for i in blob.chunks():\r\n            yield i\r\n\r\n    return StreamingResponse(chunks_generator())\r\n```",
+    "number": 793,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/793",
+    "title": "StreamingResponse doesn't support PEP-492 asynchronous iterators"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1041 created_at 2020-09-03T11:41:45Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1041",
+    "repair_files": [
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is c566fc6c819f0d565f8cff432351fe009e83d866",
+    "test_files": [
+      "tests/test_responses.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/490ff0e1ee34631d6eba93d886c5d903381b5b25/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "f625437d2e8fe4555de612806240728716ea97cd",
+        "source_url": "https://github.com/Kludex/starlette/commit/f625437d2e8fe4555de612806240728716ea97cd"
+      },
+      {
+        "sha": "becc8e5fdb7337b5bd661467a2b2e29c876c39b3",
+        "source_url": "https://github.com/Kludex/starlette/commit/becc8e5fdb7337b5bd661467a2b2e29c876c39b3"
+      },
+      {
+        "sha": "12fd5ac998b950718aa482c90a1e3546899a8804",
+        "source_url": "https://github.com/Kludex/starlette/commit/12fd5ac998b950718aa482c90a1e3546899a8804"
+      },
+      {
+        "sha": "819731cb2e782bc2f7b856847ad2a64af1a03136",
+        "source_url": "https://github.com/Kludex/starlette/commit/819731cb2e782bc2f7b856847ad2a64af1a03136"
+      },
+      {
+        "sha": "a74af822c68dbf209954c597a61539bd799f2fe1",
+        "source_url": "https://github.com/Kludex/starlette/commit/a74af822c68dbf209954c597a61539bd799f2fe1"
+      },
+      {
+        "sha": "ee032ac3489e61614f1f7c7071cf76e353fe9063",
+        "source_url": "https://github.com/Kludex/starlette/commit/ee032ac3489e61614f1f7c7071cf76e353fe9063"
+      },
+      {
+        "sha": "06cd91567fb11b8a7e6942a20ff035475b8e7652",
+        "source_url": "https://github.com/Kludex/starlette/commit/06cd91567fb11b8a7e6942a20ff035475b8e7652"
+      },
+      {
+        "sha": "bdf54886b86f96ffacaa32d403e64e0b4904b81e",
+        "source_url": "https://github.com/Kludex/starlette/commit/bdf54886b86f96ffacaa32d403e64e0b4904b81e"
+      },
+      {
+        "sha": "9c520029a3b1de44b7c181bfdf89a29dbe976c26",
+        "source_url": "https://github.com/Kludex/starlette/commit/9c520029a3b1de44b7c181bfdf89a29dbe976c26"
+      },
+      {
+        "sha": "4ae1d67dfaaebe01b6f87bd7c767efbce8632f40",
+        "source_url": "https://github.com/Kludex/starlette/commit/4ae1d67dfaaebe01b6f87bd7c767efbce8632f40"
+      },
+      {
+        "sha": "35034aaf89de608c113810e6c4243ea704b9fac9",
+        "source_url": "https://github.com/Kludex/starlette/commit/35034aaf89de608c113810e6c4243ea704b9fac9"
+      },
+      {
+        "sha": "ac6493218d82d4862a4125a2fd24ca7317db473c",
+        "source_url": "https://github.com/Kludex/starlette/commit/ac6493218d82d4862a4125a2fd24ca7317db473c"
+      },
+      {
+        "sha": "809349ca01930ffd38cf68487aee5f0dc579da9e",
+        "source_url": "https://github.com/Kludex/starlette/commit/809349ca01930ffd38cf68487aee5f0dc579da9e"
+      },
+      {
+        "sha": "250c802ef467a89f04d42e04cd75acad9ef1228a",
+        "source_url": "https://github.com/Kludex/starlette/commit/250c802ef467a89f04d42e04cd75acad9ef1228a"
+      },
+      {
+        "sha": "490ff0e1ee34631d6eba93d886c5d903381b5b25",
+        "source_url": "https://github.com/Kludex/starlette/commit/490ff0e1ee34631d6eba93d886c5d903381b5b25"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2020-09-03T11:41:45Z",
+      "number": 1041,
+      "source_url": "https://github.com/Kludex/starlette/pull/1041"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1041"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/490ff0e1ee34631d6eba93d886c5d903381b5b25/tests%2Ftest_responses.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "c566fc6c819f0d565f8cff432351fe009e83d866",
+    "committed_at": "2020-08-16T14:24:23Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/c566fc6c819f0d565f8cff432351fe009e83d866"
+  },
+  "schema_version": "1.0"
+}

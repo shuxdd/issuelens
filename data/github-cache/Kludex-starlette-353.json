@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Not entirely sure to file this here or in uvicorn.\r\n\r\nI attempted to install the newest version of both starlette and uvicorn on a fresh Python 3.7.2 environment, but even the first example on https://www.starlette.io/ is unable to run and produces the following stacktrace:\r\n\r\n```\r\nTraceback (most recent call last):\r\n  File \"app.py\", line 12, in <module>\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n  File \"/Users/henrik/Development/starlettetest/env/lib/python3.7/site-packages/uvicorn/main.py\", line 184, in run\r\n    server.run()\r\n  File \"/Users/henrik/Development/starlettetest/env/lib/python3.7/site-packages/uvicorn/main.py\", line 213, in run\r\n    config.load()\r\n  File \"/Users/henrik/Development/starlettetest/env/lib/python3.7/site-packages/uvicorn/config.py\", line 119, in load\r\n    self.lifespan_class = import_from_string(LIFESPAN[self.lifespan])\r\n  File \"/Users/henrik/Development/starlettetest/env/lib/python3.7/site-packages/uvicorn/importer.py\", line 23, in import_from_string\r\n    raise exc from None\r\n  File \"/Users/henrik/Development/starlettetest/env/lib/python3.7/site-packages/uvicorn/importer.py\", line 20, in import_from_string\r\n    module = importlib.import_module(module_str)\r\n  File \"/usr/local/Cellar/python/3.7.2_1/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/__init__.py\", line 127, in import_module\r\n    return _bootstrap._gcd_import(name[level:], package, level)\r\n  File \"<frozen importlib._bootstrap>\", line 1006, in _gcd_import\r\n  File \"<frozen importlib._bootstrap>\", line 983, in _find_and_load\r\n  File \"<frozen importlib._bootstrap>\", line 953, in _find_and_load_unlocked\r\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\r\n  File \"<frozen importlib._bootstrap>\", line 1006, in _gcd_import\r\n  File \"<frozen importlib._bootstrap>\", line 983, in _find_and_load\r\n  File \"<frozen importlib._bootstrap>\", line 965, in _find_and_load_unlocked\r\nModuleNotFoundError: No module named 'uvicorn.lifespan'\r\n```\r\n\r\nI've previously used Starlette with no issue, but using the latest versions I'm unable to get past this stack trace.\r\n\r\nSteps to reproduce:\r\n\r\n1) Make a fresh Python 3.7.2 environment\r\n2) Run `pip3 install starlette uvicorn`\r\n3) Run the first example listed on https://www.starlette.io/\r\n\r\nVersions used:\r\n\r\nstarlette: 0.9.11\r\nuvicorn: 0.4.0",
+    "closed_at": "2019-01-25T21:24:40Z",
+    "created_at": "2019-01-25T21:13:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/353",
+    "number": 353,
+    "state": "closed",
+    "title": "ModuleNotFoundError: No module named 'uvicorn.lifespan'",
+    "user": "HenrikOssipoff"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-25T21:24:40Z",
+      "event": "commented"
+    }
+  ]
+}

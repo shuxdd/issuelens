@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "ERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"D:\\backend\\app.py\", line 22, in websocket_endpoint\r\n    data = await websocket.receive_bytes()\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"C:\\Users\\eunse\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\starlette\\websockets.py\", line 122, in receive_bytes\r\n    self._raise_on_disconnect(message)\r\n  File \"C:\\Users\\eunse\\AppData\\Local\\Packages\\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\\LocalCache\\local-packages\\Python312\\site-packages\\starlette\\websockets.py\", line 105, in _raise_on_disconnect\r\n    raise WebSocketDisconnect(message[\"code\"])\r\nstarlette.websockets.WebSocketDisconnect: 1006\r\n\r\nI'm using Fastapi socket connection in Server and using python websocket module in client computer. I was making livestreaming service, but after 30 second I started client camera python program, the error what I said upper happen. the error message upper is printed in Server console. I check by connected with ssh protocol. I use window 11 server by open 8000 port.\r\nPlease help me\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2382\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2382/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2382/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-21T08:00:11Z",
+    "created_at": "2023-12-21T07:58:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2382",
+    "number": 2382,
+    "state": "closed",
+    "title": "I have a problem about livestreaming connection starlette.websockets.WebSocketDisconnect: 1006",
+    "user": "EunseokEthanYang"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-12-21T08:00:11Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-12-21T08:00:11Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

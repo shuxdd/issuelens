@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The signature of WebSocketRoute had been changed, but the document didn't point it out.\r\n\r\nTest code in [0.11.4](https://github.com/encode/starlette/blob/0.11.4/tests/test_routing.py#L212-L228):\r\n\r\n```python\r\nclass WebsocketEndpoint:\r\n    def __init__(self, scope):\r\n        self.scope = scope\r\n\r\n    async def __call__(self, receive, send):\r\n        session = WebSocket(scope=self.scope, receive=receive, send=send)\r\n        await session.accept()\r\n        await session.send_json({\"URL\": str(session.url_for(\"WebsocketEndpoint\"))})\r\n        await session.close()\r\n\r\n\r\nmixed_protocol_app = Router(\r\n    routes=[\r\n        Route(\"/\", endpoint=http_endpoint),\r\n        WebSocketRoute(\"/\", endpoint=WebsocketEndpoint),\r\n    ]\r\n)\r\n```\r\n\r\nTest code in [0.12.0](https://github.com/encode/starlette/blob/0.12.0/tests/test_routing.py#L208-L221):\r\n\r\n```python\r\nclass WebSocketEndpoint:\r\n    async def __call__(self, scope, receive, send):\r\n        websocket = WebSocket(scope=scope, receive=receive, send=send)\r\n        await websocket.accept()\r\n        await websocket.send_json({\"URL\": str(websocket.url_for(\"websocket_endpoint\"))})\r\n        await websocket.close()\r\n\r\n\r\nmixed_protocol_app = Router(\r\n    routes=[\r\n        Route(\"/\", endpoint=http_endpoint),\r\n        WebSocketRoute(\"/\", endpoint=WebSocketEndpoint(), name=\"websocket_endpoint\"),\r\n    ]\r\n)\r\n```",
+    "closed_at": "2019-06-10T08:18:22Z",
+    "created_at": "2019-06-10T06:35:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/536",
+    "number": 536,
+    "state": "closed",
+    "title": "WebSocketRoute incompatible",
+    "user": "keakon"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-10T08:18:31Z",
+      "event": "commented"
+    }
+  ]
+}

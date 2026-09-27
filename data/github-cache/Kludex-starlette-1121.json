@@ -1,0 +1,104 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-03-27T05:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2026-03-27T08:56:20Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/145"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: deepen operator console control plane"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-14T16:59:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bandr-ai/vektori/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2026-04-30T20:04:26Z",
+            "url": "https://api.github.com/repos/bandr-ai/vektori/pulls/55"
+          },
+          "repository": {
+            "full_name": "bandr-ai/vektori"
+          },
+          "title": "Feat/native agent harness"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi, I'm doing a websocket endpoint that should push to clients from time to time, in my case, when `await manager.wait_for_changes(id)` returns:\r\n\r\n```\r\n@app.websocket(\"/tables\")\r\nasync def ws_tables_endpoint(\r\n    websocket: WebSocket,\r\n):\r\n    id = websocket.query_params.get('id')\r\n    await manager.subscribe_to(websocket, id)\r\n    try:\r\n        while True:\r\n            await manager.wait_for_changes(id)\r\n            content = {'a': 10, 'b': 20}  # hard-coded content\r\n            await manager.broadcast_to(id, content)\r\n\r\n    except WebSocketDisconnect:\r\n        manager.disconnect(websocket)\r\n        manager.unsubscribe_from(websocket, id)\r\n```\r\n\r\nThe problem is, when the client disconnects the exception `WebSocketDisconnect` isn't triggered, it is because it doesn't call the usual [receive_text](https://github.com/encode/starlette/blob/bfa61ad92b63b6929e485f2189fd299f94189b09/starlette/websockets.py#L82).\r\n\r\nI would like to **keep pushing data periodically without the need to wait a receive first**, I was able to achieve this with the code above but I lost the `WebSocketDisconnect` throughout.\r\n\r\nI tried to port the code to a `WebSocketEndpoint` version, to use `on_disconnect`:\r\n\r\n```\r\n@app.websocket_route(\"/tables\")\r\nclass MessagesEndpoint(WebSocketEndpoint):\r\n    encoding = 'json'\r\n\r\n    async def on_connect(\r\n        self,\r\n        websocket: WebSocket,\r\n    ) -> None:\r\n        id = websocket.query_params.get('id')\r\n        await manager.subscribe_to(websocket, id)\r\n\r\n        while True:\r\n            await manager.wait_for_changes(id)\r\n            content = {'a': 10, 'b': 20}  # hard-coded content\r\n            await manager.broadcast_to(id, content)\r\n\r\n    async def on_receive(self, websocket: WebSocket, data) -> None:\r\n        pass\r\n\r\n    async def on_disconnect(self, websocket: WebSocket, close_code: int) -> None:\r\n        print('on disconnect...')\r\n``` \r\n\r\nbut since the `on_connect` never ends it also never trigger the `on_disconnect`, thx!",
+    "closed_at": "2021-03-15T10:05:31Z",
+    "created_at": "2021-01-05T05:30:20Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1121",
+    "labels": [
+      "websocket"
+    ],
+    "number": 1121,
+    "state": "closed",
+    "title": "Disconnect Events without calling receive_text",
+    "user": "rafaelcapucho"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-01-05T06:15:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-04T20:25:02Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-03-14T13:34:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-27T05:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2026-03-27T08:56:20Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/145"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: deepen operator console control plane"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-14T16:59:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bandr-ai/vektori/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2026-04-30T20:04:26Z",
+            "url": "https://api.github.com/repos/bandr-ai/vektori/pulls/55"
+          },
+          "repository": {
+            "full_name": "bandr-ai/vektori"
+          },
+          "title": "Feat/native agent harness"
+        }
+      }
+    }
+  ]
+}

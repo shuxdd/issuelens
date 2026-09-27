@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-09-29T10:23:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2709",
+          "number": 2709,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2709"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use less private imports on the testclient module"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Prompted by https://github.com/encode/httpx/discussions/3287\r\n\r\n---\r\n\r\n`starlette` is currently using private imports from `httpx`...\r\n\r\nhttps://github.com/encode/starlette/blob/c78c9aac17a4d68e0647252310044502f1b7da71/starlette/testclient.py#L500-L513\r\n\r\nThese are broken against the latest minor point release, which includes this (internal) refactoring... https://github.com/encode/httpx/pull/3245\r\n\r\n---\r\n\r\nIt's possible that the path of least resistance for the short term is for `httpx` to re-include `URLTypes`, tho really we need to be making sure that downstream packages are not using private imports.\r\n\r\nSome prior discussion of this also at #2534.",
+    "closed_at": "2026-06-10T09:12:13Z",
+    "created_at": "2024-08-27T12:30:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2673",
+    "number": 2673,
+    "state": "closed",
+    "title": "Private imports from `httpx`.",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-08-27T13:02:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-01T07:09:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-01T07:11:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-04T15:05:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-21T21:02:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-26T16:54:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T10:02:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-09-29T10:23:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2709",
+          "number": 2709,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2709"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use less private imports on the testclient module"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-13T13:06:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-06-10T09:12:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-10T09:12:13Z",
+      "event": "closed"
+    }
+  ]
+}

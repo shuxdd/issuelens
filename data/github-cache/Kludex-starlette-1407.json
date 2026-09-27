@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\n\n- [X] There are no similar issues or pull requests for this yet.\n- [ ] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\n\n### Is your feature related to a problem? Please describe.\n\nAdd full description here\r\nhttps://github.com/tiangolo/fastapi/issues/4419\r\nTL;DR according https://github.com/encode/starlette/issues/1 I want something built-in like https://github.com/frankie567/starlette-csrf\n\n### Describe the solution you would like.\n\n_No response_\n\n### Describe alternatives you considered\n\n_No response_\n\n### Additional context\n\n_No response_",
+    "closed_at": "2022-01-14T10:19:38Z",
+    "created_at": "2022-01-12T20:29:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1407",
+    "number": 1407,
+    "state": "closed",
+    "title": "Add built-in CSRF support",
+    "user": "Niccolum"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-01-12T20:30:10Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-01-14T10:14:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-14T10:14:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-14T10:14:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-14T10:14:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-14T10:14:49Z",
+      "event": "subscribed"
+    }
+  ]
+}

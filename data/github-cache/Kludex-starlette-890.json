@@ -1,0 +1,99 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-28T12:49:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1181",
+          "number": 1181,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Is there a way to limit Request size?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "As discussed in the Gitter, my opinion is that starlette should provide a default limit for request size.\r\nThe main reason is that without it, any Starlette application is vulnerable to very easy DoS.\r\nFor example, newbie me can write a program as follows:\r\n```\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response\r\n\r\n\r\nasync def app(scope, receive, send):\r\n    assert scope['type'] == 'http'\r\n    request = Request(scope, receive)\r\n    body = b''\r\n    json = await request.json()\r\n    response = Response(body, media_type='text/plain')\r\n    await response(scope, receive, send)\r\n```\r\nAs a malicious user, I could send a 30GB sized JSON and cause the memory to go OOM.\r\nOther frameworks support this also - Django, Quart.\r\nMy proposal is to add a default limit which can be overrided in the app configuration.",
+    "closed_at": "2022-02-15T09:51:23Z",
+    "created_at": "2020-04-05T06:59:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/890",
+    "number": 890,
+    "state": "closed",
+    "title": "Limit max request size",
+    "user": "aviramha"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-05T07:08:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T07:13:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T07:36:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T09:11:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T14:32:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T14:35:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T23:54:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-16T09:39:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-24T01:32:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-28T12:49:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1181",
+          "number": 1181,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Is there a way to limit Request size?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-02T08:40:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-10T19:49:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-23T18:40:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-23T19:02:46Z",
+      "event": "commented"
+    }
+  ]
+}

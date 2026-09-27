@@ -1,0 +1,328 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-03-15T11:43:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5d748111b0f8116053f3bd09870d9af8aef971db",
+      "sha": "5d748111b0f8116053f3bd09870d9af8aef971db"
+    },
+    {
+      "committed_at": "2026-03-15T11:56:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e76c85941b4669e768a75b0a06ff8aa69ae3d9b4",
+      "sha": "e76c85941b4669e768a75b0a06ff8aa69ae3d9b4"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-10-29T18:48:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3051",
+          "number": 3051,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3051"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: add websocket prefix to StreamingResponse and FileResponse denia\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2025-12-29T09:15:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3085",
+          "number": 3085,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3085"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: websocket prefix for StreamingResponse and FileResponse denial (\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-13T13:15:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3185",
+          "number": 3185,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3185"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-14T19:29:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3187",
+          "number": 3187,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3187"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-14T19:31:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3188",
+          "number": 3188,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3188"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-15T11:44:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3189",
+          "number": 3189,
+          "pull_request": {
+            "merged_at": "2026-03-15T11:59:16Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3189"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handle websocket denial responses in streaming and file responses"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 27,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76c85941b4669e768a75b0a06ff8aa69ae3d9b4/starlette%2Fresponses.py",
+      "changes": 46,
+      "deletions": 19,
+      "filename": "starlette/responses.py",
+      "sha": "029ebe91070dc48266ed7681c8fdf8f9c8dcc59f",
+      "status": "modified"
+    },
+    {
+      "additions": 32,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76c85941b4669e768a75b0a06ff8aa69ae3d9b4/tests%2Ftest_responses.py",
+      "changes": 34,
+      "deletions": 2,
+      "filename": "tests/test_responses.py",
+      "sha": "05097510e19a379d611306896e8a4de196dd6400",
+      "status": "modified"
+    },
+    {
+      "additions": 41,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e76c85941b4669e768a75b0a06ff8aa69ae3d9b4/tests%2Ftest_websockets.py",
+      "changes": 43,
+      "deletions": 2,
+      "filename": "tests/test_websockets.py",
+      "sha": "7ffd1f231e962a684b07681b34d7bd2dab4b75db",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "\n### Discussed in https://github.com/Kludex/starlette/discussions/2566\n\n<div type='discussions-op-text'>\n\n<sup>Originally posted by **WSH032** April  6, 2024</sup>\n## Describe the bug\r\n\r\nIf we use `FileResponse` or `StreamingResponse` when sending the Websocket Denial Response, a `RuntimeError` will occur.\r\n\r\n## To Reproduce\r\n\r\n```py\r\nfrom fastapi import FastAPI, WebSocket\r\nfrom fastapi.responses import StreamingResponse\r\nfrom uvicorn import run\r\n\r\napp = FastAPI()\r\n\r\n\r\n@app.websocket(\"/\")\r\nasync def _(ws: WebSocket):\r\n    async def foo():\r\n        yield \"hello\"\r\n        yield \"world\"\r\n\r\n    resp = StreamingResponse(content=foo())\r\n    await ws.send_denial_response(resp)\r\n\r\n\r\nrun(app)\r\n```\r\n\r\nSteps to reproduce the behavior:\r\n1. Launch the server\r\n2. Try to establish the websocket connection\r\n3. You will see following error\r\n\r\n```console\r\n  |   File \"e:\\GitHub\\fastapi-proxy\\Untitled-8.py\", line 16, in _\r\n  |     await ws.send_denial_response(resp)\r\n  |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\starlette\\websockets.py\", line 209, in send_denial_response        \r\n  |     await response(self.scope, self.receive, self.send)\r\n  |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\starlette\\responses.py\", line 258, in __call__\r\n  |     async with anyio.create_task_group() as task_group:\r\n  |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\anyio\\_backends\\_asyncio.py\", line 678, in __aexit__\r\n  |     raise BaseExceptionGroup(\r\n  | exceptiongroup.ExceptionGroup: unhandled errors in a TaskGroup (1 sub-exception)\r\n  +-+---------------- 1 ----------------\r\n    | Traceback (most recent call last):\r\n    |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\starlette\\responses.py\", line 261, in wrap\r\n    |     await func()\r\n    |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\starlette\\responses.py\", line 243, in stream_response\r\n    |     await send(\r\n    |   File \"E:\\GitHub\\fastapi-proxy\\.venv\\lib\\site-packages\\starlette\\websockets.py\", line 75, in send\r\n    |     raise RuntimeError(\r\n    | RuntimeError: Expected ASGI message \"websocket.accept\",\"websocket.close\" or \"websocket.http.response.start\",but got 'http.response.start'\r\n    +------------------------------------\r\n```\r\n\r\n## Expected behavior\r\n\r\n`FileResponse` and `StreamingResponse` override the `__call__` method, but they do not add the `\"websocket.\"` prefix like the parent class `Response` does.\r\n\r\nhttps://github.com/encode/starlette/blob/4e453ce91940cc7c995e6c728e3fdf341c039056/starlette/responses.py#L151-L154\r\n\r\nIf this is expected behavior, I didn't see any relevant information in the documentation, and at least the type checker didn't raise any errors\r\n\r\n## Configuration\r\n```\r\nstarlette == 0.37.2\r\n```\r\n</div>",
+    "body_last_edited_at": null,
+    "closed_at": "2026-03-15T11:59:17Z",
+    "created_at": "2025-10-29T08:14:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3048",
+    "number": 3048,
+    "state": "closed",
+    "title": "Can not use `send_denial_response` with `StreamingResponse`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2026-03-15T11:59:16Z",
+    "created_at": "2026-03-15T11:44:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3189",
+    "merge_commit_sha": "9ee951980bae776103715b66305f807d9e8245da",
+    "merged_at": "2026-03-15T11:59:16Z",
+    "number": 3189,
+    "title": "Handle websocket denial responses in streaming and file responses",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "a0bcc26612c9c344737cd59fb4ef847326adf37a",
+    "committed_at": "2026-03-14T06:00:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a0bcc26612c9c344737cd59fb4ef847326adf37a"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-10-29T16:32:53Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "f70425a50c2a84ce41818b6b8a07f744d4e1dcba",
+      "commit_url": "https://api.github.com/repos/martin-joshy/starlette/commits/f70425a50c2a84ce41818b6b8a07f744d4e1dcba",
+      "created_at": "2025-10-29T17:51:04Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-10-29T18:48:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3051",
+          "number": 3051,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3051"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: add websocket prefix to StreamingResponse and FileResponse denia\u2026"
+        }
+      }
+    },
+    {
+      "commit_id": "87018a780b8f067648b72172d4bd6468aa14929a",
+      "commit_url": "https://api.github.com/repos/martin-joshy/starlette/commits/87018a780b8f067648b72172d4bd6468aa14929a",
+      "created_at": "2025-10-30T18:26:32Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "04e21a810168a6bbb040689103b5fc7636be488a",
+      "commit_url": "https://api.github.com/repos/rahuldevikar/starlette/commits/04e21a810168a6bbb040689103b5fc7636be488a",
+      "created_at": "2025-12-29T09:13:24Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-12-29T09:15:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3085",
+          "number": 3085,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3085"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: websocket prefix for StreamingResponse and FileResponse denial (\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2025-12-29T09:24:04Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "3d09ffa0eb1bdab8a320e7b2dee12d40407ff7c1",
+      "commit_url": "https://api.github.com/repos/wavebyrd/starlette/commits/3d09ffa0eb1bdab8a320e7b2dee12d40407ff7c1",
+      "created_at": "2026-03-13T13:15:27Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-03-13T13:15:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3185",
+          "number": 3185,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3185"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "commit_id": "d700829e4dd8a592c2d8b7a93834a2730fdcce20",
+      "commit_url": "https://api.github.com/repos/wavebyrd/starlette/commits/d700829e4dd8a592c2d8b7a93834a2730fdcce20",
+      "created_at": "2026-03-13T21:38:31Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-03-14T19:29:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3187",
+          "number": 3187,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3187"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "commit_id": "ea47285dc654f05c1f158b9b67a4b367fe3580b3",
+      "commit_url": "https://api.github.com/repos/wavebyrd/starlette/commits/ea47285dc654f05c1f158b9b67a4b367fe3580b3",
+      "created_at": "2026-03-14T19:30:35Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-03-14T19:31:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3188",
+          "number": 3188,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3188"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix StreamingResponse and FileResponse with websocket denial responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-15T11:44:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3189",
+          "number": 3189,
+          "pull_request": {
+            "merged_at": "2026-03-15T11:59:16Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3189"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handle websocket denial responses in streaming and file responses"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-15T11:59:17Z",
+      "event": "closed"
+    }
+  ]
+}

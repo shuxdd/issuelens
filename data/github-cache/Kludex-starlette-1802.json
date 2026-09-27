@@ -1,0 +1,180 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-08-10T17:21:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alex-oleshkevich/starception/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "alex-oleshkevich/starception"
+          },
+          "title": "AttributeError: 'LoopContext' object has no attribute '_iterator'"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-10T20:50:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1803",
+          "number": 1803,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1803"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Always call custom error handler."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "`ServerErrorMiddleware` ignores `handler` argument when app is running in debug mode. Instead, it [always calls the default one](https://github.com/encode/starlette/blob/master/starlette/middleware/errors.py#L167).\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import Response\r\n\r\ndef my_handler(request, exc): \r\n    if request.app.debug:\r\n        return Response('Fail in debug mode')\r\n    return Response('Fail in production mode')\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    exception_handlers={Exception: my_handler}\r\n)\r\n```\r\n\r\nThis causes us to do workarounds like reimplementing `ServerErrorMiddleware` on our own just to use an alternate exception handler in debug mode. Though intuitively, you expect `exception_handlers` for that purpose.\r\n\r\nWould it make sense to always call a configured handler when available, and ignore the default one?\r\nA possible solution can look like this:\r\n```python\r\ntry:\r\n    await self.app(scope, receive, _send)\r\nexcept Exception as exc:\r\n    request = Request(scope)\r\n    if self.handler is not None:\r\n        if is_async_callable(self.handler):\r\n            response = await self.handler(request, exc)\r\n        else:\r\n            response = await run_in_threadpool(self.handler, request, exc)\r\n    elif self.debug:\r\n        # In debug mode, return traceback responses.\r\n        response = self.debug_response(request, exc)\r\n    else:\r\n        # Use our default 500 error handler.\r\n        response = self.error_response(request, exc)\r\n```\r\n\r\nLet me know if I can PR it.",
+    "closed_at": "2022-09-24T05:26:26Z",
+    "created_at": "2022-08-10T17:21:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1802",
+    "labels": [
+      "feature"
+    ],
+    "number": 1802,
+    "state": "closed",
+    "title": "Custom error handler not called by `ServerErrorMiddleware` in debug mode",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-10T17:21:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/alex-oleshkevich/starception/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "alex-oleshkevich/starception"
+          },
+          "title": "AttributeError: 'LoopContext' object has no attribute '_iterator'"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-10T18:36:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-10T20:50:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1803",
+          "number": 1803,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1803"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Always call custom error handler."
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-11T19:13:39Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-11T19:23:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-11T19:23:48Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2022-08-11T19:23:49Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-11T19:27:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-12T10:57:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-03T11:05:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-03T11:05:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-03T11:05:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-04T10:43:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-04T10:43:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-04T10:43:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-05T11:45:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-05T12:03:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-05T12:15:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-05T12:25:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-05T12:25:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-05T12:25:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-05T12:37:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-05T12:48:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-06T10:07:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-24T05:26:26Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-09-24T05:26:26Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

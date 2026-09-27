@@ -1,0 +1,59 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Would be great if you are able to add the samesite options for Response.set_cookie and not just for the session middleware. Thanks.\r\n------------\r\n`set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None)`\r\n\r\n_Originally posted by @shawnwall in https://github.com/encode/starlette/issues/275#issuecomment-540026711_",
+    "closed_at": "2021-06-22T04:43:32Z",
+    "created_at": "2019-10-28T07:21:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/691",
+    "labels": [
+      "feature"
+    ],
+    "number": 691,
+    "state": "closed",
+    "title": "Add samesite option for Response.set_cookie",
+    "user": "weeshiang"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-28T07:21:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-28T07:21:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-04T09:35:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-04T09:37:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T19:27:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T19:32:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-14T19:49:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-03T02:06:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-22T04:04:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-22T04:43:33Z",
+      "event": "closed"
+    }
+  ]
+}

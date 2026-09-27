@@ -1,0 +1,220 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-11-23T09:11:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1c6bf6e4a55831ef05f18614f38f8118ba43a56f",
+      "sha": "1c6bf6e4a55831ef05f18614f38f8118ba43a56f"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-11-08T13:38:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/197",
+          "number": 197,
+          "pull_request": {
+            "merged_at": "2018-11-23T15:20:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/197"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "refactor: schemas now have better support for third party packages"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/1c6bf6e4a55831ef05f18614f38f8118ba43a56f/setup.py",
+      "changes": 3,
+      "deletions": 2,
+      "filename": "setup.py",
+      "sha": "7f735fba124b7b64a06943c60ca0ad376b542191",
+      "status": "modified"
+    },
+    {
+      "additions": 49,
+      "blob_url": "https://github.com/Kludex/starlette/blob/1c6bf6e4a55831ef05f18614f38f8118ba43a56f/starlette%2Fschemas.py",
+      "changes": 67,
+      "deletions": 18,
+      "filename": "starlette/schemas.py",
+      "sha": "c05e34f10a975160997aef9e22cb45afb0252427",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "So @kennethreitz's Responder uses APISpec for generating the API schemas.\r\nThat's actually really nice, as it includes various plugins including marshmallow support etc.\r\n\r\nWe should have a [SchemaGenerator](https://www.starlette.io/schemas/) implementation that uses APISpec. I'm guess ideally it should be a third party implementation, rather than included in the main package.\r\n\r\nThis would make a great little project for a contributor to jump onto.\r\n\r\nSee also #172",
+    "closed_at": "2018-11-24T15:49:03Z",
+    "created_at": "2018-11-07T10:35:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/189",
+    "number": 189,
+    "state": "closed",
+    "title": "Support an `APISpec` SchemaGenerator",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-11-23T15:20:08Z",
+    "created_at": "2018-11-08T13:38:18Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/197",
+    "merge_commit_sha": "49c4b78d7c7d4da5e2f716ded585c1255354928d",
+    "merged_at": "2018-11-23T15:20:08Z",
+    "number": 197,
+    "title": "refactor: schemas now have better support for third party packages",
+    "user": "woile"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-07T10:35:52Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-07T10:35:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-07T10:36:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-07T18:44:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-07T19:34:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-07T19:34:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-07T19:34:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-07T19:48:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-07T20:08:00Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "4e09fc263fabf0259dd389987b844365729d09e1",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/4e09fc263fabf0259dd389987b844365729d09e1",
+      "created_at": "2018-11-08T13:35:42Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2018-11-08T13:38:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/197",
+          "number": 197,
+          "pull_request": {
+            "merged_at": "2018-11-23T15:20:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/197"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "refactor: schemas now have better support for third party packages"
+        }
+      }
+    },
+    {
+      "commit_id": "001d83585a0832fff8f9c6045fbafa418b419000",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/001d83585a0832fff8f9c6045fbafa418b419000",
+      "created_at": "2018-11-09T13:24:07Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "939f9aabb5812cdba3f5bc2f63da4d35c1566192",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/939f9aabb5812cdba3f5bc2f63da4d35c1566192",
+      "created_at": "2018-11-09T13:53:31Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "56f4f2f6efa786eaaaf22425061310ca0483ca8c",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/56f4f2f6efa786eaaaf22425061310ca0483ca8c",
+      "created_at": "2018-11-09T13:56:10Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "dce6316927c72e78b91d3fdbcca282664acaed14",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/dce6316927c72e78b91d3fdbcca282664acaed14",
+      "created_at": "2018-11-09T14:00:04Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "9c3930df7e1b9e4071bd21302a26467f6bfde478",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/9c3930df7e1b9e4071bd21302a26467f6bfde478",
+      "created_at": "2018-11-09T14:00:51Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "cf86e6e7d99d400e262ed6f71cc62ce8cdf2f0dd",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/cf86e6e7d99d400e262ed6f71cc62ce8cdf2f0dd",
+      "created_at": "2018-11-09T14:05:28Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "740363bb4f2491f4d4e373e993c75c0a4ce96f55",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/740363bb4f2491f4d4e373e993c75c0a4ce96f55",
+      "created_at": "2018-11-09T14:18:54Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "85c36fc1d4a51965f8457077b1c51a521519e5f7",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/85c36fc1d4a51965f8457077b1c51a521519e5f7",
+      "created_at": "2018-11-09T14:27:35Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "fe6eea005ce21bb5a3c56ff15777e23fece0ba9e",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/fe6eea005ce21bb5a3c56ff15777e23fece0ba9e",
+      "created_at": "2018-11-09T14:43:19Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "e75857908bf6d979c698515c03c4c6929574df3c",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/e75857908bf6d979c698515c03c4c6929574df3c",
+      "created_at": "2018-11-11T14:29:08Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "19e19024117b0d05262753087f231b98d916b1d5",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/19e19024117b0d05262753087f231b98d916b1d5",
+      "created_at": "2018-11-11T14:54:36Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "40568049017294336bc0556e12a0e2d95f100cef",
+      "commit_url": "https://api.github.com/repos/woile/starlette/commits/40568049017294336bc0556e12a0e2d95f100cef",
+      "created_at": "2018-11-11T14:59:02Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2018-11-23T18:39:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-24T09:15:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-24T09:38:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-24T11:09:13Z",
+      "event": "commented"
+    }
+  ]
+}

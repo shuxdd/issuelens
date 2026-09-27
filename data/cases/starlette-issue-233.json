@@ -1,0 +1,101 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2018-11-22T16:26:54Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/233"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/233"
+    ]
+  },
+  "case_id": "starlette-issue-233",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1147",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Make session cookie use ASGI root path' directly changes starlette/middleware/sessions.py with focused behavior test(s) tests/middleware/test_session.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-03-11T11:33:28Z",
+  "issue": {
+    "body": "The session cookie currently uses '/'.\r\nIt should really use the ASGI root path instead, in case the application is submounted.",
+    "number": 233,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/233",
+    "title": "Session cookie should use root path"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1147 created_at 2021-03-11T11:33:28Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1147",
+    "repair_files": [
+      "starlette/middleware/sessions.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 23e15789bf6b879b455f1249e47a43d4c752b3ed",
+    "test_files": [
+      "tests/middleware/test_session.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/sessions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c/starlette%2Fmiddleware%2Fsessions.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "c73f00cb02d520992e18423f06bf6a776eb4a75b",
+        "source_url": "https://github.com/Kludex/starlette/commit/c73f00cb02d520992e18423f06bf6a776eb4a75b"
+      },
+      {
+        "sha": "2aa81bb3ad15b14e479b94224fe9524de40c89db",
+        "source_url": "https://github.com/Kludex/starlette/commit/2aa81bb3ad15b14e479b94224fe9524de40c89db"
+      },
+      {
+        "sha": "bd02f114b008aaad0abf2836bf3dfb19a112af8a",
+        "source_url": "https://github.com/Kludex/starlette/commit/bd02f114b008aaad0abf2836bf3dfb19a112af8a"
+      },
+      {
+        "sha": "5e42d30de0bdd46f771ccf42d1b51b7d85168a2c",
+        "source_url": "https://github.com/Kludex/starlette/commit/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-03-11T11:33:28Z",
+      "number": 1147,
+      "source_url": "https://github.com/Kludex/starlette/pull/1147"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1147"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_session.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c/tests%2Fmiddleware%2Ftest_session.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "23e15789bf6b879b455f1249e47a43d4c752b3ed",
+    "committed_at": "2021-02-07T19:06:30Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/23e15789bf6b879b455f1249e47a43d4c752b3ed"
+  },
+  "schema_version": "1.0"
+}

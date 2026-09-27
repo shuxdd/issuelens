@@ -1,0 +1,182 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-12-22T15:09:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a13b42d4752572887ad5bdba666000d4b4052b39",
+      "sha": "a13b42d4752572887ad5bdba666000d4b4052b39"
+    },
+    {
+      "committed_at": "2024-12-22T15:47:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/016c2510618daa90ba4239981a75a437a9306b40",
+      "sha": "016c2510618daa90ba4239981a75a437a9306b40"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2024-12-16T21:30:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2805",
+          "number": 2805,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2805"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: change conditional logic in `_choose_redirect_arg` for `TestClent` (#2783)."
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-22T15:15:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2808",
+          "number": 2808,
+          "pull_request": {
+            "merged_at": "2024-12-25T08:45:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2808"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove deprecated `allow_redirects` argument from `TestClient`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/pyproject.toml",
+      "changes": 1,
+      "deletions": 1,
+      "filename": "pyproject.toml",
+      "sha": "18b954c844f7bb2e9f175af0ef3787fa17014299",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/starlette%2Ftestclient.py",
+      "changes": 65,
+      "deletions": 49,
+      "filename": "starlette/testclient.py",
+      "sha": "2c096aa226b88a4d87ea4a7df787e70dc26c21f7",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/tests%2Fmiddleware%2Ftest_https_redirect.py",
+      "changes": 8,
+      "deletions": 4,
+      "filename": "tests/middleware/test_https_redirect.py",
+      "sha": "66014e7e55c606ef99245813f81b05f5a6be25cd",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/016c2510618daa90ba4239981a75a437a9306b40/tests%2Ftest_responses.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "tests/test_responses.py",
+      "sha": "9f801419a2bd98b86e3ead0c46be5a48c73d398c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "In here, the elif branch should likely be the first condition to trigger only then followed by check of the individual parameters - I can do a PR for this if accepted\r\n\r\nhttps://github.com/encode/starlette/blob/d40bc9e5e12d686542a180368bc78402e9501efd/starlette/testclient.py#L458C1-L462C24",
+    "body_last_edited_at": null,
+    "closed_at": "2024-12-25T08:46:09Z",
+    "created_at": "2024-12-04T07:29:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2783",
+    "labels": [
+      "good first issue"
+    ],
+    "number": 2783,
+    "state": "closed",
+    "title": "Elif branch with error raise in TestClient _choose_redirect_arg never triggers",
+    "user": "t-ded"
+  },
+  "pull_request": {
+    "closed_at": "2024-12-25T08:45:38Z",
+    "created_at": "2024-12-22T15:15:00Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2808",
+    "merge_commit_sha": "c82acf3a03a9b97ffc4332cd3970a1f679383aeb",
+    "merged_at": "2024-12-25T08:45:38Z",
+    "number": 2808,
+    "title": "Remove deprecated `allow_redirects` argument from `TestClient`",
+    "user": "lealre"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+    "committed_at": "2024-12-21T19:11:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f884b6649ea7e0b019443a265db7ff62ebe7914b"
+  },
+  "timeline": [
+    {
+      "created_at": "2024-12-04T07:30:11Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2024-12-05T07:46:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-15T18:21:48Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "0450397ce07ef8196a5532ad427cb6b1ba33c3da",
+      "commit_url": "https://api.github.com/repos/lealre/starlette/commits/0450397ce07ef8196a5532ad427cb6b1ba33c3da",
+      "created_at": "2024-12-16T21:28:16Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-12-16T21:30:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2805",
+          "number": 2805,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2805"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: change conditional logic in `_choose_redirect_arg` for `TestClent` (#2783)."
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-22T15:15:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2808",
+          "number": 2808,
+          "pull_request": {
+            "merged_at": "2024-12-25T08:45:38Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2808"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove deprecated `allow_redirects` argument from `TestClient`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-12-25T08:46:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-25T08:46:10Z",
+      "event": "closed"
+    }
+  ]
+}

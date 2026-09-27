@@ -1,0 +1,279 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-05-16T17:42:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/pull/137",
+          "number": 137,
+          "pull_request": {
+            "url": "https://api.github.com/repos/trallnag/prometheus-fastapi-instrumentator/pulls/137"
+          },
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "\ud83d\udc1b Expose exceptions raised by other middlewares and app code"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-26T11:33:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/4145",
+          "number": 4145,
+          "pull_request": {
+            "merged_at": "2022-01-07T09:34:28Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/4145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f Upgrade Starlette to 0.17.1"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-25T17:04:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1706",
+          "number": 1706,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1706"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-27T18:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1710",
+          "number": 1710,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1710"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation (BaseHTTPMiddleware)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-24T16:09:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/microsoft/planetary-computer-apis/pull/130",
+          "number": 130,
+          "pull_request": {
+            "merged_at": "2022-10-25T14:44:08Z",
+            "url": "https://api.github.com/repos/microsoft/planetary-computer-apis/pulls/130"
+          },
+          "repository": {
+            "full_name": "microsoft/planetary-computer-apis"
+          },
+          "title": "Fix middleware runtime error and release prep fixes"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-21T17:48:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dialoguemd/fastapi-sqla/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2024-06-25T17:49:10Z",
+            "url": "https://api.github.com/repos/dialoguemd/fastapi-sqla/pulls/145"
+          },
+          "repository": {
+            "full_name": "dialoguemd/fastapi-sqla"
+          },
+          "title": "feat: use pure ASGI middlewares"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "- [x] Related discussion: https://github.com/encode/starlette/discussions/1527 \r\n\r\nSame error though I don't know if cause is the same, we have not been able to reproduce the error in our environments.\r\n\r\n### The issue\r\nOur frontend is getting HTTP 500 errors from our FastAPI backend. The error is shown below. The error is seemingly random, we have not been able to reproduce it. The traceback does not lead anywhere to our own source code. It has happened on multiple different endpoint requests. We have wrapped our endpoint code in `try/except` blocks to catch any \"hidden\" error in our code to trigger this, but it did not catch anything, leading me to believe that this is an underlying error in the framework.\r\n\r\nWe discovered the error on FastAPI v0.71.0 (Starlette v0.17.1). \r\nWe tried upgrading FastAPI to v0.76.0 (Starlette v0.18.0), the error became more frequent.\r\nWe have now downgraded FastAPI to v0.68.2 hoping that the error dissipates.\r\n\r\npython v3.8\r\nuvicorn v0.15.0\r\n\r\n```\r\nINFO:   xxx - \"POST /api/xxx HTTP/1.1\" 500\r\nERROR:  Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 375, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/uvicorn/middleware/proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/fastapi/applications.py\", line 208, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/starlette/middleware/base.py\", line 63, in __call__\r\n    response = await self.dispatch_func(request, call_next)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/prometheus_fastapi_instrumentator/instrumentation.py\", line 172, in dispatch_middleware\r\n    raise e from None\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/prometheus_fastapi_instrumentator/instrumentation.py\", line 169, in dispatch_middleware\r\n    response = await call_next(request)\r\n  File \"/xxx/venv/lib64/python3.8/site-packages/starlette/middleware/base.py\", line 45, in call_next\r\n    raise RuntimeError(\"No response returned.\")\r\nRuntimeError: No Reponse returned.\r\n```\r\n",
+    "closed_at": "2022-05-15T17:01:59Z",
+    "created_at": "2022-05-12T08:05:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1634",
+    "number": 1634,
+    "state": "closed",
+    "title": "Seemingly random error `RuntimeError: No Reponse returned.`",
+    "user": "havardthom"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-05-12T10:06:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-12T11:55:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-12T13:08:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-13T06:53:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-13T07:32:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-13T07:32:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-13T07:32:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-15T16:49:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-15T16:54:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-15T16:54:29Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-05-15T16:57:44Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-05-15T17:01:59Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-05-15T18:24:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-16T17:42:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/pull/137",
+          "number": 137,
+          "pull_request": {
+            "url": "https://api.github.com/repos/trallnag/prometheus-fastapi-instrumentator/pulls/137"
+          },
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "\ud83d\udc1b Expose exceptions raised by other middlewares and app code"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-26T11:33:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/4145",
+          "number": 4145,
+          "pull_request": {
+            "merged_at": "2022-01-07T09:34:28Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/4145"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06\ufe0f Upgrade Starlette to 0.17.1"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-25T17:04:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1706",
+          "number": 1706,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1706"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-27T18:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1710",
+          "number": 1710,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1710"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation (BaseHTTPMiddleware)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-24T16:09:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/microsoft/planetary-computer-apis/pull/130",
+          "number": 130,
+          "pull_request": {
+            "merged_at": "2022-10-25T14:44:08Z",
+            "url": "https://api.github.com/repos/microsoft/planetary-computer-apis/pulls/130"
+          },
+          "repository": {
+            "full_name": "microsoft/planetary-computer-apis"
+          },
+          "title": "Fix middleware runtime error and release prep fixes"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-21T17:48:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dialoguemd/fastapi-sqla/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2024-06-25T17:49:10Z",
+            "url": "https://api.github.com/repos/dialoguemd/fastapi-sqla/pulls/145"
+          },
+          "repository": {
+            "full_name": "dialoguemd/fastapi-sqla"
+          },
+          "title": "feat: use pure ASGI middlewares"
+        }
+      }
+    }
+  ]
+}

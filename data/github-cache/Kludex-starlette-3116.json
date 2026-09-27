@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "[ping](https://github.com/Nuitka/Nuitka/issues/3737)",
+    "closed_at": "2026-01-23T09:55:49Z",
+    "created_at": "2026-01-23T09:48:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3116",
+    "number": 3116,
+    "state": "closed",
+    "title": "[BUG] Task got bad yield when using multiple starlette\u2018s BaseHTTPMiddleware with Nuitka-compiled FastAPI application.",
+    "user": "fanybook"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

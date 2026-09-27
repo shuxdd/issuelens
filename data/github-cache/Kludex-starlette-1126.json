@@ -1,0 +1,161 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-01-30T20:36:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8fd70c822ac25da74b7baf0b28d35cfabe869198",
+      "sha": "8fd70c822ac25da74b7baf0b28d35cfabe869198"
+    },
+    {
+      "committed_at": "2021-01-30T21:26:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3bd3e6b3a382344fa4f0f5933201f1655ce912fa",
+      "sha": "3bd3e6b3a382344fa4f0f5933201f1655ce912fa"
+    },
+    {
+      "committed_at": "2021-01-30T21:54:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aa97f30c73e1c830e0952f7a97d08bc5fad03dea",
+      "sha": "aa97f30c73e1c830e0952f7a97d08bc5fad03dea"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-01-30T22:21:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1132",
+          "number": 1132,
+          "pull_request": {
+            "merged_at": "2021-01-31T11:43:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1132"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-12T16:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2798",
+          "number": 2798,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2798"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fixed python 3.8.7 compatibility"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 12,
+      "deletions": 6,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "4217185e8a1c3e277623a779c4e8f0e2605eadbe",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/starlette%2Ftestclient.py",
+      "changes": 6,
+      "deletions": 2,
+      "filename": "starlette/testclient.py",
+      "sha": "1d5e90dc807d4c37d982ed21a1f093c60d3eea7a",
+      "status": "modified"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa97f30c73e1c830e0952f7a97d08bc5fad03dea/tests%2Fmiddleware%2F__init__.py",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "tests/middleware/__init__.py",
+      "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nThe application shows plain text instead of html page in debug mode when an error occurs.\r\n\r\n### To reproduce\r\n\r\nI am trying to use the debug mode. Here is my application:\r\n\r\n    from starlette.applications import Starlette\r\n    from starlette.responses import JSONResponse\r\n    from starlette.routing import Route\r\n\r\n\r\n    async def show_index(request):\r\n        return JSONResponse({'hello': current_user})\r\n\r\n\r\n    app = Starlette(debug=True, routes=[\r\n        Route('/', show_index)])\r\n\r\n\r\nI start the server this way:\r\n\r\n    import uvicorn\r\n\r\n    if __name__ == '__main__':\r\n        uvicorn.run(\r\n            'main:app', host='127.0.0.1',\r\n            reload=True, port=5000, log_level='info')\r\n\r\n\r\n### Expected behavior\r\n\r\nI expect an exception and the html page in my browser with debug information, but it shows plain text:\r\n'Internal Server Error'.\r\n\r\n\r\n### Actual behavior\r\n\r\nBrowser shows plain text: 'Internal Server Error'\r\n\r\n### Debugging material\r\n\r\nThis is the traceback I see in terminal:\r\n\r\n    Traceback (most recent call last):\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n        await self.app(scope, receive, _send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n        raise exc from None\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n        await self.app(scope, receive, sender)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/routing.py\", line 582, in __call__\r\n        await route.handle(scope, receive, send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/routing.py\", line 243, in handle\r\n        await self.app(scope, receive, send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/routing.py\", line 54, in app\r\n        response = await func(request)\r\n      File \"/home/avm/workspace/abug/main.py\", line 7, in show_index\r\n        return JSONResponse({'hello': current_user})\r\n    NameError: name 'current_user' is not defined\r\n\r\n    During handling of the above exception, another exception occurred:\r\n\r\n    Traceback (most recent call last):\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/uvicorn/protocols/http/h11_impl.py\", line 394, in run_asgi\r\n        result = await app(self.scope, self.receive, self.send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n        return await self.app(scope, receive, send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/applications.py\", line 112, in __call__\r\n        await self.middleware_stack(scope, receive, send)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 165, in __call__\r\n        response = self.debug_response(request, exc)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 245, in debug_response\r\n        content = self.generate_html(exc)\r\n      File \"/home/avm/workspace/abug/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 221, in generate_html\r\n        traceback_obj.exc_traceback, limit  # type: ignore\r\n    AttributeError: 'TracebackException' object has no attribute 'exc_traceback'\r\n    INFO:     127.0.0.1:48170 - \"GET / HTTP/1.1\" 500 Internal Server Error\r\n\r\n\r\n### Environment\r\n\r\n- OS: Debian bullseye\r\n- Python version: Python 3.9.1+\r\n- Starlette version: starlette==0.14.1\r\n\r\n### Additional context\r\n\r\nIt looks like something bad happens in middleware/errors.py - line 221. So... Is it a bug or am I doing something wrong and illegal?\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2021-02-04T20:19:27Z",
+    "created_at": "2021-01-18T05:49:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1126",
+    "number": 1126,
+    "state": "closed",
+    "title": "The debug mode does not work well",
+    "user": "ghost"
+  },
+  "pull_request": {
+    "closed_at": "2021-01-31T11:43:09Z",
+    "created_at": "2021-01-30T22:21:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1132",
+    "merge_commit_sha": "62e95b89fca3a4c60d6638776bddbe1b59fcd2f9",
+    "merged_at": "2021-01-31T11:43:08Z",
+    "number": 1132,
+    "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "e4307065ea6dbe708fba9643d14fe7adfff06d46",
+    "committed_at": "2020-11-23T16:06:26Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e4307065ea6dbe708fba9643d14fe7adfff06d46"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-01-21T15:37:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-30T22:21:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1132",
+          "number": 1132,
+          "pull_request": {
+            "merged_at": "2021-01-31T11:43:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1132"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix middleware traceback fetching on Python 3.8+, fix ResourceWarnings in TestClient, fix CI build"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-04T20:19:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-04T20:19:27Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-02-12T16:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/2798",
+          "number": 2798,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/2798"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fixed python 3.8.7 compatibility"
+        }
+      }
+    }
+  ]
+}

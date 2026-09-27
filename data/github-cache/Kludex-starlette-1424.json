@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-05-02T00:42:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/carevision/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/carevision/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/carevision"
+          },
+          "title": "Update from task ca17b19e-5177-432a-8b2c-b11ef41d721b"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] There are no similar issues or pull requests for this yet.\n- [ ] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\n\n### Is your feature related to a problem? Please describe.\n\nAdd couple of security middleware, which, I think, must be built-in app\n\n### Describe the solution you would like.\n\nImplement middlewares from https://github.com/tmotagam/Secweb :\r\nRequired (my opinion):\r\n\r\n- Content Security Policy (CSP)\r\n- Referrer Policy\r\n- HTTP Strict Transport Security(HSTS)\r\n- X-XSS-Protection\r\n\r\nOther - as you want (my opinion)\r\n\r\n- ExpectCT\r\n- Origin Agent Cluster\r\n- X-Content-Type-Options\r\n- X-DNS-Prefetch-Control\r\n- X-Download-Options\r\n- X-Frame\r\n- X-Permitted-Cross-Domain-Policies\r\n- Cross-Origin-Embedder-Policy\r\n- Cross-Origin-Opener-Policy\r\n- Cross-Origin-Resource-Policy\n\n### Describe alternatives you considered\n\nSecWeb\n\n### Additional context\n\nDuplicate of https://github.com/tiangolo/fastapi/issues/4420",
+    "closed_at": "2022-02-03T11:44:46Z",
+    "created_at": "2022-01-21T11:33:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1424",
+    "number": 1424,
+    "state": "closed",
+    "title": "Add security headers as middlewares",
+    "user": "Niccolum"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-03T11:44:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-02T00:42:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Ibadat-Ali86/carevision/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Ibadat-Ali86/carevision/pulls/1"
+          },
+          "repository": {
+            "full_name": "Ibadat-Ali86/carevision"
+          },
+          "title": "Update from task ca17b19e-5177-432a-8b2c-b11ef41d721b"
+        }
+      }
+    }
+  ]
+}

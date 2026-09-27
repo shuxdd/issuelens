@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Since Response provided by starlette take a background argument, Any plans to add support for running a list of background tasks after the response has been sent in the case of `GraphQLApp`?\r\n\r\nA naive implementation looks like this\r\n\r\n```python\r\nclass Holder(object):\r\n    def __init__(self):\r\n        self._list = []\r\n\r\n    def add(self, function, *args, **kwargs):\r\n        func = functools.partial(function, *args, **kwargs)\r\n        self._list.append(func)\r\n\r\n    def clean(self):\r\n        self._list = []\r\n\r\n    def run_all_tasks(self):\r\n        for i in self._list:\r\n            i()\r\n```\r\n\r\n```python\r\nclass EnhancedGraphqlApp(GraphQLApp):\r\n    def __init__(self, **kwargs):\r\n        super().__init__(**kwargs)\r\n        self.holder = Holder()\r\n        \r\n    async def execute(self, query, variables=None, operation_name=None):  # type: ignore\r\n        print(\"Started\")\r\n        print(self.holder._list)\r\n        if self.is_async:\r\n            result = await self.schema.execute(\r\n                query,\r\n                variables=variables,\r\n                operation_name=operation_name,\r\n                context={\"holder\": self.holder},\r\n                executor=self.executor,\r\n                return_promise=True,\r\n            )\r\n        else:\r\n            func = functools.partial(\r\n                self.schema.execute,\r\n                context={\"holder\": self.holder},\r\n                variables=variables,\r\n                operation_name=operation_name,\r\n            )\r\n            loop = asyncio.get_event_loop()\r\n            result = await loop.run_in_executor(None, func, query)\r\n        return result\r\n\r\n    def run_tasks(self):\r\n        for i in self.holder._list:\r\n            i()\r\n        self.holder.clean()\r\n\r\n    async def handle_graphql(self, request: Request) -> Response:\r\n        # existing implementation\r\n        ... \r\n        tasks = BackgroundTask(self.run_tasks)\r\n        return JSONResponse(response_data, background=tasks, status_code=status_code)\r\n```\r\n\r\nAnd usage in the Schema class would be just like how context is used generally\r\n\r\n```python\r\ndef hello(name):\r\n    print(f\"My name is {name}\")\r\n\r\nclass Query(object):\r\n    hello = graphene.String(name=graphene.String(default_value=\"stranger\"))\r\n    alls = graphene.List(AllModel)\r\n\r\n    async def resolve_alls(self, info):\r\n        rresult = await async_print_all_models()\r\n        holder = info.context.get('holder')\r\n        holder.add(hello,\"James\")\r\n        return [AllModel(name=x.name) for x in rresult]\r\n```",
+    "closed_at": "2018-12-14T14:56:32Z",
+    "created_at": "2018-11-05T07:56:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/180",
+    "number": 180,
+    "state": "closed",
+    "title": "Support for background tasks for `GraphQLApp`",
+    "user": "gbozee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-05T17:12:21Z",
+      "event": "commented"
+    }
+  ]
+}

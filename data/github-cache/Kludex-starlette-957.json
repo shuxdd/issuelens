@@ -1,0 +1,151 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-12-14T14:52:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/085e22e3e4c590fca12419dcc46e0759fce6905b",
+      "sha": "085e22e3e4c590fca12419dcc46e0759fce6905b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-06-07T17:16:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/273",
+          "number": 273,
+          "pull_request": {
+            "merged_at": "2018-12-14T14:56:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/273"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add BackgroundTasks for multiple jobs. Support GraphQL background tasks."
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 34,
+      "blob_url": "https://github.com/Kludex/starlette/blob/085e22e3e4c590fca12419dcc46e0759fce6905b/docs%2Fbackground.md",
+      "changes": 34,
+      "deletions": 0,
+      "filename": "docs/background.md",
+      "sha": "d27fa65feb66d920f579d4aba0247fec9fb6135e",
+      "status": "modified"
+    },
+    {
+      "additions": 21,
+      "blob_url": "https://github.com/Kludex/starlette/blob/085e22e3e4c590fca12419dcc46e0759fce6905b/docs%2Fgraphql.md",
+      "changes": 21,
+      "deletions": 0,
+      "filename": "docs/graphql.md",
+      "sha": "785a8370dcfec8476dd75f79f92f35fcec978f18",
+      "status": "modified"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/085e22e3e4c590fca12419dcc46e0759fce6905b/starlette%2Fbackground.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "starlette/background.py",
+      "sha": "b2a3cfe172433c10bdd01175f7272dada834fa18",
+      "status": "modified"
+    },
+    {
+      "additions": 10,
+      "blob_url": "https://github.com/Kludex/starlette/blob/085e22e3e4c590fca12419dcc46e0759fce6905b/starlette%2Fgraphql.py",
+      "changes": 15,
+      "deletions": 5,
+      "filename": "starlette/graphql.py",
+      "sha": "3d95b1dcfef83d7098d6390f5b978c7a7ffabb2d",
+      "status": "modified"
+    },
+    {
+      "additions": 27,
+      "blob_url": "https://github.com/Kludex/starlette/blob/085e22e3e4c590fca12419dcc46e0759fce6905b/tests%2Ftest_background.py",
+      "changes": 28,
+      "deletions": 1,
+      "filename": "tests/test_background.py",
+      "sha": "9baeb176390d5318c2bf12c2d566843474f27639",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I'm hoping to avoid any use of Celery at the moment. In the docs there are two ways to add background tasks:\r\n\r\nVia Graphene: https://www.starlette.io/graphql/\r\n\r\n\r\n```python\r\nclass Query(graphene.ObjectType):\r\n    user_agent = graphene.String()\r\n\r\n    def resolve_user_agent(self, info):\r\n        \"\"\"\r\n        Return the User-Agent of the incoming request.\r\n        \"\"\"\r\n        user_agent = request.headers.get(\"User-Agent\", \"<unknown>\")\r\n        background = info.context[\"background\"]\r\n        background.add_task(log_user_agent, user_agent=user_agent)\r\n        return user_agent\r\n```\r\n\r\n\r\nVia a JSON response: https://www.starlette.io/background/\r\n```python\r\nasync def signup(request):\r\n    data = await request.json()\r\n    username = data['username']\r\n    email = data['email']\r\n    task = BackgroundTask(send_welcome_email, to_address=email)\r\n    message = {'status': 'Signup successful'}\r\n    return JSONResponse(message, background=task)\r\n```\r\n\r\n\r\nDoes anyone know of a way to add tasks to Starlette's background with Ariadne? I am unable to return a JSONResponse in my resolver, and I do not have access to a info.context[\"background\"]. The only thing I have attached to my context is my request object.",
+    "body_last_edited_at": null,
+    "closed_at": "2020-06-02T16:42:24Z",
+    "created_at": "2020-05-29T04:36:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/957",
+    "number": 957,
+    "state": "closed",
+    "title": "Unable to access info.context['background']",
+    "user": "austincollinpena"
+  },
+  "pull_request": {
+    "closed_at": "2018-12-14T14:56:32Z",
+    "created_at": "2018-12-14T14:56:24Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/273",
+    "merge_commit_sha": "96c09044e832d5fba189928d8ea5611474da69e6",
+    "merged_at": "2018-12-14T14:56:32Z",
+    "number": 273,
+    "title": "Add BackgroundTasks for multiple jobs. Support GraphQL background tasks.",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "a2613494a475ed113f821ee1c48bc45556911f6c",
+    "committed_at": "2018-12-14T09:58:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a2613494a475ed113f821ee1c48bc45556911f6c"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-05-29T22:27:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-30T17:39:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-30T17:39:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-30T17:39:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-02T05:25:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-02T16:42:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-02T16:42:24Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-06-07T17:16:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/273",
+          "number": 273,
+          "pull_request": {
+            "merged_at": "2018-12-14T14:56:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/273"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add BackgroundTasks for multiple jobs. Support GraphQL background tasks."
+        }
+      }
+    }
+  ]
+}

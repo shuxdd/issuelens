@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello, I am trying to deploy my app via FastAPI/Starlette, but font requests are being responded with \"text/plain\" in utf8 encoding causing errors. \r\n\r\nCan you add these lines to responses.py:\r\n\r\n// add mimetype for fonts\r\nmimetypes.add_type('application/vnd.ms-fontobject', '.eot')\r\nmimetypes.add_type('application/x-font-opentype', '.otf')\r\nmimetypes.add_type('application/x-font-ttf', '.ttf')\r\nmimetypes.add_type('application/font-woff', '.woff')\r\n\r\nso the guess_type function does behave properly?\r\n",
+    "closed_at": "2022-02-19T07:57:00Z",
+    "created_at": "2022-02-18T18:33:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1524",
+    "number": 1524,
+    "state": "closed",
+    "title": "responses.py does not handle MIME Types for fonts (.woff, ...) properly ",
+    "user": "vucenovic"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-19T07:57:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-19T07:57:00Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-07-17T16:39:12Z",
+      "event": "commented"
+    }
+  ]
+}

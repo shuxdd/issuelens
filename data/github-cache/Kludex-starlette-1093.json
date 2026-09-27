@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Problem: Uploading huge file (GB) via http `PUT`.\r\nAfter uploading the file should be stored using a cheap `rename` operation.\r\n`SpooledTemporaryFile()` prevents renaming (we have to read and write the whole file.\r\n\r\nFeature request: Add an option to use `NamedTemporaryFile()` instead.",
+    "closed_at": "2021-10-24T13:39:34Z",
+    "created_at": "2020-11-17T16:23:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1093",
+    "labels": [
+      "feature"
+    ],
+    "number": 1093,
+    "state": "closed",
+    "title": "File upload -> 'rename'",
+    "user": "doublex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-05-30T22:35:46Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-10-24T12:43:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-24T13:39:34Z",
+      "event": "closed"
+    }
+  ]
+}

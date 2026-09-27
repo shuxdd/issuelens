@@ -1,40 +1,4118 @@
 {
   "accepted_case_ids": [
+    "starlette-issue-1099",
+    "starlette-issue-1123",
+    "starlette-issue-1125",
+    "starlette-issue-1138",
+    "starlette-issue-1162",
+    "starlette-issue-1255",
+    "starlette-issue-1303",
+    "starlette-issue-1317",
+    "starlette-issue-1336",
+    "starlette-issue-1355",
+    "starlette-issue-139",
+    "starlette-issue-1433",
+    "starlette-issue-1438",
+    "starlette-issue-1471",
     "starlette-issue-1552",
+    "starlette-issue-1578",
+    "starlette-issue-1588",
+    "starlette-issue-185",
+    "starlette-issue-1878",
+    "starlette-issue-1952",
+    "starlette-issue-2002",
+    "starlette-issue-2093",
+    "starlette-issue-2134",
+    "starlette-issue-2227",
+    "starlette-issue-2295",
     "starlette-issue-2298",
     "starlette-issue-2306",
+    "starlette-issue-233",
     "starlette-issue-2516",
     "starlette-issue-2625",
     "starlette-issue-2646",
     "starlette-issue-2692",
-    "starlette-issue-2785",
-    "starlette-issue-3357",
-    "starlette-issue-3388"
+    "starlette-issue-2766",
+    "starlette-issue-2783",
+    "starlette-issue-289",
+    "starlette-issue-32",
+    "starlette-issue-425",
+    "starlette-issue-464",
+    "starlette-issue-472",
+    "starlette-issue-486",
+    "starlette-issue-493",
+    "starlette-issue-495",
+    "starlette-issue-622",
+    "starlette-issue-746",
+    "starlette-issue-790",
+    "starlette-issue-793",
+    "starlette-issue-847",
+    "starlette-issue-866",
+    "starlette-issue-886",
+    "starlette-issue-947",
+    "starlette-issue-997"
   ],
+  "automatic_funnel": {
+    "behavior_test_present": 109,
+    "buildable": 99,
+    "category_eligible": 109,
+    "cleaned_candidates": 93,
+    "discovered": 778,
+    "relationship_recovered": 416,
+    "repair_metadata_complete": 183,
+    "snapshot_available": 99,
+    "statically_analyzable": 93
+  },
   "excluded": [
     {
-      "exclusion_stage": "analyzable",
-      "issue_number": 1957,
-      "reason": "Failure depends on optional brotlicffi behavior and the closing PR contains no Starlette repair file",
-      "reason_code": "cross_repository_root_cause"
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1002,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
     },
     {
-      "exclusion_stage": "analyzable",
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1015,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1016,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1024,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1025,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1032,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1036,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1037,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1038,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1053,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 106,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1060,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1061,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 107,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 108,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1081,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1082,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1093,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1104,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1105,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1122,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1129,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1130,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 114,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1144,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1148,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1150,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1152,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1193,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1195,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 122,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1231,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 127,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1274,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1275,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 128,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1293,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1295,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1296,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 13,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1310,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1323,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1325,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1333,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1340,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1367,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1369,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 137,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1381,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1396,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 140,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1407,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 141,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1419,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 15,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1506,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1524,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 154,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1543,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1570,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1586,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1592,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 160,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1602,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1633,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1660,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1663,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1674,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1737,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1742,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1744,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1751,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1770,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1775,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1793,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1796,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 180,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1808,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1814,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1817,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1822,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1826,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1831,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1849,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1859,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 187,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1870,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 188,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 190,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1931,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1938,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1947,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 196,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 1963,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2001,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2003,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2009,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2010,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2057,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2066,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 207,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2087,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2089,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2096,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2108,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2112,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2118,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2129,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2145,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 222,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 223,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 229,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2335,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2337,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 234,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2346,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2382,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2386,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2388,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 240,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 241,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2412,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2417,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 242,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2421,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2453,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 248,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2482,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2507,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2531,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 254,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2550,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2555,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2560,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2563,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 258,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2584,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2587,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2634,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2637,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2658,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2661,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2664,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2669,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2670,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 268,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2721,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2723,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2726,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2748,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2781,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2791,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2803,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2821,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 283,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2875,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 288,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2918,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 294,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2960,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2966,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2972,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 2988,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3020,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3066,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3071,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3096,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3116,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 315,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3180,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 321,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 327,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3293,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 330,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 340,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3456,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3457,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3478,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 353,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 3572,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 358,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 360,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 365,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 367,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 372,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 376,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 378,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 383,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 389,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 391,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 4,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 416,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 426,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 430,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 432,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 442,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 446,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 450,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 453,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 454,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 46,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 460,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 463,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 469,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 47,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 470,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 48,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 481,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 485,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 501,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 503,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 515,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 516,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 517,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 519,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 520,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 524,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 526,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 528,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 536,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 537,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 540,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 542,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 548,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 550,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 553,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 554,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 558,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 564,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 567,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 570,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 578,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 583,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 584,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 590,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 598,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 6,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 603,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 605,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 606,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 607,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 610,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 627,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 631,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 632,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 637,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 639,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 647,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 648,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 655,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 661,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 671,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 675,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 677,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 679,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 680,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 682,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 689,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 691,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 694,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 696,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 705,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 713,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 716,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 720,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 721,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 724,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 725,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 726,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 731,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 735,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 736,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 74,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 741,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 743,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 744,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 747,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 749,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 754,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 760,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 762,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 763,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 769,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 77,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 771,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 773,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 775,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 786,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 787,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 791,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 795,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 796,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 797,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 798,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 809,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 810,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 817,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 824,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 828,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 830,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 831,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 836,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 840,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 842,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 844,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 846,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 85,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 854,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 855,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 856,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 859,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 861,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 863,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 865,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 871,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 872,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 877,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 879,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 883,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 891,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 896,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 897,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 9,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 90,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 905,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 906,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 907,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 914,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 915,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 917,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 926,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 927,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 928,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 936,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 937,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 939,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 94,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 940,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 943,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 946,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 951,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 952,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 955,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 960,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 961,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 962,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 965,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 968,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 969,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 970,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 971,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 972,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 973,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 982,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 983,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 986,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 987,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 995,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "relationship_recovered",
+      "issue_number": 996,
+      "reason": "No same-repository merged closing PR relationship was recovered",
+      "reason_code": "missing_closing_pr_relationship"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 1107,
+      "reason": "Issue was created after the investigation cutoff",
+      "reason_code": "issue_created_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 957,
+      "reason": "Issue was created after the investigation cutoff",
+      "reason_code": "issue_created_after_cutoff"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1008,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1019,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1027,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1034,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 104,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1046,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1059,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1067,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1092,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1094,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1098,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1101,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1116,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1119,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1121,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1175,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1178,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1182,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1196,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 12,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1207,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1209,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1239,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1247,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1248,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1249,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1250,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1259,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1261,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1282,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1284,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1289,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1298,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1301,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1309,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1320,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 133,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 136,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 138,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1424,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1454,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 146,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1490,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1541,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1542,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1548,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1634,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1646,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 166,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1702,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 175,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1764,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 177,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1790,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1802,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1811,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 182,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 191,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1923,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1943,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1945,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 199,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 1997,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 200,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 201,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 202,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 216,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2182,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2217,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2248,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 226,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2262,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2273,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2282,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 230,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2303,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2342,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 238,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2390,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2420,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2517,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 252,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2590,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2599,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2613,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2615,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2617,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2673,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 27,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 275,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2760,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2771,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2788,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 279,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 284,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2845,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 286,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 2873,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 293,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 295,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 297,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 304,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3113,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3192,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3194,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3195,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 325,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 329,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 332,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 333,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 34,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3458,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 3459,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 370,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 374,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 379,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 380,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 386,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 388,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 396,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 407,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 408,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 419,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 420,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 431,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 433,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 436,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 437,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 440,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 445,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 456,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 479,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 482,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 484,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 487,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 489,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 49,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 494,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 497,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 514,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 522,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 525,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 533,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 538,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 545,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 549,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 551,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 585,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 587,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 591,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 592,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 595,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 604,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 609,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 612,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 616,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 617,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 625,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 63,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 633,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 64,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 641,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 642,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 643,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 644,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 646,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 650,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 652,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 654,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 657,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 658,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 659,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 66,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 662,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 664,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 667,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 678,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 686,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 687,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 688,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 690,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 692,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 693,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 695,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 697,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 698,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 703,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 715,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 722,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 733,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 738,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 740,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 750,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 753,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 759,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 78,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 788,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 794,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 802,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 803,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 806,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 814,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 818,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 822,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 823,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 826,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 829,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 849,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 857,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 860,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 864,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 873,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 874,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 882,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 884,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 885,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 887,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 890,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 892,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 908,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 910,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 919,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 953,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 974,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 975,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 977,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 979,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 980,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 981,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "repair_metadata_complete",
+      "issue_number": 993,
+      "reason": "Closing PR, commit, or changed-file metadata is incomplete",
+      "reason_code": "incomplete_repair_metadata"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 100,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1012,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1022,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1029,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1050,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1100,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1114,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1117,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1126,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1131,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1141,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1142,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1187,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1194,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1212,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1214,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1217,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1221,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1315,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1319,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1334,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1362,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1365,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1370,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1474,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 149,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1503,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1560,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 159,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1627,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1677,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1717,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1724,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1733,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 189,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1896,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1921,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 1977,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 20,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2004,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2242,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2452,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
       "issue_number": 2524,
-      "reason": "Closing PR #2526 has no test file change",
-      "reason_code": "unanalyzable"
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
     },
     {
-      "exclusion_stage": "analyzable",
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2614,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
       "issue_number": 2638,
-      "reason": "Closing PR #2648 has no test file change",
-      "reason_code": "unanalyzable"
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
     },
     {
-      "exclusion_stage": "analyzable",
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 290,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2912,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 2950,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 298,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 30,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 3006,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 301,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 3042,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 3203,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 3460,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
       "issue_number": 3497,
-      "reason": "Closing PR #3498 has no test file change",
-      "reason_code": "unanalyzable"
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 369,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 427,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 452,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 483,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 534,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 579,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 599,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 608,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 651,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 663,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 668,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 7,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 764,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 850,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 87,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 89,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 941,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "behavior_test_present",
+      "issue_number": 994,
+      "reason": "Closing PR has no test file change",
+      "reason_code": "missing_test_change"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 1678,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 22,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 2893,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 45,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 51,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 734,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
+    },
+    {
+      "exclusion_stage": "time_slice_valid",
+      "issue_number": 898,
+      "reason": "Issue body was edited after the investigation cutoff",
+      "reason_code": "issue_body_edited_after_cutoff"
     },
     {
       "candidate_id": "issue-3096",
@@ -56,16 +4134,63 @@
       "reason": "PR #2894 was opened by dependabot[bot]",
       "reason_code": "dependency_bot",
       "source_url": "https://github.com/Kludex/starlette/pull/2894"
+    },
+    {
+      "exclusion_stage": "analyzable",
+      "issue_number": 1957,
+      "reason": "Failure depends on optional brotlicffi behavior and the closing PR contains no Starlette repair file",
+      "reason_code": "cross_repository_root_cause"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 619,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 1045,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 1589,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 1619,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 2032,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
+    },
+    {
+      "exclusion_stage": "statically_analyzable",
+      "issue_number": 2152,
+      "reason": "No parseable Starlette repair source and behavior test pair was available at the fixed commits",
+      "reason_code": "static_analysis_failed"
     }
   ],
   "funnel": {
-    "accepted": 10,
-    "analyzable": 10,
-    "category_eligible": 14,
-    "collected": 17,
-    "manual_reviewed": 10,
-    "relationship_recovered": 14,
-    "time_slice_valid": 10
+    "accepted": 51,
+    "analyzable": 108,
+    "buildable": 99,
+    "category_eligible": 109,
+    "cleaned_candidates": 93,
+    "collected": 778,
+    "manual_reviewed": 78,
+    "queued_for_review": 80,
+    "relationship_recovered": 416,
+    "snapshot_available": 99,
+    "statically_analyzable": 93,
+    "time_slice_valid": 99
   },
   "schema_version": "1.0"
 }

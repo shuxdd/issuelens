@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Is there a way to cancel (i.e. stop) a `StreamingResponse` ?\r\n\r\nFor example, a client requests for a video resource with `range 0-999999/1000000` header, and the server sends back a `StreamingResponse`.  The client might cancel the request, sends a new request with a different `range 46000-500000/1000000`.  Is there a way to stop the 1st `StreamingResponse`?   Assuming the same HTTP connection has been used (particularly in using QUIC). ",
+    "closed_at": "2020-09-11T11:34:41Z",
+    "created_at": "2020-03-04T20:08:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/854",
+    "number": 854,
+    "state": "closed",
+    "title": "Cancel or stop a StreamingResponse",
+    "user": "keepsimple1"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-13T21:18:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T11:22:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T11:22:20Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-16T11:22:20Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-09-11T11:34:41Z",
+      "event": "closed"
+    }
+  ]
+}

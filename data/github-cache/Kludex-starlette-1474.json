@@ -1,0 +1,135 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-02-04T17:38:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6fc01de2b015626ceabd305a48d5d53c9f7d03e8",
+      "sha": "6fc01de2b015626ceabd305a48d5d53c9f7d03e8"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-02-04T17:44:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1475",
+          "number": 1475,
+          "pull_request": {
+            "merged_at": "2022-02-07T10:15:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1475"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Require typing-extensions>=3.10"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-06T14:20:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4868",
+          "number": 4868,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fastapi 0.76.0 fails to start with python 3.9"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6fc01de2b015626ceabd305a48d5d53c9f7d03e8/setup.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "setup.py",
+      "sha": "9070811b4191230b2377aacdc0baa7254d1346f4",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\nStarlette has a bare `typing-extensions` requirement, with no minimum version. But using older versions of `typing-extensions` will cause an error.\n\n### Steps to reproduce the bug\n\n```\r\npip install typing-extensions~=3.7.0\r\npip install starlette\r\npython -c \"from starlette.applications import Starlette\"\r\n```\n\n### Expected behavior\n\nStarlette should specify the minimum version of `typing-extensions` it requires, which would cause the `pip install starlette` command to upgrade `typing-extensions` to the required version (3.10).\n\n### Actual behavior\n\nStarlette doesn't install the required `typing-extensions` version, then the import fails.\n\n### Debugging material\n\n```\r\n$ python -c \"from starlette.applications import Starlette\"\r\nTraceback (most recent call last):\r\n  File \"<string>\", line 1, in <module>\r\n  File \".../lib/python3.8/site-packages/starlette/applications.py\", line 3, in <module>\r\n    from starlette.datastructures import State, URLPath\r\n  File \".../lib/python3.8/site-packages/starlette/datastructures.py\", line 8, in <module>\r\n    from starlette.concurrency import run_in_threadpool\r\n  File \".../lib/python3.8/site-packages/starlette/concurrency.py\", line 10, in <module>\r\n    from typing_extensions import ParamSpec\r\nImportError: cannot import name 'ParamSpec' from 'typing_extensions' (.../lib/python3.8/site-packages/typing_extensions.py)\r\n```\n\n### Environment\n\n- Ubuntu 20.04, Python 3.8, Starlette 0.18\n\n### Additional context\n\n_No response_",
+    "closed_at": "2022-02-07T10:15:56Z",
+    "created_at": "2022-02-04T14:46:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1474",
+    "number": 1474,
+    "state": "closed",
+    "title": "Minimum typing-extensions version is not specified",
+    "user": "drasmuss"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-07T10:15:56Z",
+    "created_at": "2022-02-04T17:44:24Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1475",
+    "merge_commit_sha": "794d1a7f804d116b3197544675bbdb93b8f93932",
+    "merged_at": "2022-02-07T10:15:56Z",
+    "number": 1475,
+    "title": "Require typing-extensions>=3.10",
+    "user": "drasmuss"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-04T16:35:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-04T16:48:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-04T16:58:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-04T17:11:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-04T17:11:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-04T17:11:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-04T17:44:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1475",
+          "number": 1475,
+          "pull_request": {
+            "merged_at": "2022-02-07T10:15:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1475"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Require typing-extensions>=3.10"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-06T14:20:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4868",
+          "number": 4868,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Fastapi 0.76.0 fails to start with python 3.9"
+        }
+      }
+    }
+  ]
+}

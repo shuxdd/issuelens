@@ -1,0 +1,858 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9561a474fb0ea5aa3f649b86ba3475be6cd076f2",
+      "sha": "9561a474fb0ea5aa3f649b86ba3475be6cd076f2"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc",
+      "sha": "dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9161fb87218421857054f7171cbe13691e269142",
+      "sha": "9161fb87218421857054f7171cbe13691e269142"
+    },
+    {
+      "committed_at": "2022-09-03T16:51:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/274bdeb4b790d2b118e9eb791bf5f30ed435f742",
+      "sha": "274bdeb4b790d2b118e9eb791bf5f30ed435f742"
+    },
+    {
+      "committed_at": "2022-09-06T11:24:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e43a9244db770180d6624f142d544e272e29d98f",
+      "sha": "e43a9244db770180d6624f142d544e272e29d98f"
+    },
+    {
+      "committed_at": "2022-09-21T20:05:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13aae769d0d087a2a6af4383b143c89c068bfd79",
+      "sha": "13aae769d0d087a2a6af4383b143c89c068bfd79"
+    },
+    {
+      "committed_at": "2022-09-22T17:20:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/faae18e60906e8f055de4f12c6745b1955ea57d6",
+      "sha": "faae18e60906e8f055de4f12c6745b1955ea57d6"
+    },
+    {
+      "committed_at": "2022-09-23T14:46:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b0434ab2917b6eedef3c7a929456a0aa55c74c97",
+      "sha": "b0434ab2917b6eedef3c7a929456a0aa55c74c97"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-31T05:44:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1654",
+          "number": 1654,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1654"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield background tasks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-20T09:01:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1699",
+          "number": 1699,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1699"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid unexpected background task cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-22T17:36:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1700",
+          "number": 1700,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1700"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move BackgroundTask execution outside of middleware stack"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-26T19:41:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1697",
+          "number": 1697,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow yielding a new response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-29T23:11:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1715",
+          "number": 1715,
+          "pull_request": {
+            "merged_at": "2022-09-24T05:29:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1715"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-30T09:33:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1710",
+          "number": 1710,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1710"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation (BaseHTTPMiddleware)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-07T22:23:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-12T23:32:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Netflix/dispatch/issues/2383",
+          "number": 2383,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Netflix/dispatch"
+          },
+          "title": "Only the first task runs in a list of 1+ BackgroundTasks tasks."
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-27T17:24:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-10T02:22:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5606",
+          "number": 5606,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Adding a middleware causes background tasks cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-22T08:49:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mlrun/mlrun/pull/2618",
+          "number": 2618,
+          "pull_request": {
+            "merged_at": "2022-11-22T11:16:50Z",
+            "url": "https://api.github.com/repos/mlrun/mlrun/pulls/2618"
+          },
+          "repository": {
+            "full_name": "mlrun/mlrun"
+          },
+          "title": "[API] Fix Background Tasks Being Cancelled Prematurely"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-21T22:49:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/manwithacat/dazzle/issues/606",
+          "number": 606,
+          "pull_request": {},
+          "repository": {
+            "full_name": "manwithacat/dazzle"
+          },
+          "title": "CSRF middleware corrupts JSON POST body on auth/login \u2014 500 on Heroku (#597 regression)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-27T20:35:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/unslothai/unsloth/pull/5205",
+          "number": 5205,
+          "pull_request": {
+            "url": "https://api.github.com/repos/unslothai/unsloth/pulls/5205"
+          },
+          "repository": {
+            "full_name": "unslothai/unsloth"
+          },
+          "title": "Studio: rewrite LoggingMiddleware as pure ASGI to fix asset stream drops"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-06T13:33:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Datta0/unsloth-staging-3/pull/40",
+          "number": 40,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Datta0/unsloth-staging-3/pulls/40"
+          },
+          "repository": {
+            "full_name": "Datta0/unsloth-staging-3"
+          },
+          "title": "Studio: rewrite LoggingMiddleware as pure ASGI to fix asset stream drops"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-26T13:58:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chintanmehta21/Zettelkasten_KG/pull/113",
+          "number": 113,
+          "pull_request": {
+            "merged_at": "2026-05-26T14:02:30Z",
+            "url": "https://api.github.com/repos/chintanmehta21/Zettelkasten_KG/pulls/113"
+          },
+          "repository": {
+            "full_name": "chintanmehta21/Zettelkasten_KG"
+          },
+          "title": "fix(security): strip Content-Encoding on response rebuild"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-26T14:29:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chintanmehta21/Zettelkasten_KG/pull/115",
+          "number": 115,
+          "pull_request": {
+            "merged_at": "2026-05-26T18:59:39Z",
+            "url": "https://api.github.com/repos/chintanmehta21/Zettelkasten_KG/pulls/115"
+          },
+          "repository": {
+            "full_name": "chintanmehta21/Zettelkasten_KG"
+          },
+          "title": "post-113 PR closing gaps"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-30T06:05:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/moorcheh-ai/memanto/pull/1269",
+          "number": 1269,
+          "pull_request": {
+            "merged_at": "2026-07-14T18:04:22Z",
+            "url": "https://api.github.com/repos/moorcheh-ai/memanto/pulls/1269"
+          },
+          "repository": {
+            "full_name": "moorcheh-ai/memanto"
+          },
+          "title": "fix: event-loop blocking in restart endpoint + zero memories_created (#770)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-24T08:15:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/greeves89/AI-Employee/issues/344",
+          "number": 344,
+          "pull_request": {},
+          "repository": {
+            "full_name": "greeves89/AI-Employee"
+          },
+          "title": "DB connection pool leak: BaseHTTPMiddleware orphans SQLAlchemy connections on client disconnect"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 37,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 40,
+      "deletions": 3,
+      "filename": "starlette/middleware/base.py",
+      "sha": "586c9870dc1be3bd026091fa731a0e2f8460e83c",
+      "status": "modified"
+    },
+    {
+      "additions": 207,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 207,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "ed0734bd389063a1d3d6117d677c505ebc0a76ad",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\nWhen the HTTP client closes the TCP socket immediately after receiving the HTTP response, background tasks are cancelled.\r\n\r\nThis bug only happens when running the ASGI under uvicorn, and only if at least one HTTP Middleware is defined in the user middleware chain.\n\n### Steps to reproduce the bug\n\n1. Write the following ASGI Starlette application in `repro.py`:\r\n```python\r\nimport traceback\r\n\r\nimport anyio\r\nfrom starlette.applications import Starlette\r\nfrom starlette.background import BackgroundTasks\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def passthrough(request, call_next):\r\n    return await call_next(request)\r\n\r\n\r\nasync def _sleep(identifier, delay):\r\n    print(identifier, \"started\")\r\n    try:\r\n        await anyio.sleep(delay)\r\n        print(identifier, \"completed\")\r\n    except BaseException:\r\n        print(identifier, \"error\")\r\n        traceback.print_exc()\r\n        raise\r\n\r\n\r\nasync def response_with_sleeps(request):\r\n    background_tasks = BackgroundTasks()\r\n    background_tasks.add_task(_sleep, \"background task 1\", 2)\r\n    background_tasks.add_task(_sleep, \"background task 2\", 2)\r\n    return Response(background=background_tasks)\r\n\r\n\r\napplication = Starlette(\r\n    middleware=[\r\n        Middleware(BaseHTTPMiddleware, dispatch=passthrough),\r\n    ],\r\n    routes=[\r\n        Route(\"/\", response_with_sleeps),\r\n    ],\r\n)\r\n```\r\n2. Run that application using `uvicorn` (either uvloop or regular asyncio will reproduce the issue) on localhost:8000\r\n```bash\r\nuvicorn repro:application --port 8000\r\n```\r\n3. Run the following client script\r\n```python\r\n#!/usr/bin/env python\r\nimport socket\r\n\r\nconnection = socket.create_connection((\"localhost\", 8000))\r\nconnection.sendall(b\"GET / HTTP/1.1\\r\\nHost: localhost\\r\\n\\r\\n\")\r\nprint(connection.recv(10000).decode(\"utf8\"))\r\nconnection.close()\r\n```\r\n\n\n### Expected behavior\n\nThe client script gets the HTTP response, and both background tasks should complete successfully.\r\n\r\nThe expected behavior will be detectable by the following content in standard output:\r\n\r\n```\r\nbackground task 1 started\r\nbackground task 1 completed\r\nbackground task 2 started\r\nbackground task 2 completed\r\n```\n\n### Actual behavior\n\nBackground task 1 is interrupted at the `await` point and background task 2 is never started.\r\n\r\nThat results in the following content in the output (when running the `repro.py` application):\r\n```\r\nbackground task 1 started\r\nbackground task 1 error\r\nTraceback (most recent call last):\r\n  File \"/Users/jean/PycharmProjects/starlette-bg-cancelled/./repro.py\", line 19, in _sleep\r\n    await anyio.sleep(delay)\r\n  File \"/Users/jean/PycharmProjects/starlette-bg-cancelled/venv/lib/python3.9/site-packages/anyio/_core/_eventloop.py\", line 69, in sleep\r\n    return await get_asynclib().sleep(delay)\r\n  File \"/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py\", line 654, in sleep\r\n    return await future\r\nasyncio.exceptions.CancelledError\r\n```\n\n### Debugging material\n\n_No response_\n\n### Environment\n\n- MacOS 10.14.6 / Python 3.9 / Starlette 0.18.0\n\n### Additional context\n\n * When I remove the `passthrough` middleware, the bug goes away.\r\n * When I run the same application in `hypercorn`, the bug goes away.\r\n * There does not seem to be a difference between using `uvloop` or not.\r\n * If the client script (e.g. with a `time.sleep(10)`) maintains the TCP connection open, the bug goes away.",
+    "body_last_edited_at": null,
+    "closed_at": "2022-09-24T05:29:09Z",
+    "created_at": "2022-01-27T02:02:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1438",
+    "labels": [
+      "bug"
+    ],
+    "number": 1438,
+    "state": "closed",
+    "title": "Background tasks are cancelled if the client closes connection",
+    "user": "jhominal"
+  },
+  "pull_request": {
+    "closed_at": "2022-09-24T05:29:09Z",
+    "created_at": "2022-06-29T23:11:14Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1715",
+    "merge_commit_sha": "040d8c86b09f34be49e8c253d97a588973bc7308",
+    "merged_at": "2022-09-24T05:29:09Z",
+    "number": 1715,
+    "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`",
+    "user": "jhominal"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+    "committed_at": "2022-06-29T19:44:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:50:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-28T16:50:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-28T16:50:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-30T09:32:07Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-03T12:54:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-03T13:29:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-31T05:44:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1654",
+          "number": 1654,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1654"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield background tasks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-20T09:01:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1699",
+          "number": 1699,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1699"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid unexpected background task cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-20T09:03:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-22T17:36:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1700",
+          "number": 1700,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1700"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move BackgroundTask execution outside of middleware stack"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-26T19:41:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1697",
+          "number": 1697,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1697"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow yielding a new response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-29T23:11:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1715",
+          "number": 1715,
+          "pull_request": {
+            "merged_at": "2022-09-24T05:29:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1715"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-30T09:33:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1710",
+          "number": 1710,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1710"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Shield send \"http.response.start\" from cancellation (BaseHTTPMiddleware)"
+        }
+      }
+    },
+    {
+      "commit_id": "68357e170c21c2c18f238fe1e2718c20ac4d60bf",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/68357e170c21c2c18f238fe1e2718c20ac4d60bf",
+      "created_at": "2022-07-02T05:04:42Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "f1d1e21e44b2fc287281d5f4ecbe49164852b2f5",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/f1d1e21e44b2fc287281d5f4ecbe49164852b2f5",
+      "created_at": "2022-07-02T05:15:58Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "c77c5eb258c0b7be69eec84c817503da0084d115",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/c77c5eb258c0b7be69eec84c817503da0084d115",
+      "created_at": "2022-07-02T05:21:49Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "b75a22d00c870ea8490105e51239ffb036d899f2",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/b75a22d00c870ea8490105e51239ffb036d899f2",
+      "created_at": "2022-07-02T06:37:05Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "d1b33779d8892216f08e1ae74739c828bd9e0373",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/d1b33779d8892216f08e1ae74739c828bd9e0373",
+      "created_at": "2022-07-02T19:42:20Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-07-07T22:23:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/919",
+          "number": 919,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-12T23:32:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Netflix/dispatch/issues/2383",
+          "number": 2383,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Netflix/dispatch"
+          },
+          "title": "Only the first task runs in a list of 1+ BackgroundTasks tasks."
+        }
+      }
+    },
+    {
+      "commit_id": "7736a0063802623ffc85066fb9b3b9760ab5902f",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/7736a0063802623ffc85066fb9b3b9760ab5902f",
+      "created_at": "2022-08-16T11:08:03Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "9561a474fb0ea5aa3f649b86ba3475be6cd076f2",
+      "commit_url": "https://api.github.com/repos/jhominal/starlette/commits/9561a474fb0ea5aa3f649b86ba3475be6cd076f2",
+      "created_at": "2022-09-03T16:51:06Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-24T05:29:10Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "040d8c86b09f34be49e8c253d97a588973bc7308",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/040d8c86b09f34be49e8c253d97a588973bc7308",
+      "created_at": "2022-09-24T05:29:11Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-27T17:24:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-10T02:22:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5606",
+          "number": 5606,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Adding a middleware causes background tasks cancellation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-22T08:49:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mlrun/mlrun/pull/2618",
+          "number": 2618,
+          "pull_request": {
+            "merged_at": "2022-11-22T11:16:50Z",
+            "url": "https://api.github.com/repos/mlrun/mlrun/pulls/2618"
+          },
+          "repository": {
+            "full_name": "mlrun/mlrun"
+          },
+          "title": "[API] Fix Background Tasks Being Cancelled Prematurely"
+        }
+      }
+    },
+    {
+      "commit_id": "cdf66eeff50ccce349df4bbbf91d2a2e292430db",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/cdf66eeff50ccce349df4bbbf91d2a2e292430db",
+      "created_at": "2023-02-13T07:48:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-03-21T22:49:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/manwithacat/dazzle/issues/606",
+          "number": 606,
+          "pull_request": {},
+          "repository": {
+            "full_name": "manwithacat/dazzle"
+          },
+          "title": "CSRF middleware corrupts JSON POST body on auth/login \u2014 500 on Heroku (#597 regression)"
+        }
+      }
+    },
+    {
+      "commit_id": "186da34e9803b6956208e335c5a87ee10bcb0891",
+      "commit_url": "https://api.github.com/repos/Andreicr1/netz-analysis-engine/commits/186da34e9803b6956208e335c5a87ee10bcb0891",
+      "created_at": "2026-04-25T17:46:27Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "55f6b306f32123eacdc6a6117a7eec36deba507c",
+      "commit_url": "https://api.github.com/repos/Andreicr1/netz-analysis-engine/commits/55f6b306f32123eacdc6a6117a7eec36deba507c",
+      "created_at": "2026-04-25T18:52:22Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-04-27T20:35:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/unslothai/unsloth/pull/5205",
+          "number": 5205,
+          "pull_request": {
+            "url": "https://api.github.com/repos/unslothai/unsloth/pulls/5205"
+          },
+          "repository": {
+            "full_name": "unslothai/unsloth"
+          },
+          "title": "Studio: rewrite LoggingMiddleware as pure ASGI to fix asset stream drops"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-06T13:33:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Datta0/unsloth-staging-3/pull/40",
+          "number": 40,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Datta0/unsloth-staging-3/pulls/40"
+          },
+          "repository": {
+            "full_name": "Datta0/unsloth-staging-3"
+          },
+          "title": "Studio: rewrite LoggingMiddleware as pure ASGI to fix asset stream drops"
+        }
+      }
+    },
+    {
+      "commit_id": "dd9ad4bb34f0b1a29fe41c7ee75005810df34372",
+      "commit_url": "https://api.github.com/repos/controlplugin/cplug_webui/commits/dd9ad4bb34f0b1a29fe41c7ee75005810df34372",
+      "created_at": "2026-05-09T06:09:55Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "32979122f76835a3d129eeb27b06e222bcde6bb6",
+      "commit_url": "https://api.github.com/repos/controlplugin/cplug_webui/commits/32979122f76835a3d129eeb27b06e222bcde6bb6",
+      "created_at": "2026-05-09T06:09:55Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "83f020c22f6794616bc83ee54ee7f2d9cc3b2ba4",
+      "commit_url": "https://api.github.com/repos/controlplugin/cplug_webui/commits/83f020c22f6794616bc83ee54ee7f2d9cc3b2ba4",
+      "created_at": "2026-05-09T06:34:43Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-05-26T13:58:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chintanmehta21/Zettelkasten_KG/pull/113",
+          "number": 113,
+          "pull_request": {
+            "merged_at": "2026-05-26T14:02:30Z",
+            "url": "https://api.github.com/repos/chintanmehta21/Zettelkasten_KG/pulls/113"
+          },
+          "repository": {
+            "full_name": "chintanmehta21/Zettelkasten_KG"
+          },
+          "title": "fix(security): strip Content-Encoding on response rebuild"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-26T14:29:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chintanmehta21/Zettelkasten_KG/pull/115",
+          "number": 115,
+          "pull_request": {
+            "merged_at": "2026-05-26T18:59:39Z",
+            "url": "https://api.github.com/repos/chintanmehta21/Zettelkasten_KG/pulls/115"
+          },
+          "repository": {
+            "full_name": "chintanmehta21/Zettelkasten_KG"
+          },
+          "title": "post-113 PR closing gaps"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-30T06:05:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/moorcheh-ai/memanto/pull/1269",
+          "number": 1269,
+          "pull_request": {
+            "merged_at": "2026-07-14T18:04:22Z",
+            "url": "https://api.github.com/repos/moorcheh-ai/memanto/pulls/1269"
+          },
+          "repository": {
+            "full_name": "moorcheh-ai/memanto"
+          },
+          "title": "fix: event-loop blocking in restart endpoint + zero memories_created (#770)"
+        }
+      }
+    },
+    {
+      "commit_id": "d2b6962cd062951a0fd33b829f8561676d84a2a5",
+      "commit_url": "https://api.github.com/repos/OwanL/pie/commits/d2b6962cd062951a0fd33b829f8561676d84a2a5",
+      "created_at": "2026-07-06T20:48:47Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "2fbde559b4183c23a672d3c500b16902ac41d176",
+      "commit_url": "https://api.github.com/repos/rap77/prosell-sass/commits/2fbde559b4183c23a672d3c500b16902ac41d176",
+      "created_at": "2026-07-19T11:55:19Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-07-24T08:15:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/greeves89/AI-Employee/issues/344",
+          "number": 344,
+          "pull_request": {},
+          "repository": {
+            "full_name": "greeves89/AI-Employee"
+          },
+          "title": "DB connection pool leak: BaseHTTPMiddleware orphans SQLAlchemy connections on client disconnect"
+        }
+      }
+    }
+  ]
+}

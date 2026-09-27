@@ -1,0 +1,174 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-09-01T08:21:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6e76c5a14e9e19ad91f24ce93eae8dfdb9238923",
+      "sha": "6e76c5a14e9e19ad91f24ce93eae8dfdb9238923"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-09-01T08:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2264",
+          "number": 2264,
+          "pull_request": {
+            "merged_at": "2023-09-01T14:54:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2264"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change Response.render content argument typing"
+        }
+      }
+    },
+    {
+      "created_at": "2024-03-21T14:14:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2547",
+          "number": 2547,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2547"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `ContentType` generic to `Response`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/6e76c5a14e9e19ad91f24ce93eae8dfdb9238923/starlette%2Fresponses.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "bc8b23f1ce3a5e7a6d56f3410c10db810dd6dd66",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I recently updated to 0.31.0 and found I had a new type checking error (I run with `mypy --strict`).\r\n\r\n```\r\nmyfile.py:28: error: Argument 1 of \"render\" is incompatible with supertype \"Response\"; supertype defines the argument type as \"str | bytes | None\"  [override]\r\n        def render(self, model: Model) -> bytes:\r\n                         ^~~~~~~~~~~~\r\nsrc/ibeks/server/response.py:28: note: This violates the Liskov substitution principle\r\nsrc/ibeks/server/response.py:28: note: See https://mypy.readthedocs.io/en/stable/common_issues.html#incompatible-overrides\r\n```\r\n\r\nThis is due to the base class `Response` having the type signature for `render` being constrained to `str | bytes | None`.  From this PR: #2183 @Viicos @Kludex \r\n\r\nHere is my derived class using starlette 0.28.0:\r\n\r\n```python\r\nclass JSONSerializedResponse(Response):\r\n    media_type = \"application/json\"\r\n    charset = CHARSET\r\n\r\n    def render(self, model: str | bytes | None) -> bytes:\r\n        # unstructure the model to JSON using its registered converter, then\r\n        # encode the payload\r\n        return model.to_json().encode(self.charset)\r\n```\r\n\r\nNow I could put the encoding from my arbitrary Python object `Model` into the application code, but I quite like it being part of the response. In any case this is how it is advertised in the documentation and indeed the derived class `JSONResponse` in that same module re-types it to `Any`: https://github.com/encode/starlette/blob/master/starlette/responses.py#L180.\r\n\r\nWhatever the final decision is I think this contradiction needs to be clarified.\r\n\r\nPossible solutions would be (in order of preference):\r\n\r\n- create a new generic base class that that uses a type variable (see below for example)\r\n- revert `Response.render` type signature to accept `Any` (Any is typically the wrong solution for most issues and especially this, but it at least works with subtyping to more specific types)\r\n\r\n---\r\n\r\n```python\r\nfrom typing import Generic, TypeVar\r\n\r\nAnyContent = TypeVar(\"AnyContent\")\r\nclass AbstractResponse(Generic[AnyContent]):\r\n\r\n    def render(self, content: AnyContent) -> bytes:\r\n        ...\r\n\r\n\r\nclass Response(AbstractResponse[str | bytes | None]):\r\n    def render(self, content: str | bytes | None) -> bytes:\r\n        ...\r\n\r\n```\r\n\r\nAnd my class could be:\r\n\r\n```python\r\nclass JSONSerializedResponse(AbstractResponse[Model):\r\n    media_type = \"application/json\"\r\n    charset = CHARSET\r\n\r\n    def render(self, model: Model) -> bytes:\r\n        # unstructure the model to JSON using its registered converter, then\r\n        # encode the payload\r\n        return model.to_json().encode(self.charset)\r\n\r\n```\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2242\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2242/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2242/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-09-01T14:54:53Z",
+    "created_at": "2023-08-07T19:23:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2242",
+    "labels": [
+      "typing"
+    ],
+    "number": 2242,
+    "state": "closed",
+    "title": "Liskov substitution problems in new `Response.render` type signature",
+    "user": "salotz"
+  },
+  "pull_request": {
+    "closed_at": "2023-09-01T14:54:52Z",
+    "created_at": "2023-09-01T08:07:31Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2264",
+    "merge_commit_sha": "bc7d0957f54a40d6445b40c8225d8cf4206f4ed7",
+    "merged_at": "2023-09-01T14:54:52Z",
+    "number": 2264,
+    "title": "Change Response.render content argument typing",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-08-07T19:23:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-07T19:23:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-08-07T19:23:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-07T19:23:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-08-08T06:14:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-08T06:14:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-08T06:14:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-08-08T08:26:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-08T08:26:54Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-08-08T16:19:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-01T08:07:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-01T08:07:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-09-01T08:07:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-09-01T08:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2264",
+          "number": 2264,
+          "pull_request": {
+            "merged_at": "2023-09-01T14:54:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2264"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change Response.render content argument typing"
+        }
+      }
+    },
+    {
+      "created_at": "2023-09-01T14:54:54Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-03-21T14:14:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2547",
+          "number": 2547,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2547"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `ContentType` generic to `Response`"
+        }
+      }
+    }
+  ]
+}

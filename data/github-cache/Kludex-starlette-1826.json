@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "its shitty dependency, better make multipart parsing implementation into Starlette directly or use some of (cython/c/rust) implementations ",
+    "closed_at": "2022-08-28T08:24:15Z",
+    "created_at": "2022-08-28T08:17:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1826",
+    "number": 1826,
+    "state": "closed",
+    "title": "please swap python-multipart to some thing else ",
+    "user": "h0rn3t"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-28T08:20:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-28T08:20:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-28T08:20:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-28T08:24:16Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-08-28T08:25:53Z",
+      "event": "locked"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-10-13T22:09:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b5412343c1c51b453146c798509972a5069e5439",
+      "sha": "b5412343c1c51b453146c798509972a5069e5439"
+    },
+    {
+      "committed_at": "2019-10-14T21:13:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4dafd2a50d9a871723c62c3e27bc41892334c0f4",
+      "sha": "4dafd2a50d9a871723c62c3e27bc41892334c0f4"
+    },
+    {
+      "committed_at": "2019-10-14T21:25:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c05ba40e0790a32434025ede206457f8afa2e8f1",
+      "sha": "c05ba40e0790a32434025ede206457f8afa2e8f1"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-10-13T03:32:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/610",
+          "number": 610,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Query string flags"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-13T22:11:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/672",
+          "number": 672,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:33:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/672"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Enable flag parameters"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c05ba40e0790a32434025ede206457f8afa2e8f1/starlette%2Fdatastructures.py",
+      "changes": 10,
+      "deletions": 4,
+      "filename": "starlette/datastructures.py",
+      "sha": "930c5811ebc07af00a2491e39976d0c4d9fe6d08",
+      "status": "modified"
+    },
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/c05ba40e0790a32434025ede206457f8afa2e8f1/tests%2Ftest_datastructures.py",
+      "changes": 11,
+      "deletions": 0,
+      "filename": "tests/test_datastructures.py",
+      "sha": "42405c2547ed5fbf491228b57665e52b4c213834",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "HTTP URIs are allowed to have query strings without any values in them, like `/some-url?flag`. I'll call these 'flags'.\r\n\r\nStarlette doesn't appear to provide a way to distinguish between these and not passing the flag at all, so `/some-url?flag` looks identical to `/some-url`.\r\n\r\nI was redirected here after submitting this issue to FastAPI: https://github.com/tiangolo/fastapi/issues/610\r\n\r\nI can work around it by making my clients pass `/some-url?flag=true` instead, so if it's a deliberate design decision not to support this then I understand.",
+    "body_last_edited_at": null,
+    "closed_at": "2019-10-15T12:33:52Z",
+    "created_at": "2019-10-13T03:32:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/670",
+    "number": 670,
+    "state": "closed",
+    "title": "Feature Request - Empty query string flags",
+    "user": "GlennS"
+  },
+  "pull_request": {
+    "closed_at": "2019-10-15T12:33:52Z",
+    "created_at": "2019-10-13T22:10:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/672",
+    "merge_commit_sha": "5845c08b22016897ec9baf619c739fe580c6a7f1",
+    "merged_at": "2019-10-15T12:33:52Z",
+    "number": 672,
+    "title": "Enable flag parameters",
+    "user": "jodusan"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "7074f51977fda70dac58acbde8dee8b72b428ae5",
+    "committed_at": "2019-10-10T09:07:30Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/7074f51977fda70dac58acbde8dee8b72b428ae5"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-10-13T03:32:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/610",
+          "number": 610,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Query string flags"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-13T21:47:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-13T22:11:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/672",
+          "number": 672,
+          "pull_request": {
+            "merged_at": "2019-10-15T12:33:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/672"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Enable flag parameters"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-14T10:32:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T10:32:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T10:32:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-14T11:00:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:00:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T11:00:44Z",
+      "event": "subscribed"
+    }
+  ]
+}

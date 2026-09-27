@@ -57,6 +57,8 @@
     }
   ],
   "issue": {
+    "body": "### Bug\n\n`FileResponse._parse_range_header` rejects a Range only when `start > end`, but `bytes=5-4` parses to the empty half-open range `(5, 5)` and slips past that guard. The result is a malformed `206 Partial Content` (`Content-Length: 0`, a backwards `Content-Range: bytes 5-4/...`) instead of a `400`.\n\n`bytes=10-5` is caught (it parses to `(10, 6)`, so `10 > 6`), but the off-by-one boundary case where `end + 1 == start` is not.\n\n### Reproduce\n\n```python\nfrom starlette.responses import FileResponse\nFileResponse._parse_range_header(\"bytes=5-4\", 100)   # -> [(5, 5)]  (accepted; should be 400)\nFileResponse._parse_range_header(\"bytes=5-5\", 100)   # -> [(5, 6)]  (valid one-byte range)\nFileResponse._parse_range_header(\"bytes=10-5\", 100)  # -> MalformedRangeHeader (already correct)\n```\n\n### Fix\n\nThe guard should be `start >= end` (an empty range is not satisfiable). A genuine one-byte request `bytes=5-5` parses to `(5, 6)` and is unaffected.\n\nI have a fix + tests ready and opened it as a draft PR for reference. Happy to adjust or drop it if you'd prefer to handle it differently.\n",
+    "body_last_edited_at": null,
     "closed_at": "2026-08-08T08:56:09Z",
     "created_at": "2026-07-25T19:56:23Z",
     "html_url": "https://github.com/Kludex/starlette/issues/3388",
@@ -76,6 +78,11 @@
     "user": "nikolauspschuetz"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5174d4c8358a6f06aa8056bafd14c2272dab8dd1",
+    "committed_at": "2026-07-04T05:14:17Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5174d4c8358a6f06aa8056bafd14c2272dab8dd1"
+  },
   "timeline": [
     {
       "created_at": "2026-07-25T19:56:47Z",

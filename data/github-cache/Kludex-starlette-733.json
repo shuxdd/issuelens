@@ -1,0 +1,99 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-11-23T15:39:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/498",
+          "number": 498,
+          "pull_request": {
+            "merged_at": "2020-01-20T12:26:07Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Don't serve requests until startup complete"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-23T15:43:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/499",
+          "number": 499,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Uvicorn processes connections before startup.complete"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### summary\r\n\r\nin the [starlette Events docs](https://www.starlette.io/events/):\r\n> Starlette will not start serving any incoming requests until all of the registered startup handlers have completed.\r\n\r\nthis seems to not be true on `starlette==0.13.0` / `uvicorn==0.10.8`. noticed this as it caused a bug on http requests sent to a heroku app of mine when heroku container needs to wake up to handle request (https://github.com/zhammer/scribly/issues/16).\r\n\r\n### reproduce\r\n\r\nthis is a simple starlette server that includes a 10 second `asyncio.sleep` in its startup handler, after which it sets `app.state.startup_complete` to true. (not to be confused with the actual startup.complete event, which i believe is part of the new asgi lifecycle.)\r\n\r\nin those 10 seconds, requests to the `/` ping route _will_ be handled and the server will log that the `app.state.startup_complete` bool is still false.\r\n\r\nserver.py\r\n```py\r\n# server.py\r\n\r\nimport asyncio\r\nimport sys\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\n\r\n\r\napp = Starlette()\r\napp.state.startup_complete = False\r\n\r\n\r\n@app.on_event(\"startup\")\r\nasync def startup():\r\n    print(\"starting up, will sleep for 10 seconds\")\r\n    await asyncio.sleep(10)\r\n    app.state.startup_complete = True\r\n    print(\"startup_complete set to true\")\r\n\r\n\r\n\r\n@app.route(\"/\")\r\nasync def ping(request):\r\n    if not app.state.startup_complete:\r\n        print(\"Received http request, but app.state.startup_complete is not set to True!\")\r\n    return PlainTextResponse(\"pong\")\r\n```\r\n\r\nrequirements.txt\r\n```\r\nClick==7.0\r\nh11==0.8.1\r\nhttptools==0.0.13\r\nstarlette==0.13.0\r\nuvicorn==0.10.8\r\nuvloop==0.14.0\r\nwebsockets==8.1\r\n```\r\n",
+    "closed_at": "2019-12-16T16:21:58Z",
+    "created_at": "2019-11-22T23:46:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/733",
+    "number": 733,
+    "state": "closed",
+    "title": "starlette handles request before startup event complete",
+    "user": "zhammer"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-23T02:36:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-23T02:42:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-23T15:10:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-23T15:39:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/498",
+          "number": 498,
+          "pull_request": {
+            "merged_at": "2020-01-20T12:26:07Z",
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Don't serve requests until startup complete"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-23T15:43:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/499",
+          "number": 499,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Uvicorn processes connections before startup.complete"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-16T16:21:58Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen following the [Starlette GraphQL docs](https://www.starlette.io/graphql/#sync-or-async-executors) regarding GraphQL integration, if you install `graphql-core` versions > 2 (i.e. non-[legacy core library](https://github.com/graphql-python/graphql-core-legacy)), you will see that the module `graphql.execution.executors.asyncio.AsyncioExecutor` no longer exists.\r\n\r\nI asked about this in the [GraphQL core project](https://github.com/graphql-python/graphql-core/issues/121#issuecomment-787559191) and they indicated that as of `graphql-core >=3` the executors had been discarded as they were now async by default, roughly speaking (I'm paraphrasing, please see the issue I linked to for context).\r\n\r\nI didn't see any open issues regarding support for the new `graphql-core` versions - is this in the works, by any chance? The legacy project is now unsupported.\r\n\r\n### Environment\r\n\r\n- OS: Linux (by way of minikube)\r\n- Python version: 3.9.0\r\n- Starlette version: 0.13.16\r\n\r\n### Additional context\r\n\r\nhttps://github.com/graphql-python/graphql-core/issues/121\r\nhttps://github.com/graphql-python/graphql-core-legacy",
+    "closed_at": "2021-04-12T20:49:54Z",
+    "created_at": "2021-03-01T00:57:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1144",
+    "number": 1144,
+    "state": "closed",
+    "title": "GraphQL integration does not work w/ graphl-core versions > 2",
+    "user": "mecampbellsoup"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-03-01T01:08:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-12T20:49:54Z",
+      "event": "closed"
+    }
+  ]
+}

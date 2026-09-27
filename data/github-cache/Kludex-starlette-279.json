@@ -1,0 +1,220 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-12-05T21:43:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/geopython/pygeoapi/issues/100",
+          "number": 100,
+          "pull_request": {},
+          "repository": {
+            "full_name": "geopython/pygeoapi"
+          },
+          "title": "add multilingual capability"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-10T23:29:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bigbag/starlette-i18n/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bigbag/starlette-i18n"
+          },
+          "title": "Example with Jinja2?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-20T06:26:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/searxng/searxng/pull/256",
+          "number": 256,
+          "pull_request": {
+            "url": "https://api.github.com/repos/searxng/searxng/pulls/256"
+          },
+          "repository": {
+            "full_name": "searxng/searxng"
+          },
+          "title": "[experimental] Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-19T06:43:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bigbag/starlette-i18n/issues/15",
+          "number": 15,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bigbag/starlette-i18n"
+          },
+          "title": "Is starlette-i18n limited to provide only one extra locale?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "First of all, thank you for excellent framework! I've started used it for one personal project and find it very useful. Also i saw roadmap of framework - it look nice. But there are some things which would be very helpful if they will have integrated with Stralette and unfortunately, i didn't find any mentions about.\r\n\r\nAmong of them is localization and internationalization. Are any plans to do this via Middleware or something else? Let's discuss how it can be implemented...)",
+    "closed_at": "2022-02-14T15:19:35Z",
+    "created_at": "2018-12-17T18:46:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/279",
+    "labels": [
+      "feature"
+    ],
+    "number": 279,
+    "state": "closed",
+    "title": "Internationalization & Localisation",
+    "user": "SerhiyRomanov"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-18T10:01:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-01T21:02:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-04T09:17:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-04T10:29:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-24T13:10:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-24T13:19:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-24T15:47:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-25T01:44:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-05T21:43:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/geopython/pygeoapi/issues/100",
+          "number": 100,
+          "pull_request": {},
+          "repository": {
+            "full_name": "geopython/pygeoapi"
+          },
+          "title": "add multilingual capability"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-10T23:29:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bigbag/starlette-i18n/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bigbag/starlette-i18n"
+          },
+          "title": "Example with Jinja2?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-14T18:39:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T19:59:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T20:19:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-19T07:23:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-19T07:23:07Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-19T07:23:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-20T06:26:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/searxng/searxng/pull/256",
+          "number": 256,
+          "pull_request": {
+            "url": "https://api.github.com/repos/searxng/searxng/pulls/256"
+          },
+          "repository": {
+            "full_name": "searxng/searxng"
+          },
+          "title": "[experimental] Starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-19T00:22:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-19T00:22:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-19T00:22:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-19T06:43:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bigbag/starlette-i18n/issues/15",
+          "number": 15,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bigbag/starlette-i18n"
+          },
+          "title": "Is starlette-i18n limited to provide only one extra locale?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-08T11:02:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-14T15:19:35Z",
+      "event": "commented"
+    }
+  ]
+}

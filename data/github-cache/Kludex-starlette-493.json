@@ -1,0 +1,637 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-01-27T22:09:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6470c9f29fbad95ec989aaf50e7b711e5df2bf2d",
+      "sha": "6470c9f29fbad95ec989aaf50e7b711e5df2bf2d"
+    },
+    {
+      "committed_at": "2023-01-27T22:19:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/23c918ed52451b50903cb57aaa819413496e9cdc",
+      "sha": "23c918ed52451b50903cb57aaa819413496e9cdc"
+    },
+    {
+      "committed_at": "2023-01-27T22:21:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0737cc95760e94a3b05fe5f2ef94c6c34825dfe6",
+      "sha": "0737cc95760e94a3b05fe5f2ef94c6c34825dfe6"
+    },
+    {
+      "committed_at": "2023-01-27T22:24:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bdb9d68916fee0e89e20fe2423c524b8cac534bb",
+      "sha": "bdb9d68916fee0e89e20fe2423c524b8cac534bb"
+    },
+    {
+      "committed_at": "2023-01-27T22:58:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ce4a3d5b535def20edf4665ab97b47ea5fcc95ef",
+      "sha": "ce4a3d5b535def20edf4665ab97b47ea5fcc95ef"
+    },
+    {
+      "committed_at": "2023-01-28T01:13:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/62807bd1659d53c2bca9ce79dbac7952132f761c",
+      "sha": "62807bd1659d53c2bca9ce79dbac7952132f761c"
+    },
+    {
+      "committed_at": "2023-01-28T02:43:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5ca404d7ffb58d4200f6dd05f1c3e961a0a1022f",
+      "sha": "5ca404d7ffb58d4200f6dd05f1c3e961a0a1022f"
+    },
+    {
+      "committed_at": "2023-01-28T07:25:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9468718e25f66b3e872789d16c3023ccdfa0b11e",
+      "sha": "9468718e25f66b3e872789d16c3023ccdfa0b11e"
+    },
+    {
+      "committed_at": "2023-02-06T21:10:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c63c8fffe701208c868562db2ab9a2230c4a6414",
+      "sha": "c63c8fffe701208c868562db2ab9a2230c4a6414"
+    },
+    {
+      "committed_at": "2023-02-08T15:57:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/792013342b128ac307fa91bfdc1d403b1e36287b",
+      "sha": "792013342b128ac307fa91bfdc1d403b1e36287b"
+    },
+    {
+      "committed_at": "2023-02-13T20:53:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aa10f20f502df417a5be7fba1ab3485e68ee8d59",
+      "sha": "aa10f20f502df417a5be7fba1ab3485e68ee8d59"
+    },
+    {
+      "committed_at": "2023-02-21T06:39:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2747c9b231e072028fe74a6de24b487fa9ebed25",
+      "sha": "2747c9b231e072028fe74a6de24b487fa9ebed25"
+    },
+    {
+      "committed_at": "2023-03-02T08:30:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b9f34f88dee87f2b9fb49c0b33dd146a943819c0",
+      "sha": "b9f34f88dee87f2b9fb49c0b33dd146a943819c0"
+    },
+    {
+      "committed_at": "2023-03-05T15:31:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d6d8622d2d9a99bd088b64f6d384142e5e5167fd",
+      "sha": "d6d8622d2d9a99bd088b64f6d384142e5e5167fd"
+    },
+    {
+      "committed_at": "2023-03-10T01:53:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/58138d1b7922674dce789cbcfb5c78c29ddf2dca",
+      "sha": "58138d1b7922674dce789cbcfb5c78c29ddf2dca"
+    },
+    {
+      "committed_at": "2023-03-11T01:27:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6d1e6fde432f5509cab11efc0ebc6fe0fe6f1958",
+      "sha": "6d1e6fde432f5509cab11efc0ebc6fe0fe6f1958"
+    },
+    {
+      "committed_at": "2023-03-17T09:03:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/25b6256d2b5f1ec77380b95c0dd2532b09565ebb",
+      "sha": "25b6256d2b5f1ec77380b95c0dd2532b09565ebb"
+    },
+    {
+      "committed_at": "2023-03-20T17:13:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/890dcc382f27bf2297d642b0e62028ea2b340f4c",
+      "sha": "890dcc382f27bf2297d642b0e62028ea2b340f4c"
+    },
+    {
+      "committed_at": "2023-03-31T12:57:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2d144c30f133ea1a58497a1dea1fb1b26580a991",
+      "sha": "2d144c30f133ea1a58497a1dea1fb1b26580a991"
+    },
+    {
+      "committed_at": "2023-04-14T07:39:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4e20aebaeff9e1d6423cfe81522d175f3ad11eed",
+      "sha": "4e20aebaeff9e1d6423cfe81522d175f3ad11eed"
+    },
+    {
+      "committed_at": "2023-05-04T18:59:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6ddf952291a4cf250182a72eae6640524ee2921f",
+      "sha": "6ddf952291a4cf250182a72eae6640524ee2921f"
+    },
+    {
+      "committed_at": "2023-05-05T01:07:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fb379dd416a82707f0cefd12979b87db3e3c9009",
+      "sha": "fb379dd416a82707f0cefd12979b87db3e3c9009"
+    },
+    {
+      "committed_at": "2023-05-27T07:54:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cfbb38be8d68b8a81ea3440345a4268f7fc8d820",
+      "sha": "cfbb38be8d68b8a81ea3440345a4268f7fc8d820"
+    },
+    {
+      "committed_at": "2023-06-01T18:48:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1ef98379aaa5327eb29bbe661659439e8bcb5ace",
+      "sha": "1ef98379aaa5327eb29bbe661659439e8bcb5ace"
+    },
+    {
+      "committed_at": "2023-06-01T19:38:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27d8bc862dbc8b77c72853aa392c93a0b763d833",
+      "sha": "27d8bc862dbc8b77c72853aa392c93a0b763d833"
+    },
+    {
+      "committed_at": "2023-06-01T19:43:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3cf38810e2c50bd143b08a3f2c7c4a3393ce357b",
+      "sha": "3cf38810e2c50bd143b08a3f2c7c4a3393ce357b"
+    },
+    {
+      "committed_at": "2023-06-06T21:20:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c437933c44d8a0e9089dbef3d3eca4d7d24b669e",
+      "sha": "c437933c44d8a0e9089dbef3d3eca4d7d24b669e"
+    },
+    {
+      "committed_at": "2023-06-07T05:11:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6cc501e5c8b1c4e9c51e0a9d7840ea02ca2a8ea3",
+      "sha": "6cc501e5c8b1c4e9c51e0a9d7840ea02ca2a8ea3"
+    },
+    {
+      "committed_at": "2023-06-07T05:32:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f354ae614dd77e10363e4361d509052289356c72",
+      "sha": "f354ae614dd77e10363e4361d509052289356c72"
+    },
+    {
+      "committed_at": "2023-06-07T05:34:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/680143280dc8ccef04bf4a6d29110f639965b71b",
+      "sha": "680143280dc8ccef04bf4a6d29110f639965b71b"
+    },
+    {
+      "committed_at": "2023-06-07T06:17:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3fb111835755c65a4144603c552d9d06c54d80e2",
+      "sha": "3fb111835755c65a4144603c552d9d06c54d80e2"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-04-30T11:25:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/180",
+          "number": 180,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Response from the server is never received in case of using middleware."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T19:15:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/195",
+          "number": 195,
+          "pull_request": {
+            "merged_at": "2019-05-15T10:50:58Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/195"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Starlette #493 workaround"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T05:33:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T18:16:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/500",
+          "number": 500,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "#493 and #495 cache body content"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-03T14:09:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-27T22:17:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2020",
+          "number": 2020,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2020"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move exception handling logic to endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-06T21:09:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2026",
+          "number": 2026,
+          "pull_request": {
+            "merged_at": "2023-06-07T06:19:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2026"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move exception handling logic to Route"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-03T21:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tzal3x/twitter_clone/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2023-07-03T21:41:49Z",
+            "url": "https://api.github.com/repos/Tzal3x/twitter_clone/pulls/52"
+          },
+          "repository": {
+            "full_name": "Tzal3x/twitter_clone"
+          },
+          "title": "38 add logger page facing up"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-12T14:56:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/24060",
+          "number": 24060,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Body content not shown in auth_context API log lines"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 76,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2F_exception_handler.py",
+      "changes": 76,
+      "deletions": 0,
+      "filename": "starlette/_exception_handler.py",
+      "sha": "8a9beb3b29c30eabd5c494e34f16a6ea2e7f2734",
+      "status": "added"
+    },
+    {
+      "additions": 24,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Fmiddleware%2Fexceptions.py",
+      "changes": 83,
+      "deletions": 59,
+      "filename": "starlette/middleware/exceptions.py",
+      "sha": "59010c7e684f7a811c5f0582b8eb461dad3c5b72",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Frouting.py",
+      "changes": 23,
+      "deletions": 7,
+      "filename": "starlette/routing.py",
+      "sha": "8e01c8562c6c9356c46b4846e145307d68ff9fa5",
+      "status": "modified"
+    },
+    {
+      "additions": 33,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_exceptions.py",
+      "changes": 35,
+      "deletions": 2,
+      "filename": "tests/test_exceptions.py",
+      "sha": "2f2b89167337c9d394bf2a5df3b25938347a60a4",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_routing.py",
+      "changes": 6,
+      "deletions": 5,
+      "filename": "tests/test_routing.py",
+      "sha": "12929322438c12612d4d7378a7da9d0ce7f089a4",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi dears developers, how can I retrieve the request.body inside an exception_handler? \r\n\r\nMy scenario:\r\n\r\nI have an exception_handler hook that receives a request and an exception, I'm also using FastApi which tries to parse the body to a JSON, if it does not work it raises an HTTPException. So I'm trying to build a hook to log invalid JSON requests, this exception is being correctly captured by my exception_handler but when I'm trying to retrieve the body I can't it hangs, it simple doesn't work. It does make sense as after reading for the first time it is being cached inside the Request object but the Request object is being recreated before calling the exception_handler so I'm losing my cache and I'm able to ready from the stream again.\r\n\r\nhttps://github.com/encode/starlette/blob/d23bfd0d8ff68d535d0283aa4099e5055da88bb9/starlette/exceptions.py#L79\r\n\r\nNot sure if it is supposed to be like this by design, but I think my scenario is not that fancy, it should be something possible, what do you guys think? Any workaround?\r\n\r\nMy code:\r\n\r\n```@app.exception_handler(HTTPException)  \r\nasync def httpexception_logger(request: Request, exc: HTTPException):\r\n    body = await request.body()\r\n    text: str = bytes.decode(body)\r\n    logger.error(\"Exception at %s, status code: %s, body: %s: exception %s\", request.url, exception.status_code, text, exc)\r\n    ... other stuff...\r\n```\r\n",
+    "body_last_edited_at": "2019-04-26T21:01:38Z",
+    "closed_at": "2023-06-07T06:19:35Z",
+    "created_at": "2019-04-26T20:55:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/493",
+    "number": 493,
+    "state": "closed",
+    "title": "Question about Request.Body()",
+    "user": "ricardomomm"
+  },
+  "pull_request": {
+    "closed_at": "2023-06-07T06:19:33Z",
+    "created_at": "2023-02-06T21:09:56Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2026",
+    "merge_commit_sha": "e99738b719cff9b81a18a3da3862d48753bd477e",
+    "merged_at": "2023-06-07T06:19:33Z",
+    "number": 2026,
+    "title": "Move exception handling logic to Route",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+    "committed_at": "2023-02-06T16:01:14Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/218a6b4f98a2ff5fe3f6076b401d5c24c3021943"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-04-26T22:38:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-26T22:39:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-29T12:51:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T11:10:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T11:25:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/180",
+          "number": 180,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Response from the server is never received in case of using middleware."
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-30T12:23:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T19:15:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/195",
+          "number": 195,
+          "pull_request": {
+            "merged_at": "2019-05-15T10:50:58Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/195"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Starlette #493 workaround"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T05:33:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/498",
+          "number": 498,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP/RFC] Store request in scope"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-02T17:37:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-02T17:37:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-02T17:37:35Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "d388e06d16db09931e424db6ba767317393da17b",
+      "commit_url": "https://api.github.com/repos/ricardomomm/starlette/commits/d388e06d16db09931e424db6ba767317393da17b",
+      "created_at": "2019-05-02T18:12:17Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-05-02T18:16:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/500",
+          "number": 500,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "#493 and #495 cache body content"
+        }
+      }
+    },
+    {
+      "created_at": "2019-09-04T12:29:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-04T04:46:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/589",
+          "number": 589,
+          "pull_request": {
+            "merged_at": "2019-10-05T00:23:35Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/589"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add better support for request body access/manipulation"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-03T14:09:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-27T22:17:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2020",
+          "number": 2020,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2020"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move exception handling logic to endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-06T21:09:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2026",
+          "number": 2026,
+          "pull_request": {
+            "merged_at": "2023-06-07T06:19:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2026"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Move exception handling logic to Route"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-03T07:36:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T18:57:31Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-06-01T19:06:30Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2023-06-07T06:19:35Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-07-03T21:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Tzal3x/twitter_clone/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2023-07-03T21:41:49Z",
+            "url": "https://api.github.com/repos/Tzal3x/twitter_clone/pulls/52"
+          },
+          "repository": {
+            "full_name": "Tzal3x/twitter_clone"
+          },
+          "title": "38 add logger page facing up"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-12T14:56:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wazuh/wazuh/issues/24060",
+          "number": 24060,
+          "pull_request": {},
+          "repository": {
+            "full_name": "wazuh/wazuh"
+          },
+          "title": "Body content not shown in auth_context API log lines"
+        }
+      }
+    }
+  ]
+}

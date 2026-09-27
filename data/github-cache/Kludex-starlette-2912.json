@@ -1,0 +1,248 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-11-01T14:00:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ccf92f3e57509feb9dbb882e82bdbbc16e66c1ab",
+      "sha": "ccf92f3e57509feb9dbb882e82bdbbc16e66c1ab"
+    },
+    {
+      "committed_at": "2025-11-01T14:04:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a1ff8365f17ae0cb94d342f82d8acb2cef487bb0",
+      "sha": "a1ff8365f17ae0cb94d342f82d8acb2cef487bb0"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-05-30T13:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/osm-search/Nominatim/pull/3747",
+          "number": 3747,
+          "pull_request": {
+            "merged_at": "2025-06-06T19:37:17Z",
+            "url": "https://api.github.com/repos/osm-search/Nominatim/pulls/3747"
+          },
+          "repository": {
+            "full_name": "osm-search/Nominatim"
+          },
+          "title": "Special Phrases Filtering: Add Command Line Functionality"
+        }
+      }
+    },
+    {
+      "created_at": "2025-08-04T12:50:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2974",
+          "number": 2974,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2974"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consistently run background task in dedicated thread"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-01T14:02:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3059",
+          "number": 3059,
+          "pull_request": {
+            "merged_at": "2025-11-01T14:13:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3059"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Relax strictness on `Middleware` type"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/a1ff8365f17ae0cb94d342f82d8acb2cef487bb0/starlette%2Fmiddleware%2F__init__.py",
+      "changes": 22,
+      "deletions": 10,
+      "filename": "starlette/middleware/__init__.py",
+      "sha": "8c3f287e9cf3eb128d26655cf49984ec9820d67e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi ,\n\nam using `asgi-logger` and extended `AccessLoggerMiddleware` to customise the logging in the application and when I upgrade fastapi to 0.109.x version getting issue on mypy, any suggestions ?\n\nerror: Argument 1 to \"Middleware\" has incompatible type \"type[AccessLoggerMiddleware]\"; expected \"type[_MiddlewareClass[[]]]\"  [arg-type]\n\n```\nmiddleware = [\n    Middleware(\n        CORSMiddleware,\n        allow_origins=[\"*\"],\n        allow_methods=[\"PUT\", \"GET\", \"DELETE\"],\n        allow_headers=[\"Authorization\"],\n    ),\n    Middleware(access_logger.AccessLoggerMiddleware),\n]\n```\n\nand this is my customise version of logging.\n\n```\nimport structlog\nfrom asgi_logger import middleware as asl\nfrom asgiref.typing import ASGI3Application, HTTPScope\n\n\nclass AccessLoggerMiddleware(asl.AccessLoggerMiddleware):\n   //code\n\n```\n\n",
+    "closed_at": "2025-11-01T14:13:30Z",
+    "created_at": "2025-03-20T10:36:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2912",
+    "number": 2912,
+    "state": "closed",
+    "title": "incompatible type and expected \"type[_MiddlewareClass[[]]]\"  [arg-type]",
+    "user": "RaviMintel07"
+  },
+  "pull_request": {
+    "closed_at": "2025-11-01T14:13:29Z",
+    "created_at": "2025-11-01T14:01:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3059",
+    "merge_commit_sha": "c4433960ccc07289e0963df94dc5c2746f07ca1a",
+    "merged_at": "2025-11-01T14:13:29Z",
+    "number": 3059,
+    "title": "Relax strictness on `Middleware` type",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-03-20T15:34:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-20T15:47:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-20T18:43:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-12T09:40:49Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-05-30T13:05:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-05-30T13:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/osm-search/Nominatim/pull/3747",
+          "number": 3747,
+          "pull_request": {
+            "merged_at": "2025-06-06T19:37:17Z",
+            "url": "https://api.github.com/repos/osm-search/Nominatim/pulls/3747"
+          },
+          "repository": {
+            "full_name": "osm-search/Nominatim"
+          },
+          "title": "Special Phrases Filtering: Add Command Line Functionality"
+        }
+      }
+    },
+    {
+      "created_at": "2025-05-30T13:28:55Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2025-06-02T11:05:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-02T11:05:53Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-06-02T11:05:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-06T09:28:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-06T14:34:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-08T06:48:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-08T07:10:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-08T15:24:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-09T11:51:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-09T16:05:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-16T09:55:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-08-04T12:50:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2974",
+          "number": 2974,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2974"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Consistently run background task in dedicated thread"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-22T08:23:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-10-09T02:53:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-09T02:53:49Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-10-09T02:53:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-11-01T14:02:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3059",
+          "number": 3059,
+          "pull_request": {
+            "merged_at": "2025-11-01T14:13:29Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3059"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Relax strictness on `Middleware` type"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-01T14:13:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-11-04T09:57:28Z",
+      "event": "unsubscribed"
+    }
+  ]
+}

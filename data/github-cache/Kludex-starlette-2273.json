@@ -1,0 +1,140 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-06-10T07:32:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wecode-ai/Wegent/pull/1331",
+          "number": 1331,
+          "pull_request": {
+            "merged_at": "2026-06-15T06:04:49Z",
+            "url": "https://api.github.com/repos/wecode-ai/Wegent/pulls/1331"
+          },
+          "repository": {
+            "full_name": "wecode-ai/Wegent"
+          },
+          "title": "feat(knowledge): support scoped openapi knowledge search"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-04T05:06:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/avitus/veetbot/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-08-04T05:31:50Z",
+            "url": "https://api.github.com/repos/avitus/veetbot/pulls/6"
+          },
+          "repository": {
+            "full_name": "avitus/veetbot"
+          },
+          "title": "Milestone 5: HTTP API and SSE"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Given a class created with a metaclass while also inheriting from Exception, https://github.com/encode/starlette/blob/master/starlette/_exception_handler.py#L17 does not properly consider this as an exception and therefore fails the below code:\r\n\r\n```python\r\nclass MyMeta(type):\r\n    def __new__(cls, name, bases, dct):\r\n        return super().__new__(cls, name, bases, dct)\r\n\r\nclass MyOutputParent(metaclass=MyMeta):\r\n    ...\r\n\r\nclass MyExceptionParent(MyOutputParent, Exception):\r\n    ...\r\n\r\nprint(f'{(Exception in type(MyExceptionParent).__mro__)=}')  # Fails (this is what the exception middleware does)\r\nprint(f'{(Exception in MyExceptionParent.__mro__)=}')  # passes\r\nprint(f'{isinstance(MyExceptionParent(), Exception)=}')  # passes\r\nprint(f'{issubclass(MyExceptionParent, Exception)=}')  # passes\r\n```\r\n\r\nThis prevents custom serialization frameworks that deal with both exceptions and metaclasses from using the built-in `app.add_exception_handler` effectively.\r\n\r\nFound on 0.23 however still present on master\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2273\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2273/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2273/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-09-12T14:23:21Z",
+    "created_at": "2023-09-05T23:44:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2273",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2273,
+    "state": "closed",
+    "title": "Incorrect inheritance checking in Exception handler code",
+    "user": "bk5115545"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-09-07T19:24:32Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-09-10T19:51:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-12T14:22:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-12T14:22:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-09-12T14:22:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-09-12T14:23:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-09-13T23:20:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-13T23:30:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-13T23:30:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-09-13T23:30:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-09-19T15:59:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-19T19:27:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-10T07:32:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/wecode-ai/Wegent/pull/1331",
+          "number": 1331,
+          "pull_request": {
+            "merged_at": "2026-06-15T06:04:49Z",
+            "url": "https://api.github.com/repos/wecode-ai/Wegent/pulls/1331"
+          },
+          "repository": {
+            "full_name": "wecode-ai/Wegent"
+          },
+          "title": "feat(knowledge): support scoped openapi knowledge search"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-04T05:06:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/avitus/veetbot/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-08-04T05:31:50Z",
+            "url": "https://api.github.com/repos/avitus/veetbot/pulls/6"
+          },
+          "repository": {
+            "full_name": "avitus/veetbot"
+          },
+          "title": "Milestone 5: HTTP API and SSE"
+        }
+      }
+    }
+  ]
+}

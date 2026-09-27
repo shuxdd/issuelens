@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Currently, the `exception_handlers` argument of `Starlette` app class accepts a mapping of exception types to handler functions. I'd like to propose that, in addition to that, it could accept a single callable which would manage the error types internally.\r\n\r\nThe reason for this is that it would then be possible to manage the different handlers for different error types using the [`functools.singledispatch`](https://docs.python.org/3.7/library/functools.html#functools.singledispatch) decorator. The only problem is that the signature of that callable would have to be `func(exc, request)`, which is the opposite of the individual handlers accepted in the mapping. (Alternatively, would it be too difficult to change their signatures too? :thinking: )\r\n\r\nThoughts?",
+    "closed_at": "2022-02-03T11:08:12Z",
+    "created_at": "2019-12-16T20:23:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/754",
+    "number": 754,
+    "state": "closed",
+    "title": "Proposal: Pass a single callable for exception_handlers",
+    "user": "berislavlopac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-17T10:50:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T20:35:33Z",
+      "event": "commented"
+    }
+  ]
+}

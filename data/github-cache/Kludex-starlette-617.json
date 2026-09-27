@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-26T00:21:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/457",
+          "number": 457,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "CORS headers on exception handler responses"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "`CORSMiddleware` decorates given response with CORS headers - and this works fine if you're raising exceptions from the route handlers. However, if you use it with things like `AuthenticationMiddleware` (or any other middleware installed globally to perform, ...well global tasks) do not include these CORS headers.\r\n\r\nHere's an example:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.authentication import AuthenticationBackend, AuthenticationError\r\nfrom starlette.exceptions import HTTPException\r\nfrom starlette.middleware.authentication import AuthenticationMiddleware\r\nfrom starlette.middleware.cors import CORSMiddleware\r\nfrom starlette.responses import JSONResponse\r\n\r\nimport uvicorn\r\n\r\n\r\nclass DumbAuthBackend(AuthenticationBackend):\r\n    async def authenticate(self, request):\r\n        raise AuthenticationError(\"You will never be authenticated!\")\r\n\r\n\r\napp = Starlette(debug=True)\r\n\r\n# Expect all responses to contain CORS headers\r\napp.add_middleware(CORSMiddleware, allow_origins=[\"*\"])\r\n\r\n# Global authentication\r\napp.add_middleware(AuthenticationMiddleware, backend=DumbAuthBackend())\r\n\r\n@app.route('/')\r\nasync def index(request):\r\n    return JSONResponse({\"hello\": \"world\"})\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n```\r\n\r\nIn this case, `GET /` won't include CORS headers and the response from the `AuthenticationMiddleware` cannot be read. This is true of any other middleware that comes after `CORSMiddleware` that raise `HTTPException`. So what is installed to be _applied across your entire application_ (quoted from Starlette website) is not.\r\n\r\nShould CORS header be applied here without extra code?",
+    "closed_at": "2019-08-27T10:29:16Z",
+    "created_at": "2019-08-25T23:56:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/617",
+    "number": 617,
+    "state": "closed",
+    "title": "CORSMiddleware and HTTPExceptions from other middleware",
+    "user": "hongymagic"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-26T00:21:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/457",
+          "number": 457,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "CORS headers on exception handler responses"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-27T10:29:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-09T16:12:46Z",
+      "event": "commented"
+    }
+  ]
+}

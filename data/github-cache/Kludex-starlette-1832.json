@@ -1,0 +1,947 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-02-14T10:29:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0c1b8c752432a563676fc21e25d2103649dddd91",
+      "sha": "0c1b8c752432a563676fc21e25d2103649dddd91"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-08-29T05:41:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1824",
+          "number": 1824,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1824"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use explicit origin when with credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-13T06:27:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2119",
+          "number": 2119,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2119"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS-middleware-use-explicit-origin-with-credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-12T20:06:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2506",
+          "number": 2506,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2506"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add handling of Authorization header in CORS requests"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-07T07:03:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3094",
+          "number": 3094,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3094"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin with Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-03T15:14:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3126",
+          "number": 3126,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3126"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin for Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-03T15:14:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3127",
+          "number": 3127,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3127"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin for Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-08T01:14:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3133",
+          "number": 3133,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3133"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORS middleware to handle Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-08T23:00:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3134",
+          "number": 3134,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3134"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return explicit origin for CORS requests with Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-14T10:30:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3137",
+          "number": 3137,
+          "pull_request": {
+            "merged_at": "2026-02-14T10:33:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3137"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return explicit origin in CORS response when credentials are allowed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-16T13:22:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/benoit-bremaud/tp-formulaire-inscription-ci-cd/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2026-06-16T13:42:22Z",
+            "url": "https://api.github.com/repos/benoit-bremaud/tp-formulaire-inscription-ci-cd/pulls/11"
+          },
+          "repository": {
+            "full_name": "benoit-bremaud/tp-formulaire-inscription-ci-cd"
+          },
+          "title": "feat(docker): docker-compose stack + CI pipeline (test + Docker Hub publish)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-29T18:20:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ananthanarayanan431/cognee-project/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-06-29T18:14:46Z",
+            "url": "https://api.github.com/repos/ananthanarayanan431/cognee-project/pulls/2"
+          },
+          "repository": {
+            "full_name": "ananthanarayanan431/cognee-project"
+          },
+          "title": "Changes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T11:38:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/MahammadWahab540/Kitten-TTS-Server/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2026-07-07T07:44:33Z",
+            "url": "https://api.github.com/repos/MahammadWahab540/Kitten-TTS-Server/pulls/17"
+          },
+          "repository": {
+            "full_name": "MahammadWahab540/Kitten-TTS-Server"
+          },
+          "title": "Fix torchaudio import crash and apply PR16 security fixes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-16T19:02:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SrJesus98/Sancti-Shop/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-17T15:30:24Z",
+            "url": "https://api.github.com/repos/SrJesus98/Sancti-Shop/pulls/5"
+          },
+          "repository": {
+            "full_name": "SrJesus98/Sancti-Shop"
+          },
+          "title": "Feature/006 file upload"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T06:06:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Icoder25/Sahaay-AI/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-07-18T06:10:51Z",
+            "url": "https://api.github.com/repos/Icoder25/Sahaay-AI/pulls/1"
+          },
+          "repository": {
+            "full_name": "Icoder25/Sahaay-AI"
+          },
+          "title": "Add FastAPI hackathon backend for chat, routines, Exa, and voice."
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T08:26:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pandoruy-pingin-menang-pls/blusukan-be/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-07-18T09:12:32Z",
+            "url": "https://api.github.com/repos/pandoruy-pingin-menang-pls/blusukan-be/pulls/4"
+          },
+          "repository": {
+            "full_name": "pandoruy-pingin-menang-pls/blusukan-be"
+          },
+          "title": "Develop"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T15:33:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/JustinBeaudry/purelymailcalendar/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-07-25T22:51:09Z",
+            "url": "https://api.github.com/repos/JustinBeaudry/purelymailcalendar/pulls/1"
+          },
+          "repository": {
+            "full_name": "JustinBeaudry/purelymailcalendar"
+          },
+          "title": "Security hardening for self-hosting (critical path-traversal + insecure defaults)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-25T07:19:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Trancendos/Tranc3/pull/345",
+          "number": 345,
+          "pull_request": {
+            "merged_at": "2026-07-27T17:59:57Z",
+            "url": "https://api.github.com/repos/Trancendos/Tranc3/pulls/345"
+          },
+          "repository": {
+            "full_name": "Trancendos/Tranc3"
+          },
+          "title": "Add auth enforcement to 6 unauthenticated in-repo routers (MC-015)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T03:17:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/brianirish/laravel-mcp-companion/pull/397",
+          "number": 397,
+          "pull_request": {
+            "merged_at": "2026-08-03T14:24:41Z",
+            "url": "https://api.github.com/repos/brianirish/laravel-mcp-companion/pulls/397"
+          },
+          "repository": {
+            "full_name": "brianirish/laravel-mcp-companion"
+          },
+          "title": "v0.13.0: coverage to 81% + real-transport e2e tests"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:48:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ROHITCRAFTSYT/hindsight/pull/14",
+          "number": 14,
+          "pull_request": {
+            "merged_at": "2026-08-13T17:44:26Z",
+            "url": "https://api.github.com/repos/ROHITCRAFTSYT/hindsight/pulls/14"
+          },
+          "repository": {
+            "full_name": "ROHITCRAFTSYT/hindsight"
+          },
+          "title": "fix(security): never fall back to wildcard CORS with credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T19:10:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/misrasaptarshi099-dotcom/Waste-Management/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-08-18T19:32:00Z",
+            "url": "https://api.github.com/repos/misrasaptarshi099-dotcom/Waste-Management/pulls/3"
+          },
+          "repository": {
+            "full_name": "misrasaptarshi099-dotcom/Waste-Management"
+          },
+          "title": "feat(phase4): FastAPI REST API layer with Pydantic v2 schemas"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-24T17:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/nyeinpyaesone-ui/ERP03/pull/143",
+          "number": 143,
+          "pull_request": {
+            "merged_at": "2026-08-25T08:29:05Z",
+            "url": "https://api.github.com/repos/nyeinpyaesone-ui/ERP03/pulls/143"
+          },
+          "repository": {
+            "full_name": "nyeinpyaesone-ui/ERP03"
+          },
+          "title": "Update from task b88e2605-5123-49fe-a20a-1242c97b99ac"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-25T22:46:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/MattG-bci/movie-recommender/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-08-26T00:15:19Z",
+            "url": "https://api.github.com/repos/MattG-bci/movie-recommender/pulls/21"
+          },
+          "repository": {
+            "full_name": "MattG-bci/movie-recommender"
+          },
+          "title": "Add API tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0c1b8c752432a563676fc21e25d2103649dddd91/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 10,
+      "deletions": 6,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "b65fc15a02b0fe1d367b8f4190126c7ce1caae3d",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0c1b8c752432a563676fc21e25d2103649dddd91/tests%2Fmiddleware%2Ftest_cors.py",
+      "changes": 72,
+      "deletions": 56,
+      "filename": "tests/middleware/test_cors.py",
+      "sha": "7fb7d0befb6ffc9556b00b76e62fa5ac9899c3c9",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1823\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **gyusang** August 26, 2022</sup>\r\nWhen sending a CORS request with credentials, wildcard origin is rejected by the standard.\r\nThe CORS middleware handles this case when cookies are included, but is missing the case when `Authorization` header is present.\r\nhttps://github.com/encode/starlette/blob/31164e346b9bd1ce17d968e1301c3bb2c23bb418/starlette/middleware/cors.py#L164-L165\r\nSince Token authentication is also widely used these days, I believe explicit header should be returned when `Authorization` header is present.</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/1832\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/1832/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/1832/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:25Z",
+    "closed_at": "2026-02-14T10:33:38Z",
+    "created_at": "2022-08-29T05:40:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1832",
+    "labels": [
+      "cors",
+      "help wanted",
+      "good first issue"
+    ],
+    "number": 1832,
+    "state": "closed",
+    "title": "CORSMiddleware does not provide explicit origin although Authorization header is present",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2026-02-14T10:33:37Z",
+    "created_at": "2026-02-14T10:30:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3137",
+    "merge_commit_sha": "02b6ed7b18c741c00795010e9d716b58006af2c3",
+    "merged_at": "2026-02-14T10:33:37Z",
+    "number": 3137,
+    "title": "Return explicit origin in CORS response when credentials are allowed",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "2b73aecd8377e0c189943a5f30d3dbab134f6104",
+    "committed_at": "2026-02-01T19:56:54Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2b73aecd8377e0c189943a5f30d3dbab134f6104"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-08-29T05:41:02Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-29T05:41:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-29T05:41:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1824",
+          "number": 1824,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1824"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use explicit origin when with credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-01T10:34:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-07T10:36:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-07T10:36:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-07T10:36:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-18T06:58:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-15T12:51:07Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-02-15T12:51:07Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-02-15T12:51:11Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-04-13T06:27:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2119",
+          "number": 2119,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2119"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS-middleware-use-explicit-origin-with-credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-20T13:01:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-12T08:44:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-12T20:06:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2506",
+          "number": 2506,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2506"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add handling of Authorization header in CORS requests"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-22T15:26:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-05-22T15:26:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-05-22T15:26:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-05-22T15:26:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-05-22T15:26:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-08-08T09:23:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-12T02:19:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-11-06T03:42:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-01-06T15:22:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-01-07T07:03:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3094",
+          "number": 3094,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3094"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin with Authorization header"
+        }
+      }
+    },
+    {
+      "commit_id": "7e6a4e79391e67fbaef5b68c1513c4833d499895",
+      "commit_url": "https://api.github.com/repos/Jacky040124/starlette/commits/7e6a4e79391e67fbaef5b68c1513c4833d499895",
+      "created_at": "2026-01-18T06:27:54Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-02-03T15:14:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3126",
+          "number": 3126,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3126"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin for Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-03T15:14:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3127",
+          "number": 3127,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3127"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORSMiddleware to return explicit origin for Authorization header"
+        }
+      }
+    },
+    {
+      "commit_id": "4022baa7004434a705dbd47a8de7e311da9988ac",
+      "commit_url": "https://api.github.com/repos/veeceey/starlette/commits/4022baa7004434a705dbd47a8de7e311da9988ac",
+      "created_at": "2026-02-08T01:14:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-02-08T01:14:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3133",
+          "number": 3133,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3133"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix CORS middleware to handle Authorization header"
+        }
+      }
+    },
+    {
+      "commit_id": "b58212399b116e5992dbbdf7c1cd1c283ebf6c27",
+      "commit_url": "https://api.github.com/repos/veeceey/starlette/commits/b58212399b116e5992dbbdf7c1cd1c283ebf6c27",
+      "created_at": "2026-02-08T23:00:15Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-02-08T23:00:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3134",
+          "number": 3134,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3134"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return explicit origin for CORS requests with Authorization header"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-14T10:30:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3137",
+          "number": 3137,
+          "pull_request": {
+            "merged_at": "2026-02-14T10:33:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3137"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Return explicit origin in CORS response when credentials are allowed"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-14T10:33:39Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-16T13:22:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/benoit-bremaud/tp-formulaire-inscription-ci-cd/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2026-06-16T13:42:22Z",
+            "url": "https://api.github.com/repos/benoit-bremaud/tp-formulaire-inscription-ci-cd/pulls/11"
+          },
+          "repository": {
+            "full_name": "benoit-bremaud/tp-formulaire-inscription-ci-cd"
+          },
+          "title": "feat(docker): docker-compose stack + CI pipeline (test + Docker Hub publish)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-29T18:20:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ananthanarayanan431/cognee-project/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-06-29T18:14:46Z",
+            "url": "https://api.github.com/repos/ananthanarayanan431/cognee-project/pulls/2"
+          },
+          "repository": {
+            "full_name": "ananthanarayanan431/cognee-project"
+          },
+          "title": "Changes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T11:38:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/MahammadWahab540/Kitten-TTS-Server/pull/17",
+          "number": 17,
+          "pull_request": {
+            "merged_at": "2026-07-07T07:44:33Z",
+            "url": "https://api.github.com/repos/MahammadWahab540/Kitten-TTS-Server/pulls/17"
+          },
+          "repository": {
+            "full_name": "MahammadWahab540/Kitten-TTS-Server"
+          },
+          "title": "Fix torchaudio import crash and apply PR16 security fixes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-16T19:02:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SrJesus98/Sancti-Shop/pull/5",
+          "number": 5,
+          "pull_request": {
+            "merged_at": "2026-07-17T15:30:24Z",
+            "url": "https://api.github.com/repos/SrJesus98/Sancti-Shop/pulls/5"
+          },
+          "repository": {
+            "full_name": "SrJesus98/Sancti-Shop"
+          },
+          "title": "Feature/006 file upload"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T06:06:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Icoder25/Sahaay-AI/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-07-18T06:10:51Z",
+            "url": "https://api.github.com/repos/Icoder25/Sahaay-AI/pulls/1"
+          },
+          "repository": {
+            "full_name": "Icoder25/Sahaay-AI"
+          },
+          "title": "Add FastAPI hackathon backend for chat, routines, Exa, and voice."
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-18T08:26:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pandoruy-pingin-menang-pls/blusukan-be/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-07-18T09:12:32Z",
+            "url": "https://api.github.com/repos/pandoruy-pingin-menang-pls/blusukan-be/pulls/4"
+          },
+          "repository": {
+            "full_name": "pandoruy-pingin-menang-pls/blusukan-be"
+          },
+          "title": "Develop"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T15:33:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/JustinBeaudry/purelymailcalendar/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-07-25T22:51:09Z",
+            "url": "https://api.github.com/repos/JustinBeaudry/purelymailcalendar/pulls/1"
+          },
+          "repository": {
+            "full_name": "JustinBeaudry/purelymailcalendar"
+          },
+          "title": "Security hardening for self-hosting (critical path-traversal + insecure defaults)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-25T07:19:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Trancendos/Tranc3/pull/345",
+          "number": 345,
+          "pull_request": {
+            "merged_at": "2026-07-27T17:59:57Z",
+            "url": "https://api.github.com/repos/Trancendos/Tranc3/pulls/345"
+          },
+          "repository": {
+            "full_name": "Trancendos/Tranc3"
+          },
+          "title": "Add auth enforcement to 6 unauthenticated in-repo routers (MC-015)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T03:17:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/brianirish/laravel-mcp-companion/pull/397",
+          "number": 397,
+          "pull_request": {
+            "merged_at": "2026-08-03T14:24:41Z",
+            "url": "https://api.github.com/repos/brianirish/laravel-mcp-companion/pulls/397"
+          },
+          "repository": {
+            "full_name": "brianirish/laravel-mcp-companion"
+          },
+          "title": "v0.13.0: coverage to 81% + real-transport e2e tests"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:48:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ROHITCRAFTSYT/hindsight/pull/14",
+          "number": 14,
+          "pull_request": {
+            "merged_at": "2026-08-13T17:44:26Z",
+            "url": "https://api.github.com/repos/ROHITCRAFTSYT/hindsight/pulls/14"
+          },
+          "repository": {
+            "full_name": "ROHITCRAFTSYT/hindsight"
+          },
+          "title": "fix(security): never fall back to wildcard CORS with credentials"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T19:10:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/misrasaptarshi099-dotcom/Waste-Management/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2026-08-18T19:32:00Z",
+            "url": "https://api.github.com/repos/misrasaptarshi099-dotcom/Waste-Management/pulls/3"
+          },
+          "repository": {
+            "full_name": "misrasaptarshi099-dotcom/Waste-Management"
+          },
+          "title": "feat(phase4): FastAPI REST API layer with Pydantic v2 schemas"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-24T17:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/nyeinpyaesone-ui/ERP03/pull/143",
+          "number": 143,
+          "pull_request": {
+            "merged_at": "2026-08-25T08:29:05Z",
+            "url": "https://api.github.com/repos/nyeinpyaesone-ui/ERP03/pulls/143"
+          },
+          "repository": {
+            "full_name": "nyeinpyaesone-ui/ERP03"
+          },
+          "title": "Update from task b88e2605-5123-49fe-a20a-1242c97b99ac"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-25T22:46:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/MattG-bci/movie-recommender/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-08-26T00:15:19Z",
+            "url": "https://api.github.com/repos/MattG-bci/movie-recommender/pulls/21"
+          },
+          "repository": {
+            "full_name": "MattG-bci/movie-recommender"
+          },
+          "title": "Add API tests"
+        }
+      }
+    }
+  ]
+}

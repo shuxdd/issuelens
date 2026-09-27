@@ -1,0 +1,117 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-01-14T22:27:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/09235ebe6c69d6d21080a8967cde731604de83a7",
+      "sha": "09235ebe6c69d6d21080a8967cde731604de83a7"
+    },
+    {
+      "committed_at": "2020-01-14T22:36:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/462f2bf00eab5813836e6b910a8d967fead93994",
+      "sha": "462f2bf00eab5813836e6b910a8d967fead93994"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-01-15T10:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/801",
+          "number": 801,
+          "pull_request": {
+            "merged_at": "2020-01-15T10:55:11Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/801"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Security patch: Updating CORS origin regex to use a full regex match"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/462f2bf00eab5813836e6b910a8d967fead93994/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "90ba18010032e8e00139bdca9f5dd96ce826261e",
+      "status": "modified"
+    },
+    {
+      "additions": 34,
+      "blob_url": "https://github.com/Kludex/starlette/blob/462f2bf00eab5813836e6b910a8d967fead93994/tests%2Fmiddleware%2Ftest_cors.py",
+      "changes": 35,
+      "deletions": 1,
+      "filename": "tests/middleware/test_cors.py",
+      "sha": "e8bf72fdda42c583068a8b2435e0e465a404b884",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Looking at the docs for CORS Middlware here: https://www.starlette.io/middleware/#corsmiddleware , under the `allow_origin_regex` attribute, the example value is `https://.*\\.example\\.org`.\r\n\r\nHowever, based on the handler code for this at https://github.com/encode/starlette/blob/ab86530eddfcf56e0f7e5ca56f6ab69c15594a7d/starlette/middleware/cors.py#L90 , it appears `https://www.example.org.hacker.com` would pass as a valid origin, right?\r\n\r\nIt seems like the example should be `https://.*\\.example\\.org$`, yes?",
+    "body_last_edited_at": "2020-01-14T20:21:57Z",
+    "closed_at": "2020-01-15T10:55:11Z",
+    "created_at": "2020-01-14T20:21:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/800",
+    "number": 800,
+    "state": "closed",
+    "title": "Dangerous example regex for CORS Middleware?",
+    "user": "josephbuckley"
+  },
+  "pull_request": {
+    "closed_at": "2020-01-15T10:55:11Z",
+    "created_at": "2020-01-14T22:31:47Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/801",
+    "merge_commit_sha": "20973f2ed31f4fe7faca988f8590fe3eaf70541e",
+    "merged_at": "2020-01-15T10:55:11Z",
+    "number": 801,
+    "title": "Security patch: Updating CORS origin regex to use a full regex match",
+    "user": "josephbuckley"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5c43dde0ec0917673bb280bcd7ab0c37b78061b7",
+    "committed_at": "2020-01-09T15:11:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5c43dde0ec0917673bb280bcd7ab0c37b78061b7"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-01-14T20:48:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-14T20:52:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-14T21:00:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-14T22:38:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-15T10:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/801",
+          "number": 801,
+          "pull_request": {
+            "merged_at": "2020-01-15T10:55:11Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/801"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Security patch: Updating CORS origin regex to use a full regex match"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-09-13T08:10:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/atviriduomenys/spinta/issues/781",
+          "number": 781,
+          "pull_request": {},
+          "repository": {
+            "full_name": "atviriduomenys/spinta"
+          },
+          "title": "`_srid` nuoroda nepalaiko neigiam\u0173 koordina\u010di\u0173 reik\u0161mi\u0173"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1778\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **jvail** July 27, 2022</sup>\r\nHi,\r\n\r\nI may have missed the discussion/issue but I wonder what the reason might be to not support negative values in the default float & int convertors?\r\n\r\nI have now implemented them myself (by copying starlette's default converters and changing the regex). But of course I'd prefer not to do that.\r\n\r\nThank you\r\nJan</div>\r\n\r\nWould you accept a PR for this? I am using the regex from here https://docs.python.org/3/library/re.html#simulating-scanf. So fairly reliable, I guess.\r\n",
+    "closed_at": "2022-08-05T07:40:50Z",
+    "created_at": "2022-08-04T08:53:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1790",
+    "number": 1790,
+    "state": "closed",
+    "title": "Negative values and int&float convertors",
+    "user": "jvail"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-05T07:40:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-05T07:40:50Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-09-13T08:10:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/atviriduomenys/spinta/issues/781",
+          "number": 781,
+          "pull_request": {},
+          "repository": {
+            "full_name": "atviriduomenys/spinta"
+          },
+          "title": "`_srid` nuoroda nepalaiko neigiam\u0173 koordina\u010di\u0173 reik\u0161mi\u0173"
+        }
+      }
+    }
+  ]
+}

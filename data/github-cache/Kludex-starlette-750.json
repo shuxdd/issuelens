@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-12-13T08:28:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/790",
+          "number": 790,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "RedirectResponse returns 404 for external url's with TestClient"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I played with [this](https://github.com/encode/starlette/blob/master/tests/test_responses.py#L60) test case by redirecting to an external URL and it seems to fail when a trailing slash is missing and `allow_redirects` is set to `True` (which is the default).\r\n\r\nThe same is true if you append any path parameter or query parameter to the URL.\r\n\r\nIt fails for starlette 0.12.13 and 0.13.\r\n\r\nThe error I receive is:\r\n\r\n```\r\n            if len(resp.history) >= self.max_redirects:\r\n>               raise TooManyRedirects('Exceeded %s redirects.' % self.max_redirects, response=resp)\r\nE               requests.exceptions.TooManyRedirects: Exceeded 30 redirects.\r\n```\r\n\r\nThis is my test:\r\n\r\n```python\r\ndef test_redirect_response():\r\n    url: str = 'https://github.com'\r\n\r\n    async def app(scope, receive, send):\r\n        if scope[\"path\"] == \"/\":\r\n            response = Response(\"hello, world\", media_type=\"text/plain\")\r\n        else:\r\n            response = RedirectResponse(url=url)\r\n        await response(scope, receive, send)\r\n\r\n    client = TestClient(app)\r\n\r\n    response = client.get(\"/redirect\", allow_redirects=False)\r\n    assert response.status_code == status.HTTP_307_TEMPORARY_REDIRECT\r\n\r\n    response = client.get(\"/redirect\")\r\n    assert response.status_code == status.HTTP_200_OK\r\n\r\n```\r\n\r\nTo me, it seems to be an issue with the TestClient as it actually works when running a server and return a RedirectResponse.",
+    "closed_at": "2019-12-16T16:46:10Z",
+    "created_at": "2019-12-12T18:52:08Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/750",
+    "number": 750,
+    "state": "closed",
+    "title": "Returning RedirectResponse fails for full URL's if trailing slash is missing",
+    "user": "chbndrhnns"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-13T08:28:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/790",
+          "number": 790,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "RedirectResponse returns 404 for external url's with TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-16T16:46:10Z",
+      "event": "commented"
+    }
+  ]
+}

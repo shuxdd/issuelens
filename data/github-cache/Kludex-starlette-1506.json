@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\n\n- [X] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\n uvicorn --host 0.0.0.0 --port 9000 app:app\r\nINFO:     Started server process [71014]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://0.0.0.0:9000 (Press CTRL+C to quit)\r\nINFO:     127.0.0.1:58114 - \"GET / HTTP/1.1\" 500 Internal Server Error\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/uvicorn/protocols/http/h11_impl.py\", line 364, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/uvicorn/middleware/proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/fastapi/applications.py\", line 212, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/applications.py\", line 119, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/exceptions.py\", line 87, in __call__\r\n    raise exc\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/exceptions.py\", line 76, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/routing.py\", line 659, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/routing.py\", line 259, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/routing.py\", line 61, in app\r\n    response = await func(request)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/fastapi/routing.py\", line 216, in app\r\n    solved_result = await solve_dependencies(\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/fastapi/dependencies/utils.py\", line 465, in solve_dependencies\r\n    response = response or Response(\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/responses.py\", line 50, in __init__\r\n    self.init_headers(headers)\r\n  File \"/home/rds/venvs/new_deploy_test/venv/lib/python3.10/site-packages/starlette/responses.py\", line 77, in init_headers\r\n    and not (self.status_code < 200 or self.status_code in (204, 304))\r\nTypeError: '<' not supported between instances of 'NoneType' and 'int'\r\n\n\n### Steps to reproduce the bug\n\nPython 3.10\r\n Code app.py:\r\n\r\n```\r\nfrom fastapi import FastAPI\r\nfrom fastapi.responses import JSONResponse\r\n\r\napp = FastAPI()\r\n\r\n@app.get(\"/\")\r\nasync def read_root():\r\n    return JSONResponse(status_code=200, content={\"Success\":\"Ok!\"})\r\n\r\n```\r\n\r\nuvicorn --host 0.0.0.0 --port 9000 app:app\r\n\n\n### Expected behavior\n\n_No response_\n\n### Actual behavior\n\n_No response_\n\n### Debugging material\n\n_No response_\n\n### Environment\n\nLinux Manjaro \r\nPython 3.10.2 (main, Jan 15 2022, 19:56:27) [GCC 11.1.0] on linux\r\nstarlette 0.18.0\n\n### Additional context\n\n_No response_",
+    "closed_at": "2022-02-11T08:31:30Z",
+    "created_at": "2022-02-11T07:40:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1506",
+    "number": 1506,
+    "state": "closed",
+    "title": "TypeError ",
+    "user": "SergeyPotekhin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-11T08:31:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T08:31:30Z",
+      "event": "closed"
+    }
+  ]
+}

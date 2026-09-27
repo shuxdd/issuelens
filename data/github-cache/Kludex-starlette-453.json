@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Multiple template engines support\r\n\r\nAs Starlette is an unopionated framework it should support various template engines.\r\nThe engine to use it determined by template file extension.\r\n\r\nIn order to support it the framework needs an unified API to transparently select engines.\r\n\r\nIn this RFC I propose the following API:\r\n`Renderer` - an object which abstracts developer from underlying template engine.\r\n`TemplateEngine` - this is an adapter between template engine and renderer\r\n`EngineMapper` - this binds template extension to a concrete template engine\r\n\r\nThe API for the classes above:\r\n```python\r\nclass Renderer:\r\n    def __init__(self, engines: EngineMapper)\r\n    async def render(template: str, context: dict = None) -> str: ...\r\n```\r\n\r\n```python\r\nclass TemplateEngine:\r\n    async def render(template: str, context: dict = None) -> str: ...\r\n```\r\n\r\n```python\r\nclass EngineMapper:\r\n    def bind(extension: str, engine: TemplateEngine) -> None: ...\r\n    def find_for_extension(extension: str) -> TemplateEngine: ...\r\n```\r\n\r\nThe usage of there classes may be like this:\r\n```python\r\nclass JinjaTemplateEngine:\r\n    def __init__(self, environment: jinja2.Environment):\r\n        self._env = environment\r\n        \r\n    async def render(template: str, context: dict = None) -> str:\r\n        return self._env.render_async(template, context or {})\r\n\r\n\r\njinja = jinja2.Environment(enable_async=True)\r\nengines_map = EngineMapper()\r\nengines_map.bind('.html', JinjaTemplateEngine(jinja))\r\nrenderer = Renderer(engines)\r\n\r\nrendered_contents = await renderer.render('template_name.html', {'hello': 'world'})\r\nprint(rendered_contents) # rendered template\r\n```\r\n\r\nNote, `TemplateEngine.render` is async as template may come from file, database or other IO source.\r\n\r\nIf this proposal works for you I can form a PR.",
+    "closed_at": "2019-03-28T12:50:01Z",
+    "created_at": "2019-03-28T11:40:27Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/453",
+    "number": 453,
+    "state": "closed",
+    "title": "Multiple template backends",
+    "user": "alex-oleshkevich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-28T12:50:01Z",
+      "event": "commented"
+    }
+  ]
+}

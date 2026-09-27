@@ -1,0 +1,439 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-20T23:35:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/681",
+          "number": 681,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/681"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Account for root_path and forwarded host in make_url_absolute"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-27T20:04:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/690",
+          "number": 690,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "The root_path of a request is not known when running make_absolute_url"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-21T16:01:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/843",
+          "number": 843,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "url_for only returns URLs with an autrority component"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-24T09:34:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/965",
+          "number": 965,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Support X-Forwarded-Host in proxy-headers"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-27T04:29:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/pull/451",
+          "number": 451,
+          "pull_request": {
+            "url": "https://api.github.com/repos/justpy-org/justpy/pulls/451"
+          },
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Fix URL generation to better support serving behind proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-17T16:43:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stac-utils/titiler-pgstac/pull/105",
+          "number": 105,
+          "pull_request": {
+            "url": "https://api.github.com/repos/stac-utils/titiler-pgstac/pulls/105"
+          },
+          "repository": {
+            "full_name": "stac-utils/titiler-pgstac"
+          },
+          "title": "feat: added proxy header middleware from stac-fastapi"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-26T22:13:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/posit-dev/py-shiny/pull/780",
+          "number": 780,
+          "pull_request": {
+            "merged_at": "2023-10-26T17:12:50Z",
+            "url": "https://api.github.com/repos/posit-dev/py-shiny/pulls/780"
+          },
+          "repository": {
+            "full_name": "posit-dev/py-shiny"
+          },
+          "title": "Kwargs to uvicorn run"
+        }
+      }
+    },
+    {
+      "created_at": "2024-11-23T06:08:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/g0ldyy/comet/issues/215",
+          "number": 215,
+          "pull_request": {},
+          "repository": {
+            "full_name": "g0ldyy/comet"
+          },
+          "title": "Reverse proxy configuration provides stream URL as non proxied IP"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-10T21:53:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/3739",
+          "number": 3739,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Redirection issue on Marimo app deployed behind the proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-17T10:51:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2872",
+          "number": 2872,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2872"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Expose `url_path_for` on `HTTPConnection`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T11:06:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/app-sre/qontract-reconcile/pull/5734",
+          "number": 5734,
+          "pull_request": {
+            "merged_at": "2026-09-01T08:55:06Z",
+            "url": "https://api.github.com/repos/app-sre/qontract-reconcile/pulls/5734"
+          },
+          "repository": {
+            "full_name": "app-sre/qontract-reconcile"
+          },
+          "title": "APPSRE-13627-01: migrate quay repos to qontract_api"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Suppose I have my application reverse proxied, such that http://my.domain/foo (e.g. Traefik or Nginx) has the upstream http://localhost:8000 (the Starlette app). `url_for` will generate urls relative to the upstream url. How do I make it produce urls relative to the external url (with prefix /foo)?\r\n\r\nFor other projects, e.g. Flask/Werkzeug, this can be handled by setting `SCRIPT_NAME` in the request environment (scope) if the 'X-Forwarded-Prefix' header is set. It does not look like there is an equivalent option in Starlette.\r\n\r\nAm I missing something? Otherwise, consider this a feature request.",
+    "closed_at": "2019-11-01T14:11:01Z",
+    "created_at": "2019-08-18T06:44:20Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/604",
+    "number": 604,
+    "state": "closed",
+    "title": "Starlette behind reverse proxy, url_for does not return externally valid urls",
+    "user": "narzeja"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-18T06:46:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T10:24:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-29T14:05:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-18T18:33:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-18T18:33:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-18T18:33:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-18T21:04:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-20T23:35:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/681",
+          "number": 681,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/681"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Account for root_path and forwarded host in make_url_absolute"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-27T20:04:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/690",
+          "number": 690,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "The root_path of a request is not known when running make_absolute_url"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-01T13:03:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-01T13:03:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-01T13:03:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-01T14:35:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-01T15:39:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-01T18:20:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-27T16:45:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-27T18:51:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-21T16:01:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/843",
+          "number": 843,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "url_for only returns URLs with an autrority component"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-24T09:34:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/965",
+          "number": 965,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Support X-Forwarded-Host in proxy-headers"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-27T04:29:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/justpy-org/justpy/pull/451",
+          "number": 451,
+          "pull_request": {
+            "url": "https://api.github.com/repos/justpy-org/justpy/pulls/451"
+          },
+          "repository": {
+            "full_name": "justpy-org/justpy"
+          },
+          "title": "Fix URL generation to better support serving behind proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-17T16:43:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stac-utils/titiler-pgstac/pull/105",
+          "number": 105,
+          "pull_request": {
+            "url": "https://api.github.com/repos/stac-utils/titiler-pgstac/pulls/105"
+          },
+          "repository": {
+            "full_name": "stac-utils/titiler-pgstac"
+          },
+          "title": "feat: added proxy header middleware from stac-fastapi"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-26T22:13:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/posit-dev/py-shiny/pull/780",
+          "number": 780,
+          "pull_request": {
+            "merged_at": "2023-10-26T17:12:50Z",
+            "url": "https://api.github.com/repos/posit-dev/py-shiny/pulls/780"
+          },
+          "repository": {
+            "full_name": "posit-dev/py-shiny"
+          },
+          "title": "Kwargs to uvicorn run"
+        }
+      }
+    },
+    {
+      "created_at": "2024-11-23T06:08:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/g0ldyy/comet/issues/215",
+          "number": 215,
+          "pull_request": {},
+          "repository": {
+            "full_name": "g0ldyy/comet"
+          },
+          "title": "Reverse proxy configuration provides stream URL as non proxied IP"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-10T21:53:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/3739",
+          "number": 3739,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Redirection issue on Marimo app deployed behind the proxy"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-17T10:51:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2872",
+          "number": 2872,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2872"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Expose `url_path_for` on `HTTPConnection`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-04-02T23:09:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-18T11:06:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/app-sre/qontract-reconcile/pull/5734",
+          "number": 5734,
+          "pull_request": {
+            "merged_at": "2026-09-01T08:55:06Z",
+            "url": "https://api.github.com/repos/app-sre/qontract-reconcile/pulls/5734"
+          },
+          "repository": {
+            "full_name": "app-sre/qontract-reconcile"
+          },
+          "title": "APPSRE-13627-01: migrate quay repos to qontract_api"
+        }
+      }
+    }
+  ]
+}

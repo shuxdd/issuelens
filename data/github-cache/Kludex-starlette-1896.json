@@ -1,0 +1,132 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-10-06T07:16:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d72f51d27ec021afc06f45b524cea9bc1c177151",
+      "sha": "d72f51d27ec021afc06f45b524cea9bc1c177151"
+    },
+    {
+      "committed_at": "2022-10-06T07:24:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c00748212170f6ff37a612a64b97f8838ce7a795",
+      "sha": "c00748212170f6ff37a612a64b97f8838ce7a795"
+    },
+    {
+      "committed_at": "2022-10-07T15:22:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/22cb625d9528f21e9f80035fac269e867ad096d1",
+      "sha": "22cb625d9528f21e9f80035fac269e867ad096d1"
+    },
+    {
+      "committed_at": "2022-10-07T15:22:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ea843d5ef7e21ddc68bfd89cbd0e716d3eaf1373",
+      "sha": "ea843d5ef7e21ddc68bfd89cbd0e716d3eaf1373"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-10-06T07:32:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1902",
+          "number": 1902,
+          "pull_request": {
+            "merged_at": "2022-10-07T15:25:42Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1902"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add edit button on documentation pages"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ea843d5ef7e21ddc68bfd89cbd0e716d3eaf1373/mkdocs.yml",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "mkdocs.yml",
+      "sha": "3693060c8a45227017e133077bf1ef1c40769f75",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The idea is to allow people to fix or recommend suggestions on our documentation with this `mkdocs-material` feature: https://squidfunk.github.io/mkdocs-material/setup/adding-a-git-repository/.",
+    "closed_at": "2022-10-07T15:25:43Z",
+    "created_at": "2022-10-05T19:16:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1896",
+    "labels": [
+      "documentation",
+      "good first issue"
+    ],
+    "number": 1896,
+    "state": "closed",
+    "title": "Add GitHub repository on our documentation",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-10-07T15:25:42Z",
+    "created_at": "2022-10-06T07:32:02Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1902",
+    "merge_commit_sha": "5c3241a00874ca706289330c2ef30c838437259e",
+    "merged_at": "2022-10-07T15:25:42Z",
+    "number": 1902,
+    "title": "Add edit button on documentation pages",
+    "user": "ayushthe1"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-10-05T19:16:47Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-10-05T19:16:47Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-10-06T05:55:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-06T06:03:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-06T07:32:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1902",
+          "number": 1902,
+          "pull_request": {
+            "merged_at": "2022-10-07T15:25:42Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1902"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add edit button on documentation pages"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-06T07:33:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-06T07:33:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-10-06T07:33:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-10-07T15:25:43Z",
+      "event": "closed"
+    }
+  ]
+}

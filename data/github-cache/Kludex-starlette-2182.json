@@ -1,0 +1,103 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2023-06-12T20:30:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/pull/354",
+          "number": 354,
+          "pull_request": {
+            "merged_at": "2023-03-03T22:20:51Z",
+            "url": "https://api.github.com/repos/django/asgiref/pulls/354"
+          },
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Add extensions[\"lifespan.state\"]"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-12T20:43:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/398",
+          "number": 398,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Relax typing of lifespan state from Dict[str, Any] to Dict[Any, Any]"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Relevant conversation: https://github.com/django/asgiref/pull/354#discussion_r1227148701\r\n\r\nKey points:\r\n- a Starlette application shouldn't impose a typing restriction on what types of keys are passed into its state via the lifespan function, as the contents of particular namespace is supposed to be left up to the application programmer. Quote from the asgiref docs: \r\n> Applications can store arbitrary data in this namespace.\r\n- string keys are fine, but object keys (functioning similar to a `Symbol` key in Javascript) also make a lot of sense and can simplify application code (see example use-case below).\r\n- The asgiref documentation states:\r\n> applications should be cooperative by properly naming their keys such that they\r\nwill not collide with other frameworks or middleware. \r\n\r\nyet the most foulproof **and** simplest way to ensure no collisions would be to not use string keys at all, but object references (in the manner of Javascript's `Symbol`)!\r\n\r\nHere's an example use-case of non-string keys using fastapi's dependency injection system:\r\n```python\r\n# (roughly)\r\nHTTP_CLIENT: ClientSession = fastapi.Depends(lambda request: request.scope['state'][HTTP_CLIENT])\r\nDB_POOL: Pool = fastapi.Depends(lambda request: request.scope['state'][DB_POOL])\r\n\r\n@asynccontextmanager\r\nasync def app_lifespan(app: FastAPI) -> AsyncIterator[Dict[Any, Any]]:\r\n    async with make_http_client() as client:\r\n        async with make_database_connection_pool() as db_pool:\r\n            yield {HTTP_CLIENT: client, DB_POOL: db_pool}\r\n```\r\n\r\nIt is worth noting that this use-case _already_ works just fine! It is just annoying that the typing hints prohibit it. Since the state dictionary should be agnostic to its contents (only requiring it to be a dict for the purposes of _copying_ it and _updating_ it), I don't see any reason to enforce that keys must be strings in this dictionary... that should be left up to the application programmer!",
+    "closed_at": "2023-06-12T20:40:43Z",
+    "created_at": "2023-06-12T20:28:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2182",
+    "number": 2182,
+    "state": "closed",
+    "title": "Relax typing of lifespan state from Dict[str, Any] to Dict[Any, Any]",
+    "user": "HansBrende"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-06-12T20:30:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/pull/354",
+          "number": 354,
+          "pull_request": {
+            "merged_at": "2023-03-03T22:20:51Z",
+            "url": "https://api.github.com/repos/django/asgiref/pulls/354"
+          },
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Add extensions[\"lifespan.state\"]"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-12T20:31:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-12T20:40:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-12T20:40:20Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-06-12T20:40:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-06-12T20:40:43Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-06-12T20:43:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/398",
+          "number": 398,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Relax typing of lifespan state from Dict[str, Any] to Dict[Any, Any]"
+        }
+      }
+    }
+  ]
+}

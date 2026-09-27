@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hey, I've been working on json-rpc implementation for Starlette for some time. \r\n\r\nHere is my repository: https://github.com/kdebowski/starlette-jsonrpc\r\n\r\nI would be really grateful for your feedback, ideas, contribution. Please be gentle as it is my first public, open source project :)",
+    "closed_at": "2019-04-10T12:16:41Z",
+    "created_at": "2019-04-08T20:21:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/469",
+    "number": 469,
+    "state": "closed",
+    "title": "JSON-RPC for Starlette",
+    "user": "kdebowski"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-10T12:16:41Z",
+      "event": "commented"
+    }
+  ]
+}

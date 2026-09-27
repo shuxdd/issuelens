@@ -1,0 +1,845 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-03-26T23:01:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d06f40c6fad37a6ec0311f1f44595ad49db8efcd",
+      "sha": "d06f40c6fad37a6ec0311f1f44595ad49db8efcd"
+    },
+    {
+      "committed_at": "2021-03-26T23:12:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/75310b5f7fd55739ffe1ca4654a59a03efcea69f",
+      "sha": "75310b5f7fd55739ffe1ca4654a59a03efcea69f"
+    },
+    {
+      "committed_at": "2021-03-26T23:13:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a66068496da91d2c32d27c45eb05181a8c28d0b7",
+      "sha": "a66068496da91d2c32d27c45eb05181a8c28d0b7"
+    },
+    {
+      "committed_at": "2021-03-26T23:18:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/42b83cbae5111301e1a19de2c59a258ae47b44a6",
+      "sha": "42b83cbae5111301e1a19de2c59a258ae47b44a6"
+    },
+    {
+      "committed_at": "2021-03-27T01:44:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9870a1fa6a8a4799c9fb3c753391cb492cf19f6f",
+      "sha": "9870a1fa6a8a4799c9fb3c753391cb492cf19f6f"
+    },
+    {
+      "committed_at": "2021-03-27T14:35:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6997eb95a16463aed311e44be8e88560b149cbe8",
+      "sha": "6997eb95a16463aed311e44be8e88560b149cbe8"
+    },
+    {
+      "committed_at": "2021-03-27T14:35:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e1c2adb69f80ef1238afd8bd1af98126e76ceeb4",
+      "sha": "e1c2adb69f80ef1238afd8bd1af98126e76ceeb4"
+    },
+    {
+      "committed_at": "2021-03-27T14:36:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/de84b4a58cefc0dc9b9143665096f0930ad3ffad",
+      "sha": "de84b4a58cefc0dc9b9143665096f0930ad3ffad"
+    },
+    {
+      "committed_at": "2021-03-27T14:51:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e91ec33bc023319a455f4f3bb06754065b86c8aa",
+      "sha": "e91ec33bc023319a455f4f3bb06754065b86c8aa"
+    },
+    {
+      "committed_at": "2021-03-27T17:15:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7e2cd461c5b1241d11121a0c8bc9bc1cda7859b1",
+      "sha": "7e2cd461c5b1241d11121a0c8bc9bc1cda7859b1"
+    },
+    {
+      "committed_at": "2021-03-27T17:15:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03e312ede7858c4031a5e01728e7513855d54763",
+      "sha": "03e312ede7858c4031a5e01728e7513855d54763"
+    },
+    {
+      "committed_at": "2021-03-27T20:51:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fd4569eeaf6b81b0653ae31e48c808e9df057f5c",
+      "sha": "fd4569eeaf6b81b0653ae31e48c808e9df057f5c"
+    },
+    {
+      "committed_at": "2021-03-27T23:04:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d785513a1f5c35cd831be2a05ecb599152c35476",
+      "sha": "d785513a1f5c35cd831be2a05ecb599152c35476"
+    },
+    {
+      "committed_at": "2021-03-27T23:04:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/58d533181646e504d7151d26fcfb202deb526ea5",
+      "sha": "58d533181646e504d7151d26fcfb202deb526ea5"
+    },
+    {
+      "committed_at": "2021-03-27T23:34:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/268547dc30b2ba82205110c7348a630d1241c33e",
+      "sha": "268547dc30b2ba82205110c7348a630d1241c33e"
+    },
+    {
+      "committed_at": "2021-03-27T23:41:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/57b2f79754527d4f1ef5c8e1d67df2f827484903",
+      "sha": "57b2f79754527d4f1ef5c8e1d67df2f827484903"
+    },
+    {
+      "committed_at": "2021-03-27T23:41:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/444a3acdc2ad6eca39afc27f76d7ba4fc10d6722",
+      "sha": "444a3acdc2ad6eca39afc27f76d7ba4fc10d6722"
+    },
+    {
+      "committed_at": "2021-03-27T23:45:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4d31a60c6b571267104a361d1ee02056aca592fd",
+      "sha": "4d31a60c6b571267104a361d1ee02056aca592fd"
+    },
+    {
+      "committed_at": "2021-03-27T23:49:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/681c3488f2ab8e62698f7476b1322f0c0b956271",
+      "sha": "681c3488f2ab8e62698f7476b1322f0c0b956271"
+    },
+    {
+      "committed_at": "2021-03-27T23:53:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/01dd81370a7bcd76ebd5a8146ca27988c5643aca",
+      "sha": "01dd81370a7bcd76ebd5a8146ca27988c5643aca"
+    },
+    {
+      "committed_at": "2021-03-27T23:54:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9f76d4293df380e842090941557999fb344dbbec",
+      "sha": "9f76d4293df380e842090941557999fb344dbbec"
+    },
+    {
+      "committed_at": "2021-03-28T02:33:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5c8818de1aa934508a6e2125e6ce6c55b4f3b63c",
+      "sha": "5c8818de1aa934508a6e2125e6ce6c55b4f3b63c"
+    },
+    {
+      "committed_at": "2021-03-28T03:47:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f0e4cd8818c96bc4519395d275f517ce30171e26",
+      "sha": "f0e4cd8818c96bc4519395d275f517ce30171e26"
+    },
+    {
+      "committed_at": "2021-03-28T04:03:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/376f9db84aad06faab091b5cf69f4effd858d36c",
+      "sha": "376f9db84aad06faab091b5cf69f4effd858d36c"
+    },
+    {
+      "committed_at": "2021-03-28T16:02:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/34da2b427b08ceee585014f842ab08ad6bd68a53",
+      "sha": "34da2b427b08ceee585014f842ab08ad6bd68a53"
+    },
+    {
+      "committed_at": "2021-03-28T16:03:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/31cc220062315c4f16784fd152a9eaa022b41fed",
+      "sha": "31cc220062315c4f16784fd152a9eaa022b41fed"
+    },
+    {
+      "committed_at": "2021-03-28T16:13:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/73590aa84e212fe728693cca5cadec5988cc8c8c",
+      "sha": "73590aa84e212fe728693cca5cadec5988cc8c8c"
+    },
+    {
+      "committed_at": "2021-03-28T16:14:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4192bf7bc9de69307690f42b82d01a3c52c381be",
+      "sha": "4192bf7bc9de69307690f42b82d01a3c52c381be"
+    },
+    {
+      "committed_at": "2021-03-29T00:36:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3a4b4722eced045f1bd9fa58092ed2403e2d55ef",
+      "sha": "3a4b4722eced045f1bd9fa58092ed2403e2d55ef"
+    },
+    {
+      "committed_at": "2021-03-29T18:16:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cc3be48017740993c7dc9cf959e47d572f6af6eb",
+      "sha": "cc3be48017740993c7dc9cf959e47d572f6af6eb"
+    },
+    {
+      "committed_at": "2021-03-29T18:17:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9b6e722c5ac12fa05efda705321b55d9204447ed",
+      "sha": "9b6e722c5ac12fa05efda705321b55d9204447ed"
+    },
+    {
+      "committed_at": "2021-03-29T18:17:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b8c43cf0b9413eb65bc7d0cedd3ce2eaa29b9328",
+      "sha": "b8c43cf0b9413eb65bc7d0cedd3ce2eaa29b9328"
+    },
+    {
+      "committed_at": "2021-03-29T18:17:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d51d5ff1a39b8ff0497a11847907b73e0ebb1715",
+      "sha": "d51d5ff1a39b8ff0497a11847907b73e0ebb1715"
+    },
+    {
+      "committed_at": "2021-03-29T18:18:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/82431f4cb84303328c12ee20b3a0df6b03c8d33f",
+      "sha": "82431f4cb84303328c12ee20b3a0df6b03c8d33f"
+    },
+    {
+      "committed_at": "2021-03-29T18:24:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/250423771d8947f9a5394348bc23629aad511e58",
+      "sha": "250423771d8947f9a5394348bc23629aad511e58"
+    },
+    {
+      "committed_at": "2021-03-29T18:31:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/87c614cfbcf274bab0220f8ae15ad6aa139ea574",
+      "sha": "87c614cfbcf274bab0220f8ae15ad6aa139ea574"
+    },
+    {
+      "committed_at": "2021-03-30T14:11:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cf915bc58da66ddd2da678908b0fdae605d1577d",
+      "sha": "cf915bc58da66ddd2da678908b0fdae605d1577d"
+    },
+    {
+      "committed_at": "2021-04-10T00:10:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/72586ba2585f88da66d2372a04c47d886b709459",
+      "sha": "72586ba2585f88da66d2372a04c47d886b709459"
+    },
+    {
+      "committed_at": "2021-04-21T14:37:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1800f7abb1883cb413edfd8e2473d79568a642cb",
+      "sha": "1800f7abb1883cb413edfd8e2473d79568a642cb"
+    },
+    {
+      "committed_at": "2021-04-21T14:43:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/89e2dae4d911a4d131be9e959a33e9b0f722c13a",
+      "sha": "89e2dae4d911a4d131be9e959a33e9b0f722c13a"
+    },
+    {
+      "committed_at": "2021-04-21T20:09:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f62a2ec1c2e2a55fb1302ab96c9740278e540854",
+      "sha": "f62a2ec1c2e2a55fb1302ab96c9740278e540854"
+    },
+    {
+      "committed_at": "2021-05-03T13:56:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/edba5dcc7a37c8b20d271b210522ee99cc56deac",
+      "sha": "edba5dcc7a37c8b20d271b210522ee99cc56deac"
+    },
+    {
+      "committed_at": "2021-05-07T12:05:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/60d95e1c1b884da029f77f1fa7f94209c320dc9b",
+      "sha": "60d95e1c1b884da029f77f1fa7f94209c320dc9b"
+    },
+    {
+      "committed_at": "2021-05-12T13:39:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fc60420e88f8d25900632e1bce1cc403bff84e38",
+      "sha": "fc60420e88f8d25900632e1bce1cc403bff84e38"
+    },
+    {
+      "committed_at": "2021-05-13T14:30:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27283aa5d2248dbc42222b0c884851aa1f4f6dd8",
+      "sha": "27283aa5d2248dbc42222b0c884851aa1f4f6dd8"
+    },
+    {
+      "committed_at": "2021-05-13T14:30:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3cce6a91fec7926beead39a47d909e2aaf7674a8",
+      "sha": "3cce6a91fec7926beead39a47d909e2aaf7674a8"
+    },
+    {
+      "committed_at": "2021-05-13T14:35:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cbc2e68fe3656f320ee9bd1368db655e5f5f1f9f",
+      "sha": "cbc2e68fe3656f320ee9bd1368db655e5f5f1f9f"
+    },
+    {
+      "committed_at": "2021-05-13T14:35:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c4d49a70585a6ad99cfb69050d831d3eeb3c74b8",
+      "sha": "c4d49a70585a6ad99cfb69050d831d3eeb3c74b8"
+    },
+    {
+      "committed_at": "2021-05-13T15:31:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4dd8c5de79df2ee56959dba7bc20bbcdbb4d833d",
+      "sha": "4dd8c5de79df2ee56959dba7bc20bbcdbb4d833d"
+    },
+    {
+      "committed_at": "2021-05-13T15:43:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dde5079bdf59c1f974dff30d888ba1062faf9145",
+      "sha": "dde5079bdf59c1f974dff30d888ba1062faf9145"
+    },
+    {
+      "committed_at": "2021-05-13T19:29:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/df53965c8fc4ecbe4aceaeb6d7248ab8a92de54b",
+      "sha": "df53965c8fc4ecbe4aceaeb6d7248ab8a92de54b"
+    },
+    {
+      "committed_at": "2021-05-13T19:31:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6e0f05f9a0cfd3099b8caf694385c92ff48c244c",
+      "sha": "6e0f05f9a0cfd3099b8caf694385c92ff48c244c"
+    },
+    {
+      "committed_at": "2021-05-24T22:32:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3a359e39034908f925ed6c85e85bf78c80ffa6d7",
+      "sha": "3a359e39034908f925ed6c85e85bf78c80ffa6d7"
+    },
+    {
+      "committed_at": "2021-05-24T22:33:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5c77b7d1160bcbd1ce6fd265c06e4fdad81919b2",
+      "sha": "5c77b7d1160bcbd1ce6fd265c06e4fdad81919b2"
+    },
+    {
+      "committed_at": "2021-05-25T14:29:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/390b7a1a982c3b243b3cfa50fbf30c487fa32b6d",
+      "sha": "390b7a1a982c3b243b3cfa50fbf30c487fa32b6d"
+    },
+    {
+      "committed_at": "2021-05-25T14:34:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e420181cb82e55a69c5e1038169bc8ab54cf5bd0",
+      "sha": "e420181cb82e55a69c5e1038169bc8ab54cf5bd0"
+    },
+    {
+      "committed_at": "2021-05-27T14:50:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6a3f94dcdb331025a5c4f9a68c17777ba8f07da5",
+      "sha": "6a3f94dcdb331025a5c4f9a68c17777ba8f07da5"
+    },
+    {
+      "committed_at": "2021-05-27T15:02:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0c225a38edaf8432bfdfcd739dbe998e713e7437",
+      "sha": "0c225a38edaf8432bfdfcd739dbe998e713e7437"
+    },
+    {
+      "committed_at": "2021-05-27T15:04:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5667a4bdcde24d668c4a31062984d88fdc0ec628",
+      "sha": "5667a4bdcde24d668c4a31062984d88fdc0ec628"
+    },
+    {
+      "committed_at": "2021-05-27T15:09:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/19685dbc0a3f736ead52837ff93b37c9fec5fc25",
+      "sha": "19685dbc0a3f736ead52837ff93b37c9fec5fc25"
+    },
+    {
+      "committed_at": "2021-05-27T19:17:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4e43146bc9055f5a918ed96edf6e510f36f5ed68",
+      "sha": "4e43146bc9055f5a918ed96edf6e510f36f5ed68"
+    },
+    {
+      "committed_at": "2021-05-27T19:26:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a1ceb355491986cea3b24b7012a83ff2261119e2",
+      "sha": "a1ceb355491986cea3b24b7012a83ff2261119e2"
+    },
+    {
+      "committed_at": "2021-06-13T15:47:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/63cfcb9ef029406e39852a09592199309a139f22",
+      "sha": "63cfcb9ef029406e39852a09592199309a139f22"
+    },
+    {
+      "committed_at": "2021-06-13T15:48:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/efbe6a18b5164c403b6d4a70a3146cfc96d791e2",
+      "sha": "efbe6a18b5164c403b6d4a70a3146cfc96d791e2"
+    },
+    {
+      "committed_at": "2021-06-13T15:54:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6208ca5e356cb9acc605723e5b05e91bfbe1c391",
+      "sha": "6208ca5e356cb9acc605723e5b05e91bfbe1c391"
+    },
+    {
+      "committed_at": "2021-06-13T15:56:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8e6115b74811305c6ec61ea54650c52e3a314f50",
+      "sha": "8e6115b74811305c6ec61ea54650c52e3a314f50"
+    },
+    {
+      "committed_at": "2021-06-13T16:06:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e0c99676119f97d1e35e995a9b33649a69d5da68",
+      "sha": "e0c99676119f97d1e35e995a9b33649a69d5da68"
+    },
+    {
+      "committed_at": "2021-06-13T16:08:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27ec6f70cc96587b6ed14ff53ad361415dafe7ac",
+      "sha": "27ec6f70cc96587b6ed14ff53ad361415dafe7ac"
+    },
+    {
+      "committed_at": "2021-06-17T16:09:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2b9dd22173e7ddb552e08503433c700601a417d0",
+      "sha": "2b9dd22173e7ddb552e08503433c700601a417d0"
+    },
+    {
+      "committed_at": "2021-06-17T16:13:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/643d107a88f1e26b0c0485b8ca155488f75fabf1",
+      "sha": "643d107a88f1e26b0c0485b8ca155488f75fabf1"
+    },
+    {
+      "committed_at": "2021-06-18T14:35:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d0ca3f2bca14aa58d813e52b691b8ffd462a602b",
+      "sha": "d0ca3f2bca14aa58d813e52b691b8ffd462a602b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-02-07T12:47:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/mangum/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/mangum"
+          },
+          "title": "Trio support"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-10T11:24:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/310",
+          "number": 310,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Trio -  Python library for async concurrency and I/O"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-26T23:07:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1157",
+          "number": 1157,
+          "pull_request": {
+            "merged_at": "2021-06-18T14:48:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1157"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "anyio integration"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-30T14:13:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perspective-dev/perspective/issues/1978",
+          "number": 1978,
+          "pull_request": {},
+          "repository": {
+            "full_name": "perspective-dev/perspective"
+          },
+          "title": "`trio` support"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/README.md",
+      "changes": 9,
+      "deletions": 5,
+      "filename": "README.md",
+      "sha": "8eedea9523eaa63b84783091c7682f9cf5353a00",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/docs%2Findex.md",
+      "changes": 6,
+      "deletions": 4,
+      "filename": "docs/index.md",
+      "sha": "b9692a1fbc1b47bfd94108d8fe11d3f20ee5b85b",
+      "status": "modified"
+    },
+    {
+      "additions": 18,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/docs%2Ftestclient.md",
+      "changes": 18,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "f37858401859ea105095dd0ebdc73a01b84191df",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/requirements.txt",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "requirements.txt",
+      "sha": "ae3d91f263e508e80ca86f7939e7df5ec31daf32",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/setup.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "setup.py",
+      "sha": "a687ad861d8fd255cee87f7512f24d9d6dae1e20",
+      "status": "modified"
+    },
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fconcurrency.py",
+      "changes": 27,
+      "deletions": 14,
+      "filename": "starlette/concurrency.py",
+      "sha": "e89d1e04719d77e8b8151aed53ab21ccaf915404",
+      "status": "modified"
+    },
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fgraphql.py",
+      "changes": 21,
+      "deletions": 16,
+      "filename": "starlette/graphql.py",
+      "sha": "6e5d6ec6af09e2196eb9addd2819108392d92d27",
+      "status": "modified"
+    },
+    {
+      "additions": 32,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 69,
+      "deletions": 37,
+      "filename": "starlette/middleware/base.py",
+      "sha": "77ba6692518537f5f48427ff2d9b79eb30f83598",
+      "status": "modified"
+    },
+    {
+      "additions": 25,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fmiddleware%2Fwsgi.py",
+      "changes": 61,
+      "deletions": 36,
+      "filename": "starlette/middleware/wsgi.py",
+      "sha": "7e69e1a6b2925e74818c6ca4079e0e6b712860c5",
+      "status": "modified"
+    },
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Frequests.py",
+      "changes": 13,
+      "deletions": 5,
+      "filename": "starlette/requests.py",
+      "sha": "54ed8611e35153341fe125a1308488086615a1ac",
+      "status": "modified"
+    },
+    {
+      "additions": 14,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fresponses.py",
+      "changes": 32,
+      "deletions": 18,
+      "filename": "starlette/responses.py",
+      "sha": "d03df23294c1ca77af697ae4e2fed860470de5aa",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Fstaticfiles.py",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "starlette/staticfiles.py",
+      "sha": "33ea0b0337602f8805ee7665c9a7ccb9a83d6dc2",
+      "status": "modified"
+    },
+    {
+      "additions": 88,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/starlette%2Ftestclient.py",
+      "changes": 138,
+      "deletions": 50,
+      "filename": "starlette/testclient.py",
+      "sha": "c1c0fe1652adaff3d5f9e68486ebb194aeb0bc84",
+      "status": "modified"
+    },
+    {
+      "additions": 24,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Fconftest.py",
+      "changes": 24,
+      "deletions": 0,
+      "filename": "tests/conftest.py",
+      "sha": "d1f3ba8e4837496cef71dbd121bb2bda62d66bd4",
+      "status": "added"
+    },
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 15,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "df8901934a5931d1c2ec72231f22fd24c884b3b0",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Fmiddleware%2Ftest_errors.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "tests/middleware/test_errors.py",
+      "sha": "28b2a7ba32dab400121baee7af30913631e749da",
+      "status": "modified"
+    },
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_authentication.py",
+      "changes": 16,
+      "deletions": 5,
+      "filename": "tests/test_authentication.py",
+      "sha": "8ee87932a12572d5a663e2e1b3f484633e50b2ba",
+      "status": "modified"
+    },
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_concurrency.py",
+      "changes": 22,
+      "deletions": 0,
+      "filename": "tests/test_concurrency.py",
+      "sha": "cc5eba974fb4b0cb3c38e7017a0faf611c3b82fe",
+      "status": "added"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_database.py",
+      "changes": 3,
+      "deletions": 0,
+      "filename": "tests/test_database.py",
+      "sha": "f7280c2c71718777f3432e2a878f1bc6be839765",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_datastructures.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "tests/test_datastructures.py",
+      "sha": "bb71ba870cc48c2abf081618846e63c885f4528e",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_exceptions.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "tests/test_exceptions.py",
+      "sha": "bab6961b526eeb579d953e408672ea0ef83de891",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_graphql.py",
+      "changes": 22,
+      "deletions": 21,
+      "filename": "tests/test_graphql.py",
+      "sha": "b945a5cfe1294623a448f9d03490901bc9a432c3",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_requests.py",
+      "changes": 6,
+      "deletions": 4,
+      "filename": "tests/test_requests.py",
+      "sha": "fee059ab2ef27d3d7b3def2bcaa3e8d124a0ac61",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_responses.py",
+      "changes": 6,
+      "deletions": 3,
+      "filename": "tests/test_responses.py",
+      "sha": "496e64c86aaaf3e8c9def0d5fceb7ae14eeb0b5e",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_routing.py",
+      "changes": 6,
+      "deletions": 2,
+      "filename": "tests/test_routing.py",
+      "sha": "1d8eb8d9575b79e343d21a70a49a5b5295241781",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_staticfiles.py",
+      "changes": 5,
+      "deletions": 3,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "3c8ff240e53fbe6b5466892591cf3573d275c174",
+      "status": "modified"
+    },
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_testclient.py",
+      "changes": 18,
+      "deletions": 9,
+      "filename": "tests/test_testclient.py",
+      "sha": "86f36e172a16882c52528c012934a22be2bb6292",
+      "status": "modified"
+    },
+    {
+      "additions": 19,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0ca3f2bca14aa58d813e52b691b8ffd462a602b/tests%2Ftest_websockets.py",
+      "changes": 37,
+      "deletions": 18,
+      "filename": "tests/test_websockets.py",
+      "sha": "63ecd050ac3505aa28d6e74827532c17cf3cbe7f",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Via https://gitter.im/python-trio/general?at=5e2fe9b940da694c5edc8d70\r\n\r\nIt'd be nice to have Starlette support both Trio and Asyncio.\r\n\r\nCurrently it's an asyncio-only framework, but there's actually not many places where we're tied to asyncio, with the exception of a bunch of \"if this callable is a plain function then call into with with `run_in_threadpool`, otherwise await it.\".\r\n\r\nI think the other places are:\r\n\r\n* The WSGI middleware (optional). Currently has an asyncio-based implementation.\r\n* The BaseHTTPMiddleware class (optional), that provides a request/response middleware interface to develop against, rather than directly writing against ASGI. Again, currently has an asyncio-based implemention.\r\n* One weird part of the request model, `.is_disconnected` - that I think is structured as an anti-pattern and probably needs rethinking.\r\n* The graphene-based GraphQL async executor, which probably ought to come out of the core package anyways.\r\n* The existing TestClient, which we oughta replace with httpx now anyways, which does have trio+asyncio.\r\n\r\nShort: Tweaking our run_in_threadpool function to use `sniffio` and then either call trio's threadpooling or asyncio's threadpooling would be sufficient as a starting point to start using Starlette with Trio.",
+    "body_last_edited_at": null,
+    "closed_at": "2021-06-18T14:48:44Z",
+    "created_at": "2020-01-28T15:35:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/811",
+    "labels": [
+      "feature"
+    ],
+    "number": 811,
+    "state": "closed",
+    "title": "Trio support.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2021-06-18T14:48:44Z",
+    "created_at": "2021-03-26T23:07:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1157",
+    "merge_commit_sha": "42592d68e5d7fd044b79d7846eabe7f33961527c",
+    "merged_at": "2021-06-18T14:48:44Z",
+    "number": 1157,
+    "title": "anyio integration",
+    "user": "uSpike"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "5ee04ef9b1bc11dc14d299e6c855c9a3f7d5ff16",
+    "committed_at": "2021-03-12T12:49:52Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/5ee04ef9b1bc11dc14d299e6c855c9a3f7d5ff16"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-02-04T12:33:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-07T12:47:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/mangum/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/mangum"
+          },
+          "title": "Trio support"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-10T11:24:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/310",
+          "number": 310,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Trio -  Python library for async concurrency and I/O"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-28T09:48:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-28T09:48:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-28T09:48:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-04T12:41:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-15T19:33:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-24T07:12:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-22T12:48:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-22T12:52:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-26T14:06:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-26T14:06:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-26T14:06:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-26T23:07:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1157",
+          "number": 1157,
+          "pull_request": {
+            "merged_at": "2021-06-18T14:48:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1157"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "anyio integration"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-26T23:08:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-18T14:48:44Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-08-17T16:26:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-17T19:40:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-17T19:40:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-17T19:40:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-30T14:13:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perspective-dev/perspective/issues/1978",
+          "number": 1978,
+          "pull_request": {},
+          "repository": {
+            "full_name": "perspective-dev/perspective"
+          },
+          "title": "`trio` support"
+        }
+      }
+    }
+  ]
+}

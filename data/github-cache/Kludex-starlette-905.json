@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I am working on a more complex authorization mechanism and the only thing that is preventing me from using the `starlette.authentication.require` is that it hard codes `starlette.authentication.require.has_required_scope` to validate scopes against the request. I would like to propose adding a `validate_scopes` kwarg to `require` to allow passing in a user defined function. The default would be `has_required_scopes`. This would also provide a mechanism to better support #643. Will open a PR if this is acceptable.\r\n\r\nCode to be modified https://github.com/encode/starlette/blob/678f87da74232a76feb7db9b273a6b23fa56d92d/starlette/authentication.py#L19-23\r\n\r\nThe suggested signature would be as follows with references to `has_required_scopes` replaced in the function body\r\n```py\r\ndef requires(\r\n    scopes: typing.Union[str, typing.Sequence[str]],\r\n    status_code: int = 403,\r\n    redirect: str = None,\r\n    validate_scopes=has_required_scope\r\n) -> typing.Callable:\r\n```\r\n\r\nFor #643 and my use case would enable something like\r\n\r\n```py\r\n\r\nclass ComplexAuthorization():\r\n    def __init__(self, match_all=True):\r\n        self.match_all = match_all\r\n\r\n    def __call__(self, conn: HTTPConnection, scopes: typing.Sequence[str]) -> bool:\r\n        if self.match_all:\r\n            return all(scope in conn.auth.scopes for scope in scopes)\r\n        else:\r\n            return any(scope in conn.auth.scopes for scope in scopes)\r\n\r\nauthorize = ComplexAuthorization(match_all=False)\r\n@requires(['DataScience', 'Manager', 'Sales'], validate_scopes=authorize)\r\nasync def my_endpoint(request):\r\n    ...\r\n```\r\n\r\n",
+    "closed_at": "2022-02-14T10:19:06Z",
+    "created_at": "2020-04-19T05:43:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/905",
+    "number": 905,
+    "state": "closed",
+    "title": "Consider passing scope validation function to `starlette.authentication.require`",
+    "user": "jlujan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

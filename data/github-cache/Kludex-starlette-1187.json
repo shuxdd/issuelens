@@ -1,0 +1,101 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-05-09T05:39:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13252ebec030ca1a436c452b64ca715bb54543e6",
+      "sha": "13252ebec030ca1a436c452b64ca715bb54543e6"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-05-09T05:39:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1630",
+          "number": 1630,
+          "pull_request": {
+            "merged_at": "2022-05-09T18:44:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1630"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document unsuported `params` on `TestClient.websocket_connect`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/13252ebec030ca1a436c452b64ca715bb54543e6/docs%2Ftestclient.md",
+      "changes": 9,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "a214715fe765fcf1119aead8a357f26cdb93e8ce",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [X] The bug is reproducible against the latest release and/or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen using the method `websocket_connect` of `TestClient` to connect to a WebSocket, query parameters passed through the `params` argument are dropped.\r\n\r\nIt works if query parameters are hard-coded directly in the URL.\r\n### To reproduce\r\n\r\n```py\r\nfrom starlette.testclient import TestClient\r\nfrom starlette.websockets import WebSocket\r\n\r\n\r\nasync def app(scope, receive, send):\r\n    assert scope['type'] == 'websocket'\r\n    websocket = WebSocket(scope, receive=receive, send=send)\r\n    await websocket.accept()\r\n    await websocket.send_json(dict(websocket.query_params))\r\n    await websocket.close()\r\n\r\n\r\ndef test_app():\r\n    client = TestClient(app)\r\n    with client.websocket_connect('/', params={\"foo\": \"bar\"}) as websocket:\r\n        data = websocket.receive_json()\r\n        assert data == {\"foo\": \"bar\"}  # Fails\r\n```\r\n\r\n### Expected behavior\r\n\r\nThe query parameters should be kept when passing them through the `params` argument.\r\n\r\n### Actual behavior\r\n\r\nThe query parameters are dropped.\r\n\r\n### Debugging material\r\n\r\nThe issue probably comes from the [prepare_url method in requests](https://github.com/psf/requests/blob/f6d43b03fbb9a1e75ed63a9aa15738a8fce99b50/requests/models.py#L373-L378). Indeed, if it detects a scheme different than `http`, it stops the URL preparation and thus drops the parameters.\r\n\r\nThe solution could be to encode them manually in `websocket_connect`, at the beginning:\r\n\r\nhttps://github.com/encode/starlette/blob/d26f44b4aeaec63ae8ce0a4f34dea7439da48012/starlette/testclient.py#L434-L437\r\n\r\n### Environment\r\n\r\n- OS: macOS 11.3.1\r\n- Python version: 3.7.10\r\n- Starlette version: 0.14.2\r\n- Requests version: 2.25.1\r\n\r\n### Additional context\r\n\r\nSince it works when directly putting them in the URL string, it's not a big deal; but I thought it could be worth documenting it since it puzzled me for quite some time.\r\n",
+    "closed_at": "2022-05-09T18:44:43Z",
+    "created_at": "2021-05-24T12:56:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1187",
+    "labels": [
+      "websocket",
+      "testclient"
+    ],
+    "number": 1187,
+    "state": "closed",
+    "title": "Test client drops WebSocket query parameters",
+    "user": "frankie567"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-09T18:44:43Z",
+    "created_at": "2022-05-09T05:39:44Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1630",
+    "merge_commit_sha": "e7a92ee4cd43b6d7acf4e2fdedb20fe0e86f9620",
+    "merged_at": "2022-05-09T18:44:43Z",
+    "number": 1630,
+    "title": "Document unsuported `params` on `TestClient.websocket_connect`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-06-11T21:19:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-11T21:19:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-19T19:12:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-09T05:39:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1630",
+          "number": 1630,
+          "pull_request": {
+            "merged_at": "2022-05-09T18:44:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1630"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document unsuported `params` on `TestClient.websocket_connect`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-09T18:44:43Z",
+      "event": "closed"
+    }
+  ]
+}

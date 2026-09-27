@@ -1,0 +1,416 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-16T09:08:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7af2e62ff14ad1af95abe8ce32816b1709239e1a",
+      "sha": "7af2e62ff14ad1af95abe8ce32816b1709239e1a"
+    },
+    {
+      "committed_at": "2021-12-16T09:50:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c",
+      "sha": "a8d5e17c2cf0513c6da4ea47e91a5383c73ea27c"
+    },
+    {
+      "committed_at": "2021-12-16T09:57:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e9ef67e22ffe608710ffaf22b5ffedc34070d7c9",
+      "sha": "e9ef67e22ffe608710ffaf22b5ffedc34070d7c9"
+    },
+    {
+      "committed_at": "2022-01-14T18:12:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bf98184128783098ff40539d82b5ed0ee016f78e",
+      "sha": "bf98184128783098ff40539d82b5ed0ee016f78e"
+    },
+    {
+      "committed_at": "2022-01-15T18:08:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6fa1401f0bf97b607188c111fef33bbfa0ca7557",
+      "sha": "6fa1401f0bf97b607188c111fef33bbfa0ca7557"
+    },
+    {
+      "committed_at": "2022-01-15T18:49:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e4c9567d50b0a2301098b5a561fb06483ba2c051",
+      "sha": "e4c9567d50b0a2301098b5a561fb06483ba2c051"
+    },
+    {
+      "committed_at": "2022-01-15T18:52:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dc5d143d57211d2b52456ee33f66c9cd8a401f93",
+      "sha": "dc5d143d57211d2b52456ee33f66c9cd8a401f93"
+    },
+    {
+      "committed_at": "2022-01-15T18:55:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3b67063b4762ad8422115b61dcef54a6be02f7cf",
+      "sha": "3b67063b4762ad8422115b61dcef54a6be02f7cf"
+    },
+    {
+      "committed_at": "2022-01-19T09:34:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6f8987f4efae7c92d933c8c65094bb84a2b081e2",
+      "sha": "6f8987f4efae7c92d933c8c65094bb84a2b081e2"
+    },
+    {
+      "committed_at": "2022-01-19T09:36:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c32605fc2e7e9fe037e670fd22f44d168b5e72b0",
+      "sha": "c32605fc2e7e9fe037e670fd22f44d168b5e72b0"
+    },
+    {
+      "committed_at": "2022-01-19T09:38:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/608c2bf8ebeac01e958d31b20d9fde6971ddfeb4",
+      "sha": "608c2bf8ebeac01e958d31b20d9fde6971ddfeb4"
+    },
+    {
+      "committed_at": "2022-01-21T12:02:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0db01cf135a050e7f45ee07e4e0da95a9b36f8fc",
+      "sha": "0db01cf135a050e7f45ee07e4e0da95a9b36f8fc"
+    },
+    {
+      "committed_at": "2022-01-21T13:44:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4efbeaf5e264058ab9c688a37016b29f3b421264",
+      "sha": "4efbeaf5e264058ab9c688a37016b29f3b421264"
+    },
+    {
+      "committed_at": "2022-01-21T15:18:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/544dfd27cca2397e577aca16284fd24154f342e7",
+      "sha": "544dfd27cca2397e577aca16284fd24154f342e7"
+    },
+    {
+      "committed_at": "2022-01-21T15:20:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/14ebbf53c05936e5d206456d148804788f0a9b39",
+      "sha": "14ebbf53c05936e5d206456d148804788f0a9b39"
+    },
+    {
+      "committed_at": "2022-01-22T10:19:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a172de7adcf2a588b3262b9198c5e697adc1816c",
+      "sha": "a172de7adcf2a588b3262b9198c5e697adc1816c"
+    },
+    {
+      "committed_at": "2022-01-22T10:19:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0f435a09b370fb676fc403fb9bd1c646927c9c43",
+      "sha": "0f435a09b370fb676fc403fb9bd1c646927c9c43"
+    },
+    {
+      "committed_at": "2022-01-22T11:03:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/277b6acb2111d0a7d5906958f872248743ca3700",
+      "sha": "277b6acb2111d0a7d5906958f872248743ca3700"
+    },
+    {
+      "committed_at": "2022-01-22T11:05:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ffec63d81ecf7d45d455085c5c00009a8c1b0e67",
+      "sha": "ffec63d81ecf7d45d455085c5c00009a8c1b0e67"
+    },
+    {
+      "committed_at": "2022-01-22T14:09:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/02c1af830bb99781af11321b62fb022d165715ad",
+      "sha": "02c1af830bb99781af11321b62fb022d165715ad"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-07-04T12:36:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/992",
+          "number": 992,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/992"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add reason support for websocket.close"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-22T17:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1339",
+          "number": 1339,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1339"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Add reason support for websocket.close"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-15T18:17:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1417",
+          "number": 1417,
+          "pull_request": {
+            "merged_at": "2022-01-22T16:11:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1417"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add reason to WebSocket closure"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-28T11:52:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1263",
+          "number": 1263,
+          "pull_request": {
+            "merged_at": "2022-09-05T12:31:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1263"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `WebSocketException` and support for WS handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-18T07:56:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/GetBindu/Bindu/pull/551",
+          "number": 551,
+          "pull_request": {
+            "merged_at": "2026-05-18T08:42:18Z",
+            "url": "https://api.github.com/repos/GetBindu/Bindu/pulls/551"
+          },
+          "repository": {
+            "full_name": "GetBindu/Bindu"
+          },
+          "title": "feat(mtls): end-to-end mTLS for A2A traffic (off by default)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/02c1af830bb99781af11321b62fb022d165715ad/docs%2Fwebsockets.md",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "docs/websockets.md",
+      "sha": "1128bce43f73231f7e6533daf057c7e503ee2036",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/02c1af830bb99781af11321b62fb022d165715ad/starlette%2Ftestclient.py",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "starlette/testclient.py",
+      "sha": "c951767b46ea3c533e7d73b4e7e627d7f605ec0b",
+      "status": "modified"
+    },
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/02c1af830bb99781af11321b62fb022d165715ad/starlette%2Fwebsockets.py",
+      "changes": 16,
+      "deletions": 5,
+      "filename": "starlette/websockets.py",
+      "sha": "da7406047bdecf1c2ddadd1d7bd3f2f2320c51f0",
+      "status": "modified"
+    },
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/02c1af830bb99781af11321b62fb022d165715ad/tests%2Ftest_websockets.py",
+      "changes": 17,
+      "deletions": 0,
+      "filename": "tests/test_websockets.py",
+      "sha": "b11685cbc3ba526c27435448dcc4d143c80e1be6",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I've recently started actively developing with websockets in starlette. When closing a websocket you can provide a code e.g. 1000, 1008 \u2026 to tell the client the basic reason. But the websocket protocol allows the developer to also give UTF-8-encoded data as a complementary description/ reason. This would be useful in multiple cases such as mentioning the specific violitioan for code 1008 (POLICY VIOLIATION). [Websockets](https://websockets.readthedocs.io/en/stable/api.html?highlight=reason#websockets.protocol.WebSocketCommonProtocol.close) supports this too and their [implementation](https://websockets.readthedocs.io/en/stable/_modules/websockets/protocol.html#WebSocketCommonProtocol.close) could maybe help.\r\n\r\nSpecification: [https://tools.ietf.org/](https://tools.ietf.org/html/rfc6455#section-5.5.1)\r\n\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2022-01-22T16:11:33Z",
+    "created_at": "2020-07-04T12:21:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/991",
+    "labels": [
+      "websocket"
+    ],
+    "number": 991,
+    "state": "closed",
+    "title": "[Feature] Reason for websocket.close",
+    "user": "Chaostheorie"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-22T16:11:33Z",
+    "created_at": "2022-01-15T18:17:39Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1417",
+    "merge_commit_sha": "34d9f0f10f2e4706551acf340eb1eaf4d8c87b49",
+    "merged_at": "2022-01-22T16:11:33Z",
+    "number": 1417,
+    "title": "Add reason to WebSocket closure",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "fcc4c705ff69182ebd663bc686cb55c242d32683",
+    "committed_at": "2022-01-14T13:30:46Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/fcc4c705ff69182ebd663bc686cb55c242d32683"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-07-04T12:21:56Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-07-04T12:36:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/992",
+          "number": 992,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/992"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add reason support for websocket.close"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-04T12:36:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-05T17:19:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-06T11:51:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-06T11:51:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-06T11:51:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-15T01:59:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-15T02:41:14Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2021-11-15T02:41:26Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-22T16:38:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-22T16:48:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-22T16:48:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-22T16:48:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-22T17:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1339",
+          "number": 1339,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1339"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": " Add reason support for websocket.close"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-22T18:04:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-22T19:21:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-15T18:17:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1417",
+          "number": 1417,
+          "pull_request": {
+            "merged_at": "2022-01-22T16:11:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1417"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add reason to WebSocket closure"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-22T16:11:33Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-02-28T11:52:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1263",
+          "number": 1263,
+          "pull_request": {
+            "merged_at": "2022-09-05T12:31:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1263"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `WebSocketException` and support for WS handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-18T07:56:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/GetBindu/Bindu/pull/551",
+          "number": 551,
+          "pull_request": {
+            "merged_at": "2026-05-18T08:42:18Z",
+            "url": "https://api.github.com/repos/GetBindu/Bindu/pulls/551"
+          },
+          "repository": {
+            "full_name": "GetBindu/Bindu"
+          },
+          "title": "feat(mtls): end-to-end mTLS for A2A traffic (off by default)"
+        }
+      }
+    }
+  ]
+}

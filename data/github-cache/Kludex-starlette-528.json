@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I creating a signed URL from boto3 that is returned url encoded. It would be nice to be able to return that url directly without having starlette apply quoting again. On my end, it is an easy fix to unquote the URL before passing to `RedirectResponse`, but it took me a few minutes of searching to figure out why the presigned URL was not working.",
+    "closed_at": "2019-06-19T09:12:48Z",
+    "created_at": "2019-05-24T14:36:20Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/528",
+    "number": 528,
+    "state": "closed",
+    "title": "Feature suggestion: option to turn off url quoting in RedirectResponse",
+    "user": "seandavi"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-24T14:36:33Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-05-24T14:43:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-19T09:12:48Z",
+      "event": "commented"
+    }
+  ]
+}

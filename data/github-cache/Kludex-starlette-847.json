@@ -1,0 +1,504 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-04-29T19:06:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ec382274541720a688131053ec7247c4c5965f8d",
+      "sha": "ec382274541720a688131053ec7247c4c5965f8d"
+    },
+    {
+      "committed_at": "2023-05-04T13:33:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a3ba02cb732ac47ab66e172d4201c1f7dd41f699",
+      "sha": "a3ba02cb732ac47ab66e172d4201c1f7dd41f699"
+    },
+    {
+      "committed_at": "2023-05-04T14:24:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/96d5b4999b29b19c6dc6430858e096ac7dc46e65",
+      "sha": "96d5b4999b29b19c6dc6430858e096ac7dc46e65"
+    },
+    {
+      "committed_at": "2023-05-04T16:48:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f913447db466ada33f2b78a6f3428401983844c2",
+      "sha": "f913447db466ada33f2b78a6f3428401983844c2"
+    },
+    {
+      "committed_at": "2023-05-04T17:27:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/84c84f0322e45fa56d624a2f3ce59bc4ac53b246",
+      "sha": "84c84f0322e45fa56d624a2f3ce59bc4ac53b246"
+    },
+    {
+      "committed_at": "2023-05-04T17:30:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b4d5a7982cd14deda311934edff4c4493232e1a7",
+      "sha": "b4d5a7982cd14deda311934edff4c4493232e1a7"
+    },
+    {
+      "committed_at": "2023-05-04T17:31:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298",
+      "sha": "fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298"
+    },
+    {
+      "committed_at": "2023-05-31T20:00:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9162cb3984fd68e7416455111dcb0f6889542762",
+      "sha": "9162cb3984fd68e7416455111dcb0f6889542762"
+    },
+    {
+      "committed_at": "2023-06-01T18:39:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1e60d982d88f08fb07cd4e40951022597ae8f11f",
+      "sha": "1e60d982d88f08fb07cd4e40951022597ae8f11f"
+    },
+    {
+      "committed_at": "2023-06-01T18:44:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/68efb83cf38784be7e89e0583923dca2055b733b",
+      "sha": "68efb83cf38784be7e89e0583923dca2055b733b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-02-27T23:29:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/848",
+          "number": 848,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/848"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added request body cache to Request.receive"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-12T19:48:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/944",
+          "number": 944,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/944"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixes Request.json() Hangs Forever"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-15T04:42:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-23T16:01:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1702",
+          "number": 1702,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cache Request in scope via __new__ method"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-12T13:32:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/issues/103",
+          "number": 103,
+          "pull_request": {},
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "Cannot use `await request.body()` in label"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-29T08:50:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chrisK824/fastapi-gae-logging/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "chrisK824/fastapi-gae-logging"
+          },
+          "title": "Memory Leak"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-03T21:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/kubeflow/mlflow-integration/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-04-07T19:39:37Z",
+            "url": "https://api.github.com/repos/kubeflow/mlflow-integration/pulls/6"
+          },
+          "repository": {
+            "full_name": "kubeflow/mlflow-integration"
+          },
+          "title": "Add support for resourceName granular RBAC"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T13:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OpenVoiceOS/ovos-opendata-server/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OpenVoiceOS/ovos-opendata-server/pulls/6"
+          },
+          "repository": {
+            "full_name": "OpenVoiceOS/ovos-opendata-server"
+          },
+          "title": "feat: modular app package, packaging, test suite + CI that runs it"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T22:13:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shresthkapoor7/sediment/pull/111",
+          "number": 111,
+          "pull_request": {
+            "merged_at": "2026-08-19T01:29:36Z",
+            "url": "https://api.github.com/repos/shresthkapoor7/sediment/pulls/111"
+          },
+          "repository": {
+            "full_name": "shresthkapoor7/sediment"
+          },
+          "title": "Feature/special notes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 80,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 84,
+      "deletions": 4,
+      "filename": "starlette/middleware/base.py",
+      "sha": "2ff0e047b0c179c8a6d6e73a92ff7ce8953b1d9a",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Frequests.py",
+      "changes": 7,
+      "deletions": 4,
+      "filename": "starlette/requests.py",
+      "sha": "dbcaad87500e7b72a5b72e6be00555c2bc10dcf7",
+      "status": "modified"
+    },
+    {
+      "additions": 422,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 425,
+      "deletions": 3,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "f7dcf521c908f4ec0fac96ea9f2979a9e458cfe6",
+      "status": "modified"
+    },
+    {
+      "additions": 68,
+      "blob_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Ftest_requests.py",
+      "changes": 70,
+      "deletions": 2,
+      "filename": "tests/test_requests.py",
+      "sha": "a8f62b39e070a8b6dc4d35c5eaacb7ea6653dca9",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I'm currently trying to integrate some metrics tooling in a middleware where I need to inspect the request body. The problem I am seeing is that this triggers the request to hang forever. The following is how you can reproduce it.\r\n\r\n```py\r\napp = Starlette()\r\nclass ParseRequestMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request: Request, call_next: RequestResponseEndpoint):\r\n        # payload = await request.json()  # This will cause test() to hang\r\n        response = await call_next(request)\r\n        payload = await request.json()  # Hangs forever\r\n        return response\r\n\r\n\r\nasync def test(scope: Scope, receive: Receive, send: Send):\r\n    request = Request(scope=scope, receive=receive)\r\n    data = await request.json()\r\n    response = Response(status_code=405)\r\n    await response(scope, receive, send)\r\n\r\n\r\napp.mount(\"/test\", test)\r\napp.add_middleware(ParseRequestMiddleware)\r\n```\r\n\r\nI'm still pretty new to starlette but it seems to be an issue with the fact that the middleware and ASGI app use different Request objects and therefore can't share the Request._body cache. Which means they exhaust the stream on the first read and the second read isn't correctly detecting that the stream is exhausted and so gets stuck in that [`while True`](https://github.com/encode/starlette/blob/master/starlette/requests.py#L178) loop. I'm not sure I haven't dove deeper than the Request object. I'm not sure where the code is for the `receive` function that gets passed into the ASGI App is.",
+    "body_last_edited_at": null,
+    "closed_at": "2023-06-01T18:57:30Z",
+    "created_at": "2020-02-27T04:31:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/847",
+    "labels": [
+      "bug"
+    ],
+    "number": 847,
+    "state": "closed",
+    "title": "Middleware Request parse Hangs forever",
+    "user": "nikordaris"
+  },
+  "pull_request": {
+    "closed_at": "2023-06-01T18:57:28Z",
+    "created_at": "2022-06-15T03:13:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1692",
+    "merge_commit_sha": "554b9e21f6161a6d83b4ebb90909282114266317",
+    "merged_at": "2023-06-01T18:57:28Z",
+    "number": 1692,
+    "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+    "committed_at": "2022-06-11T06:30:50Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/daf29136df53ff03fb291644a4e564b6b37b4857"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-02-27T04:39:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-27T23:29:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/848",
+          "number": 848,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/848"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added request body cache to Request.receive"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-27T23:35:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-20T23:05:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-12T19:48:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/944",
+          "number": 944,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/944"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixes Request.json() Hangs Forever"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-12T19:54:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-13T10:49:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-13T14:36:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-17T11:04:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-19T03:44:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-28T12:40:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-19T21:52:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-23T11:37:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-02T12:54:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-07T18:23:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-07T18:23:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-05-07T18:23:10Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "dd18d47634f0762a6d07e6b4a306c2d709ac50dd",
+      "commit_url": "https://api.github.com/repos/andrew-chang-dewitt/hoops-api/commits/dd18d47634f0762a6d07e6b4a306c2d709ac50dd",
+      "created_at": "2021-11-29T21:26:48Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-03-18T13:15:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-15T04:42:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1692",
+          "number": 1692,
+          "pull_request": {
+            "merged_at": "2023-06-01T18:57:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1692"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reuse Request's body buffer for call_next in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-23T16:01:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1702",
+          "number": 1702,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cache Request in scope via __new__ method"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-03T13:07:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T18:57:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-09-12T13:32:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/issues/103",
+          "number": 103,
+          "pull_request": {},
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "Cannot use `await request.body()` in label"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-29T08:50:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chrisK824/fastapi-gae-logging/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "chrisK824/fastapi-gae-logging"
+          },
+          "title": "Memory Leak"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-03T21:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/kubeflow/mlflow-integration/pull/6",
+          "number": 6,
+          "pull_request": {
+            "merged_at": "2026-04-07T19:39:37Z",
+            "url": "https://api.github.com/repos/kubeflow/mlflow-integration/pulls/6"
+          },
+          "repository": {
+            "full_name": "kubeflow/mlflow-integration"
+          },
+          "title": "Add support for resourceName granular RBAC"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T13:27:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/OpenVoiceOS/ovos-opendata-server/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/OpenVoiceOS/ovos-opendata-server/pulls/6"
+          },
+          "repository": {
+            "full_name": "OpenVoiceOS/ovos-opendata-server"
+          },
+          "title": "feat: modular app package, packaging, test suite + CI that runs it"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-18T22:13:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shresthkapoor7/sediment/pull/111",
+          "number": 111,
+          "pull_request": {
+            "merged_at": "2026-08-19T01:29:36Z",
+            "url": "https://api.github.com/repos/shresthkapoor7/sediment/pulls/111"
+          },
+          "repository": {
+            "full_name": "shresthkapoor7/sediment"
+          },
+          "title": "Feature/special notes"
+        }
+      }
+    }
+  ]
+}

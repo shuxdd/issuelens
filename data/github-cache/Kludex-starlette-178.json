@@ -1,0 +1,119 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-11-07T00:57:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/81a4b227f04635d9ffd5c09f1e4f145df9641c53",
+      "sha": "81a4b227f04635d9ffd5c09f1e4f145df9641c53"
+    },
+    {
+      "committed_at": "2018-11-07T01:16:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7287fa41bf5c8bd4051d5b546c8f51d8ef80f37e",
+      "sha": "7287fa41bf5c8bd4051d5b546c8f51d8ef80f37e"
+    },
+    {
+      "committed_at": "2018-11-07T01:34:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a4494154f8a275377d399e1209a65b67cdb2cd5d",
+      "sha": "a4494154f8a275377d399e1209a65b67cdb2cd5d"
+    },
+    {
+      "committed_at": "2018-11-07T15:26:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/351ca43e6ae3184a32aaf20a4166e6bd7722e528",
+      "sha": "351ca43e6ae3184a32aaf20a4166e6bd7722e528"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-11-07T01:28:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/186",
+          "number": 186,
+          "pull_request": {
+            "merged_at": "2018-11-08T11:59:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/186"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement session expiry with configurable maximum age"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/351ca43e6ae3184a32aaf20a4166e6bd7722e528/starlette%2Fmiddleware%2Fsessions.py",
+      "changes": 17,
+      "deletions": 4,
+      "filename": "starlette/middleware/sessions.py",
+      "sha": "d1c2f6ab999e2ca3e893b56ec197e804189d6969",
+      "status": "modified"
+    },
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/351ca43e6ae3184a32aaf20a4166e6bd7722e528/tests%2Fmiddleware%2Ftest_session.py",
+      "changes": 28,
+      "deletions": 6,
+      "filename": "tests/middleware/test_session.py",
+      "sha": "f400c42b5e75b8c0b3a495c0b4146caa5b77d801",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The session middleware does not have any timestamp component to it, which means that if a session happens to be somehow leaked, it can be reused any time in the future.\r\n\r\nCan we have a timestamp component added to the session, so that the session middleware can reject such sessions after a reasonable period of time (e.g. 24 hours)?",
+    "body_last_edited_at": null,
+    "closed_at": "2018-11-08T11:59:28Z",
+    "created_at": "2018-11-03T15:43:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/178",
+    "number": 178,
+    "state": "closed",
+    "title": "Session middleware is highly insecure",
+    "user": "supriyo-biswas"
+  },
+  "pull_request": {
+    "closed_at": "2018-11-08T11:59:28Z",
+    "created_at": "2018-11-07T01:28:42Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/186",
+    "merge_commit_sha": "a7e0af0a9869056a0acb5726daaefb278900113b",
+    "merged_at": "2018-11-08T11:59:28Z",
+    "number": 186,
+    "title": "Implement session expiry with configurable maximum age",
+    "user": "jessebraham"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "380351027b2e2fdee55d98133b046c78e871f024",
+    "committed_at": "2018-11-06T17:03:34Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/380351027b2e2fdee55d98133b046c78e871f024"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-11-05T22:48:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-06T06:20:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-07T01:28:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/186",
+          "number": 186,
+          "pull_request": {
+            "merged_at": "2018-11-08T11:59:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/186"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement session expiry with configurable maximum age"
+        }
+      }
+    }
+  ]
+}

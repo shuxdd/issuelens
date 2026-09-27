@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Implement a session middleware that adds a mutable dict-like \u201csession\u201d interface into the scope.\r\n\r\nThe interface should track if it has been mutated. Loading the session data given the incoming request cookies, and saving any modified sessions in outgoing response cookies should be handled by a SessionBackend, so that we separate out the session load/save mechanics from the session interface itself.",
+    "closed_at": "2018-11-01T13:33:39Z",
+    "created_at": "2018-10-06T14:52:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/90",
+    "number": 90,
+    "state": "closed",
+    "title": "SessionMiddleware",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-06T14:54:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-06T14:56:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-01T13:33:39Z",
+      "event": "commented"
+    }
+  ]
+}

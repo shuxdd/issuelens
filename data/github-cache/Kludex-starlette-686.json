@@ -1,0 +1,71 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-11-26T08:26:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/florimondmanca/awesome-asgi/issues/17",
+          "number": 17,
+          "pull_request": {},
+          "repository": {
+            "full_name": "florimondmanca/awesome-asgi"
+          },
+          "title": "Project proposal: ASGI profiling middleware using yappi"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm having trouble profiling my FastAPI app when I use `starlette.testclient.TestClient`. The issue is that I get no visibility beyond the asyncronous calls to the test client (`<method 'control' of 'select.kqueue' objects>`), see attached image.\r\n\r\nThis seems like a generic problem with profiling async applications, but maybe the creators of the best async framework have some advice?\r\n\r\nMy typical workflow for profiling has been to make a test that's slow and then run it with `pytest --profile-svg` which generates something like this:\r\n\r\n\r\n<img width=\"659\" alt=\"Screen Shot 2019-10-23 at 6 35 23 AM\" src=\"https://user-images.githubusercontent.com/5266576/67386454-04a4fe00-f563-11e9-949f-6cb9de8e8738.png\">\r\n\r\nWhat I'm used to with Flask/WSGI is I would be able to \"see\" into the API call and find how long the constituent parts took. My thoughts on possible solutions so far are:\r\n\r\n1. Somehow run my app as WSGI for testing or in general. I'm not using FastAPI for async, I'm using it for ergonomics so losing async would not be a problem at this time\r\n2. Use a different profiler that works with async (all I've found is django-silk)\r\n3. Set profiling hooks inside of my API calls (not very attractive because it would be more work and potentially I'd have to check many different calls in one test to solve a slow test)\r\n4. Maybe use a line profiler to find which API calls in my test are slow\r\n\r\nHow do you profile your Starlette/FastAPI/async applications? Is there anything I can do to make my existing workflow work, or another workflow I can adopt?\r\n\r\nI love Starlette and FastAPI and am grateful for your work and any advice you might have.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/686\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/686/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/686/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2019-10-24T10:08:50Z",
+    "created_at": "2019-10-23T11:11:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/686",
+    "number": 686,
+    "state": "closed",
+    "title": "[QUESTION] Profiling calls to TestClient",
+    "user": "nathanielobrown"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-23T11:12:47Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-10-23T18:32:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-24T10:08:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-24T15:28:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-29T12:16:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-12T07:54:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-26T08:26:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/florimondmanca/awesome-asgi/issues/17",
+          "number": 17,
+          "pull_request": {},
+          "repository": {
+            "full_name": "florimondmanca/awesome-asgi"
+          },
+          "title": "Project proposal: ASGI profiling middleware using yappi"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I've recently updated starlette (unsure of which version i came from) to 0.13.4. Now my application will no longer start it simply hangs.\r\n\r\n```python\r\nmiddleware = [\r\n    Middleware(\r\n        CORSMiddleware,\r\n        allow_origins=['http://127.0.0.1:3000', 'http://localhost:3000'],\r\n        allow_methods=['*'],\r\n        allow_headers=['*'],\r\n        allow_credentials=True\r\n    )\r\n]\r\n\r\nAPP = Starlette(\r\n    debug=True,\r\n    on_startup=[\r\n        GINO.initialize,\r\n        lambda: _logger.logger.info('app init')\r\n    ],\r\n    on_shutdown=[GINO.destroy],\r\n    middleware=middleware\r\n)\r\n\r\nAPP.mount('/graphql', GRAPHQLAPP)\r\n```\r\n\r\nthis used to start the app but now the application never logs the startup message it just hangs on `app init`\r\n\r\nif I remove the GINO line it still just logs `app init` then hangs.\r\n\r\nOnce I remove all of the startup functions then the app starts correctly, but this is obviously not a solution.\r\n\r\nApp is running in a docker container with an untouched dockerfile\r\n\r\n`CMD [ \"python\", \"-m\", \"uvicorn\",  \"app:APP\", \"--host\", \"0.0.0.0\", \"--port\", \"5001\", \"--log-level\", \"info\", \"--reload\", \"--reload-dir\", \"/app\"]`",
+    "closed_at": "2020-05-03T21:03:50Z",
+    "created_at": "2020-05-03T20:12:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/928",
+    "number": 928,
+    "state": "closed",
+    "title": "Application Startup Never Completes",
+    "user": "seanaye"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-03T21:03:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-03T21:03:50Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-08-27T08:07:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1978",
+          "number": 1978,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add an alternative StreamingResponse class which can automatically encode to JSON Pydantic entities coming from a generator"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\n\r\nI'm trying to use the Starlette `StreamingResponse` with a generator that yields a `dict`.\r\nHowever, when trying to get a return I get the following error\r\n```\r\nTraceback (most recent call last):\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 379, in run_asgi\r\n    result = await asgi(self.receive, self.send)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/uvicorn/middleware/debug.py\", line 83, in __call__\r\n    raise exc from None\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/uvicorn/middleware/debug.py\", line 80, in __call__\r\n    await asgi(receive, self.send)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 125, in asgi\r\n    raise exc from None\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 103, in asgi\r\n    await asgi(receive, _send)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/middleware/cors.py\", line 138, in simple_response\r\n    await inner(receive, send)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/middleware/gzip.py\", line 33, in __call__\r\n    await self.inner(receive, self.send_with_gzip)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/exceptions.py\", line 74, in app\r\n    raise exc from None\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/exceptions.py\", line 63, in app\r\n    await instance(receive, sender)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/routing.py\", line 44, in awaitable\r\n    await response(receive, send)\r\n  File \"/Users/matdsmet/Projects/variantExpress/variantexpress_server/venv/lib/python3.7/site-packages/starlette/responses.py\", line 194, in __call__\r\n    chunk = chunk.encode(self.charset)\r\nAttributeError: 'dict' object has no attribute 'encode'\r\n```\r\n\r\nSome googling showed that the error is because the response expect a string input from the generator. Is there a way to fix this?\r\n\r\ncode snippet\r\n```\r\nasync def some_func():\r\n    for x in list():\r\n        yield dict()\r\n\r\n@router.post(\"/postroute\")\r\nasync def postroute():\r\n    generator = some_func()\r\n    return StreamingResponse(generator, media_type=\"application/json\")\r\n```\r\nAm I doing this wrong or am I expecting something that's not done?\r\n\r\nThanks a lot\r\nM\r\n",
+    "closed_at": "2019-03-06T11:45:44Z",
+    "created_at": "2019-03-06T11:36:27Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/419",
+    "number": 419,
+    "state": "closed",
+    "title": "question: using `StreamingResponse`for json data",
+    "user": "matthdsm"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-06T11:45:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-27T08:07:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1978",
+          "number": 1978,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add an alternative StreamingResponse class which can automatically encode to JSON Pydantic entities coming from a generator"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-02T10:22:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-08T18:23:17Z",
+      "event": "commented"
+    }
+  ]
+}

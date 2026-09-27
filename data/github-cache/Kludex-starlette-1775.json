@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The starting point for issues should usually be a discussion...\r\n\r\nhttps://github.com/encode/starlette/discussions\r\n\r\nPossible bugs may be raised as a \"Potential Issue\" discussion, feature requests may be raised as an \"Ideas\" discussion. We can then determine if the discussion needs to be escalated into an \"Issue\" or not.\r\n\r\nThis will help us ensure that the \"Issues\" list properly reflects ongoing or needed work on the project.\r\n\r\n---\r\n\r\n- [x] Initially raised as discussion in FastAPI https://github.com/tiangolo/fastapi/issues/5183\r\n\r\n```python\r\nimport asyncio\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import StreamingResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\ndef sync_streamer():\r\n    try:\r\n        while True:\r\n            yield b\"--boundary\\r\\nContent-Type: text/plain\\r\\nContent-Length: 1\\r\\n\\r\\n1\\r\\n\"\r\n    except asyncio.CancelledError:\r\n        print(\"caught cancelled error\")\r\n        raise GeneratorExit\r\n\r\n\r\nasync def async_streamer():\r\n    try:\r\n        while True:\r\n            yield b\"--boundary\\r\\nContent-Type: text/plain\\r\\nContent-Length: 1\\r\\n\\r\\n1\\r\\n\"\r\n    except asyncio.CancelledError:\r\n        print(\"caught cancelled error\")\r\n        raise GeneratorExit\r\n\r\n\r\nasync def sync_endpoint(request):\r\n    try:\r\n        return StreamingResponse(\r\n            sync_streamer(),\r\n            media_type=\"multipart/x-mixed-replace; boundary=boundary\",\r\n        )\r\n    except asyncio.CancelledError:\r\n        print(\"caught cancelled error\")\r\n        raise GeneratorExit\r\n\r\n\r\nasync def async_endpoint(request):\r\n    try:\r\n        return StreamingResponse(\r\n            async_streamer(),\r\n            media_type=\"multipart/x-mixed-replace; boundary=boundary\",\r\n        )\r\n    except KeyboardInterrupt:\r\n        exit()\r\n\r\n\r\nroutes = [\r\n    Route('/sync', sync_endpoint),\r\n    Route('/async', async_endpoint),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n\r\n```\r\n\r\n**CASE 1:** When `/async` (Asynchronous Generator) is hit\r\n```shell\r\n>uvicorn stream:app\r\nINFO:     Started server process [23288]\r\nINFO:     Waiting for application startup.                               \r\nINFO:     Application startup complete.                                  \r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\nINFO:     127.0.0.1:65107 - \"GET /async HTTP/1.1\" 200 OK\r\n\r\n# stuck indefinitely after client cancels the request.\r\n```\r\n**CASE 2:** When `/sync` (Synchronous Generator) is hit\r\n```shell\r\n>uvicorn stream:app\r\nINFO:     Started server process [24968]\r\nINFO:     Waiting for application startup.                               \r\nINFO:     Application startup complete.                                  \r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\nINFO:     127.0.0.1:55582 - \"GET /sync HTTP/1.1\" 200 OK\r\nException in callback _ProactorBasePipeTransport._call_connection_lost(None)\r\nhandle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>     \r\nTraceback (most recent call last):                                          \r\n  File \"...\\lib\\asyncio\\events.py\", line 80, in _run\r\n    self._context.run(self._callback, *self._args)\r\n  File \"...\\lib\\asyncio\\proactor_events.py\", line 162, in _call_connection_lost\r\n    self._sock.shutdown(socket.SHUT_RDWR)\r\nConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host\r\n```\r\n\r\n**When CASE 1, even `Keyboard Interrupts are ignored. I had to kill Python process forcefully.**\r\n\r\n\r\n",
+    "closed_at": "2022-07-22T15:08:53Z",
+    "created_at": "2022-07-22T15:01:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1775",
+    "number": 1775,
+    "state": "closed",
+    "title": "StreamingResponse with async generator get stuck indefinitely",
+    "user": "iudeen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-22T15:08:52Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-07-22T15:08:53Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

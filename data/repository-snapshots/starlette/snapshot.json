@@ -1,12 +1,335 @@
 {
-  "schema_version": "1.0",
-  "repository": "Kludex/starlette",
   "default_branch": "main",
   "default_branch_commits": [
+    {
+      "commit": "590db3d6ea6c7f3b03013209822cda2c54dc38ae",
+      "committed_at": "2018-07-18T14:42:59Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/590db3d6ea6c7f3b03013209822cda2c54dc38ae"
+    },
+    {
+      "commit": "12e4ef60d74526fd6e5e02bfc832e712132634c7",
+      "committed_at": "2018-09-20T09:00:25Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/12e4ef60d74526fd6e5e02bfc832e712132634c7"
+    },
+    {
+      "commit": "67fd28adc282c3a1cb9a20a6e14eaa4e16c1e910",
+      "committed_at": "2018-10-05T15:39:11Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/67fd28adc282c3a1cb9a20a6e14eaa4e16c1e910"
+    },
+    {
+      "commit": "bdf99f1f6173dc4fbe9ea323bf3f86905d479ac1",
+      "committed_at": "2018-10-08T09:39:43Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/bdf99f1f6173dc4fbe9ea323bf3f86905d479ac1"
+    },
+    {
+      "commit": "cc09042c1ca5ccac78bf0ff689faa5dcd3e04f3a",
+      "committed_at": "2018-10-10T16:33:12Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/cc09042c1ca5ccac78bf0ff689faa5dcd3e04f3a"
+    },
+    {
+      "commit": "4a1738cb23f59d98fea919b5dcab05fe7541652c",
+      "committed_at": "2018-10-20T12:53:11Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/4a1738cb23f59d98fea919b5dcab05fe7541652c"
+    },
+    {
+      "commit": "7b8d4920c23c60c7476344357cac42fbb7906ce2",
+      "committed_at": "2018-10-22T14:10:11Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/7b8d4920c23c60c7476344357cac42fbb7906ce2"
+    },
+    {
+      "commit": "a32ea0a8e89567b24f3b8cd04847a1b01c9e98f0",
+      "committed_at": "2018-10-26T12:29:25Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/a32ea0a8e89567b24f3b8cd04847a1b01c9e98f0"
+    },
+    {
+      "commit": "380351027b2e2fdee55d98133b046c78e871f024",
+      "committed_at": "2018-11-06T17:03:34Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/380351027b2e2fdee55d98133b046c78e871f024"
+    },
+    {
+      "commit": "58888bb53fa54991479d8a9a4c32d6b41b334b2c",
+      "committed_at": "2018-11-07T13:42:26Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/58888bb53fa54991479d8a9a4c32d6b41b334b2c"
+    },
+    {
+      "commit": "a2613494a475ed113f821ee1c48bc45556911f6c",
+      "committed_at": "2018-12-14T09:58:27Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/a2613494a475ed113f821ee1c48bc45556911f6c"
+    },
+    {
+      "commit": "9d20c9f6d6a8e659460e6781745d8a286dc42442",
+      "committed_at": "2018-12-19T10:16:20Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/9d20c9f6d6a8e659460e6781745d8a286dc42442"
+    },
+    {
+      "commit": "8545b022f9c5cfe52d8eb3cca71ffde0a00bca6d",
+      "committed_at": "2019-01-21T09:29:34Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/8545b022f9c5cfe52d8eb3cca71ffde0a00bca6d"
+    },
+    {
+      "commit": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+      "committed_at": "2019-04-22T21:37:24Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37"
+    },
+    {
+      "commit": "5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305",
+      "committed_at": "2019-05-13T10:26:27Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5f21c39c1c7d7dbccd2866e79e4c3c1eedba3305"
+    },
+    {
+      "commit": "f2e9115c0596519141b201a1025311d80e9a8730",
+      "committed_at": "2019-06-24T17:59:09Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f2e9115c0596519141b201a1025311d80e9a8730"
+    },
+    {
+      "commit": "3f702238247c99089eac76880965b32bd050f3cb",
+      "committed_at": "2019-06-24T22:03:49Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/3f702238247c99089eac76880965b32bd050f3cb"
+    },
+    {
+      "commit": "0e75f9f2b8454f84d86d6196131e85dadc465583",
+      "committed_at": "2019-08-27T22:11:03Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/0e75f9f2b8454f84d86d6196131e85dadc465583"
+    },
+    {
+      "commit": "7074f51977fda70dac58acbde8dee8b72b428ae5",
+      "committed_at": "2019-10-10T09:07:30Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/7074f51977fda70dac58acbde8dee8b72b428ae5"
+    },
+    {
+      "commit": "00e830080499c47a3e72f1b4adb2678758e388ee",
+      "committed_at": "2019-12-17T11:14:57Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/00e830080499c47a3e72f1b4adb2678758e388ee"
+    },
+    {
+      "commit": "5c43dde0ec0917673bb280bcd7ab0c37b78061b7",
+      "committed_at": "2020-01-09T15:11:28Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5c43dde0ec0917673bb280bcd7ab0c37b78061b7"
+    },
+    {
+      "commit": "0cb2d909a2a6d21219c66f8eec75a95f4b6d1c53",
+      "committed_at": "2020-03-16T11:17:18Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/0cb2d909a2a6d21219c66f8eec75a95f4b6d1c53"
+    },
+    {
+      "commit": "152a05ac3ddba5456ee05fb81d0f2ea3eaf17c2b",
+      "committed_at": "2020-05-04T10:31:54Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/152a05ac3ddba5456ee05fb81d0f2ea3eaf17c2b"
+    },
+    {
+      "commit": "ced8c350c459f22381ae00064e204b4620aa3d58",
+      "committed_at": "2020-06-29T11:39:10Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/ced8c350c459f22381ae00064e204b4620aa3d58"
+    },
+    {
+      "commit": "60d2259a7a15bcb433cf3e2018e716d7cc67797e",
+      "committed_at": "2020-07-20T12:12:23Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/60d2259a7a15bcb433cf3e2018e716d7cc67797e"
+    },
+    {
+      "commit": "c566fc6c819f0d565f8cff432351fe009e83d866",
+      "committed_at": "2020-08-16T14:24:23Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/c566fc6c819f0d565f8cff432351fe009e83d866"
+    },
+    {
+      "commit": "8729e9fc6964fe0299f67b13658a61c65af2b25b",
+      "committed_at": "2020-09-05T13:16:56Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/8729e9fc6964fe0299f67b13658a61c65af2b25b"
+    },
+    {
+      "commit": "e4307065ea6dbe708fba9643d14fe7adfff06d46",
+      "committed_at": "2020-11-23T16:06:26Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/e4307065ea6dbe708fba9643d14fe7adfff06d46"
+    },
+    {
+      "commit": "23e15789bf6b879b455f1249e47a43d4c752b3ed",
+      "committed_at": "2021-02-07T19:06:30Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/23e15789bf6b879b455f1249e47a43d4c752b3ed"
+    },
+    {
+      "commit": "5ee04ef9b1bc11dc14d299e6c855c9a3f7d5ff16",
+      "committed_at": "2021-03-12T12:49:52Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5ee04ef9b1bc11dc14d299e6c855c9a3f7d5ff16"
+    },
+    {
+      "commit": "f5ecb53895b3220b78bb5ced592d7c26e8b3b6fa",
+      "committed_at": "2021-04-06T20:38:48Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f5ecb53895b3220b78bb5ced592d7c26e8b3b6fa"
+    },
+    {
+      "commit": "467eb1c2121d1068323b37be068812a6e115ef0d",
+      "committed_at": "2021-06-11T09:55:32Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/467eb1c2121d1068323b37be068812a6e115ef0d"
+    },
+    {
+      "commit": "070d749f66999206c4c71cb203a2ea400e0b3c00",
+      "committed_at": "2021-06-27T12:26:14Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/070d749f66999206c4c71cb203a2ea400e0b3c00"
+    },
+    {
+      "commit": "d222b87cb4601ecda5d642ab504a14974d364db4",
+      "committed_at": "2021-06-28T20:36:13Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/d222b87cb4601ecda5d642ab504a14974d364db4"
+    },
+    {
+      "commit": "e45c5793611bfec606cd9c5d56887ddc67f77c38",
+      "committed_at": "2021-07-19T07:08:36Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/e45c5793611bfec606cd9c5d56887ddc67f77c38"
+    },
+    {
+      "commit": "d87c93eda4c546771fb51c60a21e8f245905f7f6",
+      "committed_at": "2021-10-25T07:51:12Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/d87c93eda4c546771fb51c60a21e8f245905f7f6"
+    },
+    {
+      "commit": "8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35",
+      "committed_at": "2021-11-29T13:32:29Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35"
+    },
+    {
+      "commit": "10529a3b39e2db21b03600991117c564332f31d2",
+      "committed_at": "2021-11-30T18:13:08Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/10529a3b39e2db21b03600991117c564332f31d2"
+    },
+    {
+      "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+      "committed_at": "2021-12-07T09:04:54Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f53faba229e3fa2844bc3753e233d9c1f54cca52"
+    },
+    {
+      "commit": "d0252aaf052a97e7f09c19d9bfa46d1c9501e910",
+      "committed_at": "2021-12-22T12:57:28Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/d0252aaf052a97e7f09c19d9bfa46d1c9501e910"
+    },
+    {
+      "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+      "committed_at": "2022-01-06T10:55:29Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/9d686a7125131fe026071d04e0d0e0a726e1afc5"
+    },
+    {
+      "commit": "fcc4c705ff69182ebd663bc686cb55c242d32683",
+      "committed_at": "2022-01-14T13:30:46Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/fcc4c705ff69182ebd663bc686cb55c242d32683"
+    },
+    {
+      "commit": "2b54f427613ebd1a6ccb2031aa97364e2d5070a5",
+      "committed_at": "2022-01-27T00:15:19Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/2b54f427613ebd1a6ccb2031aa97364e2d5070a5"
+    },
+    {
+      "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "committed_at": "2022-01-28T16:48:22Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/199fc703f3078bd5b0e1aca0e9f4ab236b03f029"
+    },
+    {
+      "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+      "committed_at": "2022-01-30T11:55:31Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/84820a25f2237c7c8fe7911f4fea2394f02994e8"
+    },
+    {
+      "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+      "committed_at": "2022-02-03T11:34:25Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/a6d3d8f0179cb1c2ac283bb5db779f6075854a66"
+    },
+    {
+      "commit": "37f61dae8dd84d0a7cd3ae63a2e1e1b20a5a4cfd",
+      "committed_at": "2022-02-10T10:37:04Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/37f61dae8dd84d0a7cd3ae63a2e1e1b20a5a4cfd"
+    },
     {
       "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
       "committed_at": "2022-03-09T18:43:11Z",
       "source_url": "https://github.com/Kludex/starlette/commit/e086fc2da361767b532cf690e5203619bbae98aa"
+    },
+    {
+      "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+      "committed_at": "2022-04-06T07:01:07Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/487f05dfc641a0632be8bd405add6454cab4f6b0"
+    },
+    {
+      "commit": "5a9b41475ae1f54942ee67f90154f5da8f36e117",
+      "committed_at": "2022-04-24T04:48:50Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/5a9b41475ae1f54942ee67f90154f5da8f36e117"
+    },
+    {
+      "commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+      "committed_at": "2022-05-03T05:32:27Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/830f3486537916bae6b46948ff922adc14a22b7c"
+    },
+    {
+      "commit": "82e07b3492802c43970314414dbd44d783f0e281",
+      "committed_at": "2022-05-22T18:06:47Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/82e07b3492802c43970314414dbd44d783f0e281"
+    },
+    {
+      "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+      "committed_at": "2022-05-24T05:46:19Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8"
+    },
+    {
+      "commit": "ccd486ed96e8e7673d0e59b3b2769eb557ba6402",
+      "committed_at": "2022-06-10T05:16:14Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/ccd486ed96e8e7673d0e59b3b2769eb557ba6402"
+    },
+    {
+      "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+      "committed_at": "2022-06-11T06:30:50Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/daf29136df53ff03fb291644a4e564b6b37b4857"
+    },
+    {
+      "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+      "committed_at": "2022-06-29T19:44:27Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3"
+    },
+    {
+      "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+      "committed_at": "2022-10-08T09:30:42Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/212fa46b23be0701a5963cdeff14f05ed352e22a"
+    },
+    {
+      "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+      "committed_at": "2022-11-05T16:17:32Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/bf5d7357b544b48b96844d3274ea558df079571d"
+    },
+    {
+      "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+      "committed_at": "2022-12-29T14:41:41Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/008e3a51c512c7d7321e5ab044e883a6400c633d"
+    },
+    {
+      "commit": "782256837879ece72a89c9343813b5b78898e099",
+      "committed_at": "2023-01-22T21:24:35Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/782256837879ece72a89c9343813b5b78898e099"
+    },
+    {
+      "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+      "committed_at": "2023-02-06T16:01:14Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/218a6b4f98a2ff5fe3f6076b401d5c24c3021943"
+    },
+    {
+      "commit": "337ae243b10d3c20db53b77bc3c7718bb4f1a164",
+      "committed_at": "2023-02-08T05:20:19Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/337ae243b10d3c20db53b77bc3c7718bb4f1a164"
+    },
+    {
+      "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+      "committed_at": "2023-05-24T09:27:22Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/94225d0901b7826213716c50c761129c8b7d0944"
+    },
+    {
+      "commit": "15d9350eed9437bcb0683e2c24cd4cfbf985ed7e",
+      "committed_at": "2023-06-08T20:57:37Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/15d9350eed9437bcb0683e2c24cd4cfbf985ed7e"
+    },
+    {
+      "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+      "committed_at": "2023-06-20T18:35:45Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/2168e47052239da5df35d5353bb986f760c51cef"
+    },
+    {
+      "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+      "committed_at": "2023-07-24T15:46:24Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/a8b8856ce393a82ab4a714131085dbc4d658e34d"
     },
     {
       "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
@@ -14,14 +337,29 @@
       "source_url": "https://github.com/Kludex/starlette/commit/93494a46ee0f2e8b1eeafd12e466ebac15037b41"
     },
     {
+      "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+      "committed_at": "2023-11-23T02:01:17Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223"
+    },
+    {
       "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
       "committed_at": "2023-12-16T12:51:24Z",
       "source_url": "https://github.com/Kludex/starlette/commit/9a213c1321593fcf9344161b043bdd7d1e600e24"
     },
     {
+      "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+      "committed_at": "2024-01-13T11:02:01Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/363e4fb1940f0eb6e290755fddd7ea6666ce18ae"
+    },
+    {
       "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
       "committed_at": "2024-06-04T19:47:30Z",
       "source_url": "https://github.com/Kludex/starlette/commit/5a1bec33f8d6a669a3670f51034de83292d19408"
+    },
+    {
+      "commit": "2d0dde8defe9e3d4df0baacdb20faf273152f1cb",
+      "committed_at": "2024-09-08T09:49:21Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/2d0dde8defe9e3d4df0baacdb20faf273152f1cb"
     },
     {
       "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
@@ -34,9 +372,69 @@
       "source_url": "https://github.com/Kludex/starlette/commit/e11684013fe5ca084f5bd4e54830512a4dff9618"
     },
     {
+      "commit": "009a3bab62c4e3f1479914b08a3291cfe86e5e9e",
+      "committed_at": "2024-11-24T15:00:32Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/009a3bab62c4e3f1479914b08a3291cfe86e5e9e"
+    },
+    {
+      "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+      "committed_at": "2024-12-21T19:11:28Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f884b6649ea7e0b019443a265db7ff62ebe7914b"
+    },
+    {
+      "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+      "committed_at": "2024-12-25T09:12:06Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/4e625bb9793f36a1ff9d30f935d7bc83513c71fe"
+    },
+    {
       "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
       "committed_at": "2024-12-26T08:00:28Z",
       "source_url": "https://github.com/Kludex/starlette/commit/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835"
+    },
+    {
+      "commit": "0109dce29b76c64e93c56c01fa5020860f935ed3",
+      "committed_at": "2025-01-04T09:52:50Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/0109dce29b76c64e93c56c01fa5020860f935ed3"
+    },
+    {
+      "commit": "c8a46925366361e40b65b117473db1342895b904",
+      "committed_at": "2025-03-08T13:02:32Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/c8a46925366361e40b65b117473db1342895b904"
+    },
+    {
+      "commit": "f617177ab955f7e79e0d863a7c28adb6200b4acc",
+      "committed_at": "2025-09-20T10:53:13Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f617177ab955f7e79e0d863a7c28adb6200b4acc"
+    },
+    {
+      "commit": "4915a9309fcad58ac08b9fa550563d3287b531ad",
+      "committed_at": "2025-10-02T20:15:44Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/4915a9309fcad58ac08b9fa550563d3287b531ad"
+    },
+    {
+      "commit": "da0605243010715356be69693a524f2300011948",
+      "committed_at": "2025-11-01T09:50:40Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/da0605243010715356be69693a524f2300011948"
+    },
+    {
+      "commit": "4941b4a04993d087dea66e9287fe9472babee879",
+      "committed_at": "2025-11-01T15:23:00Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/4941b4a04993d087dea66e9287fe9472babee879"
+    },
+    {
+      "commit": "2b73aecd8377e0c189943a5f30d3dbab134f6104",
+      "committed_at": "2026-02-01T19:56:54Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/2b73aecd8377e0c189943a5f30d3dbab134f6104"
+    },
+    {
+      "commit": "fb49d243e2082f9bb30b59fd532e6062bbd676b7",
+      "committed_at": "2026-03-01T15:58:51Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/fb49d243e2082f9bb30b59fd532e6062bbd676b7"
+    },
+    {
+      "commit": "a0bcc26612c9c344737cd59fb4ef847326adf37a",
+      "committed_at": "2026-03-14T06:00:27Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/a0bcc26612c9c344737cd59fb4ef847326adf37a"
     },
     {
       "commit": "5174d4c8358a6f06aa8056bafd14c2272dab8dd1",
@@ -44,9 +442,26 @@
       "source_url": "https://github.com/Kludex/starlette/commit/5174d4c8358a6f06aa8056bafd14c2272dab8dd1"
     },
     {
+      "commit": "f7525198f08a6cdf5c336ecb0b9c7390142fc058",
+      "committed_at": "2026-08-05T16:00:30Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/f7525198f08a6cdf5c336ecb0b9c7390142fc058"
+    },
+    {
+      "commit": "9c500db197859dba4a8db13fa8e7d2c55de8152c",
+      "committed_at": "2026-08-08T10:40:02Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/9c500db197859dba4a8db13fa8e7d2c55de8152c"
+    },
+    {
+      "commit": "398e5a3430eb1ddd33e1d48d766efe41426e231f",
+      "committed_at": "2026-08-10T06:38:29Z",
+      "source_url": "https://github.com/Kludex/starlette/commit/398e5a3430eb1ddd33e1d48d766efe41426e231f"
+    },
+    {
       "commit": "04d7869c1ec3016fa11f58382a9ac7bc14b46662",
       "committed_at": "2026-08-23T20:24:35Z",
       "source_url": "https://github.com/Kludex/starlette/commit/04d7869c1ec3016fa11f58382a9ac7bc14b46662"
     }
-  ]
+  ],
+  "repository": "Kludex/starlette",
+  "schema_version": "1.0"
 }

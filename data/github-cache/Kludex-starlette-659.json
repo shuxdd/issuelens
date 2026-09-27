@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-01-25T10:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/volfpeter/fasthx/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/volfpeter/fasthx/pulls/6"
+          },
+          "repository": {
+            "full_name": "volfpeter/fasthx"
+          },
+          "title": "Pass endpoint dependencies to Jinja context via request.state"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello anyone,\r\n\r\nI very like starlette and his ecosystem (like orm, typesystem, etc), but in starlette i was'nt found an any ways for implement [this](https://docs.vibora.io/initial), if not use globals variables, of course :)\r\n\r\nIt is most efficient and elegant way for access to configs, database connections, etc. \r\nWe can add this to starlette?",
+    "closed_at": "2019-10-08T14:29:41Z",
+    "created_at": "2019-10-08T10:09:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/659",
+    "number": 659,
+    "state": "closed",
+    "title": "Components?",
+    "user": "prostomarkeloff"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-08T14:18:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-08T14:29:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-25T10:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/volfpeter/fasthx/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/volfpeter/fasthx/pulls/6"
+          },
+          "repository": {
+            "full_name": "volfpeter/fasthx"
+          },
+          "title": "Pass endpoint dependencies to Jinja context via request.state"
+        }
+      }
+    }
+  ]
+}

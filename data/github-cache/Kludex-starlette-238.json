@@ -1,0 +1,87 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-02-08T15:48:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/374",
+          "number": 374,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "What is the best way to store globally accessible \"heavy\" objects?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hey,\r\nI'm working on a JWT autentication package for starlette, and I'm having few diffuculties on implementing it well:\r\n\r\n1. When I decode the token, I want to \"inject\" the token's payload into the Request object. Currently the SessionMiddleware adds it to the scope, so currently i'm doing something like this:\r\n```\r\nrequest._scope['session'] = my_payload_dict\r\n```\r\nI wanted to add non-dict data to the Request's scope, in a way the IDE won't have issues with (since request.session is a method that returns a dictionary)\r\n\r\n2. When I get a request in the middleware, I would like to get also the function which the Request is going to - since I want to add decorator to every route method:\r\n```\r\n@app.route('/')\r\n@anonymous_allowed\r\ndef hello_world(request: Request):\r\n    ....\r\n```\r\n\r\nI'm working on that git:\r\nhttps://github.com/amitripshtos/starlette-jwt\r\n\r\nWhat is the best way to achieving these 2 things in starlette, in your perspective?\r\nThanks,\r\nAmit.",
+    "closed_at": "2018-12-07T13:24:30Z",
+    "created_at": "2018-11-24T15:24:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/238",
+    "number": 238,
+    "state": "closed",
+    "title": "[Feature requests] Get route method in middlewares",
+    "user": "amitripshtos"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-01T14:39:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-01T15:18:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-01T15:20:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-03T15:37:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-07T13:24:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-07T13:26:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-07T13:26:48Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-12-07T13:26:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-12-07T13:31:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-07T13:32:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T15:48:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/374",
+          "number": 374,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "What is the best way to store globally accessible \"heavy\" objects?"
+        }
+      }
+    }
+  ]
+}

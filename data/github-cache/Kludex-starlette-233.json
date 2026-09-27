@@ -1,0 +1,178 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-03-11T11:28:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c73f00cb02d520992e18423f06bf6a776eb4a75b",
+      "sha": "c73f00cb02d520992e18423f06bf6a776eb4a75b"
+    },
+    {
+      "committed_at": "2021-03-12T10:15:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2aa81bb3ad15b14e479b94224fe9524de40c89db",
+      "sha": "2aa81bb3ad15b14e479b94224fe9524de40c89db"
+    },
+    {
+      "committed_at": "2021-03-12T10:20:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bd02f114b008aaad0abf2836bf3dfb19a112af8a",
+      "sha": "bd02f114b008aaad0abf2836bf3dfb19a112af8a"
+    },
+    {
+      "committed_at": "2021-03-12T11:30:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c",
+      "sha": "5e42d30de0bdd46f771ccf42d1b51b7d85168a2c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-03-11T11:33:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1147",
+          "number": 1147,
+          "pull_request": {
+            "merged_at": "2021-03-12T12:49:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1147"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make session cookie use ASGI root path"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-07T23:37:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1261",
+          "number": 1261,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette 0.15.0 breaks SessionMiddleware by adding ASGI Path for Subroutes using Mount"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-05T13:43:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1351",
+          "number": 1351,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1351"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Share session data across mounted routes"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c/starlette%2Fmiddleware%2Fsessions.py",
+      "changes": 6,
+      "deletions": 2,
+      "filename": "starlette/middleware/sessions.py",
+      "sha": "a13ec5c0ed3018a57930a32dd6bb7125f3c8ac98",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5e42d30de0bdd46f771ccf42d1b51b7d85168a2c/tests%2Fmiddleware%2Ftest_session.py",
+      "changes": 12,
+      "deletions": 0,
+      "filename": "tests/middleware/test_session.py",
+      "sha": "68cf36df99bf150f4cb103b9dd0e52161b7e3e10",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The session cookie currently uses '/'.\r\nIt should really use the ASGI root path instead, in case the application is submounted.",
+    "body_last_edited_at": null,
+    "closed_at": "2021-03-12T12:49:52Z",
+    "created_at": "2018-11-22T16:26:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/233",
+    "labels": [
+      "clean up"
+    ],
+    "number": 233,
+    "state": "closed",
+    "title": "Session cookie should use root path",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2021-03-12T12:49:52Z",
+    "created_at": "2021-03-11T11:33:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1147",
+    "merge_commit_sha": "5ee04ef9b1bc11dc14d299e6c855c9a3f7d5ff16",
+    "merged_at": "2021-03-12T12:49:52Z",
+    "number": 1147,
+    "title": "Make session cookie use ASGI root path",
+    "user": "mahmoudhossam"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "23e15789bf6b879b455f1249e47a43d4c752b3ed",
+    "committed_at": "2021-02-07T19:06:30Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/23e15789bf6b879b455f1249e47a43d4c752b3ed"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-03-11T11:33:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1147",
+          "number": 1147,
+          "pull_request": {
+            "merged_at": "2021-03-12T12:49:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1147"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make session cookie use ASGI root path"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-07T23:37:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1261",
+          "number": 1261,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette 0.15.0 breaks SessionMiddleware by adding ASGI Path for Subroutes using Mount"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-05T13:43:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1351",
+          "number": 1351,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1351"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Share session data across mounted routes"
+        }
+      }
+    }
+  ]
+}

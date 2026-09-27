@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "\r\nWhen I checked the official demo recently, I found that this code can't start the route and the parameter is missing\r\n`import uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response, PlainTextResponse\r\nfrom starlette.routing import Route\r\n\r\nasync def apps(scope, receive, send):\r\n    assert scope['type'] == 'http'\r\n    request = Request(scope, receive)\r\n    content = '%s %s' % (request.method, request.url.path)\r\n    response = Response(content, media_type='text/plain')\r\n    await response(scope, receive, send)\r\n\r\n\r\ndef text(request):\r\n    return PlainTextResponse('Hello')\r\n\r\nroutes = [\r\n    Route(\"/s/{s}\", endpoint=apps),\r\n    Route(\"/t/{t}\", endpoint=text),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host=\"127.0.0.1\", port=8082)  \r\n`\r\nerror code\r\n`ERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 366, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\uvicorn\\middleware\\proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\applications.py\", line 124, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 184, in __call__\r\n    raise exc\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 162, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\exceptions.py\", line 93, in __call__\r\n    raise exc\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\exceptions.py\", line 82, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\routing.py\", line 670, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\routing.py\", line 266, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"C:\\Users\\Yi\\PycharmProjects\\AppText\\venv\\lib\\site-packages\\starlette\\routing.py\", line 65, in app\r\n    response = await func(request)\r\nTypeError: apps() missing 2 required positional arguments: 'receive' and 'send'\r\n`\r\nThe routing service doesn't seem to inherit receive and send, and can't go down\r\n\r\n",
+    "closed_at": "2022-07-10T07:41:35Z",
+    "created_at": "2022-07-10T07:40:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1751",
+    "number": 1751,
+    "state": "closed",
+    "title": "Routes cannot use the exact parameters",
+    "user": "yi250"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-10T07:41:35Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-07-10T07:41:35Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

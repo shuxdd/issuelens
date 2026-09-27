@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The graphiql version is too old and does not support request header settings, which is unfriendly to some authenticated interfaces.",
+    "closed_at": "2021-08-28T08:57:03Z",
+    "created_at": "2021-08-28T03:17:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1275",
+    "number": 1275,
+    "state": "closed",
+    "title": "Graphiql supports custom request headers",
+    "user": "ssshier"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-08-28T08:57:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-28T08:57:03Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-08-28T08:57:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-28T08:57:04Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,\r\n\r\nI'm using a WebsocketEndpoint and running the app with `--reload`. All is working great, until I make some changes and the app gets restarted. Then I see a bunch of errors due to open websocket connections during the restart. \r\n\r\nIt seems that on restart, Starlette closes all open connections **but does not stop accepting new connections**, so when the client immediately tries to reconnect, we're left with newly opened connections that then get force-killed when the shutdown completes. I've tried using the `on_shutdown` handler to stop accepting new connections, but that doesn't get called until _after_ the shutdown, at which point we've already closed + reopened the connections. \r\n\r\nOne idea could be to expose a `before_shutdown` handler that gets called before the shutdown, so in my WebsocketEndpoint I can check whether we're shutting down and not accept the new connections.\r\n\r\nOtherwise, any ideas for how to avoid or silence these errors?\r\n\r\nThanks!\r\n\r\nHere are the errors I see:\r\n\r\n```\r\nINFO:     Application shutdown complete.\r\nINFO:     Finished server process [587]\r\nERROR:    Unclosed client session\r\nclient_session: <aiohttp.client.ClientSession object at 0x7fc1183846d0>\r\nINFO:     Started server process [601]\r\nINFO:     Waiting for application startup.\r\nINFO:     Application startup complete.\r\nWARNING:  Error in opening handshake\r\nTraceback (most recent call last):\r\n  File \"/usr/local/lib64/python3.7/site-packages/websockets/server.py\", line 134, in handler\r\n    extra_headers=self.extra_headers,\r\n  File \"/usr/local/lib64/python3.7/site-packages/websockets/server.py\", line 584, in handshake\r\n    self.write_http_response(http.HTTPStatus.SWITCHING_PROTOCOLS, response_headers)\r\n  File \"/usr/local/lib64/python3.7/site-packages/websockets/server.py\", line 264, in write_http_response\r\n    self.transport.write(response.encode())\r\n  File \"uvloop/handles/stream.pyx\", line 673, in uvloop.loop.UVStream.write\r\n  File \"uvloop/handles/handle.pyx\", line 159, in uvloop.loop.UVHandle._ensure_alive\r\nRuntimeError: unable to perform operation on <TCPTransport closed=True reading=False 0x27768c0>; the handler is closed\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/usr/local/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 153, in run_asgi\r\n    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\n  File \"/usr/local/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/applications.py\", line 102, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 146, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/exceptions.py\", line 58, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/routing.py\", line 550, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/routing.py\", line 283, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/endpoints.py\", line 74, in dispatch\r\n    raise exc from None\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/endpoints.py\", line 65, in dispatch\r\n    message = await websocket.receive()\r\n  File \"/usr/local/lib/python3.7/site-packages/starlette/websockets.py\", line 40, in receive\r\n    message = await self._receive()\r\n  File \"/usr/local/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 233, in asgi_receive\r\n    data = await self.recv()\r\n  File \"/usr/local/lib64/python3.7/site-packages/websockets/protocol.py\", line 495, in recv\r\n    return_when=asyncio.FIRST_COMPLETED,\r\n  File \"/usr/lib64/python3.7/asyncio/tasks.py\", line 387, in wait\r\n    fs = {ensure_future(f, loop=loop) for f in set(fs)}\r\n  File \"/usr/lib64/python3.7/asyncio/tasks.py\", line 387, in <setcomp>\r\n    fs = {ensure_future(f, loop=loop) for f in set(fs)}\r\n  File \"/usr/lib64/python3.7/asyncio/tasks.py\", line 619, in ensure_future\r\n    raise TypeError('An asyncio.Future, a coroutine or an awaitable is '\r\nTypeError: An asyncio.Future, a coroutine or an awaitable is required\r\nERROR:    Exception in ASGI application\r\n```",
+    "closed_at": "2022-05-15T17:06:34Z",
+    "created_at": "2020-06-26T16:41:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/986",
+    "labels": [
+      "websocket",
+      "need confirmation"
+    ],
+    "number": 986,
+    "state": "closed",
+    "title": "Errors during restart due to open websocket connections",
+    "user": "mariaines"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T11:03:02Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-09-22T21:03:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-27T22:54:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-27T22:54:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-09-27T22:54:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-04T09:55:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-04T09:55:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-04T09:55:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-04T09:55:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-04T09:55:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-09T05:45:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-09T05:46:22Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-05-15T17:06:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-15T17:06:34Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-05-15T17:06:46Z",
+      "event": "locked"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-01-03T14:09:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e977742f99d2b958e8a181fa81fa9409d29f9a16",
+      "sha": "e977742f99d2b958e8a181fa81fa9409d29f9a16"
+    },
+    {
+      "committed_at": "2019-01-03T14:35:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92864370a28780d29c4a87480828f3c8eae5ecd8",
+      "sha": "92864370a28780d29c4a87480828f3c8eae5ecd8"
+    },
+    {
+      "committed_at": "2019-01-03T14:36:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8a514ce30b355723ca42b434baeed8f6c24b9efb",
+      "sha": "8a514ce30b355723ca42b434baeed8f6c24b9efb"
+    },
+    {
+      "committed_at": "2019-01-03T16:15:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/31151cf213ecd116dd4474ec5382c7b674002e59",
+      "sha": "31151cf213ecd116dd4474ec5382c7b674002e59"
+    },
+    {
+      "committed_at": "2019-01-03T16:16:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2d38a220151e4e2ba676e52ea2c5df8aca404c78",
+      "sha": "2d38a220151e4e2ba676e52ea2c5df8aca404c78"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-01-03T14:39:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2019-01-14T11:12:41Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/300"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Install script"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 15,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2d38a220151e4e2ba676e52ea2c5df8aca404c78/CONTRIBUTING.md",
+      "changes": 26,
+      "deletions": 11,
+      "filename": "CONTRIBUTING.md",
+      "sha": "d5bfdb24b84580e02b175780e02526d0c4e037c8",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2d38a220151e4e2ba676e52ea2c5df8aca404c78/scripts%2FREADME.md",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "scripts/README.md",
+      "sha": "84015423f8e0bb5f455d46e6195b6b9ec3b4dbad",
+      "status": "modified"
+    },
+    {
+      "additions": 30,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2d38a220151e4e2ba676e52ea2c5df8aca404c78/scripts%2Finstall",
+      "changes": 30,
+      "deletions": 0,
+      "filename": "scripts/install",
+      "sha": "65246cef41019f5e0c8dd6ee882f1c778088d73f",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Installing Starlette for development is manual and some constraints or platform-specific cases may not be handled properly.\r\n\r\nWe'd need an install script to automate the process. After running it, contributors should be able to start working on Starlette right away.\r\n\r\nSome guidelines listed by @tomchristie in #292:\r\n\r\n- Ensure python3 meets the minimum required version.\r\n- Create a virtualenv in ./venv, using -p python3.\r\n- Include the script in the contributing notes.\r\n- Include a note, that the instructions are currently suited to mac and linux, but that we'd happily take pull requests that either updated the instructions appropriately (I don't know windows users need to do in order to run shell scripts, if at all?) or to make the scripts more cross compatible. (If they were all python based for example.)",
+    "closed_at": "2019-01-14T11:12:41Z",
+    "created_at": "2019-01-02T12:05:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/298",
+    "labels": [
+      "clean up"
+    ],
+    "number": 298,
+    "state": "closed",
+    "title": "Development install script",
+    "user": "florimondmanca"
+  },
+  "pull_request": {
+    "closed_at": "2019-01-14T11:12:41Z",
+    "created_at": "2019-01-03T14:39:04Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/300",
+    "merge_commit_sha": "c06086fa0806b0dff7c22ab48337f7d9b3f4caaf",
+    "merged_at": "2019-01-14T11:12:41Z",
+    "number": 300,
+    "title": "Install script",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-02T12:07:27Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-01-03T13:58:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-03T14:39:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2019-01-14T11:12:41Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/300"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Install script"
+        }
+      }
+    }
+  ]
+}

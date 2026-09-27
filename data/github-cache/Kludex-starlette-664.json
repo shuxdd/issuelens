@@ -1,0 +1,87 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-17T02:58:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/felipeall/resumeio-to-pdf/pull/79",
+          "number": 79,
+          "pull_request": {
+            "url": "https://api.github.com/repos/felipeall/resumeio-to-pdf/pulls/79"
+          },
+          "repository": {
+            "full_name": "felipeall/resumeio-to-pdf"
+          },
+          "title": "Render every page with resume.io's client-side worker"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When I mount a django application and try to access it\r\n\r\n```\r\nERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 375, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\applications.py\", line 134, in __call__\r\n    await self.error_middleware(scope, receive, send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 178, in __call__\r\n    raise exc from None\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 156, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\exceptions.py\", line 73, in __call__\r\n    raise exc from None\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\exceptions.py\", line 62, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\routing.py\", line 590, in __call__\r\n    await route(scope, receive, send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\routing.py\", line 352, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\wsgi.py\", line 62, in __call__\r\n    await responder(receive, send)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\wsgi.py\", line 91, in __call__\r\n    await asyncio.wait_for(sender, None)\r\n  File \"c:\\users\\abers\\appdata\\local\\programs\\python\\python37\\Lib\\asyncio\\tasks.py\", line 414, in wait_for\r\n    return await fut\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\wsgi.py\", line 106, in sender\r\n    await send(message)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\exceptions.py\", line 59, in sender\r\n    await send(message)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 153, in _send\r\n    await send(message)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 449, in send\r\n    status_code=status_code, headers=headers, reason=reason\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\h11\\_events.py\", line 47, in __init__\r\n    self.headers, _parsed=_parsed)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\h11\\_headers.py\", line 75, in normalize_and_validate\r\n    validate(_field_value_re, value, \"Illegal header value {!r}\", value)\r\n  File \"C:\\Users\\AberS\\Documents\\Coding\\lexiang\\lebu\\.venv\\lib\\site-packages\\h11\\_util.py\", line 96, in validate\r\n    raise LocalProtocolError(msg)\r\nh11._util.LocalProtocolError: Illegal header value b' sessionid=\"\"; expires=Thu, 01 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/'\r\n```\r\n\r\nThis is my minimal implementation code, `lebu` is my django program\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware.wsgi import WSGIMiddleware\r\nimport uvicorn\r\n\r\nfrom lebu.wsgi import application\r\n\r\napp = Starlette(debug=True)\r\napp.mount(\"/api\", WSGIMiddleware(application))\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app)\r\n```\r\n\r\nBy the way, starlette version is 0.12.9",
+    "closed_at": "2019-11-06T20:57:00Z",
+    "created_at": "2019-10-11T10:58:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/664",
+    "number": 664,
+    "state": "closed",
+    "title": "WSGI mount error",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-11T11:05:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-11T11:13:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-25T07:29:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-25T07:37:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-25T07:37:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-09-25T07:37:35Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "03cba0dfa4a6ef22b007779042b47b55067844d1",
+      "commit_url": "https://api.github.com/repos/Prodeko/prodeko-org-djangocms/commits/03cba0dfa4a6ef22b007779042b47b55067844d1",
+      "created_at": "2021-10-28T19:17:25Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "d46d9ed8064591000bad5b7340891852aa1341e3",
+      "commit_url": "https://api.github.com/repos/Prodeko/prodeko-org-djangocms/commits/d46d9ed8064591000bad5b7340891852aa1341e3",
+      "created_at": "2021-10-28T19:37:23Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-08-17T02:58:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/felipeall/resumeio-to-pdf/pull/79",
+          "number": 79,
+          "pull_request": {
+            "url": "https://api.github.com/repos/felipeall/resumeio-to-pdf/pulls/79"
+          },
+          "repository": {
+            "full_name": "felipeall/resumeio-to-pdf"
+          },
+          "title": "Render every page with resume.io's client-side worker"
+        }
+      }
+    }
+  ]
+}

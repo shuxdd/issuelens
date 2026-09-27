@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen trying to access the Elastic transaction from within a synchronous `StreamingResponse` handler, no such transaction is found. This problem only occurs with synchronous responses, for asynchronous responses the transaction is injected as expected.\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom elasticapm.contrib.starlette import ElasticAPM, make_apm_client\r\nfrom elasticapm.traces import execution_context\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import StreamingResponse\r\nfrom starlette.testclient import TestClient\r\n\r\n\r\nasync def async_response():\r\n    transaction = execution_context.get_transaction()\r\n    if not transaction:\r\n        raise RuntimeError(\"No transaction found\")\r\n    yield \"ok\"\r\n\r\n\r\ndef sync_response():\r\n    transaction = execution_context.get_transaction()\r\n    if not transaction:\r\n        raise RuntimeError(\"No transaction found\")\r\n    yield \"ok\"\r\n\r\n\r\ndef create_app():\r\n    _app = Starlette()\r\n\r\n    @_app.route(\"/async/\")\r\n    def async_route(request):\r\n        return StreamingResponse(async_response())\r\n\r\n    @_app.route(\"/sync/\")\r\n    def sync_route(request):\r\n        return StreamingResponse(sync_response())\r\n\r\n    client = make_apm_client()\r\n    _app.add_middleware(ElasticAPM, client=client)\r\n\r\n    return _app\r\n\r\n\r\napp = create_app()\r\n\r\n\r\n# This test passes\r\ndef test_async_response():\r\n    client = TestClient(app)\r\n    client.get(\"/async\")\r\n\r\n\r\n# This test fails\r\ndef test_sync_response():\r\n    client = TestClient(app)\r\n    client.get(\"/sync\")\r\n```\r\n\r\n### Expected behavior\r\n\r\nThe Elastic execution context should return a valid transaction in the response code.\r\n\r\n### Actual behavior\r\n\r\n`execution_context.get_transaction()` returns `None`.\r\n\r\n### Debugging material\r\n\r\nI performed a `git bisect` with the tests above and found the first bad commit to be the `anyio` integration https://github.com/encode/starlette/commit/42592d68e5d7fd044b79d7846eabe7f33961527c. Consequently, the issue starts to occur with `starlette>=0.15`.\r\n\r\n### Environment\r\n\r\n- OS: macOS\r\n- Python version: 3.9.7\r\n\r\n```\r\nPackage            Version   Editable project location\r\n------------------ --------- -------------------------\r\nanyio              3.3.4\r\nattrs              21.2.0\r\ncertifi            2021.10.8\r\ncharset-normalizer 2.0.7\r\nelastic-apm        6.6.1\r\nidna               3.3\r\niniconfig          1.1.1\r\npackaging          21.2\r\npip                21.3.1\r\npluggy             1.0.0\r\npsutil             5.8.0\r\npy                 1.11.0\r\npyparsing          2.4.7\r\npytest             6.2.5\r\nrequests           2.26.0\r\nsetuptools         58.5.3\r\nsniffio            1.2.0\r\nstarlette          0.17.0    /Users/lgtf/git/starlette\r\ntoml               0.10.2\r\nurllib3            1.26.7\r\nwheel              0.37.0\r\n```",
+    "closed_at": "2021-11-27T11:11:21Z",
+    "created_at": "2021-11-07T13:01:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1333",
+    "number": 1333,
+    "state": "closed",
+    "title": "No elastic-apm transaction in synchronous `StreamingResponse` handler",
+    "user": "stephan-hesselmann-by"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-11-27T11:11:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T11:11:22Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-11-27T12:14:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-28T15:35:48Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I realized that when a endpoint is not async, it is executed in another python thread:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\nimport threading\r\n\r\ndef startup_task():\r\n    print(\"startup \", threading.get_ident())\r\n\r\ndef homepage(request):\r\n    print(\"homepage\", threading.get_ident())\r\n    return JSONResponse({'hello': 'world'})\r\n\r\napp = Starlette(\r\n    routes=[Route('/', homepage)],\r\n    on_startup=[startup_task],\r\n)\r\n```\r\n```bash\r\n$ uvicorn example:app\r\nINFO:     Started server process [211944]\r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\nINFO:     Waiting for application startup.\r\nstartup  140630902069056\r\nINFO:     Application startup complete.\r\nhomepage 140630840559360\r\nINFO:     127.0.0.1:57170 - \"GET / HTTP/1.1\" 200 OK\r\n```\r\nI see no mention of this in the documentation. Maybe it worth having a word on this?\r\n\r\nFor some reasons I have to work with some legacy endpoints. They are not async, and I cannot change this easily. They use [threading local data](https://docs.python.org/3/library/threading.html#threading.local) that are initialized the same time the application is launched.\r\n\r\n```python\r\ndef startup_task():\r\n    initialize_my_thread_data()\r\n\r\ndef homepage(request):\r\n    read_my_thread_data()\r\n    return JSONResponse({'hello': 'world'})\r\n\r\napp = Starlette(\r\n    routes=[Route('/', homepage)],\r\n    on_startup=[startup_task],\r\n)\r\n```\r\n\r\nIn this situation, the endpoint cannot access the data initialized earlier. I would love a `on_thread_startup` event that could handle my thread data initializations.\r\n\r\nWhat do you think?",
+    "closed_at": "2019-11-15T15:14:06Z",
+    "created_at": "2019-11-15T14:59:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/720",
+    "number": 720,
+    "state": "closed",
+    "title": "on_thread_startup event",
+    "user": "azmeuk"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-15T15:14:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T07:27:30Z",
+      "event": "commented"
+    }
+  ]
+}

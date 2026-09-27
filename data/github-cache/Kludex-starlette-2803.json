@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "With the latest release on Dec 14, starlette is no longer being able to be pulled automatically using pip install commands.   It's getting a hash key mismatch.   Can someone look into this?",
+    "closed_at": "2024-12-22T08:15:20Z",
+    "created_at": "2024-12-16T17:08:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2803",
+    "number": 2803,
+    "state": "closed",
+    "title": "Breaking Change",
+    "user": "JonGrrr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-12-16T17:19:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-16T17:35:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-16T17:41:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-16T18:11:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-22T08:15:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-22T08:15:20Z",
+      "event": "closed"
+    }
+  ]
+}

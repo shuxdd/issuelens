@@ -1,0 +1,79 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-28T07:21:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/691",
+          "number": 691,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add samesite option for Response.set_cookie"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Can session cookie flags like HttpOnly be set through session somehow? I haven't found it in documentation.",
+    "closed_at": "2018-12-18T10:26:31Z",
+    "created_at": "2018-12-15T17:03:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/275",
+    "number": 275,
+    "state": "closed",
+    "title": "Feature request: session cookie flags",
+    "user": "HarrySky"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-15T18:38:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-15T18:42:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-16T16:03:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-16T16:32:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-18T10:26:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-16T17:57:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-16T19:25:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-09T14:28:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-28T07:21:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/691",
+          "number": 691,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add samesite option for Response.set_cookie"
+        }
+      }
+    }
+  ]
+}

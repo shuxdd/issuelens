@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello.\r\nI am not sure where the problem is as I've checked #654 and #687 but here is what I have.\r\n\r\nApp entry point:\r\n```\r\nimport uvicorn\r\n\r\nfrom fastapi import FastAPI\r\nfrom api import vlantoggler_api_router\r\nfrom views import vlantoggler_web_router\r\n\r\napp = FastAPI(\r\n    title='Yandex.Cloud Netinfra API',\r\n    description='A bundled API for Yandex.Cloud Netinfra team tools',\r\n)\r\napp.include_router(vlantoggler_api_router,\r\n                   prefix='/vlantoggler/api')\r\napp.include_router(vlantoggler_web_router,\r\n                   prefix='/vlantoggler')\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, loop='uvloop', log_level='debug')\r\n```\r\n\r\nAn API (`fastapi.routing.APIRouter`):\r\n```\r\n...\r\n\r\nvlantoggler_api_router = APIRouter(\r\n    # title='Yandex.Cloud Netinfra API',\r\n    # description='A bundled API for Yandex.Cloud Netinfra team tools',\r\n    routes=[\r\n        APIRoute('/', check, methods=['GET'], tags=['VlanToggler'],\r\n                 name='Get current interface state',\r\n                 # summary='String replaces function name AND name on Swagger API page',\r\n                 description='ToR and Interface names are validated and current interface state is returned',\r\n                 response_description='Successfully got interface state',\r\n                 response_class=JSONResponse,\r\n                 response_model=Success,\r\n                 responses={**get_responses}\r\n                 ),\r\n        APIRoute('/', toggle, methods=['POST'], tags=['VlanToggler'],\r\n                 name='Switch interface state',\r\n                 description='ToR and Interface names are validated and ToR interface is toggled to desired state',\r\n                 response_description='Interface successfully switched',\r\n                 response_class=JSONResponse,\r\n                 response_model=Success,\r\n                 responses={**post_responses},\r\n                 ),\r\n    ],\r\n)\r\n```\r\n\r\nAnd view (`starlette.routing.Router`):\r\n```\r\nvlantoggler_web_router = Router(\r\n    [\r\n        Route('/', home, methods=['GET', 'POST']),\r\n        Mount('/statics', statics, name='static'),\r\n    ],\r\n)\r\n```\r\n\r\nWhen I run the app my API works no issues but `http://localhost:8000/vlantoggler/` raises an `starlette.routing.NoMatchFound`.\r\n\r\nIs there a bug or if I do something wrong?",
+    "closed_at": "2020-02-24T10:41:27Z",
+    "created_at": "2020-02-21T14:01:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/842",
+    "number": 842,
+    "state": "closed",
+    "title": "NoMatchFound when including router",
+    "user": "horseinthesky"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-24T10:41:27Z",
+      "event": "commented"
+    }
+  ]
+}

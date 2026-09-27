@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-08T11:07:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/autom8y/autom8y-asana/pull/325",
+          "number": 325,
+          "pull_request": {
+            "merged_at": "2026-08-08T12:20:35Z",
+            "url": "https://api.github.com/repos/autom8y/autom8y-asana/pulls/325"
+          },
+          "repository": {
+            "full_name": "autom8y/autom8y-asana"
+          },
+          "title": "Cure the business resolve path: rekey, fail closed, verify entity"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I have two middlewares that I'd like to execute in sequence. The first middleware modifies the headers of the request and the second does some logging utilizing the headers of the request.\r\n\r\nThis is a FastAPI app - not sure if that makes a difference. Below is the simple configuration I have \r\n\r\n```\r\nclass Middleware1(BaseHTTPMiddleware):\r\n\r\n    async def dispatch(\r\n        self, request: Request, call_next: RequestResponseEndpoint\r\n    ) -> Response:\r\n        request_id = 'my-test-request'\r\n\r\n        new_headers = request.headers.mutablecopy()\r\n        new_headers.append('X-Request-ID', request_id)\r\n        request._headers = new_headers\r\n\r\n        response = await call_next(request)\r\n\r\n        response.headers['X-Request-ID'] = request_id\r\n\r\n        return response\r\n\r\n\r\nclass Middleware2(BaseHTTPMiddleware):\r\n    async def dispatch(\r\n            self, request: Request, call_next: RequestResponseEndpoint\r\n        ) -> Response:\r\n            \r\n            print('Request.headers ', request.headers) # Doesn't show new header\r\n    \r\n            response = await call_next(request)\r\n    \r\n            response.headers['X-Request-ID'] = request.headers.get('X-Request-ID')\r\n    \r\n            return response\r\n\r\n\r\napp = FastAPI()\r\n\r\napp.add_middleware(Middleware2)\r\napp.add_middleware(Middleware1)\r\n\r\n@app.get(\"/\")\r\nasync def sum_numbers():\r\n    return {\"success\": True}\r\n```\r\n\r\n**Expected behavior** : Middleware2 would get the request with the updated headers - thus being able to get `X-Request-ID` out of the request.headers\r\n\r\n**Current behavior**: Middleware2 gets the request without the updated headers ",
+    "closed_at": "2022-03-18T06:59:38Z",
+    "created_at": "2022-03-08T21:35:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1541",
+    "number": 1541,
+    "state": "closed",
+    "title": "[Potential Issue] Request headers not persisting to consequtive middlewares",
+    "user": "ilyayudkovich"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-03-18T06:59:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-18T06:59:38Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-08-08T11:07:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/autom8y/autom8y-asana/pull/325",
+          "number": 325,
+          "pull_request": {
+            "merged_at": "2026-08-08T12:20:35Z",
+            "url": "https://api.github.com/repos/autom8y/autom8y-asana/pulls/325"
+          },
+          "repository": {
+            "full_name": "autom8y/autom8y-asana"
+          },
+          "title": "Cure the business resolve path: rekey, fail closed, verify entity"
+        }
+      }
+    }
+  ]
+}

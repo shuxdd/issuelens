@@ -1,0 +1,50 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I run `./scripts/test` to check if everything is ok. Sometimes tests are passed, sometimes - no. This happens randomly.\r\n\r\nHere are fails:\r\n```\r\n========================================================================= FAILURES ==========================================================================\r\n_______________________________________________________________________ test_headers ________________________________________________________________________\r\n\r\n    def test_headers():\r\n        h = Headers(raw=[(b\"a\", b\"123\"), (b\"a\", b\"456\"), (b\"b\", b\"789\")])\r\n        assert \"a\" in h\r\n        assert \"A\" in h\r\n        assert \"b\" in h\r\n        assert \"B\" in h\r\n        assert \"c\" not in h\r\n        assert h[\"a\"] == \"123\"\r\n        assert h.get(\"a\") == \"123\"\r\n        assert h.get(\"nope\", default=None) is None\r\n        assert h.getlist(\"a\") == [\"123\", \"456\"]\r\n        assert h.keys() == [\"a\", \"a\", \"b\"]\r\n        assert h.values() == [\"123\", \"456\", \"789\"]\r\n        assert h.items() == [(\"a\", \"123\"), (\"a\", \"456\"), (\"b\", \"789\")]\r\n        assert list(h) == [\"a\", \"a\", \"b\"]\r\n        assert dict(h) == {\"a\": \"123\", \"b\": \"789\"}\r\n        assert repr(h) == \"Headers(raw=[(b'a', b'123'), (b'a', b'456'), (b'b', b'789')])\"\r\n        assert h == Headers(raw=[(b\"a\", b\"123\"), (b\"b\", b\"789\"), (b\"a\", b\"456\")])\r\n        assert h != [(b\"a\", b\"123\"), (b\"A\", b\"456\"), (b\"b\", b\"789\")]\r\n\r\n        h = Headers({\"a\": \"123\", \"b\": \"789\"})\r\n        assert h[\"A\"] == \"123\"\r\n        assert h[\"B\"] == \"789\"\r\n>       assert h.raw == [(b\"a\", b\"123\"), (b\"b\", b\"789\")]\r\nE       AssertionError: assert [(b'b', b'789...b'a', b'123')] == [(b'a', b'123'...b'b', b'789')]\r\nE         At index 0 diff: (b'b', b'789') != (b'a', b'123')\r\nE         Use -v to get the full diff\r\n\r\ntests/test_datastructures.py:145: AssertionError\r\n_____________________________________________________________________ test_queryparams ______________________________________________________________________\r\n\r\n    def test_queryparams():\r\n        q = QueryParams(\"a=123&a=456&b=789\")\r\n        assert \"a\" in q\r\n        assert \"A\" not in q\r\n        assert \"c\" not in q\r\n        assert q[\"a\"] == \"456\"\r\n        assert q.get(\"a\") == \"456\"\r\n        assert q.get(\"nope\", default=None) is None\r\n        assert q.getlist(\"a\") == [\"123\", \"456\"]\r\n>       assert list(q.keys()) == [\"a\", \"b\"]\r\nE       AssertionError: assert ['b', 'a'] == ['a', 'b']\r\nE         At index 0 diff: 'b' != 'a'\r\nE         Use -v to get the full diff\r\n\r\ntests/test_datastructures.py:182: AssertionError\r\n_______________________________________________________________________ test_formdata _______________________________________________________________________\r\n\r\n    def test_formdata():\r\n        upload = io.BytesIO(b\"test\")\r\n        form = FormData([(\"a\", \"123\"), (\"a\", \"456\"), (\"b\", upload)])\r\n        assert \"a\" in form\r\n        assert \"A\" not in form\r\n        assert \"c\" not in form\r\n        assert form[\"a\"] == \"456\"\r\n        assert form.get(\"a\") == \"456\"\r\n        assert form.get(\"nope\", default=None) is None\r\n        assert form.getlist(\"a\") == [\"123\", \"456\"]\r\n>       assert list(form.keys()) == [\"a\", \"b\"]\r\nE       AssertionError: assert ['b', 'a'] == ['a', 'b']\r\nE         At index 0 diff: 'b' != 'a'\r\nE         Use -v to get the full diff\r\n\r\ntests/test_datastructures.py:215: AssertionError\r\n______________________________________________________________________ test_multidict _______________________________________________________________________\r\n\r\n    def test_multidict():\r\n        q = MultiDict([(\"a\", \"123\"), (\"a\", \"456\"), (\"b\", \"789\")])\r\n        assert \"a\" in q\r\n        assert \"A\" not in q\r\n        assert \"c\" not in q\r\n        assert q[\"a\"] == \"456\"\r\n        assert q.get(\"a\") == \"456\"\r\n        assert q.get(\"nope\", default=None) is None\r\n        assert q.getlist(\"a\") == [\"123\", \"456\"]\r\n>       assert list(q.keys()) == [\"a\", \"b\"]\r\nE       AssertionError: assert ['b', 'a'] == ['a', 'b']\r\nE         At index 0 diff: 'b' != 'a'\r\nE         Use -v to get the full diff\r\n\r\ntests/test_datastructures.py:239: AssertionError\r\n```",
+    "closed_at": "2019-01-26T22:16:59Z",
+    "created_at": "2019-01-26T22:03:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/358",
+    "number": 358,
+    "state": "closed",
+    "title": "Testing randomly fails",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-26T22:07:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-26T22:12:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-26T22:15:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-26T22:16:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-26T22:16:59Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-01-26T22:18:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-26T22:21:11Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "917906673458ceb52294ac74ba7f886d7240a783",
+      "commit_url": "https://api.github.com/repos/em92/starlette/commits/917906673458ceb52294ac74ba7f886d7240a783",
+      "created_at": "2019-01-27T15:01:36Z",
+      "event": "referenced"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-12-04T12:53:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/596",
+          "number": 596,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Gunicorn Workers Hangs And Consumes Memory Forever"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-21T02:10:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BoostryJP/ibet-Prime/issues/182",
+          "number": 182,
+          "pull_request": {},
+          "repository": {
+            "full_name": "BoostryJP/ibet-Prime"
+          },
+          "title": "[FEATURE] Memory leak?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hey,\r\n\r\nI'm currently running a load test. I'm serving my Starlette app with gunicorn, with this line of code ;\r\n\r\n`gunicorn -w 48 -k uvicorn.workers.UvicornH11Worker -b 0.0.0.0:5000 app:app --timeout 10 --threads 2`\r\n\r\nSo there is nothing wrong with the performance but the thing is memory consumption gets increased continuously. Even after the test is finished and app is not receiving any more requests, memory does not get deallocated.  There was no request that app could not return a response not even an error. Could this be related to uvicorn workers?\r\n\r\n",
+    "closed_at": "2019-10-15T14:19:16Z",
+    "created_at": "2019-10-11T14:09:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/667",
+    "number": 667,
+    "state": "closed",
+    "title": "Gunicorn Workers Hang And Memory Does Not Get Deallocated",
+    "user": "MeteHanC"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-15T10:03:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T12:25:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T12:40:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T12:56:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T13:17:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T14:11:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T14:11:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-15T14:11:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-15T14:41:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-04T12:53:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/596",
+          "number": 596,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Gunicorn Workers Hangs And Consumes Memory Forever"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-21T02:10:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BoostryJP/ibet-Prime/issues/182",
+          "number": 182,
+          "pull_request": {},
+          "repository": {
+            "full_name": "BoostryJP/ibet-Prime"
+          },
+          "title": "[FEATURE] Memory leak?"
+        }
+      }
+    }
+  ]
+}

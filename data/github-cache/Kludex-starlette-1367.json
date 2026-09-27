@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The current implementation (see below) does not allow comparing instances of `ImmutableMultiDict` to instances of other `Mapping` types, such as dicts.\r\n\r\nThis makes testing less convenient. For example, I was trying to check what was received via `Request.query_params` (`QueryParams`), but then have to cast it to a `dict` (which makes testing `MagicMock.method_calls` cumbersome).\r\n\r\nhttps://github.com/encode/starlette/blob/c8b9581e371968b4da42d0f2de01e4028d71ac3c/starlette/datastructures.py#L301-L304",
+    "closed_at": "2022-01-07T12:32:03Z",
+    "created_at": "2021-12-15T15:57:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1367",
+    "number": 1367,
+    "state": "closed",
+    "title": "ImmutableMultiDict should be comparable (__eq__) to other mappings",
+    "user": "cauebs"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-15T16:21:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T17:01:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T17:44:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-07T12:32:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-07T12:32:03Z",
+      "event": "closed"
+    }
+  ]
+}

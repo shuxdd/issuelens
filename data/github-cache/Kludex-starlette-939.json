@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi, when startup tasks are raising some exceptions, there is only \"lifespan.startup.failed\" message being sent to ASGI to prevent from further processing:\r\n```\r\n        except BaseException:\r\n            if first:\r\n                exc_text = traceback.format_exc()\r\n                await send({\"type\": \"lifespan.startup.failed\", \"message\": exc_text})\r\n            raise\r\n```\r\n\r\nIsn't better to await there shutdown to clear everything up like database connections (disconencting defined within shutdown) for instance?\r\n```\r\n        except BaseException:\r\n            if first:\r\n                exc_text = traceback.format_exc()\r\n                await send({\"type\": \"lifespan.startup.failed\", \"message\": exc_text})\r\n                await self.shutdown() # <----------------\r\n            raise\r\n```",
+    "closed_at": "2020-05-11T13:22:11Z",
+    "created_at": "2020-05-09T13:20:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/939",
+    "number": 939,
+    "state": "closed",
+    "title": "Trigger lifespan shutdown once startup fails",
+    "user": "krzada"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-11T13:22:11Z",
+      "event": "commented"
+    }
+  ]
+}

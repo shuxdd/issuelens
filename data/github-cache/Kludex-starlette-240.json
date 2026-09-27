@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Following use-case:\r\nI am writing some authentication middleware for websockets. I'm using session tokens that are stored as cookie. For that, the relevant data in scope object needs to be rehashed. This functionality already exist within Starlette in the form of starlette.requests.Request, but it only works for http requests. Perhaps there is some rationale behind this, but it eludes me for now.",
+    "closed_at": "2018-12-13T15:40:46Z",
+    "created_at": "2018-11-29T14:45:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/240",
+    "number": 240,
+    "state": "closed",
+    "title": "[Feature request] starlette.requests.Request should work for websocket scopes",
+    "user": "doncatnip"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-29T17:59:28Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-04-07T19:09:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1579",
+          "number": 1579,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1579"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "GZIP content length mismatch fix"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-29T19:27:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1608",
+          "number": 1608,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1608"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Set `more_body` to `False` when chunk is b\"\""
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-29T19:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1609",
+          "number": 1609,
+          "pull_request": {
+            "merged_at": "2022-05-06T06:03:16Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1609"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not send empty data to `StreamingResponse` on `BaseHTTPMiddleware`"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The following exception is thrown when I use uvicorn to drive my starlette project. After control variates, I am sure this is caused by Gzip Middleware.\r\n\r\n```\r\n  File \"C:\\Users\\AberS\\Documents\\Github\\index.py\\.venv\\lib\\site-packages\\h11\\_writers.py\", line 102, in send_eom\r\n    raise LocalProtocolError(\"Too little data for declared Content-Length\") \r\nh11._util.LocalProtocolError: Too little data for declared Content-Length\r\n```\r\n",
+    "closed_at": "2022-04-30T09:43:54Z",
+    "created_at": "2020-01-15T16:01:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/803",
+    "number": 803,
+    "state": "closed",
+    "title": "Gzip Middleware content-length is incorrect",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-15T16:08:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-15T16:11:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-16T02:11:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-20T12:38:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-20T13:32:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-29T11:10:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-07T19:09:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1579",
+          "number": 1579,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1579"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "GZIP content length mismatch fix"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-25T14:05:19Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-04-29T19:27:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1608",
+          "number": 1608,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1608"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Set `more_body` to `False` when chunk is b\"\""
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-29T19:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1609",
+          "number": 1609,
+          "pull_request": {
+            "merged_at": "2022-05-06T06:03:16Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1609"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not send empty data to `StreamingResponse` on `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-30T09:43:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-30T09:43:54Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-04-30T09:44:00Z",
+      "event": "locked"
+    }
+  ]
+}

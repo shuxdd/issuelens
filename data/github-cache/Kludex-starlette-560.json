@@ -1,0 +1,306 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-02-13T07:51:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27eab5ddd5ef0c587f60c3d9b135a4ede9c858fc",
+      "sha": "27eab5ddd5ef0c587f60c3d9b135a4ede9c858fc"
+    },
+    {
+      "committed_at": "2023-02-13T07:56:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b0119927f458ed8ec2adf36b3ec8234c1ae5ad2b",
+      "sha": "b0119927f458ed8ec2adf36b3ec8234c1ae5ad2b"
+    },
+    {
+      "committed_at": "2023-02-13T09:37:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ae7672186cc79a046c51d22d6779505caab917a8",
+      "sha": "ae7672186cc79a046c51d22d6779505caab917a8"
+    },
+    {
+      "committed_at": "2023-03-05T14:57:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4191a8807cf0db3d85e2339c7b1a95a5cada958e",
+      "sha": "4191a8807cf0db3d85e2339c7b1a95a5cada958e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-06-28T18:38:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/323",
+          "number": 323,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "FastAPI Routes don't work with Starlette's request.url_for when query params are passed"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-11T15:03:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/669",
+          "number": 669,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/669"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "add support for query parameters in `Route.url_path_for`"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-26T13:51:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1385",
+          "number": 1385,
+          "pull_request": {
+            "merged_at": "2023-03-05T15:04:51Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1385"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change `url_for` signature to return a `URL` instance"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4191a8807cf0db3d85e2339c7b1a95a5cada958e/docs%2Frouting.md",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "docs/routing.md",
+      "sha": "fd15587932eee5cc75cd1ca5e492af74b4a02734",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4191a8807cf0db3d85e2339c7b1a95a5cada958e/starlette%2Fdatastructures.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/datastructures.py",
+      "sha": "236f9fa433436424eb32c26c6ff08fc80e58923a",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4191a8807cf0db3d85e2339c7b1a95a5cada958e/starlette%2Frequests.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/requests.py",
+      "sha": "3f5a8fd6ff52ea96c8e1d01cfad272e20d8b893a",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4191a8807cf0db3d85e2339c7b1a95a5cada958e/starlette%2Ftemplating.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "starlette/templating.py",
+      "sha": "ecea4f3a3d33d66f770aaae2b9665559baef56cb",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4191a8807cf0db3d85e2339c7b1a95a5cada958e/tests%2Ftest_routing.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "tests/test_routing.py",
+      "sha": "b70641680210c5ccd6a49249ad305ee3a5b61834",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I totally misunderstood `url_for`'s API, I was expecting `url_for('some_route', foo='bar')` to return `'http://testserver/my_route/?foo=bar'`.\r\n\r\nI understand why that is now, but what is the best way to generate urls like this? \r\n(for pagination in a rest list api in this case).\r\n\r\nCould `url_for` grow support for query parameters in addition to path parameters?",
+    "body_last_edited_at": null,
+    "closed_at": "2023-06-20T19:20:31Z",
+    "created_at": "2019-06-21T17:35:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/560",
+    "number": 560,
+    "state": "closed",
+    "title": "add support to request.url_for for query parameters",
+    "user": "cjw296"
+  },
+  "pull_request": {
+    "closed_at": "2023-03-05T15:04:51Z",
+    "created_at": "2021-12-26T13:51:56Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1385",
+    "merge_commit_sha": "b2f25e5bc3fef072c289f015484bf028a0c2fc08",
+    "merged_at": "2023-03-05T15:04:51Z",
+    "number": 1385,
+    "title": "Change `url_for` signature to return a `URL` instance",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "d0252aaf052a97e7f09c19d9bfa46d1c9501e910",
+    "committed_at": "2021-12-22T12:57:28Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/d0252aaf052a97e7f09c19d9bfa46d1c9501e910"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-06-28T18:38:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/323",
+          "number": 323,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "FastAPI Routes don't work with Starlette's request.url_for when query params are passed"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-10T12:18:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-11T15:03:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/669",
+          "number": 669,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/669"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "add support for query parameters in `Route.url_path_for`"
+        }
+      }
+    },
+    {
+      "created_at": "2019-11-06T21:27:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-10T09:03:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-11T12:24:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-11T12:31:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-11T15:09:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-25T10:17:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-25T10:17:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-25T10:17:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-07-31T09:52:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-29T07:07:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-19T11:12:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-19T11:12:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-04-19T11:12:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-05-06T18:03:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-17T08:53:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-17T08:53:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-05-17T08:53:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-23T13:38:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-26T13:51:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1385",
+          "number": 1385,
+          "pull_request": {
+            "merged_at": "2023-03-05T15:04:51Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1385"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change `url_for` signature to return a `URL` instance"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-10T09:53:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-10T09:53:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-03-10T09:53:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-06-20T19:20:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-20T19:20:31Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-06-20T19:41:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-12-14T20:34:45Z",
+      "event": "subscribed"
+    }
+  ]
+}

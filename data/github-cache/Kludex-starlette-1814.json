@@ -1,0 +1,56 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "https://github.com/encode/starlette/blob/f6ea760a80d8b109fb6afd1c03e9a33754e6bb5f/starlette/authentication.py#L29-L38\r\n\r\nI'm not a Pythonista so forgive me if it is commonplace in Python, but in general it seems to me be a bad idea to assert that a given function has an argument with a given name. It limits freedom of the developer and makes everything more brittle.\r\n\r\nSearching throughout the repository it looks like it's the only instance where it happens.\r\n\r\nIn my particular use case I was trying to use `req` instead of `request` given the frequency I have to type and reference it.\r\n\r\nWould it be acceptable if we validated that the type of the function's arguments instead of their name? \r\n\r\nLet me know and I'll begin working on a PR.\r\n\r\nThanks in advance.",
+    "closed_at": "2022-08-19T04:25:45Z",
+    "created_at": "2022-08-19T00:15:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1814",
+    "number": 1814,
+    "state": "closed",
+    "title": "Assert function arguments by type instead of name",
+    "user": "haggen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-19T00:15:53Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-08-19T00:16:00Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-08-19T04:25:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-19T04:25:45Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-08-19T15:10:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-19T15:10:48Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-19T15:10:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-20T17:28:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-20T17:28:47Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-08-20T17:28:47Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

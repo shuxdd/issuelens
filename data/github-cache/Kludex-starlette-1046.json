@@ -1,0 +1,107 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-03-30T21:04:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/and-se/nmbook_webapi/issues/15",
+          "number": 15,
+          "pull_request": {},
+          "repository": {
+            "full_name": "and-se/nmbook_webapi"
+          },
+          "title": "auth middleware + log middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T13:32:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shahabkamali/meteor-cloud/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-08-19T15:40:08Z",
+            "url": "https://api.github.com/repos/shahabkamali/meteor-cloud/pulls/4"
+          },
+          "repository": {
+            "full_name": "shahabkamali/meteor-cloud"
+          },
+          "title": "Add logs, metrics, audit, and optional Prometheus/Loki stack"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm rewriting [my middleware](https://github.com/tomwojcik/starlette-context/blob/c31b0575b9b9f91aa0b1194e0347bb1a25c1c86e/starlette_context/middleware.py#L15) to pure ASGI. \r\n\r\nAs `BaseHTTPMiddleware` follows the DRF pattern it has access to the response object in the `dispatch` method.\r\nYour built in middlewares often do something with the response but it's usually because those responses are created in those \r\n middlewares (error middleware etc).\r\nI believe `SessionMiddleware` does something with the response headers (which is what I want to alter) but I struggle to understand what's happening there.\r\n\r\nhttps://github.com/encode/starlette/blob/8729e9fc6964fe0299f67b13658a61c65af2b25b/starlette/middleware/sessions.py#L67-L73\r\n\r\nCould anyone please hint me on how to add a response header in pure ASGI middleware?\r\n\r\nObviously I'd rather do things the old way. I'm changing it only because you started to discourage the use of `BaseHTTPMiddleware`. \r\n\r\nSo far I came up with this but I have no idea how to access the response headers in this flow.\r\n\r\n```python3\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        if scope[\"type\"] not in (\"http\", \"websocket\"):  # pragma: no cover\r\n            await self.app(scope, receive, send)\r\n            return\r\n\r\n        _starlette_context_token: Token = _request_scope_context_storage.set(\r\n            await self.set_context(scope)\r\n        )\r\n\r\n        try:\r\n            await self.app(scope, receive, send)\r\n        finally:\r\n            _request_scope_context_storage.reset(_starlette_context_token)\r\n\r\n```\r\n\r\nLinking to #1029 as it's docs-related.\r\n",
+    "closed_at": "2020-10-10T19:57:30Z",
+    "created_at": "2020-09-06T09:43:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1046",
+    "number": 1046,
+    "state": "closed",
+    "title": "How to edit response headers in pure ASGI middleware?",
+    "user": "tomwojcik"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-20T20:30:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-10T19:57:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-10T19:57:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-10-10T19:57:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-10-10T19:57:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-30T21:04:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/and-se/nmbook_webapi/issues/15",
+          "number": 15,
+          "pull_request": {},
+          "repository": {
+            "full_name": "and-se/nmbook_webapi"
+          },
+          "title": "auth middleware + log middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-12T11:35:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-19T13:32:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/shahabkamali/meteor-cloud/pull/4",
+          "number": 4,
+          "pull_request": {
+            "merged_at": "2026-08-19T15:40:08Z",
+            "url": "https://api.github.com/repos/shahabkamali/meteor-cloud/pulls/4"
+          },
+          "repository": {
+            "full_name": "shahabkamali/meteor-cloud"
+          },
+          "title": "Add logs, metrics, audit, and optional Prometheus/Loki stack"
+        }
+      }
+    }
+  ]
+}

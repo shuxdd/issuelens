@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The reason why I ask is because request.headers is another convenient place to pass along string data between layers of middleware. E.g.:\r\n\r\n* debug strings.\r\n\r\n* auth tokens.\r\n\r\nYou may say, then why not stick them on response.headers? \r\n\r\nI could, But these strings can be considered semi-sensitive and I may not want them to leak back to client (which means I have to delete them in my final request handlers).\r\n",
+    "closed_at": "2019-06-16T14:33:12Z",
+    "created_at": "2019-06-16T12:31:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/554",
+    "number": 554,
+    "state": "closed",
+    "title": "Why request headers is an immutable Mapping but response headers are mutable?",
+    "user": "didip"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-16T14:33:12Z",
+      "event": "commented"
+    }
+  ]
+}

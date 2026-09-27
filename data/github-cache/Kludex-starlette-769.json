@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Recently, I've been playing with `BackgroundTasks` through [DI in a FastAPI](https://fastapi.tiangolo.com/tutorial/background-tasks/#dependency-injection) app. \r\n\r\nThe app itself has a simple GET request endpoint that proxies requests to a third-party API. It also uses aioredis for caching, thus in case of a cache miss it makes a real request and puts a response into Redis. I've decided to make response caching in the background, so my code looked like this:\r\n\r\n```python\r\nasync def get_page_revisions(page_id: int, bg_tasks: BackgroundTasks):\r\n    page = await get_cached_revisions(page_id)\r\n    if not page:\r\n        page = await _get_page_revisions(page_id)\r\n        bg_tasks.add(ctx.redis.set, page_id, page)\r\n    return page\r\n```\r\n\r\nThis works perfectly fine functionality-wise, but sometimes it spits these logs:\r\n```\r\n/...venvpath/lib/python3.7/site-packages/uvicorn/main.py:307: RuntimeWarning: coroutine 'wait_ok' was never awaited\r\n  loop.run_until_complete(self.serve(sockets=sockets))\r\nRuntimeWarning: Enable tracemalloc to get the object allocation traceback\r\n```\r\n\r\nI was looking for the `wait_ok` in the libraries I'm using and finally came across it in aioredis. Except the mentioned before `aioredis.command.Redis.set` (which is always added into the `BackgroundTasks` in my code) I'm using only `aioredis.command.Redis.get` method, and I've made sure every single call is being awaited.\r\n\r\nNext, I've started looking through the `BackgroundTasks` code and found this line:\r\nhttps://github.com/encode/starlette/blob/06d0fc470a0e4c3f3eaab73ade3110406e547b27/starlette/background.py#L14\r\n\r\nI've managed to figure out the issue: `aioredis.command.Redis.set` itself is not an async function, but it seems to rather return one through a wild chain of function calls. I didn't bother to untangle it, not sure if it's even necessary. \r\n\r\nFinally, I've changed my code a little bit:\r\n```python\r\nbg_tasks.add(asyncio.coroutine(ctx.redis.set), page_id, page)\r\n```\r\nAnd it seemed to do the trick (I hope \ud83d\udc40 ).\r\n\r\nNow, the thing is the current Starlette's documentation doesn't tell anything about the callable `BackgroundTask` wraps. Maybe, it should be updated telling a user they can wrap both sync and async functions and warn against these kind of cases such as mine?",
+    "closed_at": "2022-02-14T10:24:54Z",
+    "created_at": "2019-12-27T13:24:09Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/769",
+    "number": 769,
+    "state": "closed",
+    "title": "Question: does BackgroundTasks documentation need to be improved?",
+    "user": "teners"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-13T02:41:45Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-26T20:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jaylfc/taOS/pull/2541",
+          "number": 2541,
+          "pull_request": {
+            "merged_at": "2026-08-26T22:03:17Z",
+            "url": "https://api.github.com/repos/jaylfc/taOS/pulls/2541"
+          },
+          "repository": {
+            "full_name": "jaylfc/taOS"
+          },
+          "title": "fix(auth): non-object JSON body is a 400, not a 500"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Since you are advertising the use of ujson, I was expecting that it is being used as a drop-in everywhere in starlette. When I post to a simple route handler without any body content, I see an exception coming from the standard library, however. Is this a special case when there is no body content or is ujson only used in serializing the `JSONResponse`?\r\n\r\nCode:\r\n\r\n```python\r\n@app.route('/', methods=[\"POST\"], )\r\nasync def search(request: Request) -> JSONResponse:\r\n    query = await request.json()\r\n    return query\r\n```\r\n\r\nTraceback:\r\n\r\n```\r\nweb_1  |     query = await request.json()\r\nweb_1  |   File \"/usr/local/lib/python3.7/site-packages/starlette/requests.py\", line 96, in json\r\nweb_1  |     self._json = json.loads(body)\r\nweb_1  |   File \"/usr/local/lib/python3.7/json/__init__.py\", line 348, in loads\r\nweb_1  |     return _default_decoder.decode(s)\r\nweb_1  |   File \"/usr/local/lib/python3.7/json/decoder.py\", line 337, in decode\r\nweb_1  |     obj, end = self.raw_decode(s, idx=_w(s, 0).end())\r\nweb_1  |   File \"/usr/local/lib/python3.7/json/decoder.py\", line 355, in raw_decode\r\nweb_1  |     raise JSONDecodeError(\"Expecting value\", s, err.value) from None\r\nweb_1  | json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)\r\n```",
+    "closed_at": "2018-10-05T15:43:15Z",
+    "created_at": "2018-09-30T18:34:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/78",
+    "number": 78,
+    "state": "closed",
+    "title": "request parsing with ujson",
+    "user": "Midnighter"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-30T18:48:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-05T15:43:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-18T19:34:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-21T22:50:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/3447",
+          "number": 3447,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add configurable media handlers and Request.data()"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-26T20:42:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/jaylfc/taOS/pull/2541",
+          "number": 2541,
+          "pull_request": {
+            "merged_at": "2026-08-26T22:03:17Z",
+            "url": "https://api.github.com/repos/jaylfc/taOS/pulls/2541"
+          },
+          "repository": {
+            "full_name": "jaylfc/taOS"
+          },
+          "title": "fix(auth): non-object JSON body is a 400, not a 500"
+        }
+      }
+    }
+  ]
+}

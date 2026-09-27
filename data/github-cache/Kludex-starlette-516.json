@@ -1,0 +1,80 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I am running Kubuntu 18.04, I have installed python 3.7.1 and created a virtual enviroment and installed starlette 0.12.0b3. But when I try to run the starlette introduction example I get the following error.\r\n\r\n\r\n`ModuleNotFoundError: No module named 'starlette.applications'; 'starlette' is not a package`\r\n\r\nI am using pycharm and can see that starlette and uvicorn are installed. but whether I run it from outside pycharm or inside with the virtual env active I keep getting this error.",
+    "closed_at": "2019-05-16T08:50:16Z",
+    "created_at": "2019-05-15T04:23:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/516",
+    "number": 516,
+    "state": "closed",
+    "title": "'starlette' is not a package",
+    "user": "ajmcateer"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-15T19:31:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-16T07:15:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-16T08:50:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-16T08:50:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-16T08:50:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-16T08:50:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-16T08:50:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-17T04:10:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-17T04:10:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-17T04:10:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-17T05:03:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-17T05:03:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-17T05:03:42Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-17T06:18:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-15T12:16:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-15T12:30:54Z",
+      "event": "locked"
+    }
+  ]
+}

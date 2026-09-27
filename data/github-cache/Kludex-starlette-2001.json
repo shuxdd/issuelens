@@ -1,0 +1,44 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1821\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **falkben** August 26, 2022</sup>\r\n`StaticFiles` always checks for the existence of package directories, regardless of whether `check_dir` is set to True or False.\r\n\r\nas an example, this raises an exception:\r\n\r\n```python\r\napp = StaticFiles(packages=[(\"tests\", \"no_such_directory\")], check_dir=False)\r\n```\r\n\r\nWhereas I would have expected it to be able to be create the `app` instance without errors when `check_dir` is set to `False`.\r\n\r\nBefore I create an Issue or submit a Pull Request, I just wanted to confirm whether this was something that was intended or not.\r\n\r\nIt looks like the `check_dir` flag was added [several years ago](https://github.com/encode/starlette/pull/195) but was not included when [support for packages were added](https://github.com/encode/starlette/pull/415) to `StaticFiles`</div>",
+    "closed_at": "2023-02-04T17:46:56Z",
+    "created_at": "2023-01-11T11:58:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2001",
+    "labels": [
+      "staticfiles",
+      "good first issue"
+    ],
+    "number": 2001,
+    "state": "closed",
+    "title": "StaticFiles always checks package directories",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-01-11T11:58:54Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-11T11:58:58Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-02-04T16:39:42Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-04T17:46:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T17:46:56Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-03-04T12:23:30Z",
+      "event": "subscribed"
+    }
+  ]
+}

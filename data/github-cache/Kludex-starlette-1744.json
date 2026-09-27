@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi, \r\n\r\n1. I am following this code blow to stream the bytes sent in a large wav file request and then save each chunk to a wav file and do further processing on them. However eI am getting the following error\r\n\r\n```python\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response\r\n\r\nasync def create_file(background_tasks: BackgroundTasks, request: Request):\r\n    async for chunk in request.stream():      \r\n        print(chunk)\r\n         with open(wav_filename, mode='bx') as f:\r\n            f.write(chunk)\r\n```\r\n`RuntimeError: Error opening 'audio_data/ebcfefa2-f217-46ed-b52e-f49c0d0eb02e2.wav': File contains data in an unknown format.`\r\n\r\nThis is the output of the print command \r\n\r\n`b'--------------------------e4462b3dae0007d5\\r\\nContent-Disposition: form-data; name=\"file\"; filename=\"audio.wav\"\\r\\nContent-Type: audio/wav\\r\\n\\r\\nRIFF$p\\x02\\x00WAVEfmt \\x10\\x00\\x00\\x00\\x01\\x00\\x01\\x00\\x80>\\x00\\x00\\x00}\\x00\\x00\\x02\\x00\\x10\\x00data\\x00p\\x02\\x00\\x00\\x00\\x00\\x00\\xff\\xff\\x00\\x00\\xff\\xff\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xff\\xff\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\xff\\xff\\x00\\x00\\xff\\xff`\r\n\r\n2. Where can i specify the number of bytes parameter for the chunks aka chunk size? The file format is wav 16Khz, 16 bits/sample. I want to have 15 seconds worth of bytes in a chunk.\r\n\r\n\r\n",
+    "closed_at": "2022-07-09T05:46:03Z",
+    "created_at": "2022-07-09T05:38:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1744",
+    "number": 1744,
+    "state": "closed",
+    "title": "Error processing request.stream() object",
+    "user": "sciai-ai"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-09T05:46:03Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-07-09T05:46:03Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

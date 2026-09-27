@@ -1,0 +1,440 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-02-18T11:12:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/440",
+          "number": 440,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "pytest event loop is already running"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-16T00:59:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1273",
+          "number": 1273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Use TestClient in an async fashion"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-24T15:07:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1619",
+          "number": 1619,
+          "pull_request": {
+            "merged_at": "2020-08-08T18:01:19Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1619"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add documentation about asynchronous testing (pytest-asyncio and httpx)"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-09T19:53:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/python-gino/gino/issues/706",
+          "number": 706,
+          "pull_request": {},
+          "repository": {
+            "full_name": "python-gino/gino"
+          },
+          "title": "Usage gino in fastapi/starlette tests"
+        }
+      }
+    },
+    {
+      "created_at": "2021-04-11T16:54:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/975",
+          "number": 975,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient as async context manager"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-15T07:25:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomasvotava/fastapi-sso/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tomasvotava/fastapi-sso/pulls/6"
+          },
+          "repository": {
+            "full_name": "tomasvotava/fastapi-sso"
+          },
+          "title": "[WIP] replace aiohttp with httpx"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T15:43:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1247",
+          "number": 1247,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Disconnect event not received when using TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-24T12:08:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/1188",
+          "number": 1188,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/1188"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Validator improvements: use a httpx session/client and a custom `User-Agent`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-16T16:23:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/iterative/mlem/pull/490",
+          "number": 490,
+          "pull_request": {
+            "merged_at": "2022-11-17T15:27:25Z",
+            "url": "https://api.github.com/repos/iterative/mlem/pulls/490"
+          },
+          "repository": {
+            "full_name": "iterative/mlem"
+          },
+          "title": "Add httpx dependency"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi folks,\r\n\r\nCurrently, the `TestClient` is built as a subclass of `requests.Session`.\r\n\r\nWhat would be thoughts on migrating to [HTTPX](https://github.com/encode/httpx)?\r\n\r\n- Is this a good idea at all?\r\n- Should the `TestClient` be built *around* HTTPX, or should it eventually be *replaced* by HTTPX and its ASGI support?\r\n\r\nAs of today, there are definitely blockers to a full migration. An important one is that HTTPX doesn't support WebSocket yet (see https://github.com/encode/httpx/issues/304), while `TestClient` does.\r\n\r\nHappy to discuss! cc @tiangolo @gvbgduh @tomchristie ",
+    "closed_at": "2022-09-06T05:43:33Z",
+    "created_at": "2019-10-01T20:34:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/652",
+    "labels": [
+      "testclient"
+    ],
+    "number": 652,
+    "state": "closed",
+    "title": "HTTPX-based TestClient?",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-01T20:34:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T20:34:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-01T20:34:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T20:34:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-01T20:58:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T20:58:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T20:58:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-01T21:15:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T21:15:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T21:15:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-01T21:15:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T21:15:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-01T21:24:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T21:34:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T21:41:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T21:49:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-01T21:49:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-01T21:49:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-02T04:51:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-02T12:23:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-27T19:05:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-17T18:45:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T11:12:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/440",
+          "number": 440,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "pytest event loop is already running"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-16T00:59:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1273",
+          "number": 1273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Use TestClient in an async fashion"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-24T15:07:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1619",
+          "number": 1619,
+          "pull_request": {
+            "merged_at": "2020-08-08T18:01:19Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1619"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Add documentation about asynchronous testing (pytest-asyncio and httpx)"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-09T19:53:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/python-gino/gino/issues/706",
+          "number": 706,
+          "pull_request": {},
+          "repository": {
+            "full_name": "python-gino/gino"
+          },
+          "title": "Usage gino in fastapi/starlette tests"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:30:15Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-04-11T16:54:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/975",
+          "number": 975,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "TestClient as async context manager"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-13T16:04:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-15T07:25:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomasvotava/fastapi-sso/pull/6",
+          "number": 6,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tomasvotava/fastapi-sso/pulls/6"
+          },
+          "repository": {
+            "full_name": "tomasvotava/fastapi-sso"
+          },
+          "title": "[WIP] replace aiohttp with httpx"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T15:43:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1247",
+          "number": 1247,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Disconnect event not received when using TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-24T10:37:29Z",
+      "event": "connected"
+    },
+    {
+      "created_at": "2022-03-20T10:54:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-05T17:25:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-05T17:25:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-04-05T17:25:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-24T12:08:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/1188",
+          "number": 1188,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/1188"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Validator improvements: use a httpx session/client and a custom `User-Agent`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-06T05:43:34Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-09-06T05:44:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-16T16:23:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/iterative/mlem/pull/490",
+          "number": 490,
+          "pull_request": {
+            "merged_at": "2022-11-17T15:27:25Z",
+            "url": "https://api.github.com/repos/iterative/mlem/pulls/490"
+          },
+          "repository": {
+            "full_name": "iterative/mlem"
+          },
+          "title": "Add httpx dependency"
+        }
+      }
+    },
+    {
+      "commit_id": "3c1666b1c1c5b4dc7818ff9606e4660b596ee29a",
+      "commit_url": "https://api.github.com/repos/iterative/mlem/commits/3c1666b1c1c5b4dc7818ff9606e4660b596ee29a",
+      "created_at": "2022-11-17T15:27:27Z",
+      "event": "referenced"
+    }
+  ]
+}

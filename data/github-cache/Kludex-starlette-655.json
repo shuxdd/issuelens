@@ -1,0 +1,44 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "My uvicorn process keeps dying with:\r\n```\r\nwebsockets.exceptions.ConnectionClosedError: code = 1006 (connection closed abnormally [internal]), no reason\r\n```\r\nI'm using \"fastapi\" (https://github.com/tiangolo/fastapi) which is built on starlette and uses the starlette websocket.\r\n\r\nTo send my data, I'm using the python websockets library (as I don't think starlette can establish the initial connection). I'm sending data in a while loop at about 10ms intervals. I even tried setting up a socket ping.\r\n\r\nIs there a way to just tell the socket to stay open indefinitely with no timeout? ",
+    "closed_at": "2019-10-03T21:19:41Z",
+    "created_at": "2019-10-03T10:53:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/655",
+    "number": 655,
+    "state": "closed",
+    "title": "websockets.exceptions.ConnectionClosedError: code = 1006 ",
+    "user": "rlewkowicz"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-03T11:19:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-03T11:19:10Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-10-03T20:30:32Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2019-10-03T20:31:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-03T21:19:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-03T21:19:41Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-03-31T10:04:27Z",
+      "event": "commented"
+    }
+  ]
+}

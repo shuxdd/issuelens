@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "There seems to be a few unused var in the codebase eg in:\r\n\r\nhttps://github.com/encode/starlette/blob/master/starlette/middleware/cors.py\r\n\r\nrequested_cookie = \"cookie\" in request_headers\r\n\r\nSeems to be unused. Could we run flake8 in CI to catch this? Happy to look at setting this up",
+    "closed_at": "2019-04-17T13:53:08Z",
+    "created_at": "2019-04-17T13:52:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/485",
+    "number": 485,
+    "state": "closed",
+    "title": "Flake8 codebased in CI",
+    "user": "alimcmaster1"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-17T13:53:08Z",
+      "event": "commented"
+    }
+  ]
+}

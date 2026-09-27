@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm running my specs from my app and it's raised as warning on terminal\r\n\r\n```\r\n.venv/lib/python3.10/site-packages/starlette/formparsers.py:12\r\n  /root/units-erp/units-vault/.venv/lib/python3.10/site-packages/starlette/formparsers.py:12: PendingDeprecationWarning: Please use `import python_multipart` instead.\r\n    import multipart\r\n```\r\n\r\n![image](https://github.com/user-attachments/assets/834235ab-c691-490c-8293-a8a05b88b165)\r\n",
+    "closed_at": "2024-12-11T17:05:00Z",
+    "created_at": "2024-12-11T17:01:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2791",
+    "number": 2791,
+    "state": "closed",
+    "title": "dependency deprecation warning has raised on terminal",
+    "user": "victor-0x29a"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-12-11T17:05:00Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-12-11T17:06:23Z",
+      "event": "commented"
+    }
+  ]
+}

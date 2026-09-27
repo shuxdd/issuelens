@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Should we consider dropping the implicit use of `ujson`, and instead include a `UJSONResponse` class so that it needs to be used *explicitly* instead? I'd tend to think that by default you'll want to prefer using the stdlib `json` since it's a bit tighter on it's behaviour when eg. handling unexpected types.\r\n\r\nIt might well make sense to only use `ujson` explicitly (so eg. users can switch to it if they have particular known endpoints that're already well-tested but have a non-insignificant serialization overhead).\r\n\r\n(In micro-benchmarking ujson is super important, but in real use-cases it generally isn't.)",
+    "closed_at": "2018-10-15T11:22:50Z",
+    "created_at": "2018-10-05T15:57:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/85",
+    "number": 85,
+    "state": "closed",
+    "title": "Add `UJSONResponse`",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-05T19:46:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-05T20:14:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-05T21:55:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-15T11:23:45Z",
+      "event": "commented"
+    }
+  ]
+}

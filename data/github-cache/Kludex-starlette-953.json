@@ -1,0 +1,118 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-05-26T14:19:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/954",
+          "number": 954,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/954"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "closes #953 add possibility to ovewrite graphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-18T18:07:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/issues/10",
+          "number": 10,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Add support for overriding GraphQL playground"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "`graphiql` uses sources, that are embedded via jsdekivr.net. In some networks hosts like these are prohibited, or there is no internet access at all. On the other side there are several other, enhanced graphql frontends as proposed in #753 or #698 \r\n\r\nA simple approach is to add possibility to overwrite the default graphiql html code.",
+    "closed_at": "2021-02-05T19:43:04Z",
+    "created_at": "2020-05-26T13:04:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/953",
+    "labels": [
+      "feature"
+    ],
+    "number": 953,
+    "state": "closed",
+    "title": "[Feature] Allow overriding of qraphiql html",
+    "user": "lioman"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "bee8ad2170674529a50a938ef9302981d45dc79e",
+      "commit_url": "https://api.github.com/repos/lioman/starlette/commits/bee8ad2170674529a50a938ef9302981d45dc79e",
+      "created_at": "2020-05-26T13:06:03Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-05-26T14:19:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/954",
+          "number": 954,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/954"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "closes #953 add possibility to ovewrite graphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-07T07:46:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-07T10:10:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-14T10:14:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T10:43:38Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-11T11:01:09Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-02-05T19:43:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:43:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-05-18T18:07:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/issues/10",
+          "number": 10,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Add support for overriding GraphQL playground"
+        }
+      }
+    }
+  ]
+}

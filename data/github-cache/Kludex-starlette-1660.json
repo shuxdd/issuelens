@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have added [Brotli-Asgi](https://github.com/fullonic/brotli-asgi) middleware to my Starlette api but for a specific route that returns a zip file via StreamingResponse, I'd like to exclude the brotli compression. Is this possible?",
+    "closed_at": "2022-06-01T04:05:54Z",
+    "created_at": "2022-06-01T01:37:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1660",
+    "number": 1660,
+    "state": "closed",
+    "title": "How can I exempt a certain route/endpoint from gzip/brotli middleware?",
+    "user": "erichaus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-06-01T04:05:54Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-06-01T04:05:54Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

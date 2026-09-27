@@ -1,0 +1,221 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-27T01:01:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/45247f5d28d0ef372b4d00cf5e8c9fcbcae66433",
+      "sha": "45247f5d28d0ef372b4d00cf5e8c9fcbcae66433"
+    },
+    {
+      "committed_at": "2022-01-27T09:30:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3568a13ee8ad3fcf54cc797201a695cdcdf96859",
+      "sha": "3568a13ee8ad3fcf54cc797201a695cdcdf96859"
+    },
+    {
+      "committed_at": "2022-01-27T12:55:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3c76feacb8ef25c77036d3c4f6667a3c22639d27",
+      "sha": "3c76feacb8ef25c77036d3c4f6667a3c22639d27"
+    },
+    {
+      "committed_at": "2022-01-27T13:04:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0f716191a388a6c4b77a8c84c6d6d633c74096bd",
+      "sha": "0f716191a388a6c4b77a8c84c6d6d633c74096bd"
+    },
+    {
+      "committed_at": "2022-01-27T13:17:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/172a47978a68fc2d7865f59dc5c0d98efcddde84",
+      "sha": "172a47978a68fc2d7865f59dc5c0d98efcddde84"
+    },
+    {
+      "committed_at": "2022-01-27T13:19:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9589d806f89266afa55b293ab9d2197a46d3ed17",
+      "sha": "9589d806f89266afa55b293ab9d2197a46d3ed17"
+    },
+    {
+      "committed_at": "2022-01-27T13:20:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fcabad43a67e33e7e5099d3762307c2b6dfb2754",
+      "sha": "fcabad43a67e33e7e5099d3762307c2b6dfb2754"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-09-24T20:38:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1289",
+          "number": 1289,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "%0A in path parameter cause invalid routing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-24T20:38:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1290",
+          "number": 1290,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1290"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix routing for pct-encoded newline char in path params"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-27T13:04:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1437",
+          "number": 1437,
+          "pull_request": {
+            "merged_at": "2022-01-28T16:48:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1437"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom URL convertor register"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 29,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/docs%2Frouting.md",
+      "changes": 31,
+      "deletions": 2,
+      "filename": "docs/routing.md",
+      "sha": "5a76d7bc491a66399644643dd07efb55972e0345",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/starlette%2Fconvertors.py",
+      "changes": 4,
+      "deletions": 0,
+      "filename": "starlette/convertors.py",
+      "sha": "d90a9cd15e507986998a714e751c127e7113366a",
+      "status": "modified"
+    },
+    {
+      "additions": 56,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fcabad43a67e33e7e5099d3762307c2b6dfb2754/tests%2Ftest_convertors.py",
+      "changes": 56,
+      "deletions": 0,
+      "filename": "tests/test_convertors.py",
+      "sha": "167ea96aa44d60ff9afb7e9ebd9fe17fd1391877",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`. (Checked on `starlette==0.13.8`).\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nLet's imagine that I pass some text data as a path parameter and this data can generally contain any Unicode character. It turned out that it's impossible to pass the data with newline characters (`\\n`) inside. Starlette decodes the URL somewhere before it tries to match routes, so it doesn't help if you try to pass this character in encoded form like `%0A`. It either doesn't match the route or cuts the new line character off (but it breaks the application logic). Seems like the issue is in [the regex](https://github.com/encode/starlette/blob/41218ac546a3c7a0f1982f2677177ce9a0ab3616/starlette/convertors.py#L30) used by the `PathConvertor`:\r\n\r\n```python\r\nclass PathConvertor(Convertor):\r\n    regex = \".*\"\r\n```\r\n\r\nAccording [to many sources](https://riptutorial.com/regex/example/32238/why-doesn-t-dot-----match-the-newline-character----n---) on the internet, `.` (the dot character) matches any character except for `\\n`. Should we allow it to match literally any character?\r\n\r\nPossible solutions:\r\n\r\n* replace `.` with `\\s\\S` \u2014 it's a popular trick to match ANY character including new lines:\r\n\r\n```python\r\nclass PathConvertor(Convertor):\r\n    regex = \"[\\s\\S]*\"\r\n```\r\n\r\n* put the `re.DOTALL` flag somewhere, for example [here](https://github.com/encode/starlette/blob/41218ac546a3c7a0f1982f2677177ce9a0ab3616/starlette/routing.py#L123):\r\n\r\n```python\r\nreturn re.compile(path_regex, flags=re.DOTALL), path_format, param_convertors\r\n```\r\n\r\nNotice that in both cases newline characters will appear in the matched data (it changes the current behavior but I'm not sure how big the impact will be).\r\n\r\nI understand that:\r\n* passing newline characters through the path is some kind of edge case and not what people usually do;\r\n* some weird solutions are required to support this edge case and the profit is disputable;\r\n* it could probably be better to restrict this data in the application so that it only contains characters from some allowed subset of Unicode characters, but the API is already established and it is out of the scope of this issue.\r\n\r\nAnyway, I think that you should know about the issue. Does it worth to fix it? What do you think?\r\n\r\n### To reproduce\r\n\r\n```python\r\n\r\ndef test_starlette_route_with_new_line_characters() -> None:\r\n    from starlette.routing import Route\r\n    from starlette.middleware.wsgi import WSGIMiddleware\r\n\r\n    # the second argument is not important, it can be anything\r\n    route = Route(\"/{path:path}\", WSGIMiddleware(lambda x: None))\r\n\r\n    # everything works as expected without newline characters\r\n    match, child_scope = route.matches({\"type\": \"http\", \"path\": \"/qwe\"})\r\n    assert match is Match.FULL\r\n    assert child_scope[\"path_params\"][\"path\"] == \"qwe\"\r\n\r\n    # the single new line character at the end is cut off\r\n    match, child_scope = route.matches({\"type\": \"http\", \"path\": \"/qwe\\n\"})\r\n    assert match is Match.FULL\r\n    assert child_scope[\"path_params\"][\"path\"] == \"qwe\"\r\n\r\n    # route doesn't match if you put two newline characters\r\n    match, child_scope = route.matches({\"type\": \"http\", \"path\": \"/qwe\\n\\n\"})\r\n    assert match is Match.NONE\r\n\r\n    # route doesn't match if you put the newline character in the middle\r\n    match, child_scope = route.matches({\"type\": \"http\", \"path\": \"/qwe\\nrty\"})\r\n    assert match is Match.NONE\r\n```\r\n\r\n### Expected behavior\r\n\r\nPaths can contain any character (at least, in URL encoded form) and correctly match the route.\r\n\r\n### Actual behavior\r\n\r\n* In some cases, Starlette is not able to match the route with the URL containing newline characters;\r\n* In other cases, Starlette corrupts the data by cutting newline characters off.\r\n\r\n### Environment\r\n\r\n- OS: macOS\r\n- Python version: 3.8.3\r\n- Starlette version: 0.13.8 (get it with `$ pip show starlette`)\r\n",
+    "body_last_edited_at": "2020-09-15T08:15:55Z",
+    "closed_at": "2022-01-30T12:06:07Z",
+    "created_at": "2020-09-15T08:14:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1058",
+    "number": 1058,
+    "state": "closed",
+    "title": "PathConvertor doesn't match new line characters",
+    "user": "and-semakin"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-28T16:48:22Z",
+    "created_at": "2022-01-27T01:03:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1437",
+    "merge_commit_sha": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+    "merged_at": "2022-01-28T16:48:22Z",
+    "number": 1437,
+    "title": "Add custom URL convertor register",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "2b54f427613ebd1a6ccb2031aa97364e2d5070a5",
+    "committed_at": "2022-01-27T00:15:19Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2b54f427613ebd1a6ccb2031aa97364e2d5070a5"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-09-15T09:15:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-24T20:38:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1289",
+          "number": 1289,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "%0A in path parameter cause invalid routing"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-24T20:38:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1290",
+          "number": 1290,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1290"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix routing for pct-encoded newline char in path params"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-24T20:39:23Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "edf748dc40bb1b3d7be99bd53fc25fc64736c14e",
+      "commit_url": "https://api.github.com/repos/Pentusha/starlette/commits/edf748dc40bb1b3d7be99bd53fc25fc64736c14e",
+      "created_at": "2021-09-24T20:48:10Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-01-27T13:04:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1437",
+          "number": 1437,
+          "pull_request": {
+            "merged_at": "2022-01-28T16:48:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1437"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom URL convertor register"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T12:06:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T12:06:07Z",
+      "event": "closed"
+    }
+  ]
+}

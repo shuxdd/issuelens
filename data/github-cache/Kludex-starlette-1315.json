@@ -1,0 +1,711 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-09-05T09:01:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1ca55a3a58e3bbf7ca46e98ec0f18ea5b625b0c6",
+      "sha": "1ca55a3a58e3bbf7ca46e98ec0f18ea5b625b0c6"
+    },
+    {
+      "committed_at": "2026-09-05T09:08:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5bad518109101baf944dd6a1720e4fdae919f0fb",
+      "sha": "5bad518109101baf944dd6a1720e4fdae919f0fb"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-11-28T06:36:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1347",
+          "number": 1347,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1347"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support customizing portal in TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-08T03:33:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LuisLuii/FastAPIQuickCRUD/issues/4",
+          "number": 4,
+          "pull_request": {},
+          "repository": {
+            "full_name": "LuisLuii/FastAPIQuickCRUD"
+          },
+          "title": "Which FastApi version is required ?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-14T14:08:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3855",
+          "number": 3855,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "getting task attached to a different loop runtime error when using fastapi with gunicron and motor"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-02T13:42:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4473",
+          "number": 4473,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "async test is RuntimeError: no running event loop in router with await"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-03T17:31:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1478",
+          "number": 1478,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1478"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for Websocket Denial Response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-24T07:37:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redis/redis-py/pull/2471",
+          "number": 2471,
+          "pull_request": {
+            "merged_at": "2022-12-04T08:04:17Z",
+            "url": "https://api.github.com/repos/redis/redis-py/pulls/2471"
+          },
+          "repository": {
+            "full_name": "redis/redis-py"
+          },
+          "title": "Async clusters: Support creating locks inside async functions"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-05T07:48:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/issues/1920",
+          "number": 1920,
+          "pull_request": {},
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "Bug: the app for test client is running in a different event loop"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-11T18:12:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scaleapi/llm-engine/pull/314",
+          "number": 314,
+          "pull_request": {
+            "merged_at": "2023-10-11T23:11:59Z",
+            "url": "https://api.github.com/repos/scaleapi/llm-engine/pulls/314"
+          },
+          "repository": {
+            "full_name": "scaleapi/llm-engine"
+          },
+          "title": "Fix streaming endpoint failure handling"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-24T00:01:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/caikit/caikit/pull/539",
+          "number": 539,
+          "pull_request": {
+            "merged_at": "2023-10-26T17:09:35Z",
+            "url": "https://api.github.com/repos/caikit/caikit/pulls/539"
+          },
+          "repository": {
+            "full_name": "caikit/caikit"
+          },
+          "title": "\ud83d\udc1b Stream test bug fix"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-03T22:46:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scaleapi/llm-engine/pull/415",
+          "number": 415,
+          "pull_request": {
+            "merged_at": "2024-01-04T00:06:39Z",
+            "url": "https://api.github.com/repos/scaleapi/llm-engine/pulls/415"
+          },
+          "repository": {
+            "full_name": "scaleapi/llm-engine"
+          },
+          "title": "enable sensitive log mode"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-14T22:23:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Quansight/ragna/pull/322",
+          "number": 322,
+          "pull_request": {
+            "merged_at": "2024-02-19T07:42:25Z",
+            "url": "https://api.github.com/repos/Quansight/ragna/pulls/322"
+          },
+          "repository": {
+            "full_name": "Quansight/ragna"
+          },
+          "title": "use FastAPI test client for testing"
+        }
+      }
+    },
+    {
+      "created_at": "2025-04-11T11:49:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntonioMrtz/SpotifyElectron/pull/348",
+          "number": 348,
+          "pull_request": {
+            "merged_at": "2025-04-12T11:56:45Z",
+            "url": "https://api.github.com/repos/AntonioMrtz/SpotifyElectron/pulls/348"
+          },
+          "repository": {
+            "full_name": "AntonioMrtz/SpotifyElectron"
+          },
+          "title": "#347: MongoDB Async Client"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-05T09:01:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3515",
+          "number": 3515,
+          "pull_request": {
+            "merged_at": "2026-09-05T09:37:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3515"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document TestClient event loop isolation"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bad518109101baf944dd6a1720e4fdae919f0fb/docs%2Ftestclient.md",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "3330f976214d8fc51d5f6145d6f39176116a6264",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [X] The bug is reproducible against the latest release and/or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nUpgrading starlette>=0.15.0 breaks current testing strategy. The setup is mocking a [nats](https://nats.io) subscription by actually using the nats server.\r\nThe code works with starlette 0.14.2, upgradign to 0.15.0 gives `RunTumeError got Future <Future pending> attached to a different loop `. When upgrading to starlette 0.16.0 it gives TimeOut errors. I would love to keep tests sync.\r\n\r\n### To reproduce\r\n\r\nrequirements.txt\r\n```\r\nstarlette\r\nrequests\r\npytest\r\nasyncio-nats-client\r\n```\r\n\r\ncode\r\n\r\n```python\r\nfrom starlette.routing import Route\r\nfrom starlette.testclient import TestClient\r\nimport pytest\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nimport asyncio\r\n\r\n\r\nfrom nats.aio.client import Client as NATS\r\n\r\n\"\"\"\r\nTest work with starlette 0.14.2\r\nError with starlette 0.15.0: RunTimeError: got Future <Future pending> attached to a different loop\r\nError with starlette 0.16.0: Nats timeout\r\n\r\nThe test is that the client code makes a nats request to a mocked nats service over nats itself.\r\n\r\nRequirement a running nats server `docker run -d -p 4222:4222 nats:latest`\r\n\"\"\"\r\n\r\nHOST_NATS = \"localhost:4222\"\r\n\r\n\r\n# =======================================================================\r\n# CODE\r\n# =======================================================================\r\n\r\n\r\ndef create_app():\r\n    async def index(request):\r\n        r = await request.app.state.nc.request(\"subject1\", timeout=1, payload=b\"PING\")\r\n        return PlainTextResponse(content=r.data.decode())\r\n\r\n    async def setup() -> None:\r\n        await app.state.nc.connect(HOST_NATS)\r\n        print(\"Connected to nats\")\r\n\r\n    app = Starlette(debug=True, routes=[Route('/', index)], on_startup=[setup])\r\n    app.state.nc: NATS = NATS()\r\n\r\n    return app\r\n\r\n\r\napp = create_app()\r\n\r\n\r\n# =======================================================================\r\n# MOCKS & TESTS\r\n# =======================================================================\r\n\r\n\r\nclass NatsServiceMock:\r\n    def __init__(self) -> None:\r\n        self.nc: NATS = NATS()\r\n\r\n    async def lifespan(self) -> None:\r\n        await self.nc.connect(HOST_NATS)\r\n        await self.nc.subscribe(\"subject1\", cb=self.handle)\r\n\r\n    async def handle(self, msg):\r\n        await self.nc.publish(msg.reply, b\"PONG\")\r\n\r\n    def __enter__(self):\r\n        loop = asyncio.get_event_loop()\r\n        loop.run_until_complete(self.lifespan())\r\n        return self\r\n\r\n    def __exit__(self, *args) -> None:\r\n        pass\r\n\r\n\r\n@pytest.fixture(scope=\"session\")\r\ndef nats_service() -> None:\r\n    with NatsServiceMock() as nc:\r\n        yield nc\r\n\r\n\r\n@pytest.fixture(scope=\"session\")\r\ndef test_app(nats_service) -> None:\r\n    with TestClient(create_app()) as client:\r\n        yield client\r\n\r\n\r\n# =======================================================================\r\n# TESTS\r\n# =======================================================================\r\n\r\n\r\ndef test_index_should_give_a_succesful_response(test_app):\r\n    r = test_app.get(\"/\")\r\n    assert r.status_code == 200\r\n    assert r.text == \"PONG\"\r\n```\r\n\r\nRun:\r\n```\r\npytest <file>\r\n```\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nThe test to work.\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nTest does not work.\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\noutput running with starlette 0.15.0:\r\n\r\n```\r\n        try:\r\n            # wait until the future completes or the timeout\r\n            try:\r\n>               await waiter\r\nE               RuntimeError: Task <Task pending name='anyio.from_thread.BlockingPortal._call_func' coro=<BlockingPortal._call_func() running at /home/sevaho/.local/share/virtualenvs/testje-KTUsWEz0/lib/python3.8/site-packages/anyio/from_thread.py:177> cb=[TaskGroup._spawn.<locals>.task_done() at /home/sevaho/.local/share/virtualenvs/testje-KTUsWEz0/lib/python3.8/site-packages/anyio/_backends/_asyncio.py:622]> got Future <Future pending> attached to a different loop\r\n\r\n/usr/lib/python3.8/asyncio/tasks.py:481: RuntimeError\r\n```\r\n\r\noutput when running with starlette 0.16.0:\r\n\r\n```\r\n        # Wait for the response or give up on timeout.\r\n        try:\r\n            msg = await asyncio.wait_for(future, timeout, loop=self._loop)\r\n            return msg\r\n        except asyncio.TimeoutError:\r\n            del self._resp_map[token.decode()]\r\n            future.cancel()\r\n>           raise ErrTimeout\r\nE           nats.aio.errors.ErrTimeout: nats: Timeout\r\n\r\n/home/sevaho/.local/share/virtualenvs/testje-KTUsWEz0/lib/python3.8/site-packages/nats/aio/client.py:945: ErrTimeout\r\n```\r\n### Environment\r\n\r\n- OS: <!-- eg Linux/Windows/macOS. --> Linux\r\n- Python version: <!-- eg 3.8.5 (get it with `$ python -V`). --> 3.8\r\n- Starlette version: <!-- eg 0.13.8 (get it with `$ pip show starlette`). --> 0.14.2 / 0.15.0 / 0.16.0\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/1315\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/1315/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/1315/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2026-09-05T09:37:09Z",
+    "created_at": "2021-10-17T12:16:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1315",
+    "labels": [
+      "testclient"
+    ],
+    "number": 1315,
+    "state": "closed",
+    "title": "RunTimeError: got Future <Future pending> attached to a different loop when using custom loop in sync fixtures when upgrading from 0.14.2 to 0.15.0",
+    "user": "sevaho"
+  },
+  "pull_request": {
+    "closed_at": "2026-09-05T09:37:08Z",
+    "created_at": "2026-09-05T09:01:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3515",
+    "merge_commit_sha": "22dcce70bda6d6f45eafc144c9bde55c1d1fbb97",
+    "merged_at": "2026-09-05T09:37:08Z",
+    "number": 3515,
+    "title": "Document TestClient event loop isolation",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-17T12:16:51Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2021-11-03T18:34:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-10T12:45:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T04:57:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T09:45:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T18:51:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T18:51:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-27T18:51:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-27T18:51:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-27T18:51:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-28T06:36:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1347",
+          "number": 1347,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1347"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support customizing portal in TestClient"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-29T10:01:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-29T10:01:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-29T10:01:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-14T21:23:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T16:13:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T16:13:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-15T16:13:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-15T21:52:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T21:52:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-15T21:52:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-08T03:33:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LuisLuii/FastAPIQuickCRUD/issues/4",
+          "number": 4,
+          "pull_request": {},
+          "repository": {
+            "full_name": "LuisLuii/FastAPIQuickCRUD"
+          },
+          "title": "Which FastApi version is required ?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-08T03:37:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-14T14:08:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3855",
+          "number": 3855,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "getting task attached to a different loop runtime error when using fastapi with gunicron and motor"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-01T17:17:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-02T13:42:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4473",
+          "number": 4473,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "async test is RuntimeError: no running event loop in router with await"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-03T15:06:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-03T17:31:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1478",
+          "number": 1478,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1478"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for Websocket Denial Response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-12T07:32:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-05T09:07:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-21T13:53:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-15T09:59:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-15T10:17:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-16T13:17:04Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "ae28598f70732aabe1ee3a2dbe2713f7d3a60c85",
+      "commit_url": "https://api.github.com/repos/ral-facilities/operationsgateway-api/commits/ae28598f70732aabe1ee3a2dbe2713f7d3a60c85",
+      "created_at": "2022-06-20T10:47:21Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-06-26T14:51:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-26T17:45:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-26T17:51:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-30T10:49:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-31T16:53:51Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-18T10:03:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-18T10:03:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-08-18T10:03:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-08-18T11:45:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-14T18:28:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-24T07:37:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redis/redis-py/pull/2471",
+          "number": 2471,
+          "pull_request": {
+            "merged_at": "2022-12-04T08:04:17Z",
+            "url": "https://api.github.com/repos/redis/redis-py/pulls/2471"
+          },
+          "repository": {
+            "full_name": "redis/redis-py"
+          },
+          "title": "Async clusters: Support creating locks inside async functions"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-24T08:04:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-04T18:54:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-05T07:48:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/issues/1920",
+          "number": 1920,
+          "pull_request": {},
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "Bug: the app for test client is running in a different event loop"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-11T18:12:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scaleapi/llm-engine/pull/314",
+          "number": 314,
+          "pull_request": {
+            "merged_at": "2023-10-11T23:11:59Z",
+            "url": "https://api.github.com/repos/scaleapi/llm-engine/pulls/314"
+          },
+          "repository": {
+            "full_name": "scaleapi/llm-engine"
+          },
+          "title": "Fix streaming endpoint failure handling"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-24T00:01:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/caikit/caikit/pull/539",
+          "number": 539,
+          "pull_request": {
+            "merged_at": "2023-10-26T17:09:35Z",
+            "url": "https://api.github.com/repos/caikit/caikit/pulls/539"
+          },
+          "repository": {
+            "full_name": "caikit/caikit"
+          },
+          "title": "\ud83d\udc1b Stream test bug fix"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-24T10:29:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-03T22:46:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/scaleapi/llm-engine/pull/415",
+          "number": 415,
+          "pull_request": {
+            "merged_at": "2024-01-04T00:06:39Z",
+            "url": "https://api.github.com/repos/scaleapi/llm-engine/pulls/415"
+          },
+          "repository": {
+            "full_name": "scaleapi/llm-engine"
+          },
+          "title": "enable sensitive log mode"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-14T22:23:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Quansight/ragna/pull/322",
+          "number": 322,
+          "pull_request": {
+            "merged_at": "2024-02-19T07:42:25Z",
+            "url": "https://api.github.com/repos/Quansight/ragna/pulls/322"
+          },
+          "repository": {
+            "full_name": "Quansight/ragna"
+          },
+          "title": "use FastAPI test client for testing"
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-17T17:31:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-18T11:30:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-11T11:49:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntonioMrtz/SpotifyElectron/pull/348",
+          "number": 348,
+          "pull_request": {
+            "merged_at": "2025-04-12T11:56:45Z",
+            "url": "https://api.github.com/repos/AntonioMrtz/SpotifyElectron/pulls/348"
+          },
+          "repository": {
+            "full_name": "AntonioMrtz/SpotifyElectron"
+          },
+          "title": "#347: MongoDB Async Client"
+        }
+      }
+    },
+    {
+      "created_at": "2025-05-09T16:55:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-12-11T02:50:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-01T09:12:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-01T09:12:02Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-03-01T09:12:17Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-03-01T10:01:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-01T13:27:01Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2026-09-04T18:42:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-09-05T09:01:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3515",
+          "number": 3515,
+          "pull_request": {
+            "merged_at": "2026-09-05T09:37:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3515"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document TestClient event loop isolation"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-05T09:37:09Z",
+      "event": "closed"
+    }
+  ]
+}

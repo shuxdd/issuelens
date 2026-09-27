@@ -1,0 +1,207 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-06-24T17:59:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f2e9115c0596519141b201a1025311d80e9a8730",
+      "sha": "f2e9115c0596519141b201a1025311d80e9a8730"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-06-20T19:31:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/309",
+          "number": 309,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How to change character encoding of form fields to UTF-8 ?"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-23T20:42:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ddaleteam/API/pull/34",
+          "number": 34,
+          "pull_request": {
+            "merged_at": "2019-06-23T20:45:35Z",
+            "url": "https://api.github.com/repos/ddaleteam/API/pulls/34"
+          },
+          "repository": {
+            "full_name": "ddaleteam/API"
+          },
+          "title": ":bug: Fix utf-8 bug with starlette & multi-form & :sparkles: Put audio"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-24T18:11:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/562",
+          "number": 562,
+          "pull_request": {
+            "merged_at": "2019-07-25T09:04:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/562"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow use of characters out of latin-1 in multipart form values"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-24T08:06:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1098",
+          "number": 1098,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Bug&Question]Responses encode using utf-8"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f2e9115c0596519141b201a1025311d80e9a8730/starlette%2Fformparsers.py",
+      "changes": 14,
+      "deletions": 2,
+      "filename": "starlette/formparsers.py",
+      "sha": "8479e0d137e1d9b3a1d4e450e279b661506f480b",
+      "status": "modified"
+    },
+    {
+      "additions": 54,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f2e9115c0596519141b201a1025311d80e9a8730/tests%2Ftest_formparsers.py",
+      "changes": 55,
+      "deletions": 1,
+      "filename": "tests/test_formparsers.py",
+      "sha": "c4fedeede2518a44e22bf6bfbd58a4329d1d7189",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "version starlette is __version__ = \"0.11.3\"\r\n\r\nin formparsers.py in line 218 following code  =>  items.append((field_name, data.decode(\"latin-1\")))\r\nneed change to => items.append((field_name, data.decode(\"utf-8\")))\r\n\r\nBecause, for example, the data in the Russian language is displayed as a scribble.\r\nI'm sure there's a more elegant solution.",
+    "body_last_edited_at": null,
+    "closed_at": "2019-07-25T09:12:39Z",
+    "created_at": "2019-03-07T11:22:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/425",
+    "labels": [
+      "bug"
+    ],
+    "number": 425,
+    "state": "closed",
+    "title": "Problem with formdata in utf-8, with non latinic symbol",
+    "user": "Ekuzkamaza"
+  },
+  "pull_request": {
+    "closed_at": "2019-07-25T09:04:28Z",
+    "created_at": "2019-06-24T18:11:27Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/562",
+    "merge_commit_sha": "274e570553350e46feba1235eca4cb22c950b614",
+    "merged_at": "2019-07-25T09:04:28Z",
+    "number": 562,
+    "title": "allow use of characters out of latin-1 in multipart form values",
+    "user": "jaceksnet"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "f2e9115c0596519141b201a1025311d80e9a8730",
+    "committed_at": "2019-06-24T17:59:09Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f2e9115c0596519141b201a1025311d80e9a8730"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-03-07T11:33:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-20T19:31:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/309",
+          "number": 309,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How to change character encoding of form fields to UTF-8 ?"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-23T20:42:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ddaleteam/API/pull/34",
+          "number": 34,
+          "pull_request": {
+            "merged_at": "2019-06-23T20:45:35Z",
+            "url": "https://api.github.com/repos/ddaleteam/API/pulls/34"
+          },
+          "repository": {
+            "full_name": "ddaleteam/API"
+          },
+          "title": ":bug: Fix utf-8 bug with starlette & multi-form & :sparkles: Put audio"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-24T18:11:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/562",
+          "number": 562,
+          "pull_request": {
+            "merged_at": "2019-07-25T09:04:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/562"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow use of characters out of latin-1 in multipart form values"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-25T06:14:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-25T09:12:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-24T08:06:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1098",
+          "number": 1098,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Bug&Question]Responses encode using utf-8"
+        }
+      }
+    }
+  ]
+}

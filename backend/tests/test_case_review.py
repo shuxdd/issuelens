@@ -15,12 +15,14 @@ def test_case_review_shows_sources_boundary_permissions_and_validation() -> None
     assert response.status_code == 200
     case = response.json()
     assert case["case_id"] == "starlette-issue-1552"
-    assert case["issue"] == {
+    assert case["issue"] | {"body": None} == {
         "repository": "Kludex/starlette",
         "number": 1552,
         "title": 'Route naming introspection always return "method" for method endpoints ',
         "source_url": "https://github.com/Kludex/starlette/issues/1552",
+        "body": None,
     }
+    assert case["issue"]["body"].startswith("Discussion was done at")
     assert case["investigation_cutoff"] == "2022-03-25T10:25:47Z"
     assert case["repository_snapshot"] == {
         "commit": "e086fc2da361767b532cf690e5203619bbae98aa",

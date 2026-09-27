@@ -1,0 +1,164 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-02-10T12:24:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/35fa30da28ec6fc56e7d207bb7ca23406dad28c8",
+      "sha": "35fa30da28ec6fc56e7d207bb7ca23406dad28c8"
+    },
+    {
+      "committed_at": "2022-02-10T12:27:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/286500ffb7abff474685d085a825d46b4f53d1d7",
+      "sha": "286500ffb7abff474685d085a825d46b4f53d1d7"
+    },
+    {
+      "committed_at": "2022-02-11T04:02:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b13116f14494a81f1495a72ff2d33d45860c4d7d",
+      "sha": "b13116f14494a81f1495a72ff2d33d45860c4d7d"
+    },
+    {
+      "committed_at": "2022-02-11T16:37:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3824d3e13bc00051d98a7821e8adcd75e214aa55",
+      "sha": "3824d3e13bc00051d98a7821e8adcd75e214aa55"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-02-10T12:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1504",
+          "number": 1504,
+          "pull_request": {
+            "merged_at": "2022-02-11T16:40:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1504"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate `WSGIMiddleware` in favor of `a2wsgi`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T04:37:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bob56621517/searxng-mcp-ext/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bob56621517/searxng-mcp-ext"
+          },
+          "title": "tech-debt: WSGIMiddleware \u5df2\u88ab Starlette \u6807\u8bb0\u5e9f\u5f03,\u9700\u8fc1\u79fb\u5230 a2wsgi"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3824d3e13bc00051d98a7821e8adcd75e214aa55/docs%2Fmiddleware.md",
+      "changes": 4,
+      "deletions": 0,
+      "filename": "docs/middleware.md",
+      "sha": "b219142913353c335a3d4e55c143cea7014d28a4",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3824d3e13bc00051d98a7821e8adcd75e214aa55/setup.cfg",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "setup.cfg",
+      "sha": "9f9c7b4eb679aee215c61d2dbc4749e7161cc8ba",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3824d3e13bc00051d98a7821e8adcd75e214aa55/starlette%2Fmiddleware%2Fwsgi.py",
+      "changes": 7,
+      "deletions": 0,
+      "filename": "starlette/middleware/wsgi.py",
+      "sha": "9dbd065284aaf903ef0153a20027f66e2530eb65",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] There are no similar issues or pull requests for this yet.\n- [X] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\n\n### Is your feature related to a problem? Please describe.\n\nI want to deprecate `WSGIMiddleware` and recommend [a2wsgi](https://github.com/abersheeran/a2wsgi) on the documentation.\r\n\r\nRight now, the `WSGIMiddleware` is not documented, so not that harmful to deprecate. I expect the deprecation message to inform about `a2wsgi` or recommend the specific page on the docs so users using the middleware can fix the warning easily.\n\n### Describe the solution you would like.\n\n_No response_\n\n### Describe alternatives you considered\n\n_No response_\n\n### Additional context\n\nGitter conversation about the topic:\r\n\r\n![image](https://user-images.githubusercontent.com/7353520/153407199-f31ff3cf-8406-4801-b034-db28601fbca6.png)\r\n",
+    "closed_at": "2022-02-11T16:40:35Z",
+    "created_at": "2022-02-10T12:17:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1503",
+    "labels": [
+      "clean up",
+      "documentation"
+    ],
+    "number": 1503,
+    "state": "closed",
+    "title": "Deprecate `WSGIMiddleware` in favor of `a2wsgi`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-11T16:40:35Z",
+    "created_at": "2022-02-10T12:24:46Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1504",
+    "merge_commit_sha": "38185f39de3f92b2781826b6e0d07ca52b6c9b77",
+    "merged_at": "2022-02-11T16:40:34Z",
+    "number": 1504,
+    "title": "Deprecate `WSGIMiddleware` in favor of `a2wsgi`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-02-10T12:18:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-02-10T12:18:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-02-10T12:18:52Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-02-10T12:18:57Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-02-10T12:24:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1504",
+          "number": 1504,
+          "pull_request": {
+            "merged_at": "2022-02-11T16:40:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1504"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate `WSGIMiddleware` in favor of `a2wsgi`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-14T04:37:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bob56621517/searxng-mcp-ext/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bob56621517/searxng-mcp-ext"
+          },
+          "title": "tech-debt: WSGIMiddleware \u5df2\u88ab Starlette \u6807\u8bb0\u5e9f\u5f03,\u9700\u8fc1\u79fb\u5230 a2wsgi"
+        }
+      }
+    }
+  ]
+}

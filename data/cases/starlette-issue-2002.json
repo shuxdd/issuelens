@@ -1,0 +1,129 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-01-11T12:11:01Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2002"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2002"
+    ]
+  },
+  "case_id": "starlette-issue-2002",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2017",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Lazily build middleware stack' directly changes starlette/applications.py with focused behavior test(s) tests/test_applications.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-01-23T14:00:01Z",
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1161\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **euri10** April  1, 2021</sup>\r\nlong story short I was writing a logging middleware whose handlers are initialized in the `__init__` of the middleware and ended up with multiple logs.\r\n\r\nit seems to me the `__init__` of the middlewarea are recursively called  because of the `build_middleware_stack` method and I'm not sure if this is intended or a bug.\r\n\r\nhere's a test case that shows what I think is an issue:\r\n\r\n```\r\nclass SimpleInitializableMiddleware:\r\n    def __init__(self, app, counter: int):\r\n        self.app = app\r\n        self.counter = counter\r\n        print(self.counter)\r\n\r\n\r\ndef test_middleware_stack_init():\r\n    app = Starlette()\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=1)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=2)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=3)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=4)\r\n```\r\n\r\nI would expect to see `1 2 3 4` as the output.\r\nhowever it prints `1 1 2 1 2 3 1 2 3 4` because for each add_middlware call it goes down the stack and reinitialize it.\r\n\r\nwhat you think @tomchristie ?</div>",
+    "number": 2002,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2002",
+    "title": "Middleware stacking and recursive initialization"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2017 created_at 2023-01-23T14:00:01Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2017",
+    "repair_files": [
+      "starlette/applications.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 782256837879ece72a89c9343813b5b78898e099",
+    "test_files": [
+      "tests/test_applications.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/applications.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066/starlette%2Fapplications.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "d952ac2b83471a03189e8c29c31a82bb56253a16",
+        "source_url": "https://github.com/Kludex/starlette/commit/d952ac2b83471a03189e8c29c31a82bb56253a16"
+      },
+      {
+        "sha": "e09fd5df060b84bcf6ff2f5cc8c8e45116215d51",
+        "source_url": "https://github.com/Kludex/starlette/commit/e09fd5df060b84bcf6ff2f5cc8c8e45116215d51"
+      },
+      {
+        "sha": "8654547d7ebdea15bedcc1a38d76203222b7be60",
+        "source_url": "https://github.com/Kludex/starlette/commit/8654547d7ebdea15bedcc1a38d76203222b7be60"
+      },
+      {
+        "sha": "4edcb8008506cbdbba4ca6831817233f23378da0",
+        "source_url": "https://github.com/Kludex/starlette/commit/4edcb8008506cbdbba4ca6831817233f23378da0"
+      },
+      {
+        "sha": "13fee72b3ee363167a1e3a4a03c0243081301bb9",
+        "source_url": "https://github.com/Kludex/starlette/commit/13fee72b3ee363167a1e3a4a03c0243081301bb9"
+      },
+      {
+        "sha": "0816c33ea6bdac2ffd31884332518467799a59d8",
+        "source_url": "https://github.com/Kludex/starlette/commit/0816c33ea6bdac2ffd31884332518467799a59d8"
+      },
+      {
+        "sha": "328c1a3e56ff454b485ae874a75790350a631780",
+        "source_url": "https://github.com/Kludex/starlette/commit/328c1a3e56ff454b485ae874a75790350a631780"
+      },
+      {
+        "sha": "6fd9d57388f6cf61e49d8622c90e90ee105e7816",
+        "source_url": "https://github.com/Kludex/starlette/commit/6fd9d57388f6cf61e49d8622c90e90ee105e7816"
+      },
+      {
+        "sha": "fd0507eb8efe1800fed3b48a8c5a16663d0b8306",
+        "source_url": "https://github.com/Kludex/starlette/commit/fd0507eb8efe1800fed3b48a8c5a16663d0b8306"
+      },
+      {
+        "sha": "9a1a15bf64143623bb46f4d354be07bf57e4410a",
+        "source_url": "https://github.com/Kludex/starlette/commit/9a1a15bf64143623bb46f4d354be07bf57e4410a"
+      },
+      {
+        "sha": "bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066",
+        "source_url": "https://github.com/Kludex/starlette/commit/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-01-23T14:00:01Z",
+      "number": 2017,
+      "source_url": "https://github.com/Kludex/starlette/pull/2017"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2017"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_applications.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066/tests%2Ftest_applications.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "782256837879ece72a89c9343813b5b78898e099",
+    "committed_at": "2023-01-22T21:24:35Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/782256837879ece72a89c9343813b5b78898e099"
+  },
+  "schema_version": "1.0"
+}

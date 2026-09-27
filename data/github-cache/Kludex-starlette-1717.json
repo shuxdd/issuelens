@@ -1,0 +1,118 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-07-02T16:35:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/eb8742a00accb25651c8a71234bb95cef2f29936",
+      "sha": "eb8742a00accb25651c8a71234bb95cef2f29936"
+    },
+    {
+      "committed_at": "2022-07-06T16:20:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8274127c964b7a5adb874a78c8709e468711f321",
+      "sha": "8274127c964b7a5adb874a78c8709e468711f321"
+    },
+    {
+      "committed_at": "2022-07-06T16:23:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1611fd02e1151b32864278200b40d46edcc20eb6",
+      "sha": "1611fd02e1151b32864278200b40d46edcc20eb6"
+    },
+    {
+      "committed_at": "2022-07-06T16:24:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a4c3689174ee97a6abea18f4ba118d3b610d7a30",
+      "sha": "a4c3689174ee97a6abea18f4ba118d3b610d7a30"
+    },
+    {
+      "committed_at": "2022-07-06T16:40:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/16c98ecf02b628f391289673800c424645fe90cf",
+      "sha": "16c98ecf02b628f391289673800c424645fe90cf"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-07-02T16:35:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1728",
+          "number": 1728,
+          "pull_request": {
+            "merged_at": "2022-07-06T16:43:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1728"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document using httpx for async tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 38,
+      "blob_url": "https://github.com/Kludex/starlette/blob/16c98ecf02b628f391289673800c424645fe90cf/docs%2Ftestclient.md",
+      "changes": 38,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "64c766df8e09605b6fcecdbc07613027a28c2e66",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I'd like for us to document how to use `httpx.AsyncClient` as test client on the [testclient](https://www.starlette.io/testclient/) page, or at least add a note about it with a reference to [`httpx` section \"Calling into Python Web Apps\"](https://www.python-httpx.org/async/#calling-into-python-web-apps).\r\n\r\nThe idea here is just to present the possibility to use the \"async test setup\".\r\n\r\nNote: this issue is not in conflict with any other discussion about removing the `TestClient` from Starlette or replacing `requests` by `httpx` internally.",
+    "closed_at": "2022-07-06T16:43:04Z",
+    "created_at": "2022-07-01T05:29:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1717",
+    "labels": [
+      "documentation"
+    ],
+    "number": 1717,
+    "state": "closed",
+    "title": "Document how to use `httpx.AsyncClient` as test client for async setup",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-07-06T16:43:04Z",
+    "created_at": "2022-07-02T16:35:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1728",
+    "merge_commit_sha": "f24d31bd4d894094a67d1fdf4bbed094b8e5af2a",
+    "merged_at": "2022-07-06T16:43:04Z",
+    "number": 1728,
+    "title": "Document using httpx for async tests",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-01T05:29:42Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "eb8742a00accb25651c8a71234bb95cef2f29936",
+      "commit_url": "https://api.github.com/repos/adriangb/starlette/commits/eb8742a00accb25651c8a71234bb95cef2f29936",
+      "created_at": "2022-07-02T16:35:21Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-07-02T16:35:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1728",
+          "number": 1728,
+          "pull_request": {
+            "merged_at": "2022-07-06T16:43:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1728"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document using httpx for async tests"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-06T16:43:04Z",
+      "event": "closed"
+    }
+  ]
+}

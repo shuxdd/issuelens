@@ -1,0 +1,67 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-30T15:06:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1455",
+          "number": 1455,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1455"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add-support-for-converter-arguments"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your feature request. -->\r\n\r\n- [x] There are no similar issues or pull requests for this yet.\r\n- [ ] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nI want to be able to define generic routes which match more specific criteria. Creating a `Converter` for each instance just to be able to use a different regex seems a bit too much bloat. \r\n\r\nOne example, consider I would like my route to match optional suffix\r\n `/post/{id}/attachments/{attachment_id}.suffix?`\r\nso `/post/1/attachments/22.mp4` and `/post/1/attachments/22` both match but `/post/1/attachments/bogus` should not\r\n\r\nAnother use case is to be able to control case sensitivity on some urls.\r\nThere is infinite power that comes with being able to provide regex patterns.\r\n\r\n## Describe alternatives you considered\r\n\r\nAlternatively, creating a custom converter for each pattern, but still does not provide control over regex flags. \r\nCreating Custom converters for each pattern \r\n```python\r\nclass AttachmentConverter(StringConverter):\r\n    regex = '\\d+(?:\\.mp4|\\.mp3)?'\r\n```\r\n\r\n\r\n## Describe the solution you would like.\r\nWhat I ended up doing is patching `compile_path` to accept a `RegexPath`.\r\n\r\n```python\r\n@router.get(RegexPath(rf'/(?P<greet>hello|hi)/(?P<count>{IntegerConvertor.regex})/(?P<id_>{UUIDConvertor.regex})'))\r\nasync def greet(count: int, greet: str, limit: int, request: Request):\r\n   ...\r\n\r\n# limit is an integer but must be greater than 100.\r\n@router.get(RegexPath(r'/(?P<greet>hello|hi)/(?P<count>\\d+)/(?P<limit>1[0-9][0-9]+)'))\r\nasync def greet(count: int, greet: str, limit: int, request: Request):\r\n\r\n\r\n# Optionally supply Converters otherwise it defaults to `StringConverter`\r\n@router.get(RegexPath(r'/(?P<greet>hello|hi)/(?P<count>\\d+)/(?P<limit>1[0-9][0-9]+)', path_converters={'limit': IntegerConverter()}))\r\n\r\n\r\n\r\n\r\n# Passing Compiled regex with flags\r\nregex = re.compile(r'/(?P<greet>hello|hi)/(?P<count>\\d+)/(?P<limit>1[0-9][0-9]+)', re.IGNORECASE)\r\n@router.get(RegexPath(regex, path_converters={'limit': IntegerConverter()}))\r\n```\r\n\r\n\r\n\r\n## Additional context\r\n\r\n<!-- Provide any additional context, screenshots, tracebacks, etc. about the feature here. -->\r\n",
+    "closed_at": "2022-02-10T16:47:56Z",
+    "created_at": "2020-11-24T13:19:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1101",
+    "number": 1101,
+    "state": "closed",
+    "title": "Allow regex patterns for route path",
+    "user": "ar45"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-24T13:28:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T15:06:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1455",
+          "number": 1455,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1455"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add-support-for-converter-arguments"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T16:47:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-26T10:28:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-28T11:50:34Z",
+      "event": "commented"
+    }
+  ]
+}

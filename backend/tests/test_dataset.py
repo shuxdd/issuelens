@@ -8,19 +8,13 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
 
 
-def test_versioned_dataset_has_ten_traceable_leak_free_cases() -> None:
-    assert {path.stem for path in (DATA / "cases").glob("*.json")} == {
-        "starlette-issue-1552",
-        "starlette-issue-2298",
-        "starlette-issue-2306",
-        "starlette-issue-2516",
-        "starlette-issue-2625",
-        "starlette-issue-2646",
-        "starlette-issue-2692",
-        "starlette-issue-2785",
-        "starlette-issue-3357",
-        "starlette-issue-3388",
-    }
+def test_versioned_dataset_has_fifty_one_traceable_leak_free_cases() -> None:
+    manifest = json.loads(
+        (DATA / "evaluation" / "dataset-manifest.json").read_text(encoding="utf-8")
+    )
+    expected = set(manifest["splits"]["development"] + manifest["splits"]["primary"])
+    assert {path.stem for path in (DATA / "cases").glob("*.json")} == expected
+    assert len(expected) == 51
     assert check_cases(DATA) == []
 
 
@@ -28,20 +22,25 @@ def test_versioned_screening_report_explains_the_candidate_funnel() -> None:
     report = json.loads((DATA / "screening-report.json").read_text(encoding="utf-8"))
 
     assert report["funnel"] == {
-        "collected": 17,
-        "relationship_recovered": 14,
-        "category_eligible": 14,
-        "analyzable": 10,
-        "time_slice_valid": 10,
-        "manual_reviewed": 10,
-        "accepted": 10,
+        "collected": 778,
+        "relationship_recovered": 416,
+        "category_eligible": 109,
+        "analyzable": 108,
+        "time_slice_valid": 99,
+        "snapshot_available": 99,
+        "buildable": 99,
+        "statically_analyzable": 93,
+        "cleaned_candidates": 93,
+        "queued_for_review": 80,
+        "manual_reviewed": 78,
+        "accepted": 51,
     }
-    assert {item["reason_code"] for item in report["excluded"]} == {
+    assert {item["reason_code"] for item in report["excluded"]} >= {
         "security",
         "documentation_only",
         "dependency_bot",
         "cross_repository_root_cause",
-        "unanalyzable",
+        "static_analysis_failed",
     }
 
 
@@ -62,7 +61,7 @@ def test_versioned_inputs_rebuild_the_dataset_idempotently(tmp_path: Path) -> No
 
     paths = build_cases(cache, snapshot, output, reviews_path=reviews)
 
-    assert len(paths) == 10
+    assert len(paths) == 51
     assert {
         path.name: path.read_bytes()
         for path in sorted((output / "cases").glob("*.json"))

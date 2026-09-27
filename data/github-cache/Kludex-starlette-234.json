@@ -1,0 +1,70 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi, i started using **Starlette** recently and for my application i need to log the client's IP address. It's important to note that i use **Hypercorn** as my ASGI server and it works great.\r\nI started searching on Google how to get the IP address from **Starlette**, and i couldn't  find it anywhere, so I searched the request object. I figured out that on the \"_scope\" property I could access the client IP address, but it's inside a protected member of the request object. \r\nI don't know if there is a better way of getting it currently available on **Starlette**, but if there isn't i think it would be nice to have something similar to **Flask**'s _request.remote_addr_.",
+    "closed_at": "2018-12-14T09:58:28Z",
+    "created_at": "2018-11-23T01:34:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/234",
+    "number": 234,
+    "state": "closed",
+    "title": "Get client IP address",
+    "user": "almeida-raphael"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-23T09:24:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-23T19:23:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-30T08:45:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-30T09:02:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-30T09:02:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-03-30T09:02:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-03-30T09:04:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-30T15:29:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-27T10:37:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-19T13:52:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-23T07:26:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-25T19:02:54Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e0e9ab6e6cc52a15f2bf892c76185cc9d59a7142",
+      "commit_url": "https://api.github.com/repos/uclahs-cds/Ligare/commits/e0e9ab6e6cc52a15f2bf892c76185cc9d59a7142",
+      "created_at": "2024-05-28T22:16:56Z",
+      "event": "referenced"
+    }
+  ]
+}

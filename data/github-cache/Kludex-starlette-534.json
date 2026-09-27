@@ -1,0 +1,145 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-06-07T09:41:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13254797d7a4b426305eb22a67558ba4b06e1e2a",
+      "sha": "13254797d7a4b426305eb22a67558ba4b06e1e2a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-06-07T09:42:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/535",
+          "number": 535,
+          "pull_request": {
+            "merged_at": "2019-07-15T08:48:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/535"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update staticfiles.py"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-11T07:52:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/539",
+          "number": 539,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/539"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change 'statics' to 'static'"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/13254797d7a4b426305eb22a67558ba4b06e1e2a/starlette%2Fstaticfiles.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/staticfiles.py",
+      "sha": "aab089404c1199b0bc3fc2c1fb1111854d23de56",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I don't think you can use F-Strings in assert statements.  I get \"invalid syntax\" if I try.\r\n\r\nThe line: \r\n`directory = os.path.normpath(os.path.join(spec.origin, \"..\", \"statics\"))`\r\nAlways assumes there is a folder `statics`?  I believe the standard is `static` and not `statics` and the user is not given the option to circumvent the step.  Does it make more sense to only include this step if `directory is None`.\r\n\r\nThe directory argument does not get the package path prepended, which I feel is implied in the documentation.\r\n\r\nThe `assert os.path.isdir(directory)` will fail every time since it will return the `__init__.py` of a package.",
+    "closed_at": "2019-07-15T08:51:24Z",
+    "created_at": "2019-06-06T15:04:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/534",
+    "number": 534,
+    "state": "closed",
+    "title": "get_directories in staticfiles.py has bad asserts",
+    "user": "vinhquevu"
+  },
+  "pull_request": {
+    "closed_at": "2019-07-15T08:48:59Z",
+    "created_at": "2019-06-07T09:42:07Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/535",
+    "merge_commit_sha": "6baf69e494f8149c16c3d34600fcb679a7a6835e",
+    "merged_at": "2019-07-15T08:48:58Z",
+    "number": 535,
+    "title": "Update staticfiles.py",
+    "user": "dmontagu"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-06T15:05:17Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-06-07T09:36:35Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "13254797d7a4b426305eb22a67558ba4b06e1e2a",
+      "commit_url": "https://api.github.com/repos/dmontagu/starlette/commits/13254797d7a4b426305eb22a67558ba4b06e1e2a",
+      "created_at": "2019-06-07T09:41:46Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-06-07T09:42:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/535",
+          "number": 535,
+          "pull_request": {
+            "merged_at": "2019-07-15T08:48:58Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/535"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update staticfiles.py"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-07T14:28:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-10T09:12:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-11T07:43:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-11T07:52:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/539",
+          "number": 539,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/539"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change 'statics' to 'static'"
+        }
+      }
+    },
+    {
+      "created_at": "2019-07-15T08:51:24Z",
+      "event": "commented"
+    }
+  ]
+}

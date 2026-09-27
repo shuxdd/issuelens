@@ -1,0 +1,126 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-09T08:55:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi-users/fastapi-users/pull/848",
+          "number": 848,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi-users/fastapi-users/pulls/848"
+          },
+          "repository": {
+            "full_name": "fastapi-users/fastapi-users"
+          },
+          "title": "logout response sets proper response headers"
+        }
+      }
+    },
+    {
+      "created_at": "2025-07-17T15:24:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/INTERSECT-SDK/registry-service/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2025-07-17T19:05:50Z",
+            "url": "https://api.github.com/repos/INTERSECT-SDK/registry-service/pulls/3"
+          },
+          "repository": {
+            "full_name": "INTERSECT-SDK/registry-service"
+          },
+          "title": "Initial JWT cookie Authentication"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [Y] The bug is reproducible against the latest release and/or `master`.\r\n- [Y] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nCalling `response.delete_cookie` in a route handler results in a response with a set-cookie header that has `sameSite='lax'`.\r\n\r\nThis set-cookie header is ignored by browsers if the cookie was being used in a cross-site context (i.e., the cookie was originally set via an xhr response with samesite='none'). The end result is that the cookie is not deleted.\r\n\r\n\r\n### To reproduce\r\n\r\n```python\r\n# api.py\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.cors import CORSMiddleware\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\ndef home(request):\r\n    return PlainTextResponse('Hello world!')\r\n\r\ndef login(request):\r\n    response = PlainTextResponse('Logged in')\r\n    response.set_cookie('token', 'abc', max_age=18000, httponly=True, secure=True, samesite='none')\r\n    return response\r\n\r\ndef logout(request):\r\n    response = PlainTextResponse('Logged out')\r\n    response.delete_cookie('token')\r\n    return response\r\n\r\nroutes = [\r\n    Route('/', home),\r\n    Route('/login', login, methods=['GET', 'POST']),\r\n    Route('/logout', logout, methods=['GET', 'POST']),\r\n]\r\n\r\nmiddleware = [\r\n    Middleware(\r\n        CORSMiddleware,\r\n        allow_origins=['http://localhost:9001'],\r\n        allow_credentials=True,\r\n        allow_methods=['*'],\r\n        allow_headers=['*']\r\n    )\r\n]\r\n\r\napp = Starlette(debug=True, routes=routes, middleware=middleware)\r\n```\r\n\r\n```html\r\n<!-- index.html -->\r\n\r\n<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>Starlette CORS cookie test</title>\r\n  </head>\r\n  <body>\r\n    <div id=\"content\"><button id=\"loginBtn\">Login</button></div>\r\n\r\n    <script>\r\n      // CHANGE AS NECESSARY\r\n      const API_URL = \"https://dbdcec9f8fd9.ngrok.io\";\r\n\r\n      document.querySelector(\"#loginBtn\").addEventListener(\"click\", login);\r\n\r\n      async function login() {\r\n        await fetch(`${API_URL}/login`, {\r\n          method: \"POST\",\r\n          credentials: \"include\",\r\n        });\r\n        document.querySelector(\r\n          \"#content\"\r\n        ).innerHTML = `<button id=\"logoutBtn\">Logout</button>`;\r\n        document.querySelector(\"#logoutBtn\").addEventListener(\"click\", logout);\r\n      }\r\n\r\n      async function logout() {\r\n        await fetch(`${API_URL}/logout`, {\r\n          method: \"POST\",\r\n          credentials: \"include\",\r\n        });\r\n        document.querySelector(\r\n          \"#content\"\r\n        ).innerHTML = `<button id=\"loginBtn\">Login</button>`;\r\n        document.querySelector(\"#loginBtn\").addEventListener(\"click\", login);\r\n      }\r\n    </script>\r\n  </body>\r\n</html>\r\n```\r\n\r\n1. Start the API server locally with `uvicorn api:app --port 9000`\r\n2. Make the API available at a different site. An easy way is to use ngrok with `ngrok http 9000`. Let's say the API is now at https://dbdcec9f8fd9.ngrok.io\r\n3. Change `API_URL` in index.html to point to the API\r\n4. Serve index.html with `python -m http.server 9001`\r\n5. Navigate to http://localhost:9001 and click the login button\r\n6. Open devtools->Application and notice that the cookie is set\r\n7. Click the logout button\r\n8. Open devtools->Application and notice that the cookie is still set\r\n9. (chrome-only) In devtools->Network, the response headers section for the /logout request has a warning indicator whose tooltip says the set-cookie header has been blocked. See screenshot below\r\n\r\n![Screenshot_20210622_133455](https://user-images.githubusercontent.com/4007598/122887642-bad77100-d35e-11eb-9cb4-2df0290e1935.png)\r\n\r\n### Expected behavior\r\n\r\nCookie is deleted\r\n\r\n### Actual behavior\r\n\r\nCookie is not deleted\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8.5\r\n- Starlette version: 0.14.2",
+    "closed_at": "2021-10-05T21:36:25Z",
+    "created_at": "2021-06-22T07:53:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1207",
+    "labels": [
+      "cors"
+    ],
+    "number": 1207,
+    "state": "closed",
+    "title": "request.delete_cookie fails to delete samesite='none' cookies",
+    "user": "ackinc"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-07-02T02:46:55Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "31974ef02ec16cfb8e09503295b4d29d1f126640",
+      "commit_url": "https://api.github.com/repos/BookGin/starlette/commits/31974ef02ec16cfb8e09503295b4d29d1f126640",
+      "created_at": "2021-07-02T03:18:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-07-02T03:20:55Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e58c4ae8c4c6ac909be0961dd43a28d3b80d88b4",
+      "commit_url": "https://api.github.com/repos/BookGin/starlette/commits/e58c4ae8c4c6ac909be0961dd43a28d3b80d88b4",
+      "created_at": "2021-07-02T03:37:06Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-08-16T21:19:04Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "ada99beee530e7b841ce320bc6e66f6dbd9ad781",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/ada99beee530e7b841ce320bc6e66f6dbd9ad781",
+      "created_at": "2021-10-05T21:36:26Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-01-09T08:55:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi-users/fastapi-users/pull/848",
+          "number": 848,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi-users/fastapi-users/pulls/848"
+          },
+          "repository": {
+            "full_name": "fastapi-users/fastapi-users"
+          },
+          "title": "logout response sets proper response headers"
+        }
+      }
+    },
+    {
+      "commit_id": "ada99beee530e7b841ce320bc6e66f6dbd9ad781",
+      "commit_url": "https://api.github.com/repos/kokokuo/starlette/commits/ada99beee530e7b841ce320bc6e66f6dbd9ad781",
+      "created_at": "2024-08-04T09:26:41Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-07-17T15:24:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/INTERSECT-SDK/registry-service/pull/3",
+          "number": 3,
+          "pull_request": {
+            "merged_at": "2025-07-17T19:05:50Z",
+            "url": "https://api.github.com/repos/INTERSECT-SDK/registry-service/pulls/3"
+          },
+          "repository": {
+            "full_name": "INTERSECT-SDK/registry-service"
+          },
+          "title": "Initial JWT cookie Authentication"
+        }
+      }
+    }
+  ]
+}

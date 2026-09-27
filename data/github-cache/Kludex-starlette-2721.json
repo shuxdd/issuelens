@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "@tomchristie can you give me PyPI ownership to do this to starlette and uvicorn?",
+    "closed_at": "2024-10-10T19:18:58Z",
+    "created_at": "2024-10-07T08:59:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2721",
+    "number": 2721,
+    "state": "closed",
+    "title": "Update pipeline to use PyPI trusted publishing",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-10-07T09:00:05Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2024-10-10T16:05:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-10T16:41:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-10T19:18:58Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-10-11T08:57:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-10-11T10:15:06Z",
+      "event": "commented"
+    }
+  ]
+}

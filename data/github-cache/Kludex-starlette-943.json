@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I want to add more tasks to backgoundtask queue and limit concurrent execution ",
+    "closed_at": "2020-05-13T10:22:56Z",
+    "created_at": "2020-05-12T17:48:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/943",
+    "number": 943,
+    "state": "closed",
+    "title": "is it possible to limit number of backgroundTask executes concurrently ?",
+    "user": "icefluo"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-13T10:22:56Z",
+      "event": "commented"
+    }
+  ]
+}

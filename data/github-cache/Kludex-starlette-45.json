@@ -1,0 +1,283 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-11-05T13:40:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/34587ee45cae5fe13f1704a2c45ef28a7ed3bf96",
+      "sha": "34587ee45cae5fe13f1704a2c45ef28a7ed3bf96"
+    },
+    {
+      "committed_at": "2018-11-05T13:40:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b40d86b9a9b3a9efebcc946ca93fb7edc2b26a61",
+      "sha": "b40d86b9a9b3a9efebcc946ca93fb7edc2b26a61"
+    },
+    {
+      "committed_at": "2018-11-05T13:40:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8b2757b86fbc8f3639713ba3066b8e01d535ad1b",
+      "sha": "8b2757b86fbc8f3639713ba3066b8e01d535ad1b"
+    },
+    {
+      "committed_at": "2018-11-05T13:40:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/882f5a2c4bde77cf63e07ba0431c9836322211f4",
+      "sha": "882f5a2c4bde77cf63e07ba0431c9836322211f4"
+    },
+    {
+      "committed_at": "2018-11-05T13:40:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f73466a74457aa7549ab0e8e1467a9d9ddfb4023",
+      "sha": "f73466a74457aa7549ab0e8e1467a9d9ddfb4023"
+    },
+    {
+      "committed_at": "2018-11-05T13:40:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f4fc0d2319a4b248d8b52e0339f09fe2d243ecae",
+      "sha": "f4fc0d2319a4b248d8b52e0339f09fe2d243ecae"
+    },
+    {
+      "committed_at": "2018-11-05T13:46:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03c537913c3dcbfa09163f55b23b221d3c935cad",
+      "sha": "03c537913c3dcbfa09163f55b23b221d3c935cad"
+    },
+    {
+      "committed_at": "2018-11-08T16:47:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/88d0e72fc7fc326e9dc86b14734052ea7e93bbdb",
+      "sha": "88d0e72fc7fc326e9dc86b14734052ea7e93bbdb"
+    },
+    {
+      "committed_at": "2018-11-08T16:51:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1883b2c6ca2902fc34bd42117315f6ec3fe70141",
+      "sha": "1883b2c6ca2902fc34bd42117315f6ec3fe70141"
+    },
+    {
+      "committed_at": "2018-11-08T16:54:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/77795b08101eefa2f777bf98fe302f5bcc804281",
+      "sha": "77795b08101eefa2f777bf98fe302f5bcc804281"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-11-02T14:21:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/176",
+          "number": 176,
+          "pull_request": {
+            "merged_at": "2018-11-08T16:59:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not read file for HEAD method on StaticFiles"
+        }
+      }
+    },
+    {
+      "created_at": "2019-01-11T15:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/315",
+          "number": 315,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "HEAD method + test client"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-22T20:39:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1773",
+          "number": 1773,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Automatically support HEAD method for all GET routes, as Starlette does"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-11T08:13:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/20235",
+          "number": 20235,
+          "pull_request": {
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/20235"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Migrate `JobFilesAPIController` to FastAPI (excluding TUS uploads)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-12T16:25:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA-NeMo/nemo-helix/pull/301",
+          "number": 301,
+          "pull_request": {
+            "merged_at": "2026-06-12T17:14:40Z",
+            "url": "https://api.github.com/repos/NVIDIA-NeMo/nemo-helix/pulls/301"
+          },
+          "repository": {
+            "full_name": "NVIDIA-NeMo/nemo-helix"
+          },
+          "title": "fix: Add missing PDP authorization contributions for plugins"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/77795b08101eefa2f777bf98fe302f5bcc804281/starlette%2Fresponses.py",
+      "changes": 29,
+      "deletions": 12,
+      "filename": "starlette/responses.py",
+      "sha": "b25f499492a833200b6ea252d99a87f78f110e54",
+      "status": "modified"
+    },
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/77795b08101eefa2f777bf98fe302f5bcc804281/starlette%2Fstaticfiles.py",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "93d16b0abd85349ae3ec465da4012091c5a9e88f",
+      "status": "modified"
+    },
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/77795b08101eefa2f777bf98fe302f5bcc804281/tests%2Ftest_staticfiles.py",
+      "changes": 13,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "396643243b4b712165a297a6f66769f0f79c94ec",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "* Routing should automatically include `'HEAD'` in the supported methods if `'GET'` is there.\r\n* Static files should respond appropriately to `'HEAD'` requests without sending the entire file.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/45\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/45/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/45/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:15Z",
+    "closed_at": "2018-11-08T16:59:01Z",
+    "created_at": "2018-08-28T14:13:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/45",
+    "number": 45,
+    "state": "closed",
+    "title": "Better support for HEAD method",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-11-08T16:59:01Z",
+    "created_at": "2018-11-02T14:21:42Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/176",
+    "merge_commit_sha": "8e30f073f0f3112b6cc491776b1e854204dd9a42",
+    "merged_at": "2018-11-08T16:59:01Z",
+    "number": 176,
+    "title": "Do not read file for HEAD method on StaticFiles",
+    "user": "laixintao"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-28T16:28:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-28T18:37:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T14:21:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/176",
+          "number": 176,
+          "pull_request": {
+            "merged_at": "2018-11-08T16:59:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Do not read file for HEAD method on StaticFiles"
+        }
+      }
+    },
+    {
+      "created_at": "2019-01-11T15:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/315",
+          "number": 315,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "HEAD method + test client"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-22T20:39:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1773",
+          "number": 1773,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Automatically support HEAD method for all GET routes, as Starlette does"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-11T08:13:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/20235",
+          "number": 20235,
+          "pull_request": {
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/20235"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Migrate `JobFilesAPIController` to FastAPI (excluding TUS uploads)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-12T16:25:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NVIDIA-NeMo/nemo-helix/pull/301",
+          "number": 301,
+          "pull_request": {
+            "merged_at": "2026-06-12T17:14:40Z",
+            "url": "https://api.github.com/repos/NVIDIA-NeMo/nemo-helix/pulls/301"
+          },
+          "repository": {
+            "full_name": "NVIDIA-NeMo/nemo-helix"
+          },
+          "title": "fix: Add missing PDP authorization contributions for plugins"
+        }
+      }
+    }
+  ]
+}

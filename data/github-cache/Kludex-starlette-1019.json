@@ -1,0 +1,133 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karellima/gestao/pull/31",
+          "number": 31,
+          "pull_request": {
+            "merged_at": "2026-08-13T19:22:42Z",
+            "url": "https://api.github.com/repos/karellima/gestao/pulls/31"
+          },
+          "repository": {
+            "full_name": "karellima/gestao"
+          },
+          "title": "refactor(backend): quebra router de relatorios em pacote"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "#792  do solve a pure FileResponse, but what i am doing is return StreamResponse and cumtom header,chinese fileName is still report error.\r\n`response=StreamingResponse(\r\n        r,\r\n        media_type='application/vnd.google-earth.kmz',\r\n        headers={\r\n            \"Content-Disposition\": \"attachment; filename={}.kmz\".format(code)\r\n        }\r\n    )`",
+    "closed_at": "2020-08-27T08:20:01Z",
+    "created_at": "2020-08-03T08:22:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1019",
+    "number": 1019,
+    "state": "closed",
+    "title": "#792 only solve FileResponse encode problem,but still not work in StreamResponse",
+    "user": "CyberQin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-03T11:43:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-06T00:42:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-15T20:16:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-15T20:16:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-15T20:16:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-16T06:34:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-17T00:18:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-17T00:18:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-17T00:18:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-27T08:20:01Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-08-27T08:57:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karellima/gestao/pull/31",
+          "number": 31,
+          "pull_request": {
+            "merged_at": "2026-08-13T19:22:42Z",
+            "url": "https://api.github.com/repos/karellima/gestao/pulls/31"
+          },
+          "repository": {
+            "full_name": "karellima/gestao"
+          },
+          "title": "refactor(backend): quebra router de relatorios em pacote"
+        }
+      }
+    }
+  ]
+}

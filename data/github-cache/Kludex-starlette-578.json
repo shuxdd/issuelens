@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hey!\r\nFirst of all, thank you for our effort in creating Starlette, so far I'm in love with it.\r\nThe issue that I bumped into recently is: I've got an API endpoint which process incoming data, returns response to user and schedules a `BackgroundTask`. Background task calls another web  service in my production cluster. However, I would like to write integration tests for this endpoint (just validate if for request X I'll get Y response), without mocking this another service (or service response).\r\nSo I thought it would be great to have flag in config that will prevent executing background tasks during tests.\r\nI'm happy to help & implement this feature. Let me know what you think about it ;) ",
+    "closed_at": "2019-07-15T08:28:56Z",
+    "created_at": "2019-07-14T23:26:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/578",
+    "number": 578,
+    "state": "closed",
+    "title": "Disable BackgroundTasks in tests",
+    "user": "hidalgopl"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-07-14T23:27:26Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-07-15T08:28:56Z",
+      "event": "commented"
+    }
+  ]
+}

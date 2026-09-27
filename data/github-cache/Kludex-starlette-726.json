@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "One of the features I really like over in Falcon is \"sinks\" (note: framework isn't strictly equivalent, as it's WSGI): https://falcon.readthedocs.io/en/stable/api/api.html#falcon.API.add_sink\r\n\r\nThe idea is that you have a URL prefix that is explicitly passed off to a callable so that you can forward requests through to other systems alongside your primary application.\r\n\r\nMy particular use case for this would be to forward v1 API requests through to a legacy Django app, while building out the replacement ASGI server in Starlette over time.\r\n\r\nIs this something that would make sense in the core library? I assume I could probably override Router or similar and roll my own solution, but it would be pretty neat if there were a first party router class that was built to pass requests through.",
+    "closed_at": "2019-11-22T11:18:26Z",
+    "created_at": "2019-11-22T08:21:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/726",
+    "number": 726,
+    "state": "closed",
+    "title": "[Feature request] Route \"sinks\"",
+    "user": "onecrayon"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-22T09:53:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-22T11:18:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-22T11:18:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-22T11:18:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-22T20:45:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-22T20:45:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-11-22T20:45:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-11-23T00:04:37Z",
+      "event": "commented"
+    }
+  ]
+}

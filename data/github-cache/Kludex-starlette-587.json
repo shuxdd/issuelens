@@ -1,0 +1,89 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-14T11:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/675",
+          "number": 675,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Help] How to add new route to starlette app inside a middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-24T02:35:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/844",
+          "number": 844,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unclear how to add middleware to a subset of routes"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Can anybody show example of registering middleware for a specific routes or mounts?\r\n\r\nThanks",
+    "closed_at": "2021-02-08T08:36:59Z",
+    "created_at": "2019-07-25T16:12:08Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/587",
+    "number": 587,
+    "state": "closed",
+    "title": "[question] Example of code registering middleware for a specific routes",
+    "user": "theruziev"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-09-09T14:33:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:00:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/675",
+          "number": 675,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Help] How to add new route to starlette app inside a middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-24T02:35:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/844",
+          "number": 844,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unclear how to add middleware to a subset of routes"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-03T18:16:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-08T08:36:59Z",
+      "event": "closed"
+    }
+  ]
+}

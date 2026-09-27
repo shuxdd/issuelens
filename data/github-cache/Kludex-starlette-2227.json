@@ -1,0 +1,204 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-07-26T19:04:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/625b12e09ddd61d6f7cb40727a24f9081c68ce8d",
+      "sha": "625b12e09ddd61d6f7cb40727a24f9081c68ce8d"
+    },
+    {
+      "committed_at": "2023-07-26T20:53:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3507985748295d96961aaf58887328885352cbea",
+      "sha": "3507985748295d96961aaf58887328885352cbea"
+    },
+    {
+      "committed_at": "2023-08-03T20:24:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03ec905076ee06befabb0503b602c6a12023cae3",
+      "sha": "03ec905076ee06befabb0503b602c6a12023cae3"
+    },
+    {
+      "committed_at": "2023-08-08T05:01:23Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6698b68381a5988f51efc499b92a30b818fe747a",
+      "sha": "6698b68381a5988f51efc499b92a30b818fe747a"
+    },
+    {
+      "committed_at": "2023-08-23T06:57:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1ae64658da13858b6f4d2ef0351a9c85b84da37b",
+      "sha": "1ae64658da13858b6f4d2ef0351a9c85b84da37b"
+    },
+    {
+      "committed_at": "2023-08-23T06:58:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0a9accb2f9b4275e9b34887ea006f146aa76e6ef",
+      "sha": "0a9accb2f9b4275e9b34887ea006f146aa76e6ef"
+    },
+    {
+      "committed_at": "2023-08-24T20:24:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f268950dea8b095d80b10971690441fdb9cf3a23",
+      "sha": "f268950dea8b095d80b10971690441fdb9cf3a23"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-07-25T07:14:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2229",
+          "number": 2229,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2229"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Apply AnyIO upgrade changes only on test suite"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-26T20:17:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2231",
+          "number": 2231,
+          "pull_request": {
+            "merged_at": "2023-08-25T18:29:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2231"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixed import error when exceptiongroup isn't available"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/requirements.txt",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "requirements.txt",
+      "sha": "4794d120e750c20ff75c1912069d227601462095",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2F_utils.py",
+      "changes": 20,
+      "deletions": 0,
+      "filename": "starlette/_utils.py",
+      "sha": "26854f3d475f0bb398e08604ecb9c99220a1b0ab",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 19,
+      "deletions": 17,
+      "filename": "starlette/middleware/base.py",
+      "sha": "ad3ffcfeefc0f20f7b95da0423c0d514ff0dbb86",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/tests%2Fmiddleware%2Ftest_wsgi.py",
+      "changes": 9,
+      "deletions": 7,
+      "filename": "tests/middleware/test_wsgi.py",
+      "sha": "fe527e373d62f0dd732f6798ca324039a43d3245",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "After upgrading to starlette 0.31.0 today, we run into the following exception when importing starlette:\r\n\r\n```\r\nfrom starlette import applications, requests, responses, routing\r\n2023-07-24 15:47:43    File \"/opt/conda/lib/python3.8/site-packages/starlette/applications.py\", line 8, in <module>\r\n2023-07-24 15:47:43      from starlette.middleware.base import BaseHTTPMiddleware\r\n2023-07-24 15:47:43    File \"/opt/conda/lib/python3.8/site-packages/starlette/middleware/base.py\", line 14, in <module>\r\n2023-07-24 15:47:43      from exceptiongroup import BaseExceptionGroup\r\n2023-07-24 15:47:43  ModuleNotFoundError: No module named 'exceptiongroup'\r\n```\r\n\r\nThis is likely introduced from https://github.com/encode/starlette/pull/2211/files",
+    "body_last_edited_at": null,
+    "closed_at": "2023-08-25T18:29:45Z",
+    "created_at": "2023-07-25T00:01:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2227",
+    "number": 2227,
+    "state": "closed",
+    "title": "No module named 'exceptiongroup' when upgraded to starlette 0.31.0",
+    "user": "sfc-gh-shchen"
+  },
+  "pull_request": {
+    "closed_at": "2023-08-25T18:29:44Z",
+    "created_at": "2023-07-26T20:17:03Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2231",
+    "merge_commit_sha": "7349c60a813972b902a7be6daa7b9916668201ab",
+    "merged_at": "2023-08-25T18:29:44Z",
+    "number": 2231,
+    "title": "Fixed import error when exceptiongroup isn't available",
+    "user": "agronholm"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+    "committed_at": "2023-07-24T15:46:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a8b8856ce393a82ab4a714131085dbc4d658e34d"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-07-25T07:14:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2229",
+          "number": 2229,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2229"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Apply AnyIO upgrade changes only on test suite"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-26T08:43:51Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "625b12e09ddd61d6f7cb40727a24f9081c68ce8d",
+      "commit_url": "https://api.github.com/repos/agronholm/starlette/commits/625b12e09ddd61d6f7cb40727a24f9081c68ce8d",
+      "created_at": "2023-07-26T19:04:23Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-07-26T20:17:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2231",
+          "number": 2231,
+          "pull_request": {
+            "merged_at": "2023-08-25T18:29:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2231"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixed import error when exceptiongroup isn't available"
+        }
+      }
+    },
+    {
+      "created_at": "2023-08-17T22:06:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-21T10:36:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-21T10:40:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-25T18:29:45Z",
+      "event": "closed"
+    }
+  ]
+}

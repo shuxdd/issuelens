@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Consider optional use of https://github.com/aio-libs/multidict, just like `python-multipart`.\r\n\r\n@tomchristie What do you think? If you are interested, I think I can implement it.",
+    "closed_at": "2020-06-15T08:49:48Z",
+    "created_at": "2020-06-14T09:32:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/972",
+    "number": 972,
+    "state": "closed",
+    "title": "Consider using https://github.com/aio-libs/multidict?",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-15T08:49:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-15T08:51:44Z",
+      "event": "commented"
+    }
+  ]
+}

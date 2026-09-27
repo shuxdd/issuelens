@@ -1,0 +1,167 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2020-03-31T07:38:12Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/886"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/886"
+    ]
+  },
+  "case_id": "starlette-issue-886",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1444",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Improve detection of async callables' directly changes starlette/_utils.py, starlette/authentication.py, starlette/background.py, starlette/endpoints.py, starlette/middleware/errors.py, starlette/middleware/exceptions.py, starlette/routing.py, starlette/testclient.py with focused behavior test(s) tests/test__utils.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-01-29T13:28:30Z",
+  "issue": {
+    "body": "Simple reproducer:\r\n\r\n```\r\ndef test_async_startup_hangs():\r\n\r\n    class Foo:\r\n        async def __call__(self):\r\n            raise Exception()\r\n\r\n    app = Starlette(on_startup=[Foo()])\r\n\r\n    with TestClient(app) as client:\r\n        pass\r\n```\r\n\r\nNo exception is raised when it should be. This, however, raises an exception as expected:\r\n\r\n```\r\ndef test_async_startup_hangs():\r\n\r\n    async def foo():\r\n        raise Exception()\r\n\r\n    app = Starlette(on_startup=[foo])\r\n\r\n    with TestClient(app) as client:\r\n        pass\r\n```",
+    "number": 886,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/886",
+    "title": "objects defining async __call__ not run/awaited when used in on_startup"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1444 created_at 2022-01-29T13:28:30Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1444",
+    "repair_files": [
+      "starlette/_utils.py",
+      "starlette/authentication.py",
+      "starlette/background.py",
+      "starlette/endpoints.py",
+      "starlette/middleware/errors.py",
+      "starlette/middleware/exceptions.py",
+      "starlette/routing.py",
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+    "test_files": [
+      "tests/test__utils.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/_utils.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2F_utils.py",
+        "status": "added"
+      },
+      {
+        "path": "starlette/authentication.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fauthentication.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/background.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fbackground.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/endpoints.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fendpoints.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/middleware/errors.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Ferrors.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/middleware/exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Fexceptions.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Frouting.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "ff314dd85072c06c8fda3e8314cab3fc6903b41a",
+        "source_url": "https://github.com/Kludex/starlette/commit/ff314dd85072c06c8fda3e8314cab3fc6903b41a"
+      },
+      {
+        "sha": "a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f",
+        "source_url": "https://github.com/Kludex/starlette/commit/a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f"
+      },
+      {
+        "sha": "636a26f6afe679b1dd1326eff46ed8af83a0e13f",
+        "source_url": "https://github.com/Kludex/starlette/commit/636a26f6afe679b1dd1326eff46ed8af83a0e13f"
+      },
+      {
+        "sha": "f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5",
+        "source_url": "https://github.com/Kludex/starlette/commit/f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5"
+      },
+      {
+        "sha": "73124568821b0379188a794ef975dae6ca53e8a8",
+        "source_url": "https://github.com/Kludex/starlette/commit/73124568821b0379188a794ef975dae6ca53e8a8"
+      },
+      {
+        "sha": "4151df6599ca6f813e4014c482f3b4a4cc48f91b",
+        "source_url": "https://github.com/Kludex/starlette/commit/4151df6599ca6f813e4014c482f3b4a4cc48f91b"
+      },
+      {
+        "sha": "8438a9f26d42d66356d24c8be4073dc72a4feb57",
+        "source_url": "https://github.com/Kludex/starlette/commit/8438a9f26d42d66356d24c8be4073dc72a4feb57"
+      },
+      {
+        "sha": "788f011d09fc9c8a21e3535640d535b11a73b93a",
+        "source_url": "https://github.com/Kludex/starlette/commit/788f011d09fc9c8a21e3535640d535b11a73b93a"
+      },
+      {
+        "sha": "dd8b7edb48de87435382f6fa3a0189e63ce9170c",
+        "source_url": "https://github.com/Kludex/starlette/commit/dd8b7edb48de87435382f6fa3a0189e63ce9170c"
+      },
+      {
+        "sha": "7c74668b073cc1d68b5ca2cae7ae4351df04e652",
+        "source_url": "https://github.com/Kludex/starlette/commit/7c74668b073cc1d68b5ca2cae7ae4351df04e652"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-01-29T13:28:30Z",
+      "number": 1444,
+      "source_url": "https://github.com/Kludex/starlette/pull/1444"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1444"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test__utils.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/tests%2Ftest__utils.py",
+        "status": "added"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+    "committed_at": "2022-01-28T16:48:22Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/199fc703f3078bd5b0e1aca0e9f4ab236b03f029"
+  },
+  "schema_version": "1.0"
+}

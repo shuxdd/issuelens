@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "https://tools.ietf.org/html/rfc6570#section-3.2.8\r\n\r\nurl: `http://127.0.0.1:8000/query?name=alice&name=bob`\r\n\r\nI want to get `[\"alice\", \"bob\"]` from `request.query_params[\"name\"]`, but only get `\"bob\"`.\r\n",
+    "closed_at": "2020-05-07T10:14:43Z",
+    "created_at": "2020-05-07T09:55:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/936",
+    "number": 936,
+    "state": "closed",
+    "title": "Unsupport Form-style Query",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-07T10:14:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-10T08:09:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T09:57:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T10:00:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T10:15:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T10:25:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T10:35:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T10:54:07Z",
+      "event": "commented"
+    }
+  ]
+}

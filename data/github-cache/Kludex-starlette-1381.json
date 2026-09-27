@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\n\n- [X] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\nHello! \r\nI'm using Starlette through FastAPI (latest), and I'm having some trouble with configuration files.\r\n\r\nStarlette's Config secret is converting a string into a Bytes type. The problem is since I need to cast this secret to a string to access it, it creates a strange data structure.\r\n\r\nI am trying to save in secrets a Fernet key from the [cryptography pipy library](https://github.com/pyca/cryptography). My goal is to encrypt data saved in a database. However, as you can see in the examples, I'm unable to convert back this key into a type that can be read by cryptography\n\n### Steps to reproduce the bug\n\nrequirements.txt\r\n```requirement.txt\r\nstarlette\r\ncryptography\r\n```\r\n\r\n.env\r\n```.env\r\nCRYPTO_KEY=mystring\r\n```\r\n\r\nPython interactive shell\r\n```python\r\nfrom starlette.config import Config\r\nfrom starlette.datastructures import Secret\r\n\r\nconfig = Config(\".env\")\r\nCRYPTO_KEY = config(\"CRYPTO_KEY\", cast=Secret)\r\n\r\nprint(str(CRYPTO_KEY))\r\n# b'mystring'\r\nprint(str(CRYPTO_KEY).encode())\r\n# b\"b'mystring'\"\r\n\r\nfrom cryptography.fernet import Fernet\r\nFernet(str(CRYPTO_KEY))\r\n# Traceback (most recent call last):\r\n#  File \"<stdin>\", line 1, in <module>\r\n#   File \"/usr/local/lib/python3.8/site-packages/cryptography/fernet.py\", line 35,  in __init__\r\n#     raise ValueError(\r\n# ValueError: Fernet key must be 32 url-safe base64-encoded bytes.\r\n```\n\n### Expected behavior\n\nEither:\r\n- The variable should be a string\r\n- Secret could be accessed in another way than casting string\n\n### Actual behavior\n\nSecrets have an unknown type, that can't be encoded or used\n\n### Debugging material\n\nsee \"Steps to reproduce bug\"\n\n### Environment\n\n- Docker (FROM python:3.8)\r\n- FastAPI 0.70.1\r\n- Starlette 0.16.0\r\n- Cryptography 36.0.1\n\n### Additional context\n\n_No response_",
+    "closed_at": "2021-12-22T09:03:04Z",
+    "created_at": "2021-12-21T20:58:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1381",
+    "number": 1381,
+    "state": "closed",
+    "title": "Starlette secrets and Cryptography",
+    "user": "MaelAbgrall"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-21T21:17:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-22T09:03:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-22T09:03:04Z",
+      "event": "closed"
+    }
+  ]
+}

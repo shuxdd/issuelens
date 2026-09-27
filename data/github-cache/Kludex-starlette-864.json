@@ -1,0 +1,331 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-31T16:48:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "How to stop httptools from logging access logs with gunicorn?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-06T04:55:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2306",
+          "number": 2306,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Question : Does it possible to stop print out the INFO of specific api path?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-01T17:43:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2731",
+          "number": 2731,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Suppress logging for single endpoint for special usage (Kubernetes Liveness Probe)"
+        }
+      }
+    },
+    {
+      "created_at": "2023-05-05T17:43:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Unstructured-IO/unstructured-api-tools/pull/171",
+          "number": 171,
+          "pull_request": {
+            "merged_at": "2023-05-08T16:34:33Z",
+            "url": "https://api.github.com/repos/Unstructured-IO/unstructured-api-tools/pulls/171"
+          },
+          "repository": {
+            "full_name": "Unstructured-IO/unstructured-api-tools"
+          },
+          "title": "chore: Filter out logs on /healthcheck"
+        }
+      }
+    },
+    {
+      "created_at": "2025-07-17T12:27:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DiamondLightSource/blueapi/issues/1132",
+          "number": 1132,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DiamondLightSource/blueapi"
+          },
+          "title": "Prevent double-logging of requests to uvicorn"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-11T22:20:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/madjaqk/lexo/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "madjaqk/lexo"
+          },
+          "title": "Add dedicated health check server endpoint"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I have a /health endpoint that is checked every minute and it bloats the logs.  I'd like to turn off that off, but keep logging the accesses to other endpoints (and especially any exceptions).  Is that possible currently?",
+    "closed_at": "2020-03-16T22:40:44Z",
+    "created_at": "2020-03-16T21:42:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/864",
+    "number": 864,
+    "state": "closed",
+    "title": "Is it possible to disable access logging on certain endpoints?",
+    "user": "taybin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-16T21:48:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T21:50:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T21:50:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-16T21:50:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-16T21:56:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T21:58:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T21:58:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-16T21:58:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-16T22:00:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T22:27:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T22:27:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-16T22:27:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-16T22:40:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-16T22:40:45Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-03-17T06:07:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T16:48:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "How to stop httptools from logging access logs with gunicorn?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-02T15:32:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-02T15:32:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-02T15:32:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-06T04:55:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2306",
+          "number": 2306,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Question : Does it possible to stop print out the INFO of specific api path?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-01T17:43:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2731",
+          "number": 2731,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Suppress logging for single endpoint for special usage (Kubernetes Liveness Probe)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-21T18:36:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-21T18:36:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-21T18:36:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-22T12:58:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-22T12:58:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-22T12:58:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-09-22T12:58:28Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-09-22T12:58:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-05-05T17:43:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Unstructured-IO/unstructured-api-tools/pull/171",
+          "number": 171,
+          "pull_request": {
+            "merged_at": "2023-05-08T16:34:33Z",
+            "url": "https://api.github.com/repos/Unstructured-IO/unstructured-api-tools/pulls/171"
+          },
+          "repository": {
+            "full_name": "Unstructured-IO/unstructured-api-tools"
+          },
+          "title": "chore: Filter out logs on /healthcheck"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-07T12:12:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-07T12:12:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-06-07T12:12:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-16T18:49:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-05-09T20:23:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-07-17T12:27:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DiamondLightSource/blueapi/issues/1132",
+          "number": 1132,
+          "pull_request": {},
+          "repository": {
+            "full_name": "DiamondLightSource/blueapi"
+          },
+          "title": "Prevent double-logging of requests to uvicorn"
+        }
+      }
+    },
+    {
+      "created_at": "2025-08-01T01:11:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-11T22:20:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/madjaqk/lexo/issues/3",
+          "number": 3,
+          "pull_request": {},
+          "repository": {
+            "full_name": "madjaqk/lexo"
+          },
+          "title": "Add dedicated health check server endpoint"
+        }
+      }
+    }
+  ]
+}

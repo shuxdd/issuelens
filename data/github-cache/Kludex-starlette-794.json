@@ -1,0 +1,75 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-05-12T14:44:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/942",
+          "number": 942,
+          "pull_request": {
+            "merged_at": "2020-08-16T14:24:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/942"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Be more lenient with route arguments in AuthencationMiddleware 'requires' decorator"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "```\r\nrequest = kwargs.get(\"request\", args[idx])\r\n```\r\n\r\nshould change to \r\n\r\n```\r\n# first find request in kwargs\r\nrequest = kwargs.get(\"request\", None)\r\n# second find request in args\r\nif request is None and len(args) > 0:\r\n     request = args[idx]\r\n```\r\n\r\nexception when use decorator requires\r\n\r\nTraceback (most recent call last):\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 385, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/fastapi/applications.py\", line 140, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/applications.py\", line 134, in __call__\r\n    await self.error_middleware(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 178, in __call__\r\n    raise exc from None\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 156, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/authentication.py\", line 48, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/base.py\", line 25, in __call__\r\n    response = await self.dispatch_func(request, self.call_next)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette_exporter/middleware.py\", line 40, in dispatch\r\n    raise e\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette_exporter/middleware.py\", line 37, in dispatch\r\n    response = await call_next(request)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/base.py\", line 45, in call_next\r\n    task.result()\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/middleware/base.py\", line 38, in coro\r\n    await self.app(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/exceptions.py\", line 73, in __call__\r\n    raise exc from None\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/exceptions.py\", line 62, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/routing.py\", line 590, in __call__\r\n    await route(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/routing.py\", line 208, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/routing.py\", line 41, in app\r\n    response = await func(request)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/fastapi/routing.py\", line 127, in app\r\n    raw_response = await dependant.call(**values)\r\n  File \"/data/server/pyenv/py3.7.4/lib/python3.7/site-packages/starlette/authentication.py\", line 62, in async_wrapper\r\n    request = kwargs.get(\"request\", args[idx])\r\nIndexError: tuple index out of range",
+    "closed_at": "2020-05-11T12:44:32Z",
+    "created_at": "2020-01-13T12:40:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/794",
+    "number": 794,
+    "state": "closed",
+    "title": "starlette/authentication.py  bug rereport",
+    "user": "xidianwlc"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "5c58b1b87af362b5bfa36bed6a4c10120e6f1dd2",
+      "commit_url": "https://api.github.com/repos/allan-simon/starlette/commits/5c58b1b87af362b5bfa36bed6a4c10120e6f1dd2",
+      "created_at": "2020-04-11T19:07:10Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-05-08T12:35:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-11T12:44:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-12T14:01:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-12T14:44:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/942",
+          "number": 942,
+          "pull_request": {
+            "merged_at": "2020-08-16T14:24:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/942"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Be more lenient with route arguments in AuthencationMiddleware 'requires' decorator"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-16T09:04:10Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2023-11-06T17:00:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chris48s/json-schema-viewer/pull/108",
+          "number": 108,
+          "pull_request": {
+            "url": "https://api.github.com/repos/chris48s/json-schema-viewer/pulls/108"
+          },
+          "repository": {
+            "full_name": "chris48s/json-schema-viewer"
+          },
+          "title": "Bump httpx from 0.24.1 to 0.25.1"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-08T11:54:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/2990",
+          "number": 2990,
+          "pull_request": {
+            "merged_at": "2023-12-15T11:35:16Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/2990"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Cleanup URL percent-encoding behavior."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2281\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **chris48s** September 13, 2023</sup>\r\nHello. I'm not really sure if this is an issue with starlette or httpx. It kind of sits at the intersection between the two. Here''s a minimal example application:\r\n\r\n`app.py`:\r\n\r\n```py\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\n\r\nasync def index(request):\r\n    foo = request.query_params.get(\"foo\")\r\n    return Response(foo, status_code=200, media_type=\"text/html\")\r\n\r\nroutes = [Route(\"/\", endpoint=index)]\r\n\r\napp = Starlette(debug=True, routes=routes)\r\n```\r\n\r\n..and here's a unit test (pytest):\r\n\r\n`test.py`:\r\n\r\n```py\r\nfrom starlette.testclient import TestClient\r\n\r\nfrom app import app\r\n\r\ndef test_foo():\r\n    client = TestClient(app)\r\n    response = client.get(\"/?foo=%3A/\")\r\n    assert \":/\" == response.text\r\n```\r\n\r\n---\r\n\r\nIf I run that test with\r\n\r\n```\r\nstarlette==0.31.1\r\nhttpx==0.24.1\r\n```\r\n\r\ninstalled, the test passes.\r\n\r\n---\r\n\r\nInstall\r\n\r\n```\r\nstarlette==0.31.1\r\nhttpx==0.25.0\r\n```\r\n\r\nand run it again. The test now fails. The output is `%3A/` not `:/`\r\n\r\n---\r\n\r\nNote that the actual application behaviour is unchanged. i.e: when invoked independently of `TestClient` (I'm serving with `uvicorn app:app`), the response is still `:/` in either case.\r\n\r\nThis seems like it could be related to https://github.com/encode/httpx/discussions/2844 but I decided to open a discussion specifically about the impact on starlette `TestClient`</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2282\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2282/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2282/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-10T07:06:33Z",
+    "created_at": "2023-09-13T20:00:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2282",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2282,
+    "state": "closed",
+    "title": "httpx 0.25.0 changes decoding behaviour of `.query_params` when using `TestClient`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-09-13T20:00:31Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-09-21T17:19:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-11-06T17:00:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/chris48s/json-schema-viewer/pull/108",
+          "number": 108,
+          "pull_request": {
+            "url": "https://api.github.com/repos/chris48s/json-schema-viewer/pulls/108"
+          },
+          "repository": {
+            "full_name": "chris48s/json-schema-viewer"
+          },
+          "title": "Bump httpx from 0.24.1 to 0.25.1"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-08T11:54:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/2990",
+          "number": 2990,
+          "pull_request": {
+            "merged_at": "2023-12-15T11:35:16Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/2990"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Cleanup URL percent-encoding behavior."
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-10T07:06:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-10T07:06:33Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-02T23:01:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/240",
+          "number": 240,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/240"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Decode percent escapes for path in connection scope"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Bit of a niche problem, but one that could cause frustrating bugs if encountered. If spacing exists in a `path` the router will fail to match the route.\r\n\r\nA request made to `http://0.0.0.0:8000/stream/song name here.mp3` \r\nWill try to match as `http://0.0.0.0:8000/stream/song%20name%20here.mp3`\r\n\r\nSomewhere, maybe in `Router.__call__`, we can intercept the scope and modify it's `path`\r\n```python\r\npath = scope[\"path\"]\r\nscope[\"path\"] = unquote(path)\r\n```\r\nUnless modifying the scope directly is not advised?",
+    "closed_at": "2018-11-05T13:14:45Z",
+    "created_at": "2018-11-02T03:50:51Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/175",
+    "number": 175,
+    "state": "closed",
+    "title": "Route paths do not preserve spaces",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-02T08:45:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T23:01:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/240",
+          "number": 240,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/240"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Decode percent escapes for path in connection scope"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-05T13:14:45Z",
+      "event": "closed"
+    }
+  ]
+}

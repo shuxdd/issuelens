@@ -1,0 +1,134 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-12-25T22:56:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e6dc80d203b613f211003df63352a37550538e9a",
+      "sha": "e6dc80d203b613f211003df63352a37550538e9a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-12-25T23:48:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/290",
+          "number": 290,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Contributing guidelines"
+        }
+      }
+    },
+    {
+      "created_at": "2018-12-26T16:54:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/291",
+          "number": 291,
+          "pull_request": {
+            "merged_at": "2018-12-26T17:13:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/291"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix population of content-type and content-length headers"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e6dc80d203b613f211003df63352a37550538e9a/starlette%2Fresponses.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "3b8d2752defd85869479dd4477140d1c499d49a0",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e6dc80d203b613f211003df63352a37550538e9a/tests%2Ftest_responses.py",
+      "changes": 12,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "d4bafaf7ffeb0f5f4e19a5d6b9d48916b0412dc1",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi! I was playing around with responses and stumbled upon what seems like a bug. I have already pushed a [fix](https://github.com/florimondmanca/starlette/commit/e6dc80d203b613f211003df63352a37550538e9a) on my fork and would be happy to open a PR. :)\r\n\r\n---\r\n\r\n**Expected behavior**\r\nIf the `headers` dictionary passed to `Response` does not contain the `Content-Type` or `Content-Length` headers, the resulting response should populate automatically said headers based on the given `media_type` and `content`.\r\n\r\n**Actual behavior**\r\nThe `Content-Type` and `Content-Length` headers are not set.\r\n\r\n**To reproduce**\r\n```python\r\nfrom starlette.responses import Response\r\nfrom starlette.testclient import TestClient\r\n\r\ndef app(scope):\r\n    return Response(content=\"hi\", headers={}, media_type=\"text/plain\")\r\n\r\nclient = TestClient(app)\r\nresponse = client.get(\"/\")\r\nassert response.headers[\"content-length\"] == \"2\"  # fails: KeyError\r\nassert response.headers[\"content-type\"] == \"text/plain; charset=utf-8\"  # fails: KeyError\r\n```\r\n\r\n**Possible solutions**\r\nAfter inspecting the code in [responses.py], there seems to be a logical fallacy:\r\n```python\r\nif headers is None:\r\n    # ...\r\nelse:\r\n    raw_headers = [...]\r\n    keys = [h[0] for h in raw_headers]\r\n    populate_content_length = b\"content-length\" in keys  # (*)\r\n    populate_content_type = b\"content-type\" in keys  # (*)\r\n```\r\n\r\nLines (*) (66 and 67) mean that the headers are populate if they are *already* present in `headers`. They should be populated if they are *not* present => switching to `not in keys` there should fix the bug.\r\n\r\n**Specs**\r\n\r\n- macOS 10.12\r\n- Python 3.7.1\r\n- Starlette@master\r\n",
+    "body_last_edited_at": null,
+    "closed_at": "2018-12-26T17:13:52Z",
+    "created_at": "2018-12-25T23:10:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/289",
+    "number": 289,
+    "state": "closed",
+    "title": "Content-Type and Content-Length headers not automatically populated if headers is given",
+    "user": "florimondmanca"
+  },
+  "pull_request": {
+    "closed_at": "2018-12-26T17:13:52Z",
+    "created_at": "2018-12-26T16:54:19Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/291",
+    "merge_commit_sha": "81d3697ba591215100a465b4e539cfd8291710ed",
+    "merged_at": "2018-12-26T17:13:52Z",
+    "number": 291,
+    "title": "Fix population of content-type and content-length headers",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "9d20c9f6d6a8e659460e6781745d8a286dc42442",
+    "committed_at": "2018-12-19T10:16:20Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/9d20c9f6d6a8e659460e6781745d8a286dc42442"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-12-25T23:48:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/290",
+          "number": 290,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Contributing guidelines"
+        }
+      }
+    },
+    {
+      "created_at": "2018-12-26T14:28:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-26T16:54:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/291",
+          "number": 291,
+          "pull_request": {
+            "merged_at": "2018-12-26T17:13:52Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/291"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix population of content-type and content-length headers"
+        }
+      }
+    },
+    {
+      "created_at": "2018-12-26T16:55:03Z",
+      "event": "commented"
+    }
+  ]
+}

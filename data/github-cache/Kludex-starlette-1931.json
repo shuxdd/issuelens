@@ -1,0 +1,133 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "`URL` uses stdlib `urlsplit` to parse the string URL,\r\n\r\nhowever, it uses this code to recombine the host and port.\r\n\r\n```py\r\n            netloc = hostname                                                           \r\n            if port is not None:                                                        \r\n                netloc += f\":{port}\"  \r\n```\r\n\r\nConsider an IPv6 URL, like `http://[::1]:8080/`\r\n* urlsplit will strip the quare brackets and produce `::1` \r\n* manual concatenation will yield `::1:8080`\r\n* which is not a valid netloc",
+    "closed_at": "2023-02-06T06:06:28Z",
+    "created_at": "2022-11-02T05:19:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1931",
+    "labels": [
+      "good first issue"
+    ],
+    "number": 1931,
+    "state": "closed",
+    "title": "IPv6 handling bug in starlette.datastructures.URL",
+    "user": "dimaqq"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-11-02T05:19:18Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-11-15T04:19:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-15T04:36:03Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2022-11-15T04:36:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-15T04:36:29Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-11-15T04:36:29Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-11-16T19:22:30Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-11-16T19:22:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-16T19:22:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-11-16T19:22:58Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "527c8d61b785f45339ff4ef228b9154105e869ae",
+      "commit_url": "https://api.github.com/repos/kousikmitra/starlette/commits/527c8d61b785f45339ff4ef228b9154105e869ae",
+      "created_at": "2022-11-25T15:17:14Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-11-25T15:20:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-25T15:20:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-11-25T15:20:11Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "49d5c0a6f6a61c1c9bccd70b4260875d9e738054",
+      "commit_url": "https://api.github.com/repos/kousikmitra/starlette/commits/49d5c0a6f6a61c1c9bccd70b4260875d9e738054",
+      "created_at": "2022-11-25T15:37:09Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "f248c0ce20e2cc3ea4d4a229b764ddd6a8c6afef",
+      "commit_url": "https://api.github.com/repos/kousikmitra/starlette/commits/f248c0ce20e2cc3ea4d4a229b764ddd6a8c6afef",
+      "created_at": "2022-11-25T15:51:10Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "fdeaca49034325d0b7ccf6d52d541f9aab14c3a0",
+      "commit_url": "https://api.github.com/repos/kousikmitra/starlette/commits/fdeaca49034325d0b7ccf6d52d541f9aab14c3a0",
+      "created_at": "2022-11-29T20:03:44Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "aedcdc89ecc5ad2dbd23100b86385104f02d0efd",
+      "commit_url": "https://api.github.com/repos/kousikmitra/starlette/commits/aedcdc89ecc5ad2dbd23100b86385104f02d0efd",
+      "created_at": "2022-12-05T17:36:27Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-01-31T05:54:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-31T05:54:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-01-31T05:54:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-01-31T05:54:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-01-31T05:54:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-02-04T20:36:06Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-06T06:06:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T06:06:29Z",
+      "event": "closed"
+    }
+  ]
+}

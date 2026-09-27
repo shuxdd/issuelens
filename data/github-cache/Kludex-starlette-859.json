@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello all :)\r\n\r\nI want to make a middleware that redirect to the login page if the request has no session (with the session middleware).\r\n\r\nSo I do this:\r\n\r\n```python\r\nclass AuthMiddleware(BaseHTTPMiddleware):\r\n    async def __call__(self, scope, receive, send):\r\n\r\n        request = Request(scope, receive=receive)\r\n\r\n        return templates.TemplateResponse(\"login.html\", {\r\n            \"request\": request,\r\n            \"errormsg\": \"You had to login to continue\"\r\n        })\r\n\r\n```\r\n\r\nBut I got this error: \r\n```\r\n<path_to_venv>/starlette/requests.py\", line 136, in url_for\r\n    router = self.scope[\"router\"]\r\nKeyError: 'router'\r\n```\r\n\r\nSo what I need to do to make the `url_for` working from here ?",
+    "closed_at": "2020-04-30T14:24:32Z",
+    "created_at": "2020-03-11T11:04:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/859",
+    "number": 859,
+    "state": "closed",
+    "title": "Return a TemplateResponse  with an `url_for` from middleware",
+    "user": "phineas0fog"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-24T20:15:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-24T20:17:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-30T14:24:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-30T14:24:32Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "After updating starlette in a FastAPI project from 0.45.0 to 0.45.1 one of our test cases breaks.\nIt involves Websocket Send+Receive and POST requests via a TestClient instance.\n\nThe test opens a Websocket connection, sends a message, receives an answer.\nThen a POST request is sent via the TestClient while the WebSocket connection is still open. The application handles it by sending a response but also broadcasting a message on all connected websockets with FastAPI's BackgroundTasks.\nThis will throw the following error:\n```\nself = MemoryObjectSendStream(_state=MemoryObjectStreamState(max_buffer_size=inf, buffer=deque([]), open_send_channels=0, open_receive_channels=0, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=True)\nitem = {'text': '{\"name\":\"PlayerJoinedEvent\",\"event\":{\"player\":{\"username\":\"user2\",\"games\":0,\"rating\":1200}}}', 'type': 'websocket.send'}\n\n    def send_nowait(self, item: T_contra) -> None:\n        \"\"\"\n        Send an item immediately if it can be done without waiting.\n    \n        :param item: the item to send\n        :raises ~anyio.ClosedResourceError: if this send stream has been closed\n        :raises ~anyio.BrokenResourceError: if the stream has been closed from the\n            receiving end\n        :raises ~anyio.WouldBlock: if the buffer is full and there are no tasks waiting\n            to receive\n    \n        \"\"\"\n        if self._closed:\n>           raise ClosedResourceError\nE           anyio.ClosedResourceError\n\n..\\..\\..\\.venv\\Lib\\site-packages\\anyio\\streams\\memory.py:211: ClosedResourceError\n```\n\nThe error only shows up when at least two of the test functions in the class are enabled.\nEven though a new TestClient is created in `setUp`, which runs before every test function.\nSo there seems to be some shared hidden state?\n\nOur PR with failed CI runs: https://github.com/Whist-Team/Whist-Server/pull/722\nThe test case: https://github.com/Whist-Team/Whist-Server/blob/4970c95efebedb68beb7e64ab7e747b087cf3454/tests/whist_server/web_socket/test_notification.py\nThe POST handler: https://github.com/Whist-Team/Whist-Server/blob/4970c95efebedb68beb7e64ab7e747b087cf3454/whist_server/api/room/join.py#L34",
+    "closed_at": "2025-04-12T18:01:42Z",
+    "created_at": "2025-04-09T22:19:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2918",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2918,
+    "state": "closed",
+    "title": "Websocket TestClient broken after 0.45.1 update",
+    "user": "iTitus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-04-10T06:02:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-10T06:02:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-04-10T06:02:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-10T06:02:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-10T06:02:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-04-10T06:02:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-10T06:03:05Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2025-04-10T06:56:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-10T15:01:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-10T19:53:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-12T17:22:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-12T18:01:43Z",
+      "event": "closed"
+    }
+  ]
+}

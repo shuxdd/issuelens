@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "app = Starlette(debug=True, routes=routes, on_startup = [startup])\r\n\r\ndocumentation says to use on_startup, but it's not available in  app when i see with the help of app.\r\ngot an unexpected keyword argument 'on_startup",
+    "closed_at": "2020-03-17T10:33:25Z",
+    "created_at": "2020-03-17T07:05:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/865",
+    "number": 865,
+    "state": "closed",
+    "title": "got an unexpected keyword argument 'on_startup",
+    "user": "rajathedgefinity"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-17T08:59:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-17T10:07:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-17T10:09:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-17T10:17:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-17T10:33:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-17T10:33:25Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-03-17T10:33:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-17T10:33:25Z",
+      "event": "subscribed"
+    }
+  ]
+}

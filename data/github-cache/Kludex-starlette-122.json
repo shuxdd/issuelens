@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Right now, `Router` is simply an ASGI app, which means that it can be used as a top-level app; however, it can't benefit from `Starlette`-specific features such as `debug`, lifespan events or exception handlers.\r\n\r\nWould it make sense to make `Router` a subclass of `Starlette`? That way instead of:\r\n```\r\napp = Starlette()\r\napp.mount('/', Router((\r\n    Path('product/{product_id}', app=ProductEndpoint),\r\n    Path('product', app=NewProductEndpoint),\r\n    Path('products', app=ProductListEndpoint),\r\n)))\r\n```\r\nwe can have\r\n```\r\napp = Router((\r\n    Path('product/{product_id}', app=ProductEndpoint),\r\n    Path('product', app=NewProductEndpoint),\r\n    Path('products', app=ProductListEndpoint),\r\n))\r\n```\r\nand keep all the advantages of `Starlette`.\r\n\r\nThis is just a simplified example, of course.",
+    "closed_at": "2018-10-18T07:32:05Z",
+    "created_at": "2018-10-17T21:54:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/122",
+    "number": 122,
+    "state": "closed",
+    "title": "Should Router be a subclass of Starlette?",
+    "user": "berislavlopac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-18T07:03:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-18T07:32:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-18T09:06:45Z",
+      "event": "commented"
+    }
+  ]
+}

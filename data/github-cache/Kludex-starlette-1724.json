@@ -1,0 +1,643 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-02-22T13:34:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ff539a09081e70f64d2fcc63cc398e518ddd322c",
+      "sha": "ff539a09081e70f64d2fcc63cc398e518ddd322c"
+    },
+    {
+      "committed_at": "2025-02-22T15:29:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3d57ce56759a7feb33ca77f25589d4a7bafb2f4a",
+      "sha": "3d57ce56759a7feb33ca77f25589d4a7bafb2f4a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-07-08T14:40:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/980",
+          "number": 980,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server would occupy a lot of memory when method is not async"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-04T19:06:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5122",
+          "number": 5122,
+          "pull_request": {
+            "merged_at": "2022-09-04T19:09:25Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5122"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Allow exit code for dependencies with `yield` to always execute, by removing capacity limiter for them, to e.g. allow closing DB connections without deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-27T20:17:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2961",
+          "number": 2961,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How to limit or set size for the default ThreadPoolExecutor which be used to run blocking background task in FastAPI?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-11T21:08:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5759",
+          "number": 5759,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Scale FastApi with sync endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-07T20:30:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5846",
+          "number": 5846,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Problem with Concurrency Request: High Response time"
+        }
+      }
+    },
+    {
+      "created_at": "2023-09-19T09:53:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2288",
+          "number": 2288,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2288"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add AnyIO CapacityLimiter docs"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-21T12:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2664",
+          "number": 2664,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Returns the file, the event loop may be blocked"
+        }
+      }
+    },
+    {
+      "created_at": "2024-11-08T06:25:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/apache/airflow/pull/43797",
+          "number": 43797,
+          "pull_request": {
+            "merged_at": "2024-11-08T11:39:20Z",
+            "url": "https://api.github.com/repos/apache/airflow/pulls/43797"
+          },
+          "repository": {
+            "full_name": "apache/airflow"
+          },
+          "title": "AIP-84 Convert async route to sync routes"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-22T13:37:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2881",
+          "number": 2881,
+          "pull_request": {
+            "merged_at": "2025-02-22T15:29:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2881"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document how to resize the threadpool"
+        }
+      }
+    },
+    {
+      "created_at": "2025-10-27T11:16:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/2077",
+          "number": 2077,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "FlaskApp significantly slow compared to AsyncApp or Flask with gevent"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-02T05:32:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ReflexioAI/reflexio/pull/272",
+          "number": 272,
+          "pull_request": {
+            "merged_at": "2026-07-02T08:32:34Z",
+            "url": "https://api.github.com/repos/ReflexioAI/reflexio/pulls/272"
+          },
+          "repository": {
+            "full_name": "ReflexioAI/reflexio"
+          },
+          "title": "fix: preserve durable async publish writes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T06:21:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BoloDB/bolodb/pull/151",
+          "number": 151,
+          "pull_request": {
+            "url": "https://api.github.com/repos/BoloDB/bolodb/pulls/151"
+          },
+          "repository": {
+            "full_name": "BoloDB/bolodb"
+          },
+          "title": "\u26a1 Bolt: Use BackgroundTasks for query history logging to improve API latency"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 24,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3d57ce56759a7feb33ca77f25589d4a7bafb2f4a/docs%2Fthreadpool.md",
+      "changes": 24,
+      "deletions": 0,
+      "filename": "docs/threadpool.md",
+      "sha": "eec3677eb9d88e0ddd76f47a0ab9028ca46c8360",
+      "status": "added"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3d57ce56759a7feb33ca77f25589d4a7bafb2f4a/mkdocs.yml",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "mkdocs.yml",
+      "sha": "6cf43e1ee4eadb6bd4a8fa511608fff7f414eac3",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Starlette is a web framework that supports both async and sync functions. The sync part code runs in a threadpool.\r\n\r\nThe threadpool contains a maximum number of threads: 40.\r\n\r\nhttps://github.com/agronholm/anyio/blob/4f3a8056a8b14dbe43c95039a0d731ede1083cb7/src/anyio/_backends/_asyncio.py#L2071-L2077 \r\n\r\nThe concern on this issue is that the threads are shared between the ones that handle the endpoint, and the background tasks.\r\n\r\nAssume we have a simple application:\r\n```python\r\nfrom time import sleep\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.background import BackgroundTasks\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\nnum = 0\r\n\r\n\r\ndef count_sleep():\r\n    global num\r\n    num += 1\r\n    print(f\"Running number {num}.\")\r\n    sleep(10)\r\n\r\n\r\ndef endpoint(request: Request) -> JSONResponse:\r\n    tasks = BackgroundTasks()\r\n    tasks.add_task(count_sleep)\r\n    return JSONResponse({\"message\": \"Hello, world!\"}, background=tasks)\r\n\r\n\r\napp = Starlette(routes=[Route(\"/\", endpoint)])\r\n```\r\nRunning it with `uvicorn`:\r\n```\r\nuvicorn main:app\r\n```\r\nAnd performing some requests (using [httpie](https://httpie.io/docs/cli)):\r\n```bash\r\nfor run in {1..100}; do\r\n  http :8000 &\r\ndone\r\n```\r\nWe can observe that:\r\n1. We can see `Running number 40.`.\r\n2. Wait 10 seconds...\r\n3. We can see `Running number 80.`.\r\n4. Wait 10 seconds...\r\n5. We can see `Running number 100.`.\r\n\r\nI'm just bringing this up, so people are aware.\r\n\r\n@agronholm proposed on Gitter that we create a separated `CapacityLimiter` dedicated only for handling the application (i.e. `request_response()`). This means that `n` (depending on the number of tokens we choose) number of threads would be dedicated for `request_response()`.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/1724\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/1724/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/1724/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2025-02-22T15:29:47Z",
+    "created_at": "2022-07-02T11:47:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1724",
+    "labels": [
+      "documentation",
+      "good first issue"
+    ],
+    "number": 1724,
+    "state": "closed",
+    "title": "Custom `CapacityLimiter`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2025-02-22T15:29:46Z",
+    "created_at": "2025-02-22T13:34:16Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2881",
+    "merge_commit_sha": "9a8e929eb01f1e0231d635956cd852e21dee57d3",
+    "merged_at": "2025-02-22T15:29:46Z",
+    "number": 2881,
+    "title": "Document how to resize the threadpool",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-02T11:47:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-02T11:47:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-02T16:19:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T16:42:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T16:53:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T16:54:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T17:48:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-02T17:58:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-04T05:45:45Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-07-07T23:21:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T07:37:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T07:37:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-07-08T07:37:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-07-08T07:43:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T08:01:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T14:38:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T14:40:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/980",
+          "number": 980,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server would occupy a lot of memory when method is not async"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-08T14:45:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T21:48:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-08T16:12:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-04T19:06:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/5122",
+          "number": 5122,
+          "pull_request": {
+            "merged_at": "2022-09-04T19:09:25Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/5122"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\ud83d\udc1b Allow exit code for dependencies with `yield` to always execute, by removing capacity limiter for them, to e.g. allow closing DB connections without deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-27T20:17:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2961",
+          "number": 2961,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "How to limit or set size for the default ThreadPoolExecutor which be used to run blocking background task in FastAPI?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-11T21:08:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5759",
+          "number": 5759,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Scale FastApi with sync endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-07T20:30:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/5846",
+          "number": 5846,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Problem with Concurrency Request: High Response time"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-04T20:35:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T20:35:38Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-06-20T19:20:54Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-06-20T19:21:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-13T08:50:17Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-09-13T08:50:21Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2023-09-13T08:51:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-13T08:51:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-09-13T08:51:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-09-13T11:50:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-19T07:54:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-09-19T09:53:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2288",
+          "number": 2288,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2288"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add AnyIO CapacityLimiter docs"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-24T09:13:47Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-12-24T09:13:47Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2024-04-04T00:38:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-21T12:17:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/2664",
+          "number": 2664,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Returns the file, the event loop may be blocked"
+        }
+      }
+    },
+    {
+      "created_at": "2024-11-08T06:25:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/apache/airflow/pull/43797",
+          "number": 43797,
+          "pull_request": {
+            "merged_at": "2024-11-08T11:39:20Z",
+            "url": "https://api.github.com/repos/apache/airflow/pulls/43797"
+          },
+          "repository": {
+            "full_name": "apache/airflow"
+          },
+          "title": "AIP-84 Convert async route to sync routes"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-12T08:32:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-13T10:55:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-15T08:19:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-15T08:19:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-15T08:19:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-15T08:58:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-15T08:58:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-15T08:58:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-15T09:16:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-15T09:16:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-15T09:16:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-02-22T13:37:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2881",
+          "number": 2881,
+          "pull_request": {
+            "merged_at": "2025-02-22T15:29:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2881"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document how to resize the threadpool"
+        }
+      }
+    },
+    {
+      "created_at": "2025-02-22T15:29:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-03-16T07:42:42Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-03-16T07:42:44Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-10-27T11:16:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/issues/2077",
+          "number": 2077,
+          "pull_request": {},
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "FlaskApp significantly slow compared to AsyncApp or Flask with gevent"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-02T05:32:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ReflexioAI/reflexio/pull/272",
+          "number": 272,
+          "pull_request": {
+            "merged_at": "2026-07-02T08:32:34Z",
+            "url": "https://api.github.com/repos/ReflexioAI/reflexio/pulls/272"
+          },
+          "repository": {
+            "full_name": "ReflexioAI/reflexio"
+          },
+          "title": "fix: preserve durable async publish writes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-06T06:21:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/BoloDB/bolodb/pull/151",
+          "number": 151,
+          "pull_request": {
+            "url": "https://api.github.com/repos/BoloDB/bolodb/pulls/151"
+          },
+          "repository": {
+            "full_name": "BoloDB/bolodb"
+          },
+          "title": "\u26a1 Bolt: Use BackgroundTasks for query history logging to improve API latency"
+        }
+      }
+    }
+  ]
+}

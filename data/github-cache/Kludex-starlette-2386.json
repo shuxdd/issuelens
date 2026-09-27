@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "[v] Initially raised as discussion\r\n[How to use other encoding of env file that is different from os encoding? #2006](https://github.com/encode/starlette/discussions/2016) - gbk codec error. GBK is chinese character encoding\r\n\r\nmy env file contained non-ascii comment (wrote korean).\r\n\r\nmy code\r\n`config = Config(\".env\")`\r\n\r\nError message:\r\n\r\n  File \"C:\\proj\\fastapi-table\\venv\\lib\\site-packages\\starlette\\config.py\", line 63, in __init__\r\n    self.file_values = self._read_file(env_file)\r\n  File \"C:\\proj\\fastapi-table\\venv\\lib\\site-packages\\starlette\\config.py\", line 122, in _read_file\r\n    for line in input_file.readlines():\r\nUnicodeDecodeError: 'cp949' codec can't decode byte 0xed in position 272: illegal multibyte sequence\r\n\r\ncp949 codec is korean encoding in Windows OS\r\n\r\nhttps://github.com/encode/starlette/blob/master/starlette/config.py\r\nconfig.py _read_file function  \r\n\r\n`line 121 with open(file_name) as input_file:` \r\n\r\nThe Open file option should be modified to UTF-8 encoding.\r\n\r\n\r\n<!-- POLAR PLEDGE BADGE START -->\r\n> [!IMPORTANT]\r\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\r\n> - We receive the funding once the issue is completed & confirmed by you.\r\n> - Thank you in advance for helping prioritize & fund our backlog.\r\n\r\n<a href=\"https://polar.sh/encode/starlette/issues/2386\">\r\n<picture>\r\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2386/pledge.svg?darkmode=1\">\r\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2386/pledge.svg\">\r\n</picture>\r\n</a>\r\n<!-- POLAR PLEDGE BADGE END -->\r\n",
+    "closed_at": "2023-12-27T09:53:17Z",
+    "created_at": "2023-12-27T09:37:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2386",
+    "number": 2386,
+    "state": "closed",
+    "title": "error, when open env file. contained non-ascii string",
+    "user": "kitrio"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-12-27T09:39:18Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2023-12-27T09:53:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-27T09:53:17Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-15T04:09:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/593",
+          "number": 593,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/593"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix ignore inline comment."
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\nwhen using https://www.starlette.io/config/ , if we put \r\n```\r\nVAR = 'value'   # this var is use for ....\r\n```\r\nwe get error related to the expected role of the var.\r\n\r\nFor example in my case \r\n```\r\n  File \"app.py\", line 292, in <module>\r\n    Mount('/files', StaticFiles(directory=settings('JOPLIN_RESOURCES'))),\r\n  File \"[...]/lib/python3.7/site-packages/starlette/staticfiles.py\", line 55, in __init__\r\n    raise RuntimeError(f\"Directory '{directory}' does not exist\")\r\nRuntimeError: Directory '/home/foxmask/.config/joplin-desktop/resources/'   # path to get the joplin `resources` to be able to display them' does not exist\r\n```\r\nor if that was for a HTTP port :\r\n```\r\nTraceback (most recent call last):\r\n  File \"app.py\", line 303, in <module>\r\n    uvicorn.run(main_app, host='0.0.0.0', port=settings('HTTP_PORT', cast=int, default=8001))\r\n  File \"[...]lib/python3.7/site-packages/starlette/config.py\", line 59, in __call__\r\n    return self.get(key, cast, default)\r\n  File \"[...]lib/python3.7/site-packages/starlette/config.py\", line 69, in get\r\n    return self._perform_cast(key, value, cast)\r\n  File \"[...]lib/python3.7/site-packages/starlette/config.py\", line 103, in _perform_cast\r\n    f\"Config '{key}' has value '{value}'. Not a valid {cast.__name__}.\"\r\nValueError: Config 'HTTP_PORT' has value '8001   # listen port number'. Not a valid int.\r\n```",
+    "closed_at": "2019-08-16T10:00:38Z",
+    "created_at": "2019-07-18T07:41:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/585",
+    "number": 585,
+    "state": "closed",
+    "title": "starlette should ignore \"inline\" comment in env file",
+    "user": "ghost"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-04T09:29:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-04T09:29:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-04T09:29:34Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "a59240e9e1609c93c18ebe66af456b6c54c725c8",
+      "commit_url": "https://api.github.com/repos/alaminopu/starlette/commits/a59240e9e1609c93c18ebe66af456b6c54c725c8",
+      "created_at": "2019-08-04T09:44:14Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-15T04:09:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/593",
+          "number": 593,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/593"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix ignore inline comment."
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-15T04:13:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-16T10:00:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-16T10:00:38Z",
+      "event": "closed"
+    }
+  ]
+}

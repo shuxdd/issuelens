@@ -1,0 +1,76 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have a middleware where I need to inject some routes.\r\nI couldn't find a way to do it in starlette.\r\nAny help is highly appreciated.",
+    "closed_at": "2019-10-15T03:37:19Z",
+    "created_at": "2019-10-14T10:24:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/675",
+    "number": 675,
+    "state": "closed",
+    "title": "[Help] How to add new route to starlette app inside a middleware",
+    "user": "akhilputhiry"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-14T11:00:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:11:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:11:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T11:11:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-14T11:19:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:35:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:35:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T11:35:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-14T11:54:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T11:54:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T11:54:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-10-15T03:37:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-15T03:37:19Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-10-15T03:37:19Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-15T03:37:19Z",
+      "event": "subscribed"
+    }
+  ]
+}

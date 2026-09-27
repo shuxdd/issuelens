@@ -1,0 +1,47 @@
+{
+  "case_id": "starlette-issue-464",
+  "changed_files": [
+    {
+      "path": "starlette/middleware/httpsredirect.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fmiddleware%2Fhttpsredirect.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/responses.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fresponses.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/middleware/httpsredirect.py",
+      "snapshot_commit": "3f702238247c99089eac76880965b32bd050f3cb",
+      "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette/middleware/httpsredirect.py"
+    },
+    {
+      "path": "starlette/responses.py",
+      "snapshot_commit": "3f702238247c99089eac76880965b32bd050f3cb",
+      "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette/responses.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/middleware/httpsredirect.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/responses.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Use \"308 Permanent Redirect\" for redirect slashes behavior.' originates in starlette/middleware/httpsredirect.py, starlette/responses.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_https_redirect.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/tests%2Fmiddleware%2Ftest_https_redirect.py",
+      "status": "modified"
+    }
+  ]
+}

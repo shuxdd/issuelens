@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-04-19T14:42:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/486",
+          "number": 486,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Error in app startup event is not logged and does not prevent startup"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "At present, any uncaught exceptions that are thrown in the startup handler are apparently consumed without logging it to the standard input/error.\r\n\r\nCan we have a change in this behaviour, so that any uncaught exceptions in the startup handler cause Starlette to log the error and abort execution?",
+    "closed_at": "2018-12-18T13:37:36Z",
+    "created_at": "2018-11-02T16:18:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/177",
+    "number": 177,
+    "state": "closed",
+    "title": "Log errors and abort in case exceptions are thrown in the startup handler",
+    "user": "supriyo-biswas"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-02T22:42:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T22:46:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-18T13:37:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-19T14:42:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/486",
+          "number": 486,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Error in app startup event is not logged and does not prevent startup"
+        }
+      }
+    }
+  ]
+}

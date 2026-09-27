@@ -1,0 +1,79 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-07-22T06:53:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/agronholm/anyio/issues/323",
+          "number": 323,
+          "pull_request": {},
+          "repository": {
+            "full_name": "agronholm/anyio"
+          },
+          "title": "asyncio backend sometimes schedules sync tasks on worker threads that are about to shut down"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n`starlette` is used for the demo application + server of the `aioquic` QUIC + HTTP/3 stack. Since starlette 0.15.0 (i.e. also with 0.16.0) I have noticed that concurrent requests (on a single connection) randomly hang, before even entering the route. \r\n\r\nNOTE: I am not claiming this is definitely a bug in `starlette`, but I am having a hard time debugging this issue, and rolling back to startlette 0.14.2 fixes it so it may be related to the `anyio` changes.\r\n\r\n### To reproduce\r\n\r\nI have observed this on routes as simple as:\r\n\r\n```\r\ndef padding(request):\r\n    return PlainTextResponse(\"Z\" * 5000)\r\n```\r\n\r\nThe key here is that this is *not* a coroutine. If I add the `async` keyword the route seems to work reliably.\r\n\r\nI have also observed the same behaviour with the built-in \"Not Found\" handler: `ExceptionMiddleware.http_exception`. As for the previous case, changing this method to a coroutine fixes the problem.\r\n\r\nThe common feature I have found so far with the routes that hang is that the code gets invoked via `run_in_threadpool`.\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.9.2\r\n- Starlette version: 0.16.0\r\n\r\n",
+    "closed_at": "2021-07-22T20:40:40Z",
+    "created_at": "2021-07-21T22:31:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1248",
+    "number": 1248,
+    "state": "closed",
+    "title": "Concurrent requests to sync routes randomly hang since 0.15.0",
+    "user": "jlaine"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-07-21T22:44:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-22T00:49:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-22T06:53:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/agronholm/anyio/issues/323",
+          "number": 323,
+          "pull_request": {},
+          "repository": {
+            "full_name": "agronholm/anyio"
+          },
+          "title": "asyncio backend sometimes schedules sync tasks on worker threads that are about to shut down"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-22T15:26:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-22T15:51:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-22T20:36:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-22T20:36:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-07-22T20:36:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-07-22T20:40:40Z",
+      "event": "closed"
+    }
+  ]
+}

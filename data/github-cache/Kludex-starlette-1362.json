@@ -1,0 +1,243 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-05-12T04:31:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9e23722d01d90d83f85619db3f6b7e2c6cb66b25",
+      "sha": "9e23722d01d90d83f85619db3f6b7e2c6cb66b25"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-02-09T01:44:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1478",
+          "number": 1478,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1478"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for Websocket Denial Response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-15T10:39:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1636",
+          "number": 1636,
+          "pull_request": {
+            "merged_at": "2022-05-17T09:36:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1636"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `status_code` parameter on `requires` when using WebSockets"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-22T02:42:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aruneem-bhowmick/orca/pull/60",
+          "number": 60,
+          "pull_request": {
+            "merged_at": "2026-06-22T22:02:50Z",
+            "url": "https://api.github.com/repos/aruneem-bhowmick/orca/pulls/60"
+          },
+          "repository": {
+            "full_name": "aruneem-bhowmick/orca"
+          },
+          "title": "Add WebSocket proxy for live experiment metrics"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9e23722d01d90d83f85619db3f6b7e2c6cb66b25/docs%2Fauthentication.md",
+      "changes": 4,
+      "deletions": 0,
+      "filename": "docs/authentication.md",
+      "sha": "513db5c84808d826d20f1ec421fe86685657d938",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nI have a protected websocket endpoint, with the decorator `@requires('authenticated', status_code=401)`.\r\nIf the authentication check fails, the response code from the websocket is `403 Forbidden`, but it should be `401 Unauthorized`.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\nHere an example to reproduce the use case.\r\n\r\n```python\r\nimport uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.authentication import AuthenticationBackend, AuthenticationError, AuthCredentials, SimpleUser, requires\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.authentication import AuthenticationMiddleware\r\nfrom starlette.websockets import WebSocket\r\n\r\n\r\nclass BasicAuthBackend(AuthenticationBackend):\r\n    async def authenticate(self, request):\r\n        auth = request.headers.get(\"Authorization\", None)\r\n        if auth != 'sample_key':\r\n            raise AuthenticationError('Invalid auth credentials')\r\n\r\n        return AuthCredentials([\"authenticated\"]), SimpleUser(\"username\")\r\n\r\n\r\napp = Starlette(\r\n    middleware=[\r\n        Middleware(AuthenticationMiddleware, backend=BasicAuthBackend()),\r\n    ],\r\n)\r\n\r\n\r\n@app.websocket_route(\"/websocket\")\r\n@requires(\"authenticated\", status_code=401)\r\nasync def websocket(websocket: WebSocket):\r\n    await websocket.accept()\r\n    await websocket.send_json({'message': 'Connected and authenticated!'})\r\n    await websocket.close()\r\n\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(\"websocket:app\", host=\"0.0.0.0\", port=10123)\r\n```\r\n\r\n<img width=\"1154\" alt=\"Schermata 2021-12-14 alle 13 22 55\" src=\"https://user-images.githubusercontent.com/7781176/145997556-155f4e47-e8e4-4e25-bce6-232d2b5025c5.png\">\r\n\r\n### Expected behavior\r\n\r\nThe websocket endpoint should return 401, according to the status_code specified in the `@requires` decorator.\r\n\r\n### Actual behavior\r\n\r\nThe websocket endpoint should return 403, even if I specify the desired status_code in the `@requires` decorator.\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.8\r\n- Starlette version: 0.17.1\r\n",
+    "closed_at": "2022-05-17T09:36:34Z",
+    "created_at": "2021-12-14T12:29:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1362",
+    "labels": [
+      "feature",
+      "websocket"
+    ],
+    "number": 1362,
+    "state": "closed",
+    "title": "Wrong unauthorized WebSocket status code",
+    "user": "andreadelfante"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-17T09:36:34Z",
+    "created_at": "2022-05-12T16:57:08Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1636",
+    "merge_commit_sha": "621abc747a6604825190b93467918a0ec6456a24",
+    "merged_at": "2022-05-17T09:36:34Z",
+    "number": 1636,
+    "title": "Document `status_code` parameter on `requires` when using WebSockets",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-14T23:19:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T23:19:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-14T23:19:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-14T23:38:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T08:21:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-04T08:59:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-04T08:59:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-04T08:59:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-04T08:59:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-04T08:59:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-08T07:37:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-09T01:44:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1478",
+          "number": 1478,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1478"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support for Websocket Denial Response"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T01:52:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-30T10:55:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-30T10:55:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-04-30T10:55:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-04-30T10:56:13Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-30T10:56:13Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-30T10:56:45Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2022-05-12T17:05:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-12T17:05:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-12T17:05:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-15T10:39:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1636",
+          "number": 1636,
+          "pull_request": {
+            "merged_at": "2022-05-17T09:36:34Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1636"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `status_code` parameter on `requires` when using WebSockets"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-17T09:36:34Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-22T02:42:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/aruneem-bhowmick/orca/pull/60",
+          "number": 60,
+          "pull_request": {
+            "merged_at": "2026-06-22T22:02:50Z",
+            "url": "https://api.github.com/repos/aruneem-bhowmick/orca/pulls/60"
+          },
+          "repository": {
+            "full_name": "aruneem-bhowmick/orca"
+          },
+          "title": "Add WebSocket proxy for live experiment metrics"
+        }
+      }
+    }
+  ]
+}

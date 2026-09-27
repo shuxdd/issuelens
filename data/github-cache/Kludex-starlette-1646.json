@@ -1,0 +1,68 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-05-24T06:00:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1648",
+          "number": 1648,
+          "pull_request": {
+            "merged_at": "2022-06-28T05:23:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove converter from path when generating `OpenAPI` schema"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1645\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **jvail** May 23, 2022</sup>\r\nHi,\r\n\r\nif I use type converters in a route definition ('/somepath/{parameter:int}') and generate an openAPI schema then I'd expect that the type, the converter is stripped from the URL template. But currently i get \r\n\r\n```json\r\n\"paths\": {\r\n        \"//somepath/{parameter:int}\": {}\r\n}\r\n```\r\n\r\ninstead of \r\n\r\n```json\r\n\"paths\": {\r\n        \"//somepath/{parameter}\": {}\r\n}\r\n```\r\n\r\nIs that by purpose?\r\nIf so the parameter names inside the doc string don't match anymore if parsed e.g. inside postman. Postman would create a parameter named \"parameter:int\" instead of just \"parameter\".\r\n\r\nThank you\r\nJan\r\n</div>",
+    "closed_at": "2022-06-08T16:37:32Z",
+    "created_at": "2022-05-23T10:46:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1646",
+    "labels": [
+      "bug"
+    ],
+    "number": 1646,
+    "state": "closed",
+    "title": "SchemaGenerator and path parameter converters",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-05-23T10:46:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-05-24T06:00:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1648",
+          "number": 1648,
+          "pull_request": {
+            "merged_at": "2022-06-28T05:23:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove converter from path when generating `OpenAPI` schema"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-08T16:37:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-08T16:37:32Z",
+      "event": "closed"
+    }
+  ]
+}

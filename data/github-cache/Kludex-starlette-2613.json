@@ -1,0 +1,259 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-06-10T15:10:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2616",
+          "number": 2616,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2616"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: pathsend handling in middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-10T15:49:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/emmett-framework/granian/issues/320",
+          "number": 320,
+          "pull_request": {},
+          "repository": {
+            "full_name": "emmett-framework/granian"
+          },
+          "title": "Strange error with starlette / fastapi"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-01T13:26:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/piccolo-orm/piccolo_admin/issues/399",
+          "number": 399,
+          "pull_request": {},
+          "repository": {
+            "full_name": "piccolo-orm/piccolo_admin"
+          },
+          "title": "Is here a granian support?"
+        }
+      }
+    },
+    {
+      "created_at": "2024-08-22T14:19:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2671",
+          "number": 2671,
+          "pull_request": {
+            "merged_at": "2025-05-29T13:17:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2671"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for ASGI `pathsend` extension"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T13:29:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redis/fastapi-redis-sdk/issues/36",
+          "number": 36,
+          "pull_request": {},
+          "repository": {
+            "full_name": "redis/fastapi-redis-sdk"
+          },
+          "title": "Pathsend causes 500 internal error"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi guys\r\n\r\nThis is a follow up of https://github.com/emmett-framework/granian/issues/320 \r\n\r\nI'm not entirely sure if this is really a bug of starlette, or more of a feature that's missing or so.\r\n\r\nOn my staging environment, I did receive an assertion error:\r\n\r\n```\r\n File \"/tmp/8dc89326e92b51b/antenv/lib/python3.12/site-packages/starlette/middleware/base.py\", line 173, in body_stream\r\n2024-06-10T09:58:53.052818649Z     assert message[\"type\"] == \"http.response.body\"\r\n``` \r\n\r\nAs I could not reproduce it locally, I monkey-patched starlette and printed an error message with details:\r\n\r\n```\r\n2024-06-10T09:58:53.052814649Z   File \"/tmp/8dc89326e92b51b/antenv/lib/python3.12/site-packages/starlette/middleware/base.py\", line 173, in body_stream\r\n2024-06-10T09:58:53.052818649Z     assert message[\"type\"] == \"http.response.body\", f\"Unexpected message of type {message['type']} from class {type(self)}: {message}\"  # noqa: E501\r\n2024-06-10T09:58:53.052821649Z     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n2024-06-10T09:58:53.052824449Z AssertionError: Unexpected message of type http.response.pathsend from class <class 'starlette.middleware.base.BaseHTTPMiddleware'>: {'type': 'http.response.pathsend', 'path': 'frontend_app/output/index.html'}\r\n```\r\n\r\nI think this happens because my server does support the pathsend extension, however middlware that act's on it and just derives from BaseHTTPMiddleware will fail, since it cannot handle this. \r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2613\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2613/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2613/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-08-06T06:56:27Z",
+    "created_at": "2024-06-10T10:07:29Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2613",
+    "number": 2613,
+    "state": "closed",
+    "title": "pathsend causing issues with BaseHTTPMiddleware",
+    "user": "aersam"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "474536683f7dd38d8ddc20ddefb9392fb4d3a812",
+      "commit_url": "https://api.github.com/repos/gi0baro/starlette/commits/474536683f7dd38d8ddc20ddefb9392fb4d3a812",
+      "created_at": "2024-06-10T15:05:03Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-06-10T15:10:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2616",
+          "number": 2616,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2616"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: pathsend handling in middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2024-06-10T15:49:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/emmett-framework/granian/issues/320",
+          "number": 320,
+          "pull_request": {},
+          "repository": {
+            "full_name": "emmett-framework/granian"
+          },
+          "title": "Strange error with starlette / fastapi"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-01T13:26:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/piccolo-orm/piccolo_admin/issues/399",
+          "number": 399,
+          "pull_request": {},
+          "repository": {
+            "full_name": "piccolo-orm/piccolo_admin"
+          },
+          "title": "Is here a granian support?"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-23T10:21:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-07-23T10:21:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-07-23T10:21:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-01T06:29:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-01T06:29:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-01T06:29:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-01T06:29:26Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2024-08-01T06:30:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-01T07:19:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-01T07:19:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-01T07:19:36Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-06T06:56:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T06:56:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-06T06:56:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-06T06:56:27Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-08-06T09:47:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-06T09:47:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-06T09:47:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-16T07:42:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-22T14:19:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2671",
+          "number": 2671,
+          "pull_request": {
+            "merged_at": "2025-05-29T13:17:44Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2671"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for ASGI `pathsend` extension"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T13:29:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/redis/fastapi-redis-sdk/issues/36",
+          "number": 36,
+          "pull_request": {},
+          "repository": {
+            "full_name": "redis/fastapi-redis-sdk"
+          },
+          "title": "Pathsend causes 500 internal error"
+        }
+      }
+    }
+  ]
+}

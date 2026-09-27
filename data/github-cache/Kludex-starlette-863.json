@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi guys! I'm sorry for stupid question in advance, but it seems this place has more starlette developers then any other and i hope someone can help me. I'm just beginner with starlette/async python and trying understand how it works. I wrote this simple code:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\nfrom datetime import datetime\r\nimport asyncio\r\n\r\n\r\nasync def test():\r\n    await asyncio.sleep(2)\r\n\r\n\r\nasync def page(request):\r\n    check = []\r\n    check.append(str(datetime.now().strftime('%H:%M:%S')))\r\n    await test()\r\n    await test()\r\n    await test()\r\n    await test()\r\n    check.append(str(datetime.now().strftime('%H:%M:%S')))\r\n\r\n    return JSONResponse('---'.join(check))\r\n\r\n\r\napp = Starlette(debug=True, routes=[\r\n    Route('/', page),\r\n])\r\n\r\nif __name__ == \"__main__\":\r\n    import uvicorn\r\n    uvicorn.run(app, port=8000, host='0.0.0.0')\r\n\r\n```\r\n\r\nand how i think this will work - starlette receives request, run \"page\" function and inside i have 4 \"test\" functions with sleep(2). I thought that it will take 2 seconds to complete, but instead of 2 seconds i see 8, like it works as usual sync code.\r\nWhat is my mistake? I'm really appreciate  any help)\r\nThanks!",
+    "closed_at": "2020-03-16T11:14:05Z",
+    "created_at": "2020-03-15T17:55:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/863",
+    "number": 863,
+    "state": "closed",
+    "title": "[QUESTION] Starlette async usage",
+    "user": "crotaoryx"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-16T11:14:05Z",
+      "event": "commented"
+    }
+  ]
+}

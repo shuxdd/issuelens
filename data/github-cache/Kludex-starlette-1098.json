@@ -1,0 +1,275 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-07-22T15:32:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/18583",
+          "number": 18583,
+          "pull_request": {
+            "merged_at": "2024-07-23T13:59:57Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/18583"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "[24.0] Fix Archive header encoding"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-02T20:42:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/blakeblackshear/frigate/pull/19842",
+          "number": 19842,
+          "pull_request": {
+            "url": "https://api.github.com/repos/blakeblackshear/frigate/pulls/19842"
+          },
+          "repository": {
+            "full_name": "blakeblackshear/frigate"
+          },
+          "title": "Decode proxy http headers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-01T12:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/270",
+          "number": 270,
+          "pull_request": {
+            "merged_at": "2026-08-01T13:28:50Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/270"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "SR-9: ADMIN_KEY never reached any container, and three admin guards failed open"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T20:28:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Portocolom-Studio/potocolom/pull/277",
+          "number": 277,
+          "pull_request": {
+            "merged_at": "2026-08-13T11:29:07Z",
+            "url": "https://api.github.com/repos/Portocolom-Studio/potocolom/pulls/277"
+          },
+          "repository": {
+            "full_name": "Portocolom-Studio/potocolom"
+          },
+          "title": "Bind a dispatch to a token, and make outputs write-once"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karellima/gestao/pull/31",
+          "number": 31,
+          "pull_request": {
+            "merged_at": "2026-08-13T19:22:42Z",
+            "url": "https://api.github.com/repos/karellima/gestao/pulls/31"
+          },
+          "repository": {
+            "full_name": "karellima/gestao"
+          },
+          "title": "refactor(backend): quebra router de relatorios em pacote"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "https://github.com/encode/starlette/blob/029882ee88e21495360c2290147a16f0af96ef81/starlette/responses.py#L70\r\nsource code:\r\n`\r\nraw_headers = [\r\n    (k.lower().encode(\"latin-1\"), v.encode(\"latin-1\"))\r\n    for k, v in headers.items()\r\n]\r\n`\r\nNow all encode strings used in responses  are latin-1, but in my app, I want to response a streamingresponse with a CJK character filename. I have to change all 'latin-1' to 'utf-8' in this file. Is there anything wrong if I change it to 'utf-8' and why 'latin-1' must be used here. Sorry for my poor English\r\n",
+    "closed_at": "2022-02-03T10:17:17Z",
+    "created_at": "2020-11-23T06:51:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1098",
+    "number": 1098,
+    "state": "closed",
+    "title": "[Bug&Question]Responses encode using utf-8",
+    "user": "icyw123"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-24T08:06:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-23T14:58:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-07-22T15:32:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/18583",
+          "number": 18583,
+          "pull_request": {
+            "merged_at": "2024-07-23T13:59:57Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/18583"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "[24.0] Fix Archive header encoding"
+        }
+      }
+    },
+    {
+      "created_at": "2025-09-02T20:42:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/blakeblackshear/frigate/pull/19842",
+          "number": 19842,
+          "pull_request": {
+            "url": "https://api.github.com/repos/blakeblackshear/frigate/pulls/19842"
+          },
+          "repository": {
+            "full_name": "blakeblackshear/frigate"
+          },
+          "title": "Decode proxy http headers"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-01T12:53:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/270",
+          "number": 270,
+          "pull_request": {
+            "merged_at": "2026-08-01T13:28:50Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/270"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "SR-9: ADMIN_KEY never reached any container, and three admin guards failed open"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T20:28:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Portocolom-Studio/potocolom/pull/277",
+          "number": 277,
+          "pull_request": {
+            "merged_at": "2026-08-13T11:29:07Z",
+            "url": "https://api.github.com/repos/Portocolom-Studio/potocolom/pulls/277"
+          },
+          "repository": {
+            "full_name": "Portocolom-Studio/potocolom"
+          },
+          "title": "Bind a dispatch to a token, and make outputs write-once"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T17:29:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/karellima/gestao/pull/31",
+          "number": 31,
+          "pull_request": {
+            "merged_at": "2026-08-13T19:22:42Z",
+            "url": "https://api.github.com/repos/karellima/gestao/pulls/31"
+          },
+          "repository": {
+            "full_name": "karellima/gestao"
+          },
+          "title": "refactor(backend): quebra router de relatorios em pacote"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ]
+}

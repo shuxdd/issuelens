@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-2295",
+  "changed_files": [
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3e9cc68a56b58ba5e0e58f5fe5807c19012aa729/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+      "source_url": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by \"invalid format of client's host in testclient\" originates in starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3e9cc68a56b58ba5e0e58f5fe5807c19012aa729/tests%2Ftest_testclient.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/types.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/3e9cc68a56b58ba5e0e58f5fe5807c19012aa729/tests%2Ftypes.py",
+      "status": "modified"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-07-25T00:01:49Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2227"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2227"
+    ]
+  },
+  "case_id": "starlette-issue-2227",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2231",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR \"Fixed import error when exceptiongroup isn't available\" directly changes starlette/_utils.py, starlette/middleware/base.py with focused behavior test(s) tests/middleware/test_wsgi.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-07-26T20:17:03Z",
+  "issue": {
+    "body": "After upgrading to starlette 0.31.0 today, we run into the following exception when importing starlette:\r\n\r\n```\r\nfrom starlette import applications, requests, responses, routing\r\n2023-07-24 15:47:43    File \"/opt/conda/lib/python3.8/site-packages/starlette/applications.py\", line 8, in <module>\r\n2023-07-24 15:47:43      from starlette.middleware.base import BaseHTTPMiddleware\r\n2023-07-24 15:47:43    File \"/opt/conda/lib/python3.8/site-packages/starlette/middleware/base.py\", line 14, in <module>\r\n2023-07-24 15:47:43      from exceptiongroup import BaseExceptionGroup\r\n2023-07-24 15:47:43  ModuleNotFoundError: No module named 'exceptiongroup'\r\n```\r\n\r\nThis is likely introduced from https://github.com/encode/starlette/pull/2211/files",
+    "number": 2227,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2227",
+    "title": "No module named 'exceptiongroup' when upgraded to starlette 0.31.0"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2231 created_at 2023-07-26T20:17:03Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2231",
+    "repair_files": [
+      "requirements.txt",
+      "starlette/_utils.py",
+      "starlette/middleware/base.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is a8b8856ce393a82ab4a714131085dbc4d658e34d",
+    "test_files": [
+      "tests/middleware/test_wsgi.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "requirements.txt",
+        "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/requirements.txt",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/_utils.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2F_utils.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "625b12e09ddd61d6f7cb40727a24f9081c68ce8d",
+        "source_url": "https://github.com/Kludex/starlette/commit/625b12e09ddd61d6f7cb40727a24f9081c68ce8d"
+      },
+      {
+        "sha": "3507985748295d96961aaf58887328885352cbea",
+        "source_url": "https://github.com/Kludex/starlette/commit/3507985748295d96961aaf58887328885352cbea"
+      },
+      {
+        "sha": "03ec905076ee06befabb0503b602c6a12023cae3",
+        "source_url": "https://github.com/Kludex/starlette/commit/03ec905076ee06befabb0503b602c6a12023cae3"
+      },
+      {
+        "sha": "6698b68381a5988f51efc499b92a30b818fe747a",
+        "source_url": "https://github.com/Kludex/starlette/commit/6698b68381a5988f51efc499b92a30b818fe747a"
+      },
+      {
+        "sha": "1ae64658da13858b6f4d2ef0351a9c85b84da37b",
+        "source_url": "https://github.com/Kludex/starlette/commit/1ae64658da13858b6f4d2ef0351a9c85b84da37b"
+      },
+      {
+        "sha": "0a9accb2f9b4275e9b34887ea006f146aa76e6ef",
+        "source_url": "https://github.com/Kludex/starlette/commit/0a9accb2f9b4275e9b34887ea006f146aa76e6ef"
+      },
+      {
+        "sha": "f268950dea8b095d80b10971690441fdb9cf3a23",
+        "source_url": "https://github.com/Kludex/starlette/commit/f268950dea8b095d80b10971690441fdb9cf3a23"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-07-26T20:17:03Z",
+      "number": 2231,
+      "source_url": "https://github.com/Kludex/starlette/pull/2231"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2231"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_wsgi.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/tests%2Fmiddleware%2Ftest_wsgi.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+    "committed_at": "2023-07-24T15:46:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/a8b8856ce393a82ab4a714131085dbc4d658e34d"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,71 @@
+{
+  "case_id": "starlette-issue-1138",
+  "changed_files": [
+    {
+      "path": "setup.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/setup.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/applications.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Fapplications.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Frouting.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/applications.py",
+      "snapshot_commit": "d222b87cb4601ecda5d642ab504a14974d364db4",
+      "source_url": "https://github.com/Kludex/starlette/blob/d222b87cb4601ecda5d642ab504a14974d364db4/starlette/applications.py"
+    },
+    {
+      "path": "starlette/routing.py",
+      "snapshot_commit": "d222b87cb4601ecda5d642ab504a14974d364db4",
+      "source_url": "https://github.com/Kludex/starlette/blob/d222b87cb4601ecda5d642ab504a14974d364db4/starlette/routing.py"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "d222b87cb4601ecda5d642ab504a14974d364db4",
+      "source_url": "https://github.com/Kludex/starlette/blob/d222b87cb4601ecda5d642ab504a14974d364db4/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/applications.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/routing.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by \"When on_shutdown function raises error, starlette doesn't catch it and uvicorn thinks that lifespan is not supported\" originates in starlette/applications.py, starlette/routing.py, starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_applications.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/tests%2Ftest_applications.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/tests%2Ftest_testclient.py",
+      "status": "modified"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "We need to be able to configure how to send form data with another implementation.",
+    "closed_at": "2026-08-22T14:19:39Z",
+    "created_at": "2026-08-22T14:19:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3457",
+    "labels": [
+      "duplicate"
+    ],
+    "number": 3457,
+    "state": "closed",
+    "title": "Add configurable media handlers and Request.data()",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-08-22T14:19:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-22T14:19:38Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2026-08-22T14:19:39Z",
+      "event": "closed"
+    }
+  ]
+}

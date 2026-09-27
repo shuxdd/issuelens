@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The App and Router classes should support a `.url_for(name, **kwargs)` method.\r\n\r\nWe'll probably need to finesse our routing a bit here, eg. remove the ability to drop into plain regex, and instead add something like `{username:str}` / `{page_number:int}`.\r\n\r\nEventually we'll probably also want to support namespacing eg. `app.url_for('users:create_user', username=foo)`\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/46\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/46/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/46/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2018-10-29T09:22:46Z",
+    "created_at": "2018-08-28T14:21:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/46",
+    "number": 46,
+    "state": "closed",
+    "title": "URL Reversing",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-22T20:12:56Z",
+      "event": "commented"
+    }
+  ]
+}

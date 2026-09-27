@@ -1,0 +1,99 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-30T23:11:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/626",
+          "number": 626,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/626"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow adding directories to StatiFiles app"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": " The feature request is to be able to serve different directories under the same route.\r\n\r\nThe `StaticFiles` app only allows serving from one directory,  so we can't have have multiple apps under the same route.\r\n\r\n### Suggestions :\r\n\r\n1- Add an `add_directory` method to `StaticFiles` app, to allow adding multiple directories to the the same `StaticFiles` app and it can be used like so :\r\n```python\r\nstatic_app = StaticFiles(directory=\"static\")\r\nstatic_app.add_directory(\"another_static_dir\")\r\n```\r\nWe can also add `add_directories` which accepts a list of directories\r\n* I've made a PR for the `add_directory` #626\r\n\r\n2- Allow passing a list of directories in `init`, I know it's not a good idea to change the api :/, and to avoid that one way could be adding a kwarg `directories: List[str]`, I'm also aware it's not a good idea :3 (even worse) to expose two ways of doing things `directory` and `directories`but  the way of implementing it should be discussed, ofc if accepted.\r\n",
+    "closed_at": "2022-02-08T12:48:35Z",
+    "created_at": "2019-08-30T23:11:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/625",
+    "number": 625,
+    "state": "closed",
+    "title": "Multiple directories in StaticFiles",
+    "user": "taoufik07"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-30T23:11:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/626",
+          "number": 626,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/626"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow adding directories to StatiFiles app"
+        }
+      }
+    },
+    {
+      "created_at": "2019-09-04T09:53:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-06T10:17:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-17T13:54:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T14:55:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T14:55:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-30T14:55:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-30T15:53:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T15:53:03Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-30T15:53:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-01T16:01:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-08T12:48:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-20T09:15:30Z",
+      "event": "commented"
+    }
+  ]
+}

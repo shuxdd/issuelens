@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Background:\r\n- https://github.com/tiangolo/fastapi/issues/617\r\n- https://github.com/encode/starlette/pull/785\r\n- https://github.com/encode/starlette/pull/799\r\n\r\nI don't think we've been explicit yet as to what the planned future state is for lifespan and on_startup / on_shutdown. We currently have two mutually exclusive ways to do things, which is confusing for users and adds complexity to our codebase.\r\n\r\nUsing async context managers is (as far as I can tell) never worse than on_startup / on_shutdown and makes some use cases _much_ easier (if you need to wrap another context manager like `httpx.AsyncClient`). Also as discussed in https://github.com/tiangolo/fastapi/issues/617 using on_startup / on_shutdown has some serious foot guns.\r\n\r\nGiven that using async context managers are all around better, I propose we get rid of on_startup and on_shutdown for 1.0.\r\n\r\nWhat do other think?\r\n\r\ncc @graingert @tomchristie @Kludex ",
+    "closed_at": "2023-03-05T21:27:36Z",
+    "created_at": "2023-03-05T21:23:36Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2066",
+    "number": 2066,
+    "state": "closed",
+    "title": "Future of on_startup/on_shutdown and lifespan",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-03-05T21:23:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-03-05T21:23:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-03-05T21:23:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-03-05T21:23:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-03-05T21:27:35Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-03-05T21:27:36Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

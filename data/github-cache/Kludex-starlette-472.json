@@ -1,0 +1,800 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-12-30T14:19:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8b286eab5a6d4186627d9091a88d5357c491e23b",
+      "sha": "8b286eab5a6d4186627d9091a88d5357c491e23b"
+    },
+    {
+      "committed_at": "2023-01-06T10:07:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c60d5c3dcc8fd03ad3776242ecf471530e68683b",
+      "sha": "c60d5c3dcc8fd03ad3776242ecf471530e68683b"
+    },
+    {
+      "committed_at": "2023-02-04T10:11:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/585e6f364402aa1353594e476afc5900a5db3272",
+      "sha": "585e6f364402aa1353594e476afc5900a5db3272"
+    },
+    {
+      "committed_at": "2023-02-04T20:26:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aa172d5285baf45b10dddee19c2f553a66d4d563",
+      "sha": "aa172d5285baf45b10dddee19c2f553a66d4d563"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-04-09T13:43:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/473",
+          "number": 473,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/473"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix http.response.template being used with BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-09T11:28:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/atviriduomenys/spinta/pull/22",
+          "number": 22,
+          "pull_request": {
+            "merged_at": "2019-05-10T04:48:38Z",
+            "url": "https://api.github.com/repos/atviriduomenys/spinta/pulls/22"
+          },
+          "repository": {
+            "full_name": "atviriduomenys/spinta"
+          },
+          "title": "Remove context block"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-20T12:48:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/806",
+          "number": 806,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "starlette.TestClient with Jinja2Templates and middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-30T20:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/883",
+          "number": 883,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Jinja2Templates, TestClient and middleware are incompatible"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-16T14:51:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NCAR/xdevbot/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2020-07-16T15:07:14Z",
+            "url": "https://api.github.com/repos/NCAR/xdevbot/pulls/7"
+          },
+          "repository": {
+            "full_name": "NCAR/xdevbot"
+          },
+          "title": "Restructuring"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-17T12:07:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/414",
+          "number": 414,
+          "pull_request": {
+            "merged_at": "2020-07-17T12:54:48Z",
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/414"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Fix /vMAJOR/info in index server"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-18T19:17:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1472",
+          "number": 1472,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "middleware: assert message[\"type\"] == \"http.response.start\""
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-12T01:28:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1071",
+          "number": 1071,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1071"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix #472 (AssertionError with middleware and TemplateResponse)"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-24T06:20:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1099",
+          "number": 1099,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing content-length header field in some responses"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-18T23:09:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/555",
+          "number": 555,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Check if the request context is available"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-25T14:22:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/752",
+          "number": 752,
+          "pull_request": {
+            "merged_at": "2021-03-25T17:43:02Z",
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/752"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Fix CheckWronglyVersionedBaseUrls middleware (for landing pages)"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T11:43:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amorey/starlette-wtf/issues/6",
+          "number": 6,
+          "pull_request": {},
+          "repository": {
+            "full_name": "amorey/starlette-wtf"
+          },
+          "title": "enabled=False flag on CSRFProtectMiddleware doesn't appear to work"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-09T13:24:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/tifeatures/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2022-06-13T15:24:14Z",
+            "url": "https://api.github.com/repos/developmentseed/tifeatures/pulls/11"
+          },
+          "repository": {
+            "full_name": "developmentseed/tifeatures"
+          },
+          "title": "allow custom template location"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-24T14:40:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1820",
+          "number": 1820,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1820"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "put template in scope to avoid assertion errors in other middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-27T08:36:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/135",
+          "number": 135,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Proposal: \"http.response.template\" extension."
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-30T14:20:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1991",
+          "number": 1991,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:31:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1991"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support Debug extension"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 26,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa172d5285baf45b10dddee19c2f553a66d4d563/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 29,
+      "deletions": 3,
+      "filename": "starlette/middleware/base.py",
+      "sha": "c9880206e20557dab692d4baee92877970babd82",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa172d5285baf45b10dddee19c2f553a66d4d563/starlette%2Ftemplating.py",
+      "changes": 10,
+      "deletions": 4,
+      "filename": "starlette/templating.py",
+      "sha": "bccda36e457a14de90ee2d29b86e20dd6849ac85",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa172d5285baf45b10dddee19c2f553a66d4d563/starlette%2Ftestclient.py",
+      "changes": 8,
+      "deletions": 4,
+      "filename": "starlette/testclient.py",
+      "sha": "549fa762198149b2995c506c0e9faf20db154ffa",
+      "status": "modified"
+    },
+    {
+      "additions": 28,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aa172d5285baf45b10dddee19c2f553a66d4d563/tests%2Ftest_templates.py",
+      "changes": 28,
+      "deletions": 0,
+      "filename": "tests/test_templates.py",
+      "sha": "2d918f7d0c90597bb27adf9a2ae1c519dd72f052",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "```diff\r\ndiff --git i/tests/test_templates.py w/tests/test_templates.py\r\nindex b48373e..57dee91 100644\r\n--- i/tests/test_templates.py\r\n+++ w/tests/test_templates.py\r\n@@ -20,6 +20,11 @@ def test_templates(tmpdir):\r\n     async def homepage(request):\r\n         return templates.TemplateResponse(\"index.html\", {\"request\": request})\r\n\r\n+    @app.middleware(\"http\")\r\n+    async def noop(request, call_next):\r\n+        response = await call_next(request)\r\n+        return response\r\n+\r\n     client = TestClient(app)\r\n     response = client.get(\"/\")\r\n     assert response.text == \"<html>Hello, <a href='http://testserver/'>world</a></html>\"\r\n```\r\n\r\ncauses:\r\n```\r\ntests/test_templates.py:29: in test_templates\r\n    response = client.get(\"/\")\r\n.venv/lib/python3.7/site-packages/requests/sessions.py:546: in get\r\n    return self.request('GET', url, **kwargs)\r\nstarlette/testclient.py:421: in request\r\n    json=json,\r\n.venv/lib/python3.7/site-packages/requests/sessions.py:533: in request\r\n    resp = self.send(prep, **send_kwargs)\r\n.venv/lib/python3.7/site-packages/requests/sessions.py:646: in send\r\n    r = adapter.send(request, **kwargs)\r\nstarlette/testclient.py:238: in send\r\n    raise exc from None\r\nstarlette/testclient.py:235: in send\r\n    loop.run_until_complete(self.app(scope, receive, send))\r\n/usr/lib/python3.7/asyncio/base_events.py:584: in run_until_complete\r\n    return future.result()\r\nstarlette/applications.py:134: in __call__\r\n    await self.error_middleware(scope, receive, send)\r\nstarlette/middleware/errors.py:122: in __call__\r\n    raise exc from None\r\nstarlette/middleware/errors.py:100: in __call__\r\n    await self.app(scope, receive, _send)\r\nstarlette/middleware/base.py:25: in __call__\r\n    response = await self.dispatch_func(request, self.call_next)\r\ntests/test_templates.py:21: in noop\r\n    response = await call_next(request)\r\nstarlette/middleware/base.py:47: in call_next\r\n    assert message[\"type\"] == \"http.response.start\"\r\nE   AssertionError\r\n```\r\n`message` is `{'type': 'http.response.template', 'template': <Template 'index.html'>, 'context': {'request': <starlette.requests.Request object at 0x7ff4a2d21e48>}}` there.\r\n\r\nThis appears to be an issue with the test client only though.\r\nDo I understand it correctly that the \"http.response.template\" extension is only used with tests?",
+    "body_last_edited_at": null,
+    "closed_at": "2023-02-06T05:31:51Z",
+    "created_at": "2019-04-09T01:12:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/472",
+    "labels": [
+      "bug",
+      "testclient",
+      "help wanted"
+    ],
+    "number": 472,
+    "state": "closed",
+    "title": "AssertionError with middleware and TemplateResponse",
+    "user": "blueyed"
+  },
+  "pull_request": {
+    "closed_at": "2023-02-06T05:31:49Z",
+    "created_at": "2022-12-30T14:20:42Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1991",
+    "merge_commit_sha": "ca1711fab7653c53ce9275a89233508c70396ae1",
+    "merged_at": "2023-02-06T05:31:49Z",
+    "number": 1991,
+    "title": "Support Debug extension",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+    "committed_at": "2022-12-29T14:41:41Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/008e3a51c512c7d7321e5ab044e883a6400c633d"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-04-09T11:56:10Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "765c38f221af76254acf1f0b2b42360e76c496a4",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/765c38f221af76254acf1f0b2b42360e76c496a4",
+      "created_at": "2019-04-09T13:43:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-04-09T13:43:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/473",
+          "number": 473,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/473"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix http.response.template being used with BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2019-04-09T13:44:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-09T13:47:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T15:41:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-25T00:07:58Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "cbd8cf033689450bf16bddee6576ac75b282be08",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/cbd8cf033689450bf16bddee6576ac75b282be08",
+      "created_at": "2019-04-25T00:16:27Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-05-09T11:28:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/atviriduomenys/spinta/pull/22",
+          "number": 22,
+          "pull_request": {
+            "merged_at": "2019-05-10T04:48:38Z",
+            "url": "https://api.github.com/repos/atviriduomenys/spinta/pulls/22"
+          },
+          "repository": {
+            "full_name": "atviriduomenys/spinta"
+          },
+          "title": "Remove context block"
+        }
+      }
+    },
+    {
+      "commit_id": "27513fe819bed35909dc8cec1ca71a3dda7f04e0",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/27513fe819bed35909dc8cec1ca71a3dda7f04e0",
+      "created_at": "2019-05-13T14:38:24Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "c9b04bade53d5653138a0e43f63b4928d2033ad3",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/c9b04bade53d5653138a0e43f63b4928d2033ad3",
+      "created_at": "2019-05-13T14:38:24Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "958d796eb8d5fce64c5ea3d343eb84c11b5ac910",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/958d796eb8d5fce64c5ea3d343eb84c11b5ac910",
+      "created_at": "2019-05-13T14:41:17Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-09T00:03:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-20T12:48:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/806",
+          "number": 806,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "starlette.TestClient with Jinja2Templates and middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-30T20:43:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/883",
+          "number": 883,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Jinja2Templates, TestClient and middleware are incompatible"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-11T11:25:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T05:02:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-26T21:48:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-16T14:51:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NCAR/xdevbot/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2020-07-16T15:07:14Z",
+            "url": "https://api.github.com/repos/NCAR/xdevbot/pulls/7"
+          },
+          "repository": {
+            "full_name": "NCAR/xdevbot"
+          },
+          "title": "Restructuring"
+        }
+      }
+    },
+    {
+      "created_at": "2020-07-17T12:07:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/414",
+          "number": 414,
+          "pull_request": {
+            "merged_at": "2020-07-17T12:54:48Z",
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/414"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Fix /vMAJOR/info in index server"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-18T19:17:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1472",
+          "number": 1472,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "middleware: assert message[\"type\"] == \"http.response.start\""
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-15T09:40:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-06T10:49:32Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "663d0321e48160893d96f4b39eecbf7d811d388d",
+      "commit_url": "https://api.github.com/repos/moriyoshi/starlette/commits/663d0321e48160893d96f4b39eecbf7d811d388d",
+      "created_at": "2020-10-12T01:28:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-10-12T01:28:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1071",
+          "number": 1071,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1071"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix #472 (AssertionError with middleware and TemplateResponse)"
+        }
+      }
+    },
+    {
+      "commit_id": "9396504a1cda89ac65c1e4a05c54d7f37d2cca99",
+      "commit_url": "https://api.github.com/repos/moriyoshi/starlette/commits/9396504a1cda89ac65c1e4a05c54d7f37d2cca99",
+      "created_at": "2020-10-12T03:03:51Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "84c372e65832beec1bdc07746cbe01b892c42b7f",
+      "commit_url": "https://api.github.com/repos/moriyoshi/starlette/commits/84c372e65832beec1bdc07746cbe01b892c42b7f",
+      "created_at": "2020-10-12T03:09:46Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "06020b9498ce7d0082247c0878bc19712b248277",
+      "commit_url": "https://api.github.com/repos/moriyoshi/starlette/commits/06020b9498ce7d0082247c0878bc19712b248277",
+      "created_at": "2020-10-15T02:06:12Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "9729f2fc235150a0db650aa0126e22d5d3880016",
+      "commit_url": "https://api.github.com/repos/moriyoshi/starlette/commits/9729f2fc235150a0db650aa0126e22d5d3880016",
+      "created_at": "2020-10-15T02:21:34Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-11-24T06:20:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1099",
+          "number": 1099,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing content-length header field in some responses"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-18T23:09:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/555",
+          "number": 555,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Check if the request context is available"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-25T14:22:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Materials-Consortia/optimade-python-tools/pull/752",
+          "number": 752,
+          "pull_request": {
+            "merged_at": "2021-03-25T17:43:02Z",
+            "url": "https://api.github.com/repos/Materials-Consortia/optimade-python-tools/pulls/752"
+          },
+          "repository": {
+            "full_name": "Materials-Consortia/optimade-python-tools"
+          },
+          "title": "Fix CheckWronglyVersionedBaseUrls middleware (for landing pages)"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-11T11:43:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amorey/starlette-wtf/issues/6",
+          "number": 6,
+          "pull_request": {},
+          "repository": {
+            "full_name": "amorey/starlette-wtf"
+          },
+          "title": "enabled=False flag on CSRFProtectMiddleware doesn't appear to work"
+        }
+      }
+    },
+    {
+      "commit_id": "b71aba2ae7ff7180675bc8aa91c1943b0ed84e5d",
+      "commit_url": "https://api.github.com/repos/atviriduomenys/spinta/commits/b71aba2ae7ff7180675bc8aa91c1943b0ed84e5d",
+      "created_at": "2022-02-28T10:43:58Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-06-09T13:24:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/tifeatures/pull/11",
+          "number": 11,
+          "pull_request": {
+            "merged_at": "2022-06-13T15:24:14Z",
+            "url": "https://api.github.com/repos/developmentseed/tifeatures/pulls/11"
+          },
+          "repository": {
+            "full_name": "developmentseed/tifeatures"
+          },
+          "title": "allow custom template location"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-24T13:38:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-24T14:40:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1820",
+          "number": 1820,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1820"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "put template in scope to avoid assertion errors in other middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-16T19:06:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-17T08:41:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-17T08:41:36Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-12-17T08:41:36Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-12-17T08:41:36Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-12-27T08:36:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/django/asgiref/issues/135",
+          "number": 135,
+          "pull_request": {},
+          "repository": {
+            "full_name": "django/asgiref"
+          },
+          "title": "Proposal: \"http.response.template\" extension."
+        }
+      }
+    },
+    {
+      "created_at": "2022-12-30T13:28:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-30T14:20:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1991",
+          "number": 1991,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:31:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1991"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support Debug extension"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-05T20:58:36Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-06T05:31:51Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-08-29T12:05:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-29T12:05:41Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-29T12:05:41Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-08-29T12:06:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-29T12:07:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-29T12:09:52Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-08-29T12:10:41Z",
+      "event": "commented"
+    }
+  ]
+}

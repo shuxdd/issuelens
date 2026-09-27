@@ -1,0 +1,438 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-07-09T20:40:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ecb0a6df32573a9791d622a637c48fff56a9b231",
+      "sha": "ecb0a6df32573a9791d622a637c48fff56a9b231"
+    },
+    {
+      "committed_at": "2022-07-09T20:50:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f8228a152602b7afb63fdf26a5cdb6c07fb0e70d",
+      "sha": "f8228a152602b7afb63fdf26a5cdb6c07fb0e70d"
+    },
+    {
+      "committed_at": "2022-07-09T22:24:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5e3492f16b9fe55a346399cf2db3bdd1b9fb58c7",
+      "sha": "5e3492f16b9fe55a346399cf2db3bdd1b9fb58c7"
+    },
+    {
+      "committed_at": "2022-07-09T22:43:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/69da9511949580f2bcc3198275669fa8f0c88c2e",
+      "sha": "69da9511949580f2bcc3198275669fa8f0c88c2e"
+    },
+    {
+      "committed_at": "2022-07-10T06:07:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/48662486806cd60dc16bee7d5d9f8531ac8ca7a8",
+      "sha": "48662486806cd60dc16bee7d5d9f8531ac8ca7a8"
+    },
+    {
+      "committed_at": "2022-07-10T10:11:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b6571ef4c66873fda91abc9cbdec6f0e74379697",
+      "sha": "b6571ef4c66873fda91abc9cbdec6f0e74379697"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-07-09T20:48:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1747",
+          "number": 1747,
+          "pull_request": {
+            "merged_at": "2022-07-10T12:23:40Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1747"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Explain 'TestClient(app) as client' vs 'client = TestClient(app)' (#1\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-01T06:39:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntooAJ/mpi-app/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-04-01T06:47:03Z",
+            "url": "https://api.github.com/repos/AntooAJ/mpi-app/pulls/21"
+          },
+          "repository": {
+            "full_name": "AntooAJ/mpi-app"
+          },
+          "title": "QA: Added infrastructure and database integration tests "
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-05T20:30:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tilesprivacy/tiles/pull/121",
+          "number": 121,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tilesprivacy/tiles/pulls/121"
+          },
+          "repository": {
+            "full_name": "tilesprivacy/tiles"
+          },
+          "title": "server: OpenAI API and llama.cpp Web UI compatibility"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-13T02:42:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SiliconSaga/ting/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-05-13T18:14:02Z",
+            "url": "https://api.github.com/repos/SiliconSaga/ting/pulls/1"
+          },
+          "repository": {
+            "full_name": "SiliconSaga/ting"
+          },
+          "title": "feat: initial ting build \u2014 survey site, k8s, CI, docs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T19:58:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhyansraj/mcp-mesh/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2026-05-17T20:25:25Z",
+            "url": "https://api.github.com/repos/dhyansraj/mcp-mesh/pulls/1038"
+          },
+          "repository": {
+            "full_name": "dhyansraj/mcp-mesh"
+          },
+          "title": "docs+test: SSE gateway shapes \u2014 body parsing inside async-gen deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-06T13:00:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LoonyBin/loony-dev/pull/140",
+          "number": 140,
+          "pull_request": {
+            "merged_at": "2026-06-07T05:03:08Z",
+            "url": "https://api.github.com/repos/LoonyBin/loony-dev/pulls/140"
+          },
+          "repository": {
+            "full_name": "LoonyBin/loony-dev"
+          },
+          "title": "Web dashboard: install/update skills and slash commands remotely (#133)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-26T10:09:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rishabh0510rishabh/EnvForage/pull/1087",
+          "number": 1087,
+          "pull_request": {
+            "merged_at": "2026-07-08T14:33:29Z",
+            "url": "https://api.github.com/repos/rishabh0510rishabh/EnvForage/pulls/1087"
+          },
+          "repository": {
+            "full_name": "rishabh0510rishabh/EnvForage"
+          },
+          "title": "feat(backend): implement pagination for GET /api/v1/webhooks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T14:37:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Katsiarynakavaleuskaya/PulsePlate/pull/2170",
+          "number": 2170,
+          "pull_request": {
+            "merged_at": "2026-07-24T09:31:37Z",
+            "url": "https://api.github.com/repos/Katsiarynakavaleuskaya/PulsePlate/pulls/2170"
+          },
+          "repository": {
+            "full_name": "Katsiarynakavaleuskaya/PulsePlate"
+          },
+          "title": "refactor(nutrition): canonicalize PRO Plate ownership"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-04T04:25:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ariada-org/ariada/pull/283",
+          "number": 283,
+          "pull_request": {
+            "merged_at": "2026-08-04T04:30:31Z",
+            "url": "https://api.github.com/repos/ariada-org/ariada/pulls/283"
+          },
+          "repository": {
+            "full_name": "ariada-org/ariada"
+          },
+          "title": "ci: release pipeline staging checks"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b6571ef4c66873fda91abc9cbdec6f0e74379697/docs%2Ftestclient.md",
+      "changes": 7,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "f64c570bb7b117a9eecb78b9ac934122a8143936",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Add a note on the `TestClient` section about the behavior difference between those two ways, i.e. lifespan events.\r\n\r\nConsidering the follow application:\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\nfrom starlette.testclient import TestClient\r\n\r\n\r\nasync def startup() -> None:\r\n    print(\"Startup event!\")\r\n\r\nasync def endpoint(request: Request) -> Response:\r\n    return Response(status_code=204)\r\n\r\napp = Starlette(routes=[Route(\"/\", endpoint)], on_startup=[startup])\r\n```\r\n\r\nThe following `TestClient` prints \"Startup event!\":\r\n```python\r\nwith TestClient(app) as client:\r\n    ...\r\n```\r\n\r\nBut the following, doesn't:\r\n```python\r\nclient = TestClient(app)\r\n```",
+    "closed_at": "2022-07-10T12:24:08Z",
+    "created_at": "2022-07-04T05:45:20Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1733",
+    "labels": [
+      "documentation",
+      "good first issue"
+    ],
+    "number": 1733,
+    "state": "closed",
+    "title": "Mention the difference between `with TestClient(app) as client` and `client = TestClient(app)`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-07-10T12:23:40Z",
+    "created_at": "2022-07-09T20:48:47Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1747",
+    "merge_commit_sha": "643c3f20e385341a37c851a1d12ff3c33762c300",
+    "merged_at": "2022-07-10T12:23:40Z",
+    "number": 1747,
+    "title": "Explain 'TestClient(app) as client' vs 'client = TestClient(app)' (#1\u2026",
+    "user": "rednafi"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-07-04T05:45:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-07-04T05:45:20Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-07-04T05:49:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-04T06:03:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-04T06:15:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-04T06:18:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-09T20:48:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1747",
+          "number": 1747,
+          "pull_request": {
+            "merged_at": "2022-07-10T12:23:40Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1747"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Explain 'TestClient(app) as client' vs 'client = TestClient(app)' (#1\u2026"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-09T20:54:00Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "643c3f20e385341a37c851a1d12ff3c33762c300",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/643c3f20e385341a37c851a1d12ff3c33762c300",
+      "created_at": "2022-07-10T12:23:43Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-07-10T12:24:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-10T12:24:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-04-01T06:39:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/AntooAJ/mpi-app/pull/21",
+          "number": 21,
+          "pull_request": {
+            "merged_at": "2026-04-01T06:47:03Z",
+            "url": "https://api.github.com/repos/AntooAJ/mpi-app/pulls/21"
+          },
+          "repository": {
+            "full_name": "AntooAJ/mpi-app"
+          },
+          "title": "QA: Added infrastructure and database integration tests "
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-05T20:30:35Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tilesprivacy/tiles/pull/121",
+          "number": 121,
+          "pull_request": {
+            "url": "https://api.github.com/repos/tilesprivacy/tiles/pulls/121"
+          },
+          "repository": {
+            "full_name": "tilesprivacy/tiles"
+          },
+          "title": "server: OpenAI API and llama.cpp Web UI compatibility"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-13T02:42:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/SiliconSaga/ting/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-05-13T18:14:02Z",
+            "url": "https://api.github.com/repos/SiliconSaga/ting/pulls/1"
+          },
+          "repository": {
+            "full_name": "SiliconSaga/ting"
+          },
+          "title": "feat: initial ting build \u2014 survey site, k8s, CI, docs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T19:58:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhyansraj/mcp-mesh/pull/1038",
+          "number": 1038,
+          "pull_request": {
+            "merged_at": "2026-05-17T20:25:25Z",
+            "url": "https://api.github.com/repos/dhyansraj/mcp-mesh/pulls/1038"
+          },
+          "repository": {
+            "full_name": "dhyansraj/mcp-mesh"
+          },
+          "title": "docs+test: SSE gateway shapes \u2014 body parsing inside async-gen deadlocks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-06T13:00:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LoonyBin/loony-dev/pull/140",
+          "number": 140,
+          "pull_request": {
+            "merged_at": "2026-06-07T05:03:08Z",
+            "url": "https://api.github.com/repos/LoonyBin/loony-dev/pulls/140"
+          },
+          "repository": {
+            "full_name": "LoonyBin/loony-dev"
+          },
+          "title": "Web dashboard: install/update skills and slash commands remotely (#133)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-26T10:09:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rishabh0510rishabh/EnvForage/pull/1087",
+          "number": 1087,
+          "pull_request": {
+            "merged_at": "2026-07-08T14:33:29Z",
+            "url": "https://api.github.com/repos/rishabh0510rishabh/EnvForage/pulls/1087"
+          },
+          "repository": {
+            "full_name": "rishabh0510rishabh/EnvForage"
+          },
+          "title": "feat(backend): implement pagination for GET /api/v1/webhooks"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-21T14:37:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Katsiarynakavaleuskaya/PulsePlate/pull/2170",
+          "number": 2170,
+          "pull_request": {
+            "merged_at": "2026-07-24T09:31:37Z",
+            "url": "https://api.github.com/repos/Katsiarynakavaleuskaya/PulsePlate/pulls/2170"
+          },
+          "repository": {
+            "full_name": "Katsiarynakavaleuskaya/PulsePlate"
+          },
+          "title": "refactor(nutrition): canonicalize PRO Plate ownership"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-04T04:25:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ariada-org/ariada/pull/283",
+          "number": 283,
+          "pull_request": {
+            "merged_at": "2026-08-04T04:30:31Z",
+            "url": "https://api.github.com/repos/ariada-org/ariada/pulls/283"
+          },
+          "repository": {
+            "full_name": "ariada-org/ariada"
+          },
+          "title": "ci: release pipeline staging checks"
+        }
+      }
+    }
+  ]
+}

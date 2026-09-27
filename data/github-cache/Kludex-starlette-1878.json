@@ -1,0 +1,319 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-10-08T16:00:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6b988391f5d89fc5d32239ce54ad4300bffbc194",
+      "sha": "6b988391f5d89fc5d32239ce54ad4300bffbc194"
+    },
+    {
+      "committed_at": "2022-10-08T16:56:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/563cb0511b2059357e9035cbe101e1df18578398",
+      "sha": "563cb0511b2059357e9035cbe101e1df18578398"
+    },
+    {
+      "committed_at": "2022-10-13T09:31:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c66ca2403833fda4420be12923155478e5ea69ab",
+      "sha": "c66ca2403833fda4420be12923155478e5ea69ab"
+    },
+    {
+      "committed_at": "2022-10-13T09:37:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8af9d4621b9387c4deed42024a75b922b12ab261",
+      "sha": "8af9d4621b9387c4deed42024a75b922b12ab261"
+    },
+    {
+      "committed_at": "2022-10-13T09:41:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f9881ba8df303897b69ef97afd8da0d58d40fb84",
+      "sha": "f9881ba8df303897b69ef97afd8da0d58d40fb84"
+    },
+    {
+      "committed_at": "2022-10-20T00:26:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5bf86d5c8b3b6fd1ec3df5f77de7b75892b1f996",
+      "sha": "5bf86d5c8b3b6fd1ec3df5f77de7b75892b1f996"
+    },
+    {
+      "committed_at": "2022-10-20T00:37:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1303802217fd5c0761800da8807fd4d0c034bd3c",
+      "sha": "1303802217fd5c0761800da8807fd4d0c034bd3c"
+    },
+    {
+      "committed_at": "2022-10-21T14:14:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/432358a4542ec99a4a0b00705b20f49228b1b5fa",
+      "sha": "432358a4542ec99a4a0b00705b20f49228b1b5fa"
+    },
+    {
+      "committed_at": "2022-11-01T15:02:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d7859be97b3466b75f519ecaa261af42d1590205",
+      "sha": "d7859be97b3466b75f519ecaa261af42d1590205"
+    },
+    {
+      "committed_at": "2022-11-02T23:52:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/af7d3cc3609c22acecb673e37fc92be6baabfd0c",
+      "sha": "af7d3cc3609c22acecb673e37fc92be6baabfd0c"
+    },
+    {
+      "committed_at": "2022-11-07T00:44:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/caed475bdf1d49e1525f1cd6400726a1b88df68c",
+      "sha": "caed475bdf1d49e1525f1cd6400726a1b88df68c"
+    },
+    {
+      "committed_at": "2022-12-12T07:02:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b8e793183e83759a659436968bed4f357fd4b03d",
+      "sha": "b8e793183e83759a659436968bed4f357fd4b03d"
+    },
+    {
+      "committed_at": "2022-12-17T09:57:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0433643faaef3066ed5abd5ad4be383f616037cc",
+      "sha": "0433643faaef3066ed5abd5ad4be383f616037cc"
+    },
+    {
+      "committed_at": "2023-02-04T08:38:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/09447b7afd5908fca25c2a38daa97ab6c42ac1df",
+      "sha": "09447b7afd5908fca25c2a38daa97ab6c42ac1df"
+    },
+    {
+      "committed_at": "2023-02-04T08:59:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6db2870a8a54a45bd7e58fb3474c3793a81dabf3",
+      "sha": "6db2870a8a54a45bd7e58fb3474c3793a81dabf3"
+    },
+    {
+      "committed_at": "2023-02-04T09:00:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7eacc8588a38089aa056b77d48d90e0b2765bfb0",
+      "sha": "7eacc8588a38089aa056b77d48d90e0b2765bfb0"
+    },
+    {
+      "committed_at": "2023-02-04T09:01:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d6b28a7f59a5953cd914aa7a09de0bde4d3459a1",
+      "sha": "d6b28a7f59a5953cd914aa7a09de0bde4d3459a1"
+    },
+    {
+      "committed_at": "2023-02-04T09:22:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d5199ac12dc100416d34c9633ec6d1bc847c94f2",
+      "sha": "d5199ac12dc100416d34c9633ec6d1bc847c94f2"
+    },
+    {
+      "committed_at": "2023-02-04T17:47:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2fda4aaba1d55bb490b00951873a7940afb73d14",
+      "sha": "2fda4aaba1d55bb490b00951873a7940afb73d14"
+    },
+    {
+      "committed_at": "2023-02-06T05:27:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/da8faba4f1b7a499c046bcff0e92744e25dc800a",
+      "sha": "da8faba4f1b7a499c046bcff0e92744e25dc800a"
+    },
+    {
+      "committed_at": "2023-02-06T05:30:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/65ccf47f1be2c1e600ffaadb461b7857b1488499",
+      "sha": "65ccf47f1be2c1e600ffaadb461b7857b1488499"
+    },
+    {
+      "committed_at": "2023-02-06T05:41:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/727f9dc0cf187a48cc7c8b005ffe7a051be6189e",
+      "sha": "727f9dc0cf187a48cc7c8b005ffe7a051be6189e"
+    },
+    {
+      "committed_at": "2023-02-06T05:43:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b2b6f913732fa8ee64b375c3b5239976a6abb13a",
+      "sha": "b2b6f913732fa8ee64b375c3b5239976a6abb13a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-10-08T17:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1908",
+          "number": 1908,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:45:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1908"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support `str` and `datetime` on `expires` parameter on the `set_cookie` method"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/docs%2Fresponses.md",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "docs/responses.md",
+      "sha": "41a87797d7b26786a7ed7937f4893698a5679c21",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/starlette%2Fresponses.py",
+      "changes": 10,
+      "deletions": 3,
+      "filename": "starlette/responses.py",
+      "sha": "453bbb158eb60c63701f5c683546513c93ca8e27",
+      "status": "modified"
+    },
+    {
+      "additions": 39,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/tests%2Ftest_responses.py",
+      "changes": 40,
+      "deletions": 1,
+      "filename": "tests/test_responses.py",
+      "sha": "1117173846aeb49a80e206fead5b44f834fe7c4e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I think the type for \r\nhttps://github.com/encode/starlette/blob/55b0cbd045269a28a3f1b18f32ae3cb47226ab65/starlette/responses.py#L108\r\n\r\nThis should be a date according to https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie \r\n\r\nSo I think a better type is `Optional[str]` , or Optional[str | datetime] and provide the right formatting.",
+    "body_last_edited_at": null,
+    "closed_at": "2023-02-06T05:45:32Z",
+    "created_at": "2022-09-30T13:02:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1878",
+    "labels": [
+      "feature",
+      "typing",
+      "refactor",
+      "good first issue"
+    ],
+    "number": 1878,
+    "state": "closed",
+    "title": "Wrong typing for expires in set_cookie",
+    "user": "maartenbreddels"
+  },
+  "pull_request": {
+    "closed_at": "2023-02-06T05:45:31Z",
+    "created_at": "2022-10-08T17:07:32Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1908",
+    "merge_commit_sha": "0a63a6e586ababc932d57e7751187d4ff2d7ca18",
+    "merged_at": "2023-02-06T05:45:31Z",
+    "number": 1908,
+    "title": "Support `str` and `datetime` on `expires` parameter on the `set_cookie` method",
+    "user": "oskipa"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+    "committed_at": "2022-10-08T09:30:42Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/212fa46b23be0701a5963cdeff14f05ed352e22a"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-09-30T13:04:57Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "34596664c76e7b1dd292f5f0e88ee736300070c2",
+      "commit_url": "https://api.github.com/repos/widgetti/solara/commits/34596664c76e7b1dd292f5f0e88ee736300070c2",
+      "created_at": "2022-09-30T13:48:23Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-09-30T19:13:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-30T19:27:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-30T19:51:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-09-30T19:51:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-09-30T19:51:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-09-30T19:51:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-10-03T07:05:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-03T09:16:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-04T18:17:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-05T19:17:32Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-10-08T17:07:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1908",
+          "number": 1908,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:45:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1908"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support `str` and `datetime` on `expires` parameter on the `set_cookie` method"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-08T17:21:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-08T17:21:19Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-10-08T17:21:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-10-11T08:52:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-11T11:22:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-11T17:07:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-22T07:22:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-22T07:22:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-10-22T07:22:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-10-22T09:40:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-24T06:43:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-06T05:45:33Z",
+      "event": "closed"
+    }
+  ]
+}

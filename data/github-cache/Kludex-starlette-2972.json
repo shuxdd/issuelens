@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello, \n\nI have my uvicorn server running my FastAPI application.\n\nI have an endpoint which has an asynchronous background task. I observed that running the background task in the main event loop of uvicorn cause the event loop to be blocked while waiting for the background task to finish. \n\nOne solution i implemented is to consistently run the background task in a dedicated thread.\n\nhttps://github.com/encode/starlette/blob/6ee94f2cac955eeae68d2898a8dec8cf17b48736/starlette/background.py#L27",
+    "closed_at": "2025-08-04T12:49:51Z",
+    "created_at": "2025-08-04T12:44:10Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2972",
+    "number": 2972,
+    "state": "closed",
+    "title": "Async background task block main event loop",
+    "user": "benjamin-callonnec"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-08-04T12:49:50Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2025-08-04T12:49:51Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

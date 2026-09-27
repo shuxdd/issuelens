@@ -1,0 +1,63 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-01-19T20:09:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/328",
+          "number": 328,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/328"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Check route.methods to generate schema for class endpoints"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "In `BaseSchemaGenerator.get_endpoints`, when the endpoint being inspected is an endpoint class, an `EndpointInfo` is generated for any method of that class matching an http method name, even if the route also specifies the set allowed methods. \r\nExample:\r\n```\r\napp.route(\"/endpoint\", methods=[\"POST\"])\r\nclass Endpoint(HTTPEndpoint):\r\n    def post(self, req):\r\n        \"\"\"\r\n        ...\r\n        \"\"\"\r\n        ...\r\n    def get(self):\r\n        \"\"\"\r\n        ...\r\n        \"\"\"\r\n        ...\r\n```\r\nThe schema generated will include both methods for the `/endpoint` path, even if only `POST` is allowed for the route. I don't think this is valid behavior.\r\n\r\nConsider my situation, where I want to create two different routes using the same endpoint class, but with different allowed methods:\r\n```\r\n@app.route(\"/users\", methods=[\"POST\"])\r\n@app.route(\"/users/{username}\", methods=[\"DELETE\"])\r\nclass Users(endpoints.HTTPEndpoint):\r\n    def delete(self, req, username):\r\n        \"\"\"\r\n        ...\r\n        \"\"\"\r\n        ...\r\n    def post(self, req):\r\n        \"\"\"\r\n        ...\r\n        \"\"\"\r\n        ...\r\n```\r\nI don't know if this would be considered good practice or appropriate usage of starlette. If so, the generated schema will erroneously include entries for both methods on both paths(`/users` and `/users/{username}`).\r\n\r\nI think the fix simply involves checking the `route.methods` attribute to generate `EndpointInfo` in `BaseSchemaGenerator.get_endpoints`:\r\nhttps://github.com/encode/starlette/blob/2f51a38266473a555b1a25633896c150090a1c4f/starlette/schemas.py#L61-L67\r\n``` \r\n                allowed_methods = route.methods if route.methods is not None else \\\r\n                  [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]\r\n                for method in allowed_methods:\r\n                    if not hasattr(route.endpoint, method):\r\n                        continue\r\n                    func = getattr(route.endpoint, method)\r\n                    endpoints_info.append(\r\n                        EndpointInfo(route.path, method.lower(), func)\r\n                    )\r\n```\r\n\r\nThanks for the great work!",
+    "closed_at": "2022-02-14T12:10:45Z",
+    "created_at": "2019-01-17T00:12:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/325",
+    "number": 325,
+    "state": "closed",
+    "title": "SchemaGenerator should consider route 'methods' for endpoint",
+    "user": "DrPyser"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-17T08:51:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-17T15:43:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-19T20:09:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/328",
+          "number": 328,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/328"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Check route.methods to generate schema for class endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-14T12:10:45Z",
+      "event": "commented"
+    }
+  ]
+}

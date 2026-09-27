@@ -1,0 +1,143 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-06-11T08:20:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7080792e738b4d1d2c52cd1223d2a9306f9689a1",
+      "sha": "7080792e738b4d1d2c52cd1223d2a9306f9689a1"
+    },
+    {
+      "committed_at": "2022-06-11T09:02:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/566b000c791c89436b609218cfc62240c2f1efd1",
+      "sha": "566b000c791c89436b609218cfc62240c2f1efd1"
+    },
+    {
+      "committed_at": "2022-06-18T07:40:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/236dd5cfed6fd0acce9a005eb5162a165df45d25",
+      "sha": "236dd5cfed6fd0acce9a005eb5162a165df45d25"
+    },
+    {
+      "committed_at": "2022-06-18T07:41:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5bc0d39a710cdda464cdb2b76c89ab5605758619",
+      "sha": "5bc0d39a710cdda464cdb2b76c89ab5605758619"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-06-11T08:22:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1686",
+          "number": 1686,
+          "pull_request": {
+            "merged_at": "2022-06-18T16:34:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1686"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add contributing docs"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 170,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bc0d39a710cdda464cdb2b76c89ab5605758619/docs%2Fcontributing.md",
+      "changes": 170,
+      "deletions": 0,
+      "filename": "docs/contributing.md",
+      "sha": "fcb88e5f1e848c5dfe332ecadf1a9bce75a5e085",
+      "status": "added"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bc0d39a710cdda464cdb2b76c89ab5605758619/docs%2Fimg%2Fgh-actions-fail-check.png",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "docs/img/gh-actions-fail-check.png",
+      "sha": "a1e69a661d3d9c7c6e0557de21f16e2272c9f3fb",
+      "status": "added"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bc0d39a710cdda464cdb2b76c89ab5605758619/docs%2Fimg%2Fgh-actions-fail-test.png",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "docs/img/gh-actions-fail-test.png",
+      "sha": "b02d3c062cfcd11def918c36d5d0e9506406804e",
+      "status": "added"
+    },
+    {
+      "additions": 0,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bc0d39a710cdda464cdb2b76c89ab5605758619/docs%2Fimg%2Fgh-actions-fail.png",
+      "changes": 0,
+      "deletions": 0,
+      "filename": "docs/img/gh-actions-fail.png",
+      "sha": "901d72b0ed73b0fe59819ce58d055c75946e6446",
+      "status": "added"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5bc0d39a710cdda464cdb2b76c89ab5605758619/mkdocs.yml",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "mkdocs.yml",
+      "sha": "26cc9b410671a1222d4b36ac632f31a31e7c1062",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Inspiration: https://www.python-httpx.org/contributing/\r\n\r\nIf people are positive about https://github.com/encode/starlette/discussions/1623, it should be a mention there.",
+    "closed_at": "2022-06-18T16:34:14Z",
+    "created_at": "2022-05-06T05:03:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1627",
+    "labels": [
+      "documentation"
+    ],
+    "number": 1627,
+    "state": "closed",
+    "title": "Add \"Contribution guidelines\" to the documentation",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-06-18T16:34:14Z",
+    "created_at": "2022-06-11T08:22:02Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1686",
+    "merge_commit_sha": "1225ae8404ed0ae0b9170fde1cf824ec3f9c0f2f",
+    "merged_at": "2022-06-18T16:34:14Z",
+    "number": 1686,
+    "title": "Add contributing docs",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-05-06T05:03:50Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-06-11T08:22:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1686",
+          "number": 1686,
+          "pull_request": {
+            "merged_at": "2022-06-18T16:34:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1686"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add contributing docs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-18T16:34:14Z",
+      "event": "closed"
+    }
+  ]
+}

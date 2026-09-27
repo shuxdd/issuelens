@@ -1,0 +1,233 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-10-13T09:11:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/imjoy-team/imjoy-engine/pull/235",
+          "number": 235,
+          "pull_request": {
+            "merged_at": "2021-10-13T09:26:22Z",
+            "url": "https://api.github.com/repos/imjoy-team/imjoy-engine/pulls/235"
+          },
+          "repository": {
+            "full_name": "imjoy-team/imjoy-engine"
+          },
+          "title": "Fix cors error for socketio"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T06:06:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/370",
+          "number": 370,
+          "pull_request": {
+            "merged_at": "2026-08-23T09:10:30Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/370"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "P2: /v1, a deprecation header, and a date on the 562 unversioned paths"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [ x] The bug is reproducible against the latest release and/or `master`.\r\n- [ x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nWhen using starlette (through FastAPI) CORSMiddleware with [python-socketio](https://github.com/miguelgrinberg/python-socketio) (another ASGI app mounted via app.mount()), I got multiple values for the access-control-allow-origin headers. This is  because both python socketio and the CORSMiddleware will inject CORS headers in different cases. In the response I see two duplicated headers:\r\n```\r\nAccess-Control-Allow-Origin: http://localhost:3000\r\naccess-control-allow-origin: http://localhost:3000\r\n```\r\n\r\nAnd the browser complain it as a CORS error.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n```python\r\nfrom fastapi import FastAPI\r\nimport socketio\r\n\r\nfrom fastapi.middleware.cors import CORSMiddleware\r\napp = FastAPI()\r\n\r\nsio = socketio.AsyncServer(async_mode=\"asgi\", cors_allowed_origins=\"http://localhost:3000\")\r\n\r\nsio_app = socketio.ASGIApp(socketio_server=sio)\r\n\r\napp.mount(\"/\", sio_app)\r\n\r\napp.add_middleware(\r\n        CORSMiddleware,\r\n        allow_origins= [\"http://localhost:3000\"],\r\n        allow_credentials=False,\r\n        allow_methods=[\"*\"],\r\n        allow_headers=[\"Content-Type\", \"Authorization\"],\r\n )\r\n```\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nThe CORSMiddleware should check existing headers in different cases and update them only if the headers in different cases not exists.\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nThe CORSMiddleware add the cors haders and result in multiple duplicated values.\r\n\r\n\r\n### Environment\r\n\r\n- OS: MacOS\r\n- Python version: 3.8.11\r\n- Starlette version: 0.14.2\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n",
+    "closed_at": "2022-01-30T15:02:30Z",
+    "created_at": "2021-10-12T11:33:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1309",
+    "number": 1309,
+    "state": "closed",
+    "title": "Multiple values for access-control-allow-origin",
+    "user": "oeway"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-12T17:04:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-12T17:45:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-12T18:48:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-13T09:11:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/imjoy-team/imjoy-engine/pull/235",
+          "number": 235,
+          "pull_request": {
+            "merged_at": "2021-10-13T09:26:22Z",
+            "url": "https://api.github.com/repos/imjoy-team/imjoy-engine/pulls/235"
+          },
+          "repository": {
+            "full_name": "imjoy-team/imjoy-engine"
+          },
+          "title": "Fix cors error for socketio"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-19T14:10:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-19T14:10:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-10-19T14:42:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-19T14:42:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-19T14:42:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-19T14:47:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-19T14:47:29Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2021-10-19T14:47:29Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-19T14:47:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-28T14:58:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T15:13:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T15:42:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T16:03:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T16:11:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-28T00:06:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-28T00:06:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-28T00:06:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-28T21:51:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-22T11:18:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T15:02:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T15:02:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-01-21T08:37:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-21T08:42:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-21T08:44:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-21T08:45:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-21T09:07:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-21T09:15:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-22T20:24:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-23T14:02:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-05-01T16:53:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-05-01T16:53:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-05-01T16:53:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-05-30T07:36:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-23T06:06:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zborrman/Shadow-Warden-AI/pull/370",
+          "number": 370,
+          "pull_request": {
+            "merged_at": "2026-08-23T09:10:30Z",
+            "url": "https://api.github.com/repos/zborrman/Shadow-Warden-AI/pulls/370"
+          },
+          "repository": {
+            "full_name": "zborrman/Shadow-Warden-AI"
+          },
+          "title": "P2: /v1, a deprecation header, and a date on the 562 unversioned paths"
+        }
+      }
+    }
+  ]
+}

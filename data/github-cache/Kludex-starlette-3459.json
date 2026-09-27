@@ -1,0 +1,57 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-24T16:12:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marcinpsk/nso-adapter/pull/30",
+          "number": 30,
+          "pull_request": {
+            "merged_at": "2026-08-25T14:55:44Z",
+            "url": "https://api.github.com/repos/marcinpsk/nso-adapter/pulls/30"
+          },
+          "repository": {
+            "full_name": "marcinpsk/nso-adapter"
+          },
+          "title": "feat: deployment-generation and promotion foundation"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When a response has already started, exceptions raised afterwards (e.g. from a `BackgroundTask`) are supposed to be routed through the user's exception handler \u2014 the docs explicitly describe this path for background tasks. With a **class-keyed** handler (`exception_handlers={MyError: handler}`) this never happens: the original exception is replaced by\n\n```\nRuntimeError: Caught handled exception, but response already started.\n```\n\nand the registered handler is **never invoked**. The same setup works when the handler is keyed by status code `500` or by `Exception` \u2014 only exact class keys take the broken path.\n\n**Version:** starlette 1.6.0\n**Python:** 3.13.14\n\nThe [exceptions docs](https://www.starlette.io/exceptions/) say handled exceptions *\"are coerced into appropriate HTTP responses\"* and, regarding post-send failures:\n\n> In case a BackgroundTask raises an exception, it will be handled by the handle_error function, but at that point, the response was already sent.\n\n## Repro\n\n```python\nimport warnings\nwarnings.simplefilter(\"ignore\")\nfrom starlette.applications import Starlette\nfrom starlette.background import BackgroundTask\nfrom starlette.responses import PlainTextResponse\nfrom starlette.routing import Route\nfrom starlette.testclient import TestClient\n\ncalls = []\n\nclass Boom(Exception):\n    pass\n\ndef handler(request, exc):\n    calls.append(exc)\n    return PlainTextResponse(\"handled\", status_code=500)\n\nasync def homepage(request):\n    def fail():\n        raise Boom()\n    return PlainTextResponse(\"ok\", background=BackgroundTask(fail))\n\napp = Starlette(routes=[Route(\"/\", homepage)],\n                exception_handlers={Boom: handler})\n\nc = TestClient(app, raise_server_exceptions=False)\nr = c.get(\"/\")\nprint(r.status_code, r.text, \"handler invoked:\", bool(calls))\n# ACTUAL: 200 ok handler invoked: False   (error silently dropped)\n\nc2 = TestClient(app, raise_server_exceptions=True)\nc2.get(\"/\")\n# ACTUAL: RuntimeError: Caught handled exception, but response already started.\n```\n\nContrast (same app, same task): registering `{500: handler}` or `{Exception: handler}` **does** invoke the handler after send.\n\n## Analysis\n\nIn `_exception_handler.lookup_exception_handler`, class-keyed handlers are matched via exact-type lookup (`handlers.get(exc_cls)`), while `Exception`-keyed ones go through the `isinstance` walk in `wrap_app_handling_exceptions`. For an already-started response, `wrap_app_handling_exceptions` raises `RuntimeError(\"Caught handled exception, but response already started\")` *before* consulting whether a specific handler exists \u2014 and in the silent variant (`raise_server_exceptions=False`, TestClient/uvicorn default) that `RuntimeError` swallows the original exception entirely, so neither the handler runs nor does anyone see what actually failed.\n\nExpected: if a handler exists for the concrete exception type, it should be looked up and invoked (its response discarded per docs), as happens for the generic keys; otherwise at minimum the original exception should not be masked.\n\nI'm happy to submit a fix PR \u2014 the lookup would need to happen before the \"response already started\" bail-out in `wrap_app_handling_exceptions`.\n",
+    "closed_at": "2026-08-23T13:37:04Z",
+    "created_at": "2026-08-23T02:58:46Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3459",
+    "number": 3459,
+    "state": "closed",
+    "title": "Class-keyed exception handler never invoked for post-send exceptions; original error masked by RuntimeError",
+    "user": "Mukller"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-08-23T13:37:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-08-24T16:12:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marcinpsk/nso-adapter/pull/30",
+          "number": 30,
+          "pull_request": {
+            "merged_at": "2026-08-25T14:55:44Z",
+            "url": "https://api.github.com/repos/marcinpsk/nso-adapter/pulls/30"
+          },
+          "repository": {
+            "full_name": "marcinpsk/nso-adapter"
+          },
+          "title": "feat: deployment-generation and promotion foundation"
+        }
+      }
+    }
+  ]
+}

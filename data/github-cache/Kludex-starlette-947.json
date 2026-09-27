@@ -1,0 +1,288 @@
+{
+  "commits": [
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/eb82d1c24b72a4e2e52d853234095f2eef1372e4",
+      "sha": "eb82d1c24b72a4e2e52d853234095f2eef1372e4"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9d4775722ecece6456b0194a2c3c0fccf556be00",
+      "sha": "9d4775722ecece6456b0194a2c3c0fccf556be00"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c8182f137db08aed7f896d897c4ce569579d6fe3",
+      "sha": "c8182f137db08aed7f896d897c4ce569579d6fe3"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e6b79a9d63d4d122ba2bc6cecf593f8a3eaf77d4",
+      "sha": "e6b79a9d63d4d122ba2bc6cecf593f8a3eaf77d4"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8e014b967a6c3c2b153cc453ae0cf677b9938e87",
+      "sha": "8e014b967a6c3c2b153cc453ae0cf677b9938e87"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ed5a3932fe7da35327548aab709af740601ff73b",
+      "sha": "ed5a3932fe7da35327548aab709af740601ff73b"
+    },
+    {
+      "committed_at": "2024-01-20T13:53:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8f78e7a4597f2d1780a8526fc1cd626af3d41a65",
+      "sha": "8f78e7a4597f2d1780a8526fc1cd626af3d41a65"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-05-16T19:31:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/948",
+          "number": 948,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/948"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background Thread created by WebSocketTestSession should exit when close() is called"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T10:35:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1050",
+          "number": 1050,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix Unraisable ResourceWarnings"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-04T19:24:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1140",
+          "number": 1140,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1140"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added timeout to WebSocketTestSession.receive() methods"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-17T21:29:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2425",
+          "number": 2425,
+          "pull_request": {
+            "merged_at": "2024-01-20T15:08:23Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2425"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise `WebSocketDisconnect` when `WebSocket.send()` excepts `IOError`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-19T20:38:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2427",
+          "number": 2427,
+          "pull_request": {
+            "merged_at": "2024-01-20T13:59:48Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2427"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cancel `WebSocketTestSession` on close"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 59,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/starlette%2Ftestclient.py",
+      "changes": 95,
+      "deletions": 36,
+      "filename": "starlette/testclient.py",
+      "sha": "2cccb15d13a9609a9dbbf058cce420cf676b513f",
+      "status": "modified"
+    },
+    {
+      "additions": 51,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/tests%2Ftest_testclient.py",
+      "changes": 84,
+      "deletions": 33,
+      "filename": "tests/test_testclient.py",
+      "sha": "eeccf25a7f029fb96665ccde41c93cac4afaf8e5",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hello!\r\n\r\nI've been trying to write tests for a starlette websocket API. \r\n\r\nOnly one problem - the server isn't written in a way to exit nicely when a websocket is closed. \r\nAs a result, the tests just sit there, because `websocket_connect()` won't exit until the server does.\r\n\r\nBy looking at the source, I figured that `WebSocketTestSession` is waiting for the session thread (`_run()`) to complete.\r\n\r\nCan we please make it so that it stops the server when `close()` is called?\r\n\r\n---\r\n\r\nI've cobbled together a small [commit](https://github.com/devxpy/starlette/commit/41907e863220b8b34f6bcc0d8f3a8d1241ded8eb) to make this work. If you're on board with this change, I'd love to upstream this.\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/947\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/947/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/947/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:15Z",
+    "closed_at": "2024-01-20T13:59:49Z",
+    "created_at": "2020-05-16T18:38:08Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/947",
+    "labels": [
+      "websocket",
+      "need confirmation"
+    ],
+    "number": 947,
+    "state": "closed",
+    "title": "Background Thread created by WebSocketTestSession should exit when close() is called",
+    "user": "devxpy"
+  },
+  "pull_request": {
+    "closed_at": "2024-01-20T13:59:48Z",
+    "created_at": "2024-01-19T20:34:24Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2427",
+    "merge_commit_sha": "3ae161ed8f94a1e4871c4aa11581868065b175b5",
+    "merged_at": "2024-01-20T13:59:48Z",
+    "number": 2427,
+    "title": "Cancel `WebSocketTestSession` on close",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+    "committed_at": "2024-01-13T11:02:01Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/363e4fb1940f0eb6e290755fddd7ea6666ce18ae"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-05-16T19:31:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/948",
+          "number": 948,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/948"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Background Thread created by WebSocketTestSession should exit when close() is called"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T10:35:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1050",
+          "number": 1050,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix Unraisable ResourceWarnings"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:03:02Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-01-21T20:11:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-01-21T20:11:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-16T05:18:40Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-04T19:24:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1140",
+          "number": 1140,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1140"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added timeout to WebSocketTestSession.receive() methods"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-04T00:18:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-17T21:29:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2425",
+          "number": 2425,
+          "pull_request": {
+            "merged_at": "2024-01-20T15:08:23Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2425"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Raise `WebSocketDisconnect` when `WebSocket.send()` excepts `IOError`"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-19T20:38:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2427",
+          "number": 2427,
+          "pull_request": {
+            "merged_at": "2024-01-20T13:59:48Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2427"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Cancel `WebSocketTestSession` on close"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-20T13:59:49Z",
+      "event": "closed"
+    }
+  ]
+}

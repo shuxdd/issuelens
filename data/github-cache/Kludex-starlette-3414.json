@@ -1,0 +1,324 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-08-07T07:45:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92bf119303d78f11ef9469eaef198ef9ea016e45",
+      "sha": "92bf119303d78f11ef9469eaef198ef9ea016e45"
+    },
+    {
+      "committed_at": "2026-08-07T07:45:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/50df0dcdf1852f90fedbcf9e78666f6ff86b1925",
+      "sha": "50df0dcdf1852f90fedbcf9e78666f6ff86b1925"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2026-08-05T12:56:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/streamlit/streamlit/issues/16341",
+          "number": 16341,
+          "pull_request": {},
+          "repository": {
+            "full_name": "streamlit/streamlit"
+          },
+          "title": "Community Cloud installs incompatible Streamlit/Starlette versions causing GZipResponder TypeError on startup"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-05T12:57:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/surveychat/surveychat/pull/13",
+          "number": 13,
+          "pull_request": {
+            "url": "https://api.github.com/repos/surveychat/surveychat/pulls/13"
+          },
+          "repository": {
+            "full_name": "surveychat/surveychat"
+          },
+          "title": "Downgraded starlette version to fix bug"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T15:12:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3418",
+          "number": 3418,
+          "pull_request": {
+            "merged_at": "2026-08-06T20:33:12Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3418"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `exclude_content_types` parameter to `GZipMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T17:52:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3420",
+          "number": 3420,
+          "pull_request": {
+            "merged_at": "2026-08-07T08:25:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3420"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Skip compression of partial responses in `GZipMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T09:05:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3417",
+          "number": 3417,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3417"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add brotli compression capability to starlette"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/50df0dcdf1852f90fedbcf9e78666f6ff86b1925/docs%2Fmiddleware.md",
+      "changes": 5,
+      "deletions": 2,
+      "filename": "docs/middleware.md",
+      "sha": "841afd06c0db046a9e943a73041808192c7c0ecf",
+      "status": "modified"
+    },
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/50df0dcdf1852f90fedbcf9e78666f6ff86b1925/starlette%2Fmiddleware%2Fgzip.py",
+      "changes": 6,
+      "deletions": 1,
+      "filename": "starlette/middleware/gzip.py",
+      "sha": "7b4003ab767f3068f710ca4cae1bcccf9d748a51",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/50df0dcdf1852f90fedbcf9e78666f6ff86b1925/tests%2Fmiddleware%2Ftest_gzip.py",
+      "changes": 20,
+      "deletions": 0,
+      "filename": "tests/middleware/test_gzip.py",
+      "sha": "c84a9114e1b5ba448383e82997abef134aa4fffa",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The Starlette 1.4.0 update [breaks Streamlit](https://github.com/streamlit/streamlit/issues/16341) :( We are overwriting the `GZipResponder` (is this considered internal?) which got a new required `thread_minimum_size` argument.  Streamlit's custom gzip middleware subclasses that responder and constructed it the old way, so on 1.4.0 every gzip response crashes at startup with:\n\n```\nTypeError: GZipResponder.__init__() missing 1 required keyword-only argument: 'thread_minimum_size'\n```\n\nIs `GZipResponder` considered internal? Is there a way to roll out patch that makes this parameter optional (e.g. via a default value)? \n\n<details><summary>AI Report</summary>\n\n### Summary\n\nStarlette 1.4.0 ([\"Offload large GZip co mpression\", #3410](https://github.com/encode/starlette/pull/3410)) changed the constructor of `starlette.middleware.gzip.GZipResponder` in a backwards-incompatible way: it added a **required keyword-only** parameter `thread_minimum_size` with **no default value**. It also changed `IdentityResponder.apply_compression` / `GZipResponder.apply_compression` from a synchronous method to an `async` method.\n\n`GZipResponder` and `IdentityResponder` are importable from `starlette.middleware.gzip` and are subclassed by downstream projects that want to customize GZip behavior (e.g. excluding certain content types). Any such subclass that instantiated `GZipResponder(app, minimum_size, compresslevel=...)` now crashes at runtime with:\n\n```\nTypeError: GZipResponder.__init__() missing 1 required keyword-only argument: 'thread_minimum_size'\n```\n\nThis surfaces as a hard failure on the first gzip-eligible HTTP response, before user code runs.\n\n### Version info\n\n- Broke in: **starlette 1.4.0** (published 2026-08-05)\n- Last working: **starlette 1.3.1**\n- Introduced by: https://github.com/encode/starlette/pull/3410 (see also #3407, #3411)\n\n### Signature diff\n\n**1.3.1**\n```python\nclass GZipResponder(IdentityResponder):\n    def __init__(self, app: ASGIApp, minimum_size: int, compresslevel: int = 9) -> None: ...\n\n    def apply_compression(self, body: bytes, *, more_body: bool) -> bytes: ...   # sync\n```\n\n**1.4.0**\n```python\nclass GZipResponder(IdentityResponder):\n    def __init__(\n        self,\n        app: ASGIApp,\n        minimum_size: int,\n        compresslevel: int = 9,\n        *,\n        thread_minimum_size: int,          # <-- required, no default\n    ) -> None: ...\n\n    async def apply_compression(self, body: bytes, *, more_body: bool) -> bytes: ...   # now async\n```\n\nNote that `GZipMiddleware.__init__` itself remained backwards-compatible, because its new `thread_minimum_size` parameter got a default (`128 * 1024`). Only the `GZipResponder` constructor became non-backwards-compatible (its new argument has no default).\n\n### Reproduction\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.middleware.gzip import GZipMiddleware, GZipResponder\nfrom starlette.responses import PlainTextResponse\nfrom starlette.routing import Route\nfrom starlette.testclient import TestClient\n\n\nclass MyGZipResponder(GZipResponder):\n    \"\"\"A typical downstream customization.\"\"\"\n\n\nclass MyGZipMiddleware(GZipMiddleware):\n    async def __call__(self, scope, receive, send):\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n        # Downstream code that reconstructs the responder the way 1.3.1 required:\n        responder = MyGZipResponder(self.app, self.minimum_size, compresslevel=self.compresslevel)\n        await responder(scope, receive, send)\n\n\napp = Starlette(routes=[Route(\"/\", lambda r: PlainTextResponse(\"x\" * 1000))])\napp.add_middleware(MyGZipMiddleware, minimum_size=100)\n\n# Raises: TypeError: GZipResponder.__init__() missing 1 required\n# keyword-only argument: 'thread_minimum_size'\nTestClient(app).get(\"/\", headers={\"Accept-Encoding\": \"gzip\"})\n```\n\n### Impact\n\nThis is not just a theoretical concern. Streamlit subclasses these responders to exclude audio/video content types from compression. After 1.4.0 was released, every Streamlit app that pulled the latest Starlette (e.g. on hosted platforms that resolve to the newest compatible release) failed to start with the `TypeError` above \u2014 see https://github.com/streamlit/streamlit/issues/16341. Because `GZipResponder` is importable and there is a natural pattern of extending it, other projects are likely affected too.\n\n### Suggested resolution\n\nIdeally one (or both) of:\n\n1. **Give `thread_minimum_size` a default value** in `GZipResponder.__init__` (e.g. `thread_minimum_size: int = 128 * 1024`), matching the default already used by `GZipMiddleware`. This is a small change that restores backwards compatibility for existing subclasses while keeping the new behavior.\n2. **Document the backwards-incompatible change** in the release notes / changelog, and ideally treat `GZipResponder` / `IdentityResponder` / `apply_compression` explicitly as public-or-internal so downstream projects know what they can rely on. If they are considered internal, a note discouraging subclassing would help.\n\nThe `apply_compression` sync -> async change is similarly breaking for anyone overriding it; a changelog note (or a compatibility shim) would help here as well.\n\n</details>\n\n\n",
+    "body_last_edited_at": null,
+    "closed_at": "2026-08-08T07:19:29Z",
+    "created_at": "2026-08-05T12:49:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3414",
+    "number": 3414,
+    "state": "closed",
+    "title": "GZipResponder in 1.4.0 adds a required keyword-only argument, breaking Streamlit",
+    "user": "lukasmasuch"
+  },
+  "pull_request": {
+    "closed_at": "2026-08-07T08:25:22Z",
+    "created_at": "2026-08-06T17:52:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3420",
+    "merge_commit_sha": "b07b8c61516307c6899ea16c8d2a00eaee3e3f84",
+    "merged_at": "2026-08-07T08:25:22Z",
+    "number": 3420,
+    "title": "Skip compression of partial responses in `GZipMiddleware`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "f7525198f08a6cdf5c336ecb0b9c7390142fc058",
+    "committed_at": "2026-08-05T16:00:30Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f7525198f08a6cdf5c336ecb0b9c7390142fc058"
+  },
+  "timeline": [
+    {
+      "created_at": "2026-08-05T12:56:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/streamlit/streamlit/issues/16341",
+          "number": 16341,
+          "pull_request": {},
+          "repository": {
+            "full_name": "streamlit/streamlit"
+          },
+          "title": "Community Cloud installs incompatible Streamlit/Starlette versions causing GZipResponder TypeError on startup"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-05T12:57:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/surveychat/surveychat/pull/13",
+          "number": 13,
+          "pull_request": {
+            "url": "https://api.github.com/repos/surveychat/surveychat/pulls/13"
+          },
+          "repository": {
+            "full_name": "surveychat/surveychat"
+          },
+          "title": "Downgraded starlette version to fix bug"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-05T14:54:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-05T15:15:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-05T15:18:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-05T15:24:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-06T15:12:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3418",
+          "number": 3418,
+          "pull_request": {
+            "merged_at": "2026-08-06T20:33:12Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3418"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `exclude_content_types` parameter to `GZipMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T17:52:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3420",
+          "number": 3420,
+          "pull_request": {
+            "merged_at": "2026-08-07T08:25:22Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3420"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Skip compression of partial responses in `GZipMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T22:48:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-07T08:26:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-07T08:26:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-08-07T08:26:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-07T08:26:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-08-07T08:26:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-07T08:44:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-07T09:03:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-07T09:05:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3417",
+          "number": 3417,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3417"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add brotli compression capability to starlette"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T12:49:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-07T12:49:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-08-07T12:49:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-07T13:03:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-08T07:19:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-08-08T07:19:29Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-08-08T07:19:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-08-08T07:19:30Z",
+      "event": "subscribed"
+    }
+  ]
+}

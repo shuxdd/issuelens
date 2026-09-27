@@ -1,0 +1,129 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-11-01T22:21:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dc830b27837d0c2ae10856946c4183f35d5c7102",
+      "sha": "dc830b27837d0c2ae10856946c4183f35d5c7102"
+    },
+    {
+      "committed_at": "2025-11-01T22:22:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1b3c106bc45ebddd482b6f45b8855a6273b1e092",
+      "sha": "1b3c106bc45ebddd482b6f45b8855a6273b1e092"
+    },
+    {
+      "committed_at": "2025-11-01T22:22:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/39ad3c0c8844a737df048bba9b5efba765dee3b8",
+      "sha": "39ad3c0c8844a737df048bba9b5efba765dee3b8"
+    },
+    {
+      "committed_at": "2025-11-01T22:55:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e627d984dc35b8ab51555603f4c27a5ac79c240c",
+      "sha": "e627d984dc35b8ab51555603f4c27a5ac79c240c"
+    },
+    {
+      "committed_at": "2025-11-02T22:17:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b1626f0bc478fc0f85b7aa70100ac1808f06c8b0",
+      "sha": "b1626f0bc478fc0f85b7aa70100ac1808f06c8b0"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-11-02T11:12:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3065",
+          "number": 3065,
+          "pull_request": {
+            "merged_at": "2025-11-04T07:29:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3065"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `allow_private_network` in `CORSMiddleware`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b1626f0bc478fc0f85b7aa70100ac1808f06c8b0/docs%2Fmiddleware.md",
+      "changes": 9,
+      "deletions": 0,
+      "filename": "docs/middleware.md",
+      "sha": "aa9d119fed2cbc8cbd5220528ca5840beff49b87",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b1626f0bc478fc0f85b7aa70100ac1808f06c8b0/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 15,
+      "deletions": 3,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "36ba9f93fb189af11df668118ad4f1a4f2204cf5",
+      "status": "modified"
+    },
+    {
+      "additions": 76,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b1626f0bc478fc0f85b7aa70100ac1808f06c8b0/tests%2Fmiddleware%2Ftest_cors.py",
+      "changes": 77,
+      "deletions": 1,
+      "filename": "tests/middleware/test_cors.py",
+      "sha": "cbee7d6e7c512ead36d94b184a58ad59052b88b8",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "\n### Discussed in https://github.com/Kludex/starlette/discussions/2509\n\n<div type='discussions-op-text'>\n\n<sup>Originally posted by **Impro02** February 14, 2024</sup>\nIs it possible to add the allow_private_network parameter to the CORSMiddleware __init__ like the following example ?\r\n\r\n````\r\nclass CORSMiddleware:\r\n    def __init__(\r\n        self,\r\n        app: ASGIApp,\r\n        allow_origins: typing.Sequence[str] = (),\r\n        allow_methods: typing.Sequence[str] = (\"GET\",),\r\n        allow_headers: typing.Sequence[str] = (),\r\n        allow_credentials: bool = False,\r\n        allow_private_network: bool = False,\r\n        allow_origin_regex: typing.Optional[str] = None,\r\n        expose_headers: typing.Sequence[str] = (),\r\n        max_age: int = 600,\r\n    ) -> None:\r\n        if \"*\" in allow_methods:\r\n            allow_methods = ALL_METHODS\r\n\r\n        compiled_allow_origin_regex = None\r\n        if allow_origin_regex is not None:\r\n            compiled_allow_origin_regex = re.compile(allow_origin_regex)\r\n\r\n        allow_all_origins = \"*\" in allow_origins\r\n        allow_all_headers = \"*\" in allow_headers\r\n        preflight_explicit_allow_origin = not allow_all_origins or allow_credentials\r\n\r\n        simple_headers = {}\r\n        if allow_all_origins:\r\n            simple_headers[\"Access-Control-Allow-Origin\"] = \"*\"\r\n        if allow_credentials:\r\n            simple_headers[\"Access-Control-Allow-Credentials\"] = \"true\"\r\n        if allow_private_network:\r\n            simple_headers[\"Access-Control-Allow-Private-Network\"] = \"true\"\r\n        if expose_headers:\r\n            simple_headers[\"Access-Control-Expose-Headers\"] = \", \".join(expose_headers)\r\n\r\n        preflight_headers = {}\r\n        if preflight_explicit_allow_origin:\r\n            # The origin value will be set in preflight_response() if it is allowed.\r\n            preflight_headers[\"Vary\"] = \"Origin\"\r\n        else:\r\n            preflight_headers[\"Access-Control-Allow-Origin\"] = \"*\"\r\n        preflight_headers.update(\r\n            {\r\n                \"Access-Control-Allow-Methods\": \", \".join(allow_methods),\r\n                \"Access-Control-Max-Age\": str(max_age),\r\n            }\r\n        )\r\n        allow_headers = sorted(SAFELISTED_HEADERS | set(allow_headers))\r\n        if allow_headers and not allow_all_headers:\r\n            preflight_headers[\"Access-Control-Allow-Headers\"] = \", \".join(allow_headers)\r\n        if allow_credentials:\r\n            preflight_headers[\"Access-Control-Allow-Credentials\"] = \"true\"\r\n        if allow_private_network:\r\n            preflight_headers[\"Access-Control-Allow-Private-Network\"] = \"true\"\r\n\r\n        self.app = app\r\n        self.allow_origins = allow_origins\r\n        self.allow_methods = allow_methods\r\n        self.allow_headers = [h.lower() for h in allow_headers]\r\n        self.allow_all_origins = allow_all_origins\r\n        self.allow_all_headers = allow_all_headers\r\n        self.preflight_explicit_allow_origin = preflight_explicit_allow_origin\r\n        self.allow_origin_regex = compiled_allow_origin_regex\r\n        self.simple_headers = simple_headers\r\n        self.preflight_headers = preflight_headers\r\n````</div>",
+    "body_last_edited_at": null,
+    "closed_at": "2025-11-04T07:29:25Z",
+    "created_at": "2025-11-01T20:15:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3064",
+    "number": 3064,
+    "state": "closed",
+    "title": "CORSMiddleware with Access-Control-Allow-Private-Network header",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2025-11-04T07:29:24Z",
+    "created_at": "2025-11-01T22:21:35Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3065",
+    "merge_commit_sha": "49d4de92867cb38a781069701ad57cecab4a1a36",
+    "merged_at": "2025-11-04T07:29:24Z",
+    "number": 3065,
+    "title": "Add `allow_private_network` in `CORSMiddleware`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "4941b4a04993d087dea66e9287fe9472babee879",
+    "committed_at": "2025-11-01T15:23:00Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/4941b4a04993d087dea66e9287fe9472babee879"
+  },
+  "timeline": [
+    {
+      "created_at": "2025-11-02T11:12:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3065",
+          "number": 3065,
+          "pull_request": {
+            "merged_at": "2025-11-04T07:29:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3065"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add `allow_private_network` in `CORSMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-04T07:29:25Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-10-07T21:05:59Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1303"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1303"
+    ]
+  },
+  "case_id": "starlette-issue-1303",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1349",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Raise `MultiPartException` when missing \"name\" field on `Content-Disposition` header' directly changes starlette/formparsers.py with focused behavior test(s) tests/test_formparsers.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-05-22T20:00:43Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\n\r\nIf attempting to read a multipart/form-data content type from a request and one of the subparts' Content-Disposition headers doesn't contain a \"name\" parameter, the form parser throws a KeyError.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\nmultipart-buglette.py :\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def handler(request):\r\n    return JSONResponse({k: v for k, v in (await request.form()).items()})\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[\r\n        Route(\"/\", handler, methods=[\"POST\"]),\r\n    ],\r\n)\r\n```\r\nRun with:\r\n```sh\r\nuvicorn multipart-buglette:app\r\n```\r\nOK response:\r\n```sh\r\n% curl -F 'foo=bar' localhost:8000\r\n{\"foo\":\"bar\"}\r\n```\r\nError response:\r\n```sh\r\n% curl -F '=bar' localhost:8000\r\nTraceback (most recent call last):\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 656, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 259, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 61, in app\r\n    response = await func(request)\r\n  File \"/tmp/github/./multipart-buglette.py\", line 7, in handler\r\n    return JSONResponse({k: v for k, v in (await request.form()).items()})\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/requests.py\", line 247, in form\r\n    self._form = await multipart_parser.parse()\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/formparsers.py\", line 212, in parse\r\n    field_name = _user_safe_decode(options[b\"name\"], charset)\r\nKeyError: b'name'\r\n```\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\n\r\n[RFC 7578 (Returning Values from Forms: multipart/form-data)](https://www.rfc-editor.org/rfc/rfc7578#section-4.2) does state that:\r\n> The Content-Disposition header field MUST also contain an additional parameter of \"name\"\r\n\r\nSo, one might expect a parsing ValueError subtype rejecting the multipart/form-data, similar to getting a `json.decoder.JSONDecodeError` when attempting to read bad JSON.\r\n\r\nOr, one might be more lenient and map the lack of \"name\" to the empty string \"\".\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\nAn internal KeyError exception is thrown for the missing \"name\" parameter.\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\nPlease refer to the \"to reproduce\" section.\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.9.7\r\n- Starlette version: master @ 3282d2364119c205adcd13b4e1db8a53af2202c7\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n\r\nUnfortunately, other more egregiously malformed multipart/form-data doesn't fare much better in raising an easily identifiable parsing error; e.g.\r\n\r\n```sh\r\n% curl -H 'Content-Type: multipart/form-data' -d 'bogus' localhost:8000\r\nTraceback (most recent call last):\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 656, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 259, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/routing.py\", line 61, in app\r\n    response = await func(request)\r\n  File \"/tmp/github/./multipart-buglette.py\", line 7, in handler\r\n    return JSONResponse({k: v for k, v in (await request.form()).items()})\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/requests.py\", line 247, in form\r\n    self._form = await multipart_parser.parse()\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/starlette/formparsers.py\", line 177, in parse\r\n    parser = multipart.MultipartParser(boundary, callbacks)\r\n  File \"/tmp/github/venv/lib/python3.9/site-packages/multipart/multipart.py\", line 1042, in __init__\r\n    self.boundary = b'\\r\\n--' + boundary\r\nTypeError: can't concat NoneType to bytes\r\n```\r\n...though in this case it is an issue in the underlying `python-multipart` package and not `starlette` itself.\r\n",
+    "number": 1303,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1303",
+    "title": "multipart/form-data subpart without name causes internal error"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1643 created_at 2022-05-22T20:00:43Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1643",
+    "repair_files": [
+      "setup.cfg",
+      "starlette/formparsers.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 82e07b3492802c43970314414dbd44d783f0e281",
+    "test_files": [
+      "tests/test_formparsers.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "setup.cfg",
+        "source_url": "https://github.com/Kludex/starlette/blob/6af24ca574b203447fa25bfaac4aa5384364eb12/setup.cfg",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/6af24ca574b203447fa25bfaac4aa5384364eb12/starlette%2Fformparsers.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "6af24ca574b203447fa25bfaac4aa5384364eb12",
+        "source_url": "https://github.com/Kludex/starlette/commit/6af24ca574b203447fa25bfaac4aa5384364eb12"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-05-22T20:00:43Z",
+      "number": 1643,
+      "source_url": "https://github.com/Kludex/starlette/pull/1643"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1643"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/6af24ca574b203447fa25bfaac4aa5384364eb12/tests%2Ftest_formparsers.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "82e07b3492802c43970314414dbd44d783f0e281",
+    "committed_at": "2022-05-22T18:06:47Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/82e07b3492802c43970314414dbd44d783f0e281"
+  },
+  "schema_version": "1.0"
+}

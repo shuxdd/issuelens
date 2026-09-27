@@ -1,0 +1,165 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-05-06T02:39:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bfad337bc74de660735580869393b84455c80362",
+      "sha": "bfad337bc74de660735580869393b84455c80362"
+    },
+    {
+      "committed_at": "2020-05-06T02:41:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e48ce5a122898202010ecb08a476043b2fbe46a2",
+      "sha": "e48ce5a122898202010ecb08a476043b2fbe46a2"
+    },
+    {
+      "committed_at": "2020-05-06T03:56:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/872fbb5d0537b6cec1535f2b8317accfe222f4f5",
+      "sha": "872fbb5d0537b6cec1535f2b8317accfe222f4f5"
+    },
+    {
+      "committed_at": "2020-05-06T04:07:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bb15192285e13b540feda5b2c83aab0d31aff818",
+      "sha": "bb15192285e13b540feda5b2c83aab0d31aff818"
+    },
+    {
+      "committed_at": "2020-05-06T10:07:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f638a61dcbf9207c284c326868ef911996d34a21",
+      "sha": "f638a61dcbf9207c284c326868ef911996d34a21"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-02-24T01:35:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1026",
+          "number": 1026,
+          "pull_request": {
+            "merged_at": "2020-02-29T13:23:41Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1026"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Added missing unit test dependencies to pyproject.toml"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-06T02:43:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/933",
+          "number": 933,
+          "pull_request": {
+            "merged_at": "2020-05-06T13:52:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/933"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Thread pool is no longer used for files in memory"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f638a61dcbf9207c284c326868ef911996d34a21/requirements.txt",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "requirements.txt",
+      "sha": "4061b395561f398d420b82c94afed46b4d8e09cc",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f638a61dcbf9207c284c326868ef911996d34a21/starlette%2Fdatastructures.py",
+      "changes": 24,
+      "deletions": 4,
+      "filename": "starlette/datastructures.py",
+      "sha": "8dad7b0b50c49f4da4b23dd64dabd4858f7c1566",
+      "status": "modified"
+    },
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/f638a61dcbf9207c284c326868ef911996d34a21/tests%2Ftest_datastructures.py",
+      "changes": 17,
+      "deletions": 0,
+      "filename": "tests/test_datastructures.py",
+      "sha": "87a7967875c7b0b0beaa963b399fffd49662cc74",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I read performance check in https://github.com/mosquito/aiofile/issues/18. Compared to synchronization overhead, it seems that the overhead of the thread pool is greater, maybe we need some performance tests.\r\n\r\nAnd I noticed that aiofiles has not responded to any questions or requests from the community for ten months, which is dangerous. If you insist on reading and writing files asynchronously, maybe starlette should be switched to aiofile?\r\n\r\nIf there is any need to modify this, I will be happy to do it.",
+    "body_last_edited_at": "2020-02-06T17:53:26Z",
+    "closed_at": "2020-05-06T13:52:27Z",
+    "created_at": "2020-02-06T17:52:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/819",
+    "number": 819,
+    "state": "closed",
+    "title": "Maybe the thread pool should no longer be used for reading and writing files?",
+    "user": "abersheeran"
+  },
+  "pull_request": {
+    "closed_at": "2020-05-06T13:52:27Z",
+    "created_at": "2020-05-06T02:43:44Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/933",
+    "merge_commit_sha": "97257515f8806b8cc519d9850ecadd783b3008f9",
+    "merged_at": "2020-05-06T13:52:26Z",
+    "number": 933,
+    "title": "Thread pool is no longer used for files in memory",
+    "user": "abersheeran"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "152a05ac3ddba5456ee05fb81d0f2ea3eaf17c2b",
+    "committed_at": "2020-05-04T10:31:54Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/152a05ac3ddba5456ee05fb81d0f2ea3eaf17c2b"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-02-24T01:35:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/1026",
+          "number": 1026,
+          "pull_request": {
+            "merged_at": "2020-02-29T13:23:41Z",
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/1026"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Added missing unit test dependencies to pyproject.toml"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-06T02:21:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-06T02:43:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/933",
+          "number": 933,
+          "pull_request": {
+            "merged_at": "2020-05-06T13:52:26Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/933"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Thread pool is no longer used for files in memory"
+        }
+      }
+    }
+  ]
+}

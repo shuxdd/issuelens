@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "See https://github.com/gradio-app/gradio/issues/6904 for details\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2388\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2388/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2388/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-29T08:43:49Z",
+    "created_at": "2023-12-29T05:11:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2388",
+    "number": 2388,
+    "state": "closed",
+    "title": "SystemError when using gradio==4.12.0 with starlette>=0.30.0 on Python3.8",
+    "user": "narugo1992"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-12-29T08:43:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-29T08:43:49Z",
+      "event": "closed"
+    }
+  ]
+}

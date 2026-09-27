@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "In both our function and class-based endpoints, we're currently using function signatures like:\r\n\r\n```python\r\ndef handler(request, **kwargs):\r\n    ...\r\n```\r\n\r\nWhich are sometimes expanded to include the actual path keyword arguments that are being routed, eg...\r\n\r\n```python\r\n@app.route('/{username}')\r\ndef userpage(request, username):\r\n    ...\r\n```\r\n\r\nI think we should possibly move against the grain of what Python frameworks are all doing here, and instead have the routing be part of the request itself, so... `request.kwargs.username`\r\n\r\nThat'll give us really simple, consistent interfaces, that don't sometimes look like `handler(request, **kwargs)` and other times look like `handler(request, username=None)` etc...\r\n\r\nIt's also consistent with say, things like `request.auth` and `request.user` that we may eventually have - they're other bits of information on the request that are *just* as important as the routing keyword arguments, but they just live on the request object itself.\r\n\r\nIt'll also simplify things like our class-based interfaces where some of the methods take `**kwargs` and others don't.\r\n\r\nNot typical of other frameworks, but I quite like it as a more refined, consistent interface.",
+    "closed_at": "2018-10-29T09:22:46Z",
+    "created_at": "2018-10-18T16:17:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/127",
+    "number": 127,
+    "state": "closed",
+    "title": "Consider moving to `request.kwargs`",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

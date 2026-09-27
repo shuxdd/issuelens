@@ -1,0 +1,123 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-06-17T18:34:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1567",
+          "number": 1567,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "TestClient takes 30s for every .get call on mac"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-14T08:50:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/charlesbaynham/wurwolves/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2020-11-14T09:35:16Z",
+            "url": "https://api.github.com/repos/charlesbaynham/wurwolves/pulls/52"
+          },
+          "repository": {
+            "full_name": "charlesbaynham/wurwolves"
+          },
+          "title": "Fix API unit tests"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I previously opened this issue at FastAPI: https://github.com/tiangolo/fastapi/issues/1567, but traced the problem to Starlette. \r\n\r\nDetails\r\n=====\r\n\r\nOn Mac with new install of Starlette, every call to `TestClient.get()` takes exactly 30s to complete. The response, when it arrives, is correct. \r\n\r\n\r\n### Environment\r\n\r\n* OS: Macbook Pro 10.13.6\r\n* Starlette version: 0.13.4\r\n* Python version: 3.6\r\n\r\n### Example\r\n\r\nCopy and paste the example from the Starlette docs https://www.starlette.io/testclient/ into a brand new venv:\r\n\r\n``` python\r\nfrom starlette.responses import HTMLResponse\r\nfrom starlette.testclient import TestClient\r\n\r\n\r\nasync def app(scope, receive, send):\r\n    assert scope['type'] == 'http'\r\n    response = HTMLResponse('<html><body>Hello, world!</body></html>')\r\n    await response(scope, receive, send)\r\n\r\n\r\ndef test_app():\r\n    client = TestClient(app)\r\n    response = client.get('/')\r\n    assert response.status_code == 200\r\n```\r\n\r\nAlternatively, you can clone the repo at https://github.com/charlesbaynham/fastapi_mwe and use the requirements.txt to duplicate my environment. Running `python test_starlette.py` takes 30s. This repo also contains a cProfile of the test which looks like this:\r\n\r\n<img width=\"1009\" alt=\"image\" src=\"https://user-images.githubusercontent.com/4397637/84674073-67983a80-af22-11ea-881f-6b9a39f2bdab.png\">\r\n",
+    "closed_at": "2020-06-17T18:50:58Z",
+    "created_at": "2020-06-15T15:09:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/974",
+    "number": 974,
+    "state": "closed",
+    "title": "TestClient on mac takes exactly 30s for every .get call",
+    "user": "charlesbaynham"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-06-17T04:10:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-17T18:34:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1567",
+          "number": 1567,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "TestClient takes 30s for every .get call on mac"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-17T18:35:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-17T18:50:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-17T18:50:58Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-06-21T08:27:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-22T00:46:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-22T19:08:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-05T16:38:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-05T16:38:12Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-05T16:38:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-14T08:50:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/charlesbaynham/wurwolves/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2020-11-14T09:35:16Z",
+            "url": "https://api.github.com/repos/charlesbaynham/wurwolves/pulls/52"
+          },
+          "repository": {
+            "full_name": "charlesbaynham/wurwolves"
+          },
+          "title": "Fix API unit tests"
+        }
+      }
+    }
+  ]
+}

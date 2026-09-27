@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "How to have the equivalent blueprint concept in flask? I have 5 different feature set which needs to reside in its own modules (which in turn have the views, models and helpers). How to mimic this in starlette.\r\n\r\nIt would be also nice to have an example of how to tie this up with hypercorn.",
+    "closed_at": "2019-10-07T14:58:47Z",
+    "created_at": "2019-09-30T02:12:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/648",
+    "number": 648,
+    "state": "closed",
+    "title": "Organizing the view models in different modules/directories",
+    "user": "sudhakar-datta"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-05T10:31:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-07T14:58:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-07T14:58:47Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-07T14:58:47Z",
+      "event": "subscribed"
+    }
+  ]
+}

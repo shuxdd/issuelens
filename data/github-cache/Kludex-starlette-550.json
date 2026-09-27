@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "It would be nice to be able to pass an awaitable instead of a function to `BackgroundTask`. If your code is already async, it would make the API less awkward:\r\n\r\n```python\r\n\r\nasync def some_background_job(foo, bar):\r\n    ...\r\n\r\n# current - no autocomplete in IDE\r\nBackgroundTask(some_background_job, 1, 5)\r\n\r\n#proposed - autocomplete working as expected\r\nBackgroundTask(some_background_job(1, 5))\r\n```",
+    "closed_at": "2019-06-17T08:54:08Z",
+    "created_at": "2019-06-14T17:37:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/550",
+    "number": 550,
+    "state": "closed",
+    "title": "Allow passing an awaitable as a background task",
+    "user": "patrys"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-14T21:36:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-14T21:52:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-16T22:31:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-17T08:54:08Z",
+      "event": "commented"
+    }
+  ]
+}

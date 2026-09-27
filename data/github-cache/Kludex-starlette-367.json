@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello.\r\n\r\nI noticed that if I create any exception handlers for my custom exceptions, they are only called if they reside in the same file as the Starlette app initialization.\r\nIf i create a separate, let's say `exception_handlers.py`, file and import the Starlette app there, the handling methods are never called.\r\n\r\nIs this intented? Am I doing something wrong?",
+    "closed_at": "2019-01-30T09:07:08Z",
+    "created_at": "2019-01-30T08:30:08Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/367",
+    "number": 367,
+    "state": "closed",
+    "title": "Custom Exception Handlers aren't called",
+    "user": "xenosdio"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-30T09:07:07Z",
+      "event": "commented"
+    }
+  ]
+}

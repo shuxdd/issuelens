@@ -1,0 +1,96 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-05-13T02:10:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/11d305264d43fac6b8daaf62274ce474d67019c3",
+      "sha": "11d305264d43fac6b8daaf62274ce474d67019c3"
+    },
+    {
+      "committed_at": "2020-05-14T18:36:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2f4c74b648d33c68f992499567bac0e46f7e3dc4",
+      "sha": "2f4c74b648d33c68f992499567bac0e46f7e3dc4"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-05-13T02:18:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/945",
+          "number": 945,
+          "pull_request": {
+            "merged_at": "2020-05-15T07:42:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/945"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "RedirectResponse now accepts optional background parameter"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 8,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2f4c74b648d33c68f992499567bac0e46f7e3dc4/starlette%2Fresponses.py",
+      "changes": 10,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "81168351bb34943286c07196f2f80ee6ea396ee7",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The [RedirectResponse](https://github.com/encode/starlette/blob/e57fa2a6b1b19dd118c26a21b2f5bd4dbe46c64a/starlette/responses.py#L174) class does not accept the `background` parameter.\r\n\r\nMy use case is I am submitting a form and then doing an `HTTP 303 See Other` ([ref](https://httpstatuses.com/303)), redirecting the user to a page specific to the output of the form. That page allows the user to download the processed data, once the background task completes it.\r\n\r\n\ud83e\udd14 Perhaps this is intentional?",
+    "closed_at": "2020-05-15T07:42:13Z",
+    "created_at": "2020-05-12T01:44:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/941",
+    "number": 941,
+    "state": "closed",
+    "title": "RedirectResponse does not accept background argument",
+    "user": "bartek"
+  },
+  "pull_request": {
+    "closed_at": "2020-05-15T07:42:13Z",
+    "created_at": "2020-05-13T02:18:24Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/945",
+    "merge_commit_sha": "41ad780073b3a0a815e0083ecf1a0cea38cb8105",
+    "merged_at": "2020-05-15T07:42:13Z",
+    "number": 945,
+    "title": "RedirectResponse now accepts optional background parameter",
+    "user": "bartek"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-12T08:54:18Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "11d305264d43fac6b8daaf62274ce474d67019c3",
+      "commit_url": "https://api.github.com/repos/bartek/starlette/commits/11d305264d43fac6b8daaf62274ce474d67019c3",
+      "created_at": "2020-05-13T02:17:48Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-05-13T02:18:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/945",
+          "number": 945,
+          "pull_request": {
+            "merged_at": "2020-05-15T07:42:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/945"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "RedirectResponse now accepts optional background parameter"
+        }
+      }
+    }
+  ]
+}

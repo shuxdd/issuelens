@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi I am trying to make my own middleware class to handle open id connect flow. I was wondering if there is a recommended way of adding a GET endpoint in the middleware class so that when you add the middleware to the app it registers the end point to the router?\r\n\r\nCurrently it seems possible by accessing the app with self.app.app where self.app is the exceptionmiddleware, but this feels hacky.\r\n\r\nAny thoughts?",
+    "closed_at": "2019-08-19T10:30:33Z",
+    "created_at": "2019-08-19T10:12:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/605",
+    "number": 605,
+    "state": "closed",
+    "title": "[question] Recommended way of adding an endpoint in Middleware",
+    "user": "invokermain"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-19T10:30:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-20T08:44:09Z",
+      "event": "commented"
+    }
+  ]
+}

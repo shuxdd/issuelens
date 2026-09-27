@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm trying to understand the base middleware layer. For example I don't get the prupose of this part\r\n\r\nhttps://github.com/encode/starlette/blob/master/starlette/middleware/base.py#L30\r\n\r\nAnyone can help me?",
+    "closed_at": "2019-04-17T14:06:46Z",
+    "created_at": "2019-04-13T13:58:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/481",
+    "number": 481,
+    "state": "closed",
+    "title": "[Document] understanding middleware system",
+    "user": "jordic"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-17T14:06:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-17T14:07:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-18T06:10:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-25T14:05:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T13:53:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T13:53:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-24T13:53:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-24T14:04:36Z",
+      "event": "commented"
+    }
+  ]
+}

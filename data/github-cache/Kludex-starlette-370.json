@@ -1,0 +1,130 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-02-15T18:24:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/27",
+          "number": 27,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "SQLAlchemy QueuePool limits"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Follow-ons from #366\r\n\r\n* Change the interfaces so that `fetchone` and `fetchall` return Record instances.\r\n* Cleanup the transaction and connection state management.\r\n* ~Add SQLite support.~ - See  #283 instead",
+    "closed_at": "2019-02-14T16:34:52Z",
+    "created_at": "2019-01-30T15:31:42Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/370",
+    "labels": [
+      "clean up"
+    ],
+    "number": 370,
+    "state": "closed",
+    "title": "Finesse database backends",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-08T13:19:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T16:15:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T16:32:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T16:34:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T16:36:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:27:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:39:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:39:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T17:48:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-14T18:19:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-15T18:24:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/27",
+          "number": 27,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "SQLAlchemy QueuePool limits"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-21T18:07:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-21T20:15:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-22T05:33:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-22T07:39:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-18T15:44:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-03T11:19:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-14T14:28:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-14T14:28:12Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-01-14T14:28:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-06-11T21:22:14Z",
+      "event": "subscribed"
+    }
+  ]
+}

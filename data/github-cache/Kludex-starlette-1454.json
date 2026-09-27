@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-30T13:47:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mozilla/pdf.js/issues/14514",
+          "number": 14514,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mozilla/pdf.js"
+          },
+          "title": "Make response headers case insensitive"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\n\n- [X] There are no similar issues or pull requests for this yet.\n- [X] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\n\n### Is your feature related to a problem? Please describe.\n\nI am currently serving PDFs using `StreamingReponse` and `Range Requests`  (https://tools.ietf.org/html/rfc7233) specific headers to load them in batches using Mozilla `pdf.js` javascript library. The problem is that they have a case-sensitive implementation of headers, this is causing to fail because `Starlette` by default lower cases all headers.\r\n\r\nI have tried disabling `.lower()` in `Response` class manually and everything works as expected: \r\nhttps://github.com/encode/starlette/blob/master/starlette/responses.py\r\n![image](https://user-images.githubusercontent.com/53478143/151700445-2772090f-f2ac-4af0-a159-2a0f1cb95c94.png)\r\n\n\n### Describe the solution you would like.\n\nA parameter in `Response` that could be inherited through all responses that did enable case-sensitive headers\n\n### Describe alternatives you considered\n\nI have considered copying `Reponse` and `StreamingResponse` classes and customize them to don't lower case headers, however I don't think this is a long term solution.\n\n### Additional context\n\nThere are many libraries that consider headers to be case sensitive",
+    "closed_at": "2022-01-30T13:54:19Z",
+    "created_at": "2022-01-30T12:52:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1454",
+    "number": 1454,
+    "state": "closed",
+    "title": "Support for case-sensitive headers",
+    "user": "angel-langdon"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-01-30T13:47:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mozilla/pdf.js/issues/14514",
+          "number": 14514,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mozilla/pdf.js"
+          },
+          "title": "Make response headers case insensitive"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T13:54:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-30T13:54:19Z",
+      "event": "closed"
+    }
+  ]
+}

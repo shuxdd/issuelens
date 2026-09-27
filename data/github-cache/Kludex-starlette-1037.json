@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "``\r\nFileResponse('http://192.168.0.6:8000/images/demo.jpg)\r\n``\r\n\r\nExpect to be able to directly return to the intranet pictures.\r\n\r\nor\r\n\r\nRemoteFileResponse?\r\n\r\n",
+    "closed_at": "2020-09-08T11:29:26Z",
+    "created_at": "2020-08-31T05:44:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1037",
+    "number": 1037,
+    "state": "closed",
+    "title": "Does FileResponse support remote file?",
+    "user": "jet10000"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-08T11:29:26Z",
+      "event": "closed"
+    }
+  ]
+}

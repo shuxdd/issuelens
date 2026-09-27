@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "https://github.com/encode/starlette/blob/master/docs/config.md\r\n\r\n```s/config('DATABASE_URL', cast=URL)/config('DATABASE_URL', cast=databases.DatabaseURL)/g```",
+    "closed_at": "2019-04-17T16:26:34Z",
+    "created_at": "2019-04-08T23:28:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/470",
+    "number": 470,
+    "state": "closed",
+    "title": "Docs: DATABASE_URL should be cast to databases.DatabaseURL to subsequent statements make sense",
+    "user": "mths0x5f"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-04-17T16:26:34Z",
+      "event": "commented"
+    }
+  ]
+}

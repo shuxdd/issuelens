@@ -1,0 +1,113 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2023-08-26T09:25:15Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/947"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/947"
+    ]
+  },
+  "case_id": "starlette-issue-947",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2427",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Cancel `WebSocketTestSession` on close' directly changes starlette/testclient.py with focused behavior test(s) tests/test_testclient.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2024-01-19T20:34:24Z",
+  "issue": {
+    "body": "Hello!\r\n\r\nI've been trying to write tests for a starlette websocket API. \r\n\r\nOnly one problem - the server isn't written in a way to exit nicely when a websocket is closed. \r\nAs a result, the tests just sit there, because `websocket_connect()` won't exit until the server does.\r\n\r\nBy looking at the source, I figured that `WebSocketTestSession` is waiting for the session thread (`_run()`) to complete.\r\n\r\nCan we please make it so that it stops the server when `close()` is called?\r\n\r\n---\r\n\r\nI've cobbled together a small [commit](https://github.com/devxpy/starlette/commit/41907e863220b8b34f6bcc0d8f3a8d1241ded8eb) to make this work. If you're on board with this change, I'd love to upstream this.\r\n\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/947\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/947/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/947/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "number": 947,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/947",
+    "title": "Background Thread created by WebSocketTestSession should exit when close() is called"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2427 created_at 2024-01-19T20:34:24Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2427",
+    "repair_files": [
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+    "test_files": [
+      "tests/test_testclient.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "eb82d1c24b72a4e2e52d853234095f2eef1372e4",
+        "source_url": "https://github.com/Kludex/starlette/commit/eb82d1c24b72a4e2e52d853234095f2eef1372e4"
+      },
+      {
+        "sha": "9d4775722ecece6456b0194a2c3c0fccf556be00",
+        "source_url": "https://github.com/Kludex/starlette/commit/9d4775722ecece6456b0194a2c3c0fccf556be00"
+      },
+      {
+        "sha": "c8182f137db08aed7f896d897c4ce569579d6fe3",
+        "source_url": "https://github.com/Kludex/starlette/commit/c8182f137db08aed7f896d897c4ce569579d6fe3"
+      },
+      {
+        "sha": "e6b79a9d63d4d122ba2bc6cecf593f8a3eaf77d4",
+        "source_url": "https://github.com/Kludex/starlette/commit/e6b79a9d63d4d122ba2bc6cecf593f8a3eaf77d4"
+      },
+      {
+        "sha": "8e014b967a6c3c2b153cc453ae0cf677b9938e87",
+        "source_url": "https://github.com/Kludex/starlette/commit/8e014b967a6c3c2b153cc453ae0cf677b9938e87"
+      },
+      {
+        "sha": "ed5a3932fe7da35327548aab709af740601ff73b",
+        "source_url": "https://github.com/Kludex/starlette/commit/ed5a3932fe7da35327548aab709af740601ff73b"
+      },
+      {
+        "sha": "8f78e7a4597f2d1780a8526fc1cd626af3d41a65",
+        "source_url": "https://github.com/Kludex/starlette/commit/8f78e7a4597f2d1780a8526fc1cd626af3d41a65"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-01-19T20:34:24Z",
+      "number": 2427,
+      "source_url": "https://github.com/Kludex/starlette/pull/2427"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2427"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/tests%2Ftest_testclient.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+    "committed_at": "2024-01-13T11:02:01Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/363e4fb1940f0eb6e290755fddd7ea6666ce18ae"
+  },
+  "schema_version": "1.0"
+}

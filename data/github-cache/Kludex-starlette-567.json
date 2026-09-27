@@ -1,0 +1,80 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Issue: requires giving IndexError: tuple index out of range error.\r\nreason : args will not present when we use synchronous decorators\r\nFix: args, idx wont be avilable in synchronous decorators, it should be removed from that check.\r\n\r\nTest Code:\r\n`\r\n@router.post(\r\n    \"/v1/ns/user-subscriptions\", status_code=HTTP_201_CREATED, response_model=SubscriptionsResponse\r\n)\r\n@requires(\"authenticated\")\r\ndef create_subscription(request: Request, l_request: SubscriptionsRequest):\r\n    # validate_auth_token(g_request)\r\n\r\n    service = SubscriptionService()\r\n    # service.user_id = get_user_id(g_request)\r\n    service.user_id = \"12345\"\r\n    service.create(l_request.dict())\r\n    return l_request.dict()\r\n`",
+    "closed_at": "2021-12-27T07:10:12Z",
+    "created_at": "2019-07-01T01:45:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/567",
+    "number": 567,
+    "state": "closed",
+    "title": "AuthenticationBackend - requires Failing with \"IndexError: tuple index out of range\"",
+    "user": "mthipparthi"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-07-01T01:45:13Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-07-01T01:45:13Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-03T19:55:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-03T19:55:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-03T19:55:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-29T13:13:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-29T13:13:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-29T13:13:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-29T13:13:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-29T13:13:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-14T19:01:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-27T01:19:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-27T01:19:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-27T01:19:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-27T07:10:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-27T07:10:12Z",
+      "event": "closed"
+    }
+  ]
+}

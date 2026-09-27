@@ -1,0 +1,503 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-05-31T05:56:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/09ce984b6ee46654ae8ecb8a06f56337c3e825c2",
+      "sha": "09ce984b6ee46654ae8ecb8a06f56337c3e825c2"
+    },
+    {
+      "committed_at": "2022-05-31T05:57:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c51da55bd2fc5511ff45c7cc2311034cefb0f24",
+      "sha": "7c51da55bd2fc5511ff45c7cc2311034cefb0f24"
+    },
+    {
+      "committed_at": "2022-06-02T17:28:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/79751683b95115f581764c2aee8e11a367d61139",
+      "sha": "79751683b95115f581764c2aee8e11a367d61139"
+    },
+    {
+      "committed_at": "2022-06-02T17:30:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a51d5c1137d2bc40971622876ff2430d85f138e5",
+      "sha": "a51d5c1137d2bc40971622876ff2430d85f138e5"
+    },
+    {
+      "committed_at": "2022-06-03T07:21:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ea082abf48760a1d7ac565b2845dca009c23eb50",
+      "sha": "ea082abf48760a1d7ac565b2845dca009c23eb50"
+    },
+    {
+      "committed_at": "2022-06-03T07:21:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9672c0d8346a55505a3888594fd17deeba6a3562",
+      "sha": "9672c0d8346a55505a3888594fd17deeba6a3562"
+    },
+    {
+      "committed_at": "2022-06-03T10:49:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/961b98d35fe30dd8a3b49d8e4577c5fa13fdaf54",
+      "sha": "961b98d35fe30dd8a3b49d8e4577c5fa13fdaf54"
+    },
+    {
+      "committed_at": "2022-06-08T04:53:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7aa557524ca45959a6c50f8315864117fa786cf3",
+      "sha": "7aa557524ca45959a6c50f8315864117fa786cf3"
+    },
+    {
+      "committed_at": "2022-06-08T04:57:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a4800fc846f7d128828ee0b66e8c80990d04390c",
+      "sha": "a4800fc846f7d128828ee0b66e8c80990d04390c"
+    },
+    {
+      "committed_at": "2022-06-08T04:59:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6f9eda46b4219228958e8e54a3816f50e9914e5a",
+      "sha": "6f9eda46b4219228958e8e54a3816f50e9914e5a"
+    },
+    {
+      "committed_at": "2022-06-08T05:12:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3384cb1cbfdd9c889b78e75861ebef59966fe465",
+      "sha": "3384cb1cbfdd9c889b78e75861ebef59966fe465"
+    },
+    {
+      "committed_at": "2022-06-08T05:23:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c6568bd6a2b389125c6c8d35c32fa5e0d1e0e1e3",
+      "sha": "c6568bd6a2b389125c6c8d35c32fa5e0d1e0e1e3"
+    },
+    {
+      "committed_at": "2022-06-08T05:37:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/46662e9ff343d52af4e079a83e78ca863e62a35c",
+      "sha": "46662e9ff343d52af4e079a83e78ca863e62a35c"
+    },
+    {
+      "committed_at": "2022-06-08T05:41:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6948b81ae180a74663f92801f2bdd0c7f81aeebd",
+      "sha": "6948b81ae180a74663f92801f2bdd0c7f81aeebd"
+    },
+    {
+      "committed_at": "2022-06-12T07:16:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c737fb1e0ddc8a9ec316e3b8b65d6b9dc8dd9497",
+      "sha": "c737fb1e0ddc8a9ec316e3b8b65d6b9dc8dd9497"
+    },
+    {
+      "committed_at": "2022-06-16T08:58:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9a3e9e806939974d30b8d2466c902b4bdb9848f0",
+      "sha": "9a3e9e806939974d30b8d2466c902b4bdb9848f0"
+    },
+    {
+      "committed_at": "2022-06-16T08:58:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b0f80298f86a83b26d211583faa3653ee86fc49c",
+      "sha": "b0f80298f86a83b26d211583faa3653ee86fc49c"
+    },
+    {
+      "committed_at": "2022-06-16T23:40:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3dd6b11788d38ec2f386ce9233a3b449997843a7",
+      "sha": "3dd6b11788d38ec2f386ce9233a3b449997843a7"
+    },
+    {
+      "committed_at": "2022-06-19T06:52:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/514c8185d81cae179c15b8c7d72ffca5e2c1f6d2",
+      "sha": "514c8185d81cae179c15b8c7d72ffca5e2c1f6d2"
+    },
+    {
+      "committed_at": "2022-06-19T06:58:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5150507877f61368afd895b1932c53dd44e4ccc8",
+      "sha": "5150507877f61368afd895b1932c53dd44e4ccc8"
+    },
+    {
+      "committed_at": "2022-06-27T04:54:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0408af24f5a7d4ea6f06d83f12fc7bd666865702",
+      "sha": "0408af24f5a7d4ea6f06d83f12fc7bd666865702"
+    },
+    {
+      "committed_at": "2022-06-28T05:33:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5b54dd94ec92720bfc19fa7ecbda0e67429e8859",
+      "sha": "5b54dd94ec92720bfc19fa7ecbda0e67429e8859"
+    },
+    {
+      "committed_at": "2022-06-28T05:43:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aa6bbae1da7a5317ccc6452fbeb4defa493a6bfe",
+      "sha": "aa6bbae1da7a5317ccc6452fbeb4defa493a6bfe"
+    },
+    {
+      "committed_at": "2022-06-28T06:04:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4f12d083aca8d4b8eeb4624828db57cc23d5ec5b",
+      "sha": "4f12d083aca8d4b8eeb4624828db57cc23d5ec5b"
+    },
+    {
+      "committed_at": "2022-06-28T07:36:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/efbf1158d74d426530b0f5632817918c0b68819c",
+      "sha": "efbf1158d74d426530b0f5632817918c0b68819c"
+    },
+    {
+      "committed_at": "2022-06-28T17:09:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d218689cc05b845715a062b5ca28b54f8418594a",
+      "sha": "d218689cc05b845715a062b5ca28b54f8418594a"
+    },
+    {
+      "committed_at": "2022-06-30T17:40:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a2c504cc1aa96ccb921822a963078514dcdbe3c1",
+      "sha": "a2c504cc1aa96ccb921822a963078514dcdbe3c1"
+    },
+    {
+      "committed_at": "2022-06-30T17:41:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/74664e1eaaff14ede615d218e95300cd2ea1d0aa",
+      "sha": "74664e1eaaff14ede615d218e95300cd2ea1d0aa"
+    },
+    {
+      "committed_at": "2022-06-30T17:47:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/77e2c2703b5409345028af88469d55e3d45fe8c3",
+      "sha": "77e2c2703b5409345028af88469d55e3d45fe8c3"
+    },
+    {
+      "committed_at": "2022-06-30T17:48:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b2af992113480e5ce0f4385f2712251824d9303c",
+      "sha": "b2af992113480e5ce0f4385f2712251824d9303c"
+    },
+    {
+      "committed_at": "2022-06-30T18:09:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/046f4d4171dbd6fa10bc96100f155f05d7682133",
+      "sha": "046f4d4171dbd6fa10bc96100f155f05d7682133"
+    },
+    {
+      "committed_at": "2022-06-30T18:13:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/263de76a899292a0532f5c138d926122450e5989",
+      "sha": "263de76a899292a0532f5c138d926122450e5989"
+    },
+    {
+      "committed_at": "2022-06-30T18:17:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8868e49490c57d1ad68d30904fc745c5171729d6",
+      "sha": "8868e49490c57d1ad68d30904fc745c5171729d6"
+    },
+    {
+      "committed_at": "2022-06-30T18:19:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/756036bd99e9fc6b9377a17947de69d09e23a30c",
+      "sha": "756036bd99e9fc6b9377a17947de69d09e23a30c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-09-06T09:43:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1046",
+          "number": 1046,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "How to edit response headers in pure ASGI middleware?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-25T12:16:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2241",
+          "number": 2241,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "@app.middleware(\"http\")"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T12:07:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-18T20:14:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2022-04-19T20:55:20Z",
+            "url": "https://api.github.com/repos/spec-first/connexion/pulls/1497"
+          },
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "Add routing middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-18T20:16:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1640",
+          "number": 1640,
+          "pull_request": {
+            "merged_at": "2022-05-22T18:06:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1640"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `BaseHTTPMiddleware` bugs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-31T05:58:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1656",
+          "number": 1656,
+          "pull_request": {
+            "merged_at": "2022-06-30T18:38:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1656"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document how to create ASGI middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T20:12:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-05T02:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/coxon/tabletalker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "url": "https://api.github.com/repos/coxon/tabletalker/pulls/5"
+          },
+          "repository": {
+            "full_name": "coxon/tabletalker"
+          },
+          "title": "v1.5 \u51b3\u8d5b\u51b2\u523a \u00b7 \u5de7\u73b2"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 274,
+      "blob_url": "https://github.com/Kludex/starlette/blob/756036bd99e9fc6b9377a17947de69d09e23a30c/docs%2Fmiddleware.md",
+      "changes": 274,
+      "deletions": 0,
+      "filename": "docs/middleware.md",
+      "sha": "e51c4583e3ee8f6abd1da0af345cb9f9f29b58ec",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "In light of the issues and PRs relating to `BaseHTTPMiddleware` we need to improve the documentation on this middleware class and give some good guidance on how to write custom middleware. Documentation on this should include the following:\r\n\r\n- A warning not to use `BaseHTTPMiddleware` with `StreamingResponse` or `FileResponse` endpoints.\r\n- A note on how background will be evaluated with respect to `BaseHTTPMiddleware`.\r\n- Instructions on how to write custom ASGI Middleware with example code (can be based on an [example from the codebase](https://github.com/encode/starlette/blob/master/starlette/middleware/authentication.py#L14)).\r\n- A gentle suggestion to favor custom ASGI Middleware over subclassing `BaseHTTPMiddleware`.\r\n\r\nSee related issues and PRs:\r\n\r\n- #919 \r\n- #1012 \r\n- #1022 \r\n- #1028 ",
+    "closed_at": "2022-06-30T18:38:43Z",
+    "created_at": "2020-08-13T14:14:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1029",
+    "labels": [
+      "documentation"
+    ],
+    "number": 1029,
+    "state": "closed",
+    "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware",
+    "user": "erewok"
+  },
+  "pull_request": {
+    "closed_at": "2022-06-30T18:38:43Z",
+    "created_at": "2022-05-31T05:57:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1656",
+    "merge_commit_sha": "52010657890d15e5be6a4778c5054fdaa7f4b2a2",
+    "merged_at": "2022-06-30T18:38:43Z",
+    "number": 1656,
+    "title": "Document how to create ASGI middlewares",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-09-06T09:43:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1046",
+          "number": 1046,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "How to edit response headers in pure ASGI middleware?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-25T12:16:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2241",
+          "number": 2241,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "@app.middleware(\"http\")"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T12:07:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-18T20:14:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/spec-first/connexion/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2022-04-19T20:55:20Z",
+            "url": "https://api.github.com/repos/spec-first/connexion/pulls/1497"
+          },
+          "repository": {
+            "full_name": "spec-first/connexion"
+          },
+          "title": "Add routing middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-29T20:19:37Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2022-05-18T20:16:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1640",
+          "number": 1640,
+          "pull_request": {
+            "merged_at": "2022-05-22T18:06:47Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1640"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document `BaseHTTPMiddleware` bugs"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-22T18:06:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-05-22T18:07:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-22T18:07:56Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-05-31T05:58:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1656",
+          "number": 1656,
+          "pull_request": {
+            "merged_at": "2022-06-30T18:38:43Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1656"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Document how to create ASGI middlewares"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-14T20:12:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/laurentS/slowapi/issues/98",
+          "number": 98,
+          "pull_request": {},
+          "repository": {
+            "full_name": "laurentS/slowapi"
+          },
+          "title": "Move to ASGI middleware implementation?"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-30T18:38:43Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-05-05T02:14:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/coxon/tabletalker/pull/5",
+          "number": 5,
+          "pull_request": {
+            "url": "https://api.github.com/repos/coxon/tabletalker/pulls/5"
+          },
+          "repository": {
+            "full_name": "coxon/tabletalker"
+          },
+          "title": "v1.5 \u51b3\u8d5b\u51b2\u523a \u00b7 \u5de7\u73b2"
+        }
+      }
+    }
+  ]
+}

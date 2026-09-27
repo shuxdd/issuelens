@@ -1,0 +1,125 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-04-15T15:53:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6b971d525739bb8afb7f95ac48981f067b4611c7",
+      "sha": "6b971d525739bb8afb7f95ac48981f067b4611c7"
+    },
+    {
+      "committed_at": "2020-04-15T16:42:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b548645a33569af52613e6ec3fdaf4ff61f553b6",
+      "sha": "b548645a33569af52613e6ec3fdaf4ff61f553b6"
+    },
+    {
+      "committed_at": "2020-04-21T15:19:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b83c05716460d2a165af553e19bc3ad84314531c",
+      "sha": "b83c05716460d2a165af553e19bc3ad84314531c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-04-15T15:07:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/900",
+          "number": 900,
+          "pull_request": {
+            "merged_at": "2020-04-23T08:32:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/900"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Switch to a more lenient cookie parsing method"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 31,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b83c05716460d2a165af553e19bc3ad84314531c/starlette%2Frequests.py",
+      "changes": 40,
+      "deletions": 9,
+      "filename": "starlette/requests.py",
+      "sha": "b6e62ff18906f25e0bb57bf9879c601bcae1c888",
+      "status": "modified"
+    },
+    {
+      "additions": 100,
+      "blob_url": "https://github.com/Kludex/starlette/blob/b83c05716460d2a165af553e19bc3ad84314531c/tests%2Ftest_requests.py",
+      "changes": 103,
+      "deletions": 3,
+      "filename": "tests/test_requests.py",
+      "sha": "c5e50edbe5cc7c58a082ffffc2633c77f7cd6fe2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hello,\r\n\r\nI have used Starlette in a handful of small services in the past few months and have been really happy with it. It's a great project. \r\n\r\nLast week I ran into something that I wanted to raise as a potential issue here, because it may be worth considering.\r\n\r\nWe have an application that uses Okta's Sign-In widget for authentication (which is an OpenID Connect thing). Okta does its Oauth2 callback-redirect and they set some cookies, at least one of which is well outside the spec of HTTP cookies. Anyway, in Starlette the `request.cookies` attribute ends up pretty mangled as a result.\r\n\r\nHere's an example of what I'm talking about using the same [cookie-parsing technique in Starlette](https://github.com/encode/starlette/blob/6cb333a978dbb9cd4a06773ead2e9934517fd40c/starlette/requests.py#L88), which relies on Python's standard library module `http.cookies`:\r\n\r\n```python\r\nIn [1]: cookieval = \"\"\"okta-oauth-nonce=validAsciiblabla; okta-oauth-state=validAsciiBlabla; okta-oauth-redirect-params={\"responseType\":\"code\",\"state\":\"somestate\",\r\n   ...: \"nonce\":\"somenonce\",\"scopes\":[\"openid\",\"profile\",\"email\",\"phone\"],\"urls\":{\"issuer\":\"https://subdomain.okta.com/oauth2/authServer\",\"authorizeUrl\":\"https://s\r\n   ...: ubdomain.okta.com/oauth2/authServer/v1/authorize\",\"userinfoUrl\":\"https://subdomain.okta.com/oauth2/authServer/v1/userinfo\"}}; importantCookie=importantValu\r\n   ...: e; sessionCookie=importantSessionValue\"\"\"\r\n\r\nIn [2]: import http.cookies\r\n\r\nIn [3]: cookie = http.cookies.SimpleCookie()\r\n\r\nIn [4]: cookie.load(cookieval)\r\n\r\nIn [5]: list(cookie.items())\r\nOut[5]:\r\n[('okta-oauth-nonce', <Morsel: okta-oauth-nonce=validAsciiblabla>),\r\n ('okta-oauth-state', <Morsel: okta-oauth-state=validAsciiBlabla>)]\r\n```\r\n\r\nNotice in the example above, `cookieval` contains 5 important cookies (including the session cookie set by Starlette's `SessionMiddleware`), but only two are successfully parsed by this method.\r\n\r\nI have seen a lot of wacky stuff thrown into cookies, so it may be a good idea to provide some method to parse them more leniently in the Starlette project.\r\n\r\nAlso, out of curiosity, I took a tour through what Werkzeug is doing and they have some [pretty low-level code](https://github.com/pallets/werkzeug/blob/09a248649069780b4adfb910fb69f6fb304f2ea3/src/werkzeug/_internal.py) for parsing cookies, but it does successfully parse the above:\r\n\r\n\r\n```python\r\nIn [6]: from werkzeug._internal import _cookie_parse_impl\r\n\r\nIn [7]: list(_cookie_parse_impl(cookieval.encode(\"utf-8\")))\r\nOut[7]:\r\n[(b'okta-oauth-nonce', b'validAsciiblabla'),\r\n (b'okta-oauth-state', b'validAsciiBlabla'),\r\n (b'okta-oauth-redirect-params',\r\n  b'{\"responseType\":\"code\",\"state\":\"somestate\",\"nonce\":\"somenonce\",\"scopes\":[\"openid\",\"profile\",\"email\",\"phone\"],\"urls\":{\"issuer\":\"https://subdomain.okta.com/oauth2/authServer\",\"authorizeUrl\":\"https://subdomain.okta.com/oauth2/authServer/v1/authorize\",\"userinfoUrl\":\"https://subdomain.okta.com/oauth2/authServer/v1/userinfo\"}}'),\r\n (b'importantCookie', b'importantValue'),\r\n (b'sessionCookie', b'importantSessionValue')]\r\n``` \r\n\r\nIn short, cookies seem to be one of those things where while there exists a spec, people have been ignoring it for a long time, and so it may be worth parsing them more leniently or offering an option to do so in the project.\r\n\r\nPython's `http.cookies` module even has the following comment:\r\n\r\n> The module formerly strictly applied the parsing rules described in the RFC 2109 and RFC 2068 specifications. It has since been discovered that MSIE 3.0x doesn\u2019t follow the character rules outlined in those specs and also many current day browsers and servers have relaxed parsing rules when comes to Cookie handling. As a result, the parsing rules used are a bit less strict.\r\n\r\nThanks for reading and for working on this project. I would be happy to help contribute back to it if I can.\r\n\r\n----\r\n\r\nFor reference, here's the [RFC 6265 spec](https://tools.ietf.org/html/rfc6265), which obsoletes the older spec referenced by the Python standard library's `http.cookies` module (it actually references an even _older_ spec...).",
+    "body_last_edited_at": "2020-04-15T15:20:51Z",
+    "closed_at": "2020-04-23T15:17:39Z",
+    "created_at": "2020-04-15T05:28:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/898",
+    "number": 898,
+    "state": "closed",
+    "title": "Consider something more lenient for cookie parsing",
+    "user": "erewok"
+  },
+  "pull_request": {
+    "closed_at": "2020-04-23T08:32:46Z",
+    "created_at": "2020-04-15T15:07:49Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/900",
+    "merge_commit_sha": "773fe0a353726b29f30314e3fcee144d20518721",
+    "merged_at": "2020-04-23T08:32:46Z",
+    "number": 900,
+    "title": "Switch to a more lenient cookie parsing method",
+    "user": "erewok"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-15T07:37:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T14:23:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T14:28:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T14:29:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T14:30:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-15T15:07:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/900",
+          "number": 900,
+          "pull_request": {
+            "merged_at": "2020-04-23T08:32:46Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/900"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Switch to a more lenient cookie parsing method"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-23T15:17:39Z",
+      "event": "closed"
+    }
+  ]
+}

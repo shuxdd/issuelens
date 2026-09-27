@@ -1,0 +1,206 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-08-16T09:31:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/db9d8f4bea957dcdc3d8517bf8b010323ceb00ff",
+      "sha": "db9d8f4bea957dcdc3d8517bf8b010323ceb00ff"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-05-24T11:24:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/527",
+          "number": 527,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/527"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add WebSocketException and support for WS handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-05T13:25:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/594",
+          "number": 594,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/594"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix #483 Session cookie triggers failure on websocket connection upgrade"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-16T09:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/597",
+          "number": 597,
+          "pull_request": {
+            "merged_at": "2019-08-16T09:42:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/597"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Parse scope with HTTPConnection instead of Request in SessionMiddleware"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/db9d8f4bea957dcdc3d8517bf8b010323ceb00ff/starlette%2Fmiddleware%2Fsessions.py",
+      "changes": 8,
+      "deletions": 4,
+      "filename": "starlette/middleware/sessions.py",
+      "sha": "aad61ff245f9f5464dd17e5978c82ca679dd8f22",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\n\r\nWhen enabling the session cookie on an app, if a websocket connection upgrade is made, then we seem to fall into a an assertion failuire:\r\n\r\n```\r\nTraceback (most recent call last):\r\n  File \".venv/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 146, in run_asgi\r\n    asgi = self.app(self.scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/applications.py\", line 134, in __call__\r\n    return self.error_middleware(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 88, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/uvicorn/middleware/proxy_headers.py\", line 37, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/middleware/base.py\", line 22, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/middleware/base.py\", line 22, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/exceptions.py\", line 49, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/routing.py\", line 587, in __call__\r\n    return route(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/routing.py\", line 356, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/applications.py\", line 134, in __call__\r\n    return self.error_middleware(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/middleware/errors.py\", line 88, in __call__\r\n    return self.app(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/middleware/sessions.py\", line 34, in __call__\r\n    request = Request(scope)\r\n  File \".venv/lib/python3.7/site-packages/starlette/requests.py\", line 128, in __init__\r\n    assert scope[\"type\"] == \"http\"\r\n```\r\n\r\nI think the issue is that the session middleware doesn't coimplain when the request type is both http and websocket: https://github.com/encode/starlette/blob/master/starlette/middleware/sessions.py#L32\r\n\r\nBut right after, creates a Request from the scope when, itself assert only http: https://github.com/encode/starlette/blob/master/starlette/requests.py#L128\r\n\r\n",
+    "closed_at": "2019-08-16T09:42:09Z",
+    "created_at": "2019-04-15T09:29:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/483",
+    "labels": [
+      "bug"
+    ],
+    "number": 483,
+    "state": "closed",
+    "title": "Session cookie triggers failure on websocket connection upgrade",
+    "user": "Lawouach"
+  },
+  "pull_request": {
+    "closed_at": "2019-08-16T09:42:10Z",
+    "created_at": "2019-08-15T18:35:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/597",
+    "merge_commit_sha": "b62e3949083a256d3280405dc3bc9f06c74fffb9",
+    "merged_at": "2019-08-16T09:42:09Z",
+    "number": 597,
+    "title": "Parse scope with HTTPConnection instead of Request in SessionMiddleware",
+    "user": "taoufik07"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-18T15:59:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-19T20:29:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-20T14:41:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-20T14:42:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T11:24:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/527",
+          "number": 527,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/527"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add WebSocketException and support for WS handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-03T15:10:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-07T15:45:39Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "2831e96da5ff498d5cbf6d9ee0f955f65b2e6591",
+      "commit_url": "https://api.github.com/repos/edelvalle/starlette/commits/2831e96da5ff498d5cbf6d9ee0f955f65b2e6591",
+      "created_at": "2019-08-05T13:24:29Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-05T13:25:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/594",
+          "number": 594,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/594"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix #483 Session cookie triggers failure on websocket connection upgrade"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-07T11:06:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-16T09:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/597",
+          "number": 597,
+          "pull_request": {
+            "merged_at": "2019-08-16T09:42:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/597"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Parse scope with HTTPConnection instead of Request in SessionMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-16T09:17:19Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "db9d8f4bea957dcdc3d8517bf8b010323ceb00ff",
+      "commit_url": "https://api.github.com/repos/taoufik07/starlette/commits/db9d8f4bea957dcdc3d8517bf8b010323ceb00ff",
+      "created_at": "2019-08-16T09:32:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-16T09:43:46Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "1f5201e23f0fd1070e2dc6ec6c0addbeb4e70937",
+      "commit_url": "https://api.github.com/repos/BlackEarth/starlette/commits/1f5201e23f0fd1070e2dc6ec6c0addbeb4e70937",
+      "created_at": "2019-09-15T02:24:23Z",
+      "event": "referenced"
+    }
+  ]
+}

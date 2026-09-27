@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I recently started reading ASGI documentation and in the middlewares section I read that middleware should never modify the scope object.\r\n\r\n[docs#middlewares](https://asgi.readthedocs.io/en/latest/specs/main.html#middleware)\r\n \r\n>When middleware is modifying the scope, it should make a copy of the scope object before mutating it and passing it to the inner application, as changes may leak upstream otherwise. \r\n\r\nBut in [session middleware](https://github.com/encode/starlette/blob/master/starlette/middleware/sessions.py#L43):\r\n\r\n```python\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        if scope[\"type\"] not in (\"http\", \"websocket\"):  # pragma: no cover\r\n            await self.app(scope, receive, send)\r\n            return\r\n\r\n        connection = HTTPConnection(scope)\r\n        initial_session_was_empty = True\r\n\r\n        if self.session_cookie in connection.cookies:\r\n            data = connection.cookies[self.session_cookie].encode(\"utf-8\")\r\n            try:\r\n                data = self.signer.unsign(data, max_age=self.max_age)\r\n                scope[\"session\"] = json.loads(b64decode(data))\r\n                initial_session_was_empty = False\r\n            except (BadTimeSignature, SignatureExpired):\r\n                scope[\"session\"] = {}\r\n        else:\r\n            scope[\"session\"] = {}\r\n```\r\n\r\nYou are not making a copy of the object.\r\n\r\nAm I misunderstood something?\r\n\r\n",
+    "closed_at": "2020-04-20T10:08:59Z",
+    "created_at": "2020-04-20T09:15:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/906",
+    "number": 906,
+    "state": "closed",
+    "title": "Compliance with ASGI specification.",
+    "user": "Dnomin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-20T10:08:59Z",
+      "event": "commented"
+    }
+  ]
+}

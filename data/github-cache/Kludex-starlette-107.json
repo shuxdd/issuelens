@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "",
+    "closed_at": "2018-10-15T11:08:11Z",
+    "created_at": "2018-10-14T19:20:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/107",
+    "number": 107,
+    "state": "closed",
+    "title": "GZipMiddleware",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

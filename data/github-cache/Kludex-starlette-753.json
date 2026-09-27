@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-05-26T13:04:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/953",
+          "number": 953,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Feature] Allow overriding of qraphiql html"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Update the GraphQL page from GraphiQL to GraphQL Playground by [Prisma Labs](https://github.com/prisma-labs/graphql-playground). \r\nIt provides a better and Interactive UI for testing and checking Endpoints. [Demo](https://www.graphqlbin.com/v2/6RQ6TM)\r\n\r\nI could make a PR for the same by Changing the contents of the `GRAPHIQL` variable  here https://github.com/encode/starlette/blob/c5239ba89bc273645c82bd76bce185a5bd4964c7/starlette/graphql.py#L147-L279\r\nI'll start working on this if this gets a green flag \ud83d\ude05 \ud83d\ude05 ",
+    "closed_at": "2021-02-05T19:47:04Z",
+    "created_at": "2019-12-15T05:37:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/753",
+    "number": 753,
+    "state": "closed",
+    "title": "feat: Update the GraphQL page",
+    "user": "athul"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-17T10:29:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T11:00:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T11:21:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T11:24:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T12:41:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-13T02:44:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-26T13:04:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/953",
+          "number": 953,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[Feature] Allow overriding of qraphiql html"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T10:44:56Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-02-05T19:47:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-05T19:47:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-05-11T18:46:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-05-11T18:46:01Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-16T23:30:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/500ec0b2218bf9ca0bffa39b7386361fdf5b2f14",
+      "sha": "500ec0b2218bf9ca0bffa39b7386361fdf5b2f14"
+    },
+    {
+      "committed_at": "2018-10-17T00:18:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8909e2e392823234c4d3441ac346bbcf5a19c0d2",
+      "sha": "8909e2e392823234c4d3441ac346bbcf5a19c0d2"
+    },
+    {
+      "committed_at": "2018-10-17T00:27:29Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fa6c59ebb2c07f2774ed3e960a15a287c2ba0afe",
+      "sha": "fa6c59ebb2c07f2774ed3e960a15a287c2ba0afe"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-17T00:31:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/116",
+          "number": 116,
+          "pull_request": {
+            "merged_at": "2018-10-17T10:15:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/116"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add documentation for cookies"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 10,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fa6c59ebb2c07f2774ed3e960a15a287c2ba0afe/docs%2Frequests.md",
+      "changes": 10,
+      "deletions": 0,
+      "filename": "docs/requests.md",
+      "sha": "18676dd8288f821013e17c50c853c064d294448f",
+      "status": "modified"
+    },
+    {
+      "additions": 21,
+      "blob_url": "https://github.com/Kludex/starlette/blob/fa6c59ebb2c07f2774ed3e960a15a287c2ba0afe/docs%2Fresponses.md",
+      "changes": 21,
+      "deletions": 0,
+      "filename": "docs/responses.md",
+      "sha": "ff87d43069afa8ad74a89f97e37a4f1e83bae901",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "The request and response docs should document cookie usage. \ud83c\udf6a",
+    "closed_at": "2018-10-17T10:15:32Z",
+    "created_at": "2018-10-06T12:10:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/89",
+    "number": 89,
+    "state": "closed",
+    "title": "Document cookies support",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-17T10:15:32Z",
+    "created_at": "2018-10-17T00:31:55Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/116",
+    "merge_commit_sha": "4dedf7ce96db6afeeb598f3b2a78b471e4a8ccca",
+    "merged_at": "2018-10-17T10:15:32Z",
+    "number": 116,
+    "title": "Add documentation for cookies",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-17T00:31:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/116",
+          "number": 116,
+          "pull_request": {
+            "merged_at": "2018-10-17T10:15:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/116"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add documentation for cookies"
+        }
+      }
+    }
+  ]
+}

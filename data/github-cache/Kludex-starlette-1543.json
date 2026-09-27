@@ -1,0 +1,52 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Versions:\r\nfastapi==0.65.1\r\nstarlette==0.14.2\r\nuvicorn==0.15\r\n\r\nwsproto==1.1.0 \r\nor\r\nwebsockets==10.2\r\n\r\nError:\r\nTraceback (most recent call last):\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 203, in run_asgi\r\n    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/fastapi/applications.py\", line 199, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 146, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/starlette/middleware/cors.py\", line 70, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/rollbar/contrib/starlette/middleware.py\", line 21, in __call__\r\n    store_current_request(scope, receive)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/rollbar/contrib/starlette/requests.py\", line 67, in store_current_request\r\n    request = Request(request_or_scope, receive)\r\n  File \"/Users/ulan/Documents/navi-taxi/.venv/lib/python3.8/site-packages/starlette/requests.py\", line 180, in __init__\r\n    assert scope[\"type\"] == \"http\"\r\nAssertionError\r\n\r\nWhen i manually edit the last piece of code to:\r\n`assert scope['type'] in ['http', 'websocket']\r\n`it works  just fine",
+    "closed_at": "2022-03-13T13:43:21Z",
+    "created_at": "2022-03-10T05:16:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1543",
+    "number": 1543,
+    "state": "closed",
+    "title": "Cannot connect to websockets due to AssertionError",
+    "user": "UlanDT"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-03-10T07:59:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-10T08:04:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-10T08:04:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-10T08:04:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-13T13:43:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-13T13:43:21Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-03-13T13:43:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-13T13:43:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-13T13:59:47Z",
+      "event": "commented"
+    }
+  ]
+}

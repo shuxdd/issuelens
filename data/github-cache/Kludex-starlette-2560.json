@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I noticed when setting the `allow_credentials` to true, the server will always responds with the header `access-control-allow-credentials: true`:\r\ne.g. config:\r\n```python\r\napp.add_middleware(\r\n    CORSMiddleware,\r\n    allow_origins=[\"localhost:9999\"],  # Allows only specified origins\r\n    allow_credentials=True,  # Disallows sending cookies or auth headers with cross-origin requests\r\n    allow_methods=[\"GET\", \"POST\"],  # Restrict methods\r\n    allow_headers=[],  # Restrict headers\r\n    max_age=3600,  # Sets how long the results of a preflight request can be cached\r\n)\r\n```\r\n\r\nThen when executing the following request:\r\n```\r\nGET / HTTP/1.1\r\nHost: localhost:9999\r\nOrigin: localhost:9999\r\n```\r\nThe server would respond with both HTTP headers as expected;\r\n```\r\nHTTP/1.1 404 Not Found\r\naccess-control-allow-credentials: true\r\naccess-control-allow-origin: localhost:9999\r\nvary: Origin\r\n\r\n{\"detail\":\"Not Found\"}\r\n```\r\n\r\nAnd when a wrong origin is provided:\r\n```\r\nGET / HTTP/1.1\r\nHost: localhost:9999\r\nOrigin: localhost:1111\r\n```\r\nThe server still responds with the credentials header but not the origin header:\r\n```\r\nHTTP/1.1 404 Not Found\r\naccess-control-allow-credentials: true\r\n\r\n{\"detail\":\"Not Found\"}\r\n```\r\n\r\nNow according to the browser specifications, as long as there is no `access-control-allow-origin` header, it will also not process that credentials header. So thats really good and make sure this is not a security issue.\r\nHowever, I think its misleading and would prefer that the CORSMiddleware only returns that credentials header when the Origin is valid. Unless there is some obscure reason why you would still want to send that credentials header.\r\n\r\nRelevant code:\r\nhttps://github.com/encode/starlette/blob/master/starlette/middleware/cors.py#L41:L42\r\nWhich should probably be moved to a location where it validates the origin.\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2560\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2560/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2560/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-04-02T09:02:58Z",
+    "created_at": "2024-04-02T08:53:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2560",
+    "number": 2560,
+    "state": "closed",
+    "title": "CORSMiddleware always add access-control-allow-credentials regardless of Origin",
+    "user": "VinnieV"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-04-02T09:02:58Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-04-02T09:02:58Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

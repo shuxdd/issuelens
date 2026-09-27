@@ -1,0 +1,227 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-12-17T17:14:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c0969350ca888cadaa72f69be5c9dd897ab4bb16",
+      "sha": "c0969350ca888cadaa72f69be5c9dd897ab4bb16"
+    },
+    {
+      "committed_at": "2019-12-18T16:42:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fc17ba9001bdbb3abda48b0b53c08d5a68ba3fe3",
+      "sha": "fc17ba9001bdbb3abda48b0b53c08d5a68ba3fe3"
+    },
+    {
+      "committed_at": "2022-01-29T17:24:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/acaefbd6247adcb0dcf18895648a56849be087c1",
+      "sha": "acaefbd6247adcb0dcf18895648a56849be087c1"
+    },
+    {
+      "committed_at": "2022-01-29T17:51:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/93608f999baf8dcb37e770e57b450fc5f0c5eb3f",
+      "sha": "93608f999baf8dcb37e770e57b450fc5f0c5eb3f"
+    },
+    {
+      "committed_at": "2022-01-30T09:45:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/98fcd5a157e391c80a523bf3678d3be173697560",
+      "sha": "98fcd5a157e391c80a523bf3678d3be173697560"
+    },
+    {
+      "committed_at": "2022-01-30T10:01:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/abc799e4ce4bd140c8c47fa58da50f6f19a79a54",
+      "sha": "abc799e4ce4bd140c8c47fa58da50f6f19a79a54"
+    },
+    {
+      "committed_at": "2022-01-31T10:32:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a08be0df6d05a54bd3e1f12a7cb28059e357b711",
+      "sha": "a08be0df6d05a54bd3e1f12a7cb28059e357b711"
+    },
+    {
+      "committed_at": "2022-01-31T10:35:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a5b738b2e3c7c09526afe5233446d9d194b2525c",
+      "sha": "a5b738b2e3c7c09526afe5233446d9d194b2525c"
+    },
+    {
+      "committed_at": "2022-02-01T13:57:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d782b95427bce02f5a67da6b50c1a9f3fd616304",
+      "sha": "d782b95427bce02f5a67da6b50c1a9f3fd616304"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-12-17T17:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/758",
+          "number": 758,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/758"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Call exception handlers even if response started"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-29T17:34:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/761",
+          "number": 761,
+          "pull_request": {
+            "merged_at": "2022-02-01T14:08:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/761"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make error handler run always"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 18,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d782b95427bce02f5a67da6b50c1a9f3fd616304/docs%2Fexceptions.md",
+      "changes": 18,
+      "deletions": 0,
+      "filename": "docs/exceptions.md",
+      "sha": "9818a20455daa2e39d452d74dc382cc3b6a135bc",
+      "status": "modified"
+    },
+    {
+      "additions": 13,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d782b95427bce02f5a67da6b50c1a9f3fd616304/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 26,
+      "deletions": 13,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "474c9afc0b62609b70b4fff378c7330b2dc09881",
+      "status": "modified"
+    },
+    {
+      "additions": 28,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d782b95427bce02f5a67da6b50c1a9f3fd616304/tests%2Fmiddleware%2Ftest_errors.py",
+      "changes": 28,
+      "deletions": 0,
+      "filename": "tests/middleware/test_errors.py",
+      "sha": "392c2ba16a6d8074314aa4267c6f4071047b1366",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Currently, if a background task faces an exception, it isn't handled and there's no way to handle it (rather than wrapping the task)\r\nMy suggestion is to be able to add exception handler for background tasks, as there is for requests.",
+    "body_last_edited_at": null,
+    "closed_at": "2022-02-01T14:08:24Z",
+    "created_at": "2019-12-01T09:58:50Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/739",
+    "number": 739,
+    "state": "closed",
+    "title": "Background tasks exception handler",
+    "user": "aviramha"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-01T14:08:24Z",
+    "created_at": "2019-12-18T16:43:22Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/761",
+    "merge_commit_sha": "400e240f84f987a27aba9c4bb7d0b228b47c5e14",
+    "merged_at": "2022-02-01T14:08:24Z",
+    "number": 761,
+    "title": "Make error handler run always",
+    "user": "aviramha"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "00e830080499c47a3e72f1b4adb2678758e388ee",
+    "committed_at": "2019-12-17T11:14:57Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/00e830080499c47a3e72f1b4adb2678758e388ee"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-12-17T10:45:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T16:37:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T16:47:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T17:22:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-17T17:24:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/758",
+          "number": 758,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/758"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Call exception handlers even if response started"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-17T17:25:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T16:08:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T16:11:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T16:18:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T16:44:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-05T12:33:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-29T17:34:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/761",
+          "number": 761,
+          "pull_request": {
+            "merged_at": "2022-02-01T14:08:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/761"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make error handler run always"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-01T14:08:24Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-10-10T00:18:00Z",
+      "event": "subscribed"
+    }
+  ]
+}

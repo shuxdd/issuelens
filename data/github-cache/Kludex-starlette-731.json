@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I might be missing something, but at https://www.starlette.io/database/#test-isolation in the `create_test_database` function the code does:\r\n\r\n```python\r\nurl = str(app.DATABASE_URL)\r\nengine = create_engine(url)\r\nassert not database_exists(url), 'Test database already exists. Aborting tests.'\r\ncreate_database(url)             # Create the test database.\r\nmetadata.create_all(engine)      # Create the tables.\r\nyield                            # Run the tests.\r\ndrop_database(url)               # Drop the test database.\r\n```\r\n\r\nBut the setup before does not set a `DATABASE_URL` based on the `TESTING` flag\r\n\r\n```python\r\nTESTING = config('TESTING', cast=bool, default=False)\r\nDATABASE_URL = config('DATABASE_URL', cast=databases.DatabaseURL)\r\nTEST_DATABASE_URL = DATABASE_URL.replace(database='test_' + DATABASE_URL.database)\r\n\r\n# Use 'force_rollback' during testing, to ensure we do not persist database changes\r\n# between each test case.\r\nif TESTING:\r\n    database = databases.Database(TEST_DATABASE_URL, force_rollback=True)\r\nelse:\r\n    database = databases.Database(DATABASE_URL)\r\n```\r\n\r\nit instead only sets the `database` variable. This makes me think that either it should be `str(database.url)`, or `TEST_DATABASE_URL`.",
+    "closed_at": "2019-11-25T09:13:42Z",
+    "created_at": "2019-11-22T20:03:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/731",
+    "number": 731,
+    "state": "closed",
+    "title": "Docs: Database documentation hints at using incorrect DATABASE_URL instead of TEST_DATABASE_URL?",
+    "user": "darthdeus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-25T09:13:42Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,186 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-09-22T20:19:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e22936b5ed5c0b5f856b8752baa50655880cdb26",
+      "sha": "e22936b5ed5c0b5f856b8752baa50655880cdb26"
+    },
+    {
+      "committed_at": "2018-09-22T20:21:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/eca2d7a367e7ccb728550a2116ee14929e3829e6",
+      "sha": "eca2d7a367e7ccb728550a2116ee14929e3829e6"
+    },
+    {
+      "committed_at": "2018-09-22T20:23:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/04fdce1ef43a8ce13cba69d38488d251c825b13d",
+      "sha": "04fdce1ef43a8ce13cba69d38488d251c825b13d"
+    },
+    {
+      "committed_at": "2018-09-22T20:26:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8ded8f022b209ac44f9271ebac65328e09b174b4",
+      "sha": "8ded8f022b209ac44f9271ebac65328e09b174b4"
+    },
+    {
+      "committed_at": "2018-09-22T20:41:39Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4395217b863a8ad89ae8216320c8ec556909a777",
+      "sha": "4395217b863a8ad89ae8216320c8ec556909a777"
+    },
+    {
+      "committed_at": "2018-09-24T19:41:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a6707b597bdc3278031b6fa7e29bcc6a55896d61",
+      "sha": "a6707b597bdc3278031b6fa7e29bcc6a55896d61"
+    },
+    {
+      "committed_at": "2018-09-25T23:33:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/076d1be5d6228b04fbe8fb5f1fcc42df99b1774e",
+      "sha": "076d1be5d6228b04fbe8fb5f1fcc42df99b1774e"
+    },
+    {
+      "committed_at": "2018-09-25T23:40:55Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/042029eb251e5f449f42f55fbec0708664c1a480",
+      "sha": "042029eb251e5f449f42f55fbec0708664c1a480"
+    },
+    {
+      "committed_at": "2018-09-27T22:57:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5a9315c91eacfb8b8bca02c23c1cead8bbcde271",
+      "sha": "5a9315c91eacfb8b8bca02c23c1cead8bbcde271"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-09-22T20:31:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/65",
+          "number": 65,
+          "pull_request": {
+            "merged_at": "2018-10-02T10:40:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/65"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for background tasks"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 31,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5a9315c91eacfb8b8bca02c23c1cead8bbcde271/docs%2Fbackground.md",
+      "changes": 31,
+      "deletions": 0,
+      "filename": "docs/background.md",
+      "sha": "9963c08b1e564aa144b3594e6ce0ce839cb67149",
+      "status": "added"
+    },
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5a9315c91eacfb8b8bca02c23c1cead8bbcde271/starlette%2Fbackground.py",
+      "changes": 17,
+      "deletions": 0,
+      "filename": "starlette/background.py",
+      "sha": "983873503ddf268910108e5b2736745c0c5057b5",
+      "status": "added"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5a9315c91eacfb8b8bca02c23c1cead8bbcde271/starlette%2Fresponses.py",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "starlette/responses.py",
+      "sha": "5ea906bf338c92135b7ac1b63a1700e4fd859dd4",
+      "status": "modified"
+    },
+    {
+      "additions": 52,
+      "blob_url": "https://github.com/Kludex/starlette/blob/5a9315c91eacfb8b8bca02c23c1cead8bbcde271/tests%2Ftest_background.py",
+      "changes": 52,
+      "deletions": 0,
+      "filename": "tests/test_background.py",
+      "sha": "1a4c9f5594be2600654109df21c0c4159d41c09c",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "* Add a `background=...` keyword argument to all responses. It should be either `None` or a coroutine with no arguments.\r\n* The response `__call__` should run the background coroutine if it exists (after sending the response).\r\n* Provide a `BackgroundTask()` class that wraps a callable and some arguments. This can then be used to pass a function *or* coroutine with args/kwargs to a response.\r\n\r\n```python\r\nclass BackgroundTask:\r\n    def __init__(self, func, *args, **kwargs):\r\n        self.func = func\r\n        self.args = args\r\n        self.kwargs = kwargs\r\n\r\n    async def __call__(self):\r\n        if asyncio.iscoroutine(self.func):\r\n            await self.func(*self.args, **self.kwargs)\r\n        else:\r\n            self.func(*self.args, **self.kwargs)\r\n```\r\n\r\nThen we can do...\r\n\r\n```\r\nreturn Response(..., background=BackgroundTask(my_func, a=123)\r\n```\r\n\r\nNaming might need some thinking about - not sure that conflicting with asyncio's `Task` is ideal.\r\n\r\nThis'd be a good feature to get in, since it's a low amount of work, but provides functionality that WSGI is unable to do.",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-02T10:40:09Z",
+    "created_at": "2018-09-05T11:10:32Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/59",
+    "number": 59,
+    "state": "closed",
+    "title": "Background tasks",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-02T10:40:09Z",
+    "created_at": "2018-09-22T20:31:40Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/65",
+    "merge_commit_sha": "7c1a1e9dd5bcc0fad5c65ac5cedd33f3fee252a3",
+    "merged_at": "2018-10-02T10:40:09Z",
+    "number": 65,
+    "title": "Add support for background tasks",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "12e4ef60d74526fd6e5e02bfc832e712132634c7",
+    "committed_at": "2018-09-20T09:00:25Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/12e4ef60d74526fd6e5e02bfc832e712132634c7"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-09-05T13:28:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-18T04:56:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-19T11:56:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-19T11:56:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-09-19T11:56:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-09-20T13:32:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-20T13:34:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-21T03:36:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-09-22T20:31:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/65",
+          "number": 65,
+          "pull_request": {
+            "merged_at": "2018-10-02T10:40:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/65"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add support for background tasks"
+        }
+      }
+    }
+  ]
+}

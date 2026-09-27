@@ -1,0 +1,340 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-06-30T18:21:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/03832bdf1b7e2e7459d9e38a0c11b822118fe168",
+      "sha": "03832bdf1b7e2e7459d9e38a0c11b822118fe168"
+    },
+    {
+      "committed_at": "2021-07-03T10:07:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13f8fe103b9ee47ad2e802359ba3adbe1d81cb0c",
+      "sha": "13f8fe103b9ee47ad2e802359ba3adbe1d81cb0c"
+    },
+    {
+      "committed_at": "2021-07-03T10:08:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/68f96061e43e15fc757bab6205eab18367028f79",
+      "sha": "68f96061e43e15fc757bab6205eab18367028f79"
+    },
+    {
+      "committed_at": "2021-07-03T10:29:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e8c3afb95d8c9f6127a060988b591536ae17d4d7",
+      "sha": "e8c3afb95d8c9f6127a060988b591536ae17d4d7"
+    },
+    {
+      "committed_at": "2021-07-03T10:33:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4cc26971a48dd8315cfd587ba226c4102f7da2dc",
+      "sha": "4cc26971a48dd8315cfd587ba226c4102f7da2dc"
+    },
+    {
+      "committed_at": "2021-07-03T16:41:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/83dc724f31d74f50cc1160ab671134479e40797c",
+      "sha": "83dc724f31d74f50cc1160ab671134479e40797c"
+    },
+    {
+      "committed_at": "2021-07-03T16:59:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1aed67d65ff2bb190c20753ece05e8e3fc7447e8",
+      "sha": "1aed67d65ff2bb190c20753ece05e8e3fc7447e8"
+    },
+    {
+      "committed_at": "2021-07-03T17:08:05Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cedceb488573e17b860891fbd7b920a587f0fd5d",
+      "sha": "cedceb488573e17b860891fbd7b920a587f0fd5d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-06-19T13:04:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1205",
+          "number": 1205,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1205"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Send lifespan.shutdown.failed event on lifespan shutdown error"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-03T10:02:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1227",
+          "number": 1227,
+          "pull_request": {
+            "merged_at": "2021-07-03T17:43:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1227"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "use an async context manager factory for lifespan"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-08T20:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Opentrons/opentrons/pull/8080",
+          "number": 8080,
+          "pull_request": {
+            "merged_at": "2021-07-22T18:32:25Z",
+            "url": "https://api.github.com/repos/Opentrons/opentrons/pulls/8080"
+          },
+          "repository": {
+            "full_name": "Opentrons/opentrons"
+          },
+          "title": "fix(robot-server): Don't hide exceptions in startup/shutdown handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-23T07:11:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/COSC-499-W2023/year-long-project-team-1/pull/115",
+          "number": 115,
+          "pull_request": {
+            "merged_at": "2023-11-24T04:49:54Z",
+            "url": "https://api.github.com/repos/COSC-499-W2023/year-long-project-team-1/pulls/115"
+          },
+          "repository": {
+            "full_name": "COSC-499-W2023/year-long-project-team-1"
+          },
+          "title": "feat(videos): backend features for reviewing video"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T04:11:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/nvu-1801/ai_dineX/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-08-23T04:09:46Z",
+            "url": "https://api.github.com/repos/nvu-1801/ai_dineX/pulls/2"
+          },
+          "repository": {
+            "full_name": "nvu-1801/ai_dineX"
+          },
+          "title": "Dev"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/setup.py",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "setup.py",
+      "sha": "31789fe09dc8e62d554dc5da124a810e9844e72b",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Fapplications.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/applications.py",
+      "sha": "ea52ee70eea462a27df46eb9f15652a4037a919e",
+      "status": "modified"
+    },
+    {
+      "additions": 88,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Frouting.py",
+      "changes": 109,
+      "deletions": 21,
+      "filename": "starlette/routing.py",
+      "sha": "9a1a5e12df719775408a3454096e5147ebad4265",
+      "status": "modified"
+    },
+    {
+      "additions": 20,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/starlette%2Ftestclient.py",
+      "changes": 28,
+      "deletions": 8,
+      "filename": "starlette/testclient.py",
+      "sha": "08d03fa5c4297fc1d5322c9a3ff951e9de747abd",
+      "status": "modified"
+    },
+    {
+      "additions": 41,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/tests%2Ftest_applications.py",
+      "changes": 43,
+      "deletions": 2,
+      "filename": "tests/test_applications.py",
+      "sha": "f5f4c7fbea80dcb97f9d202c8a28f2baa60d79a8",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/cedceb488573e17b860891fbd7b920a587f0fd5d/tests%2Ftest_testclient.py",
+      "changes": 11,
+      "deletions": 4,
+      "filename": "tests/test_testclient.py",
+      "sha": "8c066678966c7274aa25839a8086d5e9d3f62a5c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWhen one of the on_shutdown functions raises an error \r\n\r\n### To reproduce\r\n\r\n```python3\r\nfrom starlette.applications import Starlette\r\n\r\nasync def fail():\r\n    raise Exception()\r\n\r\napp = Starlette(on_shutdown=[fail])\r\n```\r\n(Doesn't matter if the function is async or not)\r\n\r\n`uvicorn app:app --log-level trace`\r\n\r\n\r\n### Expected behavior\r\n\r\nThe exception is caught, reported, and Starlette shuts down properly\r\n\r\n### Actual behavior\r\n\r\nLogs:\r\n\r\n```\r\nINFO:     Started server process [22310]\r\nINFO:     Waiting for application startup.\r\nTRACE:    ASGI [1] Started scope={'type': 'lifespan', 'asgi': {'version': '3.0', 'spec_version': '2.0'}}\r\nTRACE:    ASGI [1] Receive {'type': 'lifespan.startup'}\r\nTRACE:    ASGI [1] Send {'type': 'lifespan.startup.complete'}\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\n^C\r\nINFO:     Shutting down\r\nINFO:     Waiting for application shutdown.\r\nTRACE:    ASGI [1] Receive {'type': 'lifespan.shutdown'}\r\nTRACE:    ASGI [1] Raised exception\r\nINFO:     ASGI 'lifespan' protocol appears unsupported.\r\nINFO:     Application shutdown complete.\r\nINFO:     Finished server process [22310]\r\n```\r\n\r\nNote that the TRACE messages are hidden, and all that is printed is _\"ASGI 'lifespan' protocol appears unsupported.\"_\r\n\r\n### Debugging material\r\n\r\nWhen I run uvicorn with `--lifespan on`, these logs appear:\r\n\r\n<details>\r\n\r\n```\r\nINFO:     Started server process [22568]\r\nINFO:     Waiting for application startup.\r\nTRACE:    ASGI [1] Started scope={'type': 'lifespan', 'asgi': {'version': '3.0', 'spec_version': '2.0'}}\r\nTRACE:    ASGI [1] Receive {'type': 'lifespan.startup'}\r\nTRACE:    ASGI [1] Send {'type': 'lifespan.startup.complete'}\r\nINFO:     Application startup complete.\r\nINFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)\r\n^C\r\nINFO:     Shutting down\r\nINFO:     Waiting for application shutdown.\r\nTRACE:    ASGI [1] Receive {'type': 'lifespan.shutdown'}\r\nTRACE:    ASGI [1] Raised exception\r\nERROR:    Exception in 'lifespan' protocol\r\nTraceback (most recent call last):\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/uvicorn/lifespan/on.py\", line 55, in main\r\n    await app(scope, self.receive, self.send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/uvicorn/middleware/message_logger.py\", line 65, in __call__\r\n    raise exc from None\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/uvicorn/middleware/message_logger.py\", line 61, in __call__\r\n    await self.app(scope, inner_receive, inner_send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 146, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/exceptions.py\", line 58, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/routing.py\", line 569, in __call__\r\n    await self.lifespan(scope, receive, send)\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/routing.py\", line 540, in lifespan\r\n    async for item in self.lifespan_context(app):\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/routing.py\", line 483, in default_lifespan\r\n    await self.shutdown()\r\n  File \"/tmp/issue/env/lib/python3.8/site-packages/starlette/routing.py\", line 528, in shutdown\r\n    handler()\r\n  File \"./app.py\", line 5, in fail\r\n    raise Exception()\r\nException\r\nINFO:     Application shutdown complete.\r\nINFO:     Finished server process [22568]\r\n```\r\n\r\n</details>\r\n\r\n### Environment\r\n\r\n- OS: Ubuntu 20.04.1 LTS\r\n- Python version: 3.8.5\r\n\r\n```\r\nclick==7.1.2\r\nh11==0.12.0\r\nstarlette==0.14.2\r\nuvicorn==0.13.3\r\n```\r\n\r\n### Additional context\r\n\r\nSomebody likely ran into this here: https://stackoverflow.com/q/64512286/7292139",
+    "body_last_edited_at": "2021-02-08T20:11:57Z",
+    "closed_at": "2021-07-03T17:43:25Z",
+    "created_at": "2021-02-08T18:56:07Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1138",
+    "labels": [
+      "feature"
+    ],
+    "number": 1138,
+    "state": "closed",
+    "title": "When on_shutdown function raises error, starlette doesn't catch it and uvicorn thinks that lifespan is not supported",
+    "user": "mvolfik"
+  },
+  "pull_request": {
+    "closed_at": "2021-07-03T17:43:25Z",
+    "created_at": "2021-06-30T18:21:38Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1227",
+    "merge_commit_sha": "537ab6afd110b79dca95f3c8ecc6980710b1de1c",
+    "merged_at": "2021-07-03T17:43:24Z",
+    "number": 1227,
+    "title": "use an async context manager factory for lifespan",
+    "user": "graingert"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "d222b87cb4601ecda5d642ab504a14974d364db4",
+    "committed_at": "2021-06-28T20:36:13Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/d222b87cb4601ecda5d642ab504a14974d364db4"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-02-09T07:10:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-30T22:21:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-30T22:21:22Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-05-30T22:21:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-06-11T21:21:35Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-19T09:35:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-19T13:04:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1205",
+          "number": 1205,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1205"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Send lifespan.shutdown.failed event on lifespan shutdown error"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-03T10:02:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1227",
+          "number": 1227,
+          "pull_request": {
+            "merged_at": "2021-07-03T17:43:24Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1227"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "use an async context manager factory for lifespan"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-03T17:43:25Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-07-08T20:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Opentrons/opentrons/pull/8080",
+          "number": 8080,
+          "pull_request": {
+            "merged_at": "2021-07-22T18:32:25Z",
+            "url": "https://api.github.com/repos/Opentrons/opentrons/pulls/8080"
+          },
+          "repository": {
+            "full_name": "Opentrons/opentrons"
+          },
+          "title": "fix(robot-server): Don't hide exceptions in startup/shutdown handlers"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-23T07:11:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/COSC-499-W2023/year-long-project-team-1/pull/115",
+          "number": 115,
+          "pull_request": {
+            "merged_at": "2023-11-24T04:49:54Z",
+            "url": "https://api.github.com/repos/COSC-499-W2023/year-long-project-team-1/pulls/115"
+          },
+          "repository": {
+            "full_name": "COSC-499-W2023/year-long-project-team-1"
+          },
+          "title": "feat(videos): backend features for reviewing video"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-23T04:11:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/nvu-1801/ai_dineX/pull/2",
+          "number": 2,
+          "pull_request": {
+            "merged_at": "2026-08-23T04:09:46Z",
+            "url": "https://api.github.com/repos/nvu-1801/ai_dineX/pulls/2"
+          },
+          "repository": {
+            "full_name": "nvu-1801/ai_dineX"
+          },
+          "title": "Dev"
+        }
+      }
+    }
+  ]
+}

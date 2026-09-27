@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Is there anyway I can default all endpoints to require authentication instead of explicitly requiring it on every endpoint?  I mean a use case for most applications is that only a small subset of endpoints **do not** require authentication, and I haven't yet found documentation that lets me say \"by default an endpoint should require authentication, and only when annotated with `@somedecorator` should a  no authentication be allowed\".  This was extremely easy to do in flask.",
+    "closed_at": "2020-02-19T10:54:54Z",
+    "created_at": "2020-02-18T17:53:03Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/831",
+    "number": 831,
+    "state": "closed",
+    "title": "Authentication Middleware Default Required",
+    "user": "jimcarreer"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-19T10:54:54Z",
+      "event": "commented"
+    }
+  ]
+}

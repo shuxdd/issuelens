@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The `Request` class should present a dict-like interface so that it can be used in the same way as `scope`. Should also allow it to be instantiated without a `receive` channel being set initially.",
+    "closed_at": "2018-06-26T09:54:37Z",
+    "created_at": "2018-06-25T21:21:30Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/4",
+    "number": 4,
+    "state": "closed",
+    "title": "Request should present a scope-like interface",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

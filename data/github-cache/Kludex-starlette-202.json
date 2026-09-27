@@ -1,0 +1,99 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-28T00:30:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/915",
+          "number": 915,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Sample required in docs for periodic timers"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello.\r\nAny plans to support periodic timers?\r\nI have seen support only for startup/shutdown events.\r\n\r\nI'm trying to develop an ASGI web server and, on top of it, also being able to do some periodic tasks apart from responding to the exposed endpoints.\r\n\r\nI have tried (programatically) to use the regular asyncio framework along with startlette/uvicorn but they do not share the same event loop. If I start the uvicorn server configured with asyncio event loop, I get also an error because it cannot run the event loop while another is running, which is expected.\r\n\r\nAny way to share the same event loop for both the web server and the periodic async timers?\r\n\r\nThanks. \r\n-Bob V",
+    "closed_at": "2018-11-09T19:21:33Z",
+    "created_at": "2018-11-09T10:11:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/202",
+    "number": 202,
+    "state": "closed",
+    "title": "Question/New Feature: Support for periodic timers",
+    "user": "emacsuser123"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-09T11:37:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T13:47:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T13:57:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T13:59:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T13:59:59Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-11-09T15:20:00Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2018-11-09T15:29:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T16:05:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T19:21:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T19:21:33Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2020-04-17T00:41:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-17T00:41:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-04-17T00:41:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-28T00:30:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/915",
+          "number": 915,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Sample required in docs for periodic timers"
+        }
+      }
+    }
+  ]
+}

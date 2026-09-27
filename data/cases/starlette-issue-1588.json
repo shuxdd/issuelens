@@ -1,0 +1,163 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-04-15T17:52:16Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1588"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1588"
+    ]
+  },
+  "case_id": "starlette-issue-1588",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1349",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Add 400 response when `boundary` is missing ' directly changes starlette/applications.py, starlette/exceptions.py, starlette/formparsers.py, starlette/middleware/exceptions.py, starlette/requests.py with focused behavior test(s) tests/test_exceptions.py, tests/test_formparsers.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-05-03T05:53:48Z",
+  "issue": {
+    "body": "I did some research about this PR, and to understand if the issue was reasonable.\r\n\r\nHere's what I've found out:\r\n- Flask raises `ValueError` when the `boundary` is not found: https://github.com/pallets/werkzeug/blob/dae7e0d06651e54a74f04e1cf24d806c4e2e9be9/src/werkzeug/formparser.py#L270-L291\r\n- Django raises a custom exception: https://github.com/django/django/blob/abfdb4d7f384fb06ed9b7ca37b548542df7b5dda/django/http/multipartparser.py#L79-L83\r\n- Django also verifies if the `boundary` is valid with https://github.com/python/cpython/blob/27ee43183437c473725eba00def0ea7647688926/Lib/cgi.py#L991-L997\r\n- After that raise, Django catches that exception and raises a 400: https://github.com/django/django/blob/abfdb4d7f384fb06ed9b7ca37b548542df7b5dda/django/core/handlers/exception.py#L84-L94\r\n\r\nOn Starlette, we raise `KeyError` with \"boundary key missing\". Although this PR follows the issue that was raised, and it's actually an improvement, I think we should follow Django's lead, and also create a 400 response on this case.\r\n\r\n_Originally posted by @Kludex in https://github.com/encode/starlette/issues/1544#issuecomment-1080197920_",
+    "number": 1588,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1588",
+    "title": "Send 400 on missing `boundary`"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1617 created_at 2022-05-03T05:53:48Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1617",
+    "repair_files": [
+      "starlette/applications.py",
+      "starlette/exceptions.py",
+      "starlette/formparsers.py",
+      "starlette/middleware/exceptions.py",
+      "starlette/requests.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 830f3486537916bae6b46948ff922adc14a22b7c",
+    "test_files": [
+      "tests/test_exceptions.py",
+      "tests/test_formparsers.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/applications.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fapplications.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fexceptions.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fformparsers.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/middleware/exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fmiddleware%2Fexceptions.py",
+        "status": "added"
+      },
+      {
+        "path": "starlette/requests.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Frequests.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "efc4342c38efbef4edb796c30c578926eea6b088",
+        "source_url": "https://github.com/Kludex/starlette/commit/efc4342c38efbef4edb796c30c578926eea6b088"
+      },
+      {
+        "sha": "b7b4e92868fe4f34ecd0594a4a223983cc94f10a",
+        "source_url": "https://github.com/Kludex/starlette/commit/b7b4e92868fe4f34ecd0594a4a223983cc94f10a"
+      },
+      {
+        "sha": "d2e190ad293aeca70e9ac75bf2f73b381abf2d87",
+        "source_url": "https://github.com/Kludex/starlette/commit/d2e190ad293aeca70e9ac75bf2f73b381abf2d87"
+      },
+      {
+        "sha": "d52dd9a588eb53862c4d070776fa51e8ea43502b",
+        "source_url": "https://github.com/Kludex/starlette/commit/d52dd9a588eb53862c4d070776fa51e8ea43502b"
+      },
+      {
+        "sha": "f1eb5ba4902a88fc88e9da1abb31d27890371530",
+        "source_url": "https://github.com/Kludex/starlette/commit/f1eb5ba4902a88fc88e9da1abb31d27890371530"
+      },
+      {
+        "sha": "7a7a31e68a992c801f2261349c6214e429f09706",
+        "source_url": "https://github.com/Kludex/starlette/commit/7a7a31e68a992c801f2261349c6214e429f09706"
+      },
+      {
+        "sha": "92454083d4a87fb86fdc60b9f7f88014c1024a8c",
+        "source_url": "https://github.com/Kludex/starlette/commit/92454083d4a87fb86fdc60b9f7f88014c1024a8c"
+      },
+      {
+        "sha": "90aa31b5ed2a2531b119c0e567f124d22cd33e12",
+        "source_url": "https://github.com/Kludex/starlette/commit/90aa31b5ed2a2531b119c0e567f124d22cd33e12"
+      },
+      {
+        "sha": "598cfac1c49975897d85eb223d8358cf9ea86a6b",
+        "source_url": "https://github.com/Kludex/starlette/commit/598cfac1c49975897d85eb223d8358cf9ea86a6b"
+      },
+      {
+        "sha": "ed1ccb25785a5bf403eb595b939f121e110e8caf",
+        "source_url": "https://github.com/Kludex/starlette/commit/ed1ccb25785a5bf403eb595b939f121e110e8caf"
+      },
+      {
+        "sha": "57e16d660767ec34f0a8114dfa8042df154631a2",
+        "source_url": "https://github.com/Kludex/starlette/commit/57e16d660767ec34f0a8114dfa8042df154631a2"
+      },
+      {
+        "sha": "234c9089460457bb9b5c0ffec110319f3dee14cf",
+        "source_url": "https://github.com/Kludex/starlette/commit/234c9089460457bb9b5c0ffec110319f3dee14cf"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-05-03T05:53:48Z",
+      "number": 1617,
+      "source_url": "https://github.com/Kludex/starlette/pull/1617"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1617"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_exceptions.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_formparsers.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+    "committed_at": "2022-05-03T05:32:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/830f3486537916bae6b46948ff922adc14a22b7c"
+  },
+  "schema_version": "1.0"
+}

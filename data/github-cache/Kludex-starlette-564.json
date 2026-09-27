@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "As per [RFC2518](https://tools.ietf.org/html/rfc2518#section-10.1) there is `102` HTTP status code, namely `Processing` that should be used for notifying consumer that the request has not finished processing on the backend. Common case is to use such status for long polling or status confirm of asynchronously running tasks. \r\n\r\nSome other status codes from this RFC are already included and are usable with Starlette.\r\n\r\nCurrently when `102` status is provided in the `Response` object server hangs for a while and throws error being unable to process such response.",
+    "closed_at": "2019-06-25T08:16:47Z",
+    "created_at": "2019-06-25T07:41:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/564",
+    "number": 564,
+    "state": "closed",
+    "title": "Add support for 102 Processing HTTP code",
+    "user": "LKay"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-25T08:16:47Z",
+      "event": "commented"
+    }
+  ]
+}

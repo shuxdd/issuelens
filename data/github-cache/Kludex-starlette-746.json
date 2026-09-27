@@ -1,0 +1,159 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-05-24T05:56:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ef329ba0a22864c65ab76bfabf778bd464d4b571",
+      "sha": "ef329ba0a22864c65ab76bfabf778bd464d4b571"
+    },
+    {
+      "committed_at": "2022-05-24T06:04:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b6add15d43e80d39a5a7fedfd27894210596f729",
+      "sha": "b6add15d43e80d39a5a7fedfd27894210596f729"
+    },
+    {
+      "committed_at": "2022-06-09T05:53:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a8137f19e9bfd3063c5b5ddb1456f876f3ab8c05",
+      "sha": "a8137f19e9bfd3063c5b5ddb1456f876f3ab8c05"
+    },
+    {
+      "committed_at": "2022-06-18T17:14:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4108619cc244fb93929c32abca28b31959734c19",
+      "sha": "4108619cc244fb93929c32abca28b31959734c19"
+    },
+    {
+      "committed_at": "2022-06-27T08:26:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/98bcba3d8fcad915de2ddfc46c5002691d67c557",
+      "sha": "98bcba3d8fcad915de2ddfc46c5002691d67c557"
+    },
+    {
+      "committed_at": "2022-06-28T05:14:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/648250bb64d4726f0ccb9034f3f1842366ff647e",
+      "sha": "648250bb64d4726f0ccb9034f3f1842366ff647e"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-06-08T16:37:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1646",
+          "number": 1646,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "SchemaGenerator and path parameter converters"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-09T05:53:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1648",
+          "number": 1648,
+          "pull_request": {
+            "merged_at": "2022-06-28T05:23:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove converter from path when generating `OpenAPI` schema"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/648250bb64d4726f0ccb9034f3f1842366ff647e/starlette%2Fschemas.py",
+      "changes": 21,
+      "deletions": 5,
+      "filename": "starlette/schemas.py",
+      "sha": "55bf7b397613b5f356a2c16dce068e26559a1ae1",
+      "status": "modified"
+    },
+    {
+      "additions": 29,
+      "blob_url": "https://github.com/Kludex/starlette/blob/648250bb64d4726f0ccb9034f3f1842366ff647e/tests%2Ftest_schemas.py",
+      "changes": 29,
+      "deletions": 0,
+      "filename": "tests/test_schemas.py",
+      "sha": "26884b3916a6b3fa11ced8fca5d59dad1b79cba2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "When specifying a convertor type for a path parameter like so:\r\n```\r\n...\r\nRoute('/users/{user_id:int}', user, methods=[\"GET\", \"POST\"])\r\n...\r\n```\r\n\r\nThe OAS schema generated using `SchemaGenerator` interprets the whole portion within `{}`  eg. `'user_id:int'` as the required path parameter variable name, which then requires the parameter name in OAS to be `user_id:int` instead of just `user_id`.\r\n\r\n![user_idint](https://user-images.githubusercontent.com/26809407/70369654-50312280-18eb-11ea-9089-53743115394c.png)\r\n\r\nI think the convertor is great in that a GET request to `/users/foo` will result in `404: NOT FOUND`. Of course, another option is to have a `try-except` clause to handle non-integer values within the method... but I was wondering what the community thinks about this and if this even should be supported by the `SchemaGenerator`.",
+    "body_last_edited_at": "2019-12-07T06:11:51Z",
+    "closed_at": "2022-06-28T05:23:27Z",
+    "created_at": "2019-12-07T06:11:25Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/746",
+    "number": 746,
+    "state": "closed",
+    "title": "Endpoint path parameters type specification compatibility with OAS",
+    "user": "inverseTrig"
+  },
+  "pull_request": {
+    "closed_at": "2022-06-28T05:23:27Z",
+    "created_at": "2022-05-24T06:00:58Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1648",
+    "merge_commit_sha": "795cf608f6af27f8169368afbe315a63e86213b2",
+    "merged_at": "2022-06-28T05:23:27Z",
+    "number": 1648,
+    "title": "Remove converter from path when generating `OpenAPI` schema",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+    "committed_at": "2022-05-24T05:46:19Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-12-09T12:07:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-08T16:37:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1646",
+          "number": 1646,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "SchemaGenerator and path parameter converters"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-09T05:53:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1648",
+          "number": 1648,
+          "pull_request": {
+            "merged_at": "2022-06-28T05:23:27Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1648"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove converter from path when generating `OpenAPI` schema"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-28T05:23:27Z",
+      "event": "closed"
+    }
+  ]
+}

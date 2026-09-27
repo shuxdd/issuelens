@@ -1,0 +1,217 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-10-22T09:19:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/issues/388",
+          "number": 388,
+          "pull_request": {},
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Middleware causing hanging when running on Azure Functions"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T18:49:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Azure/azure-functions-python-worker/issues/903",
+          "number": 903,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Azure/azure-functions-python-worker"
+          },
+          "title": "[BUG] Starlette ASGI app hangs when using middlewares derived from BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-11T06:22:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Azure/azure-functions-python-library/pull/98",
+          "number": 98,
+          "pull_request": {
+            "merged_at": "2022-03-09T17:13:33Z",
+            "url": "https://api.github.com/repos/Azure/azure-functions-python-library/pulls/98"
+          },
+          "repository": {
+            "full_name": "Azure/azure-functions-python-library"
+          },
+          "title": "ASGI worker: Yield a `http.disconnect` on any additional receive calls"
+        }
+      }
+    },
+    {
+      "created_at": "2023-08-04T19:02:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/pull/680",
+          "number": 680,
+          "pull_request": {
+            "merged_at": "2024-03-06T09:30:18Z",
+            "url": "https://api.github.com/repos/developmentseed/titiler/pulls/680"
+          },
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Update Azure deployment example"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Describe the bug\r\n\r\nI am running a Starlette app through Azure Functions, using the ASGI support in Azure Functions to run the app. When I set up the app with no middlewares, it works fine. When I add the `CORSMiddleware` it also works fine, but when I add any middleware which is a subclass of `BaseHTTPMiddleware`, then all requests to the app hang and eventually timeout.\r\n\r\n### To reproduce\r\nA simple reproducible example is available [here](https://github.com/robintw/starlette-test-azure). This defines a simple Starlette app as follows:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.middleware.cors import CORSMiddleware\r\n\r\nasync def homepage(request):\r\n    return JSONResponse({\"hello\": \"world\"})\r\n\r\n\r\nclass CustomHeaderMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request, call_next):\r\n        response = await call_next(request)\r\n        response.headers[\"Custom\"] = \"Example\"\r\n        return response\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[\r\n        Route(\"/\", homepage),\r\n    ],\r\n    # Works with no middlewares defined\r\n    #\r\n    # Hangs with this line:\r\n    # middleware=[Middleware(CustomHeaderMiddleware)]\r\n    #\r\n    # Works with this line:\r\n    middleware = [Middleware(CORSMiddleware)]\r\n)\r\n```\r\n\r\nThis app is then deployed on Azure Functions, using their `AsgiMiddleware` class, which interfaces between Azure Functions triggers and ASGI requests. The code is all available in the repo, but the key part is `__init__.py`, which contains:\r\n\r\n```python\r\nimport azure.functions as func\r\nfrom azure.functions import AsgiMiddleware\r\n\r\nfrom .simple_app import app\r\n\r\ndef main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:\r\n    return AsgiMiddleware(app).handle(req, context) \r\n```\r\n\r\n### Expected behavior\r\nApp works with all types of middleware\r\n\r\n### Actual behavior\r\nAs you can see from the comments at the bottom of the app, this works with no middlewares, or just the `CORSMiddleware`, but hangs with the `CustomHeaderMiddleware` which is derived from `BaseHTTPMiddleware`.\r\n\r\n### Debugging material\r\nAs the app just hangs, there is no traceback to share.\r\n\r\n### Environment\r\n\r\n- OS: Linux, on Azure Functions\r\n- Python version: 3.9\r\n- Starlette version: 0.16.0 (latest release at time of writing)\r\n\r\n### Additional context\r\nThis was first discovered in a FastAPI app called titiler - see https://github.com/developmentseed/titiler/issues/388. The author of that app realised it was only failing when using middleware which were a subclass of `BaseHTTPMiddleware`, and suggested I try with raw Starlette and post an issue here.",
+    "closed_at": "2021-11-27T14:01:07Z",
+    "created_at": "2021-10-22T09:04:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1320",
+    "number": 1320,
+    "state": "closed",
+    "title": "Starlette app hangs on Azure Functions when middleware based on BaseHTTPMiddleware is used",
+    "user": "robintw"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-22T09:19:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/issues/388",
+          "number": 388,
+          "pull_request": {},
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Middleware causing hanging when running on Azure Functions"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T14:01:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T14:01:07Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-11-27T14:01:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-27T14:01:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-27T18:49:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Azure/azure-functions-python-worker/issues/903",
+          "number": 903,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Azure/azure-functions-python-worker"
+          },
+          "title": "[BUG] Starlette ASGI app hangs when using middlewares derived from BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T18:50:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T18:50:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-27T18:50:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-27T18:53:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-05T15:48:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-05T15:48:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-05T15:48:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-11T04:01:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-11T04:01:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-11T04:01:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-11T04:01:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-11T04:01:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-11T06:21:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-11T06:22:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Azure/azure-functions-python-library/pull/98",
+          "number": 98,
+          "pull_request": {
+            "merged_at": "2022-03-09T17:13:33Z",
+            "url": "https://api.github.com/repos/Azure/azure-functions-python-library/pulls/98"
+          },
+          "repository": {
+            "full_name": "Azure/azure-functions-python-library"
+          },
+          "title": "ASGI worker: Yield a `http.disconnect` on any additional receive calls"
+        }
+      }
+    },
+    {
+      "created_at": "2023-08-04T19:02:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/developmentseed/titiler/pull/680",
+          "number": 680,
+          "pull_request": {
+            "merged_at": "2024-03-06T09:30:18Z",
+            "url": "https://api.github.com/repos/developmentseed/titiler/pulls/680"
+          },
+          "repository": {
+            "full_name": "developmentseed/titiler"
+          },
+          "title": "Update Azure deployment example"
+        }
+      }
+    }
+  ]
+}

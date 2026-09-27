@@ -1,0 +1,137 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-04-30T02:20:31Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/495"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/495"
+    ]
+  },
+  "case_id": "starlette-issue-495",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1692",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR \"Reuse Request's body buffer for call_next in BaseHTTPMiddleware\" directly changes starlette/middleware/base.py, starlette/requests.py with focused behavior test(s) tests/middleware/test_base.py, tests/test_requests.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-06-15T03:13:28Z",
+  "issue": {
+    "body": "```\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\n\r\n\r\nclass SampleMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request: Request, call_next):\r\n        _ = await request.form()\r\n        return await call_next(request)\r\n\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route('/test', methods=['POST'])\r\nasync def test(request):\r\n    _ = await request.form()  # blocked, because middleware already consumed request body\r\n    return PlainTextResponse('Hello, world!')\r\n\r\n\r\napp.add_middleware(SampleMiddleware)\r\n```\r\n\r\n```\r\n$ uvicorn test:app --reload\r\n```\r\n\r\n```\r\n$ curl -d \"a=1\" http://127.0.0.1:8000/test\r\n# request is blocked\r\n```",
+    "number": 495,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/495",
+    "title": "Consume request body in middleware is problematic"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1692 created_at 2022-06-15T03:13:28Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1692",
+    "repair_files": [
+      "starlette/middleware/base.py",
+      "starlette/requests.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is daf29136df53ff03fb291644a4e564b6b37b4857",
+    "test_files": [
+      "tests/middleware/test_base.py",
+      "tests/test_requests.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/requests.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/starlette%2Frequests.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "ec382274541720a688131053ec7247c4c5965f8d",
+        "source_url": "https://github.com/Kludex/starlette/commit/ec382274541720a688131053ec7247c4c5965f8d"
+      },
+      {
+        "sha": "a3ba02cb732ac47ab66e172d4201c1f7dd41f699",
+        "source_url": "https://github.com/Kludex/starlette/commit/a3ba02cb732ac47ab66e172d4201c1f7dd41f699"
+      },
+      {
+        "sha": "96d5b4999b29b19c6dc6430858e096ac7dc46e65",
+        "source_url": "https://github.com/Kludex/starlette/commit/96d5b4999b29b19c6dc6430858e096ac7dc46e65"
+      },
+      {
+        "sha": "f913447db466ada33f2b78a6f3428401983844c2",
+        "source_url": "https://github.com/Kludex/starlette/commit/f913447db466ada33f2b78a6f3428401983844c2"
+      },
+      {
+        "sha": "84c84f0322e45fa56d624a2f3ce59bc4ac53b246",
+        "source_url": "https://github.com/Kludex/starlette/commit/84c84f0322e45fa56d624a2f3ce59bc4ac53b246"
+      },
+      {
+        "sha": "b4d5a7982cd14deda311934edff4c4493232e1a7",
+        "source_url": "https://github.com/Kludex/starlette/commit/b4d5a7982cd14deda311934edff4c4493232e1a7"
+      },
+      {
+        "sha": "fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298",
+        "source_url": "https://github.com/Kludex/starlette/commit/fcc9fa9b627b5b0a55ed00c2b3676c2fa27d2298"
+      },
+      {
+        "sha": "9162cb3984fd68e7416455111dcb0f6889542762",
+        "source_url": "https://github.com/Kludex/starlette/commit/9162cb3984fd68e7416455111dcb0f6889542762"
+      },
+      {
+        "sha": "1e60d982d88f08fb07cd4e40951022597ae8f11f",
+        "source_url": "https://github.com/Kludex/starlette/commit/1e60d982d88f08fb07cd4e40951022597ae8f11f"
+      },
+      {
+        "sha": "68efb83cf38784be7e89e0583923dca2055b733b",
+        "source_url": "https://github.com/Kludex/starlette/commit/68efb83cf38784be7e89e0583923dca2055b733b"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-06-15T03:13:28Z",
+      "number": 1692,
+      "source_url": "https://github.com/Kludex/starlette/pull/1692"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1692"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Fmiddleware%2Ftest_base.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_requests.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/68efb83cf38784be7e89e0583923dca2055b733b/tests%2Ftest_requests.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+    "committed_at": "2022-06-11T06:30:50Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/daf29136df53ff03fb291644a4e564b6b37b4857"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,233 @@
+{
+  "commits": [
+    {
+      "committed_at": "2019-06-24T22:03:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3f702238247c99089eac76880965b32bd050f3cb",
+      "sha": "3f702238247c99089eac76880965b32bd050f3cb"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2019-05-05T02:24:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/51",
+          "number": 51,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "ending / for collections"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-23T11:06:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/244",
+          "number": 244,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Support both /users/{user_id} and /users/_bulk"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-24T22:10:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/563",
+          "number": 563,
+          "pull_request": {
+            "merged_at": "2019-06-25T09:45:42Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/563"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make 307 the default redirect status code"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T07:54:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/Markdown-Docs/pull/16",
+          "number": 16,
+          "pull_request": {
+            "merged_at": "2026-08-13T08:22:55Z",
+            "url": "https://api.github.com/repos/amirbiron/Markdown-Docs/pulls/16"
+          },
+          "repository": {
+            "full_name": "amirbiron/Markdown-Docs"
+          },
+          "title": "feat: \u05e9\u05e8\u05ea MCP \u05dc-Markdown-Docs \u2014 \u05e7\u05e8\u05d9\u05d0\u05d4 \u05d5\u05db\u05ea\u05d9\u05d1\u05d4"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fmiddleware%2Fhttpsredirect.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/middleware/httpsredirect.py",
+      "sha": "7f646ed3e9b16107bdbcf09cd199e1cb68f6632e",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/starlette%2Fresponses.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/responses.py",
+      "sha": "a755d247567052df556785c9bb810ae5da83f63d",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/3f702238247c99089eac76880965b32bd050f3cb/tests%2Fmiddleware%2Ftest_https_redirect.py",
+      "changes": 8,
+      "deletions": 4,
+      "filename": "tests/middleware/test_https_redirect.py",
+      "sha": "6a81ed30f26b0c677c26d7a2aa1f0cc5e3cc549c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Hi,\r\nI stumbled upon a quirk in starlette that is not properly documented. It seems like all of my HTTP request to a route without trailing slash are being redirected to route with trailing slashes. Say I am hitting `http://hostname/mountpoint/api` it will be redirected (302) to `http://hostname/mountpoint/api/`. This messed up your api calls; if you call POST to `http://hostname/mountpoint/api` it will be redirected to GET `http://hostname/mountpoint/api/`.\r\n\r\nI dig on the source and see this redirect_slashes flag and setting it to False fix this. I feel this behavior (the auto redirection) should be documented.",
+    "body_last_edited_at": "2019-04-14T18:38:47Z",
+    "closed_at": "2019-06-25T09:45:42Z",
+    "created_at": "2019-04-03T17:10:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/464",
+    "number": 464,
+    "state": "closed",
+    "title": "Use \"308 Permanent Redirect\" for redirect slashes behavior.",
+    "user": "tibudiyanto"
+  },
+  "pull_request": {
+    "closed_at": "2019-06-25T09:45:42Z",
+    "created_at": "2019-06-24T22:10:37Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/563",
+    "merge_commit_sha": "c208482df780633b8b25e0c1e4e35bc487989a61",
+    "merged_at": "2019-06-25T09:45:42Z",
+    "number": 563,
+    "title": "Make 307 the default redirect status code",
+    "user": "tiangolo"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "3f702238247c99089eac76880965b32bd050f3cb",
+    "committed_at": "2019-06-24T22:03:49Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/3f702238247c99089eac76880965b32bd050f3cb"
+  },
+  "timeline": [
+    {
+      "created_at": "2019-04-13T08:59:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-05T02:01:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-05T02:24:40Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/51",
+          "number": 51,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "ending / for collections"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-20T15:19:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-22T15:02:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T05:01:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T08:46:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T08:46:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-23T08:46:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-05-23T11:06:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/244",
+          "number": 244,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Support both /users/{user_id} and /users/_bulk"
+        }
+      }
+    },
+    {
+      "created_at": "2019-06-24T22:10:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/563",
+          "number": 563,
+          "pull_request": {
+            "merged_at": "2019-06-25T09:45:42Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/563"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make 307 the default redirect status code"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T07:54:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/Markdown-Docs/pull/16",
+          "number": 16,
+          "pull_request": {
+            "merged_at": "2026-08-13T08:22:55Z",
+            "url": "https://api.github.com/repos/amirbiron/Markdown-Docs/pulls/16"
+          },
+          "repository": {
+            "full_name": "amirbiron/Markdown-Docs"
+          },
+          "title": "feat: \u05e9\u05e8\u05ea MCP \u05dc-Markdown-Docs \u2014 \u05e7\u05e8\u05d9\u05d0\u05d4 \u05d5\u05db\u05ea\u05d9\u05d1\u05d4"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-01-07T12:29:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1397",
+          "number": 1397,
+          "pull_request": {
+            "merged_at": "2022-01-10T11:08:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1397"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't set  headers for responses with 1xx, 204 and 304 status code"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-14T12:28:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1765",
+          "number": 1765,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1765"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\u2728 Remove body from requests with a status code that don't allow it"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Describe the bug\r\n\r\n`JSONResponse` populates the response header with a **non-zero** `Content-Length` whenever the response object is instantiated **without any content**.\r\n\r\n### Checklist\r\n\r\n- [X] The bug is reproducible against the latest release and/or `master`.\r\n- [X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom starlette.datastructures import MutableHeaders\r\nfrom starlette.responses import JSONResponse\r\n\r\nr1 = JSONResponse('')\r\nr1.headers\r\n\r\nr2 = JSONResponse()\r\nr2.headers\r\n```\r\n\r\n### Expected behavior\r\n\r\n```python\r\n( r1.headers == r2.headers\r\n  and\r\n  r1.headers == MutableHeaders({'content-length': '0', 'content-type': 'application/json'}) )\r\n```\r\n\r\n### Actual behavior\r\n\r\n```python\r\n( r1.headers != r2.headers\r\n  and\r\n  r1.headers == MutableHeaders({'content-length': '2', 'content-type': 'application/json'})\r\n  and\r\n  r2.headers == MutableHeaders({'content-length': '4', 'content-type': 'application/json'}))\r\n```\r\n\r\n### Debugging material\r\n\r\nAll that is needed is the currently stable release of `Starlette`, and the trusty `terminal`.\r\n\r\n### Environment\r\n\r\n- OS: same on all of Linux/Windows/macOS\r\n- Python version: 3.7.x\r\n- Starlette version: 0.14.x\r\n\r\n### Additional context\r\n\r\nI was trying to adhere to the HTTP ref spec when constructing responses to the OPTIONS and HEAD methods.\r\n",
+    "closed_at": "2022-01-07T13:25:20Z",
+    "created_at": "2021-09-07T11:14:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1282",
+    "number": 1282,
+    "state": "closed",
+    "title": "JSONResponse Wrong Content-Length Value",
+    "user": "accredited-unicorn"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-09-07T11:41:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-07T20:42:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-07T20:42:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-09-07T20:42:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-16T20:35:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-07T12:29:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1397",
+          "number": 1397,
+          "pull_request": {
+            "merged_at": "2022-01-10T11:08:32Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1397"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't set  headers for responses with 1xx, 204 and 304 status code"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-07T13:25:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-14T12:28:22Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1765",
+          "number": 1765,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1765"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "\u2728 Remove body from requests with a status code that don't allow it"
+        }
+      }
+    }
+  ]
+}

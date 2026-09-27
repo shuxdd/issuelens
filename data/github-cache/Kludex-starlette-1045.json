@@ -1,0 +1,248 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-13T11:46:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bcddbc076eaadc5b870b6579b26324e3ae711bd3",
+      "sha": "bcddbc076eaadc5b870b6579b26324e3ae711bd3"
+    },
+    {
+      "committed_at": "2021-12-13T11:47:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8368830621f7ebee3639bd7751f881d6f24dbbd1",
+      "sha": "8368830621f7ebee3639bd7751f881d6f24dbbd1"
+    },
+    {
+      "committed_at": "2022-01-02T14:44:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1ece39b0b2a315aa1b2fc0e03a0a156a2caf88aa",
+      "sha": "1ece39b0b2a315aa1b2fc0e03a0a156a2caf88aa"
+    },
+    {
+      "committed_at": "2022-01-04T09:15:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/19f2140bc2a91713b306bd14d07dfed3e59a6753",
+      "sha": "19f2140bc2a91713b306bd14d07dfed3e59a6753"
+    },
+    {
+      "committed_at": "2022-01-10T21:16:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/37b3b3d771b7ea1f65d02be7efa7ca98e561f3a0",
+      "sha": "37b3b3d771b7ea1f65d02be7efa7ca98e561f3a0"
+    },
+    {
+      "committed_at": "2022-01-10T21:18:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d490f2dc640a56693a2b9d48f75ae755b5668135",
+      "sha": "d490f2dc640a56693a2b9d48f75ae755b5668135"
+    },
+    {
+      "committed_at": "2022-01-10T21:22:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e4f2ebff41cc8a2a3cee63ea765e563de435bb8b",
+      "sha": "e4f2ebff41cc8a2a3cee63ea765e563de435bb8b"
+    },
+    {
+      "committed_at": "2022-01-10T21:27:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4282335dc23113551150fda804c85d545242f5ba",
+      "sha": "4282335dc23113551150fda804c85d545242f5ba"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-09-06T09:36:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1043",
+          "number": 1043,
+          "pull_request": {
+            "merged_at": "2020-09-06T10:08:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1043"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update CI scripts to match httpcore"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-08T14:51:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1353",
+          "number": 1353,
+          "pull_request": {
+            "merged_at": "2022-01-11T08:28:39Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1353"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add Mypy checks to tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/setup.cfg",
+      "changes": 3,
+      "deletions": 2,
+      "filename": "setup.cfg",
+      "sha": "3089eaaf78a4bb22b2bfeac9fb7351f9696a1981",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Fmiddleware%2Ftest_cors.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "tests/middleware/test_cors.py",
+      "sha": "2f0ca3d34af645b1a4be4a2b5a73080dc198d6cd",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Fmiddleware%2Ftest_session.py",
+      "changes": 8,
+      "deletions": 2,
+      "filename": "tests/middleware/test_session.py",
+      "sha": "07296bcbb549e973c578f20b7a85cbb992bddb20",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Ftest_database.py",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "tests/test_database.py",
+      "sha": "11f770bb1f385a00af9b63926b34fd08a7d763b8",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Ftest_datastructures.py",
+      "changes": 7,
+      "deletions": 5,
+      "filename": "tests/test_datastructures.py",
+      "sha": "b110aa8bd01ffa299035662347d09c717f1cfe82",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Ftest_formparsers.py",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "tests/test_formparsers.py",
+      "sha": "05f0f053c8d0a2dbfdfdc2ee4a8fd99c2ce67675",
+      "status": "modified"
+    },
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Ftest_routing.py",
+      "changes": 8,
+      "deletions": 4,
+      "filename": "tests/test_routing.py",
+      "sha": "231c581fbf3f1398bbe6b62c11fd5ebddfa9df5d",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4282335dc23113551150fda804c85d545242f5ba/tests%2Ftest_templates.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "tests/test_templates.py",
+      "sha": "aa8279348216b67b14a6615e18fe9e91a1b5d7ca",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "As we do in other encode projects, we should run mypy against our test code to make sure the type annotations in the project work well when the project is actually used.\r\n\r\nWe do this not by adding type annotations to all the tests (as this is often not very useful for test code) but rather by using mypy's `check_untyped_defs` option. We usually have a mypy config like:\r\n\r\n```ini\r\n[mypy]\r\ndisallow_untyped_defs = True\r\nignore_missing_imports = True\r\n\r\n[mypy-tests.*]\r\ndisallow_untyped_defs = False\r\ncheck_untyped_defs = True\r\n```\r\n\r\nAs of writing, enabling `check_untyped_defs` for the tests directory results in a lot of mypy errors which need to be fixed.",
+    "body_last_edited_at": "2020-09-06T09:33:49Z",
+    "closed_at": "2022-01-11T08:28:39Z",
+    "created_at": "2020-09-06T09:32:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1045",
+    "labels": [
+      "typing"
+    ],
+    "number": 1045,
+    "state": "closed",
+    "title": "Have mypy check types on test code",
+    "user": "JayH5"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-11T08:28:39Z",
+    "created_at": "2021-12-08T14:51:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1353",
+    "merge_commit_sha": "3c93a19cef91ae856a5d8f02e09b481525071a07",
+    "merged_at": "2022-01-11T08:28:39Z",
+    "number": 1353,
+    "title": "Add Mypy checks to tests",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+    "committed_at": "2021-12-07T09:04:54Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/f53faba229e3fa2844bc3753e233d9c1f54cca52"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-09-06T09:36:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1043",
+          "number": 1043,
+          "pull_request": {
+            "merged_at": "2020-09-06T10:08:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1043"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Update CI scripts to match httpcore"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-07T00:33:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-07T07:40:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T10:53:11Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2020-10-07T14:55:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-07T20:16:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-08T14:51:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1353",
+          "number": 1353,
+          "pull_request": {
+            "merged_at": "2022-01-11T08:28:39Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1353"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add Mypy checks to tests"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-11T08:28:39Z",
+      "event": "closed"
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-02-10T11:45:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d2017c55ac642a2533009dde1a017f2eb05294d9",
+      "sha": "d2017c55ac642a2533009dde1a017f2eb05294d9"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-02-08T23:06:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1482",
+          "number": 1482,
+          "pull_request": {
+            "merged_at": "2022-02-09T09:29:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1482"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_authentication.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-08T23:09:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1483",
+          "number": 1483,
+          "pull_request": {
+            "merged_at": "2022-02-09T09:15:51Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1483"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_databases.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T09:04:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1485",
+          "number": 1485,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:55:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1485"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_routing.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T09:33:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1486",
+          "number": 1486,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:46:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1486"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add docstrings to discourage routing decorator style API"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T12:58:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1488",
+          "number": 1488,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:59:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1488"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `middleware/test_base.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T14:18:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1489",
+          "number": 1489,
+          "pull_request": {
+            "merged_at": "2022-02-10T10:37:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1489"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_application.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1498",
+          "number": 1498,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:27:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_cors.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:25:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1497"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_gzip.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1496",
+          "number": 1496,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:22:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1496"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_https_redirect.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1495",
+          "number": 1495,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:29:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1495"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_session.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1494",
+          "number": 1494,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:31:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1494"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_trusted_hosts.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:14:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1500",
+          "number": 1500,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:51:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_schemas.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:19:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1501",
+          "number": 1501,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:25:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1501"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_templates.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:28:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1502",
+          "number": 1502,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:44:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1502"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_testclient.py`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d2017c55ac642a2533009dde1a017f2eb05294d9/starlette%2Frouting.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/routing.py",
+      "sha": "9a3747e62f489f28a3c19639e1e3f51070942455",
+      "status": "modified"
+    },
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d2017c55ac642a2533009dde1a017f2eb05294d9/tests%2Ftest_schemas.py",
+      "changes": 37,
+      "deletions": 15,
+      "filename": "tests/test_schemas.py",
+      "sha": "fa43785b98fd8c4c511353d20bcb1bead7aec920",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "For quite a while now we've no longer documented the decorator-style for routing.\r\n\r\n*We document this style of routing configuration...*\r\n\r\n```python\r\ndef homepage(request):\r\n    ...\r\n\r\nroutes = [\r\n    Route('/', homepage),\r\n]\r\n\r\napp = Starlette(routes=routes)\r\n```\r\n\r\n*We no longer document this...*\r\n\r\n```python\r\napp = Starlette()\r\n\r\n@app.route(\"/\")\r\ndef homepage(request):\r\n    ...\r\n```\r\n\r\nHowever several of our test cases still continue to use the old style, which is a bit inconsistent.\r\n\r\nThe same also applies to `app.add_middleware` vs. `app = Starlette(..., middleware=...)`.\r\n\r\nWe could do with a bit of clean-up here.\r\n\r\n* Drop routing decorators in test cases.\r\n* Drop `.add_middleware` in test cases.\r\n* Add docstrings to the now undocumented API - \"We no longer document this decorator style API, and its usage is discouraged\"\r\n\r\nFor splitting this into individual chunks I'd probably suggest...\r\n\r\n* A pull request for the docstrings change.\r\n* Several pull requests for the test case change. Each pull request should only affect one file.",
+    "body_last_edited_at": null,
+    "closed_at": "2022-02-11T09:46:02Z",
+    "created_at": "2022-02-08T14:50:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1481",
+    "labels": [
+      "clean up",
+      "maintenance"
+    ],
+    "number": 1481,
+    "state": "closed",
+    "title": "Drop usage of routing decorators in test cases.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2022-02-10T11:51:13Z",
+    "created_at": "2022-02-10T11:14:12Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1500",
+    "merge_commit_sha": "ef4f8aaf420d412fa377c4fb36bd657a5cc3d7c1",
+    "merged_at": "2022-02-10T11:51:13Z",
+    "number": 1500,
+    "title": "Remove routing decorators in `test_schemas.py`",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "37f61dae8dd84d0a7cd3ae63a2e1e1b20a5a4cfd",
+    "committed_at": "2022-02-10T10:37:04Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/37f61dae8dd84d0a7cd3ae63a2e1e1b20a5a4cfd"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-02-08T23:06:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1482",
+          "number": 1482,
+          "pull_request": {
+            "merged_at": "2022-02-09T09:29:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1482"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_authentication.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-08T23:09:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1483",
+          "number": 1483,
+          "pull_request": {
+            "merged_at": "2022-02-09T09:15:51Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1483"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_databases.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T09:04:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1485",
+          "number": 1485,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:55:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1485"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_routing.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T09:33:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1486",
+          "number": 1486,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:46:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1486"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add docstrings to discourage routing decorator style API"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T12:58:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1488",
+          "number": 1488,
+          "pull_request": {
+            "merged_at": "2022-02-09T13:59:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1488"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `middleware/test_base.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-09T14:18:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1489",
+          "number": 1489,
+          "pull_request": {
+            "merged_at": "2022-02-10T10:37:04Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1489"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_application.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1498",
+          "number": 1498,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:27:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1498"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_cors.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1497",
+          "number": 1497,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:25:00Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1497"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_gzip.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1496",
+          "number": 1496,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:22:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1496"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_https_redirect.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1495",
+          "number": 1495,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:29:31Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1495"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_session.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T08:48:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1494",
+          "number": 1494,
+          "pull_request": {
+            "merged_at": "2022-02-10T09:31:49Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1494"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_trusted_hosts.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:14:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1500",
+          "number": 1500,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:51:13Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1500"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_schemas.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:19:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1501",
+          "number": 1501,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:25:28Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1501"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_templates.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-10T11:28:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1502",
+          "number": 1502,
+          "pull_request": {
+            "merged_at": "2022-02-10T11:44:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1502"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Remove routing decorators in `test_testclient.py`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-11T04:25:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T04:25:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-11T04:25:36Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-11T08:49:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-11T08:49:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-11T08:49:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-11T08:59:22Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-07-20T17:49:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1742",
+          "number": 1742,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "bind db engine and redis client to app for global usage"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hiya\r\n\r\nI'm using the app lifecycle (on_startup) to dynamically modify a FastAPI app instance.  I notice that the scope['app'] is always being overridden. Which means that modifications in that happen in on_startup are lost by the time my endpoint handler is called.\r\n\r\nstarlette/applications.py is called multiple times during a request-response cycle.\r\n\r\n```\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        scope[\"app\"] = self\r\n        await self.middleware_stack(scope, receive, send)\r\n\r\n```\r\n\r\nshould this altered be to preserve an already set scope[\"app\"] ?\r\n\r\ni.e.\r\n```\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        if \"app\" not in scope:\r\n            scope[\"app\"] = self\r\n        await self.middleware_stack(scope, receive, send)\r\n\r\n```\r\n\r\nI notice that in starlette/routing.py scope[\"router\"] is checked for existence before being set.\r\nIs there a good reason for scope[\"app\"] to be rewritten on each call? \r\n",
+    "closed_at": "2022-02-11T16:02:18Z",
+    "created_at": "2020-06-16T10:23:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/977",
+    "number": 977,
+    "state": "closed",
+    "title": "scope['app'] is overwritten without checking if it already exists ",
+    "user": "leonh"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-07-20T17:49:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1742",
+          "number": 1742,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "bind db engine and redis client to app for global usage"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-11T16:02:18Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-12-19T13:54:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/650",
+          "number": 650,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Type-checking our tests"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-11T19:30:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/243",
+          "number": 243,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "Type-checking our tests"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When using the new-style app setup in Starlette 0.13, where properties of the app are set in the app constructor, mypy can produce an error when middleware is configured. The error is like:\r\n```\r\napp.py:6: error: Argument \"middleware\" to \"Starlette\" has incompatible type \"List[Middleware]\"; expected \"Optional[List[Optional[Middleware]]]\"\r\napp.py:6: note: \"List\" is invariant -- see http://mypy.readthedocs.io/en/latest/common_issues.html#variance\r\napp.py:6: note: Consider using \"Sequence\" instead, which is covariant\r\nFound 1 error in 1 file (checked 1 source file)\r\n```\r\n\r\nThis can be reproduced with this minimal app:\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.httpsredirect import HTTPSRedirectMiddleware\r\n\r\nmiddleware = [Middleware(HTTPSRedirectMiddleware)]\r\napp = Starlette(middleware=middleware)\r\n```\r\nPutting this in a file called `app.py` and then running `mypy app.py` (no custom mypy config) produces the above error.\r\n\r\nGiven that this is the recommended way to configure middleware, mypy should accept the above code.\r\n\r\n```\r\n\u276f pip freeze\r\nmypy==0.740\r\nmypy-extensions==0.4.3\r\nstarlette==0.13.0\r\ntyped-ast==1.4.0\r\ntyping-extensions==3.7.4.1\r\n```",
+    "closed_at": "2019-11-20T15:10:16Z",
+    "created_at": "2019-11-19T16:17:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/722",
+    "number": 722,
+    "state": "closed",
+    "title": "mypy: Variance error when using middleware with new-style app setup",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-19T19:37:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-19T19:45:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-19T20:05:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-20T14:55:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-11-20T15:28:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-19T13:54:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/650",
+          "number": 650,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Type-checking our tests"
+        }
+      }
+    },
+    {
+      "created_at": "2019-12-31T15:04:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-31T22:43:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-31T22:43:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-31T22:43:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-01-01T04:25:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-01T04:25:06Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-01-01T04:25:06Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-01-01T15:32:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-01T15:32:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-01-01T15:32:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-05-11T19:30:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/243",
+          "number": 243,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "Type-checking our tests"
+        }
+      }
+    }
+  ]
+}

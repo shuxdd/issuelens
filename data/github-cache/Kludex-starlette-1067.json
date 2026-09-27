@@ -1,0 +1,77 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-10-07T20:07:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/1338",
+          "number": 1338,
+          "pull_request": {
+            "merged_at": "2020-10-06T13:57:10Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/1338"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Preserve header casing"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nIn the project [httpx](https://github.com/encode/httpx/pull/1338) there has been a new version released. They propagate the request.headers now in a case sensitive manner. \r\n\r\nWithin starlette (or in my case fastapi) this lead to unwanted behaviour as I'm unable now to determine wether or not headers are present.\r\n\r\nThe problem is, that if you check within starlette or fastapi for a header being present, the comparison is expected to be performed as lowercase comparison:\r\n```\r\n    def __getitem__(self, key: str) -> str:\r\n        get_header_key = key.lower().encode(\"latin-1\")\r\n        for header_key, header_value in self._list:\r\n            if header_key == get_header_key:\r\n                return header_value.decode(\"latin-1\")\r\n        raise KeyError(key)\r\n```\r\n\r\nThe problem is that the fields are propagated using the scope param:\r\n```\r\nclass Headers(typing.Mapping[str, str]):\r\n    \"\"\"\r\n    An immutable, case-insensitive multidict.\r\n    \"\"\"\r\n\r\n    def __init__(\r\n        self,\r\n        headers: typing.Mapping[str, str] = None,\r\n        raw: typing.List[typing.Tuple[bytes, bytes]] = None,\r\n        scope: Scope = None,\r\n    ) -> None:\r\n        self._list = []  # type: typing.List[typing.Tuple[bytes, bytes]]\r\n        if headers is not None:\r\n            assert raw is None, 'Cannot set both \"headers\" and \"raw\".'\r\n            assert scope is None, 'Cannot set both \"headers\" and \"scope\".'\r\n            self._list = [\r\n                (key.lower().encode(\"latin-1\"), value.encode(\"latin-1\"))\r\n                for key, value in headers.items()\r\n            ]\r\n        elif raw is not None:\r\n            assert scope is None, 'Cannot set both \"raw\" and \"scope\".'\r\n            self._list = raw\r\n        elif scope is not None:\r\n            self._list = scope[\"headers\"]\r\n```\r\nso there is no mutation of the given variable. As scope['headers'] is going to be \"request.headers.raw\" from httpx (see _client.py within httpx package):\r\n```\r\n    async def _send_single_request(\r\n        self, request: Request, timeout: Timeout\r\n    ) -> Response:\r\n        \"\"\"\r\n        Sends a single request, without handling any redirections.\r\n        \"\"\"\r\n        transport = self._transport_for_url(request.url)\r\n        timer = Timer()\r\n        await timer.async_start()\r\n\r\n        with map_exceptions(HTTPCORE_EXC_MAP, request=request):\r\n            (status_code, headers, stream, ext,) = await transport.arequest(\r\n                request.method.encode(),\r\n                request.url.raw,\r\n                headers=request.headers.raw,\r\n                stream=request.stream,  # type: ignore\r\n                ext={\"timeout\": timeout.as_dict()},\r\n            )\r\n         .........\r\n```\r\nthere is now a problem when comparing Header values.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\n\r\n### Expected behavior\r\n\r\nthe expected behaviour is, that starlette changes the Header class initialization in a way, that headers received get definetly lowercased. Or starlette should not use the headers.raw field.\r\nSo that request.headers contains only keys in lowercase and any checks for existing headers succeed. \r\n\r\n### Actual behavior\r\n\r\nNow the headers field within the request within starlette contains header values that are stored lowercased. Therefore any check for headers existing may fail, except they are passed as lowercase values (which was the behaviour until httpx version 0.15.5)\r\n\r\n\r\nI hope you can understand the problem.\r\n\r\np.s. probably this behaviour is special to my use case. I use httpx and it's AsyncClient to write unit tests against my starlette/fastapi application (I'm not sure if this changes the way how requests get handled).\r\n\r\nBR Daniel",
+    "closed_at": "2020-10-08T12:18:11Z",
+    "created_at": "2020-10-07T19:24:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1067",
+    "number": 1067,
+    "state": "closed",
+    "title": "Case Sensitive Headers in httpx",
+    "user": "dhofstetter"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-10-07T19:40:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-07T19:49:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-07T20:07:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/1338",
+          "number": 1338,
+          "pull_request": {
+            "merged_at": "2020-10-06T13:57:10Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/1338"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Preserve header casing"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-08T02:26:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-08T02:26:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-10-08T02:26:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-10-08T12:18:11Z",
+      "event": "commented"
+    }
+  ]
+}

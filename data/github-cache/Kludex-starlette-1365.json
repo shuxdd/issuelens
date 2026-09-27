@@ -1,0 +1,256 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-13T22:27:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8d213b9e9a3d088346c88a2f6861e207fa19dd83",
+      "sha": "8d213b9e9a3d088346c88a2f6861e207fa19dd83"
+    },
+    {
+      "committed_at": "2022-01-13T22:28:31Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/629bb0d850a241dc0fab8052fa38c5388b91ed4e",
+      "sha": "629bb0d850a241dc0fab8052fa38c5388b91ed4e"
+    },
+    {
+      "committed_at": "2022-01-13T22:55:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0a73d6039336cac9463b6af2def15b9693f232f7",
+      "sha": "0a73d6039336cac9463b6af2def15b9693f232f7"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-15T15:50:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1366",
+          "number": 1366,
+          "pull_request": {
+            "merged_at": "2021-12-17T12:37:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1366"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: pass usedforsecurity to hashlib.md5 to fix error on FIPS-enabled systems"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-13T22:27:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1410",
+          "number": 1410,
+          "pull_request": {
+            "merged_at": "2022-01-14T09:40:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1410"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix md5_hexdigest wrapper on FIPS enabled systems"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0a73d6039336cac9463b6af2def15b9693f232f7/starlette%2F_compat.py",
+      "changes": 5,
+      "deletions": 1,
+      "filename": "starlette/_compat.py",
+      "sha": "116561917f3abebb2aa1911c8297d1ddd0e4969f",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nThe ETag checksum fails when using MD5. This is causing Starlette to not work at all under Red Hat Enterprise Linux when FIPS mode is enabled.\r\n\r\n### Debugging material\r\n\r\nHere's the exception that's thrown:\r\n\r\n```\r\nINFO:     10.42.1.7:34422 - \"GET /app/static/foo.html HTTP/1.1\" 500 Internal Server Error\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/usr/local/lib/python3.8/site-packages/uvicorn/protocols/http/h11_impl.py\", line 373, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/usr/local/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py\", line 75, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.8/site-packages/fastapi/applications.py\", line 208, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/routing.py\", line 656, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/routing.py\", line 408, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/staticfiles.py\", line 97, in __call__\r\n    response = await self.get_response(path, scope)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/staticfiles.py\", line 118, in get_response\r\n    return self.file_response(full_path, stat_result, scope)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/staticfiles.py\", line 173, in file_response\r\n    response = FileResponse(\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/responses.py\", line 267, in __init__\r\n    self.set_stat_headers(stat_result)\r\n  File \"/usr/local/lib/python3.8/site-packages/starlette/responses.py\", line 273, in set_stat_headers\r\n    etag = hashlib.md5(etag_base.encode()).hexdigest()\r\nValueError: [digital envelope routines: EVP_DigestInit_ex] disabled for FIPS\r\n```\r\n\r\n### Environment\r\n\r\n- OS: Red Hat Enterprise Linux 8 in FIPS mode\r\n- Python version: 3.8.8\r\n- Starlette version: 0.16.0\r\n\r\n",
+    "closed_at": "2022-01-14T09:40:18Z",
+    "created_at": "2021-12-14T22:20:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1365",
+    "labels": [
+      "help wanted"
+    ],
+    "number": 1365,
+    "state": "closed",
+    "title": "ETag checksum fails on FIPS-enabled systems when using MD5",
+    "user": "landtuna"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-14T09:40:19Z",
+    "created_at": "2022-01-13T22:27:18Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1410",
+    "merge_commit_sha": "7d79ad96d5aaee71f16ac9f4e41072e81d18ab86",
+    "merged_at": "2022-01-14T09:40:18Z",
+    "number": 1410,
+    "title": "Fix md5_hexdigest wrapper on FIPS enabled systems",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-12-14T23:13:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-14T23:19:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T07:15:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T07:15:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-15T07:15:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-15T07:15:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-15T07:15:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-15T11:46:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T11:46:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-15T11:46:36Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-15T12:51:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-15T13:32:20Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2021-12-15T14:33:36Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-15T15:50:58Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1366",
+          "number": 1366,
+          "pull_request": {
+            "merged_at": "2021-12-17T12:37:33Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1366"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix: pass usedforsecurity to hashlib.md5 to fix error on FIPS-enabled systems"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-17T12:37:33Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "0aef1724cfafbe23f846979d427a5a173667f6b7",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/0aef1724cfafbe23f846979d427a5a173667f6b7",
+      "created_at": "2021-12-17T12:37:35Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-12-17T12:47:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-17T14:43:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-17T15:46:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-17T15:53:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-17T15:53:10Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-12-17T15:53:10Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-11T13:16:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-11T13:16:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-11T13:16:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-13T22:22:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-13T22:22:24Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-13T22:22:24Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-13T22:26:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-13T22:26:11Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-01-13T22:27:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1410",
+          "number": 1410,
+          "pull_request": {
+            "merged_at": "2022-01-14T09:40:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1410"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix md5_hexdigest wrapper on FIPS enabled systems"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-13T22:50:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-14T09:40:19Z",
+      "event": "closed"
+    }
+  ]
+}

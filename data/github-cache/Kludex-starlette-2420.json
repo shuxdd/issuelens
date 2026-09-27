@@ -1,0 +1,142 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-02-14T18:33:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2511",
+          "number": 2511,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2511"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware Handling for WebSocket Connections"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-17T09:29:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rachasumanth/starlette/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Rachasumanth/starlette/pulls/1"
+          },
+          "repository": {
+            "full_name": "Rachasumanth/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware raising RuntimeError on invalid WebSocket hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-17T09:30:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3337",
+          "number": 3337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware raising RuntimeError on invalid WebSocket hosts"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2225\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **Budek** July 24, 2023</sup>\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.trustedhost import TrustedHostMiddleware\r\nfrom starlette.routing import WebSocketRoute\r\n\r\n\r\nasync def app(websocket):\r\n    await websocket.accept()\r\n    await websocket.send_text(\"Hello, world!\")\r\n    await websocket.close()\r\n\r\n\r\nroutes = [\r\n    WebSocketRoute(\"/ws\", app),\r\n]\r\n\r\nmiddleware = [\r\n    Middleware(\r\n        TrustedHostMiddleware,\r\n        allowed_hosts=[\"example.com\", \"*.example.com\"],\r\n    ),\r\n]\r\n\r\napp = Starlette(routes=routes, middleware=middleware)\r\n```\r\n\r\nUsing the provided example code and making a request websocket request without header Host or with invalid header i get the following exception.\r\n\r\n\r\n```\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 254, in run_asgi\r\n    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/uvicorn/middleware/proxy_headers.py\", line 78, in __call__\r\n    return await self.app(scope, receive, send)\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/starlette/applications.py\", line 122, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/starlette/middleware/errors.py\", line 149, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/starlette/middleware/trustedhost.py\", line 60, in __call__\r\n    await response(scope, receive, send)\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/starlette/responses.py\", line 164, in __call__\r\n    await send(\r\n  File \"/home/bdk/.virtualenvs/example/lib/python3.11/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 317, in asgi_send\r\n    raise RuntimeError(msg % message_type)\r\nRuntimeError: Expected ASGI message 'websocket.accept' or 'websocket.close', but got 'http.response.start'.\r\n```\r\n</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2420\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2420/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2420/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-02-15T08:12:39Z",
+    "created_at": "2024-01-14T18:58:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2420",
+    "labels": [
+      "good first issue"
+    ],
+    "number": 2420,
+    "state": "closed",
+    "title": "TrustedHostMiddleware raises RuntimeError on sending response to websocket",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-01-15T00:13:37Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2024-02-12T21:39:09Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-02-14T18:33:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-14T18:33:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2511",
+          "number": 2511,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2511"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware Handling for WebSocket Connections"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-15T08:12:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-15T08:12:39Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-17T09:29:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Rachasumanth/starlette/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Rachasumanth/starlette/pulls/1"
+          },
+          "repository": {
+            "full_name": "Rachasumanth/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware raising RuntimeError on invalid WebSocket hosts"
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-17T09:30:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3337",
+          "number": 3337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix TrustedHostMiddleware raising RuntimeError on invalid WebSocket hosts"
+        }
+      }
+    }
+  ]
+}

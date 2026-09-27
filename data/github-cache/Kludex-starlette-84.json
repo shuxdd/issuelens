@@ -1,0 +1,240 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-08T23:31:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4af2f516c56786636ea4f5d91123dab5b8fbf56d",
+      "sha": "4af2f516c56786636ea4f5d91123dab5b8fbf56d"
+    },
+    {
+      "committed_at": "2018-10-08T23:36:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a4d9d39466805b26c78db36f10674969e457d16c",
+      "sha": "a4d9d39466805b26c78db36f10674969e457d16c"
+    },
+    {
+      "committed_at": "2018-10-08T23:46:32Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/702a7233eaa753c8aae93670fc1e2fe9b5a0d723",
+      "sha": "702a7233eaa753c8aae93670fc1e2fe9b5a0d723"
+    },
+    {
+      "committed_at": "2018-10-09T02:18:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/790dba7a45881c3dbe17d47c852005d9a57a1369",
+      "sha": "790dba7a45881c3dbe17d47c852005d9a57a1369"
+    },
+    {
+      "committed_at": "2018-10-09T02:32:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/27251228913ac8148b751beb3b1dd88eeb34e9cb",
+      "sha": "27251228913ac8148b751beb3b1dd88eeb34e9cb"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-08T23:42:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/92",
+          "number": 92,
+          "pull_request": {
+            "merged_at": "2018-10-09T08:35:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/92"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support `allow_origin_regex` in CORSMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-27T08:29:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/CriticalHD/ChromeOS-Management/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-04-27T13:45:22Z",
+            "url": "https://api.github.com/repos/CriticalHD/ChromeOS-Management/pulls/1"
+          },
+          "repository": {
+            "full_name": "CriticalHD/ChromeOS-Management"
+          },
+          "title": "Tokenless mDNS pairing, master-Chromebook mode, dark UI, GitHub Pages site"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T17:26:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-08-12T17:49:28Z",
+            "url": "https://api.github.com/repos/eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping/pulls/8"
+          },
+          "repository": {
+            "full_name": "eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping"
+          },
+          "title": "security: harden biometric API and CI validation"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T18:37:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DDMAL/mothra/pull/256",
+          "number": 256,
+          "pull_request": {
+            "merged_at": "2026-08-20T12:54:57Z",
+            "url": "https://api.github.com/repos/DDMAL/mothra/pulls/256"
+          },
+          "repository": {
+            "full_name": "DDMAL/mothra"
+          },
+          "title": "Kyrie/a3 32 neon save race"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/27251228913ac8148b751beb3b1dd88eeb34e9cb/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 27,
+      "deletions": 5,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "99b0687a41690683c0f77b7d1ed358196d6a9631",
+      "status": "modified"
+    },
+    {
+      "additions": 39,
+      "blob_url": "https://github.com/Kludex/starlette/blob/27251228913ac8148b751beb3b1dd88eeb34e9cb/tests%2Ftest_middleware.py",
+      "changes": 39,
+      "deletions": 0,
+      "filename": "tests/test_middleware.py",
+      "sha": "6d7273da6822b50aa10be5885058c34b33e71029",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "It'd be helpful if `CORSMiddleware` supported an `allow_origin_regex`, so that users could do...\r\n\r\n```python\r\n# Enforce a subdomain CORS policy\r\napp.add_middleware(CORSMiddleware, allow_origin_regex=\"(http|https)://*.example.com\")\r\n```\r\n\r\nOr...\r\n\r\n```python\r\n# Enforce an HTTPS-only CORS policy.\r\napp.add_middleware(CORSMiddleware, allow_origin_regex=\"https://*\")\r\n```\r\n\r\nThe string should be compiled to a regex by the middleware and matches should be anchored to the start/end of the origin string.",
+    "body_last_edited_at": null,
+    "closed_at": "2018-10-09T08:35:09Z",
+    "created_at": "2018-10-05T15:48:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/84",
+    "number": 84,
+    "state": "closed",
+    "title": "Add `allow_origin_regex` to CORSMiddleware.",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-09T08:35:09Z",
+    "created_at": "2018-10-08T23:42:41Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/92",
+    "merge_commit_sha": "fc6883aa0aa09da52922d26edabd342442bacd63",
+    "merged_at": "2018-10-09T08:35:09Z",
+    "number": 92,
+    "title": "Support `allow_origin_regex` in CORSMiddleware",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "bdf99f1f6173dc4fbe9ea323bf3f86905d479ac1",
+    "committed_at": "2018-10-08T09:39:43Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/bdf99f1f6173dc4fbe9ea323bf3f86905d479ac1"
+  },
+  "timeline": [
+    {
+      "created_at": "2018-10-05T15:48:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-06T17:41:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-06T18:00:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-08T22:56:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-08T23:42:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/92",
+          "number": 92,
+          "pull_request": {
+            "merged_at": "2018-10-09T08:35:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/92"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support `allow_origin_regex` in CORSMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-27T08:29:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/CriticalHD/ChromeOS-Management/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-04-27T13:45:22Z",
+            "url": "https://api.github.com/repos/CriticalHD/ChromeOS-Management/pulls/1"
+          },
+          "repository": {
+            "full_name": "CriticalHD/ChromeOS-Management"
+          },
+          "title": "Tokenless mDNS pairing, master-Chromebook mode, dark UI, GitHub Pages site"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-12T17:26:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping/pull/8",
+          "number": 8,
+          "pull_request": {
+            "merged_at": "2026-08-12T17:49:28Z",
+            "url": "https://api.github.com/repos/eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping/pulls/8"
+          },
+          "repository": {
+            "full_name": "eulogep/FaceLens-Moteur-de-Recherche-Biom-trique-Local-Module-de-Scraping"
+          },
+          "title": "security: harden biometric API and CI validation"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T18:37:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/DDMAL/mothra/pull/256",
+          "number": 256,
+          "pull_request": {
+            "merged_at": "2026-08-20T12:54:57Z",
+            "url": "https://api.github.com/repos/DDMAL/mothra/pulls/256"
+          },
+          "repository": {
+            "full_name": "DDMAL/mothra"
+          },
+          "title": "Kyrie/a3 32 neon save race"
+        }
+      }
+    }
+  ]
+}

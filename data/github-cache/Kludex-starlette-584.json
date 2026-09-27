@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I think it is useful to store the response itself in messages during tests, so that the TestClient can put it into the response.\r\n\r\nThis could be achieved by adding something like `initial_internal_response` with a reference to `self` there for `http.response.start` messages, but should only be done for tests then likely.\r\n\r\nIt is useful for assertions in tests then, and something that is nice with DRF.\r\n\r\nWhat do you think about this in general?",
+    "closed_at": "2019-07-19T10:40:25Z",
+    "created_at": "2019-07-18T00:30:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/584",
+    "number": 584,
+    "state": "closed",
+    "title": "TestClient: store original response?",
+    "user": "blueyed"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-07-19T10:40:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-19T13:20:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-19T13:30:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-19T13:54:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-07-19T14:12:12Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "```python\r\nclass LazySecret(Secret):\r\n\r\n    def __init__(self, callback):\r\n        self.cb = callback\r\n\r\n    def __str__(self) -> str:\r\n        return self.cb()\r\n```\r\n\r\nIt might give the comfort of hot-cycling secrets within a glass braking strategy",
+    "closed_at": "2020-01-29T11:38:56Z",
+    "created_at": "2019-12-19T04:37:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/763",
+    "number": 763,
+    "state": "closed",
+    "title": "Proposal: Make the Secret type lazy load the secret",
+    "user": "blaggacao"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-01-29T11:38:56Z",
+      "event": "commented"
+    }
+  ]
+}

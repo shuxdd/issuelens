@@ -1,0 +1,212 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-16T00:59:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1273",
+          "number": 1273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Use TestClient in an async fashion"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Because the test client calls `loop.run_until_complete(connection(receive, send))`, I cannot use anything that modifies the event loop in a pytest fixture without getting `RuntimeError: This event loop is already running`.\r\n\r\nI would like to use a package like aresponses to mock aiohttp requests like this:\r\n```\r\n@pytest.fixture\r\ndef mock_endpoint(aresponses):\r\n    aresponses.add('mock.com', '/test/', 'get', 'this is my mock response')\r\n```\r\n\r\nAfter messing with it for a couple hours, the only way I was able to get successful tests was to wrap the application in middleware:\r\n```\r\n@pytest.fixture\r\ndef app():\r\n    class App:\r\n        def __init__(self, app):\r\n            self.app = app\r\n\r\n        def __call__(self, scope):\r\n            return functools.partial(self.asgi, scope=scope)\r\n\r\n        async def asgi(self, receive, send, scope):\r\n            async with ResponsesMockServer() as aresponses:\r\n                aresponses.add('mock.com', '/test/', 'get', 'this is my mock response')\r\n                inner = self.app(scope)\r\n                await inner(receive, send)\r\n    return App(application)\r\n\r\n\r\n@pytest.fixture\r\ndef test_client(app):\r\n    with TestClient(app) as test_client:\r\n        yield test_client\r\n\r\n```\r\n\r\nI am going to modify this to allow myself to dynamically pass responses through the `@pytest.mark` decorator, but this workflow is not really convenient at all.\r\n\r\nAm I missing something here? Is there a better way to set up my test clients, or should I just keep going down this route?\r\n\r\nThanks\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/440\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/440/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/440/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-24T09:18:29Z",
+    "created_at": "2019-03-19T01:50:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/440",
+    "labels": [
+      "testclient"
+    ],
+    "number": 440,
+    "state": "closed",
+    "title": "pytest event loop is already running",
+    "user": "ryananguiano"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-19T18:47:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-21T15:30:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-21T18:32:39Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "1fbecaac033e48a65eb53118e812060ffdd8e451",
+      "commit_url": "https://api.github.com/repos/gvbgduh/starlette/commits/1fbecaac033e48a65eb53118e812060ffdd8e451",
+      "created_at": "2019-03-23T12:43:46Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-06-16T10:03:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-27T08:32:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-25T09:08:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-26T08:23:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-11T20:23:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-12T20:07:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-12T20:07:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-12T20:07:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-12T20:45:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-09-12T20:45:01Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-09-12T20:45:01Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-10T22:07:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-10T22:07:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-10T22:07:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-01-14T10:55:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T11:08:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T11:12:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T11:53:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T16:35:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-18T16:35:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-18T16:35:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-18T17:57:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T09:39:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T09:39:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-19T09:39:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-16T00:59:52Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1273",
+          "number": 1273,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Use TestClient in an async fashion"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-11T11:31:03Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-01-27T15:00:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-27T15:00:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-27T15:00:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-27T15:00:46Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-27T15:00:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-28T23:11:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-09T14:20:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-09T14:24:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-24T09:18:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-24T09:18:29Z",
+      "event": "closed"
+    }
+  ]
+}

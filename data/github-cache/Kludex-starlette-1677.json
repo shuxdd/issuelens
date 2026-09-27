@@ -1,0 +1,127 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-06-11T07:56:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/45ca76b124d5a67dd08059e843c380683825443a",
+      "sha": "45ca76b124d5a67dd08059e843c380683825443a"
+    },
+    {
+      "committed_at": "2022-06-11T07:57:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8a0c186f45a82bb579d125635efcf8cc7c34b8c4",
+      "sha": "8a0c186f45a82bb579d125635efcf8cc7c34b8c4"
+    },
+    {
+      "committed_at": "2022-06-11T08:00:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8c5eaad8879877eef5829874f0e82b441c0318c2",
+      "sha": "8c5eaad8879877eef5829874f0e82b441c0318c2"
+    },
+    {
+      "committed_at": "2022-06-11T08:29:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f02a895f4ac7397d4b3f651e411d051dc6ebf940",
+      "sha": "f02a895f4ac7397d4b3f651e411d051dc6ebf940"
+    },
+    {
+      "committed_at": "2022-06-11T09:14:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8d547af8051a39b49fadf482d64e9e747f1e7e32",
+      "sha": "8d547af8051a39b49fadf482d64e9e747f1e7e32"
+    },
+    {
+      "committed_at": "2022-06-12T07:12:12Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/28072b6466af0348719ea99068f1c4b7e0f15a6b",
+      "sha": "28072b6466af0348719ea99068f1c4b7e0f15a6b"
+    },
+    {
+      "committed_at": "2022-06-15T13:40:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/393d2fbbf24a74451039d364ea17ede18d64a824",
+      "sha": "393d2fbbf24a74451039d364ea17ede18d64a824"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-06-11T07:57:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1685",
+          "number": 1685,
+          "pull_request": {
+            "merged_at": "2022-06-15T13:47:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1685"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add more TestClient examples"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 31,
+      "blob_url": "https://github.com/Kludex/starlette/blob/393d2fbbf24a74451039d364ea17ede18d64a824/docs%2Ftestclient.md",
+      "changes": 31,
+      "deletions": 0,
+      "filename": "docs/testclient.md",
+      "sha": "f42093030f56f40eb71926329789ed4959f94297",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Currently, people need to rely on lost issues to understand how to send files using the `TestClient`. I guess we'd want to document how to do that. Even adding a reference to `requests` would be already helpful here.",
+    "closed_at": "2022-06-15T13:47:56Z",
+    "created_at": "2022-06-08T14:12:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1677",
+    "labels": [
+      "documentation",
+      "good first issue"
+    ],
+    "number": 1677,
+    "state": "closed",
+    "title": "Document how to send files using `TestClient`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-06-15T13:47:56Z",
+    "created_at": "2022-06-11T07:57:08Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1685",
+    "merge_commit_sha": "f693e682dce5b959850aeafcc40700a789450d99",
+    "merged_at": "2022-06-15T13:47:56Z",
+    "number": 1685,
+    "title": "Add more TestClient examples",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-06-08T14:12:55Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-06-08T14:12:55Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-06-11T07:57:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1685",
+          "number": 1685,
+          "pull_request": {
+            "merged_at": "2022-06-15T13:47:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1685"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add more TestClient examples"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-15T13:47:56Z",
+      "event": "closed"
+    }
+  ]
+}

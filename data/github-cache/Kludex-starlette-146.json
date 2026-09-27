@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-14T15:30:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/220",
+          "number": 220,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/220"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support serving `index.html` for StaticFiles"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "We should add an option for serving index.html files from StaticFiles for directory URLs so that you can use it for serving websites. We could also support serving any 404.html file in the root of the directory for 404 responses. (Ie. Mirror the behaviour of GitHub pages)",
+    "closed_at": "2019-05-24T11:00:37Z",
+    "created_at": "2018-10-26T21:18:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/146",
+    "number": 146,
+    "state": "closed",
+    "title": "Support serving `index.html` for StaticFiles",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-09T04:47:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T07:25:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-13T04:46:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T10:59:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-14T15:30:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/220",
+          "number": 220,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/220"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support serving `index.html` for StaticFiles"
+        }
+      }
+    },
+    {
+      "created_at": "2019-03-13T18:13:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-03-13T20:16:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-23T15:50:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T11:00:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-24T11:00:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-05-24T11:00:37Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-11-10T14:00:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d0cacf0382f5d8349bae15c7219fe28f8b27bad9",
+      "sha": "d0cacf0382f5d8349bae15c7219fe28f8b27bad9"
+    },
+    {
+      "committed_at": "2018-11-10T15:12:22Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/41d4a9bcd4dd458b1def39a923be9e71367ed376",
+      "sha": "41d4a9bcd4dd458b1def39a923be9e71367ed376"
+    },
+    {
+      "committed_at": "2018-11-10T15:21:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7600309337437588a6e44bf0ffe4452970d30ec7",
+      "sha": "7600309337437588a6e44bf0ffe4452970d30ec7"
+    },
+    {
+      "committed_at": "2018-11-10T15:33:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1fa3c5638d494949a360d2e6b4f883c34495b63e",
+      "sha": "1fa3c5638d494949a360d2e6b4f883c34495b63e"
+    },
+    {
+      "committed_at": "2018-11-12T16:52:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/20c1305758e845597c616aeeb0c8222f8e25fdd6",
+      "sha": "20c1305758e845597c616aeeb0c8222f8e25fdd6"
+    },
+    {
+      "committed_at": "2018-11-12T16:53:30Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/686c37d5cd345a1f144e1c364179b84567ee5894",
+      "sha": "686c37d5cd345a1f144e1c364179b84567ee5894"
+    },
+    {
+      "committed_at": "2018-11-12T16:59:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/76df6d112eb3d09524402f34df63d9e11c72f5ad",
+      "sha": "76df6d112eb3d09524402f34df63d9e11c72f5ad"
+    },
+    {
+      "committed_at": "2018-11-12T17:03:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/aeac4819fbddf64276ed3f8838b428d9b0a1fb6b",
+      "sha": "aeac4819fbddf64276ed3f8838b428d9b0a1fb6b"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-11-10T15:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/212",
+          "number": 212,
+          "pull_request": {
+            "merged_at": "2018-11-14T11:38:02Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/212"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support HTTP 304 for static files."
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-18T17:24:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1013",
+          "number": 1013,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1013"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added Range support to Staticfiles"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aeac4819fbddf64276ed3f8838b428d9b0a1fb6b/starlette%2Fresponses.py",
+      "changes": 16,
+      "deletions": 4,
+      "filename": "starlette/responses.py",
+      "sha": "35062bad863c4694245f26de9a5d262e665cbebd",
+      "status": "modified"
+    },
+    {
+      "additions": 38,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aeac4819fbddf64276ed3f8838b428d9b0a1fb6b/starlette%2Fstaticfiles.py",
+      "changes": 41,
+      "deletions": 3,
+      "filename": "starlette/staticfiles.py",
+      "sha": "8e5e3102640c554686cb51256a0ebdd382cff3b2",
+      "status": "modified"
+    },
+    {
+      "additions": 41,
+      "blob_url": "https://github.com/Kludex/starlette/blob/aeac4819fbddf64276ed3f8838b428d9b0a1fb6b/tests%2Ftest_staticfiles.py",
+      "changes": 41,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "5feb2ece970319b9a0edb1e7ed90859a01f341f8",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "* ~`HEAD`~.\r\n* Range responses.\r\n* ~`304` if ETag and Last-Modified indicate no changes against a conditional `GET` request.~\r\n* Consider Manifests / Gzip / Far-future.",
+    "body_last_edited_at": "2018-12-18T14:59:34Z",
+    "closed_at": "2022-02-14T16:10:37Z",
+    "created_at": "2018-07-12T13:26:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/22",
+    "labels": [
+      "clean up"
+    ],
+    "number": 22,
+    "state": "closed",
+    "title": "StaticFile refinements",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-11-14T11:38:02Z",
+    "created_at": "2018-11-10T15:14:26Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/212",
+    "merge_commit_sha": "a0bb1f5f231d8763c570876374c29ce89a83d4be",
+    "merged_at": "2018-11-14T11:38:02Z",
+    "number": 212,
+    "title": "Support HTTP 304 for static files.",
+    "user": "laixintao"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-10T15:14:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/212",
+          "number": 212,
+          "pull_request": {
+            "merged_at": "2018-11-14T11:38:02Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/212"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Support HTTP 304 for static files."
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-14T11:41:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-18T17:24:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1013",
+          "number": 1013,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1013"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added Range support to Staticfiles"
+        }
+      }
+    }
+  ]
+}

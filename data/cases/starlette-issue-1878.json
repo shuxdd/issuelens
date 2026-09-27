@@ -1,0 +1,183 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-09-30T13:02:06Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1878"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1878"
+    ]
+  },
+  "case_id": "starlette-issue-1878",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1908",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Support `str` and `datetime` on `expires` parameter on the `set_cookie` method' directly changes starlette/responses.py with focused behavior test(s) tests/test_responses.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-10-08T17:07:32Z",
+  "issue": {
+    "body": "I think the type for \r\nhttps://github.com/encode/starlette/blob/55b0cbd045269a28a3f1b18f32ae3cb47226ab65/starlette/responses.py#L108\r\n\r\nThis should be a date according to https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie \r\n\r\nSo I think a better type is `Optional[str]` , or Optional[str | datetime] and provide the right formatting.",
+    "number": 1878,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1878",
+    "title": "Wrong typing for expires in set_cookie"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1908 created_at 2022-10-08T17:07:32Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1908",
+    "repair_files": [
+      "docs/responses.md",
+      "starlette/responses.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 212fa46b23be0701a5963cdeff14f05ed352e22a",
+    "test_files": [
+      "tests/test_responses.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/responses.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/docs%2Fresponses.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/starlette%2Fresponses.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "6b988391f5d89fc5d32239ce54ad4300bffbc194",
+        "source_url": "https://github.com/Kludex/starlette/commit/6b988391f5d89fc5d32239ce54ad4300bffbc194"
+      },
+      {
+        "sha": "563cb0511b2059357e9035cbe101e1df18578398",
+        "source_url": "https://github.com/Kludex/starlette/commit/563cb0511b2059357e9035cbe101e1df18578398"
+      },
+      {
+        "sha": "c66ca2403833fda4420be12923155478e5ea69ab",
+        "source_url": "https://github.com/Kludex/starlette/commit/c66ca2403833fda4420be12923155478e5ea69ab"
+      },
+      {
+        "sha": "8af9d4621b9387c4deed42024a75b922b12ab261",
+        "source_url": "https://github.com/Kludex/starlette/commit/8af9d4621b9387c4deed42024a75b922b12ab261"
+      },
+      {
+        "sha": "f9881ba8df303897b69ef97afd8da0d58d40fb84",
+        "source_url": "https://github.com/Kludex/starlette/commit/f9881ba8df303897b69ef97afd8da0d58d40fb84"
+      },
+      {
+        "sha": "5bf86d5c8b3b6fd1ec3df5f77de7b75892b1f996",
+        "source_url": "https://github.com/Kludex/starlette/commit/5bf86d5c8b3b6fd1ec3df5f77de7b75892b1f996"
+      },
+      {
+        "sha": "1303802217fd5c0761800da8807fd4d0c034bd3c",
+        "source_url": "https://github.com/Kludex/starlette/commit/1303802217fd5c0761800da8807fd4d0c034bd3c"
+      },
+      {
+        "sha": "432358a4542ec99a4a0b00705b20f49228b1b5fa",
+        "source_url": "https://github.com/Kludex/starlette/commit/432358a4542ec99a4a0b00705b20f49228b1b5fa"
+      },
+      {
+        "sha": "d7859be97b3466b75f519ecaa261af42d1590205",
+        "source_url": "https://github.com/Kludex/starlette/commit/d7859be97b3466b75f519ecaa261af42d1590205"
+      },
+      {
+        "sha": "af7d3cc3609c22acecb673e37fc92be6baabfd0c",
+        "source_url": "https://github.com/Kludex/starlette/commit/af7d3cc3609c22acecb673e37fc92be6baabfd0c"
+      },
+      {
+        "sha": "caed475bdf1d49e1525f1cd6400726a1b88df68c",
+        "source_url": "https://github.com/Kludex/starlette/commit/caed475bdf1d49e1525f1cd6400726a1b88df68c"
+      },
+      {
+        "sha": "b8e793183e83759a659436968bed4f357fd4b03d",
+        "source_url": "https://github.com/Kludex/starlette/commit/b8e793183e83759a659436968bed4f357fd4b03d"
+      },
+      {
+        "sha": "0433643faaef3066ed5abd5ad4be383f616037cc",
+        "source_url": "https://github.com/Kludex/starlette/commit/0433643faaef3066ed5abd5ad4be383f616037cc"
+      },
+      {
+        "sha": "09447b7afd5908fca25c2a38daa97ab6c42ac1df",
+        "source_url": "https://github.com/Kludex/starlette/commit/09447b7afd5908fca25c2a38daa97ab6c42ac1df"
+      },
+      {
+        "sha": "6db2870a8a54a45bd7e58fb3474c3793a81dabf3",
+        "source_url": "https://github.com/Kludex/starlette/commit/6db2870a8a54a45bd7e58fb3474c3793a81dabf3"
+      },
+      {
+        "sha": "7eacc8588a38089aa056b77d48d90e0b2765bfb0",
+        "source_url": "https://github.com/Kludex/starlette/commit/7eacc8588a38089aa056b77d48d90e0b2765bfb0"
+      },
+      {
+        "sha": "d6b28a7f59a5953cd914aa7a09de0bde4d3459a1",
+        "source_url": "https://github.com/Kludex/starlette/commit/d6b28a7f59a5953cd914aa7a09de0bde4d3459a1"
+      },
+      {
+        "sha": "d5199ac12dc100416d34c9633ec6d1bc847c94f2",
+        "source_url": "https://github.com/Kludex/starlette/commit/d5199ac12dc100416d34c9633ec6d1bc847c94f2"
+      },
+      {
+        "sha": "2fda4aaba1d55bb490b00951873a7940afb73d14",
+        "source_url": "https://github.com/Kludex/starlette/commit/2fda4aaba1d55bb490b00951873a7940afb73d14"
+      },
+      {
+        "sha": "da8faba4f1b7a499c046bcff0e92744e25dc800a",
+        "source_url": "https://github.com/Kludex/starlette/commit/da8faba4f1b7a499c046bcff0e92744e25dc800a"
+      },
+      {
+        "sha": "65ccf47f1be2c1e600ffaadb461b7857b1488499",
+        "source_url": "https://github.com/Kludex/starlette/commit/65ccf47f1be2c1e600ffaadb461b7857b1488499"
+      },
+      {
+        "sha": "727f9dc0cf187a48cc7c8b005ffe7a051be6189e",
+        "source_url": "https://github.com/Kludex/starlette/commit/727f9dc0cf187a48cc7c8b005ffe7a051be6189e"
+      },
+      {
+        "sha": "b2b6f913732fa8ee64b375c3b5239976a6abb13a",
+        "source_url": "https://github.com/Kludex/starlette/commit/b2b6f913732fa8ee64b375c3b5239976a6abb13a"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-10-08T17:07:32Z",
+      "number": 1908,
+      "source_url": "https://github.com/Kludex/starlette/pull/1908"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1908"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_responses.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/tests%2Ftest_responses.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+    "committed_at": "2022-10-08T09:30:42Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/212fa46b23be0701a5963cdeff14f05ed352e22a"
+  },
+  "schema_version": "1.0"
+}

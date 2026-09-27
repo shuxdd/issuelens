@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I would expect the AuthBackend to be used in the account route but it never gets used. However the CORS headers are added for all routes as expected.\r\n```python\r\napp = Starlette()\r\napp.add_middleware(CORSMiddleware, allow_headers=['*'], allow_methods=['*'], allow_origins=['*'])\r\naccount = Starlette()\r\naccount.add_middleware(AuthenticationMiddleware, backend=AuthBackend())\r\napp.mount('/account', account)\r\n```\r\nI don't know if this is a bug or if there's another way to do this",
+    "closed_at": "2019-05-20T14:39:08Z",
+    "created_at": "2019-05-16T14:18:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/517",
+    "number": 517,
+    "state": "closed",
+    "title": "Authenticate only a specific route",
+    "user": "brendanator"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-20T14:39:08Z",
+      "event": "commented"
+    }
+  ]
+}

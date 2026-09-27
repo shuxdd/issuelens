@@ -1,0 +1,149 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-09-17T13:10:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/350",
+          "number": 350,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Test client usage question: how to trigger lifespan startup and shutdown ?"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-11T08:29:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/124",
+          "number": 124,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "Test client usage question: how to trigger lifespan startup and shutdown ?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm developing an app that requires async setup and teardown during testing. For example, I insert data into a Redis database using aioredis. I'm using pytest-asyncio to mark async test functions.\r\n\r\nThe test client uses the synchronous requests API and an ASGI adapter to call the Starlette app. The setup I described above doesn't work with the adapter because it doesn't expect an event loop to be running.\r\n\r\nI haven't worked with asyncio prior to using Starlette so I may be missing something obvious but do you have any suggestions for how to deal with this? I thought about more explicitly managing the event loop during testing but this seemed a bit tedious.\r\n\r\nAnother option was an async test client. I had a look at aiohttp and if a custom `Connector` could be used in place of the ASGI requests adapter but I didn't spend much time on it.\r\n\r\nFor now, I cobbled together an async test client that combines the request setup from `requests.Session` and `starlette.testclient. _ASGIAdapter`.\r\n\r\nBy the way, if there's a better place to ask questions, please let me know \ud83d\ude04",
+    "closed_at": "2018-10-12T09:36:36Z",
+    "created_at": "2018-10-11T08:47:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/104",
+    "number": 104,
+    "state": "closed",
+    "title": "[Question] Async test client",
+    "user": "ryankask"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-11T11:06:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-11T11:07:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-12T09:36:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-12T09:36:36Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-11-09T20:45:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T20:45:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-09T20:45:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-11-09T21:56:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T21:56:04Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-11-09T21:56:04Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-09-17T13:10:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/350",
+          "number": 350,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "Test client usage question: how to trigger lifespan startup and shutdown ?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-23T15:10:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-23T15:17:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-23T15:17:30Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-23T15:17:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-23T18:52:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-23T18:52:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-23T18:52:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-17T17:38:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-11T08:29:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pydantic/httpx2/issues/124",
+          "number": 124,
+          "pull_request": {},
+          "repository": {
+            "full_name": "pydantic/httpx2"
+          },
+          "title": "Test client usage question: how to trigger lifespan startup and shutdown ?"
+        }
+      }
+    }
+  ]
+}

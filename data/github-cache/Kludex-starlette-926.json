@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,\r\n\r\nI had been struggling with a very odd issue for a long time. I have a fairly long test suite which I have paramaterized so its iterations grows linearly with the number of parameters.\r\n\r\nFor some time, when I extend that list from two elements to three (or more) some of my tests would systematically fail with a \"maximum recursion depth\" error. Always the same tests. But they would never fail when executed on their own.\r\n\r\nInitially I was so puzzled because they failed in odd places until I debugged a bit and found the sesison middleware was in an infinite loop between its send/send_wrapper.\r\n\r\nBut there was nothing that could justify this in the code.\r\n\r\nAfter hours of investigating, I finally found the issue.\r\n\r\nMy routing is made of of various levels of routing endpoint instances to a root level starlette app. However, two legacy apps are also mounted to that root app. Both have their own list of middlewares.\r\n\r\nThose two apps are two regular Starlette app instanciated in their own Python module. The typical:\r\n\r\n```\r\napi = Starlette()\r\n\r\n@api.route(\"/\")\r\nasync def homepage(request):\r\n    return JSONResponse({'hello': 'world'})\r\n```\r\n\r\nWhat I had failed to appreciate is the singleton nature of these apps. Meaning their definition was shared all across my tests.\r\n\r\nIn effect, that led to their middlewares to be never cleared out but kept throughout.\r\n\r\nAs my number of tests grew, I was getting closer to the recursion limit...\r\n\r\nIt took me a long time down the rabbit hole to understand what to do: clear the list of user middlware before starting a new test session so previous middlewares would not be kept.\r\n\r\nHere is an example:\r\n\r\napp.py\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware.gzip import GZipMiddleware\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Mount\r\n\r\napi = Starlette()\r\n\r\n\r\n@api.route(\"/\")\r\nasync def homepage(request):\r\n    return JSONResponse({'hello': 'world'})\r\n\r\n\r\ndef create_app() -> Starlette:\r\n    api.add_middleware(GZipMiddleware)\r\n    return Starlette(debug=True, routes=[\r\n        Mount('/', app=api)\r\n    ])\r\n```\r\n\r\nconftest.py\r\n```python\r\nfrom .app import create_app\r\n\r\nimport pytest\r\nfrom starlette.applications import Starlette\r\n\r\n\r\n@pytest.fixture(params=[\"english\", \"french\"])\r\ndef app() -> Starlette:\r\n    return create_app()\r\n```\r\n\r\ntest.py\r\n```python\r\nfrom starlette.applications import Starlette\r\n\r\nfrom .app import api\r\n\r\n\r\ndef test_duplicate_middlewares(app: Starlette):\r\n    print(app.user_middleware)\r\n    print(api.user_middleware)\r\n```\r\n\r\n```console\r\n$ pytest.py -s test.py \r\nTest session starts (platform: linux, Python 3.7.5, pytest 5.3.5, pytest-sugar 0.9.2)\r\nrootdir: .\r\nplugins: asyncio-0.10.0, sugar-0.9.2, requests-mock-1.7.0, cov-2.8.1, pylama-7.7.1\r\ncollecting ... []\r\n[Middleware(GZipMiddleware)]\r\n\r\n test.py \u2713                                                                                                                                                                                             50% \u2588\u2588\u2588\u2588\u2588     []\r\n[Middleware(GZipMiddleware), Middleware(GZipMiddleware)]\r\n test.py \u2713\u2713                                                                                                                                                                                           100% \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\r\n\r\nResults (0.04s):\r\n       2 passed\r\n```\r\n\r\nTwo tests, one for each value of the parameter list.\r\n\r\nTo fix this:\r\n\r\n```python\r\nfrom .app import api, create_app\r\n\r\nimport pytest\r\nfrom starlette.applications import Starlette\r\n\r\n\r\n@pytest.fixture(params=[\"english\", \"french\"])\r\ndef app() -> Starlette:\r\n    api.user_middleware = []\r\n    api.middleware_stack = api.build_middleware_stack()\r\n    return create_app()\r\n```\r\n\r\n```console\r\nTest session starts (platform: linux, Python 3.7.5, pytest 5.3.5, pytest-sugar 0.9.2)\r\nrootdir: .\r\nplugins: asyncio-0.10.0, sugar-0.9.2, requests-mock-1.7.0, cov-2.8.1, pylama-7.7.1\r\ncollecting ... []\r\n[Middleware(GZipMiddleware)]\r\n\r\n test.py \u2713                                                                                                                                                                                             50% \u2588\u2588\u2588\u2588\u2588     []\r\n[Middleware(GZipMiddleware)]\r\n test.py \u2713\u2713                                                                                                                                                                                           100% \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\r\n\r\nResults (0.04s):\r\n       2 passed\r\n```\r\n\r\nStrictly speaking the `api.middleware_stack = api.build_middleware_stack()` is not useful in this dummy example but was necessary in more complex setup.\r\n\r\nSo, while I understand the implication of a singleton and the fact, when running, the app will not see this duplication, I would like to suggest an official public `reset app` method on the Starlette interface for testing purpose. Or at least, understand if resetting middlewares as I do is enough.\r\n\r\nThanks,\r\nSylvain",
+    "closed_at": "2020-05-02T20:22:24Z",
+    "created_at": "2020-05-02T20:02:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/926",
+    "number": 926,
+    "state": "closed",
+    "title": "Provide a public interface to reset a Starlette application",
+    "user": "Lawouach"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-02T20:26:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-02T20:27:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-02T20:34:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-02T20:39:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-02T20:41:27Z",
+      "event": "commented"
+    }
+  ]
+}

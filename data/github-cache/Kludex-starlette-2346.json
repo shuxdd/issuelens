@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "How would I go about properly running ensure_future only once on a function/coroutine in a starlette + uvicorn combo that uses --workers in uvicorn\r\n\r\nCurrently I am using the starlette startup event to execute asyncio.ensure_future() on a function that loops grabbing exchange rates from a HTTP API, and if --workers is 8, then i believe it creates 8 of these loops which isnt ideal\r\n\r\nHow would I go about sharing this loops data with all of them/only executing it once between them all\r\n\r\nIs there not an easy solution to this problem?\r\n\r\nI suppose I could create a new process specifically for this data that updates it in mongodb and have them all grab it from there, but kind of a lame solution. \r\n\r\nThanks for any time spent reading or replying to my problem!\r\n\r\n<!-- POLAR PLEDGE BADGE START -->\r\n> [!IMPORTANT]\r\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\r\n> - We receive the funding once the issue is completed & confirmed by you.\r\n> - Thank you in advance for helping prioritize & fund our backlog.\r\n\r\n<a href=\"https://polar.sh/encode/starlette/issues/2346\">\r\n<picture>\r\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2346/pledge.svg?darkmode=1\">\r\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2346/pledge.svg\">\r\n</picture>\r\n</a>\r\n<!-- POLAR PLEDGE BADGE END -->\r\n",
+    "closed_at": "2023-11-26T09:16:20Z",
+    "created_at": "2023-11-26T00:21:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2346",
+    "number": 2346,
+    "state": "closed",
+    "title": "Start ensure_future once on multiple workers",
+    "user": "obnoxiousmods"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-11-26T09:16:19Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-11-26T09:16:20Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

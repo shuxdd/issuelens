@@ -1,0 +1,30 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "- [x] Initially raised as discussion #2040 (but ignored there)\r\n\r\nAccording to [ASGI spec](https://asgi.readthedocs.io/en/latest/specs/main.html#applications) both scope and event message must be dictionaries, not an arbitrary mutable mapping:\r\n\r\n> * `scope`: The connection scope information, a **dictionary** that contains at least a `type` key specifying the protocol that is incoming\r\n> * `receive`: an awaitable callable that will yield a new event **dictionary** when one is available\r\n> * `send`: an awaitable callable taking a single event **dictionary** as a positional argument that will return once the send has been completed or the connection has been closed\r\n\r\nand in other place:\r\n\r\n> `scope` must be a `dict`.\r\n\r\nBut in starlette [they are declared](https://github.com/encode/starlette/blob/master/starlette/types.py#L3-L4) as `MutableMapping`:\r\n\r\n```python\r\nScope = typing.MutableMapping[str, typing.Any]\r\nMessage = typing.MutableMapping[str, typing.Any]\r\n\r\nReceive = typing.Callable[[], typing.Awaitable[Message]]\r\nSend = typing.Callable[[Message], typing.Awaitable[None]]\r\n\r\nASGIApp = typing.Callable[[Scope, Receive, Send], typing.Awaitable[None]]\r\n```\r\n\r\nThis actually breaks interoperability with other libraries that follows the spec. For example, the following code\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom httpx import ASGITransport\r\n\r\nASGITransport(Starlette())\r\n```\r\n\r\ngives the following error when type-checked with mypy:\r\n\r\n```\r\nerror: Argument 1 to \"ASGITransport\" has incompatible type \"Starlette\"; expected \"Callable[[Dict[str, Any], Callable[[], Awaitable[Dict[str, Any]]], Callable[[Dict[str, Any]], Coroutine[None, None, None]]], Coroutine[None, None, None]]\"  [arg-type]\r\nnote: \"Starlette.__call__\" has type \"Callable[[Arg(MutableMapping[str, Any], 'scope'), Arg(Callable[[], Awaitable[MutableMapping[str, Any]]], 'receive'), Arg(Callable[[MutableMapping[str, Any]], Awaitable[None]], 'send')], Coroutine[Any, Any, None]]\"\r\n```\r\n\r\nThe [typing of ASGI app in httpx](https://github.com/encode/httpx/blob/master/httpx/_transports/asgi.py#L17-L24) follows the spec:\r\n\r\n```python\r\n_Message = typing.Dict[str, typing.Any]\r\n_Receive = typing.Callable[[], typing.Awaitable[_Message]]\r\n_Send = typing.Callable[\r\n    [typing.Dict[str, typing.Any]], typing.Coroutine[None, None, None]\r\n]\r\n_ASGIApp = typing.Callable[\r\n    [typing.Dict[str, typing.Any], _Receive, _Send], typing.Coroutine[None, None, None]\r\n]\r\n```",
+    "closed_at": "2023-03-02T10:48:41Z",
+    "created_at": "2023-03-02T08:42:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2057",
+    "number": 2057,
+    "state": "closed",
+    "title": "Incorrect typing for Scope and Message in ASGIApp",
+    "user": "ods"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "d1331246fa6a3056680de7bf49fbbd65cafbf489",
+      "commit_url": "https://api.github.com/repos/ods/starlette/commits/d1331246fa6a3056680de7bf49fbbd65cafbf489",
+      "created_at": "2023-03-02T09:12:21Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-03-02T10:48:41Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-03-02T10:48:41Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

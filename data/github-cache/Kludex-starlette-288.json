@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi there,\r\n\r\nI'm looking to use Starlette within a larger application but the documentation only suggests either running my application within an ASGI framework in it's own process, or invoking something like `uvicorn.run` which is a blocking call.\r\n\r\nIs there any simple method to schedule uvicorn/applications on the eventloop in a non exclusive manner?",
+    "closed_at": "2019-01-14T14:34:59Z",
+    "created_at": "2018-12-24T07:26:35Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/288",
+    "number": 288,
+    "state": "closed",
+    "title": "Running without blocking the eventloop?",
+    "user": "narigama"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-14T14:34:59Z",
+      "event": "commented"
+    }
+  ]
+}

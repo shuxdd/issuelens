@@ -1,0 +1,167 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-11-24T22:05:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8b61de3f72a9898db69cddd2d6011987fda1d754",
+      "sha": "8b61de3f72a9898db69cddd2d6011987fda1d754"
+    },
+    {
+      "committed_at": "2021-11-27T14:31:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/93a7dbe9e0aab20125649a23ca078d0355ec87bc",
+      "sha": "93a7dbe9e0aab20125649a23ca078d0355ec87bc"
+    },
+    {
+      "committed_at": "2021-11-27T23:05:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c94541a5e40f31efc7303e0f4cfa7708452359ca",
+      "sha": "c94541a5e40f31efc7303e0f4cfa7708452359ca"
+    },
+    {
+      "committed_at": "2021-11-28T09:50:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fb3fc639e0e7a1e7eac0e035d8bc6bc4835050c9",
+      "sha": "fb3fc639e0e7a1e7eac0e035d8bc6bc4835050c9"
+    },
+    {
+      "committed_at": "2021-11-28T09:50:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6475d2324bf7bb46744f78886ae112898820f101",
+      "sha": "6475d2324bf7bb46744f78886ae112898820f101"
+    },
+    {
+      "committed_at": "2021-11-28T09:57:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/db46dc8a15b3b87dd47a06d9f0425626c9bed74d",
+      "sha": "db46dc8a15b3b87dd47a06d9f0425626c9bed74d"
+    },
+    {
+      "committed_at": "2021-11-28T10:19:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/86c2a218dbe38f2c0964570476c6114464b85ff1",
+      "sha": "86c2a218dbe38f2c0964570476c6114464b85ff1"
+    },
+    {
+      "committed_at": "2021-11-28T10:26:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4e5fb7b63f650884471c97ef9a1589777042dc1b",
+      "sha": "4e5fb7b63f650884471c97ef9a1589777042dc1b"
+    },
+    {
+      "committed_at": "2021-11-29T14:58:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d16ba5b00293b8b227c2060e04ab69b9665cc232",
+      "sha": "d16ba5b00293b8b227c2060e04ab69b9665cc232"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-11-24T22:06:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1341",
+          "number": 1341,
+          "pull_request": {
+            "merged_at": "2021-11-30T18:13:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1341"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `url_path_for` typehints"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d16ba5b00293b8b227c2060e04ab69b9665cc232/setup.cfg",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "setup.cfg",
+      "sha": "20c2588a17600f3538393a2ed4e03aa969021a0b",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d16ba5b00293b8b227c2060e04ab69b9665cc232/starlette%2Fapplications.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/applications.py",
+      "sha": "c95fa0a5cc5f6721e7a36254cd45aa49af5cbc2a",
+      "status": "modified"
+    },
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d16ba5b00293b8b227c2060e04ab69b9665cc232/starlette%2Frequests.py",
+      "changes": 6,
+      "deletions": 1,
+      "filename": "starlette/requests.py",
+      "sha": "cf129702e06295c39add77db49a4ce6b9218b94b",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d16ba5b00293b8b227c2060e04ab69b9665cc232/starlette%2Frouting.py",
+      "changes": 12,
+      "deletions": 6,
+      "filename": "starlette/routing.py",
+      "sha": "3c11c1b0cc0152f2955680f2461fe331c0932119",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "[`request.url_for` takes `Any` for the `path_params`](https://github.com/encode/starlette/blob/217019b36303ea16a5869ad076d835e4fdc1cef3/starlette/requests.py#L168) whereas [`application.url_path_for` expects `path_params` to be `str`](https://github.com/encode/starlette/blob/537ab6afd110b79dca95f3c8ecc6980710b1de1c/starlette/applications.py#L107). Likewise the route / routers expect `path_params` to be `str`. See [here](https://github.com/encode/starlette/blob/537ab6afd110b79dca95f3c8ecc6980710b1de1c/starlette/routing.py#L159) and [here](https://github.com/encode/starlette/blob/537ab6afd110b79dca95f3c8ecc6980710b1de1c/starlette/routing.py#L584).\r\n\r\nThe type mismatch is not caught by the type checker as the `router` here is untyped:\r\nhttps://github.com/encode/starlette/blob/217019b36303ea16a5869ad076d835e4fdc1cef3/starlette/requests.py#L169-L170\r\n\r\nI think `Any` is probably more close to being the correct type as the `path_params` can be `UUID`, `int`, etc.\r\n\r\n[The docs](https://www.starlette.io/routing/#reverse-url-lookups) would make it seems that the API for these two methods should have a consistent signature.",
+    "closed_at": "2021-11-30T18:13:09Z",
+    "created_at": "2021-10-21T15:26:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1319",
+    "labels": [
+      "typing"
+    ],
+    "number": 1319,
+    "state": "closed",
+    "title": "Inconsistent Typing Between request.url_for and application.url_path_for",
+    "user": "cancan101"
+  },
+  "pull_request": {
+    "closed_at": "2021-11-30T18:13:09Z",
+    "created_at": "2021-11-24T22:06:28Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1341",
+    "merge_commit_sha": "10529a3b39e2db21b03600991117c564332f31d2",
+    "merged_at": "2021-11-30T18:13:09Z",
+    "number": 1341,
+    "title": "Fix `url_path_for` typehints",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-11-24T21:51:08Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-11-24T22:06:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1341",
+          "number": 1341,
+          "pull_request": {
+            "merged_at": "2021-11-30T18:13:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1341"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix `url_path_for` typehints"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T14:23:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T14:44:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-30T18:13:09Z",
+      "event": "closed"
+    }
+  ]
+}

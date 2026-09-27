@@ -1,0 +1,216 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-12-03T09:37:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/267c8ba38d8b937d2251f296db35e7e859e61b1d",
+      "sha": "267c8ba38d8b937d2251f296db35e7e859e61b1d"
+    },
+    {
+      "committed_at": "2021-12-03T09:46:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1f70ccd8f63b8a23ede46133cd7a252d813fcd52",
+      "sha": "1f70ccd8f63b8a23ede46133cd7a252d813fcd52"
+    },
+    {
+      "committed_at": "2021-12-06T11:39:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7e1356cb3969ab0366885a86aa7ad73c2a21ad15",
+      "sha": "7e1356cb3969ab0366885a86aa7ad73c2a21ad15"
+    },
+    {
+      "committed_at": "2021-12-06T12:43:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a5e0e7054c10665ff9a0d7c849455477ae5cb4b8",
+      "sha": "a5e0e7054c10665ff9a0d7c849455477ae5cb4b8"
+    },
+    {
+      "committed_at": "2021-12-06T12:44:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8a2bda77c15a5178a16383ebcffcd2f5939957fe",
+      "sha": "8a2bda77c15a5178a16383ebcffcd2f5939957fe"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-03T09:47:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1350",
+          "number": 1350,
+          "pull_request": {
+            "merged_at": "2021-12-07T09:04:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1350"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add staticfiles packages with directory"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8a2bda77c15a5178a16383ebcffcd2f5939957fe/docs%2Fstaticfiles.md",
+      "changes": 12,
+      "deletions": 1,
+      "filename": "docs/staticfiles.md",
+      "sha": "3591b4f9f588cb692d499df2a0fa16a22ded0e0b",
+      "status": "modified"
+    },
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8a2bda77c15a5178a16383ebcffcd2f5939957fe/starlette%2Fstaticfiles.py",
+      "changes": 18,
+      "deletions": 7,
+      "filename": "starlette/staticfiles.py",
+      "sha": "76e435310be484143059a6bb83b3ee061363c27a",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/8a2bda77c15a5178a16383ebcffcd2f5939957fe/tests%2Ftest_staticfiles.py",
+      "changes": 6,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "bd7e0de0229d0a3ae749f14d03c2202fd95684d0",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your feature request. -->\r\n\r\n- [/] There are no similar issues or pull requests for this yet.\r\n- [X - tried to get feedback but no replies] I discussed this idea on the [community chat](https://gitter.im/encode/community) and feedback is positive.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nI want to be able to serve static files from arbitrary locations within a python package but I can't because currently it looks in a `statics` folder which is hardcoded.\r\n\r\n## Describe the solution you would like.\r\n\r\nI'd like to be able to pass as a parameter the path within the python package to look in for the static files.\r\n\r\n## Describe alternatives you considered\r\n\r\n<!-- Please describe any alternative solutions or features you've considered to solve\r\nyour problem and why they wouldn't solve it. -->\r\n\r\nI've considered changing the location of my packaged files to `statics` but this will have knock on effects across other systems, and `statics` itself is non-standard as far as I can tell.\r\n\r\n## Additional context\r\n\r\n<!-- Provide any additional context, screenshots, tracebacks, etc. about the feature here. -->\r\n",
+    "body_last_edited_at": "2021-08-13T14:32:40Z",
+    "closed_at": "2021-12-07T09:04:54Z",
+    "created_at": "2021-08-13T14:31:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1265",
+    "labels": [
+      "staticfiles"
+    ],
+    "number": 1265,
+    "state": "closed",
+    "title": "StaticFiles support for directories other than \"statics\"",
+    "user": "bram2000"
+  },
+  "pull_request": {
+    "closed_at": "2021-12-07T09:04:55Z",
+    "created_at": "2021-12-03T09:47:06Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1350",
+    "merge_commit_sha": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+    "merged_at": "2021-12-07T09:04:54Z",
+    "number": 1350,
+    "title": "Add staticfiles packages with directory",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "10529a3b39e2db21b03600991117c564332f31d2",
+    "committed_at": "2021-11-30T18:13:08Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/10529a3b39e2db21b03600991117c564332f31d2"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-08-16T21:14:12Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-08-23T20:29:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-23T20:43:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-24T17:50:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-24T17:50:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-08-24T17:50:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-09-02T06:04:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-02T06:04:32Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-09-02T06:04:32Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-09-08T08:42:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-08T08:42:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-09-08T08:42:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-15T15:11:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-15T15:11:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-15T15:11:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-15T15:11:45Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-15T15:11:45Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-10-20T12:12:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-20T12:12:27Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-10-20T12:12:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-12-03T09:47:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1350",
+          "number": 1350,
+          "pull_request": {
+            "merged_at": "2021-12-07T09:04:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1350"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add staticfiles packages with directory"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-06T20:28:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-07T09:04:55Z",
+      "event": "closed"
+    }
+  ]
+}

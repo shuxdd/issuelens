@@ -1,0 +1,59 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-03-20T22:48:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3198",
+          "number": 3198,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate HTTP_306_RESERVED status code"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The starting point for issues should usually be a discussion...\n\nhttps://github.com/Kludex/starlette/discussions\n\nPossible bugs may be raised as a \"Potential Issue\" discussion, feature requests may be raised as an \"Ideas\" discussion. We can then determine if the discussion needs to be escalated into an \"Issue\" or not.\n\nThis will help us ensure that the \"Issues\" list properly reflects ongoing or needed work on the project.\n\n---\n\n- [ ] Initially raised as discussion #...\n\n**Summary**\n\n`starlette/status.py` defines `HTTP_306_RESERVED = 306`, but status code 306 is marked as **(Unused)** in the IANA HTTP Status Code Registry and RFC 9110.\n\n**References**\n\n- **IANA Registry** (https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml): 306 is listed as \"(Unused)\" between 305 (Use Proxy) and 307 (Temporary Redirect).\n- **RFC 9110, Section 15.4.7** (https://www.rfc-editor.org/rfc/rfc9110#section-15.4.7): *\"The 306 status code was defined in a previous version of this specification, is no longer used, and the code is reserved.\"*\n\n**Current state in Starlette**\n\n- `HTTP_306_RESERVED` is exported in `__all__` and defined as `306`.\n- The constant name suggests it is reserved, but the spec explicitly states the code is no longer used.\n\n**Proposal**\n\nConsider removing `HTTP_306_RESERVED` from `starlette/status.py`, or deprecating it (e.g. via `__deprecated__` and a deprecation warning) to align with RFC 9110 and the IANA registry.",
+    "closed_at": "2026-03-22T15:29:38Z",
+    "created_at": "2026-03-18T18:15:24Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3192",
+    "number": 3192,
+    "state": "closed",
+    "title": "Remove or deprecate HTTP_306_RESERVED \u2014 status code 306 is (Unused) per IANA and RFC 9110",
+    "user": "imtoopunkforyou"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-03-20T22:48:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3198",
+          "number": 3198,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3198"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Deprecate HTTP_306_RESERVED status code"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-22T15:29:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-22T15:29:38Z",
+      "event": "closed"
+    }
+  ]
+}

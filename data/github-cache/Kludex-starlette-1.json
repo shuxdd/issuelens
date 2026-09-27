@@ -1,0 +1,227 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-07-29T06:22:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/34",
+          "number": 34,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS support"
+        }
+      }
+    },
+    {
+      "created_at": "2020-02-24T02:30:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/844",
+          "number": 844,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unclear how to add middleware to a subset of routes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-01T18:02:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette-configure-fts/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette-configure-fts"
+          },
+          "title": "CSRF protection"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-02T05:36:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/957",
+          "number": 957,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unable to access info.context['background']"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-12T20:29:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1407",
+          "number": 1407,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add built-in CSRF support"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-19T21:14:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/quern-dev/quern/pull/204",
+          "number": 204,
+          "pull_request": {
+            "merged_at": "2026-09-19T23:11:49Z",
+            "url": "https://api.github.com/repos/quern-dev/quern/pulls/204"
+          },
+          "repository": {
+            "full_name": "quern-dev/quern"
+          },
+          "title": "Rework the iOS scroll sweep: correctness, cost, bounds, and a trace"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "- [x] Debug - Return proper debug pages.\r\n- [x] StaticFiles - Static file serving.\r\n- [x] Routing - Request routing.\r\n- [ ] Broadcast - Pub/Sub style broadcast.\r\n- [ ] StrictASGI - Ensure ASGI compliance.\r\n- [ ] Proxy - HTTP Proxying.\r\n- [ ] CSRF, CORS, Sessions.",
+    "closed_at": "2018-08-28T14:32:50Z",
+    "created_at": "2018-06-25T15:31:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1",
+    "number": 1,
+    "state": "closed",
+    "title": "Middleware",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-06-25T17:39:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-07-15T10:02:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-07-29T06:22:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/34",
+          "number": 34,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "CORS support"
+        }
+      }
+    },
+    {
+      "created_at": "2018-08-28T14:32:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-24T02:30:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/844",
+          "number": 844,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unclear how to add middleware to a subset of routes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-01T18:02:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette-configure-fts/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette-configure-fts"
+          },
+          "title": "CSRF protection"
+        }
+      }
+    },
+    {
+      "created_at": "2020-06-02T05:36:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/957",
+          "number": 957,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Unable to access info.context['background']"
+        }
+      }
+    },
+    {
+      "commit_id": "390b7a1a982c3b243b3cfa50fbf30c487fa32b6d",
+      "commit_url": "https://api.github.com/repos/graingert/starlette/commits/390b7a1a982c3b243b3cfa50fbf30c487fa32b6d",
+      "created_at": "2021-06-11T21:54:28Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-01-12T20:29:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1407",
+          "number": 1407,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add built-in CSRF support"
+        }
+      }
+    },
+    {
+      "commit_id": "643c3f20e385341a37c851a1d12ff3c33762c300",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/643c3f20e385341a37c851a1d12ff3c33762c300",
+      "created_at": "2022-07-10T12:23:43Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-09-19T21:14:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/quern-dev/quern/pull/204",
+          "number": 204,
+          "pull_request": {
+            "merged_at": "2026-09-19T23:11:49Z",
+            "url": "https://api.github.com/repos/quern-dev/quern/pulls/204"
+          },
+          "repository": {
+            "full_name": "quern-dev/quern"
+          },
+          "title": "Rework the iOS scroll sweep: correctness, cost, bounds, and a trace"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-1878",
+  "changed_files": [
+    {
+      "path": "docs/responses.md",
+      "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/docs%2Fresponses.md",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/responses.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/starlette%2Fresponses.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/responses.py",
+      "snapshot_commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+      "source_url": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/starlette/responses.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/responses.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Wrong typing for expires in set_cookie' originates in starlette/responses.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_responses.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/b2b6f913732fa8ee64b375c3b5239976a6abb13a/tests%2Ftest_responses.py",
+      "status": "modified"
+    }
+  ]
+}

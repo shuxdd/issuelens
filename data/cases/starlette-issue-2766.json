@@ -1,0 +1,117 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2024-11-25T13:26:32Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/2766"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/2766"
+    ]
+  },
+  "case_id": "starlette-issue-2766",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-2767",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Replace RuntimeError with WebSocketDisconnected' directly changes starlette/websockets.py with focused behavior test(s) tests/test_websockets.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2024-11-25T14:10:57Z",
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2762",
+    "number": 2766,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/2766",
+    "title": "Replace `RuntimeError` with `WebSocketDisconnected` once the socket has been disconnected"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2767 created_at 2024-11-25T14:10:57Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2767",
+    "repair_files": [
+      "starlette/websockets.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 009a3bab62c4e3f1479914b08a3291cfe86e5e9e",
+    "test_files": [
+      "tests/test_websockets.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/websockets.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/40cf9695caf476721b47f3ca969db0eb57daed42/starlette%2Fwebsockets.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "c28f6c52627732110e4063a3f8d6786d60bde871",
+        "source_url": "https://github.com/Kludex/starlette/commit/c28f6c52627732110e4063a3f8d6786d60bde871"
+      },
+      {
+        "sha": "6057aec51ec2e704c381067388af31ac00bf2b43",
+        "source_url": "https://github.com/Kludex/starlette/commit/6057aec51ec2e704c381067388af31ac00bf2b43"
+      },
+      {
+        "sha": "2d479b63f69c5362d9e013ccfc90214904b95b07",
+        "source_url": "https://github.com/Kludex/starlette/commit/2d479b63f69c5362d9e013ccfc90214904b95b07"
+      },
+      {
+        "sha": "531b9312234b530232f122b5313e409c3bc60811",
+        "source_url": "https://github.com/Kludex/starlette/commit/531b9312234b530232f122b5313e409c3bc60811"
+      },
+      {
+        "sha": "98dfdc8bd55d32f355c810e503fcd501367ed1e7",
+        "source_url": "https://github.com/Kludex/starlette/commit/98dfdc8bd55d32f355c810e503fcd501367ed1e7"
+      },
+      {
+        "sha": "7576e0d61d02b22f3cc1faaf8a0ae78db72782c6",
+        "source_url": "https://github.com/Kludex/starlette/commit/7576e0d61d02b22f3cc1faaf8a0ae78db72782c6"
+      },
+      {
+        "sha": "a687613f161d34c5f885eec2d035b3c381e48888",
+        "source_url": "https://github.com/Kludex/starlette/commit/a687613f161d34c5f885eec2d035b3c381e48888"
+      },
+      {
+        "sha": "40cf9695caf476721b47f3ca969db0eb57daed42",
+        "source_url": "https://github.com/Kludex/starlette/commit/40cf9695caf476721b47f3ca969db0eb57daed42"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2024-11-25T14:10:57Z",
+      "number": 2767,
+      "source_url": "https://github.com/Kludex/starlette/pull/2767"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2767"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_websockets.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/40cf9695caf476721b47f3ca969db0eb57daed42/tests%2Ftest_websockets.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "009a3bab62c4e3f1479914b08a3291cfe86e5e9e",
+    "committed_at": "2024-11-24T15:00:32Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/009a3bab62c4e3f1479914b08a3291cfe86e5e9e"
+  },
+  "schema_version": "1.0"
+}

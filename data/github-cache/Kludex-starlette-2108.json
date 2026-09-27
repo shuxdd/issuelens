@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "According to ASGI specification, `scope[\"client\"]` for HTTP and Websocket protocol should have its host value in either IPv4 or IPv6 address formats.\r\n\r\nHowever, in `starlette/testclient.py`, the `_TestClientTransport` set its host value to `\"testclient\"` and breaks applications that expect IPv4 or IPv6 address formats during tests.\r\n\r\nhttps://github.com/encode/starlette/blob/f7bf74194358cceb5708f758989df89240c0c1aa/starlette/testclient.py#L246\r\n\r\nhttps://github.com/encode/starlette/blob/f7bf74194358cceb5708f758989df89240c0c1aa/starlette/testclient.py#L264",
+    "closed_at": "2023-04-03T11:37:32Z",
+    "created_at": "2023-04-03T10:58:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2108",
+    "number": 2108,
+    "state": "closed",
+    "title": "invalid format of client's host in testclient",
+    "user": "pjknkda"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-04-03T11:37:32Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-04-03T11:37:32Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

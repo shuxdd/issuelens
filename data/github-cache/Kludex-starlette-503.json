@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Sometimes would like to return valid YAML as response. Would be great to have such type of responses.",
+    "closed_at": "2019-05-06T09:18:23Z",
+    "created_at": "2019-05-06T07:03:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/503",
+    "number": 503,
+    "state": "closed",
+    "title": "Feature suggestion: YAMLResponse",
+    "user": "mindey"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-06T09:18:23Z",
+      "event": "commented"
+    }
+  ]
+}

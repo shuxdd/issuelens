@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm a bit confused by the concept of Lifespan. From uvicorn, a lifespan is the lifecycle of the entire app (as opposed to a request-response lifecycle, which seems to be handled by http startup/shutdown scope).\r\n\r\nHowever, in starlette DatabaseMiddleware I saw an option \"rollback_on_shutdown\" which is executed on the lifespan shutdown. Shouldn't that be specific to each request/response? Why does starlette rollback the active transaction when the app itself is dying, rather than when a request-response cycle fails/dies?\r\n\r\nOn a sidenote, does starlette have a slack or gitter community?",
+    "closed_at": "2019-01-31T13:24:50Z",
+    "created_at": "2019-01-31T12:26:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/372",
+    "number": 372,
+    "state": "closed",
+    "title": "Lifespan",
+    "user": "rajeev"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-31T13:24:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-31T14:15:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-31T14:19:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-31T16:29:17Z",
+      "event": "commented"
+    }
+  ]
+}

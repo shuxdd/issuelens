@@ -1,0 +1,56 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1673\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **dwinston** June  3, 2022</sup>\r\nI find that I can't GET or POST to a path containing a colon (\":\"). An example in FastAPI (which uses Starlette):\r\n\r\n```python\r\nfrom fastapi import FastAPI\r\n\r\napp = FastAPI()\r\n\r\n@app.get(\"/items:queue\")\r\ndef queue_new_item():\r\n    return \"An item has been queued for later inclusion.\"\r\n```\r\n\r\nOn `uvicorn main:app --reload` (FYI Python 3.9.12 and FastAPI 0.78.0 on MacOS), I get a 404 response from `GET http://127.0.0.1:8000/items:queue`.\r\n\r\nI also filed this issue in the fastapi repo (https://github.com/tiangolo/fastapi/issues/4984), but I suspect that Starlette's use of colons for path parameter converters (https://www.starlette.io/routing/) may be playing a role here.\r\n\r\nIs this a bug? I am trying to follow the official google cloud APIs \"custom methods\" pattern <https://cloud.google.com/apis/design/custom_methods>:\r\n\r\n>For custom methods, they should use the following generic HTTP mapping:\r\n> https://service.name/v1/some/resource/name:customVerb\r\n</div>",
+    "closed_at": "2022-06-05T08:15:16Z",
+    "created_at": "2022-06-03T23:56:18Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1674",
+    "number": 1674,
+    "state": "closed",
+    "title": "URL path with colon (\":\") results in 404 not found",
+    "user": "dwinston"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-06-03T23:56:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-06-04T00:06:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-06-05T08:15:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-05T08:15:16Z",
+      "event": "closed"
+    }
+  ]
+}

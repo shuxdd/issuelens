@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I tried to implement a middleware that would append a namespace to all routes, but received error that \"Attribute can't be set\".\r\n```\r\nPREFIX = 'v1/'\r\n\r\n\r\nclass URLPrefixMiddleware(base_mw.BaseHTTPMiddleware):\r\n    async def dispatch(self, request, call_next):\r\n        print(request.base_url)\r\n        request.url = f'{request.url}{PREFIX}'\r\n        response = await call_next(request)\r\n        return response\r\n\r\n\r\nmiddleware = [\r\n    Middleware(URLPrefixMiddleware),\r\n]\r\n```\r\nTried with request.base_url as well.\r\n\r\nHow could I implement this?\r\n\r\n![image](https://user-images.githubusercontent.com/230757/70198387-9ad05600-16c3-11ea-9a0d-3f047dc06f8e.png)\r\n",
+    "closed_at": "2019-12-05T02:34:16Z",
+    "created_at": "2019-12-05T02:26:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/744",
+    "number": 744,
+    "state": "closed",
+    "title": "How can I add a url prefix to all routes?",
+    "user": "erichaus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-05T02:34:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-05T02:34:16Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-12-06T19:44:26Z",
+      "event": "commented"
+    }
+  ]
+}

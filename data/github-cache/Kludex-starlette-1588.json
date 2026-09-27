@@ -1,0 +1,335 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-04-18T06:02:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/efc4342c38efbef4edb796c30c578926eea6b088",
+      "sha": "efc4342c38efbef4edb796c30c578926eea6b088"
+    },
+    {
+      "committed_at": "2022-04-22T05:53:46Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b7b4e92868fe4f34ecd0594a4a223983cc94f10a",
+      "sha": "b7b4e92868fe4f34ecd0594a4a223983cc94f10a"
+    },
+    {
+      "committed_at": "2022-04-22T06:26:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d2e190ad293aeca70e9ac75bf2f73b381abf2d87",
+      "sha": "d2e190ad293aeca70e9ac75bf2f73b381abf2d87"
+    },
+    {
+      "committed_at": "2022-05-03T05:53:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d52dd9a588eb53862c4d070776fa51e8ea43502b",
+      "sha": "d52dd9a588eb53862c4d070776fa51e8ea43502b"
+    },
+    {
+      "committed_at": "2022-05-05T05:44:44Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f1eb5ba4902a88fc88e9da1abb31d27890371530",
+      "sha": "f1eb5ba4902a88fc88e9da1abb31d27890371530"
+    },
+    {
+      "committed_at": "2022-05-05T05:52:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7a7a31e68a992c801f2261349c6214e429f09706",
+      "sha": "7a7a31e68a992c801f2261349c6214e429f09706"
+    },
+    {
+      "committed_at": "2022-05-06T04:51:21Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/92454083d4a87fb86fdc60b9f7f88014c1024a8c",
+      "sha": "92454083d4a87fb86fdc60b9f7f88014c1024a8c"
+    },
+    {
+      "committed_at": "2022-05-08T05:51:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/90aa31b5ed2a2531b119c0e567f124d22cd33e12",
+      "sha": "90aa31b5ed2a2531b119c0e567f124d22cd33e12"
+    },
+    {
+      "committed_at": "2022-05-08T06:37:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/598cfac1c49975897d85eb223d8358cf9ea86a6b",
+      "sha": "598cfac1c49975897d85eb223d8358cf9ea86a6b"
+    },
+    {
+      "committed_at": "2022-05-09T18:56:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ed1ccb25785a5bf403eb595b939f121e110e8caf",
+      "sha": "ed1ccb25785a5bf403eb595b939f121e110e8caf"
+    },
+    {
+      "committed_at": "2022-05-12T05:13:10Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/57e16d660767ec34f0a8114dfa8042df154631a2",
+      "sha": "57e16d660767ec34f0a8114dfa8042df154631a2"
+    },
+    {
+      "committed_at": "2022-05-18T15:14:04Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/234c9089460457bb9b5c0ffec110319f3dee14cf",
+      "sha": "234c9089460457bb9b5c0ffec110319f3dee14cf"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-04-18T06:06:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1593",
+          "number": 1593,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1593"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add 400 response on MultiParser exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-03T05:56:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1617",
+          "number": 1617,
+          "pull_request": {
+            "merged_at": "2022-05-19T18:33:03Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1617"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add 400 response when `boundary` is missing "
+        }
+      }
+    },
+    {
+      "created_at": "2026-06-08T14:21:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/pull/4839",
+          "number": 4839,
+          "pull_request": {
+            "merged_at": "2026-06-08T19:27:59Z",
+            "url": "https://api.github.com/repos/litestar-org/litestar/pulls/4839"
+          },
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "fix: Prevent passing an empty boundary to the parser by returning a 400"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fapplications.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/applications.py",
+      "sha": "c3daade5cf11c9ce51afafe95d0a65ff17da1c0a",
+      "status": "modified"
+    },
+    {
+      "additions": 16,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fexceptions.py",
+      "changes": 99,
+      "deletions": 83,
+      "filename": "starlette/exceptions.py",
+      "sha": "2b5acddb53df956a20b21325a45c16ebd653f505",
+      "status": "modified"
+    },
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fformparsers.py",
+      "changes": 10,
+      "deletions": 1,
+      "filename": "starlette/formparsers.py",
+      "sha": "4cde71b676a142bc9b5c00e4622a8a24a1953b3b",
+      "status": "modified"
+    },
+    {
+      "additions": 93,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Fmiddleware%2Fexceptions.py",
+      "changes": 93,
+      "deletions": 0,
+      "filename": "starlette/middleware/exceptions.py",
+      "sha": "a3b4633d2764dea49498dbc79975fc7e5f58f4bc",
+      "status": "added"
+    },
+    {
+      "additions": 9,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/starlette%2Frequests.py",
+      "changes": 12,
+      "deletions": 3,
+      "filename": "starlette/requests.py",
+      "sha": "66c510cfee10ce2408e3f715f5661e68210cbc67",
+      "status": "modified"
+    },
+    {
+      "additions": 17,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_exceptions.py",
+      "changes": 18,
+      "deletions": 1,
+      "filename": "tests/test_exceptions.py",
+      "sha": "9acd421540e6f48ba69c06752f3b3ffbba54d196",
+      "status": "modified"
+    },
+    {
+      "additions": 19,
+      "blob_url": "https://github.com/Kludex/starlette/blob/234c9089460457bb9b5c0ffec110319f3dee14cf/tests%2Ftest_formparsers.py",
+      "changes": 23,
+      "deletions": 4,
+      "filename": "tests/test_formparsers.py",
+      "sha": "6710595297e4da1a5bc700828e40432ce827408e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I did some research about this PR, and to understand if the issue was reasonable.\r\n\r\nHere's what I've found out:\r\n- Flask raises `ValueError` when the `boundary` is not found: https://github.com/pallets/werkzeug/blob/dae7e0d06651e54a74f04e1cf24d806c4e2e9be9/src/werkzeug/formparser.py#L270-L291\r\n- Django raises a custom exception: https://github.com/django/django/blob/abfdb4d7f384fb06ed9b7ca37b548542df7b5dda/django/http/multipartparser.py#L79-L83\r\n- Django also verifies if the `boundary` is valid with https://github.com/python/cpython/blob/27ee43183437c473725eba00def0ea7647688926/Lib/cgi.py#L991-L997\r\n- After that raise, Django catches that exception and raises a 400: https://github.com/django/django/blob/abfdb4d7f384fb06ed9b7ca37b548542df7b5dda/django/core/handlers/exception.py#L84-L94\r\n\r\nOn Starlette, we raise `KeyError` with \"boundary key missing\". Although this PR follows the issue that was raised, and it's actually an improvement, I think we should follow Django's lead, and also create a 400 response on this case.\r\n\r\n_Originally posted by @Kludex in https://github.com/encode/starlette/issues/1544#issuecomment-1080197920_",
+    "body_last_edited_at": null,
+    "closed_at": "2022-05-19T18:33:03Z",
+    "created_at": "2022-04-15T17:52:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1588",
+    "labels": [
+      "clean up",
+      "help wanted",
+      "good first issue"
+    ],
+    "number": 1588,
+    "state": "closed",
+    "title": "Send 400 on missing `boundary`",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-19T18:33:04Z",
+    "created_at": "2022-05-03T05:53:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1617",
+    "merge_commit_sha": "3453fd6b6259393f3744815b49af297c934f32d0",
+    "merged_at": "2022-05-19T18:33:03Z",
+    "number": 1617,
+    "title": "Add 400 response when `boundary` is missing ",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "830f3486537916bae6b46948ff922adc14a22b7c",
+    "committed_at": "2022-05-03T05:32:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/830f3486537916bae6b46948ff922adc14a22b7c"
+  },
+  "timeline": [
+    {
+      "created_at": "2022-04-15T17:52:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-04-15T17:52:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-04-15T18:35:43Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-15T18:35:48Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-15T18:36:13Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-18T06:06:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1593",
+          "number": 1593,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1593"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add 400 response on MultiParser exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-03T05:56:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1617",
+          "number": 1617,
+          "pull_request": {
+            "merged_at": "2022-05-19T18:33:03Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1617"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add 400 response when `boundary` is missing "
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-04T16:43:01Z",
+      "event": "assigned"
+    },
+    {
+      "created_at": "2022-05-19T18:33:04Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-06-08T14:21:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/litestar-org/litestar/pull/4839",
+          "number": 4839,
+          "pull_request": {
+            "merged_at": "2026-06-08T19:27:59Z",
+            "url": "https://api.github.com/repos/litestar-org/litestar/pulls/4839"
+          },
+          "repository": {
+            "full_name": "litestar-org/litestar"
+          },
+          "title": "fix: Prevent passing an empty boundary to the parser by returning a 400"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-03T16:44:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Leon-87-7/ownix/pull/480",
+          "number": 480,
+          "pull_request": {
+            "merged_at": "2026-08-05T14:54:09Z",
+            "url": "https://api.github.com/repos/Leon-87-7/ownix/pulls/480"
+          },
+          "repository": {
+            "full_name": "Leon-87-7/ownix"
+          },
+          "title": "feat(intake): Ownix Intake channels \u2014 dashboard, router, share sheet, Telegram adapter, Chrome extension (#472-#479)"
+        }
+      }
+    }
+  ]
+}

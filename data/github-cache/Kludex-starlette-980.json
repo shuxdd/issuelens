@@ -1,0 +1,231 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-11-19T11:25:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1094",
+          "number": 1094,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Custom executor in run_in_threadpool"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-08T08:01:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1724",
+          "number": 1724,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Custom `CapacityLimiter`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-17T22:49:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/TaskFlow/pull/46",
+          "number": 46,
+          "pull_request": {
+            "merged_at": "2026-05-18T07:49:46Z",
+            "url": "https://api.github.com/repos/amirbiron/TaskFlow/pulls/46"
+          },
+          "repository": {
+            "full_name": "amirbiron/TaskFlow"
+          },
+          "title": "\u05d4\u05d5\u05e1\u05e3 \u05ea\u05de\u05d9\u05db\u05d4 \u05d1\u05d4\u05e2\u05dc\u05d0\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05de\u05e6\u05d5\u05e8\u05e4\u05d9\u05dd \u05dc-R2"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-31T02:49:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/anthony-spruyt/container-images/pull/822",
+          "number": 822,
+          "pull_request": {
+            "merged_at": "2026-05-31T05:37:48Z",
+            "url": "https://api.github.com/repos/anthony-spruyt/container-images/pulls/822"
+          },
+          "repository": {
+            "full_name": "anthony-spruyt/container-images"
+          },
+          "title": "feat(llm-guard): replace upstream image with custom FastAPI server + fold in litellm adapter"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T14:55:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amrhoballah/VisionFFE/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/amrhoballah/VisionFFE/pulls/3"
+          },
+          "repository": {
+            "full_name": "amrhoballah/VisionFFE"
+          },
+          "title": "Add Gemini Embedding 2 backend + image embedding test tools"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I just read the source code of starlette, and I think I found reason why it's occupying so much memory\r\nThe problem is in ```starlette.routing.py``` method```request_response()```\r\n```\r\n\r\n```python\r\ndef request_response(func: typing.Callable) -> ASGIApp:\r\n    \"\"\"\r\n    Takes a function or coroutine `func(request) -> response`,\r\n    and returns an ASGI application.\r\n    \"\"\"\r\n    is_coroutine = asyncio.iscoroutinefunction(func)\r\n\r\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\r\n        request = Request(scope, receive=receive, send=send)\r\n        if is_coroutine:\r\n            response = await func(request)\r\n        else:\r\n            response = await run_in_threadpool(func, request)\r\n        await response(scope, receive, send)\r\n\r\n    return app\r\n  \r\n \r\nasync def run_in_threadpool(\r\n    func: typing.Callable[..., T], *args: typing.Any, **kwargs: typing.Any\r\n) -> T:\r\n    loop = asyncio.get_event_loop()\r\n    if contextvars is not None:  # pragma: no cover\r\n        # Ensure we run in the same context\r\n        child = functools.partial(func, *args, **kwargs)\r\n        context = contextvars.copy_context()\r\n        func = context.run\r\n        args = (child,)\r\n    elif kwargs:  # pragma: no cover\r\n        # loop.run_in_executor doesn't accept 'kwargs', so bind them in here\r\n        func = functools.partial(func, **kwargs)\r\n    return await loop.run_in_executor(None, func, *args)\r\n```\r\n\r\nMy rest interface is not async, it will run in ```loop.run_in_executor```, but starlette do not specify the executor here, so the default thread pool size should be os.cpu_count() * 5, my test machine has 40 cpus so I should have 200 threads in the pool. And after each request it will not release the object in these threads, unless the thread be reused by next request, which will occupy a a lot of memory. Especially when I wrap a large deep learning model in the server.\r\n\r\nMy question is could we make the thread pool size configurable?",
+    "closed_at": "2022-02-03T11:07:04Z",
+    "created_at": "2020-06-22T19:00:00Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/980",
+    "number": 980,
+    "state": "closed",
+    "title": "Server would occupy a lot of memory when method is not async",
+    "user": "ZackJiang21"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-19T11:23:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-19T11:25:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1094",
+          "number": 1094,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Custom executor in run_in_threadpool"
+        }
+      }
+    },
+    {
+      "created_at": "2020-11-25T19:42:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-27T09:09:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T11:07:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T11:10:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T11:11:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-03T11:11:20Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-02-03T11:11:20Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-02-03T11:14:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T08:01:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1724",
+          "number": 1724,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Custom `CapacityLimiter`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-08T14:16:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T14:28:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-08T14:41:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-17T22:49:20Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/TaskFlow/pull/46",
+          "number": 46,
+          "pull_request": {
+            "merged_at": "2026-05-18T07:49:46Z",
+            "url": "https://api.github.com/repos/amirbiron/TaskFlow/pulls/46"
+          },
+          "repository": {
+            "full_name": "amirbiron/TaskFlow"
+          },
+          "title": "\u05d4\u05d5\u05e1\u05e3 \u05ea\u05de\u05d9\u05db\u05d4 \u05d1\u05d4\u05e2\u05dc\u05d0\u05ea \u05e7\u05d1\u05e6\u05d9\u05dd \u05de\u05e6\u05d5\u05e8\u05e4\u05d9\u05dd \u05dc-R2"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-31T02:49:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/anthony-spruyt/container-images/pull/822",
+          "number": 822,
+          "pull_request": {
+            "merged_at": "2026-05-31T05:37:48Z",
+            "url": "https://api.github.com/repos/anthony-spruyt/container-images/pulls/822"
+          },
+          "repository": {
+            "full_name": "anthony-spruyt/container-images"
+          },
+          "title": "feat(llm-guard): replace upstream image with custom FastAPI server + fold in litellm adapter"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T14:55:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amrhoballah/VisionFFE/pull/3",
+          "number": 3,
+          "pull_request": {
+            "url": "https://api.github.com/repos/amrhoballah/VisionFFE/pulls/3"
+          },
+          "repository": {
+            "full_name": "amrhoballah/VisionFFE"
+          },
+          "title": "Add Gemini Embedding 2 backend + image embedding test tools"
+        }
+      }
+    }
+  ]
+}

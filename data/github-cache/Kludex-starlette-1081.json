@@ -1,0 +1,96 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nI try to manage database session with `ContextVar` and want to close it in the middleware, but I always get `none` unless the session was set in the middleware (This is valid, but not all handlers require sqlalchemy session).\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom contextvars import ContextVar\r\nfrom fastapi import Request\r\nfrom sqlalchemy.orm import Session\r\nfrom sqlalchemy import create_engine\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom src.config import settings\r\n\r\n\r\nengine = create_engine(\r\n    settings.SQLALCHEMY_DATABASE_URI,\r\n)\r\n\r\nsession_var = ContextVar(\"session\", default=None)\r\n\r\n\r\ndef get_session() -> Session:\r\n    if (rst := session_var.get()) is None:\r\n        rst = Session(engine, future=True)\r\n        print(\"create a session: \", rst)\r\n        session_var.set(rst)\r\n    print(\"return a session: \", rst)\r\n    return rst\r\n\r\n\r\nclass DBSessionMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request: Request, call_next):\r\n        # with get_session().begin():\r\n        #     pass\r\n        res = await call_next(request)\r\n        # FIXME Can't get the correct contextvar, unless session is set here.\r\n        print(\"session in context: \", session_var.get())\r\n        if (session := session_var.get()) is not None:\r\n            session.close()\r\n            print(\"close the session: \", session)\r\n        return res\r\n```\r\n\r\n### Expected behavior\r\nGet the session if it is used in the handler, close it\r\n\r\n### Actual behavior\r\nAlways get none\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: WSL 2/Ubuntu 20.04\r\n- Python version: 3.8.5\r\n- Starlette version: 0.13.6 (via FastAP 0.61.1I)\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n",
+    "closed_at": "2020-11-06T04:36:08Z",
+    "created_at": "2020-10-30T08:44:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1081",
+    "number": 1081,
+    "state": "closed",
+    "title": "Can't get the correct contextvar set in the request handler in middleware's dispatch method",
+    "user": "gntzh"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-05T22:39:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-05T22:39:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-05T22:39:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-06T04:35:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-11-06T04:35:29Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-11-06T04:35:29Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-11-06T04:36:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-03-15T15:25:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-15T15:25:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-15T15:25:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-15T15:43:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-15T15:43:26Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-15T15:43:26Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-16T16:19:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-16T16:19:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-16T16:19:11Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-17T17:07:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-17T17:07:38Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-17T17:07:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-19T03:36:27Z",
+      "event": "subscribed"
+    }
+  ]
+}

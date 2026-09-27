@@ -1,0 +1,173 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-15T14:07:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3377",
+          "number": 3377,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3377"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(routing): normalize trailing slashes on mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T20:16:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pacnpal/mcpelevator/pull/113",
+          "number": 113,
+          "pull_request": {
+            "merged_at": "2026-08-09T00:00:50Z",
+            "url": "https://api.github.com/repos/pacnpal/mcpelevator/pulls/113"
+          },
+          "repository": {
+            "full_name": "pacnpal/mcpelevator"
+          },
+          "title": "Add per-tool name/description overrides (issue #112)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T07:54:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/Markdown-Docs/pull/16",
+          "number": 16,
+          "pull_request": {
+            "merged_at": "2026-08-13T08:22:55Z",
+            "url": "https://api.github.com/repos/amirbiron/Markdown-Docs/pulls/16"
+          },
+          "repository": {
+            "full_name": "amirbiron/Markdown-Docs"
+          },
+          "title": "feat: \u05e9\u05e8\u05ea MCP \u05dc-Markdown-Docs \u2014 \u05e7\u05e8\u05d9\u05d0\u05d4 \u05d5\u05db\u05ea\u05d9\u05d1\u05d4"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Mounted subroutes require the trailing `/` to hit their 'root' subroute, whereas regular `Route`s do not.\r\n\r\nE.g.\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Mount, Route\r\n\r\nasync def homepage(request):\r\n    return PlainTextResponse('homepage')\r\n\r\nasync def subroute(request):\r\n    return PlainTextResponse('subroute')\r\n\r\nroutes = [\r\n    Route('/', homepage),\r\n    Mount('/sub', routes=[Route('/', subroute)]),\r\n]\r\n\r\napp = Starlette(debug=True, routes=routes)\r\n```\r\n\r\n`localhost:8000` and `localhost:8000/` both return \"hompage\", whereas `localhost:8000/sub` returns a 307 temp redirect to `localhost:8000/sub/` which then returns \"subroute\".\r\n\r\nSmall issue and not saying either approach is correct, but I guess I would expect both `Mount` and `Route` to behave the same here.\r\n\r\nUsing version 13.1.",
+    "closed_at": "2020-02-10T12:32:33Z",
+    "created_at": "2020-02-09T02:43:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/823",
+    "number": 823,
+    "state": "closed",
+    "title": "Mount requires trailing '/', while Route does not.",
+    "user": "jwtrhs"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-10T12:32:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-10T22:15:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-20T11:07:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/869",
+          "number": 869,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Handling trailing slashes properly with mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2023-10-18T11:15:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-06-19T17:37:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-04T12:20:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-07-15T14:07:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3377",
+          "number": 3377,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3377"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "fix(routing): normalize trailing slashes on mounted routes"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T20:16:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/pacnpal/mcpelevator/pull/113",
+          "number": 113,
+          "pull_request": {
+            "merged_at": "2026-08-09T00:00:50Z",
+            "url": "https://api.github.com/repos/pacnpal/mcpelevator/pulls/113"
+          },
+          "repository": {
+            "full_name": "pacnpal/mcpelevator"
+          },
+          "title": "Add per-tool name/description overrides (issue #112)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-13T07:54:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amirbiron/Markdown-Docs/pull/16",
+          "number": 16,
+          "pull_request": {
+            "merged_at": "2026-08-13T08:22:55Z",
+            "url": "https://api.github.com/repos/amirbiron/Markdown-Docs/pulls/16"
+          },
+          "repository": {
+            "full_name": "amirbiron/Markdown-Docs"
+          },
+          "title": "feat: \u05e9\u05e8\u05ea MCP \u05dc-Markdown-Docs \u2014 \u05e7\u05e8\u05d9\u05d0\u05d4 \u05d5\u05db\u05ea\u05d9\u05d1\u05d4"
+        }
+      }
+    }
+  ]
+}

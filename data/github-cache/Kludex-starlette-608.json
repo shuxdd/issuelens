@@ -1,0 +1,356 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-03-01T11:53:24Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4c18d71171e5351e8e4038f0ca3f33781959fda8",
+      "sha": "4c18d71171e5351e8e4038f0ca3f33781959fda8"
+    },
+    {
+      "committed_at": "2023-03-03T11:22:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/87f8ea1aeedec4c97aaef4f770ab3f42b5ff8afd",
+      "sha": "87f8ea1aeedec4c97aaef4f770ab3f42b5ff8afd"
+    },
+    {
+      "committed_at": "2023-03-05T15:39:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8b36e93b08182fea01a0186aa80d0d41ff65a4ef",
+      "sha": "8b36e93b08182fea01a0186aa80d0d41ff65a4ef"
+    },
+    {
+      "committed_at": "2023-03-06T08:56:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/543ef73baf283abc2948dacd97cd00a2f7fc0d65",
+      "sha": "543ef73baf283abc2948dacd97cd00a2f7fc0d65"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-14T18:09:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1364",
+          "number": 1364,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1364"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow 'name' in keyworded args for url_for() and url_path_for()"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-14T06:12:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/611",
+          "number": 611,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/611"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow 'name' in key word arguments of url_for() and url_path_for() (#608)"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-01T11:53:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2050",
+          "number": 2050,
+          "pull_request": {
+            "merged_at": "2023-03-06T09:00:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2050"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow \"name\" argument on `url_for()` and `url_path_for()`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/543ef73baf283abc2948dacd97cd00a2f7fc0d65/starlette%2Fapplications.py",
+      "changes": 5,
+      "deletions": 2,
+      "filename": "starlette/applications.py",
+      "sha": "82e6b607ab824d72374d12352b3e78e5bdd2de79",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/543ef73baf283abc2948dacd97cd00a2f7fc0d65/starlette%2Frequests.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/requests.py",
+      "sha": "c8b1ec899f463ff95e1eae3d7c75277b8a13ebce",
+      "status": "modified"
+    },
+    {
+      "additions": 22,
+      "blob_url": "https://github.com/Kludex/starlette/blob/543ef73baf283abc2948dacd97cd00a2f7fc0d65/starlette%2Frouting.py",
+      "changes": 44,
+      "deletions": 22,
+      "filename": "starlette/routing.py",
+      "sha": "696efa51a768cdbdf9b26326fb7dbfda1cdb05b2",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "I'm implementing an API in Fastapi, using `APIRouter`s for different resources.\r\nWhen I want to get the URL of an item in a resource, I use the `starlette.requests.Request` objects `url_for()` method.\r\nWhen I have a function with a path `/resource/{name}` I cannot use `url_for()` to get the URL, because it will result in:\r\n```\r\nTypeError: url_for() got multiple values for argument 'name'\r\n```\r\nReproduce with:\r\n```\r\ndef func(name, **path_params):\r\n    pass\r\nfunc(\"foo\", name=\"bar\")\r\n```\r\n\r\nAs a workaround I have renamed the path variable in my API, but `name` was really fitting, and what I wanted to use, and not at all an uncommon variable name.\r\nFrom what I see, `name` in `url_for()` seems to be the name of the referenced method in `APIRouter`. Changing the signature of `url_for()` to use `router_method` instead of `name`, would make a collision with the key word arguments in `path_params` less likely. Result would be:\r\n```\r\ndef url_path_for(self, router_method: str, **path_params: str) -> URLPath:\r\n```\r\nAn inspection on the used arguments could be used to log a deprecation warning until the next release, when `url_path_for()` is used with a named `name=...` instead of positional.\r\n\r\nIf this proposal is acceptable, I'd create a PR.",
+    "closed_at": "2023-03-06T09:00:05Z",
+    "created_at": "2019-08-21T09:43:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/608",
+    "number": 608,
+    "state": "closed",
+    "title": "\"url_for\" signature prevents use of \"name\" in path arguments",
+    "user": "dansan"
+  },
+  "pull_request": {
+    "closed_at": "2023-03-06T09:00:01Z",
+    "created_at": "2023-03-01T11:53:59Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2050",
+    "merge_commit_sha": "b3add7e7ac61c16af953644e2778ea32d9e125ba",
+    "merged_at": "2023-03-06T09:00:01Z",
+    "number": 2050,
+    "title": "Allow \"name\" argument on `url_for()` and `url_path_for()`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-21T17:58:08Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "e158072f434503b2b8e0e96aaea39d6c198c7657",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/e158072f434503b2b8e0e96aaea39d6c198c7657",
+      "created_at": "2019-08-22T15:57:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-08-22T16:05:19Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "bf558c5b1962f125cebf36b28b6aec8e5cf6b013",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/bf558c5b1962f125cebf36b28b6aec8e5cf6b013",
+      "created_at": "2019-08-22T16:11:07Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "7b768d4057e11097d6ba5a6a9f5a52d26269cf59",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/7b768d4057e11097d6ba5a6a9f5a52d26269cf59",
+      "created_at": "2019-08-22T16:15:57Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "5f9575f46065ddc9f53a93807cb0b414d7c26951",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/5f9575f46065ddc9f53a93807cb0b414d7c26951",
+      "created_at": "2019-08-22T16:22:09Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "a35966be1d2a0050b6728af70f241bd952722318",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/a35966be1d2a0050b6728af70f241bd952722318",
+      "created_at": "2019-08-28T07:02:28Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "b4bee24a9f431d732b83f9dba7ab97ebb39799c4",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/b4bee24a9f431d732b83f9dba7ab97ebb39799c4",
+      "created_at": "2019-08-28T07:06:01Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "51c76c34547de6355782399bcbc6bea7946de3a4",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/51c76c34547de6355782399bcbc6bea7946de3a4",
+      "created_at": "2019-08-28T07:13:00Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "fbc1e127ac14fddb8b7485e24e003dd842fa79c1",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/fbc1e127ac14fddb8b7485e24e003dd842fa79c1",
+      "created_at": "2019-08-28T07:18:43Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "0ddea630a5b346e2308ba05bf228a51ecfcb3d89",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/0ddea630a5b346e2308ba05bf228a51ecfcb3d89",
+      "created_at": "2019-08-28T07:23:52Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "6bf9b0e9dbc0a594c05ef92cb9806bd1c67d37a1",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/6bf9b0e9dbc0a594c05ef92cb9806bd1c67d37a1",
+      "created_at": "2019-09-13T07:24:01Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "42c4003d472070449192aea9d20ba5283419eab6",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/42c4003d472070449192aea9d20ba5283419eab6",
+      "created_at": "2019-11-19T08:39:50Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "15875d89af46ae022c4765ba566f9b6c1380947a",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/15875d89af46ae022c4765ba566f9b6c1380947a",
+      "created_at": "2019-11-19T08:39:50Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "b4f9f9d1162b5d3538ab2cf2b5ab3ed84a5fe02e",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/b4f9f9d1162b5d3538ab2cf2b5ab3ed84a5fe02e",
+      "created_at": "2019-11-28T08:00:11Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "eb87307bd9536a5ac6caa9d772fe0e4fa2fa5582",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/eb87307bd9536a5ac6caa9d772fe0e4fa2fa5582",
+      "created_at": "2019-11-28T08:00:11Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-12-14T18:09:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1364",
+          "number": 1364,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1364"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow 'name' in keyworded args for url_for() and url_path_for()"
+        }
+      }
+    },
+    {
+      "commit_id": "499b19b21bd0b4aa45c429f4428e95815de8aa02",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/499b19b21bd0b4aa45c429f4428e95815de8aa02",
+      "created_at": "2022-01-01T13:11:30Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "6caeca9a37759c130010b34beda1d48e20303cb1",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/6caeca9a37759c130010b34beda1d48e20303cb1",
+      "created_at": "2022-01-01T13:16:49Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-01-01T13:22:20Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "57816c728eb05cef4f9bdce6b9439160f122b4e0",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/57816c728eb05cef4f9bdce6b9439160f122b4e0",
+      "created_at": "2022-01-31T17:36:34Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "76f435d4ddb444173c57214ff9cad86f29e11cfe",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/76f435d4ddb444173c57214ff9cad86f29e11cfe",
+      "created_at": "2022-01-31T18:49:31Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "cb410be7e0d2e066646dd82a930585cdcdeae70c",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/cb410be7e0d2e066646dd82a930585cdcdeae70c",
+      "created_at": "2022-02-08T07:02:57Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "afefc16217fd1ee442c836592c8f2bb857c7da30",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/afefc16217fd1ee442c836592c8f2bb857c7da30",
+      "created_at": "2022-02-10T20:53:23Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "675bee9db1d5ecdf0d5f641bd46d4406271e02aa",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/675bee9db1d5ecdf0d5f641bd46d4406271e02aa",
+      "created_at": "2022-02-14T06:00:12Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "93ffb0f028377f78fbb61a77662820860b7d5f15",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/93ffb0f028377f78fbb61a77662820860b7d5f15",
+      "created_at": "2022-02-14T06:06:55Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "cf4abfb57a9bcf7d97a44ed157ca4b69450d0ddb",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/cf4abfb57a9bcf7d97a44ed157ca4b69450d0ddb",
+      "created_at": "2022-02-14T06:08:04Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-02-14T06:12:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/611",
+          "number": 611,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/611"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "allow 'name' in key word arguments of url_for() and url_path_for() (#608)"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-07T09:31:28Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "1892edd8b88ebe1dab4600c3df33f196b1bef575",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/1892edd8b88ebe1dab4600c3df33f196b1bef575",
+      "created_at": "2022-03-09T01:20:37Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "158ab3fc98d501dc349e16e5fec80ffb247d89e8",
+      "commit_url": "https://api.github.com/repos/dansan/starlette/commits/158ab3fc98d501dc349e16e5fec80ffb247d89e8",
+      "created_at": "2022-03-11T05:05:42Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-03-01T11:34:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-01T11:53:59Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2050",
+          "number": 2050,
+          "pull_request": {
+            "merged_at": "2023-03-06T09:00:01Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2050"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow \"name\" argument on `url_for()` and `url_path_for()`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-06T09:00:06Z",
+      "event": "closed"
+    }
+  ]
+}

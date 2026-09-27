@@ -1,0 +1,525 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-04T07:50:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/791",
+          "number": 791,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "URL slash encoded"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-22T07:46:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Aiven-Open/karapace/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2025-01-24T13:15:25Z",
+            "url": "https://api.github.com/repos/Aiven-Open/karapace/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Aiven-Open/karapace"
+          },
+          "title": "feat: handle urlencoded forward slash in subject"
+        }
+      }
+    },
+    {
+      "created_at": "2025-08-19T10:27:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xpublish-community/xpublish/issues/302",
+          "number": 302,
+          "pull_request": {},
+          "repository": {
+            "full_name": "xpublish-community/xpublish"
+          },
+          "title": "Allow dataset_id to contain URL-encoded forward slashes (%2f)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-22T15:55:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/probabl-ai/skore/pull/2321",
+          "number": 2321,
+          "pull_request": {
+            "merged_at": "2026-01-23T17:02:57Z",
+            "url": "https://api.github.com/repos/probabl-ai/skore/pulls/2321"
+          },
+          "repository": {
+            "full_name": "probabl-ai/skore"
+          },
+          "title": "fix(skore-hub-project/project): Slugify tenant and project name"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-04T20:18:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhruvhaldar/lamina/pull/114",
+          "number": 114,
+          "pull_request": {
+            "merged_at": "2026-04-06T08:32:26Z",
+            "url": "https://api.github.com/repos/dhruvhaldar/lamina/pulls/114"
+          },
+          "repository": {
+            "full_name": "dhruvhaldar/lamina"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [HIGH] Fix path traversal in file download"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-27T18:09:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Akash-Sannidhanam/colpali-vision-rag/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-07-27T18:22:36Z",
+            "url": "https://api.github.com/repos/Akash-Sannidhanam/colpali-vision-rag/pulls/24"
+          },
+          "repository": {
+            "full_name": "Akash-Sannidhanam/colpali-vision-rag"
+          },
+          "title": "feat: deploy-ready hardening \u2014 API key gate, rate limiting, containerized UI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T04:09:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/2565",
+          "number": 2565,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/2565"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat(memory): \u8bb0\u5fc6\u6d4f\u89c8\u9875\u9762\u6dfb\u52a0\u4e8b\u5b9e\u3001\u53cd\u601d\u548c\u4e8b\u5b9e\u5f52\u6863\u7684\u9884\u89c8\u67e5\u770b"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T06:07:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LDFLK/GI-SERVICE/pull/126",
+          "number": 126,
+          "pull_request": {
+            "merged_at": "2026-07-31T04:07:19Z",
+            "url": "https://api.github.com/repos/LDFLK/GI-SERVICE/pulls/126"
+          },
+          "repository": {
+            "full_name": "LDFLK/GI-SERVICE"
+          },
+          "title": "[CODE][FORMATTING] Configure linting and formatting tools to improve code quality"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T05:57:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rootflo/wavefront/pull/333",
+          "number": 333,
+          "pull_request": {
+            "merged_at": "2026-08-06T06:44:58Z",
+            "url": "https://api.github.com/repos/rootflo/wavefront/pulls/333"
+          },
+          "repository": {
+            "full_name": "rootflo/wavefront"
+          },
+          "title": "feat: namespaced config store with fetch_configuration workflow node"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T15:12:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/matthiasn/lotti/pull/3844",
+          "number": 3844,
+          "pull_request": {
+            "merged_at": "2026-08-09T18:58:07Z",
+            "url": "https://api.github.com/repos/matthiasn/lotti/pulls/3844"
+          },
+          "repository": {
+            "full_name": "matthiasn/lotti"
+          },
+          "title": "feat(matrix): provisioning service and admin UI for sync account bundles"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:54:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/TheShield2594/concordance/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-08-09T02:54:24Z",
+            "url": "https://api.github.com/repos/TheShield2594/concordance/pulls/1"
+          },
+          "repository": {
+            "full_name": "TheShield2594/concordance"
+          },
+          "title": "Build Concordance: self-hosted Bible study app"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T06:14:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Soldier0x0/briefr/pull/847",
+          "number": 847,
+          "pull_request": {
+            "merged_at": "2026-08-19T14:53:15Z",
+            "url": "https://api.github.com/repos/Soldier0x0/briefr/pulls/847"
+          },
+          "repository": {
+            "full_name": "Soldier0x0/briefr"
+          },
+          "title": "feat: investigation graph resolve and relationship APIs (P0)"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Following https://github.com/tiangolo/fastapi/issues/791: \r\n\r\nIt seems starlette is not routing URL with encoded slash in it.\r\n\r\n## To Reproduce : \r\n\r\n```python\r\nfrom starlette.testclient import TestClient\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def get_unit(request):\r\n    unit = request.path_params[\"unit\"]\r\n    return JSONResponse({\"unit\": unit})\r\n\r\n\r\nroutes = [Route(\"/units/{unit}\", endpoint=get_unit)]\r\n\r\napp = Starlette(debug=True, routes=routes)\r\n\r\n\r\ndef test_base():\r\n    client = TestClient(app)\r\n    response = client.get(\"/units/kg\")\r\n    assert response.json() == {\"unit\": \"kg\"}\r\n\r\n\r\ndef test_encoded_char():\r\n    client = TestClient(app)\r\n    response = client.get(\"/units/kg%c2%b2\")\r\n    assert response.json() == {\"unit\": \"kg\u00b2\"}\r\n\r\n\r\ndef test_encoded_slash():\r\n    client = TestClient(app)\r\n    response = client.get(\"/units/kg%2fs\")\r\n    assert response.json() == {\"unit\": \"kg/s\"}\r\n\r\n```\r\n\r\ntest_encoded_slash is not working.\r\n\r\n## Expected behavior\r\n\r\nStarlette is routing the request and retuning the expected json.\r\n\r\n## Environment\r\n\r\n* OS : Windows 10\r\n* Starlette version : 0.13.1\r\n* Python 3.7.3\r\n\r\n## Additional context\r\n\r\nStarlette regexp seems fine after inspecting the app routes : `app.routes[0].path_regex` : \r\n\r\n`'^/units/(?P<unit>[^/]+)$'`\r\n\r\n```python\r\n>>> import re\r\n>>> pattern=re.compile('^/units/(?P<unit>[^/]+)$')\r\n>>> pattern.match('/units/kg%2Fs')\r\n<re.Match object; span=(0, 13), match='/units/kg%2Fs'>\r\n>>> pattern.match('/units/kg%2Fs').groupdict()[\"unit\"]\r\n'kg%2Fs'\r\n```",
+    "closed_at": "2022-02-14T10:28:05Z",
+    "created_at": "2020-02-13T20:27:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/826",
+    "number": 826,
+    "state": "closed",
+    "title": "[BUG] Routing of encoded slash URL",
+    "user": "jules-ch"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-01T17:51:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-01T18:02:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-04T07:50:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/791",
+          "number": 791,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "URL slash encoded"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-16T18:07:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-16T18:36:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-02-14T10:28:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-02-08T08:20:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-30T06:48:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-30T17:11:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-31T06:46:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-31T09:03:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-31T09:18:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-31T09:22:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-03-31T20:18:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-04-01T06:34:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-04-01T09:36:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-04-01T09:36:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-04-01T09:36:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-04-03T08:22:02Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "d80e4549d4a49113bd2f53d86a0ca3722007bebb",
+      "commit_url": "https://api.github.com/repos/brokegen/brokegen/commits/d80e4549d4a49113bd2f53d86a0ca3722007bebb",
+      "created_at": "2024-06-05T00:24:31Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-01-22T07:46:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Aiven-Open/karapace/pull/1028",
+          "number": 1028,
+          "pull_request": {
+            "merged_at": "2025-01-24T13:15:25Z",
+            "url": "https://api.github.com/repos/Aiven-Open/karapace/pulls/1028"
+          },
+          "repository": {
+            "full_name": "Aiven-Open/karapace"
+          },
+          "title": "feat: handle urlencoded forward slash in subject"
+        }
+      }
+    },
+    {
+      "created_at": "2025-08-19T10:27:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xpublish-community/xpublish/issues/302",
+          "number": 302,
+          "pull_request": {},
+          "repository": {
+            "full_name": "xpublish-community/xpublish"
+          },
+          "title": "Allow dataset_id to contain URL-encoded forward slashes (%2f)"
+        }
+      }
+    },
+    {
+      "created_at": "2026-01-22T15:55:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/probabl-ai/skore/pull/2321",
+          "number": 2321,
+          "pull_request": {
+            "merged_at": "2026-01-23T17:02:57Z",
+            "url": "https://api.github.com/repos/probabl-ai/skore/pulls/2321"
+          },
+          "repository": {
+            "full_name": "probabl-ai/skore"
+          },
+          "title": "fix(skore-hub-project/project): Slugify tenant and project name"
+        }
+      }
+    },
+    {
+      "commit_id": "daf2f5434b1c620eb7b9ed0567d4bf085906514a",
+      "commit_url": "https://api.github.com/repos/probabl-ai/skore/commits/daf2f5434b1c620eb7b9ed0567d4bf085906514a",
+      "created_at": "2026-01-23T17:02:12Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "60c69173b3614dcbc63418bc2011c63a24089506",
+      "commit_url": "https://api.github.com/repos/probabl-ai/skore/commits/60c69173b3614dcbc63418bc2011c63a24089506",
+      "created_at": "2026-01-23T17:02:59Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-04-04T20:18:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dhruvhaldar/lamina/pull/114",
+          "number": 114,
+          "pull_request": {
+            "merged_at": "2026-04-06T08:32:26Z",
+            "url": "https://api.github.com/repos/dhruvhaldar/lamina/pulls/114"
+          },
+          "repository": {
+            "full_name": "dhruvhaldar/lamina"
+          },
+          "title": "\ud83d\udee1\ufe0f Sentinel: [HIGH] Fix path traversal in file download"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-27T18:09:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Akash-Sannidhanam/colpali-vision-rag/pull/24",
+          "number": 24,
+          "pull_request": {
+            "merged_at": "2026-07-27T18:22:36Z",
+            "url": "https://api.github.com/repos/Akash-Sannidhanam/colpali-vision-rag/pulls/24"
+          },
+          "repository": {
+            "full_name": "Akash-Sannidhanam/colpali-vision-rag"
+          },
+          "title": "feat: deploy-ready hardening \u2014 API key gate, rate limiting, containerized UI"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T04:09:27Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Project-N-E-K-O/N.E.K.O/pull/2565",
+          "number": 2565,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Project-N-E-K-O/N.E.K.O/pulls/2565"
+          },
+          "repository": {
+            "full_name": "Project-N-E-K-O/N.E.K.O"
+          },
+          "title": "feat(memory): \u8bb0\u5fc6\u6d4f\u89c8\u9875\u9762\u6dfb\u52a0\u4e8b\u5b9e\u3001\u53cd\u601d\u548c\u4e8b\u5b9e\u5f52\u6863\u7684\u9884\u89c8\u67e5\u770b"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-30T06:07:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/LDFLK/GI-SERVICE/pull/126",
+          "number": 126,
+          "pull_request": {
+            "merged_at": "2026-07-31T04:07:19Z",
+            "url": "https://api.github.com/repos/LDFLK/GI-SERVICE/pulls/126"
+          },
+          "repository": {
+            "full_name": "LDFLK/GI-SERVICE"
+          },
+          "title": "[CODE][FORMATTING] Configure linting and formatting tools to improve code quality"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-06T05:57:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rootflo/wavefront/pull/333",
+          "number": 333,
+          "pull_request": {
+            "merged_at": "2026-08-06T06:44:58Z",
+            "url": "https://api.github.com/repos/rootflo/wavefront/pulls/333"
+          },
+          "repository": {
+            "full_name": "rootflo/wavefront"
+          },
+          "title": "feat: namespaced config store with fetch_configuration workflow node"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-07T15:12:55Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/matthiasn/lotti/pull/3844",
+          "number": 3844,
+          "pull_request": {
+            "merged_at": "2026-08-09T18:58:07Z",
+            "url": "https://api.github.com/repos/matthiasn/lotti/pulls/3844"
+          },
+          "repository": {
+            "full_name": "matthiasn/lotti"
+          },
+          "title": "feat(matrix): provisioning service and admin UI for sync account bundles"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T21:54:21Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/TheShield2594/concordance/pull/1",
+          "number": 1,
+          "pull_request": {
+            "merged_at": "2026-08-09T02:54:24Z",
+            "url": "https://api.github.com/repos/TheShield2594/concordance/pulls/1"
+          },
+          "repository": {
+            "full_name": "TheShield2594/concordance"
+          },
+          "title": "Build Concordance: self-hosted Bible study app"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T06:14:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Soldier0x0/briefr/pull/847",
+          "number": 847,
+          "pull_request": {
+            "merged_at": "2026-08-19T14:53:15Z",
+            "url": "https://api.github.com/repos/Soldier0x0/briefr/pulls/847"
+          },
+          "repository": {
+            "full_name": "Soldier0x0/briefr"
+          },
+          "title": "feat: investigation graph resolve and relationship APIs (P0)"
+        }
+      }
+    }
+  ]
+}

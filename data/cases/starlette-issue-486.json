@@ -1,0 +1,121 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-04-19T14:42:47Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/486"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/486"
+    ]
+  },
+  "case_id": "starlette-issue-486",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-488",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Send lifespan.startup.failed if exception occurs during startup' directly changes starlette/routing.py, starlette/testclient.py with focused behavior test(s) tests/middleware/test_lifespan.py, tests/test_testclient.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2019-04-22T21:40:06Z",
+  "issue": {
+    "body": "Related #431 #177  and mentioned here https://github.com/encode/uvicorn/issues/333#issuecomment-484885300\r\n\r\nScenario:\r\nI have a 'startup' event handler:\r\n```python\r\n@app.on_event('startup')\r\nasync def startup():\r\n    initialise()\r\n```\r\nand I am running under uvicorn for local dev just via the:\r\n```python\r\nif __name__ == '__main__':\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n```\r\n\r\nIf there is an uncaught exception in the startup event handler, the exception will be swallowed (not logged) and uvicorn will continue to startup.\r\n\r\nThe only anomaly seen in the logs is that uvicorn will report:\r\n```\r\nASGI 'lifespan' protocol appears unsupported\r\n```\r\n\r\nI would like to see:\r\n- the exception and traceback logged\r\n- process aborted, since we haven't fully started up yet\r\n\r\n",
+    "number": 486,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/486",
+    "title": "Error in app startup event is not logged and does not prevent startup"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #488 created_at 2019-04-22T21:40:06Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #488",
+    "repair_files": [
+      "starlette/routing.py",
+      "starlette/testclient.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+    "test_files": [
+      "tests/middleware/test_lifespan.py",
+      "tests/test_testclient.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Frouting.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Ftestclient.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+        "source_url": "https://github.com/Kludex/starlette/commit/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37"
+      },
+      {
+        "sha": "997bb591e6f15a53ba23ca70423944234b2af4ac",
+        "source_url": "https://github.com/Kludex/starlette/commit/997bb591e6f15a53ba23ca70423944234b2af4ac"
+      },
+      {
+        "sha": "dd9a2c485463ba8a95bf0cf04409f0f82140dcb0",
+        "source_url": "https://github.com/Kludex/starlette/commit/dd9a2c485463ba8a95bf0cf04409f0f82140dcb0"
+      },
+      {
+        "sha": "aca414b4d548083d41fa18fa7b5828526f9e69dc",
+        "source_url": "https://github.com/Kludex/starlette/commit/aca414b4d548083d41fa18fa7b5828526f9e69dc"
+      },
+      {
+        "sha": "40a2f0ea5ed9452fa3279d735d907e0959d43057",
+        "source_url": "https://github.com/Kludex/starlette/commit/40a2f0ea5ed9452fa3279d735d907e0959d43057"
+      },
+      {
+        "sha": "dc505b266f6e2b40be645e03680ba3322a8afe97",
+        "source_url": "https://github.com/Kludex/starlette/commit/dc505b266f6e2b40be645e03680ba3322a8afe97"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2019-04-22T21:40:06Z",
+      "number": 488,
+      "source_url": "https://github.com/Kludex/starlette/pull/488"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/488"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_lifespan.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Fmiddleware%2Ftest_lifespan.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_testclient.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Ftest_testclient.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+    "committed_at": "2019-04-22T21:37:24Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37"
+  },
+  "schema_version": "1.0"
+}

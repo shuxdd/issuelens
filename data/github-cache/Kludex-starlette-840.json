@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Shouldn't the default return code on authentication failure be a 401 instead of a 400? https://github.com/encode/starlette/blob/78f7095d7e254940fe242e72055f3d0d7883b405/starlette/middleware/authentication.py#L52\r\n\r\nUnless this is because you cannot know what to send back in WWW-Authenticate header ?",
+    "closed_at": "2020-02-24T09:45:16Z",
+    "created_at": "2020-02-20T19:24:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/840",
+    "number": 840,
+    "state": "closed",
+    "title": "Return 401 on authentication error",
+    "user": "Colin-b"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-24T09:45:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-08-31T23:37:21Z",
+      "event": "commented"
+    }
+  ]
+}

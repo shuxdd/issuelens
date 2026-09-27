@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello! New to Starlette and excited by it. Are there any plans to add a hook for setting a default renderer such that I don't need to explicitly return a JSONResponse? e.g. following code would work:\r\n```\r\nasync def posts(req):\r\n    return [{'id': 1}, {'id': 2}]\r\n```\r\nOr, where in the code might you implement a hook to create this?",
+    "closed_at": "2019-12-06T19:44:54Z",
+    "created_at": "2019-12-05T01:52:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/743",
+    "number": 743,
+    "state": "closed",
+    "title": "[Question] Will you support default renderers?",
+    "user": "erichaus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-05T01:53:27Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-12-06T19:44:54Z",
+      "event": "commented"
+    }
+  ]
+}

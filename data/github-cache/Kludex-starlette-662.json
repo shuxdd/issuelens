@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-08T20:53:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/145",
+          "number": 145,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Passwords containing special characters are not decoded correctly"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Passwords can have special characters like @ and : which can break the URL format.  This is probably true for the other fields of the URL as well.",
+    "closed_at": "2019-10-08T20:53:56Z",
+    "created_at": "2019-10-08T20:15:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/662",
+    "number": 662,
+    "state": "closed",
+    "title": "for URL datastructure, should call urlencode on password",
+    "user": "taybin"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-08T20:53:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/databases/issues/145",
+          "number": 145,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/databases"
+          },
+          "title": "Passwords containing special characters are not decoded correctly"
+        }
+      }
+    },
+    {
+      "created_at": "2019-10-08T20:53:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-08T20:53:56Z",
+      "event": "closed"
+    }
+  ]
+}

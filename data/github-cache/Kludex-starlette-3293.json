@@ -1,0 +1,48 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Issue opened also in the FastAPI discussions [here](https://github.com/tiangolo/fastapi/discussions/11153#discussion-6225371).\r\n\r\n### Example Code\r\n\r\n```python\r\nfrom fastapi import FastAPI\r\n\r\napp = FastAPI(root_path=\"/wms\")\r\n\r\n\r\n@app.get(\"/hello\")\r\nasync def root():\r\n    return {\"message\": \"Hello World\"}\r\n```\r\n\r\nThe program runs in gunicorn (using the uvicorn worker class) behind a nginx proxy which strips away the root_path (as described in [Behind a proxy](https://fastapi.tiangolo.com/advanced/behind-a-proxy/#setting-the-root_path-in-the-fastapi-app)).\r\n\r\nBefore fastapi 0.109 (and before starlette 0.35.0) an URL with a trailing slash (ex. https://127.0.0.1/wms/hello/) would be redirected to the corresponding URL without the trailing slash (ex. https://127.0.0.1/wms/hello) as expected.\r\n\r\nFrom fastapi 0.109 (and from starlette 0.35.0) the redirect no more includes the root_path, so from https://127.0.0.1/wms/hello/ the application redirects to https://127.0.0.1/hello which results in a 404 Not Found error.\r\n\r\nHere the headers of the redirect request:\r\n![image](https://github.com/encode/starlette/assets/1143780/27344c7d-e875-43ea-9d1b-e1d59cfaa5ed)\r\n\r\nI think the issue came from [this change](https://github.com/encode/starlette/commit/c3c6314759b8356df185857c6001de6c8575708d#diff-e939ae940ce35a0db1544bfea4ab853be43ba89ea33e3cac713aa0b19f4bb875) which strips away the root_path from the path in the URL constructor which seems to me off, even considering the ASGI specs.\r\n\r\n_Originally posted by @Mattiam2 in https://github.com/Kludex/starlette/discussions/2514_",
+    "closed_at": "2026-05-28T12:01:30Z",
+    "created_at": "2026-05-25T17:50:23Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3293",
+    "number": 3293,
+    "state": "closed",
+    "title": "Root path is not preserved when starlette application is mounted at a custom path",
+    "user": "smac89"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2026-05-25T17:50:24Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-05-25T17:50:24Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-05-25T17:50:57Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2026-05-25T18:11:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-28T11:38:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-28T12:00:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-05-28T12:01:30Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-05-28T12:01:33Z",
+      "event": "commented"
+    }
+  ]
+}

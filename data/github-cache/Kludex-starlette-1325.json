@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Describe the bug\r\n\r\nIt seems Starlette treats the semicolon as a parameter separator, which is incorrect. IMHO, this is a critical bug that makes it impossible to use Starlette in many scenarios. Other web frameworks (flask, aiohttp, ...) handle semicolons correctly\r\n\r\n### To reproduce\r\n\r\n```python\r\nfrom starlette.testclient import TestClient\r\nfrom starlette.requests import Request\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Route\r\nfrom starlette.responses import PlainTextResponse\r\n\r\nparam_value = 'a;b;c'\r\nurl = f'/test?param={param_value}'\r\n\r\n\r\nasync def test_route(request: Request):\r\n    param = request.query_params['param']  \r\n    # param is 'a' \r\n    # request.query_params.keys() is ['param', 'b', 'c']\r\n    assert param == param_value  # Assertion failed\r\n    return PlainTextResponse(param)\r\n\r\n\r\napp = Starlette(debug=True, routes=[Route('/test', test_route)])\r\n\r\nclient = TestClient(app)\r\n\r\nresponse = client.request(url=url, method='GET')\r\n```\r\n\r\n\r\n### Environment\r\n\r\n- OS: Ubuntu 20.04\r\n- Python version: 3.9.1\r\n- Starlette version:  0.16.0\r\n\r\n\r\n",
+    "closed_at": "2021-10-28T17:04:23Z",
+    "created_at": "2021-10-28T14:48:38Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1325",
+    "number": 1325,
+    "state": "closed",
+    "title": "Incorrect handling query parameters containing semicolons",
+    "user": "rigens"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-28T15:04:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T15:44:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T16:47:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T17:04:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-28T17:04:23Z",
+      "event": "closed"
+    }
+  ]
+}

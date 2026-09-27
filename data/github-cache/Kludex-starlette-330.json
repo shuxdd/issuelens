@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "First steps with starlette...\r\n\r\nTrying to run the [example](https://github.com/encode/starlette#framework-or-toolkit):\r\n\r\n```python\r\nfrom starlette.responses import PlainTextResponse\r\n\r\n\r\nclass App:\r\n    def __init__(self, scope):\r\n        self.scope = scope\r\n\r\n    async def __call__(self, receive, send):\r\n        response = PlainTextResponse('Hello, world!')\r\n        await response(receive, send)\r\n```\r\n\r\nRunning with: `uvicorn app:App`\r\n\r\nError is:\r\n\r\n```\r\nINFO: Started server process [18742]\r\nINFO: Waiting for application startup.\r\nERROR: Exception in 'lifespan' protocol\r\nTraceback (most recent call last):\r\n  File \"/home/matthew/.virtualenvs/dummy/lib/python3.7/site-packages/uvicorn/lifespan.py\", line 29, in run\r\n    await self.asgi(self.receive, self.send)\r\n  File \"./app.py\", line 10, in __call__\r\n    await response(receive, send)\r\n  File \"/home/matthew/.virtualenvs/dummy/lib/python3.7/site-packages/starlette/responses.py\", line 124, in __call__\r\n    \"headers\": self.raw_headers,\r\n  File \"/home/matthew/.virtualenvs/dummy/lib/python3.7/site-packages/uvicorn/lifespan.py\", line 50, in send\r\n    raise RuntimeError(error % message['type'])\r\nRuntimeError: Got invalid message type on lifespan protocol \"http.response.start\"\r\nERROR: Application startup failed. Exiting.\r\n```\r\n\r\n- python 3.7\r\n- uvicorn 0.3.25\r\n- starlette (latest version)\r\n\r\nLooks like the ['type' string sent by starlette](https://github.com/encode/starlette/blob/master/starlette/responses.py#L122) doesn't match the [uvicorn expected type](https://github.com/encode/uvicorn/blob/master/uvicorn/lifespan.py#L39).\r\n\r\nIf I am doing something wrong - please advise.",
+    "closed_at": "2019-01-25T14:40:34Z",
+    "created_at": "2019-01-20T18:21:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/330",
+    "labels": [
+      "bug"
+    ],
+    "number": 330,
+    "state": "closed",
+    "title": "RuntimeError: Got invalid message type on lifespan protocol \"http.response.start\"",
+    "user": "matthewhegarty"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-21T09:53:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-21T09:54:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-21T09:56:25Z",
+      "event": "commented"
+    }
+  ]
+}

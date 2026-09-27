@@ -1,0 +1,227 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-04-26T21:01:38Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/493"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/493"
+    ]
+  },
+  "case_id": "starlette-issue-493",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1692",
+    "split": "primary",
+    "stability": true,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Move exception handling logic to Route' directly changes starlette/_exception_handler.py, starlette/middleware/exceptions.py, starlette/routing.py with focused behavior test(s) tests/test_exceptions.py, tests/test_routing.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2023-02-06T21:09:56Z",
+  "issue": {
+    "body": "Hi dears developers, how can I retrieve the request.body inside an exception_handler? \r\n\r\nMy scenario:\r\n\r\nI have an exception_handler hook that receives a request and an exception, I'm also using FastApi which tries to parse the body to a JSON, if it does not work it raises an HTTPException. So I'm trying to build a hook to log invalid JSON requests, this exception is being correctly captured by my exception_handler but when I'm trying to retrieve the body I can't it hangs, it simple doesn't work. It does make sense as after reading for the first time it is being cached inside the Request object but the Request object is being recreated before calling the exception_handler so I'm losing my cache and I'm able to ready from the stream again.\r\n\r\nhttps://github.com/encode/starlette/blob/d23bfd0d8ff68d535d0283aa4099e5055da88bb9/starlette/exceptions.py#L79\r\n\r\nNot sure if it is supposed to be like this by design, but I think my scenario is not that fancy, it should be something possible, what do you guys think? Any workaround?\r\n\r\nMy code:\r\n\r\n```@app.exception_handler(HTTPException)  \r\nasync def httpexception_logger(request: Request, exc: HTTPException):\r\n    body = await request.body()\r\n    text: str = bytes.decode(body)\r\n    logger.error(\"Exception at %s, status code: %s, body: %s: exception %s\", request.url, exception.status_code, text, exc)\r\n    ... other stuff...\r\n```\r\n",
+    "number": 493,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/493",
+    "title": "Question about Request.Body()"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #2026 created_at 2023-02-06T21:09:56Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #2026",
+    "repair_files": [
+      "starlette/_exception_handler.py",
+      "starlette/middleware/exceptions.py",
+      "starlette/routing.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+    "test_files": [
+      "tests/test_exceptions.py",
+      "tests/test_routing.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/_exception_handler.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2F_exception_handler.py",
+        "status": "added"
+      },
+      {
+        "path": "starlette/middleware/exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Fmiddleware%2Fexceptions.py",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/starlette%2Frouting.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "6470c9f29fbad95ec989aaf50e7b711e5df2bf2d",
+        "source_url": "https://github.com/Kludex/starlette/commit/6470c9f29fbad95ec989aaf50e7b711e5df2bf2d"
+      },
+      {
+        "sha": "23c918ed52451b50903cb57aaa819413496e9cdc",
+        "source_url": "https://github.com/Kludex/starlette/commit/23c918ed52451b50903cb57aaa819413496e9cdc"
+      },
+      {
+        "sha": "0737cc95760e94a3b05fe5f2ef94c6c34825dfe6",
+        "source_url": "https://github.com/Kludex/starlette/commit/0737cc95760e94a3b05fe5f2ef94c6c34825dfe6"
+      },
+      {
+        "sha": "bdb9d68916fee0e89e20fe2423c524b8cac534bb",
+        "source_url": "https://github.com/Kludex/starlette/commit/bdb9d68916fee0e89e20fe2423c524b8cac534bb"
+      },
+      {
+        "sha": "ce4a3d5b535def20edf4665ab97b47ea5fcc95ef",
+        "source_url": "https://github.com/Kludex/starlette/commit/ce4a3d5b535def20edf4665ab97b47ea5fcc95ef"
+      },
+      {
+        "sha": "62807bd1659d53c2bca9ce79dbac7952132f761c",
+        "source_url": "https://github.com/Kludex/starlette/commit/62807bd1659d53c2bca9ce79dbac7952132f761c"
+      },
+      {
+        "sha": "5ca404d7ffb58d4200f6dd05f1c3e961a0a1022f",
+        "source_url": "https://github.com/Kludex/starlette/commit/5ca404d7ffb58d4200f6dd05f1c3e961a0a1022f"
+      },
+      {
+        "sha": "9468718e25f66b3e872789d16c3023ccdfa0b11e",
+        "source_url": "https://github.com/Kludex/starlette/commit/9468718e25f66b3e872789d16c3023ccdfa0b11e"
+      },
+      {
+        "sha": "c63c8fffe701208c868562db2ab9a2230c4a6414",
+        "source_url": "https://github.com/Kludex/starlette/commit/c63c8fffe701208c868562db2ab9a2230c4a6414"
+      },
+      {
+        "sha": "792013342b128ac307fa91bfdc1d403b1e36287b",
+        "source_url": "https://github.com/Kludex/starlette/commit/792013342b128ac307fa91bfdc1d403b1e36287b"
+      },
+      {
+        "sha": "aa10f20f502df417a5be7fba1ab3485e68ee8d59",
+        "source_url": "https://github.com/Kludex/starlette/commit/aa10f20f502df417a5be7fba1ab3485e68ee8d59"
+      },
+      {
+        "sha": "2747c9b231e072028fe74a6de24b487fa9ebed25",
+        "source_url": "https://github.com/Kludex/starlette/commit/2747c9b231e072028fe74a6de24b487fa9ebed25"
+      },
+      {
+        "sha": "b9f34f88dee87f2b9fb49c0b33dd146a943819c0",
+        "source_url": "https://github.com/Kludex/starlette/commit/b9f34f88dee87f2b9fb49c0b33dd146a943819c0"
+      },
+      {
+        "sha": "d6d8622d2d9a99bd088b64f6d384142e5e5167fd",
+        "source_url": "https://github.com/Kludex/starlette/commit/d6d8622d2d9a99bd088b64f6d384142e5e5167fd"
+      },
+      {
+        "sha": "58138d1b7922674dce789cbcfb5c78c29ddf2dca",
+        "source_url": "https://github.com/Kludex/starlette/commit/58138d1b7922674dce789cbcfb5c78c29ddf2dca"
+      },
+      {
+        "sha": "6d1e6fde432f5509cab11efc0ebc6fe0fe6f1958",
+        "source_url": "https://github.com/Kludex/starlette/commit/6d1e6fde432f5509cab11efc0ebc6fe0fe6f1958"
+      },
+      {
+        "sha": "25b6256d2b5f1ec77380b95c0dd2532b09565ebb",
+        "source_url": "https://github.com/Kludex/starlette/commit/25b6256d2b5f1ec77380b95c0dd2532b09565ebb"
+      },
+      {
+        "sha": "890dcc382f27bf2297d642b0e62028ea2b340f4c",
+        "source_url": "https://github.com/Kludex/starlette/commit/890dcc382f27bf2297d642b0e62028ea2b340f4c"
+      },
+      {
+        "sha": "2d144c30f133ea1a58497a1dea1fb1b26580a991",
+        "source_url": "https://github.com/Kludex/starlette/commit/2d144c30f133ea1a58497a1dea1fb1b26580a991"
+      },
+      {
+        "sha": "4e20aebaeff9e1d6423cfe81522d175f3ad11eed",
+        "source_url": "https://github.com/Kludex/starlette/commit/4e20aebaeff9e1d6423cfe81522d175f3ad11eed"
+      },
+      {
+        "sha": "6ddf952291a4cf250182a72eae6640524ee2921f",
+        "source_url": "https://github.com/Kludex/starlette/commit/6ddf952291a4cf250182a72eae6640524ee2921f"
+      },
+      {
+        "sha": "fb379dd416a82707f0cefd12979b87db3e3c9009",
+        "source_url": "https://github.com/Kludex/starlette/commit/fb379dd416a82707f0cefd12979b87db3e3c9009"
+      },
+      {
+        "sha": "cfbb38be8d68b8a81ea3440345a4268f7fc8d820",
+        "source_url": "https://github.com/Kludex/starlette/commit/cfbb38be8d68b8a81ea3440345a4268f7fc8d820"
+      },
+      {
+        "sha": "1ef98379aaa5327eb29bbe661659439e8bcb5ace",
+        "source_url": "https://github.com/Kludex/starlette/commit/1ef98379aaa5327eb29bbe661659439e8bcb5ace"
+      },
+      {
+        "sha": "27d8bc862dbc8b77c72853aa392c93a0b763d833",
+        "source_url": "https://github.com/Kludex/starlette/commit/27d8bc862dbc8b77c72853aa392c93a0b763d833"
+      },
+      {
+        "sha": "3cf38810e2c50bd143b08a3f2c7c4a3393ce357b",
+        "source_url": "https://github.com/Kludex/starlette/commit/3cf38810e2c50bd143b08a3f2c7c4a3393ce357b"
+      },
+      {
+        "sha": "c437933c44d8a0e9089dbef3d3eca4d7d24b669e",
+        "source_url": "https://github.com/Kludex/starlette/commit/c437933c44d8a0e9089dbef3d3eca4d7d24b669e"
+      },
+      {
+        "sha": "6cc501e5c8b1c4e9c51e0a9d7840ea02ca2a8ea3",
+        "source_url": "https://github.com/Kludex/starlette/commit/6cc501e5c8b1c4e9c51e0a9d7840ea02ca2a8ea3"
+      },
+      {
+        "sha": "f354ae614dd77e10363e4361d509052289356c72",
+        "source_url": "https://github.com/Kludex/starlette/commit/f354ae614dd77e10363e4361d509052289356c72"
+      },
+      {
+        "sha": "680143280dc8ccef04bf4a6d29110f639965b71b",
+        "source_url": "https://github.com/Kludex/starlette/commit/680143280dc8ccef04bf4a6d29110f639965b71b"
+      },
+      {
+        "sha": "3fb111835755c65a4144603c552d9d06c54d80e2",
+        "source_url": "https://github.com/Kludex/starlette/commit/3fb111835755c65a4144603c552d9d06c54d80e2"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2023-02-06T21:09:56Z",
+      "number": 2026,
+      "source_url": "https://github.com/Kludex/starlette/pull/2026"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/2026"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_exceptions.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_exceptions.py",
+        "status": "modified"
+      },
+      {
+        "path": "tests/test_routing.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/3fb111835755c65a4144603c552d9d06c54d80e2/tests%2Ftest_routing.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+    "committed_at": "2023-02-06T16:01:14Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/218a6b4f98a2ff5fe3f6076b401d5c24c3021943"
+  },
+  "schema_version": "1.0"
+}

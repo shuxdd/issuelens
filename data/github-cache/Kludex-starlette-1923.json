@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-10-29T09:57:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NixOS/nixpkgs/pull/196318",
+          "number": 196318,
+          "pull_request": {
+            "merged_at": "2022-10-17T00:33:30Z",
+            "url": "https://api.github.com/repos/NixOS/nixpkgs/pulls/196318"
+          },
+          "repository": {
+            "full_name": "NixOS/nixpkgs"
+          },
+          "title": "python3Packages.sqlalchemy: 1.4.41 -> 1.4.42"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "After the update, tests of starlette report multiple instances of\r\n```\r\n        if context.result_column_struct:\r\n>           (\r\n                result_columns,\r\n                cols_are_ordered,\r\n                textual_ordered,\r\n                ad_hoc_textual,\r\n                loose_column_name_matching,\r\n            ) = context.result_column_struct\r\nE           ValueError: not enough values to unpack (expected 5, got 4)\r\n```\r\n\r\nProbably because of the fixes for https://github.com/sqlalchemy/sqlalchemy/issues/8536",
+    "closed_at": "2022-10-29T09:59:40Z",
+    "created_at": "2022-10-29T09:56:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1923",
+    "number": 1923,
+    "state": "closed",
+    "title": "failures with SQLAlchemy 1.4.42",
+    "user": "vcunat"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-10-29T09:57:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/NixOS/nixpkgs/pull/196318",
+          "number": 196318,
+          "pull_request": {
+            "merged_at": "2022-10-17T00:33:30Z",
+            "url": "https://api.github.com/repos/NixOS/nixpkgs/pulls/196318"
+          },
+          "repository": {
+            "full_name": "NixOS/nixpkgs"
+          },
+          "title": "python3Packages.sqlalchemy: 1.4.41 -> 1.4.42"
+        }
+      }
+    },
+    {
+      "created_at": "2022-10-29T09:59:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-10-29T09:59:40Z",
+      "event": "closed"
+    }
+  ]
+}

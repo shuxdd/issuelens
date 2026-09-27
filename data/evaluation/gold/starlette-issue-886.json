@@ -1,0 +1,113 @@
+{
+  "case_id": "starlette-issue-886",
+  "changed_files": [
+    {
+      "path": "starlette/_utils.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2F_utils.py",
+      "status": "added"
+    },
+    {
+      "path": "starlette/authentication.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fauthentication.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/background.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fbackground.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/endpoints.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fendpoints.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/middleware/errors.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Ferrors.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/middleware/exceptions.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Fexceptions.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Frouting.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/authentication.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/authentication.py"
+    },
+    {
+      "path": "starlette/background.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/background.py"
+    },
+    {
+      "path": "starlette/endpoints.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/endpoints.py"
+    },
+    {
+      "path": "starlette/middleware/errors.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/middleware/errors.py"
+    },
+    {
+      "path": "starlette/routing.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "source_url": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/authentication.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/background.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/endpoints.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/middleware/errors.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/routing.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'objects defining async __call__ not run/awaited when used in on_startup' originates in starlette/authentication.py, starlette/background.py, starlette/endpoints.py, starlette/middleware/errors.py, starlette/routing.py, starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test__utils.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/tests%2Ftest__utils.py",
+      "status": "added"
+    }
+  ]
+}

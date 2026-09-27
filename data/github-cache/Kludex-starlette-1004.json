@@ -1,0 +1,160 @@
+{
+  "commits": [
+    {
+      "committed_at": "2020-08-05T15:13:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/1c2bc252a606682cb570e828412d4b3e8703c8bc",
+      "sha": "1c2bc252a606682cb570e828412d4b3e8703c8bc"
+    },
+    {
+      "committed_at": "2020-08-05T15:13:51Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8f5da0aededef6b6f37b3b91a9382f6a91425e83",
+      "sha": "8f5da0aededef6b6f37b3b91a9382f6a91425e83"
+    },
+    {
+      "committed_at": "2020-08-05T15:17:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dad99c846e17128179af217671a3756b292ca476",
+      "sha": "dad99c846e17128179af217671a3756b292ca476"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-07-20T16:31:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1007",
+          "number": 1007,
+          "pull_request": {
+            "merged_at": "2020-08-05T23:04:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1007"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use os.PathLike in StaticFiles for directory"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dad99c846e17128179af217671a3756b292ca476/docs%2Fstaticfiles.md",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "docs/staticfiles.md",
+      "sha": "d8786af4de60bd5ae06ce573fe91e91d34af50c4",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dad99c846e17128179af217671a3756b292ca476/starlette%2Fresponses.py",
+      "changes": 14,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "24dfb2c84c5590232eb8cbc4a00a2de99e04527e",
+      "status": "modified"
+    },
+    {
+      "additions": 11,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dad99c846e17128179af217671a3756b292ca476/starlette%2Fstaticfiles.py",
+      "changes": 18,
+      "deletions": 7,
+      "filename": "starlette/staticfiles.py",
+      "sha": "41df98062eeb5b979d06283adfb6f4b816d439bb",
+      "status": "modified"
+    },
+    {
+      "additions": 14,
+      "blob_url": "https://github.com/Kludex/starlette/blob/dad99c846e17128179af217671a3756b292ca476/tests%2Ftest_staticfiles.py",
+      "changes": 14,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "e2cae08f19e20ea77d7961869e1f2bc0441e5b56",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "It would be preferable to allow the `StaticFiles` app to use an `os.PathLike` so you can also provide `pathlib.Path` instances.  I can work on a PR if there's agreement.",
+    "body_last_edited_at": null,
+    "closed_at": "2020-08-05T23:04:08Z",
+    "created_at": "2020-07-20T07:18:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1004",
+    "number": 1004,
+    "state": "closed",
+    "title": "StaticFiles directory argument should take a PathLike instead of a str",
+    "user": "kevinastone"
+  },
+  "pull_request": {
+    "closed_at": "2020-08-05T23:04:08Z",
+    "created_at": "2020-07-20T16:31:33Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1007",
+    "merge_commit_sha": "93878323e57e0bab92b4622849c67f5a7c96b24e",
+    "merged_at": "2020-08-05T23:04:08Z",
+    "number": 1007,
+    "title": "Use os.PathLike in StaticFiles for directory",
+    "user": "kevinastone"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "60d2259a7a15bcb433cf3e2018e716d7cc67797e",
+    "committed_at": "2020-07-20T12:12:23Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/60d2259a7a15bcb433cf3e2018e716d7cc67797e"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-07-20T12:12:54Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "6746e6112c1b972ef5eeb138b6f8f41a0be822d5",
+      "commit_url": "https://api.github.com/repos/kevinastone/starlette/commits/6746e6112c1b972ef5eeb138b6f8f41a0be822d5",
+      "created_at": "2020-07-20T16:30:14Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-07-20T16:31:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1007",
+          "number": 1007,
+          "pull_request": {
+            "merged_at": "2020-08-05T23:04:08Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1007"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Use os.PathLike in StaticFiles for directory"
+        }
+      }
+    },
+    {
+      "commit_id": "4067e23bc97e8e3c7ef49fa00c12ecdae56b4eeb",
+      "commit_url": "https://api.github.com/repos/kevinastone/starlette/commits/4067e23bc97e8e3c7ef49fa00c12ecdae56b4eeb",
+      "created_at": "2020-07-27T21:46:52Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "1c2bc252a606682cb570e828412d4b3e8703c8bc",
+      "commit_url": "https://api.github.com/repos/kevinastone/starlette/commits/1c2bc252a606682cb570e828412d4b3e8703c8bc",
+      "created_at": "2020-08-05T15:17:50Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-08-05T23:04:08Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "93878323e57e0bab92b4622849c67f5a7c96b24e",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/93878323e57e0bab92b4622849c67f5a7c96b24e",
+      "created_at": "2020-08-05T23:04:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-09-03T10:18:46Z",
+      "event": "commented"
+    }
+  ]
+}

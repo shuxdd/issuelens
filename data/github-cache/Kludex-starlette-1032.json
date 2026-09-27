@@ -1,0 +1,31 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi!\r\n\r\nThe setup.py defines a `full` `extra_requires` target for installing starlette with all extra dependencies. \r\nhttps://github.com/encode/starlette/blob/c566fc6c819f0d565f8cff432351fe009e83d866/setup.py#L51-L62\r\n\r\nThis is nice if you want all extra dependencies, but I doubt that's the case for many people?\r\n\r\nIn my case, I'm only interested in the session middleware. \r\nI have to manually specify the extra dependency in my requirements along with starlette, even though I don't directly depend on it.\r\nIt would be nice to define `extra_requires` entries for the separate features as well, so that one can do `pip install starlette[session]` without needing to know which extra libraries are used for the feature(which could change in the future).\r\n\r\n```\r\n    extras_require={\r\n        \"full\": [\r\n            \"aiofiles\",\r\n            \"graphene\",\r\n            \"itsdangerous\",\r\n            \"jinja2\",\r\n            \"python-multipart\",\r\n            \"pyyaml\",\r\n            \"requests\",\r\n            \"ujson\",\r\n        ],\r\n        \"session\": [ \"itsdangerous\" ],\r\n        ...\r\n    },\r\n```\r\n\r\nI could provide a PR.",
+    "closed_at": "2021-12-13T10:26:00Z",
+    "created_at": "2020-08-17T14:30:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1032",
+    "labels": [
+      "feature"
+    ],
+    "number": 1032,
+    "state": "closed",
+    "title": "More 'extras' installation targets",
+    "user": "DrPyser"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-09-11T11:01:10Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-13T10:26:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-13T10:26:00Z",
+      "event": "closed"
+    }
+  ]
+}

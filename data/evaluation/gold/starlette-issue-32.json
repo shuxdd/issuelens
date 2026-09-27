@@ -1,0 +1,38 @@
+{
+  "case_id": "starlette-issue-32",
+  "changed_files": [
+    {
+      "path": "starlette/response.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/starlette%2Fresponse.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/response.py",
+      "snapshot_commit": "590db3d6ea6c7f3b03013209822cda2c54dc38ae",
+      "source_url": "https://github.com/Kludex/starlette/blob/590db3d6ea6c7f3b03013209822cda2c54dc38ae/starlette/response.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/response.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Error serving static files larger than 4096 bytes' originates in starlette/response.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_response.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_response.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/6a9a4b8a04b7f0b201c2d5a2750e751a9765796e/tests%2Ftest_staticfiles.py",
+      "status": "modified"
+    }
+  ]
+}

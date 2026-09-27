@@ -1,0 +1,107 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2312\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **simon-sk** October 26, 2023</sup>\r\nHi Starlette team,\r\n\r\nwe are experiencing an issue with Starlette where `contextvars` set in a middleware are leaking between requests if the request contains multi-part form data and the client session is reused.\r\n\r\nI constructed a minimal example which sets a context var in a middleware and resets it after the app has been called. It also raises an exception if the var is already set:\r\n```python\r\nimport contextvars\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\nvar = contextvars.ContextVar(\"var\", default=None)\r\n\r\n\r\nclass ASGIMiddleware:\r\n    def __init__(self, app):\r\n        self.app = app\r\n\r\n    async def __call__(self, scope, receive, send):\r\n        if scope[\"type\"] != \"http\":\r\n            return await self.app(scope, receive, send)\r\n\r\n        if var.get() is not None:\r\n            raise ValueError(f\"var is already set {var.get}\")\r\n\r\n        token = var.set(\"TEST\")\r\n\r\n        await self.app(scope, receive, send)\r\n\r\n        var.reset(token)\r\n\r\n\r\nasync def route(request):\r\n    return JSONResponse({\"hello\": \"world\"})\r\n\r\n\r\napp = Starlette(\r\n    middleware=[Middleware(ASGIMiddleware)],\r\n    routes=[Route('/', route, methods=[\"POST\"])]\r\n)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    import uvicorn\r\n\r\n    uvicorn.run(\r\n        \"app.main_starlette:app\",\r\n        host=\"0.0.0.0\",\r\n        port=8001,\r\n    )\r\n```\r\n\r\nThen, I execute a second script which calls this endpoint using a `httpx` client and includes a files object:\r\n```python\r\nimport httpx\r\n\r\nif __name__ == \"__main__\":\r\n    url = \"http://localhost:8001/\"\r\n    files = {'file': open('./test.yaml', 'rb')}\r\n\r\n    with httpx.Client() as client:\r\n        for i in range(2):\r\n            r = client.post(url, timeout=None, files=files)\r\n            assert r.status_code == 200\r\n```\r\n\r\nThis results in a server error due to the fact that the variable is already set (sometimes it is necessary to run the client script multiple times as the issue does not always occur).\r\n\r\nIf I execute the same script without multipart data, it works without issues:\r\n```python\r\n...\r\nr = client.post(url, timeout=None)\r\n...\r\n```\r\n\r\nWe have also experienced this issue without sending multipart form data for requests within the same client session but it occurs significantly less often and unfortunately I am not able to reproduce it consistently.\r\n\r\nWe experienced this issue with Python 3.9 and 3.10, Starlette v0.31.1, and uvicorn v0.23.2.\r\n\r\n</div>",
+    "closed_at": "2024-12-28T06:08:23Z",
+    "created_at": "2023-11-13T09:42:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2335",
+    "labels": [
+      "bug"
+    ],
+    "number": 2335,
+    "state": "closed",
+    "title": "Contextvars are not reset between requests if the request contains multipart form data",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-11-13T09:42:54Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-12-22T08:45:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-22T08:45:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-01-16T17:04:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-16T17:04:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-01-16T17:04:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-01-16T17:08:31Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2024-02-12T21:39:21Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-02-12T21:39:28Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2024-05-05T15:14:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-01T06:17:29Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2024-08-01T06:25:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-01T06:25:55Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-08-01T06:25:55Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-08-06T07:05:39Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2024-10-18T13:48:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-11-06T15:53:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-12T14:40:04Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-28T06:07:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-28T06:08:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-28T06:08:23Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2025-01-13T05:46:44Z",
+      "event": "commented"
+    }
+  ]
+}

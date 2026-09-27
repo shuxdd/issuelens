@@ -1,0 +1,103 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-06T03:05:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/79f1c31acc56c62795c84e23f07135f23141cdd7",
+      "sha": "79f1c31acc56c62795c84e23f07135f23141cdd7"
+    },
+    {
+      "committed_at": "2018-10-06T10:18:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dfa0153a7bd563aa48718a024bef3586c6a3a409",
+      "sha": "dfa0153a7bd563aa48718a024bef3586c6a3a409"
+    },
+    {
+      "committed_at": "2018-10-06T11:52:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d9cd3954823454346e1dd61cc24b442a0fc7d0c0",
+      "sha": "d9cd3954823454346e1dd61cc24b442a0fc7d0c0"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-06T03:14:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/88",
+          "number": 88,
+          "pull_request": {
+            "merged_at": "2018-10-06T11:54:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/88"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix runtime error within CORSMiddleware"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d9cd3954823454346e1dd61cc24b442a0fc7d0c0/starlette%2Fmiddleware%2Fcors.py",
+      "changes": 1,
+      "deletions": 0,
+      "filename": "starlette/middleware/cors.py",
+      "sha": "e299e7419052e5b240af0a6bb0dbbee86d4d972e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "It seems that even with all tests passing and cors being successfully applied, CORSMiddleware still raises a runtime error.\r\n\r\nCode being tested:\r\n```python\r\napp = Starlette()\r\n\r\napp.add_middleware(CORSMiddleware, allow_origins=[\"*\"])\r\n\r\n@app.route(\"/\")\r\nasync def homepage(request):\r\n    return PlainTextResponse('Hello', status_code=200)\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(app, host=\"0.0.0.0\", port=8000)\r\n```\r\n\r\nAnd the error being produced:\r\n```\r\nERROR: Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/alexbotello/.local/share/virtualenvs/starlette-dshJy1CJ/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 384, in run_asgi\r\n    result = await asgi(self.receive, self.send)\r\n  File \"/home/alexbotello/Code/starlette/starlette/exceptions.py\", line 60, in app\r\n    raise exc from None\r\n  File \"/home/alexbotello/Code/starlette/starlette/exceptions.py\", line 52, in app\r\n    await instance(receive, sender)\r\n  File \"/home/alexbotello/Code/starlette/starlette/middleware/cors.py\", line 116, in simple_response\r\n    await inner(receive, send)\r\n  File \"/home/alexbotello/Code/starlette/starlette/applications.py\", line 26, in awaitable\r\n    await response(receive, send)\r\n  File \"/home/alexbotello/Code/starlette/starlette/responses.py\", line 100, in __call__\r\n    await send({\"type\": \"http.response.body\", \"body\": self.body})\r\n  File \"/home/alexbotello/Code/starlette/starlette/middleware/cors.py\", line 130, in send\r\n    await send(message)\r\n  File \"/home/alexbotello/Code/starlette/starlette/exceptions.py\", line 47, in sender\r\n    await send(message)\r\n  File \"/home/alexbotello/.local/share/virtualenvs/starlette-dshJy1CJ/lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 518, in send\r\n    raise RuntimeError(msg % message_type)\r\nRuntimeError: Unexpected ASGI message 'http.response.body' sent, after response already completed.\r\n```\r\nIt seems the issue is originating from `send`. Specifically:\r\n```python\r\nif message[\"type\"] != \"http.response.start\":\r\n    await send(message)\r\n```\r\nRemoving this fixes the issue and does not break any tests.",
+    "closed_at": "2018-10-06T11:54:54Z",
+    "created_at": "2018-10-06T03:13:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/87",
+    "number": 87,
+    "state": "closed",
+    "title": "CORSMiddleware is sending an extra 'http.response.body'",
+    "user": "alexbotello"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-06T11:54:54Z",
+    "created_at": "2018-10-06T03:14:08Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/88",
+    "merge_commit_sha": "651ed96c1e72d0505879d79843083b4324bd49bf",
+    "merged_at": "2018-10-06T11:54:54Z",
+    "number": 88,
+    "title": "Fix runtime error within CORSMiddleware",
+    "user": "alexbotello"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-06T03:14:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/88",
+          "number": 88,
+          "pull_request": {
+            "merged_at": "2018-10-06T11:54:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/88"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix runtime error within CORSMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-06T06:32:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-06T07:12:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-08T09:19:06Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Am I correct in that the session middleware does not allow for selective encryption? I do not think so due to https://github.com/encode/starlette/blob/f9fad62b45380c6a3d0105bdc25d45342caa010b/starlette/middleware/sessions.py#L55 but I though I'd ask.\r\nE.g. I want to return a token and a username to my frontend application, i.e. `request.session = {'username': 'Bob', 'token': 'random'}`. I want my frontend application to be able to render the username on the screen, however, it has no access to this value (since it's encrypted).\r\nI could give my frontend the secret key used by the backend, but that sort of defeats the purpose of signing, in my view. ",
+    "closed_at": "2020-03-05T10:28:07Z",
+    "created_at": "2020-03-05T00:16:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/855",
+    "number": 855,
+    "state": "closed",
+    "title": "Selective Signing - Session Middleware",
+    "user": "AndTheDaysGoBy"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-05T10:28:07Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,151 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-11-10T13:44:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f33bf2904189a887f4fc2d9dc894270abb3a2222",
+      "sha": "f33bf2904189a887f4fc2d9dc894270abb3a2222"
+    },
+    {
+      "committed_at": "2021-11-15T13:50:27Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2b87d4b8933a92f1e8485541c9783bf6e4b1a1ea",
+      "sha": "2b87d4b8933a92f1e8485541c9783bf6e4b1a1ea"
+    },
+    {
+      "committed_at": "2021-11-15T20:43:17Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/66e34b4bb1caf977d0dae1a453c153418d953c0d",
+      "sha": "66e34b4bb1caf977d0dae1a453c153418d953c0d"
+    },
+    {
+      "committed_at": "2021-11-15T21:42:38Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/3bb2b9c6d6b3a7917406f37da3ac5ee62c3caa54",
+      "sha": "3bb2b9c6d6b3a7917406f37da3ac5ee62c3caa54"
+    },
+    {
+      "committed_at": "2021-11-15T21:48:36Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2f4069ff6b72adb5282129d96623fda7ceb5d943",
+      "sha": "2f4069ff6b72adb5282129d96623fda7ceb5d943"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-11-10T13:47:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1335",
+          "number": 1335,
+          "pull_request": {
+            "merged_at": "2021-11-15T21:54:03Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1335"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add authentication args length check"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-15T19:12:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1337",
+          "number": 1337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Concatenate parameters on Request/WebSocket discovery in `requires()`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 5,
+      "blob_url": "https://github.com/Kludex/starlette/blob/2f4069ff6b72adb5282129d96623fda7ceb5d943/starlette%2Fauthentication.py",
+      "changes": 8,
+      "deletions": 3,
+      "filename": "starlette/authentication.py",
+      "sha": "b4882070d5a8f0cf15e6613e8c7c1ce4d24ff8ee",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nWe are using a wrapper around FastAPI which makes it possible to create routes on classes with endpoints on the methods. This makes it easier to manage dependency injection among others.\r\n\r\nWhen we add authentication middleware to our application, the authenticated endpoints fail due to `IndexError: tuple index out of range`. \r\n\r\nThis error occurs at `authentication.py:60` \r\n```python\r\nrequest = kwargs.get(\"request\", args[idx] if args else None)\r\n```\r\n\r\nWe use the following definitions:\r\n\r\n```python\r\n@router.endpoint(\"/\")\r\nclass Main:   \r\n    @router.get(\"/\")\r\n    async def hello(self):\r\n        return {\"greeting\": \"Hello unknown!\"}\r\n \r\n    @requires(\"admin\")\r\n    @router.get(\"/authorized\")\r\n    async def authorized(self, request: Request):\r\n        return {\"greeting\": f\"Hi {request.user.display_name()}, you're authorized, so welcome!\"}\r\n```\r\n\r\nWe have created the class decorator for endpoint ourselves.\r\n\r\nI looked in the debugger and both `args` and `kwargs` contain values. `args` contains `self` for the instance method and `kwargs` contains `request`. This causes the `if args` check to pass, which means `args[idx]` will cause an IndexError. This can be fixed by adding an additional check: \r\n```python\r\nrequest = kwargs.get(\"request\", args[idx] if args and idx < len(args) else None)\r\n```\r\n\r\n### To reproduce\r\n\r\nIt is not easily possible to create a reproduction example due to our custom wrapper around FastAPI. Implementing this fix does fix the problem for us though. \r\n\r\nTo reproduce:\r\n\r\n<details>\r\n\r\n```python\r\nimport typing\r\n\r\nfrom fastapi import APIRouter, FastAPI\r\nfrom starlette.authentication import AuthCredentials, AuthenticationBackend, requires, SimpleUser, BaseUser\r\nfrom starlette.requests import HTTPConnection, Request\r\nfrom starlette.middleware.authentication import AuthenticationMiddleware\r\n\r\n\r\nclass AuthBackend(AuthenticationBackend):\r\n\r\n    async def authenticate(self, conn: HTTPConnection) -> typing.Optional[typing.Tuple[\"AuthCredentials\", \"BaseUser\"]]:\r\n        return AuthCredentials([\"TheScope\"]), SimpleUser(\"TheUser)\")\r\n\r\n\r\napp = FastAPI()\r\napp.add_middleware(AuthenticationMiddleware, backend=AuthBackend())\r\n\r\n\r\nclass Main:\r\n    @requires(\"TheScope\")\r\n    def some_route(self, request: Request):\r\n        return {'hello': 'world'}\r\n\r\n\r\nmain = Main()\r\nrouter = APIRouter()\r\nrouter.add_api_route('/', main.some_route, methods=['GET'])\r\n\r\napp.include_router(router)\r\n\r\n# Finally, call GET '/'\r\n```\r\n\r\n</details>\r\n\r\n### Expected behavior\r\n\r\nWhen a request is made to an authentication endpoint the request either returns \"forbidden\" when the authentication is not valid or returns the required response.\r\n\r\n### Actual behavior\r\nThe authentication wrapper `requires` fails when the request is made. This happens due to an `IndexError` when idx >= len(args).\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\nTraceback:\r\n<details>\r\n\r\n```\r\nERROR:uvicorn.error:Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\uvicorn\\protocols\\http\\h11_impl.py\", line 394, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\uvicorn\\middleware\\proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\allseas_api\\api.py\", line 63, in __call__\r\n    await self._fast_api.__call__(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\fastapi\\applications.py\", line 179, in __call__\r\n    await super().__call__(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\applications.py\", line 111, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 181, in __call__\r\n    raise exc from None\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\middleware\\errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\middleware\\gzip.py\", line 18, in __call__\r\n    await responder(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\middleware\\gzip.py\", line 35, in __call__\r\n    await self.app(scope, receive, self.send_with_gzip)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\middleware\\authentication.py\", line 48, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\routing.py\", line 566, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\routing.py\", line 227, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\routing.py\", line 41, in app\r\n    response = await func(request)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\fastapi\\routing.py\", line 182, in app\r\n    raw_response = await run_endpoint_function(\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\fastapi\\routing.py\", line 133, in run_endpoint_function\r\n    return await dependant.call(**values)\r\n  File \"C:\\Users\\<path-to-virtual-env>\\lib\\site-packages\\starlette\\authentication.py\", line 60, in async_wrapper\r\n    request = kwargs.get(\"request\", args[idx] if args else None)\r\nIndexError: tuple index out of range\r\n\r\n```\r\n</details>\r\n\r\n### Environment\r\n\r\n- OS: Windows\r\n- Python version: 3.9.7\r\n- Starlette version: 0.17.0\r\n\r\n### Additional context\r\n\r\nWe need to add bearer token authentication to our endpoints. Our endpoints are methods on class instances. \r\n",
+    "closed_at": "2021-11-15T21:54:03Z",
+    "created_at": "2021-11-10T13:37:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1334",
+    "number": 1334,
+    "state": "closed",
+    "title": "Authentication middleware IndexError on instance method ",
+    "user": "LarsStegman"
+  },
+  "pull_request": {
+    "closed_at": "2021-11-15T21:54:03Z",
+    "created_at": "2021-11-10T13:47:54Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1335",
+    "merge_commit_sha": "649161cec52608850b3e4960f2d7692a152aba80",
+    "merged_at": "2021-11-15T21:54:03Z",
+    "number": 1335,
+    "title": "Add authentication args length check",
+    "user": "LarsStegman"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-11-10T13:47:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1335",
+          "number": 1335,
+          "pull_request": {
+            "merged_at": "2021-11-15T21:54:03Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1335"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add authentication args length check"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-10T14:46:04Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2021-11-15T13:37:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-15T15:59:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-15T19:12:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1337",
+          "number": 1337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Concatenate parameters on Request/WebSocket discovery in `requires()`"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-15T21:54:03Z",
+      "event": "closed"
+    }
+  ]
+}

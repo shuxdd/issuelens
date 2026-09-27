@@ -1,0 +1,44 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "It seems receive calls cannot be wrapped when using Pure ASGI Middleware.\r\n\r\nI followed the example stated in the docs but it just does not work, the wrapped function is never called.\r\n\r\nWrapped send work as expected.\r\n\r\nSee here in the docs : https://www.starlette.io/middleware/#inspecting-or-modifying-the-request\r\n\r\n\r\n## Expected Behaviour\r\n\r\nwrapped received coroutine called\r\n\r\n\r\n\r\n## Minimal example\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import PlainTextResponse\r\nfrom starlette.routing import Route\r\nfrom starlette.middleware import Middleware\r\n\r\nfrom starlette.types import ASGIApp, Receive, Scope, Send, Message\r\nfrom starlette.datastructures import MutableHeaders\r\n\r\n\r\nasync def homepage(request):\r\n    return PlainTextResponse(\"Hello, World!\")\r\n\r\n\r\nclass LoggingMiddleware:\r\n\r\n    def __init__(self, app: ASGIApp) -> None:\r\n        self.app = app\r\n\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        print(scope)\r\n        if scope[\"type\"] != \"http\":\r\n            await self.app(scope, receive, send)\r\n            return\r\n\r\n        async def receive_logging_request():\r\n            message = await receive()\r\n            print(message)\r\n\r\n            return message\r\n\r\n        async def send_cache_headers(message: Message) -> None:\r\n            print(message)\r\n            if message[\"type\"] == \"http.response.start\":\r\n                headers = MutableHeaders(scope=message)\r\n\r\n                headers.append(\"x-cache\", \"hit\")\r\n\r\n            await send(message)\r\n\r\n        await self.app(scope, receive_logging_request, send_cache_headers)\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[\r\n        Route(\"/\", homepage),\r\n    ],\r\n    middleware=[Middleware(LoggingMiddleware)],\r\n)\r\n\r\n",
+    "closed_at": "2024-08-15T23:15:32Z",
+    "created_at": "2024-08-15T21:31:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2670",
+    "number": 2670,
+    "state": "closed",
+    "title": "Receive event for Pure ASGI Middleware never called",
+    "user": "jules-ch"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-08-15T21:58:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T22:11:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T22:46:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T23:15:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-15T23:15:32Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2024-08-15T23:30:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-08-16T01:05:31Z",
+      "event": "commented"
+    }
+  ]
+}

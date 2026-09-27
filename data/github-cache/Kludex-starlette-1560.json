@@ -1,0 +1,183 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-04-05T19:00:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c27f8ad9ae646940b151f7b8f73aa6a0151c2f44",
+      "sha": "c27f8ad9ae646940b151f7b8f73aa6a0151c2f44"
+    },
+    {
+      "committed_at": "2022-04-06T01:17:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4dc4f10f79b3d7caa864fb367798e2af503ed11c",
+      "sha": "4dc4f10f79b3d7caa864fb367798e2af503ed11c"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-04-05T18:55:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Add default code for `websocket.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-05T19:01:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1574",
+          "number": 1574,
+          "pull_request": {
+            "merged_at": "2022-04-06T07:01:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1574"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid `TypeError` on `websocket.disconnect` when `code` is `None`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-17T15:00:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Scopeo/draftnrun/pull/666",
+          "number": 666,
+          "pull_request": {
+            "merged_at": "2026-04-21T15:22:13Z",
+            "url": "https://api.github.com/repos/Scopeo/draftnrun/pulls/666"
+          },
+          "repository": {
+            "full_name": "Scopeo/draftnrun"
+          },
+          "title": "feat(Websocket): Real-time graph show DRA-1217"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 3,
+      "blob_url": "https://github.com/Kludex/starlette/blob/4dc4f10f79b3d7caa864fb367798e2af503ed11c/starlette%2Fendpoints.py",
+      "changes": 4,
+      "deletions": 1,
+      "filename": "starlette/endpoints.py",
+      "sha": "f2468a326d53755f38bfd413825c4c6c0672b556",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1555\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **dingensundso** March 27, 2022</sup>\r\nI created a WebSocketEndpoint class in which I want to deny the connection in certain conditions.\r\nWhen the WebSocket is closed in on_connect I receive the following exception:\r\n\r\n```\r\n  File \"starlette/endpoints.py\", line 83, in dispatch\r\n    close_code = int(message.get(\"code\", status.WS_1000_NORMAL_CLOSURE))\r\nTypeError: int() argument must be a string, a bytes-like object or a real number, not 'NoneType'\r\n```\r\nSo code is None when the server denies the connection instead of non-existant.\r\n\r\nhttps://github.com/encode/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/endpoints.py#L72-L87\r\n\r\nChanging line 83 to the following should fix the issue:\r\n```python\r\nclose_code = int(message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE)               \r\n````\r\n</div>",
+    "closed_at": "2022-04-06T07:01:07Z",
+    "created_at": "2022-03-30T04:38:15Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1560",
+    "labels": [
+      "help wanted"
+    ],
+    "number": 1560,
+    "state": "closed",
+    "title": "Denying WebSocket connection in WebSocketEndpoint.on_connect leads to Exception",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2022-04-06T07:01:08Z",
+    "created_at": "2022-04-05T19:00:59Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1574",
+    "merge_commit_sha": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+    "merged_at": "2022-04-06T07:01:07Z",
+    "number": 1574,
+    "title": "Avoid `TypeError` on `websocket.disconnect` when `code` is `None`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-03-30T04:38:34Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-03-30T04:39:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-30T05:57:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-03T12:19:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-05T18:55:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/uvicorn/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/uvicorn/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/uvicorn"
+          },
+          "title": "Add default code for `websocket.close`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-05T18:59:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-05T19:01:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1574",
+          "number": 1574,
+          "pull_request": {
+            "merged_at": "2022-04-06T07:01:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1574"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Avoid `TypeError` on `websocket.disconnect` when `code` is `None`"
+        }
+      }
+    },
+    {
+      "created_at": "2022-04-06T07:01:08Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-04-17T15:00:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Scopeo/draftnrun/pull/666",
+          "number": 666,
+          "pull_request": {
+            "merged_at": "2026-04-21T15:22:13Z",
+            "url": "https://api.github.com/repos/Scopeo/draftnrun/pulls/666"
+          },
+          "repository": {
+            "full_name": "Scopeo/draftnrun"
+          },
+          "title": "feat(Websocket): Real-time graph show DRA-1217"
+        }
+      }
+    }
+  ]
+}

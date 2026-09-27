@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'd like to use starlette/responder, but when uploading an HTML form containing inputs of `type=\"file\"` and `type=\"text\"`; and parsing using `request.form()` it only parses a subset. Might be an issue with `parse_options_header()`?\r\n\r\nrequest data in parser:\r\n```\r\n[(<MultiPartMessage.PART_BEGIN: 1>, b''), (<MultiPartMessage.HEADER_FIELD: 4>, b'Content-Disposition'), (<MultiPartMessage.HEADER_VALUE: 5>, b'form-data name=\"inputFile\" filename=\"default.xml\"'), (<MultiPartMessage.HEADER_END: 6>, b''), (<MultiPartMessage.HEADER_FIELD: 4>, b'Content-Type'), (<MultiPartMessage.HEADER_END: 6>, b''), (<MultiPartMessage.HEADERS_FINISHED: 7>, b''), (<MultiPartMessage.PART_DATA: 2>, b'<?xml>....somexmlstring'), (<MultiPartMessage.PART_DATA: 2>, b'\\r\\n'), (<MultiPartMessage.PART_END: 3>, b''), (<MultiPartMessage.PART_BEGIN: 1>, b''), (<MultiPartMessage.HEADER_FIELD: 4>, b'Content-Disposition'), (<MultiPartMessage.HEADER_VALUE: 5>, b'form-data name=\"outputName\"'), (<MultiPartMessage.HEADER_END: 6>, b''), (<MultiPartMessage.HEADERS_FINISHED: 7>, b''), (<MultiPartMessage.PART_DATA: 2>, b'test'), (<MultiPartMessage.PART_END: 3>, b''), (<MultiPartMessage.END: 8>, b'')]\r\n```",
+    "closed_at": "2018-10-22T14:16:05Z",
+    "created_at": "2018-10-22T11:58:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/140",
+    "number": 140,
+    "state": "closed",
+    "title": "Is multipart/form-data fully supported?",
+    "user": "pingenglj"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-22T12:21:47Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2018-10-22T12:23:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T13:38:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T14:05:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T14:16:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-02T12:49:10Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Integrate `aiomysql` and `aiosqlite` as database backends.",
+    "closed_at": "2019-02-19T11:59:25Z",
+    "created_at": "2018-12-18T14:51:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/283",
+    "labels": [
+      "feature"
+    ],
+    "number": 283,
+    "state": "closed",
+    "title": "Add an SQLite database driver",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-29T05:44:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-30T15:36:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-08T13:19:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-19T11:59:25Z",
+      "event": "commented"
+    }
+  ]
+}

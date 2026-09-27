@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I'm pretending to use the Session middleware as backend for a session store implemetation.\r\nThe session store is however lazily loaded deep inside the \"legacy\" framework.\r\n\r\nPatching the session store loader, I need to feed it the scope (or at least the session dict)  out of \"nowhere\".\r\n\r\nSo I thought, maybe the following solution is generic enough to make it a middleware:\r\n```python\r\n\r\nfrom starlette.types import ASGIApp, Receive, Scope, Send\r\n\r\nimport contextvars\r\n\r\nscope = contextvars.ContextVar('scope')\r\n\r\n\r\nclass GlobalScopeAccessorMiddleware:\r\n    \"\"\"\r\n    A middleware class that exports scope to arbitrarily access.\r\n    \"\"\"\r\n\r\n    def __init__(self, app: ASGIApp, ) -> None:\r\n        self.app = app\r\n\r\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\r\n        token = scope.set(scope)\r\n        await self.app(scope, receive, send)\r\n        scope.reset(token)\r\n```\r\n```python\r\nfrom starlette.middleware.globalscope import scope\r\n...\r\nscope.get()  # yeah\r\n```\r\n\r\nBetter understanding my motivation, here is the session store property I need to patch and where the self instance is not much of use:\r\n```python\r\nclass Root(object):\r\n    def __init__(self):\r\n        self._loaded = False\r\n\r\n    @lazy_property\r\n    def session_store(self):\r\n        ...\r\n```\r\n\r\nPlease let me know if I should do a PR, should this idea be generic and useful enough...",
+    "closed_at": "2019-12-19T12:56:18Z",
+    "created_at": "2019-12-19T03:14:26Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/762",
+    "number": 762,
+    "state": "closed",
+    "title": "Global scope accessor",
+    "user": "blaggacao"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-19T03:32:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-19T12:56:18Z",
+      "event": "commented"
+    }
+  ]
+}

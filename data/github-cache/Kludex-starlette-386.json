@@ -1,0 +1,109 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-06-02T06:53:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/groupthinking/EventRelay/pull/224",
+          "number": 224,
+          "pull_request": {
+            "merged_at": "2026-06-02T07:14:42Z",
+            "url": "https://api.github.com/repos/groupthinking/EventRelay/pulls/224"
+          },
+          "repository": {
+            "full_name": "groupthinking/EventRelay"
+          },
+          "title": "Empirical PoC: 10 AI/workflow videos through the pipeline + fix dead AI extraction path"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-19T05:53:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ArcReel/ArcReel/pull/1250",
+          "number": 1250,
+          "pull_request": {
+            "merged_at": "2026-07-19T12:16:50Z",
+            "url": "https://api.github.com/repos/ArcReel/ArcReel/pulls/1250"
+          },
+          "repository": {
+            "full_name": "ArcReel/ArcReel"
+          },
+          "title": "refactor(api): \u8def\u7531\u9519\u8bef\u5904\u7406\u8fc1\u79fb\u6536\u5c3e\uff0c\u62a5\u9519\u4e0d\u518d\u6cc4\u6f0f\u670d\u52a1\u5668\u8def\u5f84"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.testclient import TestClient\r\nfrom starlette.responses import PlainTextResponse\r\n\r\n\r\nasync def unhandled_exception_handler(request, e):\r\n    print(\"hey\")\r\n    return PlainTextResponse(\"hello\")\r\n\r\n\r\nclass App(Starlette):\r\n    def __init__(self):\r\n        super().__init__()\r\n        self.add_exception_handler(Exception, unhandled_exception_handler)\r\n\r\n\r\napp = App()\r\n\r\n\r\n@app.route(\"/method1\")\r\ndef http_method2(request):\r\n    raise Exception\r\n\r\n\r\ntest_cli = TestClient(app)\r\nprint(\"caught\", test_cli.get(\"/method1\"))\r\nprint(\"end\")\r\n```\r\n\r\n`hey` in exception handler is printed. `caught` and `end` are not printed.\r\n\r\nIf we just run in uvicorn instead of test client, browser returns `hello` as expected.",
+    "closed_at": "2019-02-13T05:49:00Z",
+    "created_at": "2019-02-13T05:22:57Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/386",
+    "number": 386,
+    "state": "closed",
+    "title": "Custom exception handlers don't work in TestClient",
+    "user": "em92"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-02-13T05:49:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-02-13T05:49:00Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-10-29T21:01:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-30T00:50:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-21T21:59:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-06-02T06:53:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/groupthinking/EventRelay/pull/224",
+          "number": 224,
+          "pull_request": {
+            "merged_at": "2026-06-02T07:14:42Z",
+            "url": "https://api.github.com/repos/groupthinking/EventRelay/pulls/224"
+          },
+          "repository": {
+            "full_name": "groupthinking/EventRelay"
+          },
+          "title": "Empirical PoC: 10 AI/workflow videos through the pipeline + fix dead AI extraction path"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-19T05:53:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ArcReel/ArcReel/pull/1250",
+          "number": 1250,
+          "pull_request": {
+            "merged_at": "2026-07-19T12:16:50Z",
+            "url": "https://api.github.com/repos/ArcReel/ArcReel/pulls/1250"
+          },
+          "repository": {
+            "full_name": "ArcReel/ArcReel"
+          },
+          "title": "refactor(api): \u8def\u7531\u9519\u8bef\u5904\u7406\u8fc1\u79fb\u6536\u5c3e\uff0c\u62a5\u9519\u4e0d\u518d\u6cc4\u6f0f\u670d\u52a1\u5668\u8def\u5f84"
+        }
+      }
+    }
+  ]
+}

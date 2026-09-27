@@ -1,0 +1,111 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2018-11-06T17:05:50Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/185"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/185"
+    ]
+  },
+  "case_id": "starlette-issue-185",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-195",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'StaticFiles will check if directory exists upon instantiation' directly changes starlette/staticfiles.py with focused behavior test(s) tests/test_staticfiles.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2018-11-08T00:23:17Z",
+  "issue": {
+    "body": "The `StaticFiles` application should ensure that the directory exists at the point it is instantiated.\r\n\r\n(With an optional switch to turn this behavior off)",
+    "number": 185,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/185",
+    "title": "Check directory exists when instantiating `StaticFiles`"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #195 created_at 2018-11-08T00:23:17Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #195",
+    "repair_files": [
+      "docs/staticfiles.md",
+      "starlette/staticfiles.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 58888bb53fa54991479d8a9a4c32d6b41b334b2c",
+    "test_files": [
+      "tests/test_staticfiles.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "docs/staticfiles.md",
+        "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/docs%2Fstaticfiles.md",
+        "status": "modified"
+      },
+      {
+        "path": "starlette/staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/starlette%2Fstaticfiles.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "c07298cb4639887dd1490f5d1f4730444d62910f",
+        "source_url": "https://github.com/Kludex/starlette/commit/c07298cb4639887dd1490f5d1f4730444d62910f"
+      },
+      {
+        "sha": "0a9dc8d35f2cb1b41443b8ea6e442a26ecb039ed",
+        "source_url": "https://github.com/Kludex/starlette/commit/0a9dc8d35f2cb1b41443b8ea6e442a26ecb039ed"
+      },
+      {
+        "sha": "ef9edca86d976fca72745fd3bbf1395415b9aa97",
+        "source_url": "https://github.com/Kludex/starlette/commit/ef9edca86d976fca72745fd3bbf1395415b9aa97"
+      },
+      {
+        "sha": "3fbe20ee4539e5c2d6ec79fa13f7c397c4108cef",
+        "source_url": "https://github.com/Kludex/starlette/commit/3fbe20ee4539e5c2d6ec79fa13f7c397c4108cef"
+      },
+      {
+        "sha": "91081c1d92ecf093acbd10f7407d62aa9c4abefb",
+        "source_url": "https://github.com/Kludex/starlette/commit/91081c1d92ecf093acbd10f7407d62aa9c4abefb"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2018-11-08T00:23:17Z",
+      "number": 195,
+      "source_url": "https://github.com/Kludex/starlette/pull/195"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/195"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_staticfiles.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/91081c1d92ecf093acbd10f7407d62aa9c4abefb/tests%2Ftest_staticfiles.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "58888bb53fa54991479d8a9a4c32d6b41b334b2c",
+    "committed_at": "2018-11-07T13:42:26Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/58888bb53fa54991479d8a9a4c32d6b41b334b2c"
+  },
+  "schema_version": "1.0"
+}

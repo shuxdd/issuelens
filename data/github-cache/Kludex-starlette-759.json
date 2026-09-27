@@ -1,0 +1,349 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-04-20T09:52:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/polkascan/explorer-api/issues/5",
+          "number": 5,
+          "pull_request": {},
+          "repository": {
+            "full_name": "polkascan/explorer-api"
+          },
+          "title": "ConnectionClosedOK exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T06:12:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1811",
+          "number": 1811,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Disconnected websocket - No exception is raised when sending a message!"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-10T21:24:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Alchemishty/Magnet/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-03-11T00:00:01Z",
+            "url": "https://api.github.com/repos/Alchemishty/Magnet/pulls/10"
+          },
+          "repository": {
+            "full_name": "Alchemishty/Magnet"
+          },
+          "title": "feat: add WebSocket real-time progress for render jobs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-14T10:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/35",
+          "number": 35,
+          "pull_request": {
+            "merged_at": "2026-03-14T10:39:34Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/35"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: Mission Control Center \u2014 Phase 1 & 2"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-27T05:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2026-03-27T08:56:20Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/145"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: deepen operator console control plane"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-14T16:59:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bandr-ai/vektori/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2026-04-30T20:04:26Z",
+            "url": "https://api.github.com/repos/bandr-ai/vektori/pulls/55"
+          },
+          "repository": {
+            "full_name": "bandr-ai/vektori"
+          },
+          "title": "Feat/native agent harness"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-30T16:21:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rmusser01/tldw_server/pull/2143",
+          "number": 2143,
+          "pull_request": {
+            "merged_at": "2026-05-30T16:39:28Z",
+            "url": "https://api.github.com/repos/rmusser01/tldw_server/pulls/2143"
+          },
+          "repository": {
+            "full_name": "rmusser01/tldw_server"
+          },
+          "title": "Add MCP Unified Stage 4C gateway WebSocket transport"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "It seems that the [`starlette.websockets.WebSocketDisconnect`](https://github.com/encode/starlette/blob/master/starlette/websockets.py#L15-L17) exception is not raised when a client disconnects.\r\n\r\nThis can cause orphaned async tasks as multiple clients connect/disconnect. As someone first referenced on [StackOverflow](https://stackoverflow.com/questions/58133694/graceful-shutdown-of-uvicorn-starlette-app-with-websockets), it can also result in Uvicorn's shutdown/reload to block.\r\n\r\n## Example\r\n\r\n```py\r\n#!/usr/bin/env python\r\n\r\nimport asyncio\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import HTMLResponse\r\n\r\napp = Starlette()\r\n\r\n\r\n@app.route('/')\r\nasync def index(req):\r\n    \"\"\"Return basic websocket connection template at base route\"\"\"\r\n    return HTMLResponse('''\r\n        <!DOCTYPE html>\r\n        <html>\r\n            <head>\r\n                <title>WebSocket Example</title>\r\n            </head>\r\n            <body>\r\n                Intentionally empty. Messages echoed to js console.\r\n                <script>\r\n                ws = new WebSocket(\"ws://localhost:8000/ws\");\r\n                ws.onmessage = e => {\r\n                    console.log(e);\r\n                };\r\n                </script>\r\n            </body>\r\n        </html>\r\n        ''')\r\n\r\n\r\n@app.websocket_route('/ws')\r\nasync def ws(websocket):\r\n    await websocket.accept()\r\n\r\n    try:\r\n        while True:\r\n            # Expected behavior: print \"Looping...\" until client\r\n            # disconnects, then close websocket\r\n            print(f'Looping. Client state: {websocket.client_state}')\r\n            # await websocket.send_text('Hello world!')\r\n            await asyncio.sleep(1)\r\n    finally:\r\n        await websocket.close()\r\n\r\n\r\nif __name__ == '__main__':\r\n    import uvicorn\r\n    uvicorn.run(app, log_level='debug')\r\n```\r\n\r\nAfter accessing the base [route](http://localhost:8000/) to create a websocket connection, closing the window/connection does not raise `starlette.websockets.WebSocketDisconnect`, leaves the loop running indefinitely, and does not modify `websocket.client_state`. Additional connections start additional loops.\r\n\r\nIf you add the line to send the *Hello world!* message over the websocket after the client has disconnected, `websockets.exceptions.ConnectionClosedOK` will be raised and can be handled. However, this likely won't be a workaround for all use cases.",
+    "closed_at": "2022-11-18T23:42:42Z",
+    "created_at": "2019-12-17T23:27:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/759",
+    "labels": [
+      "websocket",
+      "help wanted"
+    ],
+    "number": 759,
+    "state": "closed",
+    "title": "Handle websocket disconnect in event loop",
+    "user": "benfasoli"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-12-18T08:36:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-18T08:36:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-18T08:36:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-13T22:24:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-13T22:24:48Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-13T22:24:48Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-13T22:51:54Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-13T22:51:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-13T22:51:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-14T07:13:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T07:54:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T08:07:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T08:39:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:10:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-14T09:53:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T11:03:01Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-04-20T09:52:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/polkascan/explorer-api/issues/5",
+          "number": 5,
+          "pull_request": {},
+          "repository": {
+            "full_name": "polkascan/explorer-api"
+          },
+          "title": "ConnectionClosedOK exceptions"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T06:12:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1811",
+          "number": 1811,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Disconnected websocket - No exception is raised when sending a message!"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-15T06:13:08Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-15T06:17:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-18T23:42:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-18T23:42:42Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-11-18T23:42:57Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-07-07T16:02:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-10T21:24:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Alchemishty/Magnet/pull/10",
+          "number": 10,
+          "pull_request": {
+            "merged_at": "2026-03-11T00:00:01Z",
+            "url": "https://api.github.com/repos/Alchemishty/Magnet/pulls/10"
+          },
+          "repository": {
+            "full_name": "Alchemishty/Magnet"
+          },
+          "title": "feat: add WebSocket real-time progress for render jobs"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-14T10:05:14Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/35",
+          "number": 35,
+          "pull_request": {
+            "merged_at": "2026-03-14T10:39:34Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/35"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: Mission Control Center \u2014 Phase 1 & 2"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-27T05:04:10Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fakechris/spec-orch/pull/145",
+          "number": 145,
+          "pull_request": {
+            "merged_at": "2026-03-27T08:56:20Z",
+            "url": "https://api.github.com/repos/fakechris/spec-orch/pulls/145"
+          },
+          "repository": {
+            "full_name": "fakechris/spec-orch"
+          },
+          "title": "feat: deepen operator console control plane"
+        }
+      }
+    },
+    {
+      "created_at": "2026-04-14T16:59:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bandr-ai/vektori/pull/55",
+          "number": 55,
+          "pull_request": {
+            "merged_at": "2026-04-30T20:04:26Z",
+            "url": "https://api.github.com/repos/bandr-ai/vektori/pulls/55"
+          },
+          "repository": {
+            "full_name": "bandr-ai/vektori"
+          },
+          "title": "Feat/native agent harness"
+        }
+      }
+    },
+    {
+      "created_at": "2026-05-30T16:21:31Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/rmusser01/tldw_server/pull/2143",
+          "number": 2143,
+          "pull_request": {
+            "merged_at": "2026-05-30T16:39:28Z",
+            "url": "https://api.github.com/repos/rmusser01/tldw_server/pulls/2143"
+          },
+          "repository": {
+            "full_name": "rmusser01/tldw_server"
+          },
+          "title": "Add MCP Unified Stage 4C gateway WebSocket transport"
+        }
+      }
+    }
+  ]
+}

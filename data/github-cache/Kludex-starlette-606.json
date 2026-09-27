@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I have a case where I'd like to do the following.\r\n\r\n```py\r\n@app.on_event('response')\r\ndef response_handler(response):\r\n    return JSONResponse(response[1], status_code=response[0])\r\n\r\n@app.route('/')\r\ndef root(request):\r\n    return 200, { 'hello': 'world' }\r\n```\r\n\r\nIs this sort of response handler possible?",
+    "closed_at": "2019-08-27T09:06:40Z",
+    "created_at": "2019-08-20T12:38:37Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/606",
+    "number": 606,
+    "state": "closed",
+    "title": "Response Handler",
+    "user": "dgrahn"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-27T09:06:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T09:32:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T09:32:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-27T09:32:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-27T10:07:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-27T10:09:55Z",
+      "event": "commented"
+    }
+  ]
+}

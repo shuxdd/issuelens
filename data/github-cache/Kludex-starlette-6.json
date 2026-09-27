@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "There are a few remaining mypy errors that it'd be nice to tidy up...\r\n\r\n```shell\r\n$ mypy starlette \r\nstarlette/datastructures.py:148: error: Signature of \"get\" incompatible with supertype \"Mapping\"\r\nstarlette/datastructures.py:158: error: Argument 1 of \"__contains__\" incompatible with supertype \"Mapping\"\r\nstarlette/datastructures.py:158: error: Argument 1 of \"__contains__\" incompatible with supertype \"Container\"\r\nstarlette/testclient.py:114: error: Signature of \"request\" incompatible with supertype \"Session\"\r\n```\r\n\r\nThe datastructures ones really aren't obvious. It may be that they're resolvable but I've not figured out how.\r\n\r\nThe testclient one we might want to just put an exclude against - otherwise we need to include all of the keyword arguments to request explicitly, rather than capturing them with `**kwargs` and passing them on.",
+    "closed_at": "2018-10-18T10:58:59Z",
+    "created_at": "2018-06-26T09:21:45Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/6",
+    "number": 6,
+    "state": "closed",
+    "title": "MyPy conformance",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-29T10:53:45Z",
+      "event": "commented"
+    }
+  ]
+}

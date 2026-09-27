@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "cython setting\r\n```py\r\ncompiler_directives={\r\n            'language_level': 2,\r\n            'infer_types': True,\r\n            'boundscheck': False,\r\n            'wraparound': False,\r\n            'initializedcheck': False,\r\n            'cdivision': True,\r\n            'unraisable_tracebacks': True,\r\n            'always_allow_keywords': True\r\n        }\r\n```\r\n\r\nexample\r\n```py\r\n@app.route('/user/signup', methods=['POST'])\r\nasync def signup(request):\r\n    \r\n    tasks = BackgroundTasks()\r\n    tasks.add_task(send_welcome_email, to_address=email)\r\n     logging.info('Before return')\r\n    return JSONResponse(message, background=tasks)\r\n\r\nasync def send_welcome_email(to_address):\r\n    logging.info('After return')\r\n```\r\n\r\nI can't get the log `After return`.\r\n\r\nIf I try this it work\r\n```python\r\n@app.route('/user/signup', methods=['POST'])\r\nasync def signup(request):\r\n    await send_welcome_email(email)\r\n     logging.info('Before return')\r\n    return JSONResponse(message)\r\n\r\nasync def send_welcome_email(to_address):\r\n    logging.info('After return')\r\n```\r\n",
+    "closed_at": "2019-08-16T09:09:09Z",
+    "created_at": "2019-08-16T06:25:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/598",
+    "number": 598,
+    "state": "closed",
+    "title": "BackgroundTasks not support Cython",
+    "user": "631068264"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-16T09:09:09Z",
+      "event": "commented"
+    }
+  ]
+}

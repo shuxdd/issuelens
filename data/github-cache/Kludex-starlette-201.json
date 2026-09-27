@@ -1,0 +1,97 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-11-09T14:52:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/206",
+          "number": 206,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/206"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Response's content default to b''"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-09T16:43:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/200",
+          "number": 200,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette doesn't work well on AppEngine/python37 standard environment"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I need to manage myself the etag/304 response ...\r\n\r\nto send a 304 if-none-match, I use : \r\n\r\n    Response(status_code=304,content=\"\",headers=rheaders)\r\n\r\nBut the body content should not be written ... here the content is mandatory : None cause troubble, and empty string is an empty string ...\r\n\r\n",
+    "closed_at": "2018-11-09T17:59:59Z",
+    "created_at": "2018-11-08T20:07:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/201",
+    "number": 201,
+    "state": "closed",
+    "title": "the raw \"Response\" should'nt mandatory a content ... no ?",
+    "user": "manatlan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-08T20:31:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T14:47:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T14:52:45Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/206",
+          "number": 206,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/206"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Response's content default to b''"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-09T16:33:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-09T16:43:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/200",
+          "number": 200,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette doesn't work well on AppEngine/python37 standard environment"
+        }
+      }
+    },
+    {
+      "created_at": "2018-11-09T16:59:45Z",
+      "event": "commented"
+    }
+  ]
+}

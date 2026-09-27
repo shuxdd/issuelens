@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Introduce multipart and URL encoded parsing to support `form = await request.form()`\r\n\r\nSee https://github.com/pallets/werkzeug/pull/1330\r\n",
+    "closed_at": "2018-10-12T17:15:05Z",
+    "created_at": "2018-07-04T15:36:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/15",
+    "number": 15,
+    "state": "closed",
+    "title": "MultiPart and URLEncoded form parsing",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

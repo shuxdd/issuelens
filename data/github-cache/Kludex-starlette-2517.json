@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2024-02-16T11:34:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2518",
+          "number": 2518,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2518"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix compatibility with anyio v3: MemoryObjectReceiveStream has no attribute 'close'"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "The following issue happens when trying to reproduce the snippet from https://github.com/encode/starlette/issues/2516 on anyio v3:\r\n\r\n```python\r\n    | Traceback (most recent call last):\r\n    |   File \"/home/jonathan/git/starlette/starlette/middleware/base.py\", line 137, in close_recv_stream_on_response_sent\r\n    |     recv_stream.close()\r\n    | AttributeError: 'MemoryObjectReceiveStream' object has no attribute 'close'\r\n```\r\n\r\nThe fix is simple:\r\n\r\n```diff\r\n--- a/starlette/middleware/base.py\r\n+++ b/starlette/middleware/base.py\r\n@@ -134,7 +134,7 @@ class BaseHTTPMiddleware:\r\n\r\n             async def close_recv_stream_on_response_sent() -> None:\r\n                 await response_sent.wait()\r\n-                recv_stream.close()\r\n+                await recv_stream.aclose()\r\n\r\n             async def send_no_error(message: Message) -> None:\r\n                 try:\r\n```\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2517\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2517/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2517/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-02-17T14:12:47Z",
+    "created_at": "2024-02-16T11:30:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2517",
+    "number": 2517,
+    "state": "closed",
+    "title": "Incompatibility with anyio v3",
+    "user": "jonathanslenders"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-02-16T11:34:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2518",
+          "number": 2518,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2518"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix compatibility with anyio v3: MemoryObjectReceiveStream has no attribute 'close'"
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-17T14:12:47Z",
+      "event": "closed"
+    }
+  ]
+}

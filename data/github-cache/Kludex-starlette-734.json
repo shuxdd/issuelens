@@ -1,0 +1,375 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-29T13:21:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ff314dd85072c06c8fda3e8314cab3fc6903b41a",
+      "sha": "ff314dd85072c06c8fda3e8314cab3fc6903b41a"
+    },
+    {
+      "committed_at": "2022-01-29T13:29:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f",
+      "sha": "a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f"
+    },
+    {
+      "committed_at": "2022-01-29T13:40:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/636a26f6afe679b1dd1326eff46ed8af83a0e13f",
+      "sha": "636a26f6afe679b1dd1326eff46ed8af83a0e13f"
+    },
+    {
+      "committed_at": "2022-01-29T15:36:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5",
+      "sha": "f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5"
+    },
+    {
+      "committed_at": "2022-01-29T15:37:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/73124568821b0379188a794ef975dae6ca53e8a8",
+      "sha": "73124568821b0379188a794ef975dae6ca53e8a8"
+    },
+    {
+      "committed_at": "2022-01-29T16:04:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4151df6599ca6f813e4014c482f3b4a4cc48f91b",
+      "sha": "4151df6599ca6f813e4014c482f3b4a4cc48f91b"
+    },
+    {
+      "committed_at": "2022-01-29T16:13:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8438a9f26d42d66356d24c8be4073dc72a4feb57",
+      "sha": "8438a9f26d42d66356d24c8be4073dc72a4feb57"
+    },
+    {
+      "committed_at": "2022-04-21T05:49:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/788f011d09fc9c8a21e3535640d535b11a73b93a",
+      "sha": "788f011d09fc9c8a21e3535640d535b11a73b93a"
+    },
+    {
+      "committed_at": "2022-05-27T05:02:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dd8b7edb48de87435382f6fa3a0189e63ce9170c",
+      "sha": "dd8b7edb48de87435382f6fa3a0189e63ce9170c"
+    },
+    {
+      "committed_at": "2022-05-27T05:09:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c74668b073cc1d68b5ca2cae7ae4351df04e652",
+      "sha": "7c74668b073cc1d68b5ca2cae7ae4351df04e652"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2022-01-29T16:02:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1444",
+          "number": 1444,
+          "pull_request": {
+            "merged_at": "2022-05-28T07:28:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve detection of async callables"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2F_utils.py",
+      "changes": 12,
+      "deletions": 0,
+      "filename": "starlette/_utils.py",
+      "sha": "0710aebdc00c5cbce99dec0528cfc97c97579ca2",
+      "status": "added"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fauthentication.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/authentication.py",
+      "sha": "4affb4383f24ce2583d10c66ca46ae2ed087699c",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fbackground.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/background.py",
+      "sha": "4aaf7ae3cf4addc0e0c64434419abf9462599078",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fendpoints.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/endpoints.py",
+      "sha": "156663e4901bff6d2c2645f3ee1f49b4678c8e73",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "052b885f43649f228c8992b044ab4944a6fe954e",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Fexceptions.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/exceptions.py",
+      "sha": "42fd41ae2fd528aeffd675bdc062483f8e0a0e28",
+      "status": "modified"
+    },
+    {
+      "additions": 10,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Frouting.py",
+      "changes": 15,
+      "deletions": 5,
+      "filename": "starlette/routing.py",
+      "sha": "7e10b16f942025f34979a5e87f14bb3d6e7bd3e7",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Ftestclient.py",
+      "changes": 7,
+      "deletions": 5,
+      "filename": "starlette/testclient.py",
+      "sha": "efe2b493bb0dd42f3a3262a5eb1fc3d450a5fb51",
+      "status": "modified"
+    },
+    {
+      "additions": 79,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/tests%2Ftest__utils.py",
+      "changes": 79,
+      "deletions": 0,
+      "filename": "tests/test__utils.py",
+      "sha": "fac57a2e51b5882352662d9990f66165a4dda32b",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "I need to implement a decorator for an endpoint, and for some technical reasons, I would like to implement it with a class. I also would like my decorator to not need parenthesis when called. (i.e. prefer `@my_decorator` over `@my_decorator()`).\r\n\r\nHere is a simple implementation:\r\n```python\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Route\r\n\r\n\r\nclass foobar:\r\n    def __init__(self, func):\r\n        self.func = func\r\n\r\n    def __call__(self, *args, **kwargs):\r\n        return self.func(*args, **kwargs)\r\n\r\n\r\n@foobar\r\ndef my_endpoint(request):\r\n    return JSONResponse({\"response\": \"my_endpoint\"})\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[\r\n        Route('/my_endpoint', my_endpoint),\r\n    ],\r\n)\r\n```\r\n\r\nBut accessing to `/my_endpoint` produces this traceback:\r\n\r\n```python\r\nTraceback (most recent call last):\r\n  File \"~/myproject/env/lib/python3.8/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 385, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/uvicorn/middleware/proxy_headers.py\", line 45, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/applications.py\", line 102, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 178, in __call__\r\n    raise exc from None\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/middleware/errors.py\", line 156, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/routing.py\", line 551, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"~/myproject/env/lib/python3.8/site-packages/starlette/routing.py\", line 228, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"./app.py\", line 11, in __call__\r\n    return self.func(*args, **kwargs)\r\nTypeError: my_endpoint() takes 1 positional argument but 3 were given\r\n```\r\n\r\nI am not really sure what is going wrong here. I also did not find documentation about endpoint decorators with starlette.\r\nDo I make mistakes when defining my decorator or is it something not supported by starlette?\r\n\r\nPS: I used starlette 0.13 and python 3.8\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/734\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/734/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/734/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:36Z",
+    "closed_at": "2026-04-21T08:44:41Z",
+    "created_at": "2019-11-25T16:29:09Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/734",
+    "labels": [
+      "feature",
+      "help wanted"
+    ],
+    "number": 734,
+    "state": "closed",
+    "title": "Endpoint class decorators",
+    "user": "azmeuk"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-28T07:28:59Z",
+    "created_at": "2022-01-29T13:28:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1444",
+    "merge_commit_sha": "5b058faa108ebe0e7d8810e84bf88cb37744faf8",
+    "merged_at": "2022-05-28T07:28:59Z",
+    "number": 1444,
+    "title": "Improve detection of async callables",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-11-28T08:50:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-16T15:47:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-16T15:47:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-16T15:47:40Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-21T01:57:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-21T19:28:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-21T19:28:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-21T19:28:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-21T19:35:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-21T19:35:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-21T19:37:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-21T19:37:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-22T19:06:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-22T19:06:44Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-22T19:06:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-22T19:24:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-22T19:24:07Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-12-22T19:24:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-12-22T20:03:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-23T17:06:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-23T17:49:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-23T17:50:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-23T17:52:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-12-23T18:39:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-10T13:41:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-16T10:20:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-29T16:02:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1444",
+          "number": 1444,
+          "pull_request": {
+            "merged_at": "2022-05-28T07:28:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve detection of async callables"
+        }
+      }
+    },
+    {
+      "created_at": "2022-08-05T12:33:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-05T12:43:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-05T16:38:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-08-15T06:11:56Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-08-15T06:11:56Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-09-21T10:17:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-14T15:30:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-08-14T15:30:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-14T15:30:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-08-14T15:30:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-08-14T15:30:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-12-22T09:54:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-23T12:35:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-04-17T05:50:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-04-21T08:44:41Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-04-21T09:35:36Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2026-04-21T12:50:29Z",
+      "event": "unsubscribed"
+    }
+  ]
+}

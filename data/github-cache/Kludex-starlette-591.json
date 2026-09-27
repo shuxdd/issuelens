@@ -1,0 +1,113 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-01-14T01:35:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/987",
+          "number": 987,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Context Values"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-27T07:04:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Is there a Recommended Way of Handling Dependency Injections?"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi.\r\n\r\nIt would be useful to be able to inject values into the `context` provided to the graphql schema when using the `GraphQLApp`. It can be used to provide dependencies, for example.\r\n\r\nThanks!",
+    "closed_at": "2019-08-27T10:37:37Z",
+    "created_at": "2019-08-01T15:03:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/591",
+    "number": 591,
+    "state": "closed",
+    "title": "Providing custom context to GraphQLApp",
+    "user": "DrPyser"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-27T10:37:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-28T01:40:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-05T16:43:29Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-06T01:18:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-06T01:18:33Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-06T01:18:33Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-04-04T18:30:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-05T04:31:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-14T01:35:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/987",
+          "number": 987,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Context Values"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-27T07:04:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/ciscorn/starlette-graphene3/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "ciscorn/starlette-graphene3"
+          },
+          "title": "Is there a Recommended Way of Handling Dependency Injections?"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-10T10:42:18Z",
+      "event": "commented"
+    }
+  ]
+}

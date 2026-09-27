@@ -1,0 +1,36 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "When I submit the following html form:\r\n\r\n```<!DOCTYPE html>\r\n<html>\r\n<body>\r\n\r\n<h2>HTML Forms</h2>\r\n\r\n<!-- Simple form which will send a POST request -->\r\n<form action=\"http://localhost:8000/test\" method=\"post\">\r\n  <label for=\"POST-name\">Name:</label>\r\n  <input id=\"POST-name\" type=\"text\" name=\"name\">\r\n  <input type=\"submit\" value=\"Save\">\r\n</form>\r\n</body>\r\n</html>\r\n```\r\n\r\nto the following route:\r\n\r\n```\r\n@app.route('/test', methods=['POST'])\r\nasync def ipn_post(request):\r\n    print(\"helllo\")\r\n```\r\nI get nothing in the queryparams within the request. Is form data available elsewhere? It works fine from postman and insomnia\r\n\r\nThanks\r\n",
+    "closed_at": "2019-10-14T19:35:36Z",
+    "created_at": "2019-10-14T19:29:59Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/677",
+    "number": 677,
+    "state": "closed",
+    "title": "No form data in requests?",
+    "user": "jodusan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-14T19:35:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T19:35:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-10-14T19:35:36Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2019-10-14T19:35:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-10-14T19:35:36Z",
+      "event": "subscribed"
+    }
+  ]
+}

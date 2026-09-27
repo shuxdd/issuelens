@@ -192,3 +192,238 @@ def test_case_evidence_must_keep_traceable_source_urls() -> None:
         "repair_evidence.changed_files[0].source_url is required",
         "repair_evidence.test_files[0].source_url is required",
     ]
+
+
+def test_formal_gold_requires_evaluation_only_mechanism_and_evidence_locations(
+    tmp_path: Path,
+) -> None:
+    gold_directory = tmp_path / "evaluation" / "gold"
+    gold_directory.mkdir(parents=True)
+    (gold_directory / "starlette-issue-3497.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "case_id": "starlette-issue-3497",
+                "read_access": "investigation",
+                "root_cause_files": [{"path": "starlette/testclient.py", "relevance": 2}],
+                "changed_files": [{"path": "starlette/testclient.py"}],
+                "test_files": [{"path": "tests/test_testclient.py"}],
+                "root_cause_mechanism": "",
+                "evidence_locations": [],
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "starlette-issue-3497 gold: read_access must be evaluation_only",
+        "starlette-issue-3497 gold: root_cause_mechanism is required",
+        "starlette-issue-3497 gold: evidence_locations must not be empty",
+    ]
+
+
+def test_repair_series_cannot_cross_development_and_primary_sets(tmp_path: Path) -> None:
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "splits": {
+                    "development": ["starlette-issue-100"],
+                    "primary": ["starlette-issue-101"]
+                    + [f"starlette-issue-{number}" for number in range(102, 131)],
+                    "stability": ["starlette-issue-101"]
+                    + [f"starlette-issue-{number}" for number in range(102, 111)],
+                },
+                "repair_series": {
+                    "starlette-repair-series-200": [
+                        "starlette-issue-100",
+                        "starlette-issue-101",
+                    ]
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "starlette-repair-series-200 crosses development and primary sets"
+    ]
+
+
+def test_primary_evaluation_set_must_contain_exactly_thirty_cases(
+    tmp_path: Path,
+) -> None:
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "splits": {
+                    "development": [],
+                    "primary": [f"starlette-issue-{number}" for number in range(29)],
+                    "stability": [f"starlette-issue-{number}" for number in range(10)],
+                },
+                "repair_series": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "primary evaluation set must contain exactly 30 cases, found 29"
+    ]
+
+
+def test_stability_subset_must_contain_exactly_ten_cases(tmp_path: Path) -> None:
+    primary = [f"starlette-issue-{number}" for number in range(30)]
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "splits": {
+                    "development": [],
+                    "primary": primary,
+                    "stability": primary[:9],
+                },
+                "repair_series": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "stability subset must contain exactly 10 cases, found 9"
+    ]
+
+
+def test_stability_subset_must_only_contain_primary_cases(tmp_path: Path) -> None:
+    primary = [f"starlette-issue-{number}" for number in range(30)]
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "splits": {
+                    "development": [],
+                    "primary": primary,
+                    "stability": primary[:9] + ["starlette-issue-999"],
+                },
+                "repair_series": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "stability subset contains cases outside the primary set: starlette-issue-999"
+    ]
+
+
+def test_frozen_manifest_requires_auditable_build_metrics_hashes_and_leak_result(
+    tmp_path: Path,
+) -> None:
+    primary = [f"starlette-issue-{number}" for number in range(30)]
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "frozen": True,
+                "splits": {
+                    "development": [],
+                    "primary": primary,
+                    "stability": primary[::3],
+                },
+                "repair_series": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "frozen manifest requires build_metadata",
+        "frozen manifest requires preregistered_metrics",
+        "frozen manifest requires file_hashes",
+        "frozen manifest requires leak_check",
+    ]
+
+
+def test_frozen_manifest_rejects_file_hash_drift(tmp_path: Path) -> None:
+    primary = [f"starlette-issue-{number}" for number in range(30)]
+    (tmp_path / "reviews.json").write_text("{}\n", encoding="utf-8")
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "frozen": True,
+                "splits": {
+                    "development": [],
+                    "primary": primary,
+                    "stability": primary[::3],
+                },
+                "repair_series": {},
+                "build_metadata": {"builder_version": "cases-v2"},
+                "preregistered_metrics": {"root_cause_recall_at_10": 0.7},
+                "file_hashes": {"reviews.json": "0" * 64},
+                "leak_check": {"status": "passed"},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == ["file hash mismatch: reviews.json"]
+
+
+def test_primary_evaluation_set_must_be_sorted_by_investigation_cutoff(
+    tmp_path: Path,
+) -> None:
+    cases_directory = tmp_path / "cases"
+    cases_directory.mkdir()
+    primary = [f"starlette-issue-{number}" for number in range(30)]
+    for number, case_id in enumerate(primary, start=1):
+        case = valid_case()
+        case["case_id"] = case_id
+        case["investigation_cutoff"] = f"2026-01-{number:02d}T00:00:00Z"
+        case["allowed_evidence"]["items"][0]["observed_at"] = (
+            "2025-12-01T00:00:00Z"
+        )
+        (cases_directory / f"{case_id}.json").write_text(
+            json.dumps(case), encoding="utf-8"
+        )
+    primary[0], primary[1] = primary[1], primary[0]
+    evaluation_directory = tmp_path / "evaluation"
+    evaluation_directory.mkdir()
+    (evaluation_directory / "dataset-manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "2.0",
+                "dataset_version": "starlette-eval-v1",
+                "splits": {
+                    "development": [],
+                    "primary": primary,
+                    "stability": [f"starlette-issue-{number}" for number in range(0, 30, 3)],
+                },
+                "repair_series": {},
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    assert check_cases(tmp_path) == [
+        "primary evaluation set must be sorted by investigation cutoff and case id"
+    ]

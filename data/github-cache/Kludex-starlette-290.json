@@ -1,0 +1,100 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-12-25T23:42:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/df8805aa1ba26e46d90673a53e7029bc113380b7",
+      "sha": "df8805aa1ba26e46d90673a53e7029bc113380b7"
+    },
+    {
+      "committed_at": "2018-12-26T17:07:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/206d79afddd177a1311860075b98456d58e746ed",
+      "sha": "206d79afddd177a1311860075b98456d58e746ed"
+    },
+    {
+      "committed_at": "2018-12-26T17:13:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cc276af612cd3324b41ff58d715dbad469f39a2f",
+      "sha": "cc276af612cd3324b41ff58d715dbad469f39a2f"
+    },
+    {
+      "committed_at": "2019-01-02T11:38:49Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bfa7d6ee837e480a099172743d85ec37ef0c1dce",
+      "sha": "bfa7d6ee837e480a099172743d85ec37ef0c1dce"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-12-26T17:08:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/292",
+          "number": 292,
+          "pull_request": {
+            "merged_at": "2019-01-02T11:47:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/292"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add contributing guidelines"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 76,
+      "blob_url": "https://github.com/Kludex/starlette/blob/bfa7d6ee837e480a099172743d85ec37ef0c1dce/CONTRIBUTING.md",
+      "changes": 76,
+      "deletions": 0,
+      "filename": "CONTRIBUTING.md",
+      "sha": "5cd3e51f0b81dfc887372e656715fc3972018deb",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Hi!\r\n\r\nWhile figuring out a potential solution for #289, I had to setup the repo and install Starlette locally.\r\n\r\nAlthough the process is rather straight-forward, I think it would be good practice to have contribution guidelines to make things clear and facilitate contributor onboarding.\r\n\r\nI already went ahead and committed a [draft](https://github.com/encode/starlette/commit/df8805aa1ba26e46d90673a53e7029bc113380b7) to my fork based on the guidelines I wrote for Bocadillo. If it looks fine, I'd be happy to open a PR. :+1:",
+    "closed_at": "2019-01-02T11:47:37Z",
+    "created_at": "2018-12-25T23:48:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/290",
+    "number": 290,
+    "state": "closed",
+    "title": "Contributing guidelines",
+    "user": "florimondmanca"
+  },
+  "pull_request": {
+    "closed_at": "2019-01-02T11:47:37Z",
+    "created_at": "2018-12-26T17:08:39Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/292",
+    "merge_commit_sha": "2505df422532b1e76daaf03bfd0b9dfd380cfa94",
+    "merged_at": "2019-01-02T11:47:37Z",
+    "number": 292,
+    "title": "Add contributing guidelines",
+    "user": "florimondmanca"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-26T14:57:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-26T17:08:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/292",
+          "number": 292,
+          "pull_request": {
+            "merged_at": "2019-01-02T11:47:37Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/292"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add contributing guidelines"
+        }
+      }
+    }
+  ]
+}

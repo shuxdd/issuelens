@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Describe the bug\r\nThe websocket connection (despite being an upgrade of an existing connection) does not have access to any of the headers of the original connection. This is important for many things, not the the least of which is Authentication/Authorization. \r\n\r\n\r\n### To reproduce\r\n\r\nAttempt to use the authentication middleware on a websocket\r\n\r\n\r\n### Expected behavior\r\n\r\nThere is a mechanism for accessing the headers from the original request, OR, the user and auth is carried over when the connection is upgraded\r\n\r\n### Actual behavior\r\n\r\nAll the headers are replaced by the websocket headers on upgrade, specifically removing Authorization\r\n\r\n\r\n",
+    "closed_at": "2021-10-04T19:09:37Z",
+    "created_at": "2021-10-01T23:00:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1295",
+    "number": 1295,
+    "state": "closed",
+    "title": "Unable to authenticate websocket connections. ",
+    "user": "JonathanFraser"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-04T19:09:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-04T19:09:37Z",
+      "event": "closed"
+    }
+  ]
+}

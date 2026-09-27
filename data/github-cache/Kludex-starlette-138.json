@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-10-29T11:02:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/152",
+          "number": 152,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/152"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Plaintext response with status"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I have noticed that there is `starlette.status`, which groups all status codes in one place. However, there are several places in the code where it's using a number directly instead of the `starlette.status`, e.g. when [returning errors](https://github.com/encode/starlette/blob/49f76ab5e9ef0ce5d966485553ad6019a9d37da5/starlette/endpoints.py#L40).\r\n\r\nThat said, I'm a big fan of the standard library's nice little `http.HTTPStatus` enum, which neatly groups all the status codes and their standard messages and descriptions, while at the same time keeps the integer functionality (truth be told, HTTP status codes are not _really_ integers; we just treat them as such as it's easy and clean).\r\n\r\nSo I'd like to propose doing a few minor refactorings in the Starlette code; I can easily make a PR myself, but I'd like to hear any comments on the idea first, in particular if there is any concrete reason for not using `http.HTTPStatus`. My ideas are:\r\n\r\n1. Replace all integer values in `starlette.status` with the equivalent `HTTPStatus` value; or even, possibly, completely replace them in the manner that `starlette.status.HTTP is http.HTTPStatus` (this needs applying the change everywhere, but it shouldn't be a problem if its just internal).\r\n2. Replace all the integers used for status code with the corresponding `startlette.status` values.\r\n3. Create a `HTTPStatus`-like enum for all the codes it does not cover -- this especially goes for the WebSocket Close Codes -- and apply them in the same manner as above.\r\n\r\nOptionally, I would like to suggest a new `PlainTextResponse` subclass specifically for errors, so in the case [linked above](https://github.com/encode/starlette/blob/49f76ab5e9ef0ce5d966485553ad6019a9d37da5/starlette/endpoints.py#L40) it would be something like:\r\n\r\n    return HTTPErrorResponse(status.HTTP_405_METHOD_NOT_ALLOWED)\r\n\r\nor, if the second approach in no. 1 above is used:\r\n\r\n    return HTTPErrorResponse(status.HTTP.METHOD_NOT_ALLOWED)\r\n\r\nMy main problem here is that it can be used for any type of response and not just errors; the solutions I can think of are:\r\n\r\n1. Trust the user and let them use it as they see fit (I would prefer this).\r\n2. Not trust the user and explicitly check if the status is >= 400; I'm not sure what is the general policy for Starlette in such cases.\r\n\r\nOK, that's it from me for now, looking forward to any thoughts and comments.",
+    "closed_at": "2018-12-07T13:23:12Z",
+    "created_at": "2018-10-21T11:18:06Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/138",
+    "number": 138,
+    "state": "closed",
+    "title": "Consolidating HTTP status codes",
+    "user": "berislavlopac"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-21T14:07:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T19:30:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-22T23:03:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-23T09:15:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-23T11:25:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-23T11:27:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-23T16:58:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-29T11:02:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/152",
+          "number": 152,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/152"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Plaintext response with status"
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-29T11:04:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-07T13:23:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-22T12:50:14Z",
+      "event": "commented"
+    }
+  ]
+}

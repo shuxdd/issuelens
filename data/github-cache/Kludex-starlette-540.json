@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Just thought this would be worth a mention.\r\n\r\nThanks for all your work. \r\n\r\nwe have a version of [starlette.templating.Jinja2Templates](https://github.com/encode/starlette/blob/master/starlette/templating.py#L13) with a small tweak. Instead of taking a directory as an argument we are passing an instance of [jinja2.BaseLoader](http://jinja.pocoo.org/docs/2.10/api/#loaders) then we can have one globally defined template var that can utilize many folders/packages/egg's etc and pass it around.\r\n\r\nJust incase you like the idea for future.\r\n\r\nCheers, Stu",
+    "closed_at": "2019-06-12T09:33:48Z",
+    "created_at": "2019-06-12T08:47:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/540",
+    "number": 540,
+    "state": "closed",
+    "title": "Jinja2Templates tweak",
+    "user": "stuartaccent"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-06-12T09:33:48Z",
+      "event": "commented"
+    }
+  ]
+}

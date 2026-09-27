@@ -1,0 +1,33 @@
+{
+  "case_id": "starlette-issue-622",
+  "changed_files": [
+    {
+      "path": "starlette/graphql.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/starlette%2Fgraphql.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/graphql.py",
+      "snapshot_commit": "0e75f9f2b8454f84d86d6196131e85dadc465583",
+      "source_url": "https://github.com/Kludex/starlette/blob/0e75f9f2b8454f84d86d6196131e85dadc465583/starlette/graphql.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/graphql.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'GraphQL response should not include error key if no error occured' originates in starlette/graphql.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_graphql.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/tests%2Ftest_graphql.py",
+      "status": "modified"
+    }
+  ]
+}

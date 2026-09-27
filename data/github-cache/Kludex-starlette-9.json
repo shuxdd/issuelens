@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Requests should possibly expose a `MutableMapping` interface, rather than `Mapping`.\r\n\r\nAlthough we present immutable interfaces on the request properties, it'd make sense for requests to more correctly match the `scope` interface, and allow dict mutation.\r\n\r\nWe'd need to take some care to invalidate cached properties if we did so, particularly if `request['headers']` is mutated.",
+    "closed_at": "2018-08-28T14:31:17Z",
+    "created_at": "2018-06-26T10:02:34Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/9",
+    "number": 9,
+    "state": "closed",
+    "title": "Requests as MutableMapping",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-08-28T14:31:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-14T11:26:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-16T09:54:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-29T12:50:21Z",
+      "event": "commented"
+    }
+  ]
+}

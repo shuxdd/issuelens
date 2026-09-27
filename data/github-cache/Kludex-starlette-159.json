@@ -1,0 +1,94 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-30T14:47:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/2623330db58d0636bfbe72cfaf3e368bb2410f2b",
+      "sha": "2623330db58d0636bfbe72cfaf3e368bb2410f2b"
+    },
+    {
+      "committed_at": "2018-10-30T15:18:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9e304b2b39fbfc10aa80dc2774475525e1c3eec5",
+      "sha": "9e304b2b39fbfc10aa80dc2774475525e1c3eec5"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-30T15:14:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/163",
+          "number": 163,
+          "pull_request": {
+            "merged_at": "2018-10-30T15:24:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/163"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow handler-like objects within routing"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/9e304b2b39fbfc10aa80dc2774475525e1c3eec5/starlette%2Frouting.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/routing.py",
+      "sha": "9135a884b14afb7152fb162c5073332bcd32fb9e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Greetings, thanks for the project. \r\n\r\nI am having issues after upgrading where it seems one of my routes is getting converted to a coroutine somewhere and not awaited and then is being passed down all the middleware.\r\n\r\n```\r\nTraceback (most recent call last):\r\n  File \"../lib/python3.7/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 387, in run_asgi\r\n    result = await asgi(self.receive, self.send)\r\n  File \"../lib/python3.7/site-packages/uvicorn/middleware/message_logger.py\", line 59, in __call__\r\n    await self.inner(self.receive, self.send)\r\n  File \"../lib/python3.7/site-packages/uvicorn/middleware/debug.py\", line 80, in __call__\r\n    await asgi(receive, self.send)\r\n  File \"../lib/python3.7/site-packages/starlette/exceptions.py\", line 69, in app\r\n    raise exc from None\r\n  File \"../lib/python3.7/site-packages/starlette/exceptions.py\", line 61, in app\r\n    await instance(receive, sender)\r\nTypeError: 'coroutine' object is not callable\r\n```",
+    "closed_at": "2018-10-30T15:24:08Z",
+    "created_at": "2018-10-29T20:58:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/159",
+    "number": 159,
+    "state": "closed",
+    "title": "Routes that were working on 0.5.5 not working on 0.6.2",
+    "user": "jared-mackey"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-30T15:24:08Z",
+    "created_at": "2018-10-30T14:54:49Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/163",
+    "merge_commit_sha": "689573be2b61e46bb80f4db2f6744af4828d59db",
+    "merged_at": "2018-10-30T15:24:07Z",
+    "number": 163,
+    "title": "Allow handler-like objects within routing",
+    "user": "Dith3r"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-29T21:13:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-29T22:45:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-10-30T15:14:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/163",
+          "number": 163,
+          "pull_request": {
+            "merged_at": "2018-10-30T15:24:07Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/163"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow handler-like objects within routing"
+        }
+      }
+    }
+  ]
+}

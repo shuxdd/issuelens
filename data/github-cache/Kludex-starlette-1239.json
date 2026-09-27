@@ -1,0 +1,61 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-07-06T16:32:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1240",
+          "number": 1240,
+          "pull_request": {
+            "merged_at": "2022-02-16T10:58:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1240"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add union operators to MutableHeaders"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nUnable to merge `MutableHeaders` with `dict`.\r\n\r\n### To reproduce\r\n\r\n```python3\r\nfrom starlette.datastructures import MutableHeaders\r\n\r\nresponse = MutableHeaders()\r\nresponse |= {\"X-Header\": \"string\"}\r\n```\r\n### Expected behavior\r\n\r\n```python3\r\n>>> response\r\nMutableHeaders({'x-header': 'string'})\r\n```\r\n\r\n### Actual behavior\r\n\r\nRaised exception:\r\n```\r\nTypeError: unsupported operand type(s) for |=: 'MutableHeaders' and 'dict'\r\n```\r\n\r\n### Environment\r\n\r\n- OS: Ubuntu 21.04\r\n- Python version: 3.9.6\r\n- Starlette version: 0.15.0\r\n\r\n### Additional context\r\n\r\nMethod `MutableHeaders.update()` can resolve the issue but I think comfortable is used to operators `|` (for `merge`) and `|=` (for `update`).\r\n\r\nIt's comfortable if you have many headers like:\r\n\r\n```python3\r\n...\r\n\r\nheaders = {\r\n    \"X-Header-1\": \"string-1\",\r\n    \"X-Header-1\": \"string-2\",\r\n    \"X-Header-3\": \"string-3\",\r\n    \"X-Header-...\": \"string-...\",\r\n    \"X-Header-N\": \"string-N\",\r\n}\r\n\r\nresponse.headers |= headers  # equals to: response.headers.update(headers)\r\n\r\nreturn response\r\n\r\n...\r\n```\r\nIt's like [Dictionary Merge & Update Operators in Python 3.9](https://docs.python.org/3/whatsnew/3.9.html#dictionary-merge-update-operators).\r\n\r\n\r\nWhat do you think about it? Thank you.",
+    "closed_at": "2022-02-15T09:50:27Z",
+    "created_at": "2021-07-06T16:29:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1239",
+    "number": 1239,
+    "state": "closed",
+    "title": "Unable to merge MutableHeaders with dict",
+    "user": "manlix"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-07-06T16:32:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1240",
+          "number": 1240,
+          "pull_request": {
+            "merged_at": "2022-02-16T10:58:56Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1240"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add union operators to MutableHeaders"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-07T22:25:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-08T12:06:17Z",
+      "event": "commented"
+    }
+  ]
+}

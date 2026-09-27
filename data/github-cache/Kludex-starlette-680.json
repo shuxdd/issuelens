@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi, the install script in the scripts directory needs a little fix, either the shebang can be changed to\r\n\r\n```\r\n#/bin/bash -e\r\n```\r\n\r\nor the double square brackets comparisons must go as they're not an `sh` thing.\r\n\r\nWhen I tried run ./scripts/install I've got errors:\r\n\r\n```\r\n./scripts/install: 4: ./scripts/install: [[: not found\r\n./scripts/install: 9: ./scripts/install: [[: not found \r\n```\r\n\r\nI can submit a PR but I'd like to know what would you think the fix should be.",
+    "closed_at": "2020-01-29T11:34:25Z",
+    "created_at": "2019-10-19T08:39:21Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/680",
+    "number": 680,
+    "state": "closed",
+    "title": "install scripts",
+    "user": "espositofulvio"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-22T08:44:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-01-29T11:34:25Z",
+      "event": "commented"
+    }
+  ]
+}

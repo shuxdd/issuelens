@@ -1,0 +1,109 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-09-14T19:30:58Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/046b3b0fb1ae5e92bbccb16a7fb6da4cf3bec1d5",
+      "sha": "046b3b0fb1ae5e92bbccb16a7fb6da4cf3bec1d5"
+    },
+    {
+      "committed_at": "2018-09-16T20:21:53Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5160ae637f0b93bf6d80a77fa1d7acbbd280b4e3",
+      "sha": "5160ae637f0b93bf6d80a77fa1d7acbbd280b4e3"
+    },
+    {
+      "committed_at": "2018-09-19T17:59:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/217660a1530062fe0aac0099b5fa3a12822cf3db",
+      "sha": "217660a1530062fe0aac0099b5fa3a12822cf3db"
+    },
+    {
+      "committed_at": "2018-09-24T16:16:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d279388e8f82f8d8af059f8aa4b52d7f9fa98401",
+      "sha": "d279388e8f82f8d8af059f8aa4b52d7f9fa98401"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-09-14T19:37:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/60",
+          "number": 60,
+          "pull_request": {
+            "merged_at": "2018-10-02T11:31:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/60"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing annotations added datastructures & requests modules"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 42,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d279388e8f82f8d8af059f8aa4b52d7f9fa98401/starlette%2Fdatastructures.py",
+      "changes": 83,
+      "deletions": 41,
+      "filename": "starlette/datastructures.py",
+      "sha": "1b5e951faad30866d0d8dee65df2aac1575e08b8",
+      "status": "modified"
+    },
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d279388e8f82f8d8af059f8aa4b52d7f9fa98401/starlette%2Frequests.py",
+      "changes": 22,
+      "deletions": 10,
+      "filename": "starlette/requests.py",
+      "sha": "38d0fbff7cf398b07c95594d7d09f659c574a5f3",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "There are plenty of places where we should add type annotations...\r\n\r\n```shell\r\nmypy starlette --disallow-untyped-defs\r\n\r\nstarlette/datastructures.py:7: error: Function is missing a type annotation\r\nstarlette/datastructures.py:13: error: Function is missing a type annotation\r\nstarlette/datastructures.py:17: error: Function is missing a type annotation\r\nstarlette/datastructures.py:21: error: Function is missing a type annotation\r\nstarlette/datastructures.py:25: error: Function is missing a type annotation\r\n...\r\n```\r\n\r\nFor the purposes of this ticket, ignore the error cases (see #6) since they're pretty tricky, and just focus on including any missing annotations.\r\n",
+    "closed_at": "2018-10-17T12:01:11Z",
+    "created_at": "2018-06-26T09:23:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/7",
+    "number": 7,
+    "state": "closed",
+    "title": "Add missing annotations",
+    "user": "lovelydinosaur"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-02T11:31:06Z",
+    "created_at": "2018-09-14T19:37:36Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/60",
+    "merge_commit_sha": "7eafe567df1601fa10f8b39aec519d3ba42d3aa1",
+    "merged_at": "2018-10-02T11:31:06Z",
+    "number": 60,
+    "title": "Missing annotations added datastructures & requests modules",
+    "user": "marcosschroh"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-09-14T19:37:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/60",
+          "number": 60,
+          "pull_request": {
+            "merged_at": "2018-10-02T11:31:06Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/60"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing annotations added datastructures & requests modules"
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-17T11:48:34Z",
+      "event": "commented"
+    }
+  ]
+}

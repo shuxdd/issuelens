@@ -1,0 +1,52 @@
+{
+  "case_id": "starlette-issue-2227",
+  "changed_files": [
+    {
+      "path": "requirements.txt",
+      "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/requirements.txt",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/_utils.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2F_utils.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/middleware/base.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/starlette%2Fmiddleware%2Fbase.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/_utils.py",
+      "snapshot_commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+      "source_url": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/_utils.py"
+    },
+    {
+      "path": "starlette/middleware/base.py",
+      "snapshot_commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+      "source_url": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/middleware/base.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/_utils.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/middleware/base.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by \"No module named 'exceptiongroup' when upgraded to starlette 0.31.0\" originates in starlette/_utils.py, starlette/middleware/base.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_wsgi.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/f268950dea8b095d80b10971690441fdb9cf3a23/tests%2Fmiddleware%2Ftest_wsgi.py",
+      "status": "modified"
+    }
+  ]
+}

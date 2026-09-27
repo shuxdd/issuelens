@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "The `TestClient` inherits `httpx.Client` and calls the super class constructor with the deprecated `app` argument, which has been removed in version of 0.28.0 of httpx.\r\n\r\nSample error:\r\n\r\n```\r\n    def __init__(\r\n        self,\r\n        app: ASGIApp,\r\n        base_url: str = \"http://testserver\",\r\n        raise_server_exceptions: bool = True,\r\n        root_path: str = \"\",\r\n        backend: str = \"asyncio\",\r\n        backend_options: typing.Optional[typing.Dict[str, typing.Any]] = None,\r\n        cookies: httpx._client.CookieTypes = None,\r\n        headers: typing.Dict[str, str] = None,\r\n    ) -> None:\r\n        self.async_backend = _AsyncBackend(\r\n            backend=backend, backend_options=backend_options or {}\r\n        )\r\n        if _is_asgi3(app):\r\n            app = typing.cast(ASGI3App, app)\r\n            asgi_app = app\r\n        else:\r\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\r\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\r\n        self.app = asgi_app\r\n        self.app_state: typing.Dict[str, typing.Any] = {}\r\n        transport = _TestClientTransport(\r\n            self.app,\r\n            portal_factory=self._portal_factory,\r\n            raise_server_exceptions=raise_server_exceptions,\r\n            root_path=root_path,\r\n            app_state=self.app_state,\r\n        )\r\n        if headers is None:\r\n            headers = {}\r\n        headers.setdefault(\"user-agent\", \"testclient\")\r\n>       super().__init__(\r\n            app=self.app,\r\n            base_url=base_url,\r\n            headers=headers,\r\n            transport=transport,\r\n            follow_redirects=True,\r\n            cookies=cookies,\r\n        )\r\nE       TypeError: __init__() got an unexpected keyword argument 'app'\r\n```",
+    "closed_at": "2024-12-03T09:36:22Z",
+    "created_at": "2024-12-03T09:07:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2781",
+    "number": 2781,
+    "state": "closed",
+    "title": "TestClient is broken as of httpx 0.28.0",
+    "user": "OvervCW"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-12-03T09:36:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-12-03T09:36:22Z",
+      "event": "closed"
+    }
+  ]
+}

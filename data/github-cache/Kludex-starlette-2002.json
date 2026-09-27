@@ -1,0 +1,175 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-01-23T13:50:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d952ac2b83471a03189e8c29c31a82bb56253a16",
+      "sha": "d952ac2b83471a03189e8c29c31a82bb56253a16"
+    },
+    {
+      "committed_at": "2023-01-23T13:58:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e09fd5df060b84bcf6ff2f5cc8c8e45116215d51",
+      "sha": "e09fd5df060b84bcf6ff2f5cc8c8e45116215d51"
+    },
+    {
+      "committed_at": "2023-01-23T13:59:35Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8654547d7ebdea15bedcc1a38d76203222b7be60",
+      "sha": "8654547d7ebdea15bedcc1a38d76203222b7be60"
+    },
+    {
+      "committed_at": "2023-01-23T18:07:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4edcb8008506cbdbba4ca6831817233f23378da0",
+      "sha": "4edcb8008506cbdbba4ca6831817233f23378da0"
+    },
+    {
+      "committed_at": "2023-02-04T09:26:34Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/13fee72b3ee363167a1e3a4a03c0243081301bb9",
+      "sha": "13fee72b3ee363167a1e3a4a03c0243081301bb9"
+    },
+    {
+      "committed_at": "2023-02-04T09:29:28Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0816c33ea6bdac2ffd31884332518467799a59d8",
+      "sha": "0816c33ea6bdac2ffd31884332518467799a59d8"
+    },
+    {
+      "committed_at": "2023-02-05T01:32:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/328c1a3e56ff454b485ae874a75790350a631780",
+      "sha": "328c1a3e56ff454b485ae874a75790350a631780"
+    },
+    {
+      "committed_at": "2023-02-05T01:33:54Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6fd9d57388f6cf61e49d8622c90e90ee105e7816",
+      "sha": "6fd9d57388f6cf61e49d8622c90e90ee105e7816"
+    },
+    {
+      "committed_at": "2023-02-05T01:41:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fd0507eb8efe1800fed3b48a8c5a16663d0b8306",
+      "sha": "fd0507eb8efe1800fed3b48a8c5a16663d0b8306"
+    },
+    {
+      "committed_at": "2023-02-05T01:42:41Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9a1a15bf64143623bb46f4d354be07bf57e4410a",
+      "sha": "9a1a15bf64143623bb46f4d354be07bf57e4410a"
+    },
+    {
+      "committed_at": "2023-02-06T05:33:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066",
+      "sha": "bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-01-23T14:00:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2017",
+          "number": 2017,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:35:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Lazily build middleware stack"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066/starlette%2Fapplications.py",
+      "changes": 23,
+      "deletions": 16,
+      "filename": "starlette/applications.py",
+      "sha": "c68ad864a5731043ec6025e27af2f150b079080b",
+      "status": "modified"
+    },
+    {
+      "additions": 45,
+      "blob_url": "https://github.com/Kludex/starlette/blob/bc154fdf1c5a6eaf97e08b10c9d4871bff5bc066/tests%2Ftest_applications.py",
+      "changes": 45,
+      "deletions": 0,
+      "filename": "tests/test_applications.py",
+      "sha": "ba10aff8eb54594e17c3d97b06d686bc5c5987b9",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/1161\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **euri10** April  1, 2021</sup>\r\nlong story short I was writing a logging middleware whose handlers are initialized in the `__init__` of the middleware and ended up with multiple logs.\r\n\r\nit seems to me the `__init__` of the middlewarea are recursively called  because of the `build_middleware_stack` method and I'm not sure if this is intended or a bug.\r\n\r\nhere's a test case that shows what I think is an issue:\r\n\r\n```\r\nclass SimpleInitializableMiddleware:\r\n    def __init__(self, app, counter: int):\r\n        self.app = app\r\n        self.counter = counter\r\n        print(self.counter)\r\n\r\n\r\ndef test_middleware_stack_init():\r\n    app = Starlette()\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=1)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=2)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=3)\r\n    app.add_middleware(SimpleInitializableMiddleware, counter=4)\r\n```\r\n\r\nI would expect to see `1 2 3 4` as the output.\r\nhowever it prints `1 1 2 1 2 3 1 2 3 4` because for each add_middlware call it goes down the stack and reinitialize it.\r\n\r\nwhat you think @tomchristie ?</div>",
+    "body_last_edited_at": null,
+    "closed_at": "2023-02-06T05:35:11Z",
+    "created_at": "2023-01-11T12:11:01Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2002",
+    "labels": [
+      "clean up"
+    ],
+    "number": 2002,
+    "state": "closed",
+    "title": "Middleware stacking and recursive initialization",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2023-02-06T05:35:09Z",
+    "created_at": "2023-01-23T14:00:01Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2017",
+    "merge_commit_sha": "51c1de1839ee187bb20de5748fca23baa37369c6",
+    "merged_at": "2023-02-06T05:35:09Z",
+    "number": 2017,
+    "title": "Lazily build middleware stack",
+    "user": "adriangb"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "782256837879ece72a89c9343813b5b78898e099",
+    "committed_at": "2023-01-22T21:24:35Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/782256837879ece72a89c9343813b5b78898e099"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-01-11T12:11:01Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-11T12:12:43Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "d952ac2b83471a03189e8c29c31a82bb56253a16",
+      "commit_url": "https://api.github.com/repos/adriangb/starlette/commits/d952ac2b83471a03189e8c29c31a82bb56253a16",
+      "created_at": "2023-01-23T13:59:41Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-01-23T14:00:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2017",
+          "number": 2017,
+          "pull_request": {
+            "merged_at": "2023-02-06T05:35:09Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Lazily build middleware stack"
+        }
+      }
+    },
+    {
+      "created_at": "2023-02-04T17:57:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T20:35:28Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-02-06T05:35:11Z",
+      "event": "closed"
+    }
+  ]
+}

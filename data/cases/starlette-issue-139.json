@@ -1,0 +1,89 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2018-10-22T10:43:59Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/139"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/139"
+    ]
+  },
+  "case_id": "starlette-issue-139",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-142",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Return an iterator over keys for Headers and QueryParams' directly changes starlette/datastructures.py with focused behavior test(s) tests/test_datastructures.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2018-10-23T10:25:22Z",
+  "issue": {
+    "body": "The `QueryParams` and `Headers` multidict classes' `__iter__` method returns key/value pairs instead of just keys which is what I would expect from a Python mapping.\r\n\r\nI haven't seen an implementation like this and checked a few from Django, Werkzeug, urllib3, and aio-lib's multidict.\r\n\r\nWas this intentional or should it be changed?\r\n\r\nThanks!",
+    "number": 139,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/139",
+    "title": "MultiDict __iter__ returns tuples instead of just keys"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #142 created_at 2018-10-23T10:25:22Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #142",
+    "repair_files": [
+      "starlette/datastructures.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 7b8d4920c23c60c7476344357cac42fbb7906ce2",
+    "test_files": [
+      "tests/test_datastructures.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/datastructures.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/44f757d2934d92677b9fca223a00c5791ed213d6/starlette%2Fdatastructures.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "44f757d2934d92677b9fca223a00c5791ed213d6",
+        "source_url": "https://github.com/Kludex/starlette/commit/44f757d2934d92677b9fca223a00c5791ed213d6"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2018-10-23T10:25:22Z",
+      "number": 142,
+      "source_url": "https://github.com/Kludex/starlette/pull/142"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/142"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_datastructures.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/44f757d2934d92677b9fca223a00c5791ed213d6/tests%2Ftest_datastructures.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "7b8d4920c23c60c7476344357cac42fbb7906ce2",
+    "committed_at": "2018-10-22T14:10:11Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/7b8d4920c23c60c7476344357cac42fbb7906ce2"
+  },
+  "schema_version": "1.0"
+}

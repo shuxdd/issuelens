@@ -1,0 +1,87 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-05-19T22:28:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/blueyed/starlette/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2019-05-21T19:56:22Z",
+            "url": "https://api.github.com/repos/blueyed/starlette/pulls/9"
+          },
+          "repository": {
+            "full_name": "blueyed/starlette"
+          },
+          "title": "Do not raise exceptions from None"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi! Why do you use `raise ... from None` construct here?\r\n\r\nhttps://github.com/encode/starlette/blob/556a8a0a189a6fa3ec76bcff7fb740ffc6c4e60e/starlette/middleware/errors.py#L122\r\nhttps://github.com/encode/starlette/blob/556a8a0a189a6fa3ec76bcff7fb740ffc6c4e60e/starlette/exceptions.py#L73\r\n\r\nThis is the reason, why exceptions raised like `raise NewExc from OldExc` loosing OldExc information (original message and traceback). Pure Python example:\r\n\r\nFunction:\r\n```\r\ndef func():\r\n    try:\r\n        raise ValueError(\"Orig error\")\r\n    except Exception as exc:\r\n        raise SyntaxError(\"New error\") from exc\r\n```\r\n\r\n1) Call:\r\n```\r\ntry:\r\n    func()\r\nexcept Exception as exc:\r\n    raise exc\r\n```\r\n\r\nOutput:\r\n> Traceback (most recent call last):\r\n>   File \"<stdin>\", line 3, in func\r\n> ValueError: Orig error\r\n> \r\n> The above exception was the direct cause of the following exception:\r\n> \r\n> Traceback (most recent call last):\r\n>   File \"<stdin>\", line 4, in <module>\r\n>   File \"<stdin>\", line 2, in <module>\r\n>   File \"<stdin>\", line 5, in func\r\n> SyntaxError: New error\r\n\r\n2) Call:\r\n```\r\ntry:\r\n    func()\r\nexcept Exception as exc:\r\n    raise exc from None\r\n```\r\n\r\nOutput:\r\n> Traceback (most recent call last):\r\n>   File \"<stdin>\", line 4, in <module>\r\n>   File \"<stdin>\", line 2, in <module>\r\n>   File \"<stdin>\", line 5, in func\r\n> SyntaxError: New error\r\n\r\nIt's hard to get information about exception reasons because of this...",
+    "closed_at": "2019-05-20T14:09:02Z",
+    "created_at": "2019-05-14T03:01:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/514",
+    "number": 514,
+    "state": "closed",
+    "title": "Exceptions context loosing",
+    "user": "KACAH"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-14T03:30:58Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-05-19T17:48:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-19T17:48:51Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "5ff47287e75a5437045f038cdcde7a5944d1a025",
+      "commit_url": "https://api.github.com/repos/blueyed/starlette/commits/5ff47287e75a5437045f038cdcde7a5944d1a025",
+      "created_at": "2019-05-19T22:27:58Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2019-05-19T22:28:32Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/blueyed/starlette/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2019-05-21T19:56:22Z",
+            "url": "https://api.github.com/repos/blueyed/starlette/pulls/9"
+          },
+          "repository": {
+            "full_name": "blueyed/starlette"
+          },
+          "title": "Do not raise exceptions from None"
+        }
+      }
+    },
+    {
+      "created_at": "2019-05-20T14:09:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-20T14:43:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-05-20T15:03:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-12-04T07:52:31Z",
+      "event": "subscribed"
+    }
+  ]
+}

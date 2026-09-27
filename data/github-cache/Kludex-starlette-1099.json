@@ -1,0 +1,223 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-06T12:24:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d8fcbfeedebf79ac81c4eec247dc2610074997b4",
+      "sha": "d8fcbfeedebf79ac81c4eec247dc2610074997b4"
+    },
+    {
+      "committed_at": "2022-01-06T12:27:11Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/cb9369f235370dd3d85fd4724b99d922cd6e9e00",
+      "sha": "cb9369f235370dd3d85fd4724b99d922cd6e9e00"
+    },
+    {
+      "committed_at": "2022-01-06T12:34:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/9e5239dc8d9e133f90aceddf7c544a42f6549796",
+      "sha": "9e5239dc8d9e133f90aceddf7c544a42f6549796"
+    },
+    {
+      "committed_at": "2022-01-06T12:35:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/6f9631cbfba8b9c71eec3f55f6992242252d5a42",
+      "sha": "6f9631cbfba8b9c71eec3f55f6992242252d5a42"
+    },
+    {
+      "committed_at": "2022-01-07T09:56:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/799b0162328120272d25a8c00a86c15d97fdc6b9",
+      "sha": "799b0162328120272d25a8c00a86c15d97fdc6b9"
+    },
+    {
+      "committed_at": "2022-01-07T10:21:25Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b04a7b483e21885194ddc7b8b1e7a208d9c2c0e9",
+      "sha": "b04a7b483e21885194ddc7b8b1e7a208d9c2c0e9"
+    },
+    {
+      "committed_at": "2022-01-07T10:50:45Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d0f48a7c7966d71cc3308ccc8adc96b37e4f30ed",
+      "sha": "d0f48a7c7966d71cc3308ccc8adc96b37e4f30ed"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-05-05T18:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1178",
+          "number": 1178,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add EmptyResponse class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-18T20:36:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1270",
+          "number": 1270,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1270"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement EmptyResponse class"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-06T12:35:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1395",
+          "number": 1395,
+          "pull_request": {
+            "merged_at": "2022-01-07T11:48:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1395"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't omit `Content-Length` header for `Content-Length: 0` cases"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0f48a7c7966d71cc3308ccc8adc96b37e4f30ed/starlette%2Fresponses.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/responses.py",
+      "sha": "da765cfa9a78df923fa1225f5b2a663512302340",
+      "status": "modified"
+    },
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0f48a7c7966d71cc3308ccc8adc96b37e4f30ed/starlette%2Fstaticfiles.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "bd4d8bced1274f677a6276243a13ae3665d13674",
+      "status": "modified"
+    },
+    {
+      "additions": 57,
+      "blob_url": "https://github.com/Kludex/starlette/blob/d0f48a7c7966d71cc3308ccc8adc96b37e4f30ed/tests%2Ftest_responses.py",
+      "changes": 57,
+      "deletions": 0,
+      "filename": "tests/test_responses.py",
+      "sha": "150fe47952101e10eff7670e7668bd3a3365c15e",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nThe Content-Length header field is not set for cases where body is empty. In some cases this seems to not be according to the HTTP/1.1 spec and creates troubles when using for example traefik as a proxy in front of a starlette-based backend.\r\n\r\nSee this issue for details: https://github.com/traefik/traefik/issues/4456\r\nSpecifically, the final conclusion: https://github.com/traefik/traefik/issues/4456#issuecomment-593539169\r\n\r\n### To reproduce\r\n\r\n```python\r\n>>> from starlette.responses import RedirectResponse\r\n>>> RedirectResponse(url=\"/\", status_code=302).headers\r\nMutableHeaders({'location': '/'})\r\n```\r\nHeader has not content-length field.\r\n\r\n### Expected behavior\r\n\r\n```python\r\n>>> from starlette.responses import RedirectResponse\r\n>>> RedirectResponse(url=\"/\", status_code=302).headers\r\nMutableHeaders({'content-length': '0', 'location': '/'})\r\n```\r\nI expect there to be a content-length field specifying zero length\r\n\r\n### Actual behavior\r\n\r\n```python\r\n>>> from starlette.responses import RedirectResponse\r\n>>> RedirectResponse(url=\"/\", status_code=302).headers\r\nMutableHeaders({'location': '/'})\r\n```\r\nHeader has no content-length field.\r\n\r\n### Debugging material\r\n\r\nN/A\r\n\r\n### Environment\r\n\r\n- OS: Linux (WSL2)\r\n- Python version: 3.8.2\r\n- Starlette version: 0.13.6\r\n\r\n### Additional context\r\n\r\nThis bug is probably also present for other type of responses (other status-codes). Last paragraph (in bold) from https://tools.ietf.org/html/rfc7230#section-3.3 is of interest:\r\n\r\n> 3.3.  Message Body\r\n> \r\n>    The message body (if any) of an HTTP message is used to carry the\r\n>    payload body of that request or response.  The message body is\r\n>    identical to the payload body unless a transfer coding has been\r\n>    applied, as described in Section 3.3.1.\r\n> \r\n>      message-body = *OCTET\r\n> \r\n>    The rules for when a message body is allowed in a message differ for\r\n>    requests and responses.\r\n> \r\n>    The presence of a message body in a request is signaled by a\r\n>    Content-Length or Transfer-Encoding header field.  Request message\r\n>    framing is independent of method semantics, even if the method does\r\n>    not define any use for a message body.\r\n> \r\n>    The presence of a message body in a response depends on both the\r\n>    request method to which it is responding and the response status code\r\n>    (Section 3.1.2).  Responses to the HEAD request method (Section 4.3.2\r\n>    of [RFC7231]) never include a message body because the associated\r\n>    response header fields (e.g., Transfer-Encoding, Content-Length,\r\n>    etc.), if present, indicate only what their values would have been if\r\n>    the request method had been GET (Section 4.3.1 of [RFC7231]). 2xx\r\n>    (Successful) responses to a CONNECT request method (Section 4.3.6 of\r\n>    [RFC7231]) switch to tunnel mode instead of having a message body.\r\n>    **All 1xx (Informational), 204 (No Content), and 304 (Not Modified)\r\n>    responses do not include a message body.  All other responses do\r\n>    include a message body, although the body might be of zero length.**",
+    "body_last_edited_at": "2020-11-23T09:06:55Z",
+    "closed_at": "2022-01-07T11:48:21Z",
+    "created_at": "2020-11-23T08:58:40Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1099",
+    "number": 1099,
+    "state": "closed",
+    "title": "Missing content-length header field in some responses",
+    "user": "freol35241"
+  },
+  "pull_request": {
+    "closed_at": "2022-01-07T11:48:21Z",
+    "created_at": "2022-01-06T12:25:59Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1395",
+    "merge_commit_sha": "46334278165d4e2dbf9c5c5d1878fd5184f43ba2",
+    "merged_at": "2022-01-07T11:48:21Z",
+    "number": 1395,
+    "title": "Don't omit `Content-Length` header for `Content-Length: 0` cases",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+    "committed_at": "2022-01-06T10:55:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/9d686a7125131fe026071d04e0d0e0a726e1afc5"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-11-24T06:20:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-05-05T18:30:38Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1178",
+          "number": 1178,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add EmptyResponse class"
+        }
+      }
+    },
+    {
+      "created_at": "2021-08-18T20:36:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1270",
+          "number": 1270,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1270"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Implement EmptyResponse class"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-06T12:35:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1395",
+          "number": 1395,
+          "pull_request": {
+            "merged_at": "2022-01-07T11:48:21Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1395"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Don't omit `Content-Length` header for `Content-Length: 0` cases"
+        }
+      }
+    },
+    {
+      "commit_id": "9e5239dc8d9e133f90aceddf7c544a42f6549796",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/9e5239dc8d9e133f90aceddf7c544a42f6549796",
+      "created_at": "2022-01-06T12:35:49Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-01-07T11:48:21Z",
+      "event": "closed"
+    },
+    {
+      "commit_id": "46334278165d4e2dbf9c5c5d1878fd5184f43ba2",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/46334278165d4e2dbf9c5c5d1878fd5184f43ba2",
+      "created_at": "2022-01-07T11:48:23Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2022-01-07T11:49:09Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "commits": [
+    {
+      "committed_at": "2026-03-01T17:39:02Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8bbae5de9954bf3dd25719b012efc345fe2d122c",
+      "sha": "8bbae5de9954bf3dd25719b012efc345fe2d122c"
+    },
+    {
+      "committed_at": "2026-03-01T17:50:14Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/d16bf96cb2d947abe0530998ea05476525ec9a18",
+      "sha": "d16bf96cb2d947abe0530998ea05476525ec9a18"
+    },
+    {
+      "committed_at": "2026-03-01T18:13:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dce3495a9c67c4092b790b50aa8e0a3dfd062a52",
+      "sha": "dce3495a9c67c4092b790b50aa8e0a3dfd062a52"
+    },
+    {
+      "committed_at": "2026-03-01T18:15:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ee268e2f73ffb722b78d753b072c1d8ccd559fa4",
+      "sha": "ee268e2f73ffb722b78d753b072c1d8ccd559fa4"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-03-10T17:46:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/754",
+          "number": 754,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "First-class session support in FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-30T15:13:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/authlib/authlib/issues/376",
+          "number": 376,
+          "pull_request": {},
+          "repository": {
+            "full_name": "authlib/authlib"
+          },
+          "title": "CSRF Warning! State not equal in request and response"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-02T11:25:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dudil/fastapi_msal/issues/23",
+          "number": 23,
+          "pull_request": {},
+          "repository": {
+            "full_name": "dudil/fastapi_msal"
+          },
+          "title": "redirect_uri str type expected (type=type_error.str)"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-08T00:12:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2401",
+          "number": 2401,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2401"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session cookie fix"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-08T00:31:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2402",
+          "number": 2402,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2402"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session cookie fix"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-24T16:21:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hasansezertasan/starlette-flask/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "hasansezertasan/starlette-flask"
+          },
+          "title": "TODO: Track session data modifications."
+        }
+      }
+    },
+    {
+      "created_at": "2024-02-24T12:35:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2527",
+          "number": 2527,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2527"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Sessions cookie changes to support persistent cookies and partitioned cookies"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-06T03:24:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3069",
+          "number": 3069,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3069"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reduce the frequency of set-cookie in SessionMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-01T17:39:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3166",
+          "number": 3166,
+          "pull_request": {
+            "merged_at": "2026-03-01T18:21:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3166"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Track session access and modification in `SessionMiddleware`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 48,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ee268e2f73ffb722b78d753b072c1d8ccd559fa4/starlette%2Fmiddleware%2Fsessions.py",
+      "changes": 56,
+      "deletions": 8,
+      "filename": "starlette/middleware/sessions.py",
+      "sha": "aa0383f98a61903e89e1b63e4ae8483d597f538f",
+      "status": "modified"
+    },
+    {
+      "additions": 6,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ee268e2f73ffb722b78d753b072c1d8ccd559fa4/starlette%2Frequests.py",
+      "changes": 7,
+      "deletions": 1,
+      "filename": "starlette/requests.py",
+      "sha": "c57b4ae0592d00983172ba29969af30f13d12b20",
+      "status": "modified"
+    },
+    {
+      "additions": 88,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ee268e2f73ffb722b78d753b072c1d8ccd559fa4/tests%2Fmiddleware%2Ftest_session.py",
+      "changes": 89,
+      "deletions": 1,
+      "filename": "tests/middleware/test_session.py",
+      "sha": "0f5db7908cafe7bd839d40e3d74aaeb7bc7afddc",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Discussed in https://github.com/encode/starlette/discussions/2018\r\n\r\n<div type='discussions-op-text'>\r\n\r\n<sup>Originally posted by **sm-Fifteen** January 27, 2023</sup>\r\nThe way SessionMiddleware currently works is that it encodes session data in a signed base64 object with timestamp, in a format not entirely dissimilar to (but incompatible with) JWT. Because of the way it works, being run right before the headers for an HTTP response are sent, and because it doesn't perform many checks besides whether or not there is session data to encode, it will try to update the session cookie whenever a route is called. This is somewhat wasteful, as session data is not usually updated on every request, but it leads to interesting issues as well.\r\n\r\nI have a FastAPI application where login is handeled via a session cookie with a separate login process. Several routes are unlocked based on whether or not the cookie is present and based on the user authorizations recorded in said session cookie. When the frontend fetches API data, if the user is logged in, every response contains a new `Set-Cookie` header, which *Firefox ignores, but Chrome acknowledges*. None of the API routes alter session data, so the cookie value is always the same, save for the timestamp and signature at the end. This actually runs into [an interesting Chrome issue](https://bugs.chromium.org/p/chromium/issues/detail?id=696204#c107) where responses to fetch requests that arrive after the page has been navigated away from still alter the session cookie, even if if the new page changed the session data on load. This means I have this strange, Chrome-exclusive, race-condition-y bug that matches lepture/authlib#334, where the session state data setup by the Oauth flow before redirecting to the third party login form may get clobbered if some `/api/slow_route` query was pending when the user clicked the login button.\r\n\r\nIt's unclear if it's actually a chrome bug or unintended behavior from everything working as intended. If Starlette wasn't updating cookies for every request, and the ``Set-Cookie`` was actually important here, it's difficult to argue whether or not Chrome should have ignored it.\r\n\r\nSee here the Starlette test case from the Chromium bug report, which doesn't use SessionMiddleware, but shows the Chrome behavior in action.\r\n\r\n```py\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import HTMLResponse, RedirectResponse, JSONResponse, PlainTextResponse\r\nfrom starlette.routing import Route\r\nimport uvicorn\r\nimport datetime\r\nfrom asyncio import sleep\r\n\r\nhtml_content = \"\"\"\r\n    <!DOCTYPE html>\r\n    <html>\r\n        <head>\r\n            <meta http-equiv=\"refresh\" content=\"2;url=/set_cookie_and_redirect\" />\r\n            <script>fetch(\"/set_cookie_on_fetch\")</script>\r\n        </head>\r\n        <body>\r\n            Calling slow route via fetch() before changing page.\r\n        </body>\r\n    </html>\r\n\"\"\"\r\n\r\n\r\nasync def homepage(request):\r\n    return HTMLResponse(html_content)\r\n\r\nasync def set_cookie_on_fetch(request):\r\n    res = JSONResponse({'hello':'world'})\r\n    await sleep(5)\r\n    res.set_cookie(\"my_cookie\", \"a__\" + datetime.datetime.now().isoformat())\r\n    return res\r\n\r\nasync def set_cookie_and_redirect(request):\r\n    res = RedirectResponse(\"/final\")\r\n    res.set_cookie(\"my_cookie\", \"b__\" + datetime.datetime.now().isoformat())\r\n    return res\r\n\r\nasync def final(request):\r\n    cookie_val = request.cookies.get('my_cookie')\r\n    cookie_is_b = cookie_val.partition(\"__\")[0] == 'b'\r\n\r\n    if (cookie_is_b):\r\n        res = PlainTextResponse(\"Cookie value is \\\"\" + cookie_val + \"\\\", all is well. Try refreshing the page.\", 200)\r\n    else:\r\n        res = PlainTextResponse(\"Cookie value is \\\"\" + cookie_val + \"\\\", it shouldn't be.\", 400)\r\n    return res\r\n\r\nroutes = [\r\n    Route('/', homepage),\r\n    Route('/set_cookie_on_fetch', set_cookie_on_fetch),\r\n    Route('/set_cookie_and_redirect', set_cookie_and_redirect),\r\n    Route('/final', final),\r\n]\r\n\r\napp = Starlette(debug=True, routes=routes)\r\nuvicorn.run(app, host=\"0.0.0.0\", port=8000)\r\n```</div>\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2019\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2019/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2019/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2023-08-26T09:25:29Z",
+    "closed_at": "2026-03-01T18:21:55Z",
+    "created_at": "2023-01-27T19:49:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2019",
+    "labels": [
+      "need confirmation"
+    ],
+    "number": 2019,
+    "state": "closed",
+    "title": "SessionMiddleware sends a new set-cookie for every request, with unintended results",
+    "user": "Kludex"
+  },
+  "pull_request": {
+    "closed_at": "2026-03-01T18:21:55Z",
+    "created_at": "2026-03-01T17:39:22Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/3166",
+    "merge_commit_sha": "4647e532bbed7a5f60c9972ddba3f5fb4a79e1f9",
+    "merged_at": "2026-03-01T18:21:55Z",
+    "number": 3166,
+    "title": "Track session access and modification in `SessionMiddleware`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "fb49d243e2082f9bb30b59fd532e6062bbd676b7",
+    "committed_at": "2026-03-01T15:58:51Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/fb49d243e2082f9bb30b59fd532e6062bbd676b7"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-01-27T19:49:14Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-01-27T20:00:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-10T17:46:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/754",
+          "number": 754,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "First-class session support in FastAPI"
+        }
+      }
+    },
+    {
+      "created_at": "2023-03-30T15:13:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/authlib/authlib/issues/376",
+          "number": 376,
+          "pull_request": {},
+          "repository": {
+            "full_name": "authlib/authlib"
+          },
+          "title": "CSRF Warning! State not equal in request and response"
+        }
+      }
+    },
+    {
+      "created_at": "2023-04-05T17:12:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-05T18:13:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-02T08:55:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-02T11:25:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dudil/fastapi_msal/issues/23",
+          "number": 23,
+          "pull_request": {},
+          "repository": {
+            "full_name": "dudil/fastapi_msal"
+          },
+          "title": "redirect_uri str type expected (type=type_error.str)"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-02T15:53:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-02T17:08:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-06T14:16:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-08T00:12:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2401",
+          "number": 2401,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2401"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session cookie fix"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-08T00:31:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2402",
+          "number": 2402,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2402"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Session cookie fix"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-08T16:47:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-09T17:12:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-09T19:21:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-09T22:08:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-01-09T22:08:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-01-09T22:09:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-01-10T07:39:12Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2024-01-15T07:16:00Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-01-15T07:16:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2024-01-24T16:21:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/hasansezertasan/starlette-flask/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "hasansezertasan/starlette-flask"
+          },
+          "title": "TODO: Track session data modifications."
+        }
+      }
+    },
+    {
+      "commit_id": "04262d9d3d98ed5f1e36a8d0a605465d956a0ab0",
+      "commit_url": "https://api.github.com/repos/ToasterChicken/starlette/commits/04262d9d3d98ed5f1e36a8d0a605465d956a0ab0",
+      "created_at": "2024-02-22T11:43:41Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2024-02-24T12:35:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2527",
+          "number": 2527,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2527"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Sessions cookie changes to support persistent cookies and partitioned cookies"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-25T13:43:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-05-14T15:14:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-24T15:52:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-14T00:09:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-11-06T03:24:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3069",
+          "number": 3069,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3069"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Reduce the frequency of set-cookie in SessionMiddleware"
+        }
+      }
+    },
+    {
+      "commit_id": "8bbae5de9954bf3dd25719b012efc345fe2d122c",
+      "commit_url": "https://api.github.com/repos/Kludex/starlette/commits/8bbae5de9954bf3dd25719b012efc345fe2d122c",
+      "created_at": "2026-03-01T17:39:09Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2026-03-01T17:39:23Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/3166",
+          "number": 3166,
+          "pull_request": {
+            "merged_at": "2026-03-01T18:21:55Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/3166"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Track session access and modification in `SessionMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-01T18:21:56Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-03-01T20:29:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2026-03-01T20:29:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-03-01T20:29:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-03-01T20:30:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2026-03-01T20:30:40Z",
+      "event": "subscribed"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-10-13T17:02:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4041",
+          "number": 4041,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BrokenResourceError"
+        }
+      }
+    },
+    {
+      "created_at": "2021-10-20T14:50:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1318",
+          "number": 1318,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1318"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ignore BrokenResourceError in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-01T17:04:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1324",
+          "number": 1324,
+          "pull_request": {
+            "merged_at": "2021-11-04T09:48:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1324"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 0.17.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-04T10:26:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/12836",
+          "number": 12836,
+          "pull_request": {
+            "merged_at": "2021-11-03T15:15:00Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/12836"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Upgrade FastAPI to v0.70.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-04T20:15:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/12856",
+          "number": 12856,
+          "pull_request": {
+            "merged_at": "2021-11-04T21:32:08Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/12856"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Temporary downgrade FastAPI to v0.68.2"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-09T16:00:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Nuitka/Nuitka/issues/1441",
+          "number": 1441,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Nuitka/Nuitka"
+          },
+          "title": "anyio - BrokenResourceError"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nAn anyio.BrokenResourceError is observed when using a very simple custom Middleware base on BaseHTTPMiddleware. \r\n\r\n### To reproduce\r\nServer\r\n```\r\nimport uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\nfrom starlette.requests import Request\r\n\r\nclass MyMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(\r\n        self, request: Request, call_next\r\n    ) -> Response:\r\n        return await call_next(request)\r\n\r\nasync def ping(request):\r\n    return Response(\"Some Text\")\r\n\r\napp = Starlette(\r\n    debug=False,\r\n    routes=[\r\n        Route('/ping', ping, methods=['GET', 'POST']),\r\n    ],\r\n    middleware=[\r\n        Middleware(MyMiddleware),\r\n    ]\r\n)\r\n\r\nuvicorn.run(app, host='0.0.0.0', port=8000, access_log=True)\r\n```\r\nClient\r\n```\r\nfrom http.client import HTTPConnection\r\n\r\ndef ping(x):\r\n    con = HTTPConnection('0.0.0.0', 8000)\r\n    con.request('GET', f'/ping?id={x}')\r\n\r\nz = [\r\n    ping(y)\r\n    for y in range(10)\r\n]\r\n```\r\n\r\n### Expected behavior\r\n\r\nNo exceptions, responses returned\r\n\r\n### Actual behavior\r\n\r\nAn anyio.BrokenResourceError is raised\r\n\r\n### Debugging material\r\n<details>\r\n<summary>Traceback</summary>\r\n```\r\nERROR:    Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/uvicorn/protocols/http/httptools_impl.py\", line 371, in run_asgi\r\n    result = await app(self.scope, self.receive, self.send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/uvicorn/middleware/proxy_headers.py\", line 59, in __call__\r\n    return await self.app(scope, receive, send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/applications.py\", line 112, in __call__\r\n    await self.middleware_stack(scope, receive, send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 181, in __call__\r\n    raise exc\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/middleware/errors.py\", line 159, in __call__\r\n    await self.app(scope, receive, _send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/middleware/base.py\", line 57, in __call__\r\n    task_group.cancel_scope.cancel()\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/anyio/_backends/_asyncio.py\", line 564, in __aexit__\r\n    raise exceptions[0]\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/middleware/base.py\", line 30, in coro\r\n    await self.app(scope, request.receive, send_stream.send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/exceptions.py\", line 82, in __call__\r\n    raise exc\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/routing.py\", line 656, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/routing.py\", line 259, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/routing.py\", line 64, in app\r\n    await response(scope, receive, send)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/responses.py\", line 139, in __call__\r\n    await send({\"type\": \"http.response.body\", \"body\": self.body})\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/starlette/exceptions.py\", line 68, in sender\r\n    await send(message)\r\n  File \"/home/plaid/py39/lib/python3.9/site-packages/anyio/streams/memory.py\", line 205, in send\r\n    raise BrokenResourceError\r\nanyio.BrokenResourceError\r\n```\r\n</details>\r\n\r\n### Environment\r\n\r\n- OS: Ubuntu `18.04`\r\n- Python version: `3.9.6`\r\n- Starlette version: `0.16.0`\r\n\r\n",
+    "closed_at": "2021-11-02T16:25:58Z",
+    "created_at": "2021-09-09T13:22:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1284",
+    "number": 1284,
+    "state": "closed",
+    "title": "anyio.BrokenResourceError when using BaseHTTPMiddleware",
+    "user": "rad-pat"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-09-09T21:08:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-10T08:37:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-13T17:02:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/4041",
+          "number": 4041,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BrokenResourceError"
+        }
+      }
+    },
+    {
+      "commit_id": "d1314287408c353fc4ab801b862009c1d7259ce6",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/d1314287408c353fc4ab801b862009c1d7259ce6",
+      "created_at": "2021-10-20T14:50:23Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-10-20T14:50:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1318",
+          "number": 1318,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1318"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Ignore BrokenResourceError in BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "commit_id": "c536990b0df0457d16a081640dc77deabb2a51f0",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/c536990b0df0457d16a081640dc77deabb2a51f0",
+      "created_at": "2021-10-20T14:53:49Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "7b309afb7d52914df23f994c4911b4199e4bade2",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/7b309afb7d52914df23f994c4911b4199e4bade2",
+      "created_at": "2021-10-21T11:55:47Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "41672b2f0364f6fc30543dcf90b7ae18667359ab",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/41672b2f0364f6fc30543dcf90b7ae18667359ab",
+      "created_at": "2021-10-21T11:56:53Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "b1b384e5b447562dd569870e38686546d58a4247",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/b1b384e5b447562dd569870e38686546d58a4247",
+      "created_at": "2021-10-21T11:57:24Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "a07b2995f5dcd4fee510b15570e6d7344abc7586",
+      "commit_url": "https://api.github.com/repos/brakhane/starlette/commits/a07b2995f5dcd4fee510b15570e6d7344abc7586",
+      "created_at": "2021-10-21T13:21:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-11-01T17:01:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-01T17:04:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1324",
+          "number": 1324,
+          "pull_request": {
+            "merged_at": "2021-11-04T09:48:30Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1324"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Version 0.17.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-02T09:37:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-02T16:25:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-02T16:25:58Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-11-04T10:26:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/12836",
+          "number": 12836,
+          "pull_request": {
+            "merged_at": "2021-11-03T15:15:00Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/12836"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Upgrade FastAPI to v0.70.0"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-04T20:15:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/galaxyproject/galaxy/pull/12856",
+          "number": 12856,
+          "pull_request": {
+            "merged_at": "2021-11-04T21:32:08Z",
+            "url": "https://api.github.com/repos/galaxyproject/galaxy/pulls/12856"
+          },
+          "repository": {
+            "full_name": "galaxyproject/galaxy"
+          },
+          "title": "Temporary downgrade FastAPI to v0.68.2"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-09T16:00:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Nuitka/Nuitka/issues/1441",
+          "number": 1441,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Nuitka/Nuitka"
+          },
+          "title": "anyio - BrokenResourceError"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-13T19:17:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-01T14:58:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-01T14:58:35Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-02-01T14:58:35Z",
+      "event": "subscribed"
+    }
+  ]
+}

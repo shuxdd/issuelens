@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n<!-- Please make sure you check all these items before submitting your bug report. -->\r\n\r\n- [ ] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n<!-- A clear and concise description of what the bug is. -->\r\nI'm using set_cookie function to set cookie for response, however when I test connection with python library requests, it doesn't set the cookie.\r\n\r\n### To reproduce\r\n\r\n<!-- Provide a *minimal* example with steps to reproduce the bug locally.\r\n\r\nNOTE: try to keep any external dependencies *at an absolute minimum*\r\n(middleware, servers, proxies, certificates...).\r\nIn other words, remove anything that doesn't make the bug go away.\r\n-->\r\nMy Server code for api in FastAPI:\r\n```python\r\nfrom fastapi import APIRouter, FastAPI, Response\r\nfrom fastapi.middleware.cors import CORSMiddleware\r\n\r\nrouter = APIRouter()\r\n@router.post(\r\n    \"/activate-login-link\",\r\n    responses={\r\n        status.HTTP_204_NO_CONTENT: {\r\n            \"description\": \"Successful authorization.\",\r\n        },\r\n    },\r\n)\r\nasync def activate_login_link():\r\n    response = Response(status_code=status.HTTP_204_NO_CONTENT)\r\n    response.set_cookie(key=\"AUTH_TOKEN\", value=\"some-cookie\", domain=\"localhost\", path=\"/\", max_age=43200, expires=43200)\r\n    return response\r\n\r\napp = FastAPI(title=\"Async FastAPI\")\r\n\r\norigins = [\r\n    \"http://localhost:3000\", \"*\"\r\n]\r\n\r\napp.add_middleware(\r\n    CORSMiddleware,\r\n    allow_origins=origins,\r\n    allow_credentials=True,\r\n    allow_methods=[\"*\"],\r\n    allow_headers=[\"*\"],\r\n)\r\n\r\napp.include_router(router)\r\n```\r\n\r\nMy Client code for testing:\r\n```python\r\nimport requests as rs\r\ns = rs.Session()\r\nlogin_code = s.post('http://localhost:8000/api/v1/get-login-code', json={'email': 'rufusnufus@gmail.com'}).json()\r\nresponse = s.post('http://localhost:8000/api/v1/activate-login-link')\r\nprint(response.headers)\r\nprint(response.cookies.get_dict())\r\n```\r\n\r\n### Expected behavior\r\n\r\n<!-- A clear and concise description of what you expected to happen. -->\r\nClient Response is the following:\r\n```bash\r\n{'date': 'Tue, 23 Nov 2021 14:36:24 GMT', 'server': 'uvicorn', 'set-cookie': 'AUTH_TOKEN=some-cookie; Domain=localhost; expires=Wed, 24 Nov 2021 02:36:24 GMT; Max-Age=43200; Path=/; SameSite=lax'}\r\n{'AUTH_TOKEN': 'some-cookie'}\r\n```\r\n\r\n### Actual behavior\r\n\r\n<!-- A clear and concise description of what actually happens. -->\r\n\r\nClient Response is the following:\r\n```bash\r\n{'date': 'Tue, 23 Nov 2021 14:36:24 GMT', 'server': 'uvicorn', 'set-cookie': 'AUTH_TOKEN=some-cookie; Domain=localhost; expires=Wed, 24 Nov 2021 02:36:24 GMT; Max-Age=43200; Path=/; SameSite=lax'}\r\n{}\r\n```\r\n\r\n### Debugging material\r\n\r\n<!-- Any tracebacks, screenshots, etc. that can help understanding the problem.\r\n\r\nNOTE:\r\n- Please list tracebacks in full (don't truncate them).\r\n- Consider using `<details>` to make tracebacks/logs collapsible if they're very large (see https://gist.github.com/ericclemmons/b146fe5da72ca1f706b2ef72a20ac39d).\r\n-->\r\n\r\n### Environment\r\n\r\n- OS: macOS\r\n- Python version: 3.7.12\r\n- Starlette version: 0.16.0\r\n- FastAPI version: 0.70.0\r\n- requests version: 2.26.0\r\n\r\n### Additional context\r\n\r\n<!-- Any additional information that can help understanding the problem.\r\n\r\nEg. linked issues, or a description of what you were trying to achieve. -->\r\n",
+    "closed_at": "2021-11-23T15:08:05Z",
+    "created_at": "2021-11-23T14:45:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1340",
+    "number": 1340,
+    "state": "closed",
+    "title": "Cookie is returned in headers, however not set",
+    "user": "rufusnufus"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-11-23T14:55:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-23T14:59:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-23T15:06:09Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-23T15:08:05Z",
+      "event": "closed"
+    }
+  ]
+}

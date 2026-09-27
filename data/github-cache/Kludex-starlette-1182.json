@@ -1,0 +1,51 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-05-12T18:38:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/issues/1131",
+          "number": 1131,
+          "pull_request": {},
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Crash on starlette middleware in mount endpoints (StaticFiles)"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [X ] The bug is reproducible against the latest release and/or `master`.\r\n- [ X] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nElastic apm tries to collect information regarding the route by accessing routes property.\r\nthe implementations of BaseRoute such as Route, Mount says the return type is `typing.List[BaseRoute]`.\r\nIn case that the app doesn't have \"routes\" it will return None.\r\n\r\n### Expected behavior\r\n\r\nroutes property will return empty list\r\n\r\n### Actual behavior\r\n\r\nroutes property will returns None\r\n\r\n### Debugging material\r\n```python\r\n@property\r\n    def routes(self) -> typing.List[BaseRoute]:\r\n        return getattr(self.app, \"routes\", None)\r\n```\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.9.4\r\n- Starlette version: 0.14.2\r\n\r\n",
+    "closed_at": "2021-05-13T12:04:07Z",
+    "created_at": "2021-05-12T18:37:19Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1182",
+    "number": 1182,
+    "state": "closed",
+    "title": "routes property returns None",
+    "user": "old-syniex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-05-12T18:38:13Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/elastic/apm-agent-python/issues/1131",
+          "number": 1131,
+          "pull_request": {},
+          "repository": {
+            "full_name": "elastic/apm-agent-python"
+          },
+          "title": "Crash on starlette middleware in mount endpoints (StaticFiles)"
+        }
+      }
+    },
+    {
+      "created_at": "2021-05-13T12:03:51Z",
+      "event": "commented"
+    }
+  ]
+}

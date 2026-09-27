@@ -1,0 +1,436 @@
+{
+  "commits": [
+    {
+      "committed_at": "2025-03-19T04:02:20Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/da8358781205b17532b6d0da3fe942fbf29a3d0d",
+      "sha": "da8358781205b17532b6d0da3fe942fbf29a3d0d"
+    },
+    {
+      "committed_at": "2025-04-13T13:35:18Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/0d08e5de072db5de0e56680ce9f8e997b9bb333a",
+      "sha": "0d08e5de072db5de0e56680ce9f8e997b9bb333a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2025-03-03T08:01:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/febus982/bootstrap-python-fastapi/issues/269",
+          "number": 269,
+          "pull_request": {},
+          "repository": {
+            "full_name": "febus982/bootstrap-python-fastapi"
+          },
+          "title": "Unpin starlette version"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-10T17:17:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/RS-PYTHON/rs-server/pull/1060",
+          "number": 1060,
+          "pull_request": {
+            "merged_at": "2025-03-10T17:36:28Z",
+            "url": "https://api.github.com/repos/RS-PYTHON/rs-server/pulls/1060"
+          },
+          "repository": {
+            "full_name": "RS-PYTHON/rs-server"
+          },
+          "title": "RSPY-630 - Fix/bot dependency updates"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-19T03:15:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2911",
+          "number": 2911,
+          "pull_request": {
+            "merged_at": "2025-04-13T13:38:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2911"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Prevents reraising of exception from `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-23T00:08:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xvanov/sacrifice/pull/308",
+          "number": 308,
+          "pull_request": {
+            "merged_at": "2026-07-23T00:22:21Z",
+            "url": "https://api.github.com/repos/xvanov/sacrifice/pulls/308"
+          },
+          "repository": {
+            "full_name": "xvanov/sacrifice"
+          },
+          "title": "feat(backend): D102 global X-Request-ID middleware with backend coverage"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 4,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0d08e5de072db5de0e56680ce9f8e997b9bb333a/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 6,
+      "deletions": 2,
+      "filename": "starlette/middleware/base.py",
+      "sha": "b49ab611f4d25e217e11ee7a53013082b182afce",
+      "status": "modified"
+    },
+    {
+      "additions": 21,
+      "blob_url": "https://github.com/Kludex/starlette/blob/0d08e5de072db5de0e56680ce9f8e997b9bb333a/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 21,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "427ec44ac1f66ae5fd31dc40698febac60b9a96c",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "Looking at [this](https://github.com/encode/starlette/commit/5cc4ddf1a5d07388015458e7c6b2ae5df617c372#diff-931c53548e8908544bd0818ee1a8d5f1ada4f07430a439e9322ab369eb40a8acL168) commit, it pushed the logic out to the end, but if there is an error raised and handled, it will reraise it again \n\n\nSteps to reproduce. \n----------------------\n```python\n   @app.get(\"/error\")\n    async def foo():\n        exc = Exception(\"foobar\")\n        exc.status_code = 501\n        raise exc\n```\nMiddleware handler. \n\n```python\n@app.middleware(\"http\")\n    async def http_middleware(request: Request, call_next):\n          try:\n                response = await call_next(request)\n          except Exception as exc:\n                logger.exception(\"Failure in user code!\")\n                # stuff in between\n                response = JSONResponse(\n                {\"error\": str(exc), \"stacktrace\": traceback.format_exc()},\n                status_code=status_code,\n            )\n          return response      \n```\n\ntrace\n============= \n```bash\nDuring handling of the above exception, another exception occurred:\n\nrequest = <starlette.middleware.base._CachedRequest object at 0x13a837040>\n\n    async def call_next(request: Request) -> Response:\n        async def receive_or_disconnect() -> Message:\n            if response_sent.is_set():\n                return {\"type\": \"http.disconnect\"}\n    \n            async with anyio.create_task_group() as task_group:\n    \n                async def wrap(func: typing.Callable[[], typing.Awaitable[T]]) -> T:\n                    result = await func()\n                    task_group.cancel_scope.cancel()\n                    return result\n    \n                task_group.start_soon(wrap, response_sent.wait)\n                message = await wrap(wrapped_receive)\n    \n            if response_sent.is_set():\n                return {\"type\": \"http.disconnect\"}\n    \n            return message\n    \n        async def send_no_error(message: Message) -> None:\n            try:\n                await send_stream.send(message)\n            except anyio.BrokenResourceError:\n                # recv_stream has been closed, i.e. response_sent has been set.\n                return\n    \n        async def coro() -> None:\n            nonlocal app_exc\n    \n            with send_stream:\n                try:\n                    await self.app(scope, receive_or_disconnect, send_no_error)\n                except Exception as exc:\n                    app_exc = exc\n    \n        task_group.start_soon(coro)\n    \n        try:\n>           message = await recv_stream.receive()\n\n\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = MemoryObjectReceiveStream(_state=MemoryObjectStreamState(max_buffer_size=0, buffer=deque([]), open_send_channels=0, open_receive_channels=0, waiting_receivers=OrderedDict(), waiting_senders=OrderedDict()), _closed=True)\n\n    async def receive(self) -> T_co:\n        await checkpoint()\n        try:\n            return self.receive_nowait()\n        except WouldBlock:\n            # Add ourselves in the queue\n            receive_event = Event()\n            receiver = MemoryObjectItemReceiver[T_co]()\n            self._state.waiting_receivers[receive_event] = receiver\n    \n            try:\n                await receive_event.wait()\n            finally:\n                self._state.waiting_receivers.pop(receive_event, None)\n    \n            try:\n                return receiver.item\n            except AttributeError:\n>               raise EndOfStream\nE               anyio.EndOfStream\n```\n\n",
+    "body_last_edited_at": "2025-03-20T19:35:57Z",
+    "closed_at": "2025-04-13T13:39:10Z",
+    "created_at": "2025-02-28T21:40:36Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2893",
+    "number": 2893,
+    "state": "closed",
+    "title": "Raise exception from background task on BaseHTTPMiddleware introduced a bug?",
+    "user": "ramannanda9"
+  },
+  "pull_request": {
+    "closed_at": "2025-04-13T13:38:18Z",
+    "created_at": "2025-03-19T03:15:41Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2911",
+    "merge_commit_sha": "48f7cd7f28b9e4b9a5a6b19159139205907aec41",
+    "merged_at": "2025-04-13T13:38:18Z",
+    "number": 2911,
+    "title": "Prevents reraising of exception from `BaseHTTPMiddleware`",
+    "user": "ramannanda9"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-03-01T09:10:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-01T19:26:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-03T08:01:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/febus982/bootstrap-python-fastapi/issues/269",
+          "number": 269,
+          "pull_request": {},
+          "repository": {
+            "full_name": "febus982/bootstrap-python-fastapi"
+          },
+          "title": "Unpin starlette version"
+        }
+      }
+    },
+    {
+      "created_at": "2025-03-03T13:46:32Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-03T16:46:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-05T10:27:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-05T12:04:19Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-05T12:04:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-05T14:05:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-05T16:08:38Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-05T17:32:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-07T08:03:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-07T15:39:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-09T08:19:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-10T12:00:17Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-10T17:06:33Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "634ab4efd16656110ddd7313dcfeae97ed056b29",
+      "commit_url": "https://api.github.com/repos/RS-PYTHON/rs-server/commits/634ab4efd16656110ddd7313dcfeae97ed056b29",
+      "created_at": "2025-03-10T17:16:20Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-03-10T17:17:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/RS-PYTHON/rs-server/pull/1060",
+          "number": 1060,
+          "pull_request": {
+            "merged_at": "2025-03-10T17:36:28Z",
+            "url": "https://api.github.com/repos/RS-PYTHON/rs-server/pulls/1060"
+          },
+          "repository": {
+            "full_name": "RS-PYTHON/rs-server"
+          },
+          "title": "RSPY-630 - Fix/bot dependency updates"
+        }
+      }
+    },
+    {
+      "commit_id": "3488d60fcd91a7c7549132610289066393b9832d",
+      "commit_url": "https://api.github.com/repos/RS-PYTHON/rs-server/commits/3488d60fcd91a7c7549132610289066393b9832d",
+      "created_at": "2025-03-10T17:36:29Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-03-11T18:37:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-12T00:21:05Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-12T09:42:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-13T06:58:09Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-13T09:17:28Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-16T02:57:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-17T12:13:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-17T14:01:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-18T18:03:08Z",
+      "event": "subscribed"
+    },
+    {
+      "commit_id": "cad67aaf069afda974ff28ee3739b310aea23a47",
+      "commit_url": "https://api.github.com/repos/ramannanda9/starlette/commits/cad67aaf069afda974ff28ee3739b310aea23a47",
+      "created_at": "2025-03-19T03:10:54Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "991d48489a7ddea35675a2b0839eab7eb1d9654c",
+      "commit_url": "https://api.github.com/repos/ramannanda9/starlette/commits/991d48489a7ddea35675a2b0839eab7eb1d9654c",
+      "created_at": "2025-03-19T03:13:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-03-19T03:15:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2911",
+          "number": 2911,
+          "pull_request": {
+            "merged_at": "2025-04-13T13:38:18Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2911"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Prevents reraising of exception from `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "commit_id": "37d20d3ee501f5a4c79894bbb918a33ebae52aba",
+      "commit_url": "https://api.github.com/repos/ramannanda9/starlette/commits/37d20d3ee501f5a4c79894bbb918a33ebae52aba",
+      "created_at": "2025-03-19T04:00:39Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "782c80326cbfc0feeeb83441c1190662be85bf2d",
+      "commit_url": "https://api.github.com/repos/ramannanda9/starlette/commits/782c80326cbfc0feeeb83441c1190662be85bf2d",
+      "created_at": "2025-03-19T04:02:06Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "da8358781205b17532b6d0da3fe942fbf29a3d0d",
+      "commit_url": "https://api.github.com/repos/ramannanda9/starlette/commits/da8358781205b17532b6d0da3fe942fbf29a3d0d",
+      "created_at": "2025-03-19T04:02:24Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2025-03-21T11:19:52Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-21T13:53:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-24T15:15:43Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-26T17:35:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-03-26T17:35:11Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-03-26T17:35:12Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-29T12:27:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-31T15:16:03Z",
+      "event": "unsubscribed"
+    },
+    {
+      "created_at": "2025-03-31T15:16:03Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-03-31T20:59:35Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-01T06:52:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-04T07:11:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-05T22:05:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-07T19:17:47Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-04-13T13:39:10Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-13T13:39:10Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-07-23T00:08:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/xvanov/sacrifice/pull/308",
+          "number": 308,
+          "pull_request": {
+            "merged_at": "2026-07-23T00:22:21Z",
+            "url": "https://api.github.com/repos/xvanov/sacrifice/pulls/308"
+          },
+          "repository": {
+            "full_name": "xvanov/sacrifice"
+          },
+          "title": "feat(backend): D102 global X-Request-ID middleware with backend coverage"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T23:07:41Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mashta-lilia/construction-agent-hub/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2026-08-02T22:20:58Z",
+            "url": "https://api.github.com/repos/mashta-lilia/construction-agent-hub/pulls/9"
+          },
+          "repository": {
+            "full_name": "mashta-lilia/construction-agent-hub"
+          },
+          "title": "feat(backend): observability wiring \u2014 real health checks, structured errors, tests"
+        }
+      }
+    }
+  ]
+}

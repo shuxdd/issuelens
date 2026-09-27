@@ -1,0 +1,145 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm a developer from south korea.\r\nThere was an error in that line, so I changed it to utf-8, so it worked properly. I'd like to suggest a correction\r\n\r\nhttps://github.com/encode/starlette/blob/844220819f1cfcf2726d1628dd4ea597182d6f3e/starlette/responses.py#L123C60-L123C60\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2217\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2217/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2217/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2023-12-16T13:54:33Z",
+    "created_at": "2023-07-16T00:25:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2217",
+    "number": 2217,
+    "state": "closed",
+    "title": "`set_cookie` encodes value as Latin1 for header instead of UTF-8",
+    "user": "inhwangYang"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-07-16T04:16:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-16T17:34:40Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2023-07-17T17:22:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-16T13:54:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-12-16T13:54:33Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2026-07-31T07:48:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sashakt-platform/sashakt-core/pull/569",
+          "number": 569,
+          "pull_request": {
+            "merged_at": "2026-08-03T09:26:21Z",
+            "url": "https://api.github.com/repos/sashakt-platform/sashakt-core/pulls/569"
+          },
+          "repository": {
+            "full_name": "sashakt-platform/sashakt-core"
+          },
+          "title": "Export candidate response"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-08T16:17:19Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Flow-Research/workstream/pull/300",
+          "number": 300,
+          "pull_request": {
+            "merged_at": "2026-08-09T07:04:30Z",
+            "url": "https://api.github.com/repos/Flow-Research/workstream/pulls/300"
+          },
+          "repository": {
+            "full_name": "Flow-Research/workstream"
+          },
+          "title": "Implement ART-04C2 ready admission publication"
+        }
+      }
+    },
+    {
+      "created_at": "2026-08-19T09:59:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/get-flashbacks/feedBack-plugin-lyrics-karaoke/pull/7",
+          "number": 7,
+          "pull_request": {
+            "merged_at": "2026-08-19T10:13:42Z",
+            "url": "https://api.github.com/repos/get-flashbacks/feedBack-plugin-lyrics-karaoke/pulls/7"
+          },
+          "repository": {
+            "full_name": "get-flashbacks/feedBack-plugin-lyrics-karaoke"
+          },
+          "title": "fix: escape Content-Disposition filename in lk_export"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "```python\r\nclass DemoWs(WebSocketEndpoint):\r\n    async def on_connect(self, websocket: WebSocket) -> None:\r\n        while True:\r\n            # await websocket.send_json(data=get_sys_info())\r\n            await websocket.send_json(data={'text': 'hello world'})\r\n            await asyncio.sleep(1)\r\n\r\n    async def on_receive(self, websocket: WebSocket, data: typing.Any) -> None:\r\n        await websocket.send_json(data=data)\r\n```\r\n\r\nget error \r\n\r\n```\r\n[E 190524 19:00:42 websockets_impl:150] Exception in ASGI application\r\nTraceback (most recent call last):\r\n  File \"_pydevd_frame_eval/pydevd_frame_evaluator_darwin_37_64.pyx\", line 95, in _pydevd_frame_eval.pydevd_frame_evaluator_darwin_37_64.get_bytecode_while_frame_eval\r\nKeyError: '/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/json/encoder.py'\r\n\r\nDuring handling of the above exception, another exception occurred:\r\n\r\nTraceback (most recent call last):\r\n  File \"/Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/uvicorn/protocols/websockets/websockets_impl.py\", line 146, in run_asgi\r\n    result = await self.app(self.scope, self.asgi_receive, self.asgi_send)\r\n  File \"/Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/uvicorn/middleware/asgi2.py\", line 7, in __call__\r\n    await instance(receive, send)\r\n  File \"/Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/starlette/endpoints.py\", line 53, in __call__\r\n    await self.on_connect(websocket)\r\n  File \"/Users/wyx/loh_workspace/loh-web/loh/views/notification.py\", line 39, in on_connect\r\n    await websocket.send_json(data={'text': 'hello world'})\r\n  File \"/Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/starlette/websockets.py\", line 116, in send_json\r\n    await self.send({\"type\": \"websocket.send\", \"text\": text})\r\n  File \"/Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/starlette/websockets.py\", line 57, in send\r\n    assert message_type in {\"websocket.accept\", \"websocket.close\"}\r\nAssertionError\r\n[I 190524 19:00:50 main:415] Shutting down\r\n[I 190524 19:00:50 on:36] Waiting for application shutdown.\r\n[I 190524 19:00:50 main:325] Finished server process [10404]\r\n[E 190524 19:00:50 base_events:1608] Task was destroyed but it is pending!\r\ntask: <Task pending coro=<WebSocketServerProtocol.handler() running at /Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/websockets/server.py:117> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1055f4d08>()]>>\r\n[E 190524 19:00:50 base_events:1608] Task was destroyed but it is pending!\r\ntask: <Task pending coro=<RedisConnection._read_data() running at /Users/wyx/loh_workspace/loh-web/.env/lib/python3.7/site-packages/aioredis/connection.py:183> wait_for=<Future pending cb=[<TaskWakeupMethWrapper object at 0x1055f4738>()]> cb=[Future.set_result()]>\r\n\r\n```\r\n\r\n\r\nI only can send msg only I receive data",
+    "closed_at": "2019-05-24T11:43:43Z",
+    "created_at": "2019-05-24T11:02:22Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/526",
+    "number": 526,
+    "state": "closed",
+    "title": "websocket how to send msg  for loop",
+    "user": "631068264"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-05-24T11:03:50Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2019-05-24T11:43:41Z",
+      "event": "commented"
+    }
+  ]
+}

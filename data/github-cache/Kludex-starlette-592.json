@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-08-18T06:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette behind reverse proxy, url_for does not return externally valid urls"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When using GraphQLApp, it would be nice to be able to configure a path prefix for the graphql api path, to support deployment behind reverse proxies with path prefixes.\r\n\r\nThanks!",
+    "closed_at": "2019-08-27T09:07:59Z",
+    "created_at": "2019-08-01T15:09:04Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/592",
+    "number": 592,
+    "state": "closed",
+    "title": "GraphiQL path prefix",
+    "user": "DrPyser"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-18T06:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette behind reverse proxy, url_for does not return externally valid urls"
+        }
+      }
+    },
+    {
+      "created_at": "2019-08-27T09:07:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-28T01:17:05Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi.\r\n\r\nWhile adding OpenAPI to my Starlette application I noticed that the SchemaGenerator does not seem to pick up subdomain routes registered with Host() as described in docs here: https://www.starlette.io/routing/#host-based-routing\r\n\r\nThere seems to be lacking functionality to pick up the routes of a Host group here: https://github.com/encode/starlette/blob/master/starlette/schemas.py#L51\r\n\r\nHere is a small application demonstrating the issue: \r\n**requirements.txt**\r\n```\r\nanyio==3.6.2\r\napispec==5.2.2\r\nclick==8.1.3\r\nh11==0.14.0\r\nidna==3.4\r\npackaging==23.0\r\npython-dotenv==1.0.0\r\nPyYAML==5.4.1\r\nsniffio==1.3.0\r\nstarlette==0.26.1\r\nstarlette-apispec==1.0.5\r\nuvicorn==0.21.1\r\n```\r\n\r\n**example.py**\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.routing import Host, Mount, Route, Router\r\nfrom starlette.responses import HTMLResponse, JSONResponse\r\nfrom starlette.schemas import SchemaGenerator\r\nfrom pprint import pprint\r\nimport uvicorn\r\nimport yaml\r\nimport sys\r\n\r\nspec = {\r\n    \"openapi\": \"3.0.0\", \r\n    \"info\": {\r\n        \"title\": \"Example API\", \r\n        \"version\": \"1.1\"\r\n    }\r\n}\r\nschema = SchemaGenerator(spec)\r\n\r\n\r\n# /openapi.json schema\r\nasync def openapi(request):\r\n    return schema.OpenAPIResponse(request=request)\r\n\r\n# Show docs /api\r\n# FIXME: Redoc not showing \"Try it out\" button for some reason\r\nasync def docs(request):\r\n    html = f\"\"\"\r\n        <!DOCTYPE html>\r\n        <html>\r\n          <head>\r\n            <title>Redoc</title>\r\n            <meta charset=\"utf-8\"/>\r\n            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n            <link href=\"https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700\" rel=\"stylesheet\">\r\n          </head>\r\n          <body>\r\n            <redoc spec-url=\"{request.url.scheme}://{request.url.netloc}/openapi.json\"></redoc>\r\n            <script src=\"https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js\"> </script>\r\n          </body>\r\n        </html>\r\n    \"\"\"\r\n    return HTMLResponse(html)\r\n\r\n# GET /users\r\nasync def list_users(request):\r\n    \"\"\"\r\n    responses:\r\n      200:\r\n        description: A list of users.\r\n        examples:\r\n          [{\"username\": \"tom\"}, {\"username\": \"lucy\"}]\r\n    \"\"\"\r\n    raise NotImplementedError()\r\n\r\n# GET /users\r\nasync def get_user(request):\r\n    \"\"\"\r\n    tags:\r\n      - User Management API\r\n    parameters:\r\n      - name: username\r\n        in: path\r\n        type: string\r\n        required: true\r\n        description: The username of user you want info for\r\n      - name: size\r\n        in: query\r\n        type: integer\r\n        description: size of awesomeness\r\n    responses:\r\n      200:\r\n        description: Info about the user\r\n        examples:\r\n          [{\"username\": \"tom\"}]\r\n    \"\"\"\r\n    username = request.path_params['username']\r\n    print(username)\r\n    raise NotImplementedError()\r\n\r\n\r\n# POST /users\r\nasync def create_user(request):\r\n    \"\"\"\r\n    responses:\r\n      200:\r\n        description: A user.\r\n        examples:\r\n          {\"username\": \"tom\"}\r\n    \"\"\"\r\n    username = request.path_params['username']\r\n    print(username)\r\n    raise NotImplementedError()\r\n\r\n\r\nROUTES = [\r\n\r\n    Route(\"/users\", endpoint=list_users, methods=[\"GET\"]),\r\n    Route(\"/user/{username}\", endpoint=get_user, methods=[\"GET\"]),\r\n    Route(\"/users/{username}\", endpoint=create_user, methods=[\"POST\"]),\r\n    \r\n    Route(\"/openapi.json\", endpoint=openapi, include_in_schema=False),\r\n    Route(\"/api\", endpoint=docs),\r\n    \r\n    # Include host based routing as described in docs: https://www.starlette.io/routing/#host-based-routing\r\n    # Problem: These routes are not included by the SchemaGenerator and therefore not visible in the OpenAPI spec\r\n    # https://github.com/encode/starlette/blob/master/starlette/schemas.py#L51\r\n    Host(\"subdomain.example.org\", name=\"sub\", app=Router(routes=[\r\n        Mount(\"/foousers\", name=\"foousers\", routes=[\r\n            Route(\"/\", get_user, name=\"get_user\"),\r\n            Route(\"/{username}\", create_user, name=\"create_user\")\r\n        ])\r\n    ]))\r\n\r\n]\r\n\r\n# Debug print routes\r\npprint(ROUTES)\r\n\r\napp = Starlette(routes=ROUTES)\r\n\r\nif __name__ == '__main__':\r\n    assert sys.argv[-1] in (\"run\", \"schema\"), \"Usage: example.py [run|schema]\"\r\n\r\n    if sys.argv[-1] == \"run\":\r\n        uvicorn.run(app, host='0.0.0.0', port=8000)\r\n\r\n    elif sys.argv[-1] == \"schema\":\r\n        schema = schema.get_schema(routes=ROUTES)\r\n        print(yaml.dump(schema, default_flow_style=False))\r\n```\r\n\r\nAccessing the OpenAPI documentation at `/api` shows the following three routes only, and none of the subdomain routes from the Host() group:\r\n![image](https://user-images.githubusercontent.com/16032412/231132296-b4241a23-98ad-422a-89b8-b0d5b098618f.png)\r\n\r\nEdit: there is also a chance I have made a mistake in my implementation causing this, as there are references to sub_endpoints in BaseSchemaGenerator, so please correct me if this is user error.",
+    "closed_at": "2023-06-13T06:26:21Z",
+    "created_at": "2023-04-11T10:23:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2118",
+    "labels": [
+      "feature",
+      "help wanted",
+      "good first issue"
+    ],
+    "number": 2118,
+    "state": "closed",
+    "title": "Host() routes not included in OpenAPI Schema",
+    "user": "nicolaipre"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-04-11T20:32:59Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:36:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:36:57Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2023-05-24T09:36:57Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:36:57Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:37:06Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "1058489003e6ccda36c17487f4645fb1ce046b88",
+      "commit_url": "https://api.github.com/repos/magiskboy/starlette/commits/1058489003e6ccda36c17487f4645fb1ce046b88",
+      "created_at": "2023-06-12T23:00:12Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2023-06-13T06:26:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-13T06:26:21Z",
+      "event": "closed"
+    }
+  ]
+}

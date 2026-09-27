@@ -1,0 +1,327 @@
+{
+  "commits": [
+    {
+      "committed_at": "2023-06-27T12:29:52Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/fa77bcccf725e01a25efd3880a09b56c87ec164b",
+      "sha": "fa77bcccf725e01a25efd3880a09b56c87ec164b"
+    },
+    {
+      "committed_at": "2023-07-06T16:50:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a15e66dd801c21390890ea0070a7c6d883f180d2",
+      "sha": "a15e66dd801c21390890ea0070a7c6d883f180d2"
+    },
+    {
+      "committed_at": "2023-07-12T19:39:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5bf2b1247c41c2558cb190902c7eba80fdb220c1",
+      "sha": "5bf2b1247c41c2558cb190902c7eba80fdb220c1"
+    },
+    {
+      "committed_at": "2023-07-12T19:39:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b56c2111e42fd71409b0b040f9b38372e7a04bd1",
+      "sha": "b56c2111e42fd71409b0b040f9b38372e7a04bd1"
+    },
+    {
+      "committed_at": "2023-07-12T20:57:43Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/82ddb561d0adbf7f546b7177dd4adbf346a4e149",
+      "sha": "82ddb561d0adbf7f546b7177dd4adbf346a4e149"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2023-06-06T13:24:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2176",
+          "number": 2176,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Run background tasks after the middleware stack returns"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-27T12:32:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2194",
+          "number": 2194,
+          "pull_request": {
+            "merged_at": "2023-07-13T07:48:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2194"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Stop `body_stream` in case `more_body=False`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-12-17T02:59:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/10751",
+          "number": 10751,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/10751"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06 Update starlette requirement from <0.28.0,>=0.27.0 to >=0.27.0,<0.34.0"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T10:42:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/juspay/clairvoyance/pull/964",
+          "number": 964,
+          "pull_request": {
+            "merged_at": "2026-08-03T11:32:08Z",
+            "url": "https://api.github.com/repos/juspay/clairvoyance/pulls/964"
+          },
+          "repository": {
+            "full_name": "juspay/clairvoyance"
+          },
+          "title": "(feat): add 0 downtime support during pod restarts"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/82ddb561d0adbf7f546b7177dd4adbf346a4e149/starlette%2Fmiddleware%2Fbase.py",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "starlette/middleware/base.py",
+      "sha": "170a805a758452f5ccc5b11cb6b96987f9cdbdcd",
+      "status": "modified"
+    },
+    {
+      "additions": 65,
+      "blob_url": "https://github.com/Kludex/starlette/blob/82ddb561d0adbf7f546b7177dd4adbf346a4e149/tests%2Fmiddleware%2Ftest_base.py",
+      "changes": 65,
+      "deletions": 0,
+      "filename": "tests/middleware/test_base.py",
+      "sha": "cf4780cce725dfef250f2f5d883205ef848e86f3",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "- [x] Initially raised as a discussion in [the FastAPI repo](https://github.com/tiangolo/fastapi/discussions/7168#discussioncomment-5387343).\r\n\r\nConsider the following simple example of background tasks through Starlette:\r\n`server.py`\r\n```py\r\nimport logging\r\nfrom time import sleep\r\n\r\nfrom starlette.applications import Starlette\r\nfrom starlette.background import BackgroundTasks\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware, RequestResponseEndpoint\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import JSONResponse, Response\r\nfrom starlette.routing import Route\r\n\r\nlogging.basicConfig(\r\n    level=logging.INFO,\r\n    format=\"[%(asctime)s] [%(levelname)s] %(message)s\",\r\n    datefmt=\"%Y-%m-%d %H:%M:%S\",\r\n)\r\n\r\n\r\nclass CustomMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(\r\n        self, request: Request, call_next: RequestResponseEndpoint\r\n    ) -> Response:\r\n        return await call_next(request)\r\n\r\n\r\ndef create_task(request: Request) -> JSONResponse:\r\n    logging.info(\"Entered POST method\")\r\n    tasks = BackgroundTasks()\r\n    tasks.add_task(background_task)\r\n    message = {\"status\": \"Task created\"}\r\n    return JSONResponse(message, background=tasks, status_code=201)\r\n\r\n\r\ndef background_task() -> None:\r\n    logging.info(\"Started background task\")\r\n    sleep(10)\r\n    logging.info(\"Finished background task\")\r\n\r\n\r\nroutes = [Route(\"/task\", endpoint=create_task, methods=[\"POST\"])]\r\nmiddleware = [Middleware(CustomMiddleware)]\r\napp = Starlette(routes=routes, middleware=middleware)\r\n```\r\n\r\nI start this code with `uvicorn server:app --reload`.\r\n\r\nThen I start the task twice in one connection using this code:\r\n`client.py`\r\n```py\r\nfrom httpx import Client\r\n\r\nwith Client(base_url=\"http://localhost:8000\") as client:\r\n    client.post(\"/task\")\r\n    client.post(\"/task\")\r\n```\r\n\r\nWhich results in a sequential execution of background tasks (and read timeout from the client as a consequence):\r\n```\r\n[2023-03-23 19:32:08] [INFO] Entered POST method\r\nINFO:     127.0.0.1:51448 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:32:08] [INFO] Started background task\r\n[2023-03-23 19:32:18] [INFO] Finished background task\r\n[2023-03-23 19:32:18] [INFO] Entered POST method\r\n[2023-03-23 19:32:18] [INFO] Started background task\r\n[2023-03-23 19:32:29] [INFO] Finished background task\r\n```\r\n\r\nIf I just send simple curl requests (`curl -X 'POST' 'http://127.0.0.1:8000/task'`) one after the other (so they are different connections), everything works as expected:\r\n```\r\n[2023-03-23 19:44:35] [INFO] Entered POST method\r\nINFO:     127.0.0.1:55528 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:44:35] [INFO] Started background task\r\n[2023-03-23 19:44:37] [INFO] Entered POST method\r\nINFO:     127.0.0.1:55532 - \"POST /task HTTP/1.1\" 201 Created\r\n[2023-03-23 19:44:37] [INFO] Started background task\r\n[2023-03-23 19:44:45] [INFO] Finished background task\r\n[2023-03-23 19:44:47] [INFO] Finished background task\r\n```\r\n\r\nIt looks like this regression was introduced in Starlette [0.23.1](https://github.com/encode/starlette/releases/tag/0.23.1), [this PR](https://github.com/encode/starlette/pull/1940). If I pin Starlette to 0.23.0 everything works fine.",
+    "body_last_edited_at": null,
+    "closed_at": "2023-07-13T07:48:12Z",
+    "created_at": "2023-03-23T15:47:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2093",
+    "labels": [
+      "bug"
+    ],
+    "number": 2093,
+    "state": "closed",
+    "title": "`HTTPMiddleware` breaks `BackgroundTasks` in the same connection",
+    "user": "Molkree"
+  },
+  "pull_request": {
+    "closed_at": "2023-07-13T07:48:10Z",
+    "created_at": "2023-06-27T12:32:54Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/2194",
+    "merge_commit_sha": "11a3f1227e69a29fc9dc56f348f982cb5372a1d1",
+    "merged_at": "2023-07-13T07:48:10Z",
+    "number": 2194,
+    "title": "Stop `body_stream` in case `more_body=False`",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+    "committed_at": "2023-06-20T18:35:45Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/2168e47052239da5df35d5353bb986f760c51cef"
+  },
+  "timeline": [
+    {
+      "created_at": "2023-03-23T15:54:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-03-23T15:54:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-03-23T15:55:00Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-04-25T02:20:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-26T01:01:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-04-26T01:01:18Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-04-26T01:01:18Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-04-26T03:40:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-17T12:44:59Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:29:26Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-05-24T09:30:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-05-24T09:30:21Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2023-05-24T09:30:21Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2023-06-01T13:20:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T13:20:37Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-06-01T17:57:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T18:06:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T18:06:47Z",
+      "event": "demilestoned"
+    },
+    {
+      "created_at": "2023-06-01T18:06:52Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-06-01T18:06:55Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2023-06-05T23:03:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-06T13:21:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-06T13:24:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2176",
+          "number": 2176,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2176"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Run background tasks after the middleware stack returns"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-13T06:24:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-27T12:32:54Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/2194",
+          "number": 2194,
+          "pull_request": {
+            "merged_at": "2023-07-13T07:48:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/2194"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Stop `body_stream` in case `more_body=False`"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-06T16:45:03Z",
+      "event": "unlabeled"
+    },
+    {
+      "created_at": "2023-07-06T16:45:03Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2023-07-13T07:48:12Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-12-17T02:59:28Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/pull/10751",
+          "number": 10751,
+          "pull_request": {
+            "url": "https://api.github.com/repos/fastapi/fastapi/pulls/10751"
+          },
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "\u2b06 Update starlette requirement from <0.28.0,>=0.27.0 to >=0.27.0,<0.34.0"
+        }
+      }
+    },
+    {
+      "created_at": "2026-07-31T10:42:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/juspay/clairvoyance/pull/964",
+          "number": 964,
+          "pull_request": {
+            "merged_at": "2026-08-03T11:32:08Z",
+            "url": "https://api.github.com/repos/juspay/clairvoyance/pulls/964"
+          },
+          "repository": {
+            "full_name": "juspay/clairvoyance"
+          },
+          "title": "(feat): add 0 downtime support during pod restarts"
+        }
+      }
+    }
+  ]
+}

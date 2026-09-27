@@ -1,0 +1,107 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-09-16T14:15:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/oslokommune/okdata-maskinporten-api/pull/8",
+          "number": 8,
+          "pull_request": {
+            "url": "https://api.github.com/repos/oslokommune/okdata-maskinporten-api/pulls/8"
+          },
+          "repository": {
+            "full_name": "oslokommune/okdata-maskinporten-api"
+          },
+          "title": "Initial auth for endpoints"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Suppose I have a route in my API that creates an http request to an external resource using `requests` package. When creating a starlette `TestClient`, it creates four adapters for ws, wss, http and https, so that it can handle all requests to the API. This is problematic since if I want to mock a route with `requests_mock.Mocker()` for `requests` to use, all the adapters created by `TestClient` get overwritten and do not get matched anymore resulting in `NoMockAddressError`.\r\n\r\nI want to create a test with a mocked response for the address I use in my tested API route, so that the route actually sends the request, gets the response and returns it. How do I go about using `TestClient` along with `requests_mock.Mocker`? Can I somehow extend `TestClient`'s `http` matchers or should I do it differently? Below is an example of a test that is not working for me:\r\n\r\nqueue.py\r\n```\r\nimport fastapi\r\nimport requests\r\n\r\nrouter = fastapi.APIRouter()\r\n@router.get('/queue/')\r\ndef queue_messages():\r\n    return requests.get('http://test-url/stats').json()\r\n```\r\n\r\nconftest.py\r\n```\r\nimport fastapi\r\nimport pytest\r\nimport starlette.testclient\r\n\r\nfrom source import queue\r\n\r\n@pytest.fixture(scope='function')\r\ndef test_server():\r\n    app = fastapi.FastAPI()\r\n\r\n    app.include_router(queue.router, prefix='/api')\r\n\r\n    return starlette.testclient.TestClient(app)\r\n```\r\n\r\ntest_queue.py\r\n```\r\ndef test_queue_get(requests_mock, test_server):\r\n    stats = { ... }\r\n    requests_mock.get('http://test-url/stats', json=stats)\r\n\r\n    response = test_server.get('/api/queue/')\r\n    assert response.json() == {'messages': 45}\r\n```",
+    "closed_at": "2020-02-10T12:33:30Z",
+    "created_at": "2020-02-05T09:37:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/818",
+    "number": 818,
+    "state": "closed",
+    "title": "How to use TestClient with requests_mock?",
+    "user": "wadamek65"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-10T12:33:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-10T12:48:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-10T16:48:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-10T16:48:54Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-02-10T16:48:54Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-02-10T17:04:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-09T13:38:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-20T11:39:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-04-20T11:39:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-04-20T11:39:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-08-17T16:11:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-16T14:15:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/oslokommune/okdata-maskinporten-api/pull/8",
+          "number": 8,
+          "pull_request": {
+            "url": "https://api.github.com/repos/oslokommune/okdata-maskinporten-api/pulls/8"
+          },
+          "repository": {
+            "full_name": "oslokommune/okdata-maskinporten-api"
+          },
+          "title": "Initial auth for endpoints"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-21T15:39:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-25T11:00:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-06-01T07:34:43Z",
+      "event": "commented"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-03-10T12:27:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1544",
+          "number": 1544,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1544"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom exception to handle missing boundary error"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "We should probably catch that and raise something else from Starlette itself :thinking:\r\n\r\n_Originally posted by @Kludex in https://github.com/encode/starlette/issues/1349#issuecomment-1028902007_\r\n\r\nCheck comment for context.",
+    "closed_at": "2022-04-15T17:51:13Z",
+    "created_at": "2022-03-09T08:38:33Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1542",
+    "labels": [
+      "good first issue"
+    ],
+    "number": 1542,
+    "state": "closed",
+    "title": "Raise custom Starlette Exception on missing \"boundary\"",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-03-09T08:38:34Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-09T08:38:34Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-09T08:39:11Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2022-03-10T10:01:27Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-10T10:01:27Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-10T10:01:27Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-03-10T10:09:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-10T12:27:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1544",
+          "number": 1544,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1544"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Add custom exception to handle missing boundary error"
+        }
+      }
+    },
+    {
+      "created_at": "2022-03-10T12:29:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-03-10T12:29:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-03-10T12:29:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-04-15T17:51:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-04-15T17:51:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-04-15T17:51:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-04-15T17:51:13Z",
+      "event": "closed"
+    }
+  ]
+}

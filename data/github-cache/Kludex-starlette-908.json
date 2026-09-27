@@ -1,0 +1,152 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-23T20:32:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/912",
+          "number": 912,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/912"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix infinite loop when using StreamingResponse with ASGI client"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-26T09:07:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/909",
+          "number": 909,
+          "pull_request": {
+            "merged_at": "2020-05-01T09:51:36Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/909"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "asgi: Send http.disconnect message on receive() after response complete"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-01T17:20:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/919",
+          "number": 919,
+          "pull_request": {
+            "merged_at": "2020-05-12T09:06:53Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/919"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "ASGI: Wait for response to complete before sending disconnect message"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When using a `StreamingResponse` and, by extension, any custom middleware (any subclass of `BaseHTTPMiddleware`) with Starlette 0.13.3, with the async httpx client directly connected to the app (i.e. `httpx.AsyncClient(app=...)`), Starlette responses never complete. This did not happen with Starlette 0.13.2.\r\n\r\n**Minimal-ish test case:**\r\nWith `starlette==0.13.3`, `httpx==0.12.1`, and pytest + pytest-asyncio:\r\n```python\r\nimport httpx\r\nimport pytest\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import StreamingResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\n@pytest.fixture\r\ndef app():\r\n    def data():\r\n        yield b\"data\"\r\n\r\n    async def stream(request):\r\n        return StreamingResponse(data())\r\n\r\n    return Starlette(routes=[Route(\"/stream\", stream)])\r\n\r\n\r\n@pytest.fixture\r\nasync def client(app):\r\n    async with httpx.AsyncClient(app=app) as client:\r\n        yield client\r\n\r\n\r\n@pytest.mark.asyncio\r\nasync def test_middleware(client):\r\n    response = await client.get(\"http://example.com/stream\")\r\n    assert response.status_code == 200\r\n```\r\n\r\n**Expected behaviour:**\r\nThe test passes\r\n\r\n**Actual behaviour:**\r\nThe `await client.get()` call never returns/completes.\r\n\r\n**Stacktrace:**\r\nIf you hit ctrl-c while the test is stuck you get a long stacktrace. But the important bits I believe are:\r\n```\r\nFile \"/Users/jamie/.virtualenvs/tempenv-51153646622a/lib/python3.7/site-packages/starlette/responses.py\", line 202, in listen_for_disconnect\r\n    message = await receive()\r\n  File \"/Users/jamie/.virtualenvs/tempenv-51153646622a/lib/python3.7/site-packages/httpx/_dispatch/asgi.py\", line 78, in receive\r\n    body = await request_body_chunks.__anext__()\r\n```\r\n\r\n**Suspected cause:**\r\nStarlette calls both the `receive()` (to check for disconnects) and `send()` (to send the response) concurrently in its `StreamingResponse` type (since #839). It tries to wait for either of those two options to complete (using `asyncio.wait({tasks}, return_when=asyncio.FIRST_COMPLETED)`). Because the ASGI dispatch in httpx is generally effectively synchronous, both `send()` and `receive()` may never return control to the event loop when called which means that if _either_ task that is waited on does not complete, then `asyncio.wait()` will not return and the program will remain stuck in an infinite loop inside the `StreamingResponse.listen_for_disconnect` method.",
+    "closed_at": "2020-05-12T14:00:11Z",
+    "created_at": "2020-04-21T14:40:48Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/908",
+    "labels": [
+      "bug"
+    ],
+    "number": 908,
+    "state": "closed",
+    "title": "Starlette 0.13.3 hangs with StreamingResponse & httpx client",
+    "user": "JayH5"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-23T20:32:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/912",
+          "number": 912,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/912"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix infinite loop when using StreamingResponse with ASGI client"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-23T20:34:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-26T09:07:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/909",
+          "number": 909,
+          "pull_request": {
+            "merged_at": "2020-05-01T09:51:36Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/909"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "asgi: Send http.disconnect message on receive() after response complete"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-26T09:07:59Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-04-30T23:43:24Z",
+      "event": "labeled"
+    },
+    {
+      "commit_id": "63a091f71d7c0a57523e0fa0b5aac2f6ad5f30d3",
+      "commit_url": "https://api.github.com/repos/JayH5/starlette/commits/63a091f71d7c0a57523e0fa0b5aac2f6ad5f30d3",
+      "created_at": "2020-05-01T07:28:32Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2020-05-01T17:20:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/pull/919",
+          "number": 919,
+          "pull_request": {
+            "merged_at": "2020-05-12T09:06:53Z",
+            "url": "https://api.github.com/repos/encode/httpx/pulls/919"
+          },
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "ASGI: Wait for response to complete before sending disconnect message"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-12T14:00:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-12T14:00:11Z",
+      "event": "closed"
+    }
+  ]
+}

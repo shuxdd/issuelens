@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "I am trying to submit a list of data files under the same parameter name but only the first file is parsed from `request.form()`.\r\n\r\n```bash\r\ncurl -X POST \"http://0.0.0.0:3031/myapi\" -H \"accept: multipart/form-data\" -H \"Authorization: Bearer atoken\"  -F \"data=@/path/tp/favicon-16x16.png\" -F\"data=@/path/to/file.txt\"\r\n```\r\nAccording to IETF RFC 7578 this should be supported.  Is this something you would consider supporting?\r\nhttps://tools.ietf.org/html/rfc7578#section-4.3\r\n```\r\n4.3.  Multiple Files for One Form Field\r\n\r\n   The form data for a form field might include multiple files.\r\n\r\n   [RFC2388] suggested that multiple files for a single form field be\r\n   transmitted using a nested \"multipart/mixed\" part.  This usage is\r\n   deprecated.\r\n\r\n   To match widely deployed implementations, multiple files MUST be sent\r\n   by supplying each file in a separate part but all with the same\r\n   \"name\" parameter.\r\n\r\n   Receiving applications intended for wide applicability (e.g.,\r\n   multipart/form-data parsing libraries) SHOULD also support the older\r\n   method of supplying multiple files.\r\n```",
+    "closed_at": "2019-01-22T19:47:47Z",
+    "created_at": "2019-01-18T19:35:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/327",
+    "number": 327,
+    "state": "closed",
+    "title": "Support for Multiple Files for One Form Field",
+    "user": "vchendrix"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-18T20:18:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-18T21:01:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-19T00:01:05Z",
+      "event": "commented"
+    }
+  ]
+}

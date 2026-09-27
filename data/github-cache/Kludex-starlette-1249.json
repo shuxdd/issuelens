@@ -1,0 +1,78 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-10-02T12:14:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1296",
+          "number": 1296,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette is not typed to an ASGIApplication \u2192 Type check warning in PyCharm with FastAPI and Uvicorn"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "uvicorn.run(app) need typing: 'ASGIApplication'\r\n[(the asgiref package)](https://github.com/django/asgiref/blob/main/asgiref/typing.py)\r\n\r\nit's difference from typing of `Starlette.__call__(self, scope: Scope, receive: Receive, send: Send) -> None`\r\n\r\nSO, IDE check and display a waring, about app\r\n `uvicorn.run(app, host=\"127.0.0.1\", port=8080)`",
+    "closed_at": "2021-11-27T15:45:40Z",
+    "created_at": "2021-07-22T06:24:47Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1249",
+    "labels": [
+      "typing"
+    ],
+    "number": 1249,
+    "state": "closed",
+    "title": "Typing differences between Starlette and Uvicorn",
+    "user": "Gascognya"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-08-16T21:14:45Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-08-16T21:17:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-03T09:31:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-10-02T12:14:16Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1296",
+          "number": 1296,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette is not typed to an ASGIApplication \u2192 Type check warning in PyCharm with FastAPI and Uvicorn"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T15:45:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T15:45:40Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2021-11-27T15:45:40Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-11-27T15:45:41Z",
+      "event": "subscribed"
+    }
+  ]
+}

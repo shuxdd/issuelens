@@ -1,0 +1,109 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2021-01-15T06:53:53Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1125"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1125"
+    ]
+  },
+  "case_id": "starlette-issue-1125",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-1349",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Raise a more obvious exception when form data is missing \"boundary\".' directly changes starlette/formparsers.py with focused behavior test(s) tests/test_formparsers.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2021-11-29T17:48:41Z",
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nNot actually a bug, but insufficient input validation.\r\n\r\n### To reproduce\r\n\r\nProvide POST input (e.g. with postman) with content-type 'multipart/form-data' but without _boundary_ parameter.\r\n\r\n### Expected behavior\r\n\r\nShall return 4xx error code. According to rfc7578 boundary is a required parameter.\r\n\r\n### Actual behavior\r\n\r\n_None_ boundary is passed to multipart library and an exception is raised there.\r\n\r\n### Debugging material\r\n\r\n```\r\nTypeError: can't concat NoneType to bytes\r\n  File \"starlette/middleware/trustedhost.py\", line 51, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/middleware/sessions.py\", line 75, in __call__\r\n    await self.app(scope, receive, send_wrapper)\r\n  File \"cpms/middleware.py\", line 55, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/middleware/authentication.py\", line 48, in __call__\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/exceptions.py\", line 82, in __call__\r\n    raise exc from None\r\n  File \"starlette/exceptions.py\", line 71, in __call__\r\n    await self.app(scope, receive, sender)\r\n  File \"starlette/routing.py\", line 582, in __call__\r\n    await route.handle(scope, receive, send)\r\n  File \"starlette/routing.py\", line 243, in handle\r\n    await self.app(scope, receive, send)\r\n  File \"starlette/routing.py\", line 54, in app\r\n    response = await func(request)\r\n  File \"starlette/authentication.py\", line 69, in async_wrapper\r\n    return await func(*args, **kwargs)\r\n  File \"cpms/views/files.py\", line 90, in decorator\r\n    return await endpoint(request)\r\n  File \"cpms/views/files.py\", line 133, in upload_files\r\n    for f_name, f_value in (await request.form()).items():\r\n  File \"starlette/requests.py\", line 240, in form\r\n    self._form = await multipart_parser.parse()\r\n  File \"starlette/formparsers.py\", line 181, in parse\r\n    parser = multipart.MultipartParser(boundary, callbacks)\r\n  File \"multipart/multipart.py\", line 1042, in __init__\r\n    self.boundary = b'\\r\\n--' + boundary\r\n```\r\n\r\n### Environment\r\n\r\n- OS: OpenBSD 6.7\r\n- Python version: 3.7.9\r\n- Starlette version: 0.14.1\r\n\r\n### Additional context\r\n\r\nThe problem occurs due insufficient checking of the input on line 166 of starlette/formparsers.py\r\n`      boundary = params.get(b\"boundary\")`\r\n\r\nIt is better to replace it with:\r\n`      boundary = params[b\"boundary\"]`\r\nso exception at early stage will be raised.\r\n\r\nOr make an additional input validation.\r\n```\r\n      boundary = params.get(b\"boundary\")\r\n      if not boundary:\r\n          raise HTTPException(status_code=400)\r\n```\r\n",
+    "number": 1125,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1125",
+    "title": "Insufficient input validation of content-type 'multipart/form-data'"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1349 created_at 2021-11-29T17:48:41Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1349",
+    "repair_files": [
+      "starlette/formparsers.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35",
+    "test_files": [
+      "tests/test_formparsers.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/cc0daefee73f667daca58954fd98d870d9ee4232/starlette%2Fformparsers.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "781948a89676738532841414fb2fc5b9ae2f20b9",
+        "source_url": "https://github.com/Kludex/starlette/commit/781948a89676738532841414fb2fc5b9ae2f20b9"
+      },
+      {
+        "sha": "852d5080f5d573f51a932a500009ae0b01c4f8b4",
+        "source_url": "https://github.com/Kludex/starlette/commit/852d5080f5d573f51a932a500009ae0b01c4f8b4"
+      },
+      {
+        "sha": "0e0e2c73c0e944851b5c8ab310a0b7322c2d881a",
+        "source_url": "https://github.com/Kludex/starlette/commit/0e0e2c73c0e944851b5c8ab310a0b7322c2d881a"
+      },
+      {
+        "sha": "54d89af28b8a3dad3f83e21aa6cdef871caf8c6d",
+        "source_url": "https://github.com/Kludex/starlette/commit/54d89af28b8a3dad3f83e21aa6cdef871caf8c6d"
+      },
+      {
+        "sha": "53bfd9f24b1d26d6146f9830ec8f9ab6691cee56",
+        "source_url": "https://github.com/Kludex/starlette/commit/53bfd9f24b1d26d6146f9830ec8f9ab6691cee56"
+      },
+      {
+        "sha": "cc0daefee73f667daca58954fd98d870d9ee4232",
+        "source_url": "https://github.com/Kludex/starlette/commit/cc0daefee73f667daca58954fd98d870d9ee4232"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2021-11-29T17:48:41Z",
+      "number": 1349,
+      "source_url": "https://github.com/Kludex/starlette/pull/1349"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1349"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_formparsers.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/cc0daefee73f667daca58954fd98d870d9ee4232/tests%2Ftest_formparsers.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35",
+    "committed_at": "2021-11-29T13:32:29Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/8f5f252331dd6f05e0ae5a0b6b48ea1915ea2e35"
+  },
+  "schema_version": "1.0"
+}

@@ -1,0 +1,15 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Currently our middleware stack looks like this:\r\n\r\n* Server\r\n* ExceptionMiddleware # Generates 500 pages, and deals with handled exceptions.\r\n* User Middleware\r\n* Router\r\n* Endpoint\r\n\r\nHaving implemented https://github.com/encode/sentry-asgi I've realised that this isn't quite right. We don't want handled exceptions to be captured by sentry or other exception logging middleware. Instead what we *ought* to have is this...\r\n\r\n* Server\r\n* ServerErrorMiddleware  # Generates 500 pages.\r\n* User Middleware\r\n* ExceptionMiddleware  # Deals with handled exceptions.\r\n* Router\r\n* Endpoint\r\n\r\nHandled exceptions may be raised inside endpoints (or the router), but should not be available to regular middleware, which should just return responses directly. We want this behavior anyway because middleware classes that raise exceptions to be handled will not be portable across to other ASGI frameworks (without also including an exception handling middleware.)",
+    "closed_at": "2018-11-08T11:59:16Z",
+    "created_at": "2018-11-07T10:43:49Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/190",
+    "number": 190,
+    "state": "closed",
+    "title": "Exceptions and middleware",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": []
+}

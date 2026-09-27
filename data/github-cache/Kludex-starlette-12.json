@@ -1,0 +1,97 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2018-07-11T13:12:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/17",
+          "number": 17,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/17"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Routing decorator"
+        }
+      }
+    },
+    {
+      "created_at": "2019-01-11T15:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/315",
+          "number": 315,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "HEAD method + test client"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "* Include `HEAD` if `GET` is in `methods`.\r\n* Set `Allow` header on responses.\r\n* Respond to OPTIONS with 200 responses.",
+    "closed_at": "2018-08-28T14:13:02Z",
+    "created_at": "2018-06-26T15:01:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/12",
+    "number": 12,
+    "state": "closed",
+    "title": "Routing app refinements",
+    "user": "lovelydinosaur"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-07-02T13:11:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-07-10T15:01:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-07-10T15:01:14Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2018-07-10T15:01:14Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2018-07-11T13:12:05Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/17",
+          "number": 17,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/17"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Routing decorator"
+        }
+      }
+    },
+    {
+      "created_at": "2019-01-11T15:46:09Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/315",
+          "number": 315,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "HEAD method + test client"
+        }
+      }
+    }
+  ]
+}

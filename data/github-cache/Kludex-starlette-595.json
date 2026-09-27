@@ -1,0 +1,79 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2026-08-23T03:36:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pulls/1"
+          },
+          "repository": {
+            "full_name": "Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project"
+          },
+          "title": "feat: initialize CloudCompliance Sentinel MVP"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "From [https://www.starlette.io/templates/](https://www.starlette.io/templates/):\r\n```python\r\ntemplates = Jinja2Templates(directory='templates')\r\n```\r\nThis folder is relative to the working directory.  This could perhaps be more clearly stated in the documentation.  (This caught us off guard when it wasn't working in a dockerized environment)\r\n\r\nWe fixed it by doing:\r\n```python\r\ntemplates = Jinja2Templates(directory=__file__[:__file__.rindex('/') + 1] + 'templates')\r\n```\r\nThe relative to working directory is unexpected.  Perhaps something like what I have should also be provided in the documentation.",
+    "closed_at": "2019-08-16T09:31:36Z",
+    "created_at": "2019-08-08T23:11:53Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/595",
+    "number": 595,
+    "state": "closed",
+    "title": "Jinja2Templates directory parameter is relative to working directory",
+    "user": "skewty"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-08-11T23:42:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-11T23:48:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-11T23:48:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-11T23:48:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2019-08-16T09:31:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-08-16T09:31:36Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2019-08-16T09:31:36Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2026-08-23T03:36:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pull/1",
+          "number": 1,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project/pulls/1"
+          },
+          "repository": {
+            "full_name": "Kaveri-Bhimappa-Jarali/CloudCompliance-Sentinel-project"
+          },
+          "title": "feat: initialize CloudCompliance Sentinel MVP"
+        }
+      }
+    }
+  ]
+}

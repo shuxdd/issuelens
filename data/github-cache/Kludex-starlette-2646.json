@@ -62,6 +62,8 @@
     }
   ],
   "issue": {
+    "body": "My test code:\r\n\r\n```python\r\nfrom fastapi import FastAPI\r\nimport uvicorn\r\n\r\nfrom staticfiles import StaticFiles\r\n\r\napp = FastAPI()\r\napp.mount(\"/music\", StaticFiles(directory=\"/home/hanxi/work/xiaomusic/music\", follow_symlink=True), name=\"music\")\r\n\r\nuvicorn.run(\r\n    app,\r\n    host=[\"::\", \"0.0.0.0\"],\r\n    port=3333,\r\n)\r\n```\r\n\r\nThe directory /home/hanxi/work/xiaomusic/music is a symlink.\r\n\r\n```\r\n> ls -l /home/hanxi/work/xiaomusic/music\r\nlrwxrwxrwx 1 hanxi hanxi 26 Apr 30 12:10 /home/hanxi/work/xiaomusic/music -> /home/hanxi/nas/data/music\r\n```\r\n\r\nI fix this in https://github.com/hanxi/starlette/commit/831cb5d255832d9f704ffd7be49b4184cd301dd6\r\n\r\nNeed pr?\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2646\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2646/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2646/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "body_last_edited_at": "2024-07-19T01:01:32Z",
     "closed_at": "2024-12-01T16:46:18Z",
     "created_at": "2024-07-19T01:01:29Z",
     "html_url": "https://github.com/Kludex/starlette/issues/2646",
@@ -84,6 +86,11 @@
     "user": "hanxi"
   },
   "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+    "committed_at": "2024-09-29T10:33:42Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44"
+  },
   "timeline": [
     {
       "created_at": "2024-07-19T12:21:15Z",

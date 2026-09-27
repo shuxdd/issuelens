@@ -1,0 +1,77 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-01-25T10:03:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mingrammer/diagrams/pull/443",
+          "number": 443,
+          "pull_request": {
+            "merged_at": "2021-08-21T02:47:03Z",
+            "url": "https://api.github.com/repos/mingrammer/diagrams/pulls/443"
+          },
+          "repository": {
+            "full_name": "mingrammer/diagrams"
+          },
+          "title": "Add Starlette framework"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hello and thanks (again) for Starlette \ud83d\udc4d \r\n\r\nI think, we're ready for official Starlette logo.\r\n\r\n> Btw, I made [official logo of Quart](https://github.com/koddr/quart-logo) ASGI Python Framework. I do this, because I want to make Starlette better and make it recognizable. So, use with [Creative Commons license](https://creativecommons.org/share-your-work/public-domain/cc0) (CC0 1.0 Universal) and it's for free.\r\n\r\nThis is my vision of `a young actress with aspirations to become a star` (macOS EN Dictionary).\r\n\r\n> Yes, I know, `starlette` is a French word and literally means `rising star`, english equivalent of a `starlet`, but with a different meaning :)\r\n\r\n<img width=\"735\" alt=\"Screen Shot 2019-03-29 at 10 36 13\" src=\"https://user-images.githubusercontent.com/11155743/55216800-c9ca2a00-520e-11e9-8cf1-4999bbe89e9d.png\">\r\n\r\n<img width=\"823\" alt=\"Screen Shot 2019-03-29 at 10 37 50\" src=\"https://user-images.githubusercontent.com/11155743/55216806-c9ca2a00-520e-11e9-8e4c-e0aa85688851.png\">\r\n\r\nThe meaning of the logo is quite simple: ascending (read, _like new_) bright star, which shines brightly. Good typography for merchandising and speeches at Python conferences, catchy graphics for everything else.\r\n\r\nAnd short logo is:\r\n\r\n<img width=\"695\" alt=\"Screen Shot 2019-03-29 at 10 36 45\" src=\"https://user-images.githubusercontent.com/11155743/55216801-c9ca2a00-520e-11e9-9164-17dadf0d85bb.png\">\r\n\r\nThe small star is directed slightly up and to the right to show the dynamics of movement, but not to be super intrusive.\r\n\r\nI experimented with other fonts and elements, for example:\r\n\r\n<img width=\"876\" alt=\"Screen Shot 2019-03-29 at 10 37 03\" src=\"https://user-images.githubusercontent.com/11155743/55216802-c9ca2a00-520e-11e9-8c98-62099ec4669e.png\">\r\n\r\n...or: \r\n\r\n<img width=\"944\" alt=\"Screen Shot 2019-03-29 at 10 37 23\" src=\"https://user-images.githubusercontent.com/11155743/55216804-c9ca2a00-520e-11e9-8ac2-c1d33148c3c8.png\">\r\n\r\nBut first logo is most better for me. \r\n\r\nWhat do you think? Come to comments :)",
+    "closed_at": "2019-06-19T11:55:33Z",
+    "created_at": "2019-03-29T16:40:58Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/456",
+    "number": 456,
+    "state": "closed",
+    "title": "Official Starlette logo",
+    "user": "koddr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-03-30T15:29:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-01T15:59:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-02T09:59:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-24T15:54:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-04-30T17:31:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-06-19T11:55:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-25T10:03:24Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mingrammer/diagrams/pull/443",
+          "number": 443,
+          "pull_request": {
+            "merged_at": "2021-08-21T02:47:03Z",
+            "url": "https://api.github.com/repos/mingrammer/diagrams/pulls/443"
+          },
+          "repository": {
+            "full_name": "mingrammer/diagrams"
+          },
+          "title": "Add Starlette framework"
+        }
+      }
+    }
+  ]
+}

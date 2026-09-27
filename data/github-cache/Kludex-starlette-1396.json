@@ -1,0 +1,56 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\n\n- [x] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\nIf an HTTPS request causes a slash redirect, the https schema is not preserved in the \"location\" header in the response.\r\nThis is especially important for environments that don't allow http requests. In such cases all slash-missing requests will fail with a 426 response.\n\n### Steps to reproduce the bug\n\n1. create a server that can handle HTTPS requests\r\n2. create a url \"/foo\", make sure that redirect_slashes is \"True\"\r\n3. make an https request to \"/foo/\"\r\n4. note the response location\n\n### Expected behavior\n\nthe \"location\" header in the response should be to \"https://../foo\"\n\n### Actual behavior\n\nthe \"location\" header in the response is actually \"http://../foo\"\n\n### Debugging material\n\n_No response_\n\n### Environment\n\nobserved in linux/ python 3.8/ starlette version 0.17.1\n\n### Additional context\n\n_No response_",
+    "closed_at": "2022-01-25T08:12:00Z",
+    "created_at": "2022-01-06T15:51:55Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1396",
+    "number": 1396,
+    "state": "closed",
+    "title": "redirect_slashes not respecting HTTPS",
+    "user": "bentheiii"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-01-18T09:43:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-24T10:35:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-24T10:35:43Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-01-24T10:35:44Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-25T08:12:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-25T08:12:00Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-01-25T08:15:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-04-07T19:15:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2024-04-07T19:15:17Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2024-04-07T19:15:17Z",
+      "event": "subscribed"
+    }
+  ]
+}

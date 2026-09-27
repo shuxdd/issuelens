@@ -1,0 +1,67 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-01-22T14:12:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/337",
+          "number": 337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix QueryParams behavior"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hey, in QueryParams when calling the `.keys()` it returns the keys from the `self._list` which can return duplicate keys if a key have multiple values. Same for `.values()` and `.items()`, it returns all the values, while the expected behavior is to return for each key the last value.\r\n\r\n```python\r\n>>> q = QueryParams(query_string=\"a=1&a=2\")\r\n>>> q.keys() # ['a', 'a'] the expected ['a']\r\n>>> q.values() # [1, 2] the expected [2]\r\n>>> q.items() # (a, 1) (a, 2) the expected (a, 2)\r\n```\r\nI can easily fix those, but I suggest to create a MultiValueDict that can be subclassed by other classes. \r\n\r\nSo what do you think, should I keep it that way and fix the behavior or add a MultiDict ?\r\n\r\n** In the QueryParams implementation, the items are stored in both a dict and a list, is it more efficient than django's `Mapping[str, List]` or just because back then there were more important things to do.",
+    "closed_at": "2019-01-22T17:29:39Z",
+    "created_at": "2019-01-21T20:07:56Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/333",
+    "number": 333,
+    "state": "closed",
+    "title": "QueryParams unexpected bahavior",
+    "user": "taoufik07"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-01-22T00:02:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-22T00:15:17Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-22T00:45:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-22T08:59:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2019-01-22T14:12:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/337",
+          "number": 337,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/337"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix QueryParams behavior"
+        }
+      }
+    }
+  ]
+}

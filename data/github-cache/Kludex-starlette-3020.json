@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "in starlette.authentication.SimpleUser,it says\n```py\nclass SimpleUser(BaseUser):\n    def __init__(self, username: str) -> None:\n        self.username = username\n\n    @property\n    def is_authenticated(self) -> bool:\n        return True\n\n    @property\n    def display_name(self) -> str:\n        return self.username\n```\nthis cause a variable 'username' appeared in request.user\nif modified to\n```py\nclass SimpleUser(BaseUser):\n    def __init__(self, username: str) -> None:\n        self._username = username\n\n    @property\n    def is_authenticated(self) -> bool:\n        return True\n\n    @property\n    def display_name(self) -> str:\n        return self._username\n```\nthere is not redundant variable 'username'",
+    "closed_at": "2025-09-20T11:56:12Z",
+    "created_at": "2025-09-18T08:39:39Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/3020",
+    "number": 3020,
+    "state": "closed",
+    "title": "the variable name in class SimpleUser should be with leading undercore",
+    "user": "ockan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-09-20T11:56:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-09-20T11:56:12Z",
+      "event": "closed"
+    }
+  ]
+}

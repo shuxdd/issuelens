@@ -1,0 +1,1103 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-04-28T11:03:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1313",
+          "number": 1313,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks not working properly"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-07T13:00:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1355",
+          "number": 1355,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "A running background task will block new requests from the OpenAPI view when using a metrics exporter middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-01T13:38:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-12T13:53:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/96",
+          "number": 96,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "h11._util.RemoteProtocolError: can't handle event type ConnectionClosed when role=SERVER and state=SEND_RESPONSE"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T12:56:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1012",
+          "number": 1012,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Memory usage streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-17T09:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/18",
+          "number": 18,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "rewrite middleware to pure ASGI"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-24T21:17:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2086",
+          "number": 2086,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Why middleware waits for all scheduled tasks to finish?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-06T06:49:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server Sent Events"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-07T10:30:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2020-10-09T04:12:13Z",
+            "url": "https://api.github.com/repos/stephenhillier/starlette_exporter/pulls/9"
+          },
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "ASGI3 and other misc improvements"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-14T16:05:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mfreeborn/fastapi-sqlalchemy/issues/25",
+          "number": 25,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mfreeborn/fastapi-sqlalchemy"
+          },
+          "title": "BaseHTTPMiddleware based Middleware Breaks Background Tasks"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-21T14:29:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2215",
+          "number": 2215,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "middleware breaks behavior of background task"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-25T12:16:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2241",
+          "number": 2241,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "@app.middleware(\"http\")"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-26T22:47:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/acidjunk/starlette-opentracing/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "acidjunk/starlette-opentracing"
+          },
+          "title": "Test is subclassing BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-04T13:26:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "BaseHTTPMiddleware vs BackgroundTasks"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-19T13:18:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/pull/23",
+          "number": 23,
+          "pull_request": {
+            "url": "https://api.github.com/repos/trallnag/prometheus-fastapi-instrumentator/pulls/23"
+          },
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "refactor: change middleware implementation to pure asgi"
+        }
+      }
+    },
+    {
+      "created_at": "2021-02-21T17:36:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2858",
+          "number": 2858,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Why not to use backgroundworkers for heavy tasks?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-06-16T09:15:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amorey/starlette-wtf/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "amorey/starlette-wtf"
+          },
+          "title": "Prevent usage of `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-14T12:12:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3859",
+          "number": 3859,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks can't work with middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-20T19:47:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Opentrons/opentrons/pull/8362",
+          "number": 8362,
+          "pull_request": {
+            "merged_at": "2021-09-21T16:56:59Z",
+            "url": "https://api.github.com/repos/Opentrons/opentrons/pulls/8362"
+          },
+          "repository": {
+            "full_name": "Opentrons/opentrons"
+          },
+          "title": "fix(robot-server): ensure background tasks do not affect requests"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-08T18:28:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perdy/starlette-prometheus/issues/33",
+          "number": 33,
+          "pull_request": {},
+          "repository": {
+            "full_name": "perdy/starlette-prometheus"
+          },
+          "title": "Middleware is preventing background task to execute in background"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-22T17:41:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/cds-snc/scan-websites/pull/271",
+          "number": 271,
+          "pull_request": {
+            "merged_at": "2021-12-22T17:46:55Z",
+            "url": "https://api.github.com/repos/cds-snc/scan-websites/pulls/271"
+          },
+          "repository": {
+            "full_name": "cds-snc/scan-websites"
+          },
+          "title": "fix: background no longer blocked by middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T18:02:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vortico/flama/issues/44",
+          "number": 44,
+          "pull_request": {},
+          "repository": {
+            "full_name": "vortico/flama"
+          },
+          "title": "BackgroundTask running in a different process"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-18T15:13:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/obvious-inc/nom-api/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2022-02-23T13:13:05Z",
+            "url": "https://api.github.com/repos/obvious-inc/nom-api/pulls/52"
+          },
+          "repository": {
+            "full_name": "obvious-inc/nom-api"
+          },
+          "title": "Async \u2764\ufe0f background tasks "
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "When using background tasks with middleware, requests are not processed until the background task has finished.\r\n\r\n1. Use the example below\r\n2. Make several requests in a row - works as expected\r\n3. Uncomment `app.add_middleware(TransparentMiddleware)` and re-run\r\n4. Make several requests in a row - subsequent ones are not processed until the 10 second sleep has finished (the first request returns before then though).\r\n\r\nThe same behaviour occurs with `asyncio.sleep` (async) and `time.sleep` (sync, run in threadpool)\r\n\r\n```python\r\nimport asyncio\r\nimport uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.background import BackgroundTask\r\nfrom starlette.responses import JSONResponse\r\n\r\n\r\nclass TransparentMiddleware(BaseHTTPMiddleware):\r\n    async def dispatch(self, request, call_next):\r\n        # simple middleware that does absolutely nothing\r\n        response = await call_next(request)\r\n        return response\r\n\r\n\r\napp = Starlette(debug=True)\r\n# uncomment to break\r\n# app.add_middleware(TransparentMiddleware)\r\n\r\n\r\n@app.route(\"/\")\r\nasync def test(_):\r\n    task = BackgroundTask(asyncio.sleep, 10)\r\n    return JSONResponse(\"hello\", background=task)\r\n\r\n\r\nif __name__ == '__main__':\r\n    uvicorn.run(app)\r\n```",
+    "closed_at": "2022-07-07T22:23:34Z",
+    "created_at": "2020-04-28T11:03:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/919",
+    "number": 919,
+    "state": "closed",
+    "title": "Background tasks don't work with middleware that subclasses `BaseHTTPMiddleware`",
+    "user": "retnikt"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-04-28T11:03:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1313",
+          "number": 1313,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks not working properly"
+        }
+      }
+    },
+    {
+      "created_at": "2020-04-29T21:05:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-30T06:51:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-30T06:58:43Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-07T13:00:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/1355",
+          "number": 1355,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "A running background task will block new requests from the OpenAPI view when using a metrics exporter middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-05-07T13:37:46Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-16T04:43:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-16T07:49:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-16T07:49:49Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-16T07:49:49Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-16T16:46:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-16T16:46:57Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-16T16:46:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-07-28T16:25:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T05:06:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T07:09:12Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T14:39:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T14:39:39Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-29T14:39:39Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-07-29T14:53:51Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T14:53:51Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-29T14:53:51Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-07-29T14:54:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-07-29T14:54:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-07-29T14:54:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-01T13:38:03Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1017",
+          "number": 1017,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1017"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Streaming with BaseHTTPMiddleware: force background to run after response completes"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-05T21:34:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-05T21:37:50Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-05T21:37:50Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-12T13:53:29Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/encode/httpx/issues/96",
+          "number": 96,
+          "pull_request": {},
+          "repository": {
+            "full_name": "encode/httpx"
+          },
+          "title": "h11._util.RemoteProtocolError: can't handle event type ConnectionClosed when role=SERVER and state=SEND_RESPONSE"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-12T14:11:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:33:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:43:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:43:37Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-12T14:43:37Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-12T14:44:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:44:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-12T14:44:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-12T14:44:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-12T14:44:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-12T14:44:59Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-12T14:44:59Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-12T14:56:38Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T15:02:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T15:11:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-12T15:11:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-13T07:17:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-13T09:35:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-13T09:35:58Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-08-13T09:35:58Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-08-13T12:56:34Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1012",
+          "number": 1012,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Memory usage streaming large responses"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:14:47Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1029",
+          "number": 1029,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve Documentation on Writing Custom ASGI Middleware and BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-08-13T14:30:04Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-08-17T09:54:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/tomwojcik/starlette-context/issues/18",
+          "number": 18,
+          "pull_request": {},
+          "repository": {
+            "full_name": "tomwojcik/starlette-context"
+          },
+          "title": "rewrite middleware to pure ASGI"
+        }
+      }
+    },
+    {
+      "created_at": "2020-09-24T21:17:57Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2086",
+          "number": 2086,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Why middleware waits for all scheduled tasks to finish?"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-01T11:47:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-10-06T06:49:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Server Sent Events"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-07T10:30:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/stephenhillier/starlette_exporter/pull/9",
+          "number": 9,
+          "pull_request": {
+            "merged_at": "2020-10-09T04:12:13Z",
+            "url": "https://api.github.com/repos/stephenhillier/starlette_exporter/pulls/9"
+          },
+          "repository": {
+            "full_name": "stephenhillier/starlette_exporter"
+          },
+          "title": "ASGI3 and other misc improvements"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-14T16:05:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/mfreeborn/fastapi-sqlalchemy/issues/25",
+          "number": 25,
+          "pull_request": {},
+          "repository": {
+            "full_name": "mfreeborn/fastapi-sqlalchemy"
+          },
+          "title": "BaseHTTPMiddleware based Middleware Breaks Background Tasks"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-21T14:29:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2215",
+          "number": 2215,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "middleware breaks behavior of background task"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-25T12:16:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2241",
+          "number": 2241,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "@app.middleware(\"http\")"
+        }
+      }
+    },
+    {
+      "created_at": "2020-10-26T22:47:46Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/acidjunk/starlette-opentracing/issues/2",
+          "number": 2,
+          "pull_request": {},
+          "repository": {
+            "full_name": "acidjunk/starlette-opentracing"
+          },
+          "title": "Test is subclassing BaseHTTPMiddleware"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-04T13:26:36Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/issues/20",
+          "number": 20,
+          "pull_request": {},
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "BaseHTTPMiddleware vs BackgroundTasks"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-19T13:18:49Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/trallnag/prometheus-fastapi-instrumentator/pull/23",
+          "number": 23,
+          "pull_request": {
+            "url": "https://api.github.com/repos/trallnag/prometheus-fastapi-instrumentator/pulls/23"
+          },
+          "repository": {
+            "full_name": "trallnag/prometheus-fastapi-instrumentator"
+          },
+          "title": "refactor: change middleware implementation to pure asgi"
+        }
+      }
+    },
+    {
+      "created_at": "2020-12-26T13:27:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-26T17:17:00Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-12-26T17:47:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-21T17:36:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/2858",
+          "number": 2858,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "Why not to use backgroundworkers for heavy tasks?"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-04T10:26:31Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T10:26:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T10:26:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-04T10:26:31Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T10:26:31Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-04T10:31:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T10:31:07Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T10:31:07Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-04T11:10:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T11:10:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T11:10:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-04T11:20:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T11:20:16Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-03-04T11:20:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-03-04T11:20:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-04T11:21:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-09T10:56:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-06-16T09:15:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/amorey/starlette-wtf/issues/7",
+          "number": 7,
+          "pull_request": {},
+          "repository": {
+            "full_name": "amorey/starlette-wtf"
+          },
+          "title": "Prevent usage of `BaseHTTPMiddleware`"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-14T01:38:55Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-14T12:12:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/fastapi/fastapi/issues/3859",
+          "number": 3859,
+          "pull_request": {},
+          "repository": {
+            "full_name": "fastapi/fastapi"
+          },
+          "title": "BackgroundTasks can't work with middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2021-09-20T19:47:11Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Opentrons/opentrons/pull/8362",
+          "number": 8362,
+          "pull_request": {
+            "merged_at": "2021-09-21T16:56:59Z",
+            "url": "https://api.github.com/repos/Opentrons/opentrons/pulls/8362"
+          },
+          "repository": {
+            "full_name": "Opentrons/opentrons"
+          },
+          "title": "fix(robot-server): ensure background tasks do not affect requests"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-18T18:27:57Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-11-29T19:52:50Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-30T08:34:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-08T18:28:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perdy/starlette-prometheus/issues/33",
+          "number": 33,
+          "pull_request": {},
+          "repository": {
+            "full_name": "perdy/starlette-prometheus"
+          },
+          "title": "Middleware is preventing background task to execute in background"
+        }
+      }
+    },
+    {
+      "created_at": "2021-12-09T06:50:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-10T19:04:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-22T17:36:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-12-22T17:41:17Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/cds-snc/scan-websites/pull/271",
+          "number": 271,
+          "pull_request": {
+            "merged_at": "2021-12-22T17:46:55Z",
+            "url": "https://api.github.com/repos/cds-snc/scan-websites/pulls/271"
+          },
+          "repository": {
+            "full_name": "cds-snc/scan-websites"
+          },
+          "title": "fix: background no longer blocked by middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-28T16:44:02Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1441",
+          "number": 1441,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1441"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow background tasks to run with custom `BaseHTTPMiddleware`'s"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-30T18:02:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/vortico/flama/issues/44",
+          "number": 44,
+          "pull_request": {},
+          "repository": {
+            "full_name": "vortico/flama"
+          },
+          "title": "BackgroundTask running in a different process"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-18T15:13:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/obvious-inc/nom-api/pull/52",
+          "number": 52,
+          "pull_request": {
+            "merged_at": "2022-02-23T13:13:05Z",
+            "url": "https://api.github.com/repos/obvious-inc/nom-api/pulls/52"
+          },
+          "repository": {
+            "full_name": "obvious-inc/nom-api"
+          },
+          "title": "Async \u2764\ufe0f background tasks "
+        }
+      }
+    }
+  ]
+}

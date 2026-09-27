@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] There are no similar issues or pull requests for this yet.\r\n\r\n### Is your feature related to a problem? Please describe.\r\n\r\nI want to be able to update a cookie's value, but persist its other fields (expires in particular). Currently, there is no way to introspect a cookie for its attributes. This can be done with a Response derivative, but, in order to persist the cookie details properly, we need to be able to inspect it in a request (since the user is sending the cookie to starlette).\r\n\r\n## Describe the solution you would like.\r\n\r\nSupply a `Request.raw_headers` attribute which acts the same as `Response.raw_headers`, and populate `raw_headers` with the agent-supplied headers.\r\n\r\n```\r\n@router.post(\"/route\")\r\nasync def route(request: Request):\r\n    new_value = \"blahblahblah\"\r\n\r\n    for i, header in enumerate(request.raw_headers):\r\n        key, raw_cookie = header[0].decode(), header[1].decode()\r\n        if \"some_cookie_key\" in raw_cookie:\r\n            cookie = http.cookies.SimpleCookie()\r\n            cookie.load(raw_cookie)\r\n            name = cookie[\"name\"]\r\n            expires = cookie[\"expires\"]\r\n            response.set_cookie(name, new_value, expires=expires)\r\n\r\n        return response\r\n```\r\n\r\nPersonally, I would argue that providing something like a `raw_cookies` attribute which contains a dict of `key -> http.cookies.SimpleCookie` would be better for dealing with cookies. However, `raw_headers` seems to already be done for Response and so implementing that, which would contain verbatim strings of the cookies, would probably be much simpler and provide a way to reach these details.\r\n\r\n## Describe alternatives you considered\r\n\r\nDigging deeper into starlette's implementation from a user code standpoint. This does not seem like the route to go, as we should depend on public API interfaces, and not couple user code with starlette's private implementation.\r\n",
+    "closed_at": "2021-10-28T01:08:07Z",
+    "created_at": "2021-10-28T00:53:44Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1323",
+    "number": 1323,
+    "state": "closed",
+    "title": "[Feature] Access to Request's raw headers within a starlette route",
+    "user": "kevr"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2021-10-28T01:08:07Z",
+      "event": "closed"
+    }
+  ]
+}

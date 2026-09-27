@@ -1,0 +1,91 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-11-14T12:59:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1945",
+          "number": 1945,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing requirement httpx"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-20T02:53:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perspective-dev/perspective/pull/2013",
+          "number": 2013,
+          "pull_request": {
+            "merged_at": "2022-11-20T18:08:12Z",
+            "url": "https://api.github.com/repos/perspective-dev/perspective/pulls/2013"
+          },
+          "repository": {
+            "full_name": "perspective-dev/perspective"
+          },
+          "title": "Re-add secondary dependency as primary dependency to fix python tests"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "File \"/usr/local/lib/python3.10/site-packages/starlette/testclient.py\", line 15, in <module>\r\n    import httpx\r\nImportError: Error importing plugin \"common.tests.fixtures\": No module named 'httpx'",
+    "closed_at": "2022-11-14T08:38:25Z",
+    "created_at": "2022-11-14T08:34:41Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1943",
+    "number": 1943,
+    "state": "closed",
+    "title": "error after upgrading starlette version",
+    "user": "MuslimBeibytuly"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-11-14T08:38:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-11-14T08:38:25Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-11-14T12:59:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/1945",
+          "number": 1945,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Missing requirement httpx"
+        }
+      }
+    },
+    {
+      "created_at": "2022-11-20T02:53:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/perspective-dev/perspective/pull/2013",
+          "number": 2013,
+          "pull_request": {
+            "merged_at": "2022-11-20T18:08:12Z",
+            "url": "https://api.github.com/repos/perspective-dev/perspective/pulls/2013"
+          },
+          "repository": {
+            "full_name": "perspective-dev/perspective"
+          },
+          "title": "Re-add secondary dependency as primary dependency to fix python tests"
+        }
+      }
+    }
+  ]
+}

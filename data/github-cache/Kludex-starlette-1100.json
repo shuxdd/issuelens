@@ -1,0 +1,150 @@
+{
+  "commits": [
+    {
+      "committed_at": "2021-11-27T15:02:26Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e7272b947b931de0e212035ab3015c2b54fb1dff",
+      "sha": "e7272b947b931de0e212035ab3015c2b54fb1dff"
+    },
+    {
+      "committed_at": "2021-12-03T17:31:56Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/254b66fb2ba70fc231367e2da09a8ee6a7cb3720",
+      "sha": "254b66fb2ba70fc231367e2da09a8ee6a7cb3720"
+    },
+    {
+      "committed_at": "2021-12-03T17:45:40Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ded8d206f953298509837671327b1475e733ee77",
+      "sha": "ded8d206f953298509837671327b1475e733ee77"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-07-02T07:03:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1229",
+          "number": 1229,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1229"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make FileResponse.chunk_size a configurable variable."
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T15:03:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1345",
+          "number": 1345,
+          "pull_request": {
+            "merged_at": "2021-12-05T14:03:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1345"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change default chunk size from 4Kb to 64Kb"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 1,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ded8d206f953298509837671327b1475e733ee77/starlette%2Fresponses.py",
+      "changes": 2,
+      "deletions": 1,
+      "filename": "starlette/responses.py",
+      "sha": "1f9c43a21b388ce80b0d2a02d70a754128d6070b",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "`FileResponse.chunk_size` is currently hardcoded to 4096. I was testing file transfer and noticed rather slow speeds compared to using scp to get the file. I increased the chunk_size and saw the speeds I was expecting. This should be configurable from `FileResponse.__init__`.",
+    "closed_at": "2021-12-05T14:03:14Z",
+    "created_at": "2020-11-23T18:35:02Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1100",
+    "labels": [
+      "refactor"
+    ],
+    "number": 1100,
+    "state": "closed",
+    "title": "Make FileResponse.chunk_size variable",
+    "user": "postelrich"
+  },
+  "pull_request": {
+    "closed_at": "2021-12-05T14:03:14Z",
+    "created_at": "2021-11-27T15:03:48Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1345",
+    "merge_commit_sha": "1d1dcba1b811265b7e80e143b21ad316046ccdab",
+    "merged_at": "2021-12-05T14:03:14Z",
+    "number": 1345,
+    "title": "Change default chunk size from 4Kb to 64Kb",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-11-24T10:42:22Z",
+      "event": "commented"
+    },
+    {
+      "commit_id": "6db332fa05d849a20265be385e728e9353ea2d9d",
+      "commit_url": "https://api.github.com/repos/BookGin/starlette/commits/6db332fa05d849a20265be385e728e9353ea2d9d",
+      "created_at": "2021-07-02T06:54:08Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-07-02T07:03:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1229",
+          "number": 1229,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1229"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Make FileResponse.chunk_size a configurable variable."
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-18T23:47:41Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-11-27T15:03:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1345",
+          "number": 1345,
+          "pull_request": {
+            "merged_at": "2021-12-05T14:03:14Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1345"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Change default chunk size from 4Kb to 64Kb"
+        }
+      }
+    },
+    {
+      "created_at": "2021-11-27T15:04:18Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-05T14:03:14Z",
+      "event": "closed"
+    }
+  ]
+}

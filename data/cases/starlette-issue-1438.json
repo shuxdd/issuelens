@@ -1,0 +1,117 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2022-01-27T02:02:53Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/1438"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/1438"
+    ]
+  },
+  "case_id": "starlette-issue-1438",
+  "dataset": {
+    "primary": true,
+    "repair_series": "starlette-repair-series-1715",
+    "split": "primary",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'Replace task cancellation in `BaseHTTPMiddleware` with `http.disconnect`+`recv_stream.close`' directly changes starlette/middleware/base.py with focused behavior test(s) tests/middleware/test_base.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2022-06-29T23:11:14Z",
+  "issue": {
+    "body": "### Checklist\n\n- [X] The bug is reproducible against the latest release or `master`.\n- [X] There are no similar issues or pull requests to fix it yet.\n\n### Describe the bug\n\nWhen the HTTP client closes the TCP socket immediately after receiving the HTTP response, background tasks are cancelled.\r\n\r\nThis bug only happens when running the ASGI under uvicorn, and only if at least one HTTP Middleware is defined in the user middleware chain.\n\n### Steps to reproduce the bug\n\n1. Write the following ASGI Starlette application in `repro.py`:\r\n```python\r\nimport traceback\r\n\r\nimport anyio\r\nfrom starlette.applications import Starlette\r\nfrom starlette.background import BackgroundTasks\r\nfrom starlette.middleware import Middleware\r\nfrom starlette.middleware.base import BaseHTTPMiddleware\r\nfrom starlette.responses import Response\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def passthrough(request, call_next):\r\n    return await call_next(request)\r\n\r\n\r\nasync def _sleep(identifier, delay):\r\n    print(identifier, \"started\")\r\n    try:\r\n        await anyio.sleep(delay)\r\n        print(identifier, \"completed\")\r\n    except BaseException:\r\n        print(identifier, \"error\")\r\n        traceback.print_exc()\r\n        raise\r\n\r\n\r\nasync def response_with_sleeps(request):\r\n    background_tasks = BackgroundTasks()\r\n    background_tasks.add_task(_sleep, \"background task 1\", 2)\r\n    background_tasks.add_task(_sleep, \"background task 2\", 2)\r\n    return Response(background=background_tasks)\r\n\r\n\r\napplication = Starlette(\r\n    middleware=[\r\n        Middleware(BaseHTTPMiddleware, dispatch=passthrough),\r\n    ],\r\n    routes=[\r\n        Route(\"/\", response_with_sleeps),\r\n    ],\r\n)\r\n```\r\n2. Run that application using `uvicorn` (either uvloop or regular asyncio will reproduce the issue) on localhost:8000\r\n```bash\r\nuvicorn repro:application --port 8000\r\n```\r\n3. Run the following client script\r\n```python\r\n#!/usr/bin/env python\r\nimport socket\r\n\r\nconnection = socket.create_connection((\"localhost\", 8000))\r\nconnection.sendall(b\"GET / HTTP/1.1\\r\\nHost: localhost\\r\\n\\r\\n\")\r\nprint(connection.recv(10000).decode(\"utf8\"))\r\nconnection.close()\r\n```\r\n\n\n### Expected behavior\n\nThe client script gets the HTTP response, and both background tasks should complete successfully.\r\n\r\nThe expected behavior will be detectable by the following content in standard output:\r\n\r\n```\r\nbackground task 1 started\r\nbackground task 1 completed\r\nbackground task 2 started\r\nbackground task 2 completed\r\n```\n\n### Actual behavior\n\nBackground task 1 is interrupted at the `await` point and background task 2 is never started.\r\n\r\nThat results in the following content in the output (when running the `repro.py` application):\r\n```\r\nbackground task 1 started\r\nbackground task 1 error\r\nTraceback (most recent call last):\r\n  File \"/Users/jean/PycharmProjects/starlette-bg-cancelled/./repro.py\", line 19, in _sleep\r\n    await anyio.sleep(delay)\r\n  File \"/Users/jean/PycharmProjects/starlette-bg-cancelled/venv/lib/python3.9/site-packages/anyio/_core/_eventloop.py\", line 69, in sleep\r\n    return await get_asynclib().sleep(delay)\r\n  File \"/usr/local/Cellar/python@3.9/3.9.6/Frameworks/Python.framework/Versions/3.9/lib/python3.9/asyncio/tasks.py\", line 654, in sleep\r\n    return await future\r\nasyncio.exceptions.CancelledError\r\n```\n\n### Debugging material\n\n_No response_\n\n### Environment\n\n- MacOS 10.14.6 / Python 3.9 / Starlette 0.18.0\n\n### Additional context\n\n * When I remove the `passthrough` middleware, the bug goes away.\r\n * When I run the same application in `hypercorn`, the bug goes away.\r\n * There does not seem to be a difference between using `uvloop` or not.\r\n * If the client script (e.g. with a `time.sleep(10)`) maintains the TCP connection open, the bug goes away.",
+    "number": 1438,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/1438",
+    "title": "Background tasks are cancelled if the client closes connection"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #1715 created_at 2022-06-29T23:11:14Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #1715",
+    "repair_files": [
+      "starlette/middleware/base.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+    "test_files": [
+      "tests/middleware/test_base.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/middleware/base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/starlette%2Fmiddleware%2Fbase.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "9561a474fb0ea5aa3f649b86ba3475be6cd076f2",
+        "source_url": "https://github.com/Kludex/starlette/commit/9561a474fb0ea5aa3f649b86ba3475be6cd076f2"
+      },
+      {
+        "sha": "dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc",
+        "source_url": "https://github.com/Kludex/starlette/commit/dd8045c44cc3d30aa218b0ae8ed1cf7d4d9142cc"
+      },
+      {
+        "sha": "9161fb87218421857054f7171cbe13691e269142",
+        "source_url": "https://github.com/Kludex/starlette/commit/9161fb87218421857054f7171cbe13691e269142"
+      },
+      {
+        "sha": "274bdeb4b790d2b118e9eb791bf5f30ed435f742",
+        "source_url": "https://github.com/Kludex/starlette/commit/274bdeb4b790d2b118e9eb791bf5f30ed435f742"
+      },
+      {
+        "sha": "e43a9244db770180d6624f142d544e272e29d98f",
+        "source_url": "https://github.com/Kludex/starlette/commit/e43a9244db770180d6624f142d544e272e29d98f"
+      },
+      {
+        "sha": "13aae769d0d087a2a6af4383b143c89c068bfd79",
+        "source_url": "https://github.com/Kludex/starlette/commit/13aae769d0d087a2a6af4383b143c89c068bfd79"
+      },
+      {
+        "sha": "faae18e60906e8f055de4f12c6745b1955ea57d6",
+        "source_url": "https://github.com/Kludex/starlette/commit/faae18e60906e8f055de4f12c6745b1955ea57d6"
+      },
+      {
+        "sha": "b0434ab2917b6eedef3c7a929456a0aa55c74c97",
+        "source_url": "https://github.com/Kludex/starlette/commit/b0434ab2917b6eedef3c7a929456a0aa55c74c97"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2022-06-29T23:11:14Z",
+      "number": 1715,
+      "source_url": "https://github.com/Kludex/starlette/pull/1715"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/1715"
+    ],
+    "test_files": [
+      {
+        "path": "tests/middleware/test_base.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/b0434ab2917b6eedef3c7a929456a0aa55c74c97/tests%2Fmiddleware%2Ftest_base.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+    "committed_at": "2022-06-29T19:44:27Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3"
+  },
+  "schema_version": "1.0"
+}

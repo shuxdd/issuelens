@@ -1,0 +1,85 @@
+{
+  "commits": [
+    {
+      "committed_at": "2018-10-10T04:24:19Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ba452e8d75da5f6f7eb0a10ccac770e13b7c164a",
+      "sha": "ba452e8d75da5f6f7eb0a10ccac770e13b7c164a"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2018-10-10T04:26:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/101",
+          "number": 101,
+          "pull_request": {
+            "merged_at": "2018-10-10T08:00:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/101"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added init file so autodetect will pick up middleware"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/ba452e8d75da5f6f7eb0a10ccac770e13b7c164a/starlette%2Fmiddleware%2F__init__.py",
+      "changes": 2,
+      "deletions": 0,
+      "filename": "starlette/middleware/__init__.py",
+      "sha": "139597f9cb07c5d48bed18984ec4747f4b4f3438",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Hi looks like the middleware directory is absent from the package on PyPI.\r\n\r\n",
+    "closed_at": "2018-10-10T08:01:56Z",
+    "created_at": "2018-10-10T04:07:28Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/100",
+    "number": 100,
+    "state": "closed",
+    "title": "Starlette 0.3.6 on pypi doesn't contain the middleware directory",
+    "user": "bendog"
+  },
+  "pull_request": {
+    "closed_at": "2018-10-10T08:00:10Z",
+    "created_at": "2018-10-10T04:25:53Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/101",
+    "merge_commit_sha": "9cbcba79df38a9a323c1fd1ebb37d6db0506352b",
+    "merged_at": "2018-10-10T08:00:10Z",
+    "number": 101,
+    "title": "Added init file so autodetect will pick up middleware",
+    "user": "bendog"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-10-10T04:26:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/101",
+          "number": 101,
+          "pull_request": {
+            "merged_at": "2018-10-10T08:00:10Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/101"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Added init file so autodetect will pick up middleware"
+        }
+      }
+    },
+    {
+      "created_at": "2018-10-10T08:01:54Z",
+      "event": "commented"
+    }
+  ]
+}

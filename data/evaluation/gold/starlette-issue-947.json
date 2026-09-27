@@ -1,0 +1,33 @@
+{
+  "case_id": "starlette-issue-947",
+  "changed_files": [
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+      "source_url": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Background Thread created by WebSocketTestSession should exit when close() is called' originates in starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/8f78e7a4597f2d1780a8526fc1cd626af3d41a65/tests%2Ftest_testclient.py",
+      "status": "modified"
+    }
+  ]
+}

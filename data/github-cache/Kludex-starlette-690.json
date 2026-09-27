@@ -1,0 +1,81 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2019-10-27T20:07:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/681",
+          "number": 681,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/681"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Account for root_path and forwarded host in make_url_absolute"
+        }
+      }
+    },
+    {
+      "created_at": "2020-01-27T18:51:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette behind reverse proxy, url_for does not return externally valid urls"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I've been looking into writing tests for and eventually solving #604 (see #681), but this has turned out to be difficult because of the way `URLPath.make_absolute_url(self, base_url)`, `URL.__init__(self, scope)` and `HTTPConnection.url_for(self, name)` seem to interact with one another.\r\n\r\nI was initially assuming that `make_absolute_url` worked somewhat like [`urllib.parse.urljoin`](https://docs.python.org/3/library/urllib.parse.html#urllib.parse.urljoin), where a URL path can be made absolute by comparing it to a base URL, so that relative paths become absolute and absolute paths have all their missing components copied from the base URL. The problem I was trying to solve was that `scope['root_path']`. Based on that assumption, one would expect this test case to work:\r\n\r\n```py\r\ndef test_urlpath_make_absolute():\r\n    url_path_abs = URLPath(\"/foo/bar\", \"http\")\r\n    url_path_rel = URLPath(\"fizz/buzz\", \"http\")\r\n\r\n    base_url = URL(scope={\r\n        \"type\":\"http\",\r\n        \"server\":(\"127.0.0.1\", 8000),\r\n        \"headers\": [(b\"host\", b\"localhost:8000\")],\r\n        \"path\":\"/urlpath\",\r\n        \"query_string\": b\"\",\r\n        \"scheme\":\"http\",\r\n    })\r\n\r\n    abs_to_abs_url = url_path_abs.make_absolute_url(base_url)\r\n    assert abs_to_abs_url == 'http://localhost:8000/foo/bar'\r\n    \r\n    rel_to_abs_url = url_path_rel.make_absolute_url(base_url)\r\n    # rel_to_abs_url is actually 'http://localhost:8000/fizz/buzz'\r\n    assert rel_to_abs_url == 'http://localhost:8000/urlpath/fizz/buzz'\r\n```\r\n\r\nThat second assertion fails because `make_absolute_url` actually ignores most of the information from the base URL and instead creates a new URL by using the netloc and schema from the base URL, using the URLPath as the path.\r\n\r\nhttps://github.com/encode/starlette/blob/c0bf5e3976542de2a0d0441bee0b5d7b2f83050e/starlette/datastructures.py#L172-L188\r\n\r\nAdmittedly, that's not a very big problem, but it becomes a lot more problematic when accounting for `root_path`, because `HTTPConnection.url_for(self, name)` uses the connection's URL as its base URL, and while the connection's URL does account for `root_path` when calculating the value of `conn.url.path`, that path then gets discarded by `make_absolute_url`. The reason why I don't think I can fix this myself is because there is no way to know what `root_path` was by the time `make_absolute_url` runs because the URL provided by `HTTPConnection` has already merged it with the requested path and does not remember it. `URL` or  `HTTPConnection` would need to be modified to make this possible, and `URL` looks rather tightly coupled with the `urllib.parse.urlsplit`, so I don't know how moch margin for modification there even is with that datastructure.\r\n\r\n----\r\n\r\nI'd written those test cases (not the same as above, notice the use of `root_path`), but after looking into the inner workings of `URL`, I'm not even sure if they can be made to pass without heavy modifications to how `URL` works.\r\n\r\n```py\r\ndef test_urlpath_make_absolute_with_rootpath():\r\n    url_path_abs = URLPath(\"/foo/bar\", \"http\")\r\n    url_path_rel = URLPath(\"fizz/buzz\", \"http\")\r\n\r\n    base_url = URL(scope={\r\n        \"type\":\"http\",\r\n        \"server\":(\"127.0.0.1\", 8000),\r\n        \"headers\": [(b\"host\", b\"localhost:8000\")],\r\n        \"path\":\"/urlpath\",\r\n        \"root_path\":\"/root\",\r\n        \"query_string\": b\"\",\r\n        \"scheme\":\"http\",\r\n    })\r\n\r\n    abs_to_abs_url = url_path_abs.make_absolute_url(base_url)\r\n    assert abs_to_abs_url == 'http://localhost:8000/root/foo/bar'\r\n\r\n    rel_to_abs_url = url_path_rel.make_absolute_url(base_url)\r\n    assert rel_to_abs_url == 'http://localhost:8000/root/urlpath/fizz/buzz'\r\n```",
+    "closed_at": "2019-11-01T14:11:01Z",
+    "created_at": "2019-10-27T20:04:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/690",
+    "number": 690,
+    "state": "closed",
+    "title": "The root_path of a request is not known when running make_absolute_url",
+    "user": "sm-Fifteen"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2019-10-27T20:07:43Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/681",
+          "number": 681,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/681"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "[WIP] Account for root_path and forwarded host in make_url_absolute"
+        }
+      }
+    },
+    {
+      "created_at": "2020-01-27T18:51:07Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/604",
+          "number": 604,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Starlette behind reverse proxy, url_for does not return externally valid urls"
+        }
+      }
+    }
+  ]
+}

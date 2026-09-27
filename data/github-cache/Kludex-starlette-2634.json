@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "A *.xlsx  open normaly in local pc but  get a broken xlsx file  throught FileResponse. And do not find any error code in this code:\r\n\r\n    try:\r\n        tmp_file = StaticsConfig().ExcelTemplateFilePath\r\n        if not os.path.exists(tmp_file):\r\n            log.error(\r\n                f\"download_example_excel_file error: Standard Template file not found {tmp_file} \")\r\n            raise HTTPException(status_code=404, detail=\"Standard Template file not found\")\r\n        file_name = os.path.basename(tmp_file)\r\n        headers = {'Content-Disposition': f'attachment; filename=\"{file_name}\"'}\r\n        return FileResponse(tmp_file, headers=headers)\r\n    except Exception as e:\r\n        log.error(f\"download_example_excel_file error\")\r\n        return JSONResponse(\r\n            status_code=500,\r\n            content={\"code\": 1, \"msg\": \"Internal server error\"},\r\n        )\n\n<!-- POLAR PLEDGE BADGE START -->\n> [!IMPORTANT]\n> - We're using [Polar.sh](https://polar.sh/encode) so you can upvote and help fund this issue.\n> - We receive the funding once the issue is completed & confirmed by you.\n> - Thank you in advance for helping prioritize & fund our backlog.\n\n<a href=\"https://polar.sh/encode/starlette/issues/2634\">\n<picture>\n  <source media=\"(prefers-color-scheme: dark)\" srcset=\"https://polar.sh/api/github/encode/starlette/issues/2634/pledge.svg?darkmode=1\">\n  <img alt=\"Fund with Polar\" src=\"https://polar.sh/api/github/encode/starlette/issues/2634/pledge.svg\">\n</picture>\n</a>\n<!-- POLAR PLEDGE BADGE END -->\n",
+    "closed_at": "2024-07-05T06:44:39Z",
+    "created_at": "2024-07-03T01:16:14Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2634",
+    "number": 2634,
+    "state": "closed",
+    "title": "xlsx file open error",
+    "user": "enddlesswm"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2024-07-05T06:44:39Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2024-07-05T06:44:39Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

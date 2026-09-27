@@ -1,0 +1,32 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi!\r\n\r\nI'm testing asynchronous GraphQL resolvers using the approach described here: https://www.starlette.io/graphql/\r\n\r\nWhen I run the example as is with a simple uvicorn setup, I get the following error:\r\n\r\n```\r\nERROR: Traceback (most recent call last):\r\n  File \"/usr/local/lib/python3.7/site-packages/graphql/execution/executor.py\", line 447, in resolve_or_error\r\n    return executor.execute(resolve_fn, source, info, **args)\r\n  File \"/usr/local/lib/python3.7/site-packages/graphql/execution/executors/asyncio.py\", line 71, in execute\r\n    future = ensure_future(result, loop=self.loop)\r\n  File \"/usr/local/lib/python3.7/asyncio/tasks.py\", line 581, in ensure_future\r\n    task = loop.create_task(coro_or_future)\r\n  File \"/usr/local/lib/python3.7/asyncio/base_events.py\", line 392, in create_task\r\n    self._check_closed()\r\n  File \"/usr/local/lib/python3.7/asyncio/base_events.py\", line 469, in _check_closed\r\n    raise RuntimeError('Event loop is closed')\r\n```\r\n\r\nMy understanding is that `uvicorn.run()` calls `uvloop_setup()`, which closes the default asyncio event loop before recreating one with the uvloop policy. Meanwhile, the `AsyncioExecutor` instance passed to the GraphQL app has already called `asyncio.get_event_loop()`, and stores the default asyncio event loop that is about to be closed.\r\n\r\nSee the problematic code below, as well as my workaround in the commented code: if I create the loop myself, pass it to the `AsyncioExecutor` instance, and to `uvicorn.run()`, my async resolver works.\r\n\r\nNot sure if this is a bug, a documentation issue, or if I am missing something ;)\r\n\r\nLet me know if I can help!\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom uvicorn.loops.uvloop import uvloop_setup\r\nfrom starlette.graphql import GraphQLApp\r\nfrom graphql.execution.executors.asyncio import AsyncioExecutor\r\nimport graphene\r\nimport uvicorn\r\n\r\napp = Starlette()\r\n\r\n\r\n# loop = uvloop_setup()\r\n\r\n\r\nclass Query(graphene.ObjectType):\r\n    hello = graphene.String(name=graphene.String(default_value=\"stranger\"))\r\n\r\n    async def resolve_hello(self, info, name):\r\n        # We can make asynchronous network calls here.\r\n        return \"Hello \" + name\r\n\r\n\r\n# app.add_route('/', GraphQLApp(schema=graphene.Schema(query=Query), executor=AsyncioExecutor(loop)))\r\napp.add_route('/', GraphQLApp(schema=graphene.Schema(query=Query), executor=AsyncioExecutor()))\r\n\r\nif __name__ == '__main__':\r\n    # uvicorn.run(app, loop=loop, host='0.0.0.0', port=8000)\r\n    uvicorn.run(app, host='0.0.0.0', port=8000)\r\n```",
+    "closed_at": "2019-01-25T15:45:19Z",
+    "created_at": "2018-11-30T13:10:05Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/242",
+    "number": 242,
+    "state": "closed",
+    "title": "Async executor issue / Event loop is closed",
+    "user": "pvanliefland"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-22T00:29:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-22T02:44:48Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-26T14:37:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-26T21:36:01Z",
+      "event": "commented"
+    }
+  ]
+}

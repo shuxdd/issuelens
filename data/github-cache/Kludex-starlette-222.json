@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hi,\r\n\r\nThis simple app breaks GAE when trying to return the 304 (GAE instance breaks with a server error \"The server encountered an error and could not complete your request.\") (the first request works, and return the 200, but the second always breaks)\r\n\r\nWith all versions of Starlette, except the **\"0.8.1\"** ... (so I stay in 0.8.1, and can't upgrade)\r\n\r\n```python\r\nimport uvicorn\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import Response\r\n\r\napp = Starlette()\r\n###############################################################################\r\n@app.route('/',methods=[\"GET\"])\r\ndef test(request):\r\n    if \"myetag\"!=request.headers.get(\"if-none-match\",None):\r\n        return Response(status_code=200,content=\"hello\",headers={\"Content-Type\":\"text/plain\",\"etag\":\"myetag\"})\r\n    else:\r\n        return Response(status_code=304)\r\n\r\nif __name__==\"__main__\":\r\n    uvicorn.run(app, host=\"0.0.0.0\", port=8080)\r\n```\r\n\r\nWhat's happening since 0.8.1 ?\r\nI really like to upgrade to newer version, but I stick with a working one ;-(\r\n\r\n",
+    "closed_at": "2018-11-19T10:49:31Z",
+    "created_at": "2018-11-17T08:56:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/222",
+    "number": 222,
+    "state": "closed",
+    "title": "Starlette breaks GAE (python37) with this simple trick (except 0.8.1)",
+    "user": "manatlan"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-11-17T09:10:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-11-19T10:49:31Z",
+      "event": "commented"
+    }
+  ]
+}

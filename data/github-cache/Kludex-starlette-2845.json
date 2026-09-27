@@ -1,0 +1,239 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2025-01-13T03:01:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bentoml/BentoML/issues/5174",
+          "number": 5174,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bentoml/BentoML"
+          },
+          "title": "bug: async initialization not supported"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "I'm not sure what's the solution here, but something needs to be done.\r\n\r\n### Problems\r\n\r\n1. The `state` of lifespan is not type enforced.\r\n   \r\n   ```py\r\n   from contextlib import asynccontextmanager\r\n   from starlette.applications import Starlette\r\n   from starlette.requests import Request\r\n   \r\n   @asynccontextmanager\r\n   async def lifespan(app: Starlette):\r\n       yield {\"potato\": \"potato\"}  # We provide a dictionary.\r\n       \r\n   async def homepage(request: Request):\r\n       return Response(request.state.potato)  # We access it as an attribute (dot) and not dictionary (square brackets).\r\n   ``` \r\n   For more details, see:\r\n   1.1. https://www.starlette.io/lifespan/#lifespan-state\r\n   1.2. https://github.com/python/typing/discussions/1457\r\n   1.3. https://github.com/encode/starlette/discussions/2562\r\n   \r\n2. The current lifespan is not beginner friendly. \r\n    For a beginner, we introduce two new elements here: `@asynccontextmanager`, and `yield`.\r\n    It's far intuitive to write the following than the current lifespan way:\r\n    \r\n    ```py\r\n    @app.on_event(\"startup\")\r\n    async def startup(): ...\r\n    \r\n    @app.on_event(\"shutdown\")\r\n    async def shutdown(): ...\r\n    \r\n    # or...\r\n    app = Starlette(on_startup=[startup], on_shutdown=[shutdown])\r\n    ```\r\n    \r\n    See https://github.com/fastapi/fastapi/issues/617#issuecomment-2578425099.\r\n\r\n3. You could create multiple `on_startup` and `on_shutdown`, now the `lifespan` is a single async context manager.\r\n\r\n---\r\n\r\nI wish we could focus on the point 2 above, I'm only mentioning the others as I was thinking about them.\r\n\r\nI understand a lot of effort was done to provide the most correct, and exception/yield safety solution, but... We need an API that is more user friendly.\r\n\r\nI've created this for discussion purposes. cc @graingert @adriangb @tiangolo @abersheeran @sm-Fifteen ",
+    "closed_at": "2025-02-22T13:42:27Z",
+    "created_at": "2025-01-09T12:22:52Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2845",
+    "number": 2845,
+    "state": "closed",
+    "title": "Lifespan provides a poor user experience",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T12:22:53Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T12:26:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T12:26:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T12:39:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T12:40:07Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T12:40:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T12:41:13Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T14:00:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T14:08:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T14:08:16Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-09T14:08:16Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-09T14:10:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-09T14:25:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-13T03:01:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bentoml/BentoML/issues/5174",
+          "number": 5174,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bentoml/BentoML"
+          },
+          "title": "bug: async initialization not supported"
+        }
+      }
+    },
+    {
+      "created_at": "2025-01-13T12:17:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-13T12:17:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-14T06:37:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-21T10:51:24Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-21T10:51:25Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-21T10:51:25Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-21T13:52:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-21T13:52:08Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2025-01-21T13:52:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-01-21T19:43:14Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-21T22:48:44Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-22T08:50:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-25T00:14:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-25T01:05:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-30T02:20:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-31T12:15:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-01-31T16:05:36Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-01T06:34:30Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-02-22T13:42:27Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2025-02-22T13:42:27Z",
+      "event": "converted_to_discussion"
+    },
+    {
+      "created_at": "2025-09-28T07:24:08Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-10-21T08:54:30Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2025-12-10T20:17:45Z",
+      "event": "subscribed"
+    }
+  ]
+}

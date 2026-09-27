@@ -1,0 +1,33 @@
+{
+  "case_id": "starlette-issue-2646",
+  "changed_files": [
+    {
+      "path": "starlette/staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/starlette%2Fstaticfiles.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/staticfiles.py",
+      "snapshot_commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+      "source_url": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/staticfiles.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'When the directory itself being a symlink does not work.' originates in starlette/staticfiles.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/test_staticfiles.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/a3724fc62a29a0b5463d40697faa6d7298411770/tests%2Ftest_staticfiles.py",
+      "status": "modified"
+    }
+  ]
+}

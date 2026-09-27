@@ -1,0 +1,20 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Following the docs, it seems all right. But if the endpoint that looks like \"/blog/x\", it will gets a 404 error(GET /blog/static/js/jquery.min.js HTTP/1.1 404). i check the file is in /static/js.\r\nThe structure of files as follow:\r\nstatic\r\n----img\r\n--------xx.jpg\r\n----css\r\n--------xx.css\r\n----js\r\n--------jquery.min.js\r\ntemplates\r\n----index.html\r\n----blog.html\r\napp.py\r\n        ",
+    "closed_at": "2020-05-11T12:37:57Z",
+    "created_at": "2020-05-09T02:19:27Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/937",
+    "number": 937,
+    "state": "closed",
+    "title": "get staticfile failed. ",
+    "user": "mulanyt"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-05-11T12:37:57Z",
+      "event": "commented"
+    }
+  ]
+}

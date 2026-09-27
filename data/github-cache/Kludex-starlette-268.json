@@ -1,0 +1,40 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "It took me a little while to get this right so I wonder if you can see this as an addition to the docs somewhere? In my case I am loading audio as bytes from a database and I create a response in the following way:\r\n\r\n```python\r\nfrom io import BytesIO\r\n\r\nfrom starlette.endpoints import HTTPEndpoint\r\nfrom starlette.requests import Request\r\nfrom starlette.responses import StreamingResponse\r\n\r\n\r\nclass AudioEndpoint(HTTPEndpoint):\r\n    async def get(self, request: Request) -> StreamingResponse:\r\n        \"\"\"Return an mp3 audio stream.\"\"\"\r\n        # Load the content from the database.\r\n        audio = ...\r\n        headers = {\r\n            \"Content-Length\": str(len(audio))\r\n        }\r\n        return StreamingResponse(\r\n            self.stream_audio(record), media_type=\"audio/mpeg3\",\r\n            headers=headers\r\n        )\r\n\r\n    @staticmethod\r\n    async def stream_audio(record: bytes, chunk_size: int = 4096):\r\n        with BytesIO(record) as stream:\r\n            data = stream.read(chunk_size)\r\n            while data:\r\n                yield data\r\n                data = stream.read(chunk_size)\r\n```\r\n\r\nHints for improvements are, of course, welcome :wink: ",
+    "closed_at": "2018-12-13T12:09:56Z",
+    "created_at": "2018-12-12T19:10:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/268",
+    "number": 268,
+    "state": "closed",
+    "title": "Creating a streaming (audio) response",
+    "user": "Midnighter"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2018-12-13T12:09:53Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-13T14:12:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-13T15:12:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-13T15:16:18Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2018-12-13T15:17:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2025-04-07T14:14:23Z",
+      "event": "commented"
+    }
+  ]
+}

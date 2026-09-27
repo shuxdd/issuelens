@@ -1,0 +1,416 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-01-29T13:21:50Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ff314dd85072c06c8fda3e8314cab3fc6903b41a",
+      "sha": "ff314dd85072c06c8fda3e8314cab3fc6903b41a"
+    },
+    {
+      "committed_at": "2022-01-29T13:29:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f",
+      "sha": "a1c0764c43a1bf3d0eba0d5ba0d614a4cb191e8f"
+    },
+    {
+      "committed_at": "2022-01-29T13:40:09Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/636a26f6afe679b1dd1326eff46ed8af83a0e13f",
+      "sha": "636a26f6afe679b1dd1326eff46ed8af83a0e13f"
+    },
+    {
+      "committed_at": "2022-01-29T15:36:01Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5",
+      "sha": "f6935c3d9fca1c288f9e7f1fd511a5928a9a65c5"
+    },
+    {
+      "committed_at": "2022-01-29T15:37:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/73124568821b0379188a794ef975dae6ca53e8a8",
+      "sha": "73124568821b0379188a794ef975dae6ca53e8a8"
+    },
+    {
+      "committed_at": "2022-01-29T16:04:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4151df6599ca6f813e4014c482f3b4a4cc48f91b",
+      "sha": "4151df6599ca6f813e4014c482f3b4a4cc48f91b"
+    },
+    {
+      "committed_at": "2022-01-29T16:13:00Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/8438a9f26d42d66356d24c8be4073dc72a4feb57",
+      "sha": "8438a9f26d42d66356d24c8be4073dc72a4feb57"
+    },
+    {
+      "committed_at": "2022-04-21T05:49:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/788f011d09fc9c8a21e3535640d535b11a73b93a",
+      "sha": "788f011d09fc9c8a21e3535640d535b11a73b93a"
+    },
+    {
+      "committed_at": "2022-05-27T05:02:37Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/dd8b7edb48de87435382f6fa3a0189e63ce9170c",
+      "sha": "dd8b7edb48de87435382f6fa3a0189e63ce9170c"
+    },
+    {
+      "committed_at": "2022-05-27T05:09:57Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7c74668b073cc1d68b5ca2cae7ae4351df04e652",
+      "sha": "7c74668b073cc1d68b5ca2cae7ae4351df04e652"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2020-03-31T07:39:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/885",
+          "number": 885,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "synchronous startup function blocking on a future hangs when TestClient is used as a context manager"
+        }
+      }
+    },
+    {
+      "created_at": "2021-03-20T22:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/878",
+          "number": 878,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "New pattern for views that return either JSON or HTML, available for plugins"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-29T18:07:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1256",
+          "number": 1256,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1256"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixed - async __call__ not run/awaited in the BackgroundTask"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-29T13:28:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1444",
+          "number": 1444,
+          "pull_request": {
+            "merged_at": "2022-05-28T07:28:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve detection of async callables"
+        }
+      }
+    },
+    {
+      "created_at": "2023-05-25T17:57:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/2078",
+          "number": 2078,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Resolve the difference between `wrap_view()` and `BaseView`"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 12,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2F_utils.py",
+      "changes": 12,
+      "deletions": 0,
+      "filename": "starlette/_utils.py",
+      "sha": "0710aebdc00c5cbce99dec0528cfc97c97579ca2",
+      "status": "added"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fauthentication.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/authentication.py",
+      "sha": "4affb4383f24ce2583d10c66ca46ae2ed087699c",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fbackground.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/background.py",
+      "sha": "4aaf7ae3cf4addc0e0c64434419abf9462599078",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fendpoints.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/endpoints.py",
+      "sha": "156663e4901bff6d2c2645f3ee1f49b4678c8e73",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Ferrors.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/errors.py",
+      "sha": "052b885f43649f228c8992b044ab4944a6fe954e",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Fmiddleware%2Fexceptions.py",
+      "changes": 4,
+      "deletions": 2,
+      "filename": "starlette/middleware/exceptions.py",
+      "sha": "42fd41ae2fd528aeffd675bdc062483f8e0a0e28",
+      "status": "modified"
+    },
+    {
+      "additions": 10,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Frouting.py",
+      "changes": 15,
+      "deletions": 5,
+      "filename": "starlette/routing.py",
+      "sha": "7e10b16f942025f34979a5e87f14bb3d6e7bd3e7",
+      "status": "modified"
+    },
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/starlette%2Ftestclient.py",
+      "changes": 7,
+      "deletions": 5,
+      "filename": "starlette/testclient.py",
+      "sha": "efe2b493bb0dd42f3a3262a5eb1fc3d450a5fb51",
+      "status": "modified"
+    },
+    {
+      "additions": 79,
+      "blob_url": "https://github.com/Kludex/starlette/blob/7c74668b073cc1d68b5ca2cae7ae4351df04e652/tests%2Ftest__utils.py",
+      "changes": 79,
+      "deletions": 0,
+      "filename": "tests/test__utils.py",
+      "sha": "fac57a2e51b5882352662d9990f66165a4dda32b",
+      "status": "added"
+    }
+  ],
+  "issue": {
+    "body": "Simple reproducer:\r\n\r\n```\r\ndef test_async_startup_hangs():\r\n\r\n    class Foo:\r\n        async def __call__(self):\r\n            raise Exception()\r\n\r\n    app = Starlette(on_startup=[Foo()])\r\n\r\n    with TestClient(app) as client:\r\n        pass\r\n```\r\n\r\nNo exception is raised when it should be. This, however, raises an exception as expected:\r\n\r\n```\r\ndef test_async_startup_hangs():\r\n\r\n    async def foo():\r\n        raise Exception()\r\n\r\n    app = Starlette(on_startup=[foo])\r\n\r\n    with TestClient(app) as client:\r\n        pass\r\n```",
+    "body_last_edited_at": null,
+    "closed_at": "2022-05-28T07:28:59Z",
+    "created_at": "2020-03-31T07:38:12Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/886",
+    "number": 886,
+    "state": "closed",
+    "title": "objects defining async __call__ not run/awaited when used in on_startup",
+    "user": "cjw296"
+  },
+  "pull_request": {
+    "closed_at": "2022-05-28T07:28:59Z",
+    "created_at": "2022-01-29T13:28:30Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1444",
+    "merge_commit_sha": "5b058faa108ebe0e7d8810e84bf88cb37744faf8",
+    "merged_at": "2022-05-28T07:28:59Z",
+    "number": 1444,
+    "title": "Improve detection of async callables",
+    "user": "Kludex"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+    "committed_at": "2022-01-28T16:48:22Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/199fc703f3078bd5b0e1aca0e9f4ab236b03f029"
+  },
+  "timeline": [
+    {
+      "created_at": "2020-03-31T07:39:00Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/issues/885",
+          "number": 885,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "synchronous startup function blocking on a future hangs when TestClient is used as a context manager"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-31T09:07:56Z",
+      "event": "renamed"
+    },
+    {
+      "created_at": "2020-03-31T09:17:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T09:52:39Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T12:05:02Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T12:05:02Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-03-31T12:05:02Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-03-31T12:08:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-03-31T13:55:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-03T06:11:34Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-07T10:08:42Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-07T10:08:42Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-07T10:08:42Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-05-07T10:24:22Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-08T15:14:56Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-05-08T15:14:56Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-05-08T15:14:56Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2020-06-13T18:52:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-03-20T22:28:12Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/878",
+          "number": 878,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "New pattern for views that return either JSON or HTML, available for plugins"
+        }
+      }
+    },
+    {
+      "created_at": "2021-07-29T17:23:23Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-07-29T17:23:23Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2021-07-29T17:23:23Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-07-29T18:07:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1256",
+          "number": 1256,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1256"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fixed - async __call__ not run/awaited in the BackgroundTask"
+        }
+      }
+    },
+    {
+      "created_at": "2022-01-29T13:28:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1444",
+          "number": 1444,
+          "pull_request": {
+            "merged_at": "2022-05-28T07:28:59Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1444"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Improve detection of async callables"
+        }
+      }
+    },
+    {
+      "created_at": "2022-02-11T22:13:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-28T07:28:59Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-05-25T17:57:06Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/simonw/datasette/issues/2078",
+          "number": 2078,
+          "pull_request": {},
+          "repository": {
+            "full_name": "simonw/datasette"
+          },
+          "title": "Resolve the difference between `wrap_view()` and `BaseView`"
+        }
+      }
+    }
+  ]
+}

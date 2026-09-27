@@ -1,0 +1,89 @@
+{
+  "allowed_evidence": {
+    "items": [
+      {
+        "kind": "issue",
+        "observed_at": "2019-08-29T22:18:08Z",
+        "source_url": "https://github.com/Kludex/starlette/issues/622"
+      }
+    ],
+    "read_access": "investigation",
+    "references": [
+      "https://github.com/Kludex/starlette/issues/622"
+    ]
+  },
+  "case_id": "starlette-issue-622",
+  "dataset": {
+    "primary": false,
+    "repair_series": "starlette-repair-series-623",
+    "split": "development",
+    "stability": false,
+    "version": "starlette-eval-v1"
+  },
+  "dataset_review": {
+    "reason": "Concrete behavioral defect; closing PR 'don\\'t return \"error\" in graphql response when no error occurs' directly changes starlette/graphql.py with focused behavior test(s) tests/test_graphql.py.",
+    "review_status": "accepted",
+    "reviewed_at": "2026-09-27T07:27:29Z",
+    "reviewer": "project-author"
+  },
+  "investigation_cutoff": "2019-08-29T22:31:54Z",
+  "issue": {
+    "body": "The [GraphQL Spec](https://graphql.github.io/graphql-spec/June2018/#sec-Errors) states that:\r\n> If no errors were encountered during the requested operation, the errors entry should not be present in the result.\r\n\r\nCurrently, if no errors are encountered, starlette will return `{\"data\": {...}, \"errors\": null}`. \r\nThis is only a small thing, but enough to break some clients.\r\n\r\nI have a PR for this incoming.",
+    "number": 622,
+    "repository": "Kludex/starlette",
+    "source_url": "https://github.com/Kludex/starlette/issues/622",
+    "title": "GraphQL response should not include error key if no error occured"
+  },
+  "manual_review": {
+    "exclusion_assessment": "Pending project-author review of category and analyzability",
+    "future_information_risk": "Issue lastEditedAt is absent or strictly before cutoff",
+    "investigation_cutoff_basis": "Closing PR #623 created_at 2019-08-29T22:31:54Z",
+    "notes": "Static evidence prepared; no acceptance decision made",
+    "relationship_basis": "GitHub same-repository closing PR #623",
+    "repair_files": [
+      "starlette/graphql.py"
+    ],
+    "snapshot_basis": "Latest main commit strictly before cutoff is 0e75f9f2b8454f84d86d6196131e85dadc465583",
+    "test_files": [
+      "tests/test_graphql.py"
+    ],
+    "verdict": "accepted"
+  },
+  "repair_evidence": {
+    "changed_files": [
+      {
+        "path": "starlette/graphql.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/starlette%2Fgraphql.py",
+        "status": "modified"
+      }
+    ],
+    "commits": [
+      {
+        "sha": "8225382ba723f3d7c5eaca36dea0a4618c073f59",
+        "source_url": "https://github.com/Kludex/starlette/commit/8225382ba723f3d7c5eaca36dea0a4618c073f59"
+      }
+    ],
+    "pull_request": {
+      "created_at": "2019-08-29T22:31:54Z",
+      "number": 623,
+      "source_url": "https://github.com/Kludex/starlette/pull/623"
+    },
+    "read_access": "evaluation_only",
+    "references": [
+      "https://github.com/Kludex/starlette/pull/623"
+    ],
+    "test_files": [
+      {
+        "path": "tests/test_graphql.py",
+        "source_url": "https://github.com/Kludex/starlette/blob/8225382ba723f3d7c5eaca36dea0a4618c073f59/tests%2Ftest_graphql.py",
+        "status": "modified"
+      }
+    ]
+  },
+  "repository_snapshot": {
+    "commit": "0e75f9f2b8454f84d86d6196131e85dadc465583",
+    "committed_at": "2019-08-27T22:11:03Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/0e75f9f2b8454f84d86d6196131e85dadc465583"
+  },
+  "schema_version": "1.0"
+}

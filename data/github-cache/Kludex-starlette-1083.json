@@ -1,0 +1,501 @@
+{
+  "commits": [
+    {
+      "committed_at": "2022-06-10T14:28:08Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/4c6c59e71d88634592a30c07b10707845c3cd812",
+      "sha": "4c6c59e71d88634592a30c07b10707845c3cd812"
+    },
+    {
+      "committed_at": "2022-06-11T08:02:15Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/a799da72730b1da3c1030367bb05be482f22fbbd",
+      "sha": "a799da72730b1da3c1030367bb05be482f22fbbd"
+    },
+    {
+      "committed_at": "2022-06-28T06:04:48Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/b396b1bb3311410f0787ff13100a8dc4675153b4",
+      "sha": "b396b1bb3311410f0787ff13100a8dc4675153b4"
+    },
+    {
+      "committed_at": "2022-07-28T07:18:07Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/db5cd5740ce0bd6fe69cd6792cb33585f9ea1b80",
+      "sha": "db5cd5740ce0bd6fe69cd6792cb33585f9ea1b80"
+    },
+    {
+      "committed_at": "2022-08-09T08:18:16Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ac7d928874e35765059ea4661d1408e63414ed66",
+      "sha": "ac7d928874e35765059ea4661d1408e63414ed66"
+    },
+    {
+      "committed_at": "2022-12-12T09:06:06Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/ebc4f4dcffdc5500954d93d4e7198d2a3f2cbbb5",
+      "sha": "ebc4f4dcffdc5500954d93d4e7198d2a3f2cbbb5"
+    },
+    {
+      "committed_at": "2022-12-12T10:39:33Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/140edb60f47ae6beb1bb4a225825788f858e1122",
+      "sha": "140edb60f47ae6beb1bb4a225825788f858e1122"
+    },
+    {
+      "committed_at": "2022-12-12T10:44:59Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/5a3c109d1dcd7e796b22029c2b9df99c3b8e0d4d",
+      "sha": "5a3c109d1dcd7e796b22029c2b9df99c3b8e0d4d"
+    },
+    {
+      "committed_at": "2023-02-04T10:19:13Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/34fe0839299a606173d0ca7404b404b84786debb",
+      "sha": "34fe0839299a606173d0ca7404b404b84786debb"
+    },
+    {
+      "committed_at": "2023-02-04T16:29:47Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/7a8d49c218a3d5800a186c9bd37571ee9f1f1059",
+      "sha": "7a8d49c218a3d5800a186c9bd37571ee9f1f1059"
+    },
+    {
+      "committed_at": "2023-02-04T16:30:03Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/c404cb697ee7a8f754736de30a6b2bb3bb29cbcd",
+      "sha": "c404cb697ee7a8f754736de30a6b2bb3bb29cbcd"
+    },
+    {
+      "committed_at": "2023-02-04T17:14:42Z",
+      "html_url": "https://github.com/Kludex/starlette/commit/e3e85db681780ebcad573969febe941e1dba434d",
+      "sha": "e3e85db681780ebcad573969febe941e1dba434d"
+    }
+  ],
+  "cross_references": [
+    {
+      "created_at": "2021-12-17T14:32:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1377",
+          "number": 1377,
+          "pull_request": {
+            "merged_at": "2022-05-28T14:17:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1377"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow staticfiles to follow symlinks outside directory"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-10T13:25:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1683",
+          "number": 1683,
+          "pull_request": {
+            "merged_at": "2023-02-04T17:22:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1683"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow StaticFiles follow symlinks"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-20T14:45:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bazelbuild/bazel/issues/10299",
+          "number": 10299,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bazelbuild/bazel"
+          },
+          "title": "Allow artifacts (or maybe `runfiles`?) to be marked non-symlinkable"
+        }
+      }
+    },
+    {
+      "created_at": "2023-07-25T07:28:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/pull/3338",
+          "number": 3338,
+          "pull_request": {
+            "merged_at": "2023-07-25T22:42:37Z",
+            "url": "https://api.github.com/repos/voxel51/fiftyone/pulls/3338"
+          },
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "App supports bazel"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-02T14:36:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/1298",
+          "number": 1298,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Support serving static files through symlinks"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-26T03:45:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/streamlit/streamlit/issues/9146",
+          "number": 9146,
+          "pull_request": {},
+          "repository": {
+            "full_name": "streamlit/streamlit"
+          },
+          "title": "static file serving should following symlink "
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-23T14:25:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/2384",
+          "number": 2384,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Using uv with symlinks breaks install"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-19T18:49:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/smithyhq/sqladmin/issues/863",
+          "number": 863,
+          "pull_request": {},
+          "repository": {
+            "full_name": "smithyhq/sqladmin"
+          },
+          "title": "Access to statics fails when using uv in symlink mode"
+        }
+      }
+    }
+  ],
+  "files": [
+    {
+      "additions": 2,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e3e85db681780ebcad573969febe941e1dba434d/docs%2Fstaticfiles.md",
+      "changes": 3,
+      "deletions": 1,
+      "filename": "docs/staticfiles.md",
+      "sha": "fa14e6c340229de4d0c8e2797d542edda60cf3fb",
+      "status": "modified"
+    },
+    {
+      "additions": 7,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e3e85db681780ebcad573969febe941e1dba434d/starlette%2Fstaticfiles.py",
+      "changes": 8,
+      "deletions": 1,
+      "filename": "starlette/staticfiles.py",
+      "sha": "4d075b3ed2f52f91c486be26b6b957e317991a08",
+      "status": "modified"
+    },
+    {
+      "additions": 68,
+      "blob_url": "https://github.com/Kludex/starlette/blob/e3e85db681780ebcad573969febe941e1dba434d/tests%2Ftest_staticfiles.py",
+      "changes": 68,
+      "deletions": 0,
+      "filename": "tests/test_staticfiles.py",
+      "sha": "eb6c73f7f80c8808b742eb843f8ac8cd004bc616",
+      "status": "modified"
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\nThe StaticFiles middleware is checking the `os.realpath` of a file and returning a 404 for symlinks that lead outside the static directory.\r\n\r\n### To reproduce\r\n\r\n1. create a minimal app with a staticfiles middleware\r\n1. put a symlink in your static directory. the link's target must be above the static directory.\r\n1. you'll get a 404\r\n\r\n### Expected behavior\r\n\r\nSupport symlinks in static directory.\r\n\r\nThe use case for symlinks in static is to target frontend assets that are being generated in file-watch mode.\r\n\r\n### Actual behavior\r\n\r\n404.\r\n\r\n### Debugging material\r\n\r\nIt's happening here:\r\nhttps://github.com/encode/starlette/blob/b95acea973c20eea3e7cbbca42d09b1f5d4a3412/starlette/staticfiles.py#L147-L149\r\n\r\n### Environment\r\n\r\n- OS: linux\r\n- Python version: 3.7.5\r\n- Starlette version: 0.13.8\r\n\r\n### Additional context\r\n\r\nI'm happy to post a PR for this if useful, ideally adding a bool param to the StaticFiles middleware that allows symlinks.",
+    "body_last_edited_at": null,
+    "closed_at": "2023-02-04T17:22:38Z",
+    "created_at": "2020-10-31T07:33:43Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1083",
+    "labels": [
+      "staticfiles"
+    ],
+    "number": 1083,
+    "state": "closed",
+    "title": "StaticFiles middleware doesn't follow symlinks",
+    "user": "abe-winter"
+  },
+  "pull_request": {
+    "closed_at": "2023-02-04T17:22:36Z",
+    "created_at": "2022-06-10T13:23:29Z",
+    "html_url": "https://github.com/Kludex/starlette/pull/1683",
+    "merge_commit_sha": "ea2e7942fcee8ed0f94ba4e12ca368f91ac8f798",
+    "merged_at": "2023-02-04T17:22:36Z",
+    "number": 1683,
+    "title": "Allow StaticFiles follow symlinks",
+    "user": "aminalaee"
+  },
+  "repository": "Kludex/starlette",
+  "repository_snapshot": {
+    "commit": "ccd486ed96e8e7673d0e59b3b2769eb557ba6402",
+    "committed_at": "2022-06-10T05:16:14Z",
+    "source_url": "https://github.com/Kludex/starlette/commit/ccd486ed96e8e7673d0e59b3b2769eb557ba6402"
+  },
+  "timeline": [
+    {
+      "created_at": "2021-01-14T20:35:57Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-14T20:44:45Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-17T07:51:58Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-01-17T12:46:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-01-27T14:40:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-02-04T20:50:05Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-12-17T14:32:50Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1377",
+          "number": 1377,
+          "pull_request": {
+            "merged_at": "2022-05-28T14:17:54Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1377"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow staticfiles to follow symlinks outside directory"
+        }
+      }
+    },
+    {
+      "created_at": "2022-05-25T19:55:20Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-05-25T19:55:20Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2022-05-25T19:55:20Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-28T14:17:55Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2022-05-28T16:10:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T05:28:26Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T05:28:26Z",
+      "event": "reopened"
+    },
+    {
+      "created_at": "2022-06-10T06:05:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T06:52:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T09:45:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T12:12:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T12:23:33Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-06-10T13:25:26Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1683",
+          "number": 1683,
+          "pull_request": {
+            "merged_at": "2023-02-04T17:22:36Z",
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1683"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Allow StaticFiles follow symlinks"
+        }
+      }
+    },
+    {
+      "created_at": "2022-07-27T20:39:01Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-07-28T07:47:06Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-12T09:16:49Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-12-12T22:47:25Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-12T02:43:46Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-20T13:14:11Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-20T13:16:37Z",
+      "event": "milestoned"
+    },
+    {
+      "created_at": "2023-01-20T14:45:42Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/bazelbuild/bazel/issues/10299",
+          "number": 10299,
+          "pull_request": {},
+          "repository": {
+            "full_name": "bazelbuild/bazel"
+          },
+          "title": "Allow artifacts (or maybe `runfiles`?) to be marked non-symlinkable"
+        }
+      }
+    },
+    {
+      "created_at": "2023-01-20T15:04:47Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-01-20T15:42:40Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-02-04T17:22:38Z",
+      "event": "closed"
+    },
+    {
+      "created_at": "2023-02-04T17:23:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2023-07-25T07:28:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/pull/3338",
+          "number": 3338,
+          "pull_request": {
+            "merged_at": "2023-07-25T22:42:37Z",
+            "url": "https://api.github.com/repos/voxel51/fiftyone/pulls/3338"
+          },
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "App supports bazel"
+        }
+      }
+    },
+    {
+      "created_at": "2024-05-02T14:36:08Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/1298",
+          "number": 1298,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Support serving static files through symlinks"
+        }
+      }
+    },
+    {
+      "created_at": "2024-07-26T03:45:39Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/streamlit/streamlit/issues/9146",
+          "number": 9146,
+          "pull_request": {},
+          "repository": {
+            "full_name": "streamlit/streamlit"
+          },
+          "title": "static file serving should following symlink "
+        }
+      }
+    },
+    {
+      "created_at": "2024-09-23T14:25:01Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/issues/2384",
+          "number": 2384,
+          "pull_request": {},
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Using uv with symlinks breaks install"
+        }
+      }
+    },
+    {
+      "created_at": "2025-11-19T18:49:53Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/smithyhq/sqladmin/issues/863",
+          "number": 863,
+          "pull_request": {},
+          "repository": {
+            "full_name": "smithyhq/sqladmin"
+          },
+          "title": "Access to statics fails when using uv in symlink mode"
+        }
+      }
+    }
+  ]
+}

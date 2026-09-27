@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Hello the team of Starlette ! :)  We have some service where there are a great number of different unit test. We used the version of fastapi which depends on the starlette 0.20.4 where request library is used. Our service depends on two additional ones and ,as a consequence, we have to mock requests to these two external services in our unit tests for their appropriate and stable work. So, we wrote several fixtures, using httpx_mock, for this purpose which had worked properly to the moment when we decided to update our service to version of fastapi, using starlette with httpx instead of requests. After updating all our unit tests failed with raising httpx.TimeoutException and \"AssertionError: The following responses are mocked but not requested\". We carried out some research but we can not understand and find out the real cause why test can not request needed responses. During our research we were guided by this documentation mainly (https://colin-b.github.io/pytest_httpx/#dynamic-responses) but there was not needed answer as well as in documentation of Starlette and other pages from google. We created a small pet project with  structure, being similar to our production service, which include two service written on Starlette and one client for one of them. When services use the Starlette version 0.20.4 everything is ok however when the Starlette version is 0.23.1 and above the described problem occurs. You are able to ensure on it looking at this pet-example, created specially for you. Here is the reference on it https://github.com/Dimaaan1997/for_starlette_issue_TimeoutException. We hope that you will guide us how mock request of client properly in new Starlette version or it might be a bug. Thank you. ",
+    "closed_at": "2023-05-11T11:26:06Z",
+    "created_at": "2023-05-11T10:24:54Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/2145",
+    "number": 2145,
+    "state": "closed",
+    "title": "Occurrence of  httpx.TimeoutException in tests after updating for version of starlette which use httpx instead of requests",
+    "user": "Dimaaan1997"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2023-05-11T11:26:06Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2023-05-11T11:26:06Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "case_id": "starlette-issue-486",
+  "changed_files": [
+    {
+      "path": "starlette/routing.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Frouting.py",
+      "status": "modified"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/starlette%2Ftestclient.py",
+      "status": "modified"
+    }
+  ],
+  "evidence_locations": [
+    {
+      "path": "starlette/routing.py",
+      "snapshot_commit": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+      "source_url": "https://github.com/Kludex/starlette/blob/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37/starlette/routing.py"
+    },
+    {
+      "path": "starlette/testclient.py",
+      "snapshot_commit": "e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37",
+      "source_url": "https://github.com/Kludex/starlette/blob/e1e8404bc24c4df0ae6da4d0cad5d2f740dadb37/starlette/testclient.py"
+    }
+  ],
+  "read_access": "evaluation_only",
+  "root_cause_files": [
+    {
+      "path": "starlette/routing.py",
+      "relevance": 2
+    },
+    {
+      "path": "starlette/testclient.py",
+      "relevance": 2
+    }
+  ],
+  "root_cause_mechanism": "The behavior described by 'Error in app startup event is not logged and does not prevent startup' originates in starlette/routing.py, starlette/testclient.py; the accepted repair changes that code and adds focused regression coverage.",
+  "schema_version": "2.0",
+  "test_files": [
+    {
+      "path": "tests/middleware/test_lifespan.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Fmiddleware%2Ftest_lifespan.py",
+      "status": "modified"
+    },
+    {
+      "path": "tests/test_testclient.py",
+      "source_url": "https://github.com/Kludex/starlette/blob/dc505b266f6e2b40be645e03680ba3322a8afe97/tests%2Ftest_testclient.py",
+      "status": "modified"
+    }
+  ]
+}

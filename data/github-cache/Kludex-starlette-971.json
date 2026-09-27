@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "Sorry if this is unwelcome, but I think the `Middleware` class (in `starlette/middleware/__init__`, not `BaseMiddleware`) seems pretty pointless. It is nothing more than a re-invented `namedtuple` storing a `cls`, which could just be any callable, and `options`. Could it be removed, and adding middleware simplified down to closures or other callables instead of several layers of classes?\r\nThis [talk](https://www.youtube.com/watch?v=o9pEzgHorH0&t=180) shows how these abstractions add unnecessary complexity, and Starlette's middleware system seems a pretty good example of \"a class with two methods, one of which is `__init__`\".\r\n\r\nCould this:\r\n```python\r\nclass MyMiddleware:\r\n    def __init__(self, app, foo_option):\r\n        self.app = app\r\n        self.foo_option = foo_option\r\n    async def __call__(self, scope, receive, send):\r\n        # do something with scope_receive, send\r\n        await self.app(scope, receive, send)\r\napp = Starlette(\r\n    middleware=[Middleware(MyMiddleware, foo_option=\"spam\")]\r\n)\r\n```\r\nbe boiled down to:\r\n```python\r\nasync def my_middleware(app):\r\n    async def process(scope, receive, send):\r\n        # do something with scope, receive, send\r\n        await app(scope, receive, send)\r\napp = Starlette(middleware=[my_middleware])\r\n```\r\nor, where options need to be passed at runtime (most of the time they don't, and can be read from the application's config)\r\n```python\r\ndef my_middleware(foo_option):\r\n    async def inner(app):\r\n        async def process(scope, receive, send):\r\n            # do something with scope, receive, send\r\napp = Starlette(middleware=[my_middleware(foo_option=\"spam\")]))\r\n```\r\n\r\nAlso, I think the whole system of building the middleware stack could be removed, since `add_middleware`, `add_exception_handler`, and the `middleware` decorator are already discouraged:\r\n> ```python\r\n> # The following usages are now discouraged in favour of configuration.\r\n> # \u00a0during Starlette.__init__(...)\r\n> ```",
+    "closed_at": "2020-08-12T14:13:08Z",
+    "created_at": "2020-06-14T06:47:16Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/971",
+    "number": 971,
+    "state": "closed",
+    "title": "Consider removing the Middleware class?",
+    "user": "retnikt"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-12T14:13:08Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-12T14:13:08Z",
+      "event": "closed"
+    }
+  ]
+}

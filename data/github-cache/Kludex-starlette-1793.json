@@ -1,0 +1,24 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "How can the server detect a situation when the client didn't receive a message sent by the server,\r\nspecifically when the client disconnected not gracefully (=without letting the server know when closing the connection)?\r\n\r\nTo my understanding, this should have raised an exception, but it doesn't.\r\nThe first time when Starlette notices that anything is wrong, is when the ping interval times out.\r\n\r\nTo easily see that, run the following server:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.endpoints import HTTPEndpoint\r\nfrom starlette.routing import Route\r\nfrom starlette.endpoints import WebSocketEndpoint\r\nfrom starlette.routing import Route, WebSocketRoute\r\nimport json\r\n\r\n\r\nwebsockets = dict()\r\n\r\n\r\nclass SayHealthy(HTTPEndpoint):\r\n    async def get(self, request):\r\n        return JSONResponse({'status': 'websockets service is healthy!'})\r\n\r\n\r\nclass RelayMessageToWebsocket(HTTPEndpoint):\r\n    async def post(self,request):\r\n        try:\r\n            receiver_id = request.path_params['user_id']\r\n            data = await request.json()\r\n            websocket = websockets[receiver_id]\r\n            try:\r\n                await websocket.send(json.dumps(data))\r\n            except Exception as e:\r\n                if receiver_id in websockets: del websockets[receiver_id]\r\n                raise e\r\n            print('Success: message was sent!')\r\n            return JSONResponse({'result': 'message_sent'})\r\n        except:\r\n            print('Error: message was not sent')\r\n            return JSONResponse({'result': 'message_not_sent'})\r\n\r\n\r\nclass WebsocketBehavior(WebSocketEndpoint):\r\n    encoding = 'json'\r\n\r\n    async def on_connect(self, websocket):\r\n        user_id = websocket.headers.get('user_id')\r\n        print(f'on connect called with user_id={user_id}')\r\n        websockets[user_id] = websocket\r\n        await websocket.accept()\r\n\r\n    async def on_receive(self, websocket, data):\r\n        print('on recieve called')\r\n        #await websocket.send_json(data={'Got this':data})\r\n        print(f'Got this from websocket:{data}')\r\n\r\n    async def on_disconnect(self, websocket, close_code):\r\n        print('on disconnect called')\r\n        try:\r\n            user_id = websocket.headers.get('user_id')\r\n            del websockets[user_id]\r\n            print(f'deleted {user_id} from websockets dict')\r\n        except:\r\n            pass\r\n\r\n\r\nroutes = [\r\n    Route(\"/websockets/healthcheck\", SayHealthy),\r\n    Route('/websockets/message_user/{user_id}',RelayMessageToWebsocket),\r\nWebSocketRoute(\"/websockets/register\", WebsocketBehavior)\r\n]\r\n\r\n\r\n\r\n\r\napp = Starlette(routes=routes)\r\n\r\n```\r\n\r\n\r\n\r\nand run it with a higher ping interval:\r\n`import uvicorn uvicorn.run('app:app',host='0.0.0.0', port=5000,ws_ping_interval=300, ws_ping_timeout=300)`\r\n\r\nFor the client, use a mobile phone(it's probably true for web as well, but I verified that behavior on a mobile phone ), and put the phone in airplane mode while it is connected to the server.\r\nCall the server via the endpoint /websockets/send_message/<user_id>.\r\nThe server will happily describe all of the messages as \"sent\" for 5 minutes.\r\n\r\nIf this behavior is expected (to my understanding exception should have been raised), how can I check if the message was actually received by the client?\r\n\r\n- [X] Initially raised as discussion https://github.com/encode/starlette/discussions/1780\r\n",
+    "closed_at": "2022-08-09T07:59:49Z",
+    "created_at": "2022-08-07T03:30:13Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1793",
+    "number": 1793,
+    "state": "closed",
+    "title": "Disconnected websocket - No exception is raised when sending a message!",
+    "user": "yoniker"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2022-08-09T07:59:49Z",
+      "event": "locked"
+    },
+    {
+      "created_at": "2022-08-09T07:59:49Z",
+      "event": "converted_to_discussion"
+    }
+  ]
+}

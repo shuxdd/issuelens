@@ -1,0 +1,43 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "`HTTPException` currently is very minimal and only provides customization of status code and `detail` field.\r\n`HTTPException` could inherit from `Response` and provide same customization capabilities. Aiohttp exceptions work this way and it's very convenient.",
+    "closed_at": "2022-01-18T15:06:16Z",
+    "created_at": "2020-08-10T09:20:17Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1025",
+    "labels": [
+      "feature"
+    ],
+    "number": 1025,
+    "state": "closed",
+    "title": "[FEATURE] Extend HTTPException",
+    "user": "Fogapod"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-24T03:04:03Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-09-11T11:01:10Z",
+      "event": "labeled"
+    },
+    {
+      "created_at": "2021-06-26T10:57:22Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2021-06-26T10:57:29Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-01-18T15:06:16Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2022-01-18T15:06:16Z",
+      "event": "closed"
+    }
+  ]
+}

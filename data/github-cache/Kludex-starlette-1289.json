@@ -1,0 +1,77 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2021-09-24T10:37:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1290",
+          "number": 1290,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1290"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix routing for pct-encoded newline char in path params"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "### Checklist\r\n\r\n- [x] The bug is reproducible against the latest release and/or `master`.\r\n- [x] There are no similar issues or pull requests to fix it yet.\r\n\r\n### Describe the bug\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\n\r\nasync def list_handler(request):\r\n    return JSONResponse({'handler': 'list'})\r\n\r\n\r\nasync def retrieve_handler(request):\r\n    return JSONResponse({'handler': 'retrieve'})\r\n\r\n\r\napp = Starlette(\r\n    debug=True,\r\n    routes=[\r\n        Route('/', list_handler),\r\n        Route('/{item_id:uuid}/', retrieve_handler),\r\n    ],\r\n)\r\n```\r\n\r\n### Expected behavior\r\nI expect my request to be handled by retrieve_handler and it will return 404/422 status because %0A is not a valid UUID.\r\n\r\n\r\n### Actual behavior\r\nRequest handled by list_handler and it returns 200.\r\n\r\n### Debugging material\r\n\r\n```sh\r\ncurl 0:8000/%0A -v\r\n*   Trying 0.0.0.0:8000...\r\n* TCP_NODELAY set\r\n* Connected to 0 (127.0.0.1) port 8000 (#0)\r\n> GET /%0A HTTP/1.1\r\n> Host: 0:8000\r\n> User-Agent: curl/7.68.0\r\n> Accept: */*\r\n>\r\n* Mark bundle as not supporting multiuse\r\n< HTTP/1.1 200 OK\r\n< date: Thu, 23 Sep 2021 21:14:23 GMT\r\n< server: uvicorn\r\n< content-length: 18\r\n< content-type: application/json\r\n<\r\n* Connection #0 to host 0 left intact\r\n{\"handler\":\"list\"}%\r\n```\r\n\r\n\r\n### Environment\r\n\r\n- OS: Linux\r\n- Python version: 3.9.7\r\n- Starlette version: 0.14.2\r\n\r\n\r\n### Additional context\r\n\r\n[RFC 3986 #3.3 Path](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3)",
+    "closed_at": "2021-09-24T20:38:25Z",
+    "created_at": "2021-09-23T21:24:36Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1289",
+    "number": 1289,
+    "state": "closed",
+    "title": "%0A in path parameter cause invalid routing",
+    "user": "Pentusha"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "commit_id": "211ae938ce4c594a9f34794890d5534b6a34c340",
+      "commit_url": "https://api.github.com/repos/Pentusha/starlette/commits/211ae938ce4c594a9f34794890d5534b6a34c340",
+      "created_at": "2021-09-24T10:34:15Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-09-24T10:37:51Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Kludex/starlette/pull/1290",
+          "number": 1290,
+          "pull_request": {
+            "url": "https://api.github.com/repos/Kludex/starlette/pulls/1290"
+          },
+          "repository": {
+            "full_name": "Kludex/starlette"
+          },
+          "title": "Fix routing for pct-encoded newline char in path params"
+        }
+      }
+    },
+    {
+      "commit_id": "c5f9175bbdbd76860d4df6f03076e0112e929941",
+      "commit_url": "https://api.github.com/repos/Pentusha/starlette/commits/c5f9175bbdbd76860d4df6f03076e0112e929941",
+      "created_at": "2021-09-24T11:46:02Z",
+      "event": "referenced"
+    },
+    {
+      "commit_id": "72ca55aad2e5c902e527672b2f4a0b42b2fe0151",
+      "commit_url": "https://api.github.com/repos/Pentusha/starlette/commits/72ca55aad2e5c902e527672b2f4a0b42b2fe0151",
+      "created_at": "2021-09-24T13:05:14Z",
+      "event": "referenced"
+    },
+    {
+      "created_at": "2021-09-24T20:38:21Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2021-09-24T20:38:25Z",
+      "event": "closed"
+    }
+  ]
+}

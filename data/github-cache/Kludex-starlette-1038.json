@@ -1,0 +1,28 @@
+{
+  "cross_references": [],
+  "issue": {
+    "body": "It seems that the `on_shutdown` event is not run when using reloader to run uvicorn. Given this example app:\r\n\r\n```python\r\nfrom starlette.applications import Starlette\r\nfrom starlette.responses import JSONResponse\r\nfrom starlette.routing import Route\r\n\r\nasync def homepage(request):\r\n    return JSONResponse({'hello': 'world'})\r\n\r\ndef on_startup():\r\n    print('On startup run')\r\n\r\ndef on_shutdown():\r\n    print('On shutdown run')\r\n\r\napp = Starlette(debug=True, routes=[\r\n    Route('/', homepage),\r\n], on_startup=[on_startup], on_shutdown=[on_shutdown])\r\n```\r\n\r\nHere's the output when running with and without `--reload`:\r\n\r\n![image](https://user-images.githubusercontent.com/1786830/91698858-0e809000-eb7c-11ea-975a-cbdb34a8f30d.png)\r\n\r\nAs you can see, the \"On shutdown run\" output is missing from the latter run.\r\n\r\nI'm developing an app that uses threads to listen to outside events, and it is important for me to use `on_shutdown` to close these threads. I'm currently completely unable to use `--reload` in development because of this.\r\n\r\nThe above example should be reproducible with Python 3.7.3, Starlette 0.13.8 and Uvicorn 0.11.8 at least.\r\n",
+    "closed_at": "2020-08-31T08:55:35Z",
+    "created_at": "2020-08-31T08:28:31Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/1038",
+    "number": 1038,
+    "state": "closed",
+    "title": "on_shutdown event not running when using uvicorn --reload",
+    "user": "Waiski"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-08-31T08:45:28Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-31T08:55:35Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-08-31T08:55:35Z",
+      "event": "closed"
+    }
+  ]
+}

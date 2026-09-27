@@ -1,0 +1,375 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2022-05-24T06:25:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/PrefectHQ/prefect/pull/5802",
+          "number": 5802,
+          "pull_request": {
+            "merged_at": "2022-05-23T17:37:33Z",
+            "url": "https://api.github.com/repos/PrefectHQ/prefect/pulls/5802"
+          },
+          "repository": {
+            "full_name": "PrefectHQ/prefect"
+          },
+          "title": "Allow Orion UI to run on Windows"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-08T12:59:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/gradio-app/gradio/issues/1203",
+          "number": 1203,
+          "pull_request": {},
+          "repository": {
+            "full_name": "gradio-app/gradio"
+          },
+          "title": "No Output In Browser"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-21T02:05:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/issues/2010",
+          "number": 2010,
+          "pull_request": {},
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "[BUG] Chrome shows blank page of localhost:5151 and gives error: disallowed MIME type (\u201ctext/plain\u201d) after fiftyone app launch, in Windows 10 x64"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-14T05:30:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/reactive-python/reactpy/pull/1050",
+          "number": 1050,
+          "pull_request": {
+            "merged_at": "2023-06-15T06:15:37Z",
+            "url": "https://api.github.com/repos/reactive-python/reactpy/pulls/1050"
+          },
+          "repository": {
+            "full_name": "reactive-python/reactpy"
+          },
+          "title": "Warn and fix missing mime types"
+        }
+      }
+    },
+    {
+      "created_at": "2023-09-18T09:00:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zauberzeug/nicegui/pull/1594",
+          "number": 1594,
+          "pull_request": {
+            "merged_at": "2023-09-18T22:14:27Z",
+            "url": "https://api.github.com/repos/zauberzeug/nicegui/pulls/1594"
+          },
+          "repository": {
+            "full_name": "zauberzeug/nicegui"
+          },
+          "title": "Dynamic properties mimetype fix"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-16T18:51:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/pull/368",
+          "number": 368,
+          "pull_request": {
+            "merged_at": "2023-11-16T21:15:10Z",
+            "url": "https://api.github.com/repos/marimo-team/marimo/pulls/368"
+          },
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Initialize mimetypes"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-09T14:08:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dagster-io/dagster/pull/19046",
+          "number": 19046,
+          "pull_request": {
+            "url": "https://api.github.com/repos/dagster-io/dagster/pulls/19046"
+          },
+          "repository": {
+            "full_name": "dagster-io/dagster"
+          },
+          "title": "Added mime-types for UI files"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-01T05:42:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Logical-Byte/endfield-essence-recognizer/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Logical-Byte/endfield-essence-recognizer"
+          },
+          "title": "[BUG] js \u6587\u4ef6\u7684MIME\u7c7b\u578b\u4e0d\u5339\u914d\u88ab\u62e6\u622a\u5bfc\u81f4\u524d\u7aef\u767d\u5c4f"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-09T12:50:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/pull/7152",
+          "number": 7152,
+          "pull_request": {
+            "merged_at": "2026-03-10T20:20:12Z",
+            "url": "https://api.github.com/repos/voxel51/fiftyone/pulls/7152"
+          },
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "fix: blank window on windows system"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-23T18:32:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sqzw-x/amane/issues/240",
+          "number": 240,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sqzw-x/amane"
+          },
+          "title": "[Bug] Amane\u542f\u52a8\u540e\u4e0d\u80fd\u81ea\u52a8\u6253\u5f00\u7f51\u9875\u7aef\uff0c\u624b\u52a8\u6253\u5f00Web UI\u663e\u793a\u7a7a\u767d\u9875"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Greetings all,\r\nI cannot seem to find where one explicitly defines mime types for imports. My browser is blocking all javascript module imports due to the server serving them as (\u201ctext/plain\u201d). I realize this is a simple configuration issue, but I cannot seem to find where to set it. Any assistance provided is greatly appreciated. The console error shown below with my python 'app'.\r\nI am running Win10 x64, Firefox 73.0 (64-bit), Python 3.7, uvicorn 0.11.2, and starlette 0.13.1. \r\nI also posted this in the uvicorn issues.\r\n\r\n![image](https://user-images.githubusercontent.com/40573975/74674149-9ca7a280-5165-11ea-96d7-0b56c76fffe7.png)\r\n\r\n```python \r\nfrom starlette.applications import Starlette\r\nfrom starlette.staticfiles import StaticFiles\r\nfrom starlette.responses import HTMLResponse\r\nfrom starlette.templating import Jinja2Templates\r\nimport uvicorn\r\nfrom random import randint\r\n\r\nport = randint(49152,65535)\r\n\r\ntemplates = Jinja2Templates(directory='templates')\r\n\r\napp = Starlette(debug=True)\r\napp.mount('/static', StaticFiles(directory='statics'), name='static')\r\n\r\n\r\n@app.route('/')\r\nasync def homepage(request):\r\n    template = \"index.html\"\r\n    context = {\"request\": request}\r\n    return templates.TemplateResponse(template, context)\r\n\r\n\r\n@app.route('/error')\r\nasync def error(request):\r\n    \"\"\"\r\n    An example error. Switch the `debug` setting to see either tracebacks or 500 pages.\r\n    \"\"\"\r\n    raise RuntimeError(\"Oh no\")\r\n\r\n\r\n@app.exception_handler(404)\r\nasync def not_found(request, exc):\r\n    \"\"\"\r\n    Return an HTTP 404 page.\r\n    \"\"\"\r\n    template = \"404.html\"\r\n    context = {\"request\": request}\r\n    return templates.TemplateResponse(template, context, status_code=404)\r\n\r\n\r\n@app.exception_handler(500)\r\nasync def server_error(request, exc):\r\n    \"\"\"\r\n    Return an HTTP 500 page.\r\n    \"\"\"\r\n    template = \"500.html\"\r\n    context = {\"request\": request}\r\n    return templates.TemplateResponse(template, context, status_code=500)\r\n\r\n\r\nif __name__ == \"__main__\":\r\n    uvicorn.run(\"app-567:app\", host='0.0.0.0', port=port, access_log=True, http='h11', loop='asyncio', reload=True)\r\n```",
+    "closed_at": "2022-02-03T10:56:38Z",
+    "created_at": "2020-02-17T18:38:11Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/829",
+    "number": 829,
+    "state": "closed",
+    "title": "Incorrect MIME type for templated javascript module imports",
+    "user": "jbsetton"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-02-17T21:24:19Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-02-19T09:52:05Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-28T19:30:37Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-29T02:29:15Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-06-29T02:29:15Z",
+      "event": "mentioned"
+    },
+    {
+      "created_at": "2020-06-29T02:29:15Z",
+      "event": "subscribed"
+    },
+    {
+      "created_at": "2022-05-24T06:25:48Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/PrefectHQ/prefect/pull/5802",
+          "number": 5802,
+          "pull_request": {
+            "merged_at": "2022-05-23T17:37:33Z",
+            "url": "https://api.github.com/repos/PrefectHQ/prefect/pulls/5802"
+          },
+          "repository": {
+            "full_name": "PrefectHQ/prefect"
+          },
+          "title": "Allow Orion UI to run on Windows"
+        }
+      }
+    },
+    {
+      "created_at": "2022-06-08T12:59:15Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/gradio-app/gradio/issues/1203",
+          "number": 1203,
+          "pull_request": {},
+          "repository": {
+            "full_name": "gradio-app/gradio"
+          },
+          "title": "No Output In Browser"
+        }
+      }
+    },
+    {
+      "created_at": "2022-09-21T02:05:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/issues/2010",
+          "number": 2010,
+          "pull_request": {},
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "[BUG] Chrome shows blank page of localhost:5151 and gives error: disallowed MIME type (\u201ctext/plain\u201d) after fiftyone app launch, in Windows 10 x64"
+        }
+      }
+    },
+    {
+      "created_at": "2023-06-14T05:30:30Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/reactive-python/reactpy/pull/1050",
+          "number": 1050,
+          "pull_request": {
+            "merged_at": "2023-06-15T06:15:37Z",
+            "url": "https://api.github.com/repos/reactive-python/reactpy/pulls/1050"
+          },
+          "repository": {
+            "full_name": "reactive-python/reactpy"
+          },
+          "title": "Warn and fix missing mime types"
+        }
+      }
+    },
+    {
+      "created_at": "2023-09-18T09:00:18Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/zauberzeug/nicegui/pull/1594",
+          "number": 1594,
+          "pull_request": {
+            "merged_at": "2023-09-18T22:14:27Z",
+            "url": "https://api.github.com/repos/zauberzeug/nicegui/pulls/1594"
+          },
+          "repository": {
+            "full_name": "zauberzeug/nicegui"
+          },
+          "title": "Dynamic properties mimetype fix"
+        }
+      }
+    },
+    {
+      "created_at": "2023-11-16T18:51:56Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/marimo-team/marimo/pull/368",
+          "number": 368,
+          "pull_request": {
+            "merged_at": "2023-11-16T21:15:10Z",
+            "url": "https://api.github.com/repos/marimo-team/marimo/pulls/368"
+          },
+          "repository": {
+            "full_name": "marimo-team/marimo"
+          },
+          "title": "Initialize mimetypes"
+        }
+      }
+    },
+    {
+      "created_at": "2024-01-09T14:08:25Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/dagster-io/dagster/pull/19046",
+          "number": 19046,
+          "pull_request": {
+            "url": "https://api.github.com/repos/dagster-io/dagster/pulls/19046"
+          },
+          "repository": {
+            "full_name": "dagster-io/dagster"
+          },
+          "title": "Added mime-types for UI files"
+        }
+      }
+    },
+    {
+      "created_at": "2026-02-01T05:42:04Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/Logical-Byte/endfield-essence-recognizer/issues/24",
+          "number": 24,
+          "pull_request": {},
+          "repository": {
+            "full_name": "Logical-Byte/endfield-essence-recognizer"
+          },
+          "title": "[BUG] js \u6587\u4ef6\u7684MIME\u7c7b\u578b\u4e0d\u5339\u914d\u88ab\u62e6\u622a\u5bfc\u81f4\u524d\u7aef\u767d\u5c4f"
+        }
+      }
+    },
+    {
+      "created_at": "2026-03-09T12:50:44Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/voxel51/fiftyone/pull/7152",
+          "number": 7152,
+          "pull_request": {
+            "merged_at": "2026-03-10T20:20:12Z",
+            "url": "https://api.github.com/repos/voxel51/fiftyone/pulls/7152"
+          },
+          "repository": {
+            "full_name": "voxel51/fiftyone"
+          },
+          "title": "fix: blank window on windows system"
+        }
+      }
+    },
+    {
+      "created_at": "2026-09-23T18:32:37Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/sqzw-x/amane/issues/240",
+          "number": 240,
+          "pull_request": {},
+          "repository": {
+            "full_name": "sqzw-x/amane"
+          },
+          "title": "[Bug] Amane\u542f\u52a8\u540e\u4e0d\u80fd\u81ea\u52a8\u6253\u5f00\u7f51\u9875\u7aef\uff0c\u624b\u52a8\u6253\u5f00Web UI\u663e\u793a\u7a7a\u767d\u9875"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "cross_references": [
+    {
+      "created_at": "2020-03-30T21:08:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/epidemics/covid/issues/41",
+          "number": 41,
+          "pull_request": {},
+          "repository": {
+            "full_name": "epidemics/covid"
+          },
+          "title": "serve static files from CDN"
+        }
+      }
+    }
+  ],
+  "issue": {
+    "body": "Hi, \r\n\r\nI am struggling with a simple task: \"serve my static files from CDN (say, public google cloud storage)\". In Django, I would simply do:\r\n```\r\nSTATIC_URL = \"https://googleapis...\"\r\n```\r\n\r\nbut I can't figure out how to deal with this in starlette (I am using fastapi)\r\n\r\n\r\nRelated:\r\n* https://github.com/encode/starlette/issues/843\r\n* https://github.com/encode/starlette/issues/873",
+    "closed_at": "2020-03-31T10:03:52Z",
+    "created_at": "2020-03-30T21:04:09Z",
+    "html_url": "https://github.com/Kludex/starlette/issues/884",
+    "number": 884,
+    "state": "closed",
+    "title": "Add simple CDN example for static files",
+    "user": "hnykda"
+  },
+  "repository": "Kludex/starlette",
+  "timeline": [
+    {
+      "created_at": "2020-03-30T21:08:33Z",
+      "event": "cross-referenced",
+      "source": {
+        "issue": {
+          "html_url": "https://github.com/epidemics/covid/issues/41",
+          "number": 41,
+          "pull_request": {},
+          "repository": {
+            "full_name": "epidemics/covid"
+          },
+          "title": "serve static files from CDN"
+        }
+      }
+    },
+    {
+      "created_at": "2020-03-31T10:03:52Z",
+      "event": "commented"
+    },
+    {
+      "created_at": "2020-04-01T07:59:18Z",
+      "event": "commented"
+    }
+  ]
+}
