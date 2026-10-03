@@ -66,6 +66,13 @@ class InvestigationBudget:
             raise ValueError("investigation budget must stay within specification")
 
 
+@dataclass(frozen=True)
+class PatchValidationPlan:
+    patch_id: str
+    target_test_id: str
+    regression_test_id: str
+
+
 class _BudgetExhausted(RuntimeError):
     def __init__(self, dimension: str) -> None:
         super().__init__(dimension)
@@ -271,10 +278,19 @@ class ToolGateway:
                         raise ValueError("history item is after investigation cutoff")
             if name == "run_tests" and (
                 not isinstance(result, dict)
-                or set(result) != {"passed"}
+                or set(result) not in ({"passed"}, {"passed", "status"})
                 or type(result["passed"]) is not bool
+                or (
+                    "status" in result
+                    and (
+                        result["status"] not in {
+                            "passed", "failed", "timed_out", "output_limited", "error"
+                        }
+                        or result["passed"] != (result["status"] == "passed")
+                    )
+                )
             ):
-                raise ValueError("test result must contain only a passed flag")
+                raise ValueError("test result must contain a valid status")
             if name == "submit_patch" and (
                 not isinstance(result, dict)
                 or set(result) != {"accepted"}
@@ -301,6 +317,7 @@ class _State(TypedDict, total=False):
     retrieved: RerankedRun
     draft: dict[str, Any]
     outcome: dict[str, Any]
+    patch_validation: dict[str, Any]
     result: dict[str, Any]
 
 
@@ -316,6 +333,7 @@ def run_investigation(
     run_clock: Callable[[], int] | None = None,
     mode: Literal["evaluation", "interactive"] = "evaluation",
     observation: ObservationContext | None = None,
+    patch_validation: PatchValidationPlan | None = None,
 ) -> dict[str, Any]:
     if mode not in ("evaluation", "interactive"):
         raise ValueError("mode must be evaluation or interactive")
@@ -332,6 +350,11 @@ def run_investigation(
         budget=budget,
         run_clock=run_clock,
         started_ns=started,
+        allowed_tests=(
+            {patch_validation.target_test_id, patch_validation.regression_test_id}
+            if patch_validation else None
+        ),
+        allowed_patches={patch_validation.patch_id} if patch_validation else None,
     )
     model_attempts: list[tuple[ModelResponse, int]] = []
 
@@ -691,6 +714,91 @@ def run_investigation(
             "events": events,
         }
 
+    def validate_patch(state: _State) -> _State:
+        assert patch_validation is not None
+        def run_approved_test(test_id: str) -> dict[str, Any]:
+            try:
+                return cast(dict[str, Any], gateway.invoke("run_tests", {"test_id": test_id}))
+            except Exception:
+                return {"passed": False, "status": "error"}
+
+        test_result = run_approved_test(patch_validation.target_test_id)
+        reproduction_status = test_result.get(
+            "status", "passed" if test_result["passed"] else "failed"
+        )
+        events = [*state["events"], {**gateway.events[-1], "stage": "patch_validated"}]
+        validation = {
+            "reproduction": {
+                "status": (
+                    "unexpected_pass" if reproduction_status == "passed"
+                    else "reproduced" if reproduction_status == "failed"
+                    else reproduction_status
+                ),
+                "test_id": patch_validation.target_test_id,
+            },
+        }
+        if reproduction_status == "failed":
+            try:
+                patch_result = cast(
+                    dict[str, bool],
+                    gateway.invoke("submit_patch", {"patch_id": patch_validation.patch_id}),
+                )
+                patch_status = "applied" if patch_result["accepted"] else "rejected"
+            except Exception:
+                patch_status = "error"
+            events.append({**gateway.events[-1], "stage": "patch_validated"})
+            validation["patch_application"] = {
+                "status": patch_status,
+                "patch_id": patch_validation.patch_id,
+            }
+            if patch_status == "applied":
+                target_result = run_approved_test(patch_validation.target_test_id)
+                events.append({**gateway.events[-1], "stage": "patch_validated"})
+                validation["target_test"] = {
+                    "status": target_result.get(
+                        "status", "passed" if target_result["passed"] else "failed"
+                    ),
+                    "test_id": patch_validation.target_test_id,
+                }
+                regression_result = run_approved_test(patch_validation.regression_test_id)
+                events.append({**gateway.events[-1], "stage": "patch_validated"})
+                validation["regression_test"] = {
+                    "status": regression_result.get(
+                        "status", "passed" if regression_result["passed"] else "failed"
+                    ),
+                    "test_id": patch_validation.regression_test_id,
+                }
+            else:
+                validation["target_test"] = {
+                    "status": "not_run",
+                    "test_id": patch_validation.target_test_id,
+                }
+                validation["regression_test"] = {
+                    "status": "not_run",
+                    "test_id": patch_validation.regression_test_id,
+                }
+        else:
+            validation["patch_application"] = {
+                "status": "not_run",
+                "patch_id": patch_validation.patch_id,
+            }
+            validation["target_test"] = {
+                "status": "not_run",
+                "test_id": patch_validation.target_test_id,
+            }
+            validation["regression_test"] = {
+                "status": "not_run",
+                "test_id": patch_validation.regression_test_id,
+            }
+        finish = getattr(tools, "finish_patch_validation", None)
+        if callable(finish) and (summary := finish()) is not None:
+            validation.update(summary)
+        events.append({"kind": "stage", "stage": "patch_validated"})
+        return {
+            "events": events,
+            "patch_validation": validation,
+        }
+
     def report(state: _State) -> _State:
         terminal_event = {
             "kind": "stage",
@@ -745,8 +853,7 @@ def run_investigation(
         )
         model_events = [event for event in events if event["kind"] == "model"]
         metadata = state["draft"]["metadata"]
-        return {
-            "result": {
+        result = {
                 "run_id": observation.run_id,
                 "trace_id": trace_id,
                 "case_id": retrieval_input.case_id,
@@ -791,17 +898,22 @@ def run_investigation(
                             "limit": budget.root_cause_hypotheses,
                             "used": len(state["draft"]["report"]["root_cause_hypotheses"]),
                         },
-                        "patch_attempts": {"limit": budget.patch_attempts, "used": 0},
+                        "patch_attempts": {
+                            "limit": budget.patch_attempts,
+                            "used": gateway.patch_attempts,
+                        },
                         "run_time_ns": {
                             "limit": budget.run_time_ns, "used": run_clock() - started,
                         },
                     },
                 },
-            },
         }
+        if "patch_validation" in state:
+            result["patch_validation"] = state["patch_validation"]
+        return {"result": result}
 
     graph = StateGraph(_State)
-    steps = (parse, plan, retrieve, summarize, hypotheses, verify, report)
+    steps = (parse, plan, retrieve, summarize, hypotheses, validate_patch, verify, report)
     for step in steps:
         graph.add_node(step.__name__, step)
     graph.add_edge(START, parse.__name__)
@@ -815,9 +927,18 @@ def run_investigation(
     graph.add_edge(summarize.__name__, hypotheses.__name__)
     graph.add_conditional_edges(
         hypotheses.__name__,
-        lambda state: report.__name__ if "outcome" in state else verify.__name__,
-        {report.__name__: report.__name__, verify.__name__: verify.__name__},
+        lambda state: (
+            report.__name__
+            if "outcome" in state
+            else validate_patch.__name__ if patch_validation else verify.__name__
+        ),
+        {
+            report.__name__: report.__name__,
+            validate_patch.__name__: validate_patch.__name__,
+            verify.__name__: verify.__name__,
+        },
     )
+    graph.add_edge(validate_patch.__name__, verify.__name__)
     graph.add_edge(verify.__name__, report.__name__)
     graph.add_edge(report.__name__, END)
     return cast(dict[str, Any], graph.compile().invoke({})["result"])

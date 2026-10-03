@@ -48,6 +48,10 @@ def _fixed_investigation(
     structured_failures: int = 0,
     observed_model_calls: list[int] | None = None,
     observation: ObservationContext | None = None,
+    patch_validation: object | None = None,
+    test_results: list[dict[str, object]] | None = None,
+    patch_results: list[dict[str, bool]] | None = None,
+    sandbox_summary: dict[str, object] | None = None,
 ) -> dict[str, Any]:
     from issuelens.investigation import run_investigation
 
@@ -118,12 +122,23 @@ def _fixed_investigation(
                     [replace(candidate, commit="future")]
                     if invalid_tool_candidate else [candidate]
                 )
+            if name == "run_tests" and test_results is not None:
+                return test_results.pop(0)
+            if name == "submit_patch" and patch_results is not None:
+                return patch_results.pop(0)
             return []
 
+        def finish_patch_validation(self) -> dict[str, object] | None:
+            return sandbox_summary
+
+    from issuelens.investigation import PatchValidationPlan
+
+    assert patch_validation is None or isinstance(patch_validation, PatchValidationPlan)
     result = run_investigation(
         case, g3, tmp_path, FixedModel(),
         ReportConfig("fixed", "agent-v1", "0", "0", "USD"), FixedTools(), clock=clock,
         mode=mode, budget=budget, run_clock=run_clock, observation=observation,
+        patch_validation=patch_validation,
     )
 
     return result
@@ -135,6 +150,207 @@ def test_fixed_evidence_sufficient_case_finishes_supported(tmp_path: Path) -> No
     assert result["report"]["schema_version"] == "1.0"
     assert result["outcome"]["status"] == "supported"
     assert result["outcome"]["stop_reason"] == "verified_root_cause"
+
+
+def test_patch_validation_records_reproduced_target_failure(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}],
+        patch_results=[{"accepted": False}],
+    )
+
+    assert result["patch_validation"]["reproduction"] == {
+        "status": "reproduced",
+        "test_id": "route-name-target",
+    }
+
+
+def test_patch_validation_records_patch_application_separately(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}, {"passed": True}, {"passed": True}],
+        patch_results=[{"accepted": True}],
+    )
+
+    assert result["patch_validation"]["patch_application"] == {
+        "status": "applied",
+        "patch_id": "route-name-patch",
+    }
+
+
+def test_patch_validation_reports_actual_patch_attempt_count(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}, {"passed": True}, {"passed": True}],
+        patch_results=[{"accepted": True}],
+    )
+
+    assert result["statistics"]["budgets"]["patch_attempts"]["used"] == 1
+
+
+def test_patch_validation_records_target_test_after_patch(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}, {"passed": True}, {"passed": True}],
+        patch_results=[{"accepted": True}],
+    )
+
+    assert result["patch_validation"]["target_test"] == {
+        "status": "passed",
+        "test_id": "route-name-target",
+    }
+
+
+def test_patch_validation_records_regression_test_separately(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}, {"passed": True}, {"passed": False}],
+        patch_results=[{"accepted": True}],
+    )
+
+    assert result["patch_validation"]["regression_test"] == {
+        "status": "failed",
+        "test_id": "routing-regression",
+    }
+
+
+def test_patch_rejection_marks_target_and_regression_tests_not_run(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}],
+        patch_results=[{"accepted": False}],
+    )
+
+    assert result["patch_validation"]["target_test"] == {
+        "status": "not_run",
+        "test_id": "route-name-target",
+    }
+    assert result["patch_validation"]["regression_test"] == {
+        "status": "not_run",
+        "test_id": "routing-regression",
+    }
+
+
+def test_unexpected_pre_patch_pass_stops_patch_validation(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": True}],
+        patch_results=[],
+    )
+
+    assert result["patch_validation"] == {
+        "reproduction": {"status": "unexpected_pass", "test_id": "route-name-target"},
+        "patch_application": {"status": "not_run", "patch_id": "route-name-patch"},
+        "target_test": {"status": "not_run", "test_id": "route-name-target"},
+        "regression_test": {"status": "not_run", "test_id": "routing-regression"},
+    }
+
+
+def test_pre_patch_timeout_is_not_recorded_as_reproduction(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False, "status": "timed_out"}],
+        patch_results=[],
+    )
+
+    assert result["patch_validation"]["reproduction"]["status"] == "timed_out"
+    assert result["patch_validation"]["patch_application"]["status"] == "not_run"
+
+
+def test_sandbox_error_is_recorded_without_losing_investigation(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        failing_tool="run_tests",
+    )
+
+    assert result["outcome"]["status"] == "supported"
+    assert result["patch_validation"]["reproduction"]["status"] == "error"
+    assert result["patch_validation"]["patch_application"]["status"] == "not_run"
+
+
+def test_patch_validation_reports_source_and_worktree_cleanup(tmp_path: Path) -> None:
+    from issuelens.investigation import PatchValidationPlan
+
+    result = _fixed_investigation(
+        tmp_path,
+        patch_validation=PatchValidationPlan(
+            patch_id="route-name-patch",
+            target_test_id="route-name-target",
+            regression_test_id="routing-regression",
+        ),
+        test_results=[{"passed": False}, {"passed": True}, {"passed": True}],
+        patch_results=[{"accepted": True}],
+        sandbox_summary={
+            "source_repository": {"unchanged": True},
+            "worktree": {"created": True, "cleaned": True},
+        },
+    )
+
+    assert result["patch_validation"]["source_repository"] == {"unchanged": True}
+    assert result["patch_validation"]["worktree"] == {"created": True, "cleaned": True}
 
 
 def test_supported_run_exposes_investigation_stages_and_retrieval_events(tmp_path: Path) -> None:

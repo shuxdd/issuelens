@@ -1,0 +1,10 @@
+diff --git a/starlette/routing.py b/starlette/routing.py
+index 6e4f5ec..f9da4a1 100644
+--- a/starlette/routing.py
++++ b/starlette/routing.py
+@@ -86,4 +86,4 @@ def get_name(endpoint: typing.Callable) -> str:
+ def get_name(endpoint: typing.Callable) -> str:
+-    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):
++    if inspect.isfunction(endpoint) or inspect.ismethod(endpoint) or inspect.isclass(endpoint):
+         return endpoint.__name__
+     return endpoint.__class__.__name__

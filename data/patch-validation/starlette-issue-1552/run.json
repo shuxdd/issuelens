@@ -1,0 +1,648 @@
+{
+  "case_id": "starlette-issue-1552",
+  "events": [
+    {
+      "case_id": "starlette-issue-1552",
+      "duration_ns": 8365302800,
+      "event_id": "07cad4cffd01df0a",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1552",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 1,
+      "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "stage": "issue_parsed",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "9be926875947d3cd",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "query": "Route naming introspection always return \"method\" for method endpoints",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "query_sha256": "5fad0cc3fbe1b448be3a6fbb8c7c3d613e9b1da4ff4fb14d388c4cf8ef54c0d2"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 8365302800,
+      "event_id": "ad64688d83431956",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/endpoints.md#L5-L50",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L114-L135",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/tests/test_endpoints.py#L39-L43",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/endpoints.py#L14-L54",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
+      ],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "query_sha256": "5fad0cc3fbe1b448be3a6fbb8c7c3d613e9b1da4ff4fb14d388c4cf8ef54c0d2"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 8365302800,
+      "event_id": "831699489dbed268",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/endpoints.md#L5-L50",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L114-L135",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/tests/test_endpoints.py#L39-L43",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/endpoints.py#L14-L54",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
+      ],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "0ecd2913c151d605",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "retrieved",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/endpoints.md#L5-L50",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L114-L135",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/tests/test_endpoints.py#L39-L43",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/endpoints.py#L14-L54",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386"
+      ],
+      "duration_ns": 8365302800,
+      "event_id": "8ca8bac38cd0979f",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "cached_input_tokens": 0,
+      "cost": "0",
+      "currency": "USD",
+      "duration_ns": 6100,
+      "event_id": "eddb9d4da7a599c9",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "input_tokens": 0,
+      "kind": "model",
+      "model": "fixed-g3-report-v1",
+      "output_tokens": 0,
+      "parent_id": "6d00fa0ca0c6ee60",
+      "prompt_version": "agent-v1",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 7,
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "total_tokens": 0,
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "6d00fa0ca0c6ee60",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "Introspection for method endpoints may produce incorrect route method/name metadata because function/method detection treats bound methods as callables and uses route.methods, but the reported 'method' return is not visible in the cited schema generation excerpt.",
+        "Route.name defaults from endpoint via get_name; for method endpoints this may yield 'method' if endpoint is an instance method whose class name is not as expected."
+      ],
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "test_id": "route-name-target"
+      },
+      "candidate_count": 0,
+      "candidate_ranks": [],
+      "duration_ns": 8365302800,
+      "event_id": "829bf65ae0cfc749",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 9,
+      "stage": "patch_validated",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "run_tests",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "patch_id": "route-name-patch"
+      },
+      "candidate_count": 0,
+      "candidate_ranks": [],
+      "duration_ns": 8365302800,
+      "event_id": "77c7f1cd16a89609",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 10,
+      "stage": "patch_validated",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "submit_patch",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "test_id": "route-name-target"
+      },
+      "candidate_count": 0,
+      "candidate_ranks": [],
+      "duration_ns": 8365302800,
+      "event_id": "4ad1bf2f8a0394da",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 11,
+      "stage": "patch_validated",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "run_tests",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "arguments": {
+        "test_id": "routing-regression"
+      },
+      "candidate_count": 0,
+      "candidate_ranks": [],
+      "duration_ns": 8365302800,
+      "event_id": "1d5474e0c7514bb8",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "kind": "tool",
+      "parent_id": "0ecd2913c151d605",
+      "references": [],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 12,
+      "stage": "patch_validated",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "status": "ok",
+      "tool": "run_tests",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "ba56f5901224437d",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 13,
+      "stage": "patch_validated",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "to_stage": "patch_validated",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "b562d171c01ea6e1",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "patch_validated",
+      "kind": "stage",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72"
+      ],
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 14,
+      "stage": "verified",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    },
+    {
+      "duration_ns": 8365302800,
+      "event_id": "0f7a28c8d4a45009",
+      "finished_at": "2026-10-03T14:03:26.294963Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "80e2d677a4d2c14ac56789e671c7ed14",
+      "run_id": "2f453f46cc4643b58682f472b040a58e",
+      "sequence": 15,
+      "stage": "reported",
+      "started_at": "2026-10-03T14:03:17.929660Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+    }
+  ],
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 89,
+        "path": "starlette/routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "start_line": 86
+      },
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 202,
+        "path": "starlette/routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+        "start_line": 202
+      },
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 222,
+        "path": "starlette/routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+        "start_line": 217
+      },
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 80,
+        "path": "starlette/schemas.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L80",
+        "start_line": 66
+      },
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 72,
+        "path": "starlette/schemas.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+        "start_line": 66
+      },
+      {
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "end_line": 133,
+        "path": "starlette/schemas.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L133-L133",
+        "start_line": 133
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What exact introspection API returns route names, and how does it use Route.name?",
+      "Are the reported method endpoints defined as plain functions, bound methods, or class-based HTTPEndpoint handlers?",
+      "What is the actual value of route.endpoint for the failing case, and whether inspect.ismethod returns true?",
+      "Does the issue occur in get_endpoints, get_name, or a separate route naming API not included in the candidates?"
+    ]
+  },
+  "patch_validation": {
+    "executions": [
+      {
+        "duration_ns": 1373605200,
+        "exit_code": 1,
+        "limits_verified": true,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1552.py\", line 9, in <module>\n    assert Route(\"/method\", Endpoint().my_method).name == \"my_method\"\nAssertionError\n",
+        "output_bytes": 190,
+        "status": "failed",
+        "test_id": "route-name-target"
+      },
+      {
+        "duration_ns": 1181715300,
+        "exit_code": 1,
+        "limits_verified": true,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1552.py\", line 9, in <module>\n    assert Route(\"/method\", Endpoint().my_method).name == \"my_method\"\nAssertionError\n",
+        "output_bytes": 190,
+        "status": "failed",
+        "test_id": "route-name-target"
+      },
+      {
+        "duration_ns": 1155483000,
+        "exit_code": 0,
+        "limits_verified": true,
+        "output": "",
+        "output_bytes": 0,
+        "status": "passed",
+        "test_id": "route-name-target"
+      },
+      {
+        "duration_ns": 2023258300,
+        "exit_code": 0,
+        "limits_verified": true,
+        "output": ".................................................                        [100%]\n49 passed in 0.59s\n",
+        "output_bytes": 99,
+        "status": "passed",
+        "test_id": "routing-regression"
+      }
+    ],
+    "limits": {
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "network": "none",
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "patch": {
+      "changed_files": [
+        "starlette/routing.py"
+      ],
+      "diff_sha256": "a005dce72f8d85da6a12b4505ce01e851a01cdd464ffc2cd47a54a87344ea5ea",
+      "patch_id": "route-name-patch",
+      "status": "applied"
+    },
+    "patch_application": {
+      "patch_id": "route-name-patch",
+      "status": "applied"
+    },
+    "regression_test": {
+      "status": "passed",
+      "test_id": "routing-regression"
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "route-name-target"
+    },
+    "source_repository": {
+      "after": {
+        "head": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "index_sha256": "c1dc6666a35f0242295913fcc236455b446e6d86a60d38ffb247815d8531ffaf",
+        "status": "?? .issuelens-snapshot.json\n"
+      },
+      "before": {
+        "head": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "index_sha256": "c1dc6666a35f0242295913fcc236455b446e6d86a60d38ffb247815d8531ffaf",
+        "status": "?? .issuelens-snapshot.json\n"
+      },
+      "unchanged": true
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "route-name-target"
+    },
+    "worktree": {
+      "cleaned": true,
+      "created": true
+    }
+  },
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 80,
+            "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )\n            else:\n                for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                    if not hasattr(route.endpoint, method):\n                        continue\n                    func = getattr(route.endpoint, method)\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), func)\n                    )",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L80",
+            "start_line": 66
+          }
+        ],
+        "text": "The schema generator distinguishes function/method endpoints from class endpoints when iterating route methods."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 222,
+            "excerpt": "if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L217-L222",
+            "start_line": 217
+          }
+        ],
+        "text": "Route initializes methods and includes HEAD when GET is present."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 202,
+            "excerpt": "self.name = get_name(endpoint) if name is None else name",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+            "start_line": 202
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 89,
+            "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+            "start_line": 86
+          }
+        ],
+        "text": "Route name is derived from endpoint when name is None."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 133,
+            "excerpt": "schema[\"paths\"][endpoint.path][endpoint.http_method] = parsed",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L133-L133",
+            "start_line": 133
+          }
+        ],
+        "text": "SchemaGenerator writes parsed schema under endpoint.http_method."
+      }
+    ],
+    "issue_classification": "schema generation bug",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 72,
+            "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+            "start_line": 66
+          }
+        ],
+        "text": "Introspection for method endpoints may produce incorrect route method/name metadata because function/method detection treats bound methods as callables and uses route.methods, but the reported 'method' return is not visible in the cited schema generation excerpt.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 202,
+            "excerpt": "self.name = get_name(endpoint) if name is None else name",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L202-L202",
+            "start_line": 202
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 89,
+            "excerpt": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+            "start_line": 86
+          }
+        ],
+        "text": "Route.name defaults from endpoint via get_name; for method endpoints this may yield 'method' if endpoint is an instance method whose class name is not as expected.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exact introspection API returns route names, and how does it use Route.name?",
+      "Are the reported method endpoints defined as plain functions, bound methods, or class-based HTTPEndpoint handlers?",
+      "What is the actual value of route.endpoint for the failing case, and whether inspect.ismethod returns true?",
+      "Does the issue occur in get_endpoints, get_name, or a separate route naming API not included in the candidates?"
+    ]
+  },
+  "run_id": "2f453f46cc4643b58682f472b040a58e",
+  "statistics": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 1
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 8365448700
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 6
+      }
+    },
+    "cost": "0",
+    "input_tokens": 0,
+    "latency_ns": 6100,
+    "model": "fixed-g3-report-v1",
+    "model_calls": 1,
+    "output_tokens": 0,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "embedding_identifier": "fastembed:BAAI/bge-small-en-v1.5@52398278842ec682c6f32300af41344b1c0b0bb2",
+      "fusion_strategy": "rrf-v1",
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "run_latency_ns": 8365302800,
+    "structured_output_retries": 0,
+    "tool_calls": 6,
+    "tools": {
+      "run_tests": 3,
+      "search_code": 1,
+      "semantic_search": 1,
+      "submit_patch": 1
+    },
+    "total_tokens": 0
+  },
+  "trace_id": "80e2d677a4d2c14ac56789e671c7ed14"
+}

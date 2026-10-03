@@ -1,0 +1,52 @@
+{
+  "case_id": "starlette-issue-1552",
+  "allowed_changed_files": [
+    "starlette/routing.py"
+  ],
+  "image": "issuelens-starlette-1552-sandbox:local",
+  "limits": {
+    "cpus": "1",
+    "memory_bytes": 536870912,
+    "output_bytes": 1048576,
+    "pids": 256,
+    "timeout_seconds": 300
+  },
+  "patches": {
+    "route-name-patch": "candidate.patch"
+  },
+  "repository": "Kludex/starlette",
+  "reproduction": {
+    "test_id": "route-name-target",
+    "failure_marker": "AssertionError"
+  },
+  "schema_version": "1.0",
+  "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+  "tests": {
+    "output-limit-probe": [
+      "python",
+      "-c",
+      "import sys; sys.stdout.write('x' * 2000000)"
+    ],
+    "timeout-probe": [
+      "python",
+      "-c",
+      "import time; time.sleep(60)"
+    ],
+    "isolation-probe": [
+      "python",
+      "-c",
+      "from pathlib import Path; assert set(p.name for p in Path('/sys/class/net').iterdir()) == {'lo'}; assert not Path('/root/.ssh').exists(); assert not Path('/workspace/.aws').exists(); assert not Path('/host-secret').exists()"
+    ],
+    "route-name-target": [
+      "python",
+      "/opt/issuelens-tests/test_issue_1552.py"
+    ],
+    "routing-regression": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "tests/test_routing.py"
+    ]
+  }
+}
