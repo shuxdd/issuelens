@@ -1,0 +1,25 @@
+diff --git a/starlette/routing.py b/starlette/routing.py
+--- a/starlette/routing.py
++++ b/starlette/routing.py
+@@ -600,7 +600,9 @@
+         Run any `.on_startup` event handlers.
+         """
+         for handler in self.on_startup:
+-            if asyncio.iscoroutinefunction(handler):
++            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(
++                getattr(handler, "__call__", None)
++            ):
+                 await handler()
+             else:
+                 handler()
+@@ -610,7 +612,9 @@
+         Run any `.on_shutdown` event handlers.
+         """
+         for handler in self.on_shutdown:
+-            if asyncio.iscoroutinefunction(handler):
++            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(
++                getattr(handler, "__call__", None)
++            ):
+                 await handler()
+             else:
+                 handler()

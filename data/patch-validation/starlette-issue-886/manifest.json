@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "case_id": "starlette-issue-886",
+  "repository": "Kludex/starlette",
+  "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+  "image": "issuelens-starlette-patch-v1:local",
+  "allowed_changed_files": ["starlette/routing.py"],
+  "patches": {"alternative-patch": "candidate.patch"},
+  "tests": {
+    "async-startup-target": ["python", "/opt/issuelens-tests/test_issue_886.py"],
+    "routing-regression": ["python", "-m", "pytest", "-q", "-p", "no:cacheprovider", "--basetemp", "/tmp/pytest", "tests/test_routing.py"]
+  },
+  "reproduction": {
+    "test_id": "async-startup-target",
+    "failure_marker": "AssertionError: async callable startup handler was not awaited"
+  },
+  "limits": {
+    "cpus": "1",
+    "memory_bytes": 536870912,
+    "output_bytes": 1048576,
+    "pids": 256,
+    "timeout_seconds": 300
+  }
+}

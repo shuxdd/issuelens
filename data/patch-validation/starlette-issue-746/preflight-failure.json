@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-746",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "status": "",
+        "index_sha256": "722314c65ff09d26d3d3a00ecc68db7444a958418054c2f11f16e653ffb7babf"
+      },
+      "after": {
+        "head": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "status": "",
+        "index_sha256": "722314c65ff09d26d3d3a00ecc68db7444a958418054c2f11f16e653ffb7babf"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1490324400,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_746.py\", line 10, in <module>\n    assert endpoints[0].path == \"/users/{id}\", \"OpenAPI path retained Starlette converter\"\nAssertionError: OpenAPI path retained Starlette converter\n",
+        "output_bytes": 254,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1284021800,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_746.py\", line 10, in <module>\n    assert endpoints[0].path == \"/users/{id}\", \"OpenAPI path retained Starlette converter\"\nAssertionError: OpenAPI path retained Starlette converter\n",
+        "output_bytes": 254,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1212374600,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "regression",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 2288186800,
+        "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n____________________________ test_schema_generation ____________________________\n\n    def test_schema_generation():\n>       schema = schemas.get_schema(routes=app.routes)\n\ntests/test_schemas.py:119: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nstarlette/schemas.py:136: in get_schema\n    parsed = self.parse_docstring(endpoint.func)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <starlette.schemas.SchemaGenerator object at 0x7d35ae048670>\nfunc_or_method = <function list_users at 0x7d35adf02200>\n\n    def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n        \"\"\"\n        Given a function, parse the docstring as YAML and return a dictionary of info.\n        \"\"\"\n        docstring = func_or_method.__doc__\n        if not docstring:\n            return {}\n    \n>       assert yaml is not None, \"`pyyaml` must be installed to use parse_docstring.\"\nE       AssertionError: `pyyaml` must be installed to use parse_docstring.\n\nstarlette/schemas.py:103: AssertionError\n________________________ test_schema_endpoint[asyncio] _________________________\n\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='asyncio', backend_options={})\n\n    def test_schema_endpoint(test_client_factory):\n        client = test_client_factory(app)\n>       response = client.get(\"/schema\")\n\ntests/test_schemas.py:224: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/usr/local/lib/python3.10/site-packages/requests/sessions.py:542: in get\n    return self.request('GET', url, **kwargs)\nstarlette/testclient.py:476: in request\n    return super().request(\n/usr/local/lib/python3.10/site-packages/requests/sessions.py:529: in request\n    resp = self.send(prep, **send_kwargs)\n/usr/local/lib/python3.10/site-packages/requests/sessions.py:645: in send\n    r = adapter.send(request, **kwargs)\nstarlette/testclient.py:270: in send\n    raise exc\nstarlette/testclient.py:267: in send\n    portal.call(self.app, scope, receive, send)\n/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:240: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\n/usr/local/lib/python3.10/concurrent/futures/_base.py:458: in result\n    return self.__get_result()\n/usr/local/lib/python3.10/concurrent/futures/_base.py:403: in __get_result\n    raise self._exception\n/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:187: in _call_func\n    retval = await retval\nstarlette/applications.py:124: in __call__\n    await self.middleware_stack(scope, receive, send)\nstarlette/middleware/errors.py:184: in __call__\n    raise exc\nstarlette/middleware/errors.py:162: in __call__\n    await self.app(scope, receive, _send)\nstarlette/middleware/exceptions.py:75: in __call__\n    raise exc\nstarlette/middleware/exceptions.py:64: in __call__\n    await self.app(scope, receive, sender)\nstarlette/routing.py:665: in __call__\n    await route.handle(scope, receive, send)\nstarlette/routing.py:261: in handle\n    await self.app(scope, receive, send)\nstarlette/routing.py:62: in app\n    response = await run_in_threadpool(func, request)\nstarlette/concurrency.py:41: in run_in_threadpool\n    return await anyio.to_thread.run_sync(func, *args)\n/usr/local/lib/python3.10/site-packages/anyio/to_thread.py:28: in run_sync\n    return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,\n/usr/local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py:818: in run_sync_in_worker_thread\n    return await future\n/usr/local/lib/python3.10/site-packages/anyio/_backends/_asyncio.py:754: in run\n    result = context.run(func, *args)\ntests/test_schemas.py:94: in schema\n    return schemas.OpenAPIResponse(request=request)\nstarlette/schemas.py:121: in OpenAPIResponse\n    schema = self.get_schema(routes=routes)\nstarlette/schemas.py:136: in get_schema\n    parsed = self.parse_docstring(endpoint.func)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <starlette.schemas.SchemaGenerator object at 0x7d35ae048670>\nfunc_or_method = <function list_users at 0x7d35adf02200>\n\n    def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n        \"\"\"\n        Given a function, parse the docstring as YAML and return a dictionary of info.\n        \"\"\"\n        docstring = func_or_method.__doc__\n        if not docstring:\n            return {}\n    \n>       assert yaml is not None, \"`pyyaml` must be installed to use parse_docstring.\"\nE       AssertionError: `pyyaml` must be installed to use parse_docstring.\n\nstarlette/schemas.py:103: AssertionError\n__________________________ test_schema_endpoint[trio] __________________________\n\ntest_client_factory = functools.partial(<class 'starlette.testclient.TestClient'>, backend='trio', backend_options={})\n\n    def test_schema_endpoint(test_client_factory):\n        client = test_client_factory(app)\n>       response = client.get(\"/schema\")\n\ntests/test_schemas.py:224: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n/usr/local/lib/python3.10/site-packages/requests/sessions.py:542: in get\n    return self.request('GET', url, **kwargs)\nstarlette/testclient.py:476: in request\n    return super().request(\n/usr/local/lib/python3.10/site-packages/requests/sessions.py:529: in request\n    resp = self.send(prep, **send_kwargs)\n/usr/local/lib/python3.10/site-packages/requests/sessions.py:645: in send\n    r = adapter.send(request, **kwargs)\nstarlette/testclient.py:270: in send\n    raise exc\nstarlette/testclient.py:267: in send\n    portal.call(self.app, scope, receive, send)\n/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:240: in call\n    return cast(T_Retval, self.start_task_soon(func, *args).result())\n/usr/local/lib/python3.10/concurrent/futures/_base.py:458: in result\n    return self.__get_result()\n/usr/local/lib/python3.10/concurrent/futures/_base.py:403: in __get_result\n    raise self._exception\n/usr/local/lib/python3.10/site-packages/anyio/from_thread.py:187: in _call_func\n    retval = await retval\nstarlette/applications.py:124: in __call__\n    await self.middleware_stack(scope, receive, send)\nstarlette/middleware/errors.py:184: in __call__\n    raise exc\nstarlette/middleware/errors.py:162: in __call__\n    await self.app(scope, receive, _send)\nstarlette/middleware/exceptions.py:75: in __call__\n    raise exc\nstarlette/middleware/exceptions.py:64: in __call__\n    await self.app(scope, receive, sender)\nstarlette/routing.py:665: in __call__\n    await route.handle(scope, receive, send)\nstarlette/routing.py:261: in handle\n    await self.app(scope, receive, send)\nstarlette/routing.py:62: in app\n    response = await run_in_threadpool(func, request)\nstarlette/concurrency.py:41: in run_in_threadpool\n    return await anyio.to_thread.run_sync(func, *args)\n/usr/local/lib/python3.10/site-packages/anyio/to_thread.py:28: in run_sync\n    return await get_asynclib().run_sync_in_worker_thread(func, *args, cancellable=cancellable,\n/usr/local/lib/python3.10/site-packages/anyio/_backends/_trio.py:180: in run_sync_in_worker_thread\n    return await run_sync(context.run, wrapper, cancellable=cancellable, limiter=limiter)\n/usr/local/lib/python3.10/site-packages/trio/_threads.py:207: in to_thread_run_sync\n    return await trio.lowlevel.wait_task_rescheduled(abort)\n/usr/local/lib/python3.10/site-packages/trio/_core/_traps.py:166: in wait_task_rescheduled\n    return (await _async_yield(WaitTaskRescheduled(abort_func))).unwrap()\n/usr/local/lib/python3.10/site-packages/outcome/_impl.py:213: in unwrap\n    raise captured_error\n/usr/local/lib/python3.10/site-packages/trio/_threads.py:157: in do_release_then_return_result\n    return result.unwrap()\n/usr/local/lib/python3.10/site-packages/outcome/_impl.py:213: in unwrap\n    raise captured_error\n/usr/local/lib/python3.10/site-packages/trio/_threads.py:170: in worker_fn\n    ret = sync_fn(*args)\n/usr/local/lib/python3.10/site-packages/anyio/_backends/_trio.py:175: in wrapper\n    return func(*args)\ntests/test_schemas.py:94: in schema\n    return schemas.OpenAPIResponse(request=request)\nstarlette/schemas.py:121: in OpenAPIResponse\n    schema = self.get_schema(routes=routes)\nstarlette/schemas.py:136: in get_schema\n    parsed = self.parse_docstring(endpoint.func)\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <starlette.schemas.SchemaGenerator object at 0x7d35ae048670>\nfunc_or_method = <function list_users at 0x7d35adf02200>\n\n    def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n        \"\"\"\n        Given a function, parse the docstring as YAML and return a dictionary of info.\n        \"\"\"\n        docstring = func_or_method.__doc__\n        if not docstring:\n            return {}\n    \n>       assert yaml is not None, \"`pyyaml` must be installed to use parse_docstring.\"\nE       AssertionError: `pyyaml` must be installed to use parse_docstring.\n\nstarlette/schemas.py:103: AssertionError\n3 failed in 0.72s\n",
+        "output_bytes": 9182,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/schemas.py"
+      ],
+      "diff": "diff --git a/starlette/schemas.py b/starlette/schemas.py\nindex 6ca764f..55bf7b3 100644\n--- a/starlette/schemas.py\n+++ b/starlette/schemas.py\n@@ -1,4 +1,5 @@\n import inspect\n+import re\n import typing\n \n from starlette.requests import Request\n@@ -49,10 +50,11 @@ class BaseSchemaGenerator:\n \n         for route in routes:\n             if isinstance(route, Mount):\n+                path = self._remove_converter(route.path)\n                 routes = route.routes or []\n                 sub_endpoints = [\n                     EndpointInfo(\n-                        path=\"\".join((route.path, sub_endpoint.path)),\n+                        path=\"\".join((path, sub_endpoint.path)),\n                         http_method=sub_endpoint.http_method,\n                         func=sub_endpoint.func,\n                     )\n@@ -64,23 +66,32 @@ class BaseSchemaGenerator:\n                 continue\n \n             elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n+                path = self._remove_converter(route.path)\n                 for method in route.methods or [\"GET\"]:\n                     if method == \"HEAD\":\n                         continue\n                     endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), route.endpoint)\n+                        EndpointInfo(path, method.lower(), route.endpoint)\n                     )\n             else:\n+                path = self._remove_converter(route.path)\n                 for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                     if not hasattr(route.endpoint, method):\n                         continue\n                     func = getattr(route.endpoint, method)\n-                    endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), func)\n-                    )\n+                    endpoints_info.append(EndpointInfo(path, method.lower(), func))\n \n         return endpoints_info\n \n+    def _remove_converter(self, path: str) -> str:\n+        \"\"\"\n+        Remove the converter from the path.\n+        For example, a route like this:\n+            Route(\"/users/{id:int}\", endpoint=get_user, methods=[\"GET\"])\n+        Should be represented as `/users/{id}` in the OpenAPI schema.\n+        \"\"\"\n+        return re.sub(r\":\\w+}\", \"}\", path)\n+\n     def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n         \"\"\"\n         Given a function, parse the docstring as YAML and return a dictionary of info.\n",
+      "diff_sha256": "f8aafc30c1d587a306e9e398e24dc7177c47e7240773010c5eeaba73948efac9"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "issue-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "issue-target"
+    },
+    "regression_test": {
+      "status": "failed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 10198048500,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_not_validated"
+  }
+}

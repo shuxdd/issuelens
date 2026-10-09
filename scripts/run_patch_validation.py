@@ -64,9 +64,12 @@ def run(output_path: Path | None = None) -> dict[str, Any]:
     if manifest.case_id != case.case_id or manifest.snapshot_commit != case.snapshot_commit:
         raise ValueError("the patch manifest does not match the approved case")
     source = ROOT / ".retrieval-cache/starlette"
+    patch_source = ROOT / ".retrieval-cache/campaign-sources/starlette-issue-1552"
+    if not patch_source.is_dir():
+        patch_source = source
     tools = PatchSandboxTools(
         manifest=manifest,
-        source_repository=source,
+        source_repository=patch_source,
         workspace_root=ROOT,
         retrieval_tools=FixedTools(g3.candidates),
     )

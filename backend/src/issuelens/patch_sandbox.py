@@ -393,6 +393,7 @@ class PatchSandboxTools:
             "executions": self._executions,
             "patch": {
                 **self._patch,
+                "diff": diff,
                 "diff_sha256": hashlib.sha256(diff.encode()).hexdigest(),
             },
             "limits": {

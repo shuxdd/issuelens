@@ -12,6 +12,7 @@ from issuelens.retrieval import RerankedRun, RetrievalCandidate, load_retrieval_
 
 ROOT = Path(__file__).resolve().parents[2]
 CASE_ID = "starlette-issue-1552"
+PATCH_SOURCE = ROOT / ".retrieval-cache/campaign-sources" / CASE_ID
 
 
 class FixedReportModel:
@@ -59,7 +60,7 @@ def test_starlette_1552_patch_validation_isolated_in_docker() -> None:
     )
     tools = PatchSandboxTools(
         manifest=manifest,
-        source_repository=ROOT / ".retrieval-cache/starlette",
+        source_repository=PATCH_SOURCE,
         workspace_root=ROOT,
         retrieval_tools=FixedRetrievalTools(g3.candidates),
     )
@@ -90,6 +91,7 @@ def test_starlette_1552_patch_validation_isolated_in_docker() -> None:
     assert validation["executions"][0]["output"] == validation["executions"][1]["output"]
     assert len(validation["executions"]) == 4
     assert validation["patch_application"]["status"] == "applied"
+    assert "diff --git a/starlette/routing.py b/starlette/routing.py" in validation["patch"]["diff"]
     assert validation["target_test"]["status"] == "passed"
     assert validation["regression_test"]["status"] == "passed"
     assert validation["source_repository"]["unchanged"] is True
@@ -104,7 +106,7 @@ def test_sandbox_stops_at_the_output_limit() -> None:
     )
     tools = PatchSandboxTools(
         manifest=manifest,
-        source_repository=ROOT / ".retrieval-cache/starlette",
+        source_repository=PATCH_SOURCE,
         workspace_root=ROOT,
         retrieval_tools=FixedRetrievalTools(()),
     )
@@ -125,7 +127,7 @@ def test_sandbox_enforces_the_shared_deadline() -> None:
     manifest = replace(manifest, limits=replace(manifest.limits, timeout_seconds=6))
     tools = PatchSandboxTools(
         manifest=manifest,
-        source_repository=ROOT / ".retrieval-cache/starlette",
+        source_repository=PATCH_SOURCE,
         workspace_root=ROOT,
         retrieval_tools=FixedRetrievalTools(()),
     )
@@ -144,7 +146,7 @@ def test_sandbox_cannot_reach_network_or_host_secret_paths() -> None:
     )
     tools = PatchSandboxTools(
         manifest=manifest,
-        source_repository=ROOT / ".retrieval-cache/starlette",
+        source_repository=PATCH_SOURCE,
         workspace_root=ROOT,
         retrieval_tools=FixedRetrievalTools(()),
     )

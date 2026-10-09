@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-1355",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "status": "",
+        "index_sha256": "17555cd01145dfc82432c87cc9f76821b3b704bf5303b3e1a8db275c13ee9996"
+      },
+      "after": {
+        "head": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "status": "",
+        "index_sha256": "17555cd01145dfc82432c87cc9f76821b3b704bf5303b3e1a8db275c13ee9996"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "websocket-partial-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1504455700,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1355.py\", line 16, in <module>\n    with client.websocket_connect(\"/ws\") as websocket:\n  File \"/workspace/starlette/testclient.py\", line 310, in __enter__\n    message = self.receive()\n  File \"/workspace/starlette/testclient.py\", line 376, in receive\n    raise message\n  File \"/usr/local/lib/python3.10/site-packages/anyio/from_thread.py\", line 187, in _call_func\n    retval = await retval\n  File \"/workspace/starlette/testclient.py\", line 336, in _run\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/applications.py\", line 112, in __call__\n    await self.middleware_stack(scope, receive, send)\n  File \"/workspace/starlette/middleware/errors.py\", line 146, in __call__\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/exceptions.py\", line 58, in __call__\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/routing.py\", line 656, in __call__\n    await route.handle(scope, receive, send)\n  File \"/workspace/starlette/routing.py\", line 315, in handle\n    await self.app(scope, receive, send)\nTypeError: endpoint() takes 1 positional argument but 3 were given\n",
+        "output_bytes": 1191,
+        "limits_verified": true
+      },
+      {
+        "test_id": "websocket-partial-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1263274700,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1355.py\", line 16, in <module>\n    with client.websocket_connect(\"/ws\") as websocket:\n  File \"/workspace/starlette/testclient.py\", line 310, in __enter__\n    message = self.receive()\n  File \"/workspace/starlette/testclient.py\", line 376, in receive\n    raise message\n  File \"/usr/local/lib/python3.10/site-packages/anyio/from_thread.py\", line 187, in _call_func\n    retval = await retval\n  File \"/workspace/starlette/testclient.py\", line 336, in _run\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/applications.py\", line 112, in __call__\n    await self.middleware_stack(scope, receive, send)\n  File \"/workspace/starlette/middleware/errors.py\", line 146, in __call__\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/exceptions.py\", line 58, in __call__\n    await self.app(scope, receive, send)\n  File \"/workspace/starlette/routing.py\", line 656, in __call__\n    await route.handle(scope, receive, send)\n  File \"/workspace/starlette/routing.py\", line 315, in handle\n    await self.app(scope, receive, send)\nTypeError: endpoint() takes 1 positional argument but 3 were given\n",
+        "output_bytes": 1191,
+        "limits_verified": true
+      },
+      {
+        "test_id": "websocket-partial-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1243673500,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "routing-regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1854180900,
+        "output": "...............................................                          [100%]\n47 passed in 0.46s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/routing.py"
+      ],
+      "diff": "diff --git a/starlette/routing.py b/starlette/routing.py\nindex 3c11c1b..982980c 100644\n--- a/starlette/routing.py\n+++ b/starlette/routing.py\n@@ -276,7 +276,10 @@ class WebSocketRoute(BaseRoute):\n         self.endpoint = endpoint\n         self.name = get_name(endpoint) if name is None else name\n \n-        if inspect.isfunction(endpoint) or inspect.ismethod(endpoint):\n+        endpoint_handler = endpoint\n+        while isinstance(endpoint_handler, functools.partial):\n+            endpoint_handler = endpoint_handler.func\n+        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n             # Endpoint is function or method. Treat it as `func(websocket)`.\n             self.app = websocket_session(endpoint)\n         else:\n",
+      "diff_sha256": "f0bd8d5793e41c6ac2c9f1e1a864bf94d7fb01f4741114798b545c4c29ca865c"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "websocket-partial-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "websocket-partial-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 8576730900,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

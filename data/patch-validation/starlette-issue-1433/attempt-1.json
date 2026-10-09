@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-1433",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "status": "",
+        "index_sha256": "70b62c3c805248c7e7abe9df06b09ec475e342c411f6d0e1f9fc139396ce6167"
+      },
+      "after": {
+        "head": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "status": "",
+        "index_sha256": "70b62c3c805248c7e7abe9df06b09ec475e342c411f6d0e1f9fc139396ce6167"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "mounted-exception-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1727676500,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1433.py\", line 26, in <module>\n    raise AssertionError(\"mounted route exception was hidden\")\nAssertionError: mounted route exception was hidden\n",
+        "output_bytes": 220,
+        "limits_verified": true
+      },
+      {
+        "test_id": "mounted-exception-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1269434400,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1433.py\", line 26, in <module>\n    raise AssertionError(\"mounted route exception was hidden\")\nAssertionError: mounted route exception was hidden\n",
+        "output_bytes": 220,
+        "limits_verified": true
+      },
+      {
+        "test_id": "mounted-exception-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1229930700,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "middleware-regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1731353700,
+        "output": "...........                                                              [100%]\n11 passed in 0.28s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/middleware/base.py"
+      ],
+      "diff": "diff --git a/starlette/middleware/base.py b/starlette/middleware/base.py\nindex 423f407..bfb4a54 100644\n--- a/starlette/middleware/base.py\n+++ b/starlette/middleware/base.py\n@@ -52,6 +52,9 @@ class BaseHTTPMiddleware:\n                         assert message[\"type\"] == \"http.response.body\"\n                         yield message.get(\"body\", b\"\")\n \n+                if app_exc is not None:\n+                    raise app_exc\n+\n             response = StreamingResponse(\n                 status_code=message[\"status\"], content=body_stream()\n             )\n",
+      "diff_sha256": "21343844fd06f88d93912de40692cfdd1efef1a8b5a84439d07ab5b5d57ecddc"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "mounted-exception-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "mounted-exception-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 8985873000,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

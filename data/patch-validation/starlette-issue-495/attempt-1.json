@@ -1,0 +1,81 @@
+{
+  "case_id": "starlette-issue-495",
+  "candidate_origin": "no_candidate",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "status": "",
+        "index_sha256": "48072099c7fd576dcec8f7893a1e6da417a2f68d343b846625d2d639dd50518f"
+      },
+      "after": {
+        "head": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "status": "",
+        "index_sha256": "48072099c7fd576dcec8f7893a1e6da417a2f68d343b846625d2d639dd50518f"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 4190629100,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_495.py\", line 42, in <module>\n    asyncio.run(main())\n  File \"/usr/local/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/local/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/opt/issuelens-tests/test_issue_495.py\", line 39, in main\n    raise AssertionError(\"request body was not replayed to downstream app\") from None\nAssertionError: request body was not replayed to downstream app\n",
+        "output_bytes": 575,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 3396927000,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_495.py\", line 42, in <module>\n    asyncio.run(main())\n  File \"/usr/local/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/local/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/opt/issuelens-tests/test_issue_495.py\", line 39, in main\n    raise AssertionError(\"request body was not replayed to downstream app\") from None\nAssertionError: request body was not replayed to downstream app\n",
+        "output_bytes": 575,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "not_run",
+      "diff": "",
+      "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "issue-target"
+    },
+    "patch_application": {
+      "status": "not_run",
+      "patch_id": null
+    },
+    "target_test": {
+      "status": "not_run",
+      "test_id": "issue-target"
+    },
+    "regression_test": {
+      "status": "not_run"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 11246869500,
+    "tool_calls": 1,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "no_candidate"
+  }
+}

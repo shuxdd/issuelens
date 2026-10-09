@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "case_id": "starlette-issue-1578",
+  "repository": "Kludex/starlette",
+  "snapshot_commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+  "image": "issuelens-starlette-patch-v1:local",
+  "allowed_changed_files": [
+    "starlette/status.py"
+  ],
+  "patches": {
+    "alternative-patch": "candidate.patch"
+  },
+  "tests": {
+    "issue-target": [
+      "python",
+      "/opt/issuelens-tests/test_issue_1578.py"
+    ],
+    "regression": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/pytest",
+      "tests/test_websockets.py"
+    ]
+  },
+  "reproduction": {
+    "test_id": "issue-target",
+    "failure_marker": "AttributeError: module 'starlette.status' has no attribute 'WS_1005_NO_STATUS_RCVD'"
+  },
+  "limits": {
+    "cpus": "1",
+    "memory_bytes": 536870912,
+    "output_bytes": 1048576,
+    "pids": 256,
+    "timeout_seconds": 300
+  }
+}

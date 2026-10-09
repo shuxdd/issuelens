@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-746",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "status": "",
+        "index_sha256": "722314c65ff09d26d3d3a00ecc68db7444a958418054c2f11f16e653ffb7babf"
+      },
+      "after": {
+        "head": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "status": "",
+        "index_sha256": "722314c65ff09d26d3d3a00ecc68db7444a958418054c2f11f16e653ffb7babf"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 2162185800,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_746.py\", line 10, in <module>\n    assert endpoints[0].path == \"/users/{id}\", \"OpenAPI path retained Starlette converter\"\nAssertionError: OpenAPI path retained Starlette converter\n",
+        "output_bytes": 254,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1433758300,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_746.py\", line 10, in <module>\n    assert endpoints[0].path == \"/users/{id}\", \"OpenAPI path retained Starlette converter\"\nAssertionError: OpenAPI path retained Starlette converter\n",
+        "output_bytes": 254,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1340999200,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1315199800,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/schemas.py"
+      ],
+      "diff": "diff --git a/starlette/schemas.py b/starlette/schemas.py\nindex 6ca764f..55bf7b3 100644\n--- a/starlette/schemas.py\n+++ b/starlette/schemas.py\n@@ -1,4 +1,5 @@\n import inspect\n+import re\n import typing\n \n from starlette.requests import Request\n@@ -49,10 +50,11 @@ class BaseSchemaGenerator:\n \n         for route in routes:\n             if isinstance(route, Mount):\n+                path = self._remove_converter(route.path)\n                 routes = route.routes or []\n                 sub_endpoints = [\n                     EndpointInfo(\n-                        path=\"\".join((route.path, sub_endpoint.path)),\n+                        path=\"\".join((path, sub_endpoint.path)),\n                         http_method=sub_endpoint.http_method,\n                         func=sub_endpoint.func,\n                     )\n@@ -64,23 +66,32 @@ class BaseSchemaGenerator:\n                 continue\n \n             elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n+                path = self._remove_converter(route.path)\n                 for method in route.methods or [\"GET\"]:\n                     if method == \"HEAD\":\n                         continue\n                     endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), route.endpoint)\n+                        EndpointInfo(path, method.lower(), route.endpoint)\n                     )\n             else:\n+                path = self._remove_converter(route.path)\n                 for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                     if not hasattr(route.endpoint, method):\n                         continue\n                     func = getattr(route.endpoint, method)\n-                    endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), func)\n-                    )\n+                    endpoints_info.append(EndpointInfo(path, method.lower(), func))\n \n         return endpoints_info\n \n+    def _remove_converter(self, path: str) -> str:\n+        \"\"\"\n+        Remove the converter from the path.\n+        For example, a route like this:\n+            Route(\"/users/{id:int}\", endpoint=get_user, methods=[\"GET\"])\n+        Should be represented as `/users/{id}` in the OpenAPI schema.\n+        \"\"\"\n+        return re.sub(r\":\\w+}\", \"}\", path)\n+\n     def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n         \"\"\"\n         Given a function, parse the docstring as YAML and return a dictionary of info.\n",
+      "diff_sha256": "f8aafc30c1d587a306e9e398e24dc7177c47e7240773010c5eeaba73948efac9"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "issue-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "issue-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 10257825600,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

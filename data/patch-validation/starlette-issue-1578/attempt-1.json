@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-1578",
+  "candidate_origin": "fixed_candidate",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "status": "",
+        "index_sha256": "f15bc02a79e2e43eff81f06026d0c429ec115566891dc0cafaab8c8fbe518d53"
+      },
+      "after": {
+        "head": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "status": "",
+        "index_sha256": "f15bc02a79e2e43eff81f06026d0c429ec115566891dc0cafaab8c8fbe518d53"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1307664300,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1578.py\", line 3, in <module>\n    assert status.WS_1005_NO_STATUS_RCVD == 1005, \"WebSocket close code 1005 is incorrect\"\nAttributeError: module 'starlette.status' has no attribute 'WS_1005_NO_STATUS_RCVD'. Did you mean: 'WS_1004_NO_STATUS_RCVD'?\n",
+        "output_bytes": 321,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1317951700,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1578.py\", line 3, in <module>\n    assert status.WS_1005_NO_STATUS_RCVD == 1005, \"WebSocket close code 1005 is incorrect\"\nAttributeError: module 'starlette.status' has no attribute 'WS_1005_NO_STATUS_RCVD'. Did you mean: 'WS_1004_NO_STATUS_RCVD'?\n",
+        "output_bytes": 321,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1063192200,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 2363357000,
+        "output": "...............................................................          [100%]\n63 passed in 0.54s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "alternative-patch",
+      "changed_files": [
+        "starlette/status.py"
+      ],
+      "diff": "diff --git a/starlette/status.py b/starlette/status.py\nindex b122ae8..a413dae 100644\n--- a/starlette/status.py\n+++ b/starlette/status.py\n@@ -81,6 +81,8 @@ WS_1002_PROTOCOL_ERROR = 1002\n WS_1003_UNSUPPORTED_DATA = 1003\n WS_1004_NO_STATUS_RCVD = 1004\n WS_1005_ABNORMAL_CLOSURE = 1005\n+WS_1005_NO_STATUS_RCVD = 1005\n+WS_1006_ABNORMAL_CLOSURE = 1006\n WS_1007_INVALID_FRAME_PAYLOAD_DATA = 1007\n WS_1008_POLICY_VIOLATION = 1008\n WS_1009_MESSAGE_TOO_BIG = 1009\n",
+      "diff_sha256": "220cce509c840b71e5805b9675107945a9713cee9c57d3e8014661453884be97"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "issue-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "alternative-patch"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "issue-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 10264754300,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

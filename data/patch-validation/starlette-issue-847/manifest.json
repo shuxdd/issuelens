@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "case_id": "starlette-issue-847",
+  "repository": "Kludex/starlette",
+  "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+  "image": "issuelens-starlette-patch-v1:local",
+  "allowed_changed_files": [
+    "starlette/middleware/base.py",
+    "starlette/requests.py"
+  ],
+  "patches": {},
+  "tests": {
+    "issue-target": [
+      "python",
+      "/opt/issuelens-tests/test_issue_847.py"
+    ],
+    "regression": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/pytest",
+      "tests/middleware/test_base.py"
+    ]
+  },
+  "reproduction": {
+    "test_id": "issue-target",
+    "failure_marker": "AssertionError: middleware could not read body after call_next"
+  },
+  "limits": {
+    "cpus": "1",
+    "memory_bytes": 536870912,
+    "output_bytes": 1048576,
+    "pids": 256,
+    "timeout_seconds": 300
+  }
+}

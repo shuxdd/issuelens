@@ -1,0 +1,276 @@
+{
+  "case_count": 10,
+  "cases": [
+    {
+      "case_id": "starlette-issue-1355",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 8576730900,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "reference_repair",
+          "patch_id": "reference-repair",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/routing.py b/starlette/routing.py\nindex 3c11c1b..982980c 100644\n--- a/starlette/routing.py\n+++ b/starlette/routing.py\n@@ -276,7 +276,10 @@ class WebSocketRoute(BaseRoute):\n         self.endpoint = endpoint\n         self.name = get_name(endpoint) if name is None else name\n \n-        if inspect.isfunction(endpoint) or inspect.ismethod(endpoint):\n+        endpoint_handler = endpoint\n+        while isinstance(endpoint_handler, functools.partial):\n+            endpoint_handler = endpoint_handler.func\n+        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n             # Endpoint is function or method. Treat it as `func(websocket)`.\n             self.app = websocket_session(endpoint)\n         else:\n",
+          "diff_sha256": "f0bd8d5793e41c6ac2c9f1e1a864bf94d7fb01f4741114798b545c4c29ca865c"
+        }
+      ],
+      "snapshot_commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52"
+    },
+    {
+      "case_id": "starlette-issue-1099",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 8204721200,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "reference_repair",
+          "patch_id": "reference-repair",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/responses.py b/starlette/responses.py\nindex ffde4b9..da765cf 100644\n--- a/starlette/responses.py\n+++ b/starlette/responses.py\n@@ -70,8 +70,8 @@ class Response:\n             populate_content_length = b\"content-length\" not in keys\n             populate_content_type = b\"content-type\" not in keys\n \n-        body = getattr(self, \"body\", b\"\")\n-        if body and populate_content_length:\n+        body = getattr(self, \"body\", None)\n+        if body is not None and populate_content_length:\n             content_length = str(len(body))\n             raw_headers.append((b\"content-length\", content_length.encode(\"latin-1\")))\n \n",
+          "diff_sha256": "b504481f6a6bb1d4a7f985a235fffdaf01a738db0ec195a9ea222d0a0f3c52b9"
+        }
+      ],
+      "snapshot_commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5"
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 8495433400,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "fixed_candidate",
+          "patch_id": "alternative-patch",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/routing.py b/starlette/routing.py\nindex 84ffcb3..4ee05a4 100644\n--- a/starlette/routing.py\n+++ b/starlette/routing.py\n@@ -600,7 +600,9 @@ class Router:\n         Run any `.on_startup` event handlers.\n         \"\"\"\n         for handler in self.on_startup:\n-            if asyncio.iscoroutinefunction(handler):\n+            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(\n+                getattr(handler, \"__call__\", None)\n+            ):\n                 await handler()\n             else:\n                 handler()\n@@ -610,7 +612,9 @@ class Router:\n         Run any `.on_shutdown` event handlers.\n         \"\"\"\n         for handler in self.on_shutdown:\n-            if asyncio.iscoroutinefunction(handler):\n+            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(\n+                getattr(handler, \"__call__\", None)\n+            ):\n                 await handler()\n             else:\n                 handler()\n",
+          "diff_sha256": "783da59aa3b26cc473da0ba8e78cc21820925429b875535a7ca9883f9d2278a8"
+        }
+      ],
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029"
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 8985873000,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "reference_repair",
+          "patch_id": "reference-repair",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/middleware/base.py b/starlette/middleware/base.py\nindex 423f407..bfb4a54 100644\n--- a/starlette/middleware/base.py\n+++ b/starlette/middleware/base.py\n@@ -52,6 +52,9 @@ class BaseHTTPMiddleware:\n                         assert message[\"type\"] == \"http.response.body\"\n                         yield message.get(\"body\", b\"\")\n \n+                if app_exc is not None:\n+                    raise app_exc\n+\n             response = StreamingResponse(\n                 status_code=message[\"status\"], content=body_stream()\n             )\n",
+          "diff_sha256": "21343844fd06f88d93912de40692cfdd1efef1a8b5a84439d07ab5b5d57ecddc"
+        }
+      ],
+      "snapshot_commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8"
+    },
+    {
+      "case_id": "starlette-issue-1471",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 9444902900,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "reference_repair",
+          "patch_id": "reference-repair",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/websockets.py b/starlette/websockets.py\nindex da74060..03ed199 100644\n--- a/starlette/websockets.py\n+++ b/starlette/websockets.py\n@@ -34,13 +34,21 @@ class WebSocket(HTTPConnection):\n         if self.client_state == WebSocketState.CONNECTING:\n             message = await self._receive()\n             message_type = message[\"type\"]\n-            assert message_type == \"websocket.connect\"\n+            if message_type != \"websocket.connect\":\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.connect\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             self.client_state = WebSocketState.CONNECTED\n             return message\n         elif self.client_state == WebSocketState.CONNECTED:\n             message = await self._receive()\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.receive\", \"websocket.disconnect\"}\n+            if message_type not in {\"websocket.receive\", \"websocket.disconnect\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.receive\" or '\n+                    f'\"websocket.disconnect\", but got {message_type!r}'\n+                )\n             if message_type == \"websocket.disconnect\":\n                 self.client_state = WebSocketState.DISCONNECTED\n             return message\n@@ -55,7 +63,11 @@ class WebSocket(HTTPConnection):\n         \"\"\"\n         if self.application_state == WebSocketState.CONNECTING:\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.accept\", \"websocket.close\"}\n+            if message_type not in {\"websocket.accept\", \"websocket.close\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.connect\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             if message_type == \"websocket.close\":\n                 self.application_state = WebSocketState.DISCONNECTED\n             else:\n@@ -63,7 +75,11 @@ class WebSocket(HTTPConnection):\n             await self._send(message)\n         elif self.application_state == WebSocketState.CONNECTED:\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.send\", \"websocket.close\"}\n+            if message_type not in {\"websocket.send\", \"websocket.close\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.send\" or \"websocket.close\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             if message_type == \"websocket.close\":\n                 self.application_state = WebSocketState.DISCONNECTED\n             await self._send(message)\n@@ -89,20 +105,30 @@ class WebSocket(HTTPConnection):\n             raise WebSocketDisconnect(message[\"code\"])\n \n     async def receive_text(self) -> str:\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n         return message[\"text\"]\n \n     async def receive_bytes(self) -> bytes:\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n         return message[\"bytes\"]\n \n     async def receive_json(self, mode: str = \"text\") -> typing.Any:\n-        assert mode in [\"text\", \"binary\"]\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if mode not in {\"text\", \"binary\"}:\n+            raise RuntimeError('The \"mode\" argument should be \"text\" or \"binary\".')\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n \n@@ -140,7 +166,8 @@ class WebSocket(HTTPConnection):\n         await self.send({\"type\": \"websocket.send\", \"bytes\": data})\n \n     async def send_json(self, data: typing.Any, mode: str = \"text\") -> None:\n-        assert mode in [\"text\", \"binary\"]\n+        if mode not in {\"text\", \"binary\"}:\n+            raise RuntimeError('The \"mode\" argument should be \"text\" or \"binary\".')\n         text = json.dumps(data)\n         if mode == \"text\":\n             await self.send({\"type\": \"websocket.send\", \"text\": text})\n",
+          "diff_sha256": "1d0843427132808cc0c7802e153dd2cafa71353df2d3245d11d5eb25a8c65a04"
+        }
+      ],
+      "snapshot_commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66"
+    },
+    {
+      "case_id": "starlette-issue-1552",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 11608321300,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "fixed_candidate",
+          "patch_id": "route-name-patch",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/routing.py b/starlette/routing.py\nindex 0388304..3510420 100644\n--- a/starlette/routing.py\n+++ b/starlette/routing.py\n@@ -84,7 +84,7 @@ def websocket_session(func: typing.Callable) -> ASGIApp:\n \n \n def get_name(endpoint: typing.Callable) -> str:\n-    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n+    if inspect.isfunction(endpoint) or inspect.ismethod(endpoint) or inspect.isclass(endpoint):\n         return endpoint.__name__\n     return endpoint.__class__.__name__\n \n",
+          "diff_sha256": "a005dce72f8d85da6a12b4505ce01e851a01cdd464ffc2cd47a54a87344ea5ea"
+        }
+      ],
+      "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa"
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 10264754300,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "fixed_candidate",
+          "patch_id": "alternative-patch",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/status.py b/starlette/status.py\nindex b122ae8..a413dae 100644\n--- a/starlette/status.py\n+++ b/starlette/status.py\n@@ -81,6 +81,8 @@ WS_1002_PROTOCOL_ERROR = 1002\n WS_1003_UNSUPPORTED_DATA = 1003\n WS_1004_NO_STATUS_RCVD = 1004\n WS_1005_ABNORMAL_CLOSURE = 1005\n+WS_1005_NO_STATUS_RCVD = 1005\n+WS_1006_ABNORMAL_CLOSURE = 1006\n WS_1007_INVALID_FRAME_PAYLOAD_DATA = 1007\n WS_1008_POLICY_VIOLATION = 1008\n WS_1009_MESSAGE_TOO_BIG = 1009\n",
+          "diff_sha256": "220cce509c840b71e5805b9675107945a9713cee9c57d3e8014661453884be97"
+        }
+      ],
+      "snapshot_commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+      "preflight_failure_record": "data\\patch-validation\\starlette-issue-1578\\preflight-failure.json"
+    },
+    {
+      "case_id": "starlette-issue-746",
+      "termination_reason": "patch_validated",
+      "run_time_ns": 10257825600,
+      "tool_calls": 4,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": true,
+          "target_passed": true,
+          "regression_passed": true,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "reference_repair",
+          "patch_id": "reference-repair",
+          "target_test_status": "passed",
+          "regression_test_status": "passed",
+          "diff": "diff --git a/starlette/schemas.py b/starlette/schemas.py\nindex 6ca764f..55bf7b3 100644\n--- a/starlette/schemas.py\n+++ b/starlette/schemas.py\n@@ -1,4 +1,5 @@\n import inspect\n+import re\n import typing\n \n from starlette.requests import Request\n@@ -49,10 +50,11 @@ class BaseSchemaGenerator:\n \n         for route in routes:\n             if isinstance(route, Mount):\n+                path = self._remove_converter(route.path)\n                 routes = route.routes or []\n                 sub_endpoints = [\n                     EndpointInfo(\n-                        path=\"\".join((route.path, sub_endpoint.path)),\n+                        path=\"\".join((path, sub_endpoint.path)),\n                         http_method=sub_endpoint.http_method,\n                         func=sub_endpoint.func,\n                     )\n@@ -64,23 +66,32 @@ class BaseSchemaGenerator:\n                 continue\n \n             elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n+                path = self._remove_converter(route.path)\n                 for method in route.methods or [\"GET\"]:\n                     if method == \"HEAD\":\n                         continue\n                     endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), route.endpoint)\n+                        EndpointInfo(path, method.lower(), route.endpoint)\n                     )\n             else:\n+                path = self._remove_converter(route.path)\n                 for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                     if not hasattr(route.endpoint, method):\n                         continue\n                     func = getattr(route.endpoint, method)\n-                    endpoints_info.append(\n-                        EndpointInfo(route.path, method.lower(), func)\n-                    )\n+                    endpoints_info.append(EndpointInfo(path, method.lower(), func))\n \n         return endpoints_info\n \n+    def _remove_converter(self, path: str) -> str:\n+        \"\"\"\n+        Remove the converter from the path.\n+        For example, a route like this:\n+            Route(\"/users/{id:int}\", endpoint=get_user, methods=[\"GET\"])\n+        Should be represented as `/users/{id}` in the OpenAPI schema.\n+        \"\"\"\n+        return re.sub(r\":\\w+}\", \"}\", path)\n+\n     def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n         \"\"\"\n         Given a function, parse the docstring as YAML and return a dictionary of info.\n",
+          "diff_sha256": "f8aafc30c1d587a306e9e398e24dc7177c47e7240773010c5eeaba73948efac9"
+        }
+      ],
+      "snapshot_commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+      "preflight_failure_record": "data\\patch-validation\\starlette-issue-746\\preflight-failure.json"
+    },
+    {
+      "case_id": "starlette-issue-495",
+      "termination_reason": "no_candidate",
+      "run_time_ns": 11246869500,
+      "tool_calls": 1,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": false,
+          "target_passed": false,
+          "regression_passed": false,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "no_candidate",
+          "patch_id": null,
+          "target_test_status": "not_run",
+          "regression_test_status": "not_run",
+          "diff": "",
+          "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857"
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "termination_reason": "no_candidate",
+      "run_time_ns": 11073385600,
+      "tool_calls": 1,
+      "total_tokens": 0,
+      "cost": "0",
+      "attempts": [
+        {
+          "reproduced": true,
+          "applied": false,
+          "target_passed": false,
+          "regression_passed": false,
+          "source_unchanged": true,
+          "worktree_cleaned": true,
+          "candidate_origin": "no_candidate",
+          "patch_id": null,
+          "target_test_status": "not_run",
+          "regression_test_status": "not_run",
+          "diff": "",
+          "diff_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857"
+    }
+  ],
+  "metrics": {
+    "reproduction_rate": 1.0,
+    "patch_apply_rate": 0.8,
+    "target_test_pass_rate": 0.8,
+    "regression_free_rate": 0.8,
+    "pass_at_1": 0.8,
+    "pass_at_2": 0.8
+  },
+  "project_summary": "Fixed candidate validation on ten frozen cases; no autonomous repair claim.",
+  "dataset_version": "starlette-eval-v1",
+  "campaign_version": "starlette-patch-v1",
+  "environment": {
+    "python": "3.10",
+    "image": "issuelens-starlette-patch-v1:local",
+    "dockerfile": "backend/patch-evaluation.Dockerfile",
+    "network": "none",
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912
+  }
+}

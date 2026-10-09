@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "case_id": "starlette-issue-1471",
+  "repository": "Kludex/starlette",
+  "snapshot_commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+  "image": "issuelens-starlette-patch-v1:local",
+  "allowed_changed_files": [
+    "starlette/websockets.py"
+  ],
+  "patches": {
+    "reference-repair": "candidate.patch"
+  },
+  "tests": {
+    "issue-target": [
+      "python",
+      "/opt/issuelens-tests/test_issue_1471.py"
+    ],
+    "regression": [
+      "python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "--basetemp",
+      "/tmp/pytest",
+      "tests/test_websockets.py"
+    ]
+  },
+  "reproduction": {
+    "test_id": "issue-target",
+    "failure_marker": "AssertionError"
+  },
+  "limits": {
+    "cpus": "1",
+    "memory_bytes": 536870912,
+    "output_bytes": 1048576,
+    "pids": 256,
+    "timeout_seconds": 300
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-886",
+  "candidate_origin": "fixed_candidate",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "status": "",
+        "index_sha256": "f88d315d2da32142bcb310e0f6a57d47c56a9111387f26b132ba56af59da49a5"
+      },
+      "after": {
+        "head": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "status": "",
+        "index_sha256": "f88d315d2da32142bcb310e0f6a57d47c56a9111387f26b132ba56af59da49a5"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "async-startup-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1382044300,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_886.py\", line 18, in <module>\n    assert handler.called, \"async callable startup handler was not awaited\"\nAssertionError: async callable startup handler was not awaited\n",
+        "output_bytes": 244,
+        "limits_verified": true
+      },
+      {
+        "test_id": "async-startup-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1139185300,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_886.py\", line 18, in <module>\n    assert handler.called, \"async callable startup handler was not awaited\"\nAssertionError: async callable startup handler was not awaited\n",
+        "output_bytes": 244,
+        "limits_verified": true
+      },
+      {
+        "test_id": "async-startup-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1131761800,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "routing-regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1932223000,
+        "output": ".................................................                        [100%]\n49 passed in 0.52s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "alternative-patch",
+      "changed_files": [
+        "starlette/routing.py"
+      ],
+      "diff": "diff --git a/starlette/routing.py b/starlette/routing.py\nindex 84ffcb3..4ee05a4 100644\n--- a/starlette/routing.py\n+++ b/starlette/routing.py\n@@ -600,7 +600,9 @@ class Router:\n         Run any `.on_startup` event handlers.\n         \"\"\"\n         for handler in self.on_startup:\n-            if asyncio.iscoroutinefunction(handler):\n+            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(\n+                getattr(handler, \"__call__\", None)\n+            ):\n                 await handler()\n             else:\n                 handler()\n@@ -610,7 +612,9 @@ class Router:\n         Run any `.on_shutdown` event handlers.\n         \"\"\"\n         for handler in self.on_shutdown:\n-            if asyncio.iscoroutinefunction(handler):\n+            if asyncio.iscoroutinefunction(handler) or asyncio.iscoroutinefunction(\n+                getattr(handler, \"__call__\", None)\n+            ):\n                 await handler()\n             else:\n                 handler()\n",
+      "diff_sha256": "783da59aa3b26cc473da0ba8e78cc21820925429b875535a7ca9883f9d2278a8"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "async-startup-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "alternative-patch"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "async-startup-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 8495433400,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

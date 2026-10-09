@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-1471",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "status": "",
+        "index_sha256": "5300a002d905cbdd223c02ca9fe5c3a8679ef4020733f5e6d90ff3b8b07aee3e"
+      },
+      "after": {
+        "head": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "status": "",
+        "index_sha256": "5300a002d905cbdd223c02ca9fe5c3a8679ef4020733f5e6d90ff3b8b07aee3e"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1465481200,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1471.py\", line 16, in <module>\n    asyncio.run(socket.send_json({}, mode=\"invalid\"))\n  File \"/usr/local/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/local/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/workspace/starlette/websockets.py\", line 143, in send_json\n    assert mode in [\"text\", \"binary\"]\nAssertionError\n",
+        "output_bytes": 511,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1205183900,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1471.py\", line 16, in <module>\n    asyncio.run(socket.send_json({}, mode=\"invalid\"))\n  File \"/usr/local/lib/python3.10/asyncio/runners.py\", line 44, in run\n    return loop.run_until_complete(main)\n  File \"/usr/local/lib/python3.10/asyncio/base_events.py\", line 649, in run_until_complete\n    return future.result()\n  File \"/workspace/starlette/websockets.py\", line 143, in send_json\n    assert mode in [\"text\", \"binary\"]\nAssertionError\n",
+        "output_bytes": 511,
+        "limits_verified": true
+      },
+      {
+        "test_id": "issue-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1165899100,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 2102080500,
+        "output": ".............................................                            [100%]\n45 passed in 0.38s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/websockets.py"
+      ],
+      "diff": "diff --git a/starlette/websockets.py b/starlette/websockets.py\nindex da74060..03ed199 100644\n--- a/starlette/websockets.py\n+++ b/starlette/websockets.py\n@@ -34,13 +34,21 @@ class WebSocket(HTTPConnection):\n         if self.client_state == WebSocketState.CONNECTING:\n             message = await self._receive()\n             message_type = message[\"type\"]\n-            assert message_type == \"websocket.connect\"\n+            if message_type != \"websocket.connect\":\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.connect\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             self.client_state = WebSocketState.CONNECTED\n             return message\n         elif self.client_state == WebSocketState.CONNECTED:\n             message = await self._receive()\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.receive\", \"websocket.disconnect\"}\n+            if message_type not in {\"websocket.receive\", \"websocket.disconnect\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.receive\" or '\n+                    f'\"websocket.disconnect\", but got {message_type!r}'\n+                )\n             if message_type == \"websocket.disconnect\":\n                 self.client_state = WebSocketState.DISCONNECTED\n             return message\n@@ -55,7 +63,11 @@ class WebSocket(HTTPConnection):\n         \"\"\"\n         if self.application_state == WebSocketState.CONNECTING:\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.accept\", \"websocket.close\"}\n+            if message_type not in {\"websocket.accept\", \"websocket.close\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.connect\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             if message_type == \"websocket.close\":\n                 self.application_state = WebSocketState.DISCONNECTED\n             else:\n@@ -63,7 +75,11 @@ class WebSocket(HTTPConnection):\n             await self._send(message)\n         elif self.application_state == WebSocketState.CONNECTED:\n             message_type = message[\"type\"]\n-            assert message_type in {\"websocket.send\", \"websocket.close\"}\n+            if message_type not in {\"websocket.send\", \"websocket.close\"}:\n+                raise RuntimeError(\n+                    'Expected ASGI message \"websocket.send\" or \"websocket.close\", '\n+                    f\"but got {message_type!r}\"\n+                )\n             if message_type == \"websocket.close\":\n                 self.application_state = WebSocketState.DISCONNECTED\n             await self._send(message)\n@@ -89,20 +105,30 @@ class WebSocket(HTTPConnection):\n             raise WebSocketDisconnect(message[\"code\"])\n \n     async def receive_text(self) -> str:\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n         return message[\"text\"]\n \n     async def receive_bytes(self) -> bytes:\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n         return message[\"bytes\"]\n \n     async def receive_json(self, mode: str = \"text\") -> typing.Any:\n-        assert mode in [\"text\", \"binary\"]\n-        assert self.application_state == WebSocketState.CONNECTED\n+        if mode not in {\"text\", \"binary\"}:\n+            raise RuntimeError('The \"mode\" argument should be \"text\" or \"binary\".')\n+        if self.application_state != WebSocketState.CONNECTED:\n+            raise RuntimeError(\n+                'WebSocket is not connected. Need to call \"accept\" first.'\n+            )\n         message = await self.receive()\n         self._raise_on_disconnect(message)\n \n@@ -140,7 +166,8 @@ class WebSocket(HTTPConnection):\n         await self.send({\"type\": \"websocket.send\", \"bytes\": data})\n \n     async def send_json(self, data: typing.Any, mode: str = \"text\") -> None:\n-        assert mode in [\"text\", \"binary\"]\n+        if mode not in {\"text\", \"binary\"}:\n+            raise RuntimeError('The \"mode\" argument should be \"text\" or \"binary\".')\n         text = json.dumps(data)\n         if mode == \"text\":\n             await self.send({\"type\": \"websocket.send\", \"text\": text})\n",
+      "diff_sha256": "1d0843427132808cc0c7802e153dd2cafa71353df2d3245d11d5eb25a8c65a04"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "issue-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "issue-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 9444902900,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

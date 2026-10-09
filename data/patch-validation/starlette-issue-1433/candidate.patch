@@ -1,0 +1,14 @@
+diff --git a/starlette/middleware/base.py b/starlette/middleware/base.py
+index 423f407..bfb4a54 100644
+--- a/starlette/middleware/base.py
++++ b/starlette/middleware/base.py
+@@ -52,6 +52,9 @@ class BaseHTTPMiddleware:
+                         assert message["type"] == "http.response.body"
+                         yield message.get("body", b"")
+ 
++                if app_exc is not None:
++                    raise app_exc
++
+             response = StreamingResponse(
+                 status_code=message["status"], content=body_stream()
+             )

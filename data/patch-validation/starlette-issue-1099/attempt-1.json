@@ -1,0 +1,103 @@
+{
+  "case_id": "starlette-issue-1099",
+  "candidate_origin": "reference_repair",
+  "patch_validation": {
+    "source_repository": {
+      "before": {
+        "head": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "status": "",
+        "index_sha256": "fe9b6e122fdd694ed9048e779e4dd027375ea63c9141e0271e7c829ac233ab06"
+      },
+      "after": {
+        "head": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "status": "",
+        "index_sha256": "fe9b6e122fdd694ed9048e779e4dd027375ea63c9141e0271e7c829ac233ab06"
+      },
+      "unchanged": true
+    },
+    "worktree": {
+      "created": true,
+      "cleaned": true
+    },
+    "executions": [
+      {
+        "test_id": "response-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1198900600,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1099.py\", line 4, in <module>\n    assert RedirectResponse(\"/\").headers[\"content-length\"] == \"0\"\n  File \"/workspace/starlette/datastructures.py\", line 542, in __getitem__\n    raise KeyError(key)\nKeyError: 'content-length'\n",
+        "output_bytes": 296,
+        "limits_verified": true
+      },
+      {
+        "test_id": "response-target",
+        "status": "failed",
+        "exit_code": 1,
+        "duration_ns": 1125897100,
+        "output": "Traceback (most recent call last):\n  File \"/opt/issuelens-tests/test_issue_1099.py\", line 4, in <module>\n    assert RedirectResponse(\"/\").headers[\"content-length\"] == \"0\"\n  File \"/workspace/starlette/datastructures.py\", line 542, in __getitem__\n    raise KeyError(key)\nKeyError: 'content-length'\n",
+        "output_bytes": 296,
+        "limits_verified": true
+      },
+      {
+        "test_id": "response-target",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1132654500,
+        "output": "",
+        "output_bytes": 0,
+        "limits_verified": true
+      },
+      {
+        "test_id": "response-regression",
+        "status": "passed",
+        "exit_code": 0,
+        "duration_ns": 1742994500,
+        "output": "......................................                                   [100%]\n38 passed in 0.30s\n",
+        "output_bytes": 99,
+        "limits_verified": true
+      }
+    ],
+    "patch": {
+      "status": "applied",
+      "patch_id": "reference-repair",
+      "changed_files": [
+        "starlette/responses.py"
+      ],
+      "diff": "diff --git a/starlette/responses.py b/starlette/responses.py\nindex ffde4b9..da765cf 100644\n--- a/starlette/responses.py\n+++ b/starlette/responses.py\n@@ -70,8 +70,8 @@ class Response:\n             populate_content_length = b\"content-length\" not in keys\n             populate_content_type = b\"content-type\" not in keys\n \n-        body = getattr(self, \"body\", b\"\")\n-        if body and populate_content_length:\n+        body = getattr(self, \"body\", None)\n+        if body is not None and populate_content_length:\n             content_length = str(len(body))\n             raw_headers.append((b\"content-length\", content_length.encode(\"latin-1\")))\n \n",
+      "diff_sha256": "b504481f6a6bb1d4a7f985a235fffdaf01a738db0ec195a9ea222d0a0f3c52b9"
+    },
+    "limits": {
+      "network": "none",
+      "cpus": "1",
+      "memory_bytes": 536870912,
+      "memory_swap_bytes": 536870912,
+      "output_bytes": 1048576,
+      "pids": 256,
+      "timeout_seconds": 300
+    },
+    "reproduction": {
+      "status": "reproduced",
+      "test_id": "response-target"
+    },
+    "patch_application": {
+      "status": "applied",
+      "patch_id": "reference-repair"
+    },
+    "target_test": {
+      "status": "passed",
+      "test_id": "response-target"
+    },
+    "regression_test": {
+      "status": "passed"
+    }
+  },
+  "statistics": {
+    "run_latency_ns": 8204721200,
+    "tool_calls": 4,
+    "total_tokens": 0,
+    "cost": "0"
+  },
+  "outcome": {
+    "stop_reason": "patch_validated"
+  }
+}

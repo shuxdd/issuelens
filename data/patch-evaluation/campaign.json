@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "campaign_version": "starlette-patch-v1",
+  "dataset_version": "starlette-eval-v1",
+  "repository": "Kludex/starlette",
+  "environment": {
+    "python": "3.10",
+    "image": "issuelens-starlette-patch-v1:local",
+    "dockerfile": "backend/patch-evaluation.Dockerfile",
+    "network": "none",
+    "memory_bytes": 536870912,
+    "memory_swap_bytes": 536870912
+  },
+  "cases": [
+    {"case_id": "starlette-issue-1355", "snapshot_commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52"},
+    {"case_id": "starlette-issue-1099", "snapshot_commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5"},
+    {"case_id": "starlette-issue-886", "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029"},
+    {"case_id": "starlette-issue-1433", "snapshot_commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8"},
+    {"case_id": "starlette-issue-1471", "snapshot_commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66"},
+    {"case_id": "starlette-issue-1552", "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa"},
+    {"case_id": "starlette-issue-1578", "snapshot_commit": "487f05dfc641a0632be8bd405add6454cab4f6b0"},
+    {"case_id": "starlette-issue-746", "snapshot_commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8"},
+    {"case_id": "starlette-issue-495", "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857"},
+    {"case_id": "starlette-issue-847", "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857"}
+  ]
+}
