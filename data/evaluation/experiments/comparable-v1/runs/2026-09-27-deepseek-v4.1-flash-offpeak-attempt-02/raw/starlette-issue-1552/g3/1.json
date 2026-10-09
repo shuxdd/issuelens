@@ -1,0 +1,324 @@
+{
+  "case_id": "starlette-issue-1552",
+  "group": "g3",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 3968,
+    "cost": "0.000406104",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4192,
+    "latency_ns": 2807236700,
+    "missed_input_tokens": 224,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 601,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 258800015100,
+    "total_latency_ns": 261607251800,
+    "total_tokens": 4793
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 72,
+            "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+            "start_line": 66
+          }
+        ],
+        "text": "BaseSchemaGenerator.get_endpoints builds EndpointInfo using the route path and lowercased HTTP method, not the route name."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 28,
+            "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+            "start_line": 25
+          }
+        ],
+        "text": "EndpointInfo has fields path, http_method, and func; there is no name field."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 133,
+            "excerpt": "if endpoint.path not in schema[\"paths\"]:\n                schema[\"paths\"][endpoint.path] = {}\n\n            schema[\"paths\"][endpoint.path][endpoint.http_method] = parsed",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L130-L133",
+            "start_line": 130
+          }
+        ],
+        "text": "SchemaGenerator.get_schema consumes EndpointInfo by endpoint.path and endpoint.http_method."
+      }
+    ],
+    "issue_classification": "routing",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 28,
+            "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+            "start_line": 25
+          }
+        ],
+        "text": "The introspection API does not carry route names at all, so name-oriented consumers cannot distinguish routes by name; they only receive path, http_method, and func.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+            "end_line": 72,
+            "excerpt": "elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L66-L72",
+            "start_line": 66
+          }
+        ],
+        "text": "For function or method endpoints, EndpointInfo is populated with the method string as http_method, which can be interpreted as the route's name if name is expected.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Where does the name-oriented introspection API expect route names to be populated?",
+      "Does Route.name get used by any schema generation path that was not included in the candidates?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "20.661785",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "class BaseSchemaGenerator:\n    def get_schema(self, routes: typing.List[BaseRoute]) -> dict:\n        raise NotImplementedError()  # pragma: no cover\n\n    def get_endpoints(\n        self, routes: typing.List[BaseRoute]\n    ) -> typing.List[EndpointInfo]:\n        \"\"\"\n        Given the routes, yields the following information:\n\n        - path\n            eg: /users/\n        - http_method\n            one of 'get', 'post', 'put', 'patch', 'delete', 'options'\n        - func\n            method ready to extract the docstring\n        \"\"\"\n        endpoints_info: list = []\n\n        for route in routes:\n            if isinstance(route, Mount):\n                routes = route.routes or []\n                sub_endpoints = [\n                    EndpointInfo(\n                        path=\"\".join((route.path, sub_endpoint.path)),\n                        http_method=sub_endpoint.http_method,\n                        func=sub_endpoint.func,\n                    )\n                    for sub_endpoint in self.get_endpoints(routes)\n                ]\n                endpoints_info.extend(sub_endpoints)\n\n            elif not isinstance(route, Route) or not route.include_in_schema:\n                continue\n\n            elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )\n            else:\n                for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                    if not hasattr(route.endpoint, method):\n                        continue\n                    func = getattr(route.endpoint, method)\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), func)\n                    )\n\n        return endpoints_info\n\n    def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n        \"\"\"\n        Given a function, parse the docstring as YAML and return a dictionary of info.\n        \"\"\"\n        docstring = func_or_method.__doc__\n        if not docstring:\n            return {}\n\n        assert yaml is not None, \"`pyyaml` must be installed to use parse_docstring.\"\n\n        # We support having regular docstrings before the schema\n        # definition. Here we return just the schema part from\n        # the docstring.\n        docstring = docstring.split(\"---\")[-1]\n\n        parsed = yaml.safe_load(docstring)\n\n        if not isinstance(parsed, dict):\n            # A regular docstring (not yaml formatted) can return\n            # a simple string here, which wouldn't follow the schema.\n            return {}\n\n        return parsed\n\n    def OpenAPIResponse(self, request: Request) -> Response:\n        routes = request.app.routes\n        schema = self.get_schema(routes=routes)\n        return OpenAPIResponse(schema)",
+        "end_line": 111,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/schemas.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L31-L111",
+        "reranker_score": "3.037694",
+        "rrf_score": "0.01639344",
+        "score": "3.037694",
+        "source_type": "python_source",
+        "start_line": 31,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01449275",
+        "bm25_rank": 9,
+        "bm25_score": "10.165772",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "class Route(BaseRoute):\n    def __init__(\n        self,\n        path: str,\n        endpoint: typing.Callable,\n        *,\n        methods: typing.List[str] = None,\n        name: str = None,\n        include_in_schema: bool = True,\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n        self.include_in_schema = include_in_schema\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(request) -> response`.\n            self.app = request_response(endpoint)\n            if methods is None:\n                methods = [\"GET\"]\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        if methods is None:\n            self.methods = None\n        else:\n            self.methods = {method.upper() for method in methods}\n            if \"GET\" in self.methods:\n                self.methods.add(\"HEAD\")\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"http\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                if self.methods and scope[\"method\"] not in self.methods:\n                    return Match.PARTIAL, child_scope\n                else:\n                    return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"http\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if self.methods and scope[\"method\"] not in self.methods:\n            headers = {\"Allow\": \", \".join(self.methods)}\n            if \"app\" in scope:\n                raise HTTPException(status_code=405, headers=headers)\n            else:\n                response = PlainTextResponse(\n                    \"Method Not Allowed\", status_code=405, headers=headers\n                )\n            await response(scope, receive, send)\n        else:\n            await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, Route)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n            and self.methods == other.methods\n        )",
+        "end_line": 274,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L189-L274",
+        "reranker_score": "2.262902",
+        "rrf_score": "0.03062179",
+        "score": "2.262902",
+        "source_type": "python_source",
+        "start_line": 189,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.734856"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "13.157524",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "### HTTPEndpoint\n\nThe `HTTPEndpoint` class can be used as an ASGI application:\n\n```python\nfrom starlette.responses import PlainTextResponse\nfrom starlette.endpoints import HTTPEndpoint\n\n\nclass App(HTTPEndpoint):\n    async def get(self, request):\n        return PlainTextResponse(f\"Hello, world!\")\n```\n\nIf you're using a Starlette application instance to handle routing, you can\ndispatch to an `HTTPEndpoint` class. Make sure to dispatch to the class itself,\nrather than to an instance of the class:\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import PlainTextResponse\nfrom starlette.endpoints import HTTPEndpoint\nfrom starlette.routing import Route\n\n\nclass Homepage(HTTPEndpoint):\n    async def get(self, request):\n        return PlainTextResponse(f\"Hello, world!\")\n\n\nclass User(HTTPEndpoint):\n    async def get(self, request):\n        username = request.path_params['username']\n        return PlainTextResponse(f\"Hello, {username}\")\n\nroutes = [\n    Route(\"/\", Homepage),\n    Route(\"/{username}\", User)\n]\n\napp = Starlette(routes=routes)\n```\n\nHTTP endpoint classes will respond with \"405 Method not allowed\" responses for any\nrequest methods which do not map to a corresponding handler.\n",
+        "end_line": 50,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/endpoints.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/endpoints.md#L5-L50",
+        "reranker_score": "-0.491798",
+        "rrf_score": "0.01562500",
+        "score": "-0.491798",
+        "source_type": "markdown",
+        "start_line": 5,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "12.684385",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "class SchemaGenerator(BaseSchemaGenerator):\n    def __init__(self, base_schema: dict) -> None:\n        self.base_schema = base_schema\n\n    def get_schema(self, routes: typing.List[BaseRoute]) -> dict:\n        schema = dict(self.base_schema)\n        schema.setdefault(\"paths\", {})\n        endpoints_info = self.get_endpoints(routes)\n\n        for endpoint in endpoints_info:\n\n            parsed = self.parse_docstring(endpoint.func)\n\n            if not parsed:\n                continue\n\n            if endpoint.path not in schema[\"paths\"]:\n                schema[\"paths\"][endpoint.path] = {}\n\n            schema[\"paths\"][endpoint.path][endpoint.http_method] = parsed\n\n        return schema",
+        "end_line": 135,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/schemas.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L114-L135",
+        "reranker_score": "-0.554431",
+        "rrf_score": "0.01538462",
+        "score": "-0.554431",
+        "source_type": "python_source",
+        "start_line": 114,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "15.379299",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "def test_http_endpoint_route_method(client):\n    response = client.post(\"/\")\n    assert response.status_code == 405\n    assert response.text == \"Method Not Allowed\"\n    assert response.headers[\"allow\"] == \"GET\"",
+        "end_line": 43,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/tests/test_endpoints.py#L39-L43",
+        "reranker_score": "-1.093819",
+        "rrf_score": "0.01612903",
+        "score": "-1.093819",
+        "source_type": "python_test",
+        "start_line": 39,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+        "end_line": 28,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/schemas.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/schemas.py#L25-L28",
+        "reranker_score": "-2.087623",
+        "rrf_score": "0.01587302",
+        "score": "-2.087623",
+        "source_type": "python_source",
+        "start_line": 25,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.727545"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "13.706103",
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "class HTTPEndpoint:\n    def __init__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        assert scope[\"type\"] == \"http\"\n        self.scope = scope\n        self.receive = receive\n        self.send = send\n        self._allowed_methods = [\n            method\n            for method in (\"GET\", \"HEAD\", \"POST\", \"PUT\", \"PATCH\", \"DELETE\", \"OPTIONS\")\n            if getattr(self, method.lower(), None) is not None\n        ]\n\n    def __await__(self) -> typing.Generator:\n        return self.dispatch().__await__()\n\n    async def dispatch(self) -> None:\n        request = Request(self.scope, receive=self.receive)\n        handler_name = (\n            \"get\"\n            if request.method == \"HEAD\" and not hasattr(self, \"head\")\n            else request.method.lower()\n        )\n\n        handler: typing.Callable[[Request], typing.Any] = getattr(\n            self, handler_name, self.method_not_allowed\n        )\n        is_async = asyncio.iscoroutinefunction(handler)\n        if is_async:\n            response = await handler(request)\n        else:\n            response = await run_in_threadpool(handler, request)\n        await response(self.scope, self.receive, self.send)\n\n    async def method_not_allowed(self, request: Request) -> Response:\n        # If we're running inside a starlette application then raise an\n        # exception, so that the configurable exception handler can deal with\n        # returning the response. For plain ASGI apps, just return the response.\n        headers = {\"Allow\": \", \".join(self._allowed_methods)}\n        if \"app\" in self.scope:\n            raise HTTPException(status_code=405, headers=headers)\n        return PlainTextResponse(\"Method Not Allowed\", status_code=405, headers=headers)",
+        "end_line": 54,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/endpoints.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/endpoints.py#L14-L54",
+        "reranker_score": "-2.215663",
+        "rrf_score": "0.01587302",
+        "score": "-2.215663",
+        "source_type": "python_source",
+        "start_line": 14,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "def get_name(endpoint: typing.Callable) -> str:\n    if inspect.isfunction(endpoint) or inspect.isclass(endpoint):\n        return endpoint.__name__\n    return endpoint.__class__.__name__",
+        "end_line": 89,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/starlette/routing.py#L86-L89",
+        "reranker_score": "-2.540455",
+        "rrf_score": "0.01562500",
+        "score": "-2.540455",
+        "source_type": "python_source",
+        "start_line": 86,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.724352"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+        "end_line": 452,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L449-L452",
+        "reranker_score": "-4.130128",
+        "rrf_score": "0.01639344",
+        "score": "-4.130128",
+        "source_type": "markdown",
+        "start_line": 449,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.744283"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+        "content": "## 0.8.3\n\n* Add 'name' argument to `@app.route()`.\n* Use 'Host' header for URL reconstruction.\n",
+        "end_line": 386,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/e086fc2da361767b532cf690e5203619bbae98aa/docs/release-notes.md#L382-L386",
+        "reranker_score": "-7.133340",
+        "rrf_score": "0.01538462",
+        "score": "-7.133340",
+        "source_type": "markdown",
+        "start_line": 382,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.710456"
+      }
+    ]
+  },
+  "status": "completed"
+}

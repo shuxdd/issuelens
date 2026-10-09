@@ -1,0 +1,134 @@
+{
+  "case_id": "starlette-issue-2646",
+  "failure": {
+    "error_type": "ValueError",
+    "message": "facts[0].evidence[0].excerpt does not match cited lines"
+  },
+  "group": "g1",
+  "replicate": 1,
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "### Fixed\n* Revert \"Allow `StaticFiles` to follow symlinks\" [#1681](https://github.com/encode/starlette/pull/1681).\n",
+        "end_line": 371,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L369-L371",
+        "score": "0.737678",
+        "source_type": "markdown",
+        "start_line": 369
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_disallows_path_traversal_with_symlinks(tmpdir: Path) -> None:\n    statics_path = os.path.join(tmpdir, \"statics\")\n\n    root_source_path = tempfile.mkdtemp()\n    source_path = os.path.join(root_source_path, \"statics\")\n    os.mkdir(source_path)\n\n    source_file_path = os.path.join(root_source_path, \"index.html\")\n    with open(source_file_path, \"w\") as file:\n        file.write(\"<h1>Hello</h1>\")\n\n    os.symlink(source_path, statics_path)\n\n    app = StaticFiles(directory=statics_path, follow_symlink=True)\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../index.html\"})\n    scope = {\"method\": \"GET\"}\n\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, scope)\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 528,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L506-L528",
+        "score": "0.732078",
+        "source_type": "python_test",
+        "start_line": 506
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "### StaticFiles\n\n* Check directory exists on instantiation.\n",
+        "end_line": 814,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L811-L814",
+        "score": "0.721813",
+        "source_type": "markdown",
+        "start_line": 811
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 611,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L608-L611",
+        "score": "0.718231",
+        "source_type": "markdown",
+        "start_line": 608
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_prevents_breaking_out_of_directory(tmpdir: Path) -> None:\n    directory = os.path.join(tmpdir, \"foo\")\n    os.mkdir(directory)\n\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"outside root dir\")\n\n    app = StaticFiles(directory=directory)\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../example.txt\"})\n    scope = {\"method\": \"GET\"}\n\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, scope)\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 185,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L168-L185",
+        "score": "0.701763",
+        "source_type": "python_test",
+        "start_line": 168
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_with_missing_dir_returns_404(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    routes = [Mount(\"/\", app=StaticFiles(directory=tmpdir), name=\"static\")]\n    app = Starlette(routes=routes)\n    client = test_client_factory(app)\n\n    response = client.get(\"/foo/example.txt\")\n    assert response.status_code == 404\n    assert response.text == \"Not Found\"",
+        "end_line": 413,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L402-L413",
+        "score": "0.698719",
+        "source_type": "python_test",
+        "start_line": 402
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_follows_symlink_directories(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    statics_path = os.path.join(tmpdir, \"statics\")\n    statics_html_path = os.path.join(statics_path, \"html\")\n    os.mkdir(statics_path)\n\n    source_path = tempfile.mkdtemp()\n    source_file_path = os.path.join(source_path, \"page.html\")\n    with open(source_file_path, \"w\") as file:\n        file.write(\"<h1>Hello</h1>\")\n\n    os.symlink(source_path, statics_html_path)\n\n    app = StaticFiles(directory=statics_path, follow_symlink=True)\n    client = test_client_factory(app)\n\n    response = client.get(\"/html/page.html\")\n    assert response.url == \"http://testserver/html/page.html\"\n    assert response.status_code == 200\n    assert response.text == \"<h1>Hello</h1>\"",
+        "end_line": 503,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L485-L503",
+        "score": "0.695521",
+        "source_type": "python_test",
+        "start_line": 485
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_instantiated_with_missing_directory(tmpdir: Path) -> None:\n    with pytest.raises(RuntimeError) as exc_info:\n        path = os.path.join(tmpdir, \"no_such_directory\")\n        StaticFiles(directory=path)\n    assert \"does not exist\" in str(exc_info.value)",
+        "end_line": 128,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L124-L128",
+        "score": "0.694614",
+        "source_type": "python_test",
+        "start_line": 124
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "## 0.13.6\n\n* Fix 404 errors with `StaticFiles`.\n",
+        "end_line": 587,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L584-L587",
+        "score": "0.692391",
+        "source_type": "markdown",
+        "start_line": 584
+      },
+      {
+        "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+        "content": "def test_staticfiles_access_file_as_dir_returns_404(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    routes = [Mount(\"/\", app=StaticFiles(directory=tmpdir), name=\"static\")]\n    app = Starlette(routes=routes)\n    client = test_client_factory(app)\n\n    response = client.get(\"/example.txt/foo\")\n    assert response.status_code == 404\n    assert response.text == \"Not Found\"",
+        "end_line": 427,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L416-L427",
+        "score": "0.689678",
+        "source_type": "python_test",
+        "start_line": 416
+      }
+    ]
+  },
+  "status": "failed"
+}

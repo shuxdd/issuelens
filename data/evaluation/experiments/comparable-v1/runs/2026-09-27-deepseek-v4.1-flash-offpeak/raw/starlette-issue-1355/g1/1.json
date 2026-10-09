@@ -1,0 +1,134 @@
+{
+  "case_id": "starlette-issue-1355",
+  "failure": {
+    "error_type": "HTTPError",
+    "message": "HTTP Error 401: Authorization Required"
+  },
+  "group": "g1",
+  "replicate": 1,
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000) -> None:\n        self.code = code",
+        "end_line": 17,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/websockets.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/websockets.py#L15-L17",
+        "score": "0.734925",
+        "source_type": "python_source",
+        "start_line": 15
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "class WebSocket(HTTPConnection):\n    def __init__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        super().__init__(scope)\n        assert scope[\"type\"] == \"websocket\"\n        self._receive = receive\n        self._send = send\n        self.client_state = WebSocketState.CONNECTING\n        self.application_state = WebSocketState.CONNECTING\n\n    async def receive(self) -> Message:\n        \"\"\"\n        Receive ASGI websocket messages, ensuring valid state transitions.\n        \"\"\"\n        if self.client_state == WebSocketState.CONNECTING:\n            message = await self._receive()\n            message_type = message[\"type\"]\n            assert message_type == \"websocket.connect\"\n            self.client_state = WebSocketState.CONNECTED\n            return message\n        elif self.client_state == WebSocketState.CONNECTED:\n            message = await self._receive()\n            message_type = message[\"type\"]\n            assert message_type in {\"websocket.receive\", \"websocket.disconnect\"}\n            if message_type == \"websocket.disconnect\":\n                self.client_state = WebSocketState.DISCONNECTED\n            return message\n        else:\n            raise RuntimeError(\n                'Cannot call \"receive\" once a disconnect message has been received.'\n            )\n\n    async def send(self, message: Message) -> None:\n        \"\"\"\n        Send ASGI websocket messages, ensuring valid state transitions.\n        \"\"\"\n        if self.application_state == WebSocketState.CONNECTING:\n            message_type = message[\"type\"]\n            assert message_type in {\"websocket.accept\", \"websocket.close\"}\n            if message_type == \"websocket.close\":\n                self.application_state = WebSocketState.DISCONNECTED\n            else:\n                self.application_state = WebSocketState.CONNECTED\n            await self._send(message)\n        elif self.application_state == WebSocketState.CONNECTED:\n            message_type = message[\"type\"]\n            assert message_type in {\"websocket.send\", \"websocket.close\"}\n            if message_type == \"websocket.close\":\n                self.application_state = WebSocketState.DISCONNECTED\n            await self._send(message)\n        else:\n            raise RuntimeError('Cannot call \"send\" once a close message has been sent.')\n\n    async def accept(self, subprotocol: str = None) -> None:\n        if self.client_state == WebSocketState.CONNECTING:\n            # If we haven't yet seen the 'connect' message, then wait for it first.\n            await self.receive()\n        await self.send({\"type\": \"websocket.accept\", \"subprotocol\": subprotocol})\n\n    def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])\n\n    async def receive_text(self) -> str:\n        assert self.application_state == WebSocketState.CONNECTED\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n        return message[\"text\"]\n\n    async def receive_bytes(self) -> bytes:\n        assert self.application_state == WebSocketState.CONNECTED\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n        return message[\"bytes\"]\n\n    async def receive_json(self, mode: str = \"text\") -> typing.Any:\n        assert mode in [\"text\", \"binary\"]\n        assert self.application_state == WebSocketState.CONNECTED\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n\n        if mode == \"text\":\n            text = message[\"text\"]\n        else:\n            text = message[\"bytes\"].decode(\"utf-8\")\n        return json.loads(text)\n\n    async def iter_text(self) -> typing.AsyncIterator[str]:\n        try:\n            while True:\n                yield await self.receive_text()\n        except WebSocketDisconnect:\n            pass\n\n    async def iter_bytes(self) -> typing.AsyncIterator[bytes]:\n        try:\n            while True:\n                yield await self.receive_bytes()\n        except WebSocketDisconnect:\n            pass\n\n    async def iter_json(self) -> typing.AsyncIterator[typing.Any]:\n        try:\n            while True:\n                yield await self.receive_json()\n        except WebSocketDisconnect:\n            pass\n\n    async def send_text(self, data: str) -> None:\n        await self.send({\"type\": \"websocket.send\", \"text\": data})\n\n    async def send_bytes(self, data: bytes) -> None:\n        await self.send({\"type\": \"websocket.send\", \"bytes\": data})\n\n    async def send_json(self, data: typing.Any, mode: str = \"text\") -> None:\n        assert mode in [\"text\", \"binary\"]\n        text = json.dumps(data)\n        if mode == \"text\":\n            await self.send({\"type\": \"websocket.send\", \"text\": text})\n        else:\n            await self.send({\"type\": \"websocket.send\", \"bytes\": text.encode(\"utf-8\")})",
+        "end_line": 139,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/websockets.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/websockets.py#L20-L139",
+        "score": "0.734891",
+        "source_type": "python_source",
+        "start_line": 20
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "class WebSocketEndpoint:\n\n    encoding: typing.Optional[str] = None  # May be \"text\", \"bytes\", or \"json\".\n\n    def __init__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        assert scope[\"type\"] == \"websocket\"\n        self.scope = scope\n        self.receive = receive\n        self.send = send\n\n    def __await__(self) -> typing.Generator:\n        return self.dispatch().__await__()\n\n    async def dispatch(self) -> None:\n        websocket = WebSocket(self.scope, receive=self.receive, send=self.send)\n        await self.on_connect(websocket)\n\n        close_code = status.WS_1000_NORMAL_CLOSURE\n\n        try:\n            while True:\n                message = await websocket.receive()\n                if message[\"type\"] == \"websocket.receive\":\n                    data = await self.decode(websocket, message)\n                    await self.on_receive(websocket, data)\n                elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(message.get(\"code\", status.WS_1000_NORMAL_CLOSURE))\n                    break\n        except Exception as exc:\n            close_code = status.WS_1011_INTERNAL_ERROR\n            raise exc\n        finally:\n            await self.on_disconnect(websocket, close_code)\n\n    async def decode(self, websocket: WebSocket, message: Message) -> typing.Any:\n\n        if self.encoding == \"text\":\n            if \"text\" not in message:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Expected text websocket messages, but got bytes\")\n            return message[\"text\"]\n\n        elif self.encoding == \"bytes\":\n            if \"bytes\" not in message:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Expected bytes websocket messages, but got text\")\n            return message[\"bytes\"]\n\n        elif self.encoding == \"json\":\n            if message.get(\"text\") is not None:\n                text = message[\"text\"]\n            else:\n                text = message[\"bytes\"].decode(\"utf-8\")\n\n            try:\n                return json.loads(text)\n            except json.decoder.JSONDecodeError:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Malformed JSON data received.\")\n\n        assert (\n            self.encoding is None\n        ), f\"Unsupported 'encoding' attribute {self.encoding}\"\n        return message[\"text\"] if message.get(\"text\") else message[\"bytes\"]\n\n    async def on_connect(self, websocket: WebSocket) -> None:\n        \"\"\"Override to handle an incoming websocket connection\"\"\"\n        await websocket.accept()\n\n    async def on_receive(self, websocket: WebSocket, data: typing.Any) -> None:\n        \"\"\"Override to handle an incoming websocket message\"\"\"\n\n    async def on_disconnect(self, websocket: WebSocket, close_code: int) -> None:\n        \"\"\"Override to handle a disconnecting websocket\"\"\"",
+        "end_line": 122,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/endpoints.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/endpoints.py#L49-L122",
+        "score": "0.724098",
+        "source_type": "python_source",
+        "start_line": 49
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "### Accepting the connection\n\n* `await websocket.accept(subprotocol=None)`\n",
+        "end_line": 55,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/docs/websockets.md#L52-L55",
+        "score": "0.723593",
+        "source_type": "markdown",
+        "start_line": 52
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "def test_websocket_concurrency_pattern(test_client_factory):\n    def app(scope):\n        stream_send, stream_receive = anyio.create_memory_object_stream()\n\n        async def reader(websocket):\n            async with stream_send:\n                async for data in websocket.iter_json():\n                    await stream_send.send(data)\n\n        async def writer(websocket):\n            async with stream_receive:\n                async for message in stream_receive:\n                    await websocket.send_json(message)\n\n        async def asgi(receive, send):\n            websocket = WebSocket(scope, receive=receive, send=send)\n            await websocket.accept()\n            async with anyio.create_task_group() as task_group:\n                task_group.start_soon(reader, websocket)\n                await writer(websocket)\n            await websocket.close()\n\n        return asgi\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.send_json({\"hello\": \"world\"})\n        data = websocket.receive_json()\n        assert data == {\"hello\": \"world\"}",
+        "end_line": 234,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_websockets.py#L206-L234",
+        "score": "0.722143",
+        "source_type": "python_test",
+        "start_line": 206
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "def test_duplicate_disconnect(test_client_factory):\n    def app(scope):\n        async def asgi(receive, send):\n            websocket = WebSocket(scope, receive=receive, send=send)\n            await websocket.accept()\n            message = await websocket.receive()\n            assert message[\"type\"] == \"websocket.disconnect\"\n            message = await websocket.receive()\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(RuntimeError):\n        with client.websocket_connect(\"/\") as websocket:\n            websocket.close()",
+        "end_line": 347,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_websockets.py#L333-L347",
+        "score": "0.718489",
+        "source_type": "python_test",
+        "start_line": 333
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "def test_websocket_send_and_receive_json(test_client_factory):\n    def app(scope):\n        async def asgi(receive, send):\n            websocket = WebSocket(scope, receive=receive, send=send)\n            await websocket.accept()\n            data = await websocket.receive_json()\n            await websocket.send_json({\"message\": data})\n            await websocket.close()\n\n        return asgi\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.send_json({\"hello\": \"world\"})\n        data = websocket.receive_json()\n        assert data == {\"message\": {\"hello\": \"world\"}}",
+        "end_line": 152,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_websockets.py#L137-L152",
+        "score": "0.717467",
+        "source_type": "python_test",
+        "start_line": 137
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "def test_websocket_query_params(test_client_factory):\n    def app(scope):\n        async def asgi(receive, send):\n            websocket = WebSocket(scope, receive=receive, send=send)\n            query_params = dict(websocket.query_params)\n            await websocket.accept()\n            await websocket.send_json({\"params\": query_params})\n            await websocket.close()\n\n        return asgi\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/?a=abc&b=456\") as websocket:\n        data = websocket.receive_json()\n        assert data == {\"params\": {\"a\": \"abc\", \"b\": \"456\"}}",
+        "end_line": 56,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_websockets.py#L42-L56",
+        "score": "0.717433",
+        "source_type": "python_test",
+        "start_line": 42
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "class WebSocketRoute(BaseRoute):\n    def __init__(\n        self, path: str, endpoint: typing.Callable, *, name: str = None\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n\n        if inspect.isfunction(endpoint) or inspect.ismethod(endpoint):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound()\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"websocket\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, WebSocketRoute)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n        )",
+        "end_line": 322,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L270-L322",
+        "score": "0.717427",
+        "source_type": "python_source",
+        "start_line": 270
+      },
+      {
+        "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+        "content": "mixed_protocol_app = Router(\n    routes=[\n        Route(\"/\", endpoint=http_endpoint),\n        WebSocketRoute(\"/\", endpoint=WebSocketEndpoint(), name=\"websocket_endpoint\"),\n    ]\n)",
+        "end_line": 283,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_routing.py#L278-L283",
+        "score": "0.716176",
+        "source_type": "python_test",
+        "start_line": 278
+      }
+    ]
+  },
+  "status": "failed"
+}

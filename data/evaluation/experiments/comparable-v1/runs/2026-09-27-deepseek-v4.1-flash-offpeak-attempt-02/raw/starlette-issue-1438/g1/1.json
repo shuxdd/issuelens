@@ -1,0 +1,159 @@
+{
+  "case_id": "starlette-issue-1438",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00043065",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2331,
+    "latency_ns": 1458304900,
+    "missed_input_tokens": 2331,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 135,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 276875288300,
+    "total_latency_ns": 278333593200,
+    "total_tokens": 2466
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [],
+    "issue_classification": "background_task_lifecycle",
+    "root_cause_hypotheses": [],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Does the issue concern the server-side background task lifecycle in Starlette's Response/BackgroundTasks implementation, or the test client/websocket close behavior?",
+      "No candidate shows the Response.__call__ or BackgroundTasks.__call__ implementation responsible for running tasks, so the root cause cannot be supported.",
+      "No candidate demonstrates that a client disconnection cancels Starlette background tasks; the behavior may originate in the ASGI server (e.g., Uvicorn) rather than in Starlette."
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`\n",
+        "end_line": 79,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/websockets.md#L76-L79",
+        "score": "0.752970",
+        "source_type": "markdown",
+        "start_line": 76
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_multi_tasks_failure_avoids_next_execution(\n    test_client_factory: Callable[..., TestClient]\n) -> None:\n    TASK_COUNTER = 0\n\n    def increment():\n        nonlocal TASK_COUNTER\n        TASK_COUNTER += 1\n        if TASK_COUNTER == 1:\n            raise Exception(\"task failed\")\n\n    async def app(scope, receive, send):\n        tasks = BackgroundTasks()\n        tasks.add_task(increment)\n        tasks.add_task(increment)\n        response = Response(\n            \"tasks initiated\", media_type=\"text/plain\", background=tasks\n        )\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    with pytest.raises(Exception):\n        client.get(\"/\")\n    assert TASK_COUNTER == 1",
+        "end_line": 94,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L71-L94",
+        "score": "0.720835",
+        "source_type": "python_test",
+        "start_line": 71
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "#### Closing the connection\n\n* `.close(code=1000)` - Perform a client-side close of the websocket connection.",
+        "end_line": 156,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/testclient.md#L154-L156",
+        "score": "0.714571",
+        "source_type": "markdown",
+        "start_line": 154
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_websocket_close_reason(test_client_factory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        await websocket.close(code=status.WS_1001_GOING_AWAY, reason=\"Going Away\")\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY\n        assert exc.value.reason == \"Going Away\"",
+        "end_line": 365,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L354-L365",
+        "score": "0.712109",
+        "source_type": "python_test",
+        "start_line": 354
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_sync_task(test_client_factory):\n    TASK_COMPLETE = False\n\n    def sync_task():\n        nonlocal TASK_COMPLETE\n        TASK_COMPLETE = True\n\n    task = BackgroundTask(sync_task)\n\n    async def app(scope, receive, send):\n        response = Response(\"task initiated\", media_type=\"text/plain\", background=task)\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"task initiated\"\n    assert TASK_COMPLETE",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L29-L45",
+        "score": "0.711393",
+        "source_type": "python_test",
+        "start_line": 29
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_websocket_endpoint_on_disconnect(test_client_factory):\n    class WebSocketApp(WebSocketEndpoint):\n        async def on_disconnect(self, websocket, close_code):\n            assert close_code == 1001\n            await websocket.close(code=close_code)\n\n    client = test_client_factory(WebSocketApp)\n    with client.websocket_connect(\"/ws\") as websocket:\n        websocket.close(code=1001)",
+        "end_line": 147,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_endpoints.py#L139-L147",
+        "score": "0.709155",
+        "source_type": "python_test",
+        "start_line": 139
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_background_task(test_client_factory):\n    accessed_error_handler = False\n\n    def error_handler(request, exc):\n        nonlocal accessed_error_handler\n        accessed_error_handler = True\n\n    def raise_exception():\n        raise Exception(\"Something went wrong\")\n\n    async def endpoint(request):\n        task = BackgroundTask(raise_exception)\n        return Response(status_code=204, background=task)\n\n    app = Starlette(\n        routes=[Route(\"/\", endpoint=endpoint)],\n        exception_handlers={Exception: error_handler},\n    )\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 204\n    assert accessed_error_handler",
+        "end_line": 98,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/middleware/test_errors.py#L76-L98",
+        "score": "0.705542",
+        "source_type": "python_test",
+        "start_line": 76
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_async_task(test_client_factory):\n    TASK_COMPLETE = False\n\n    async def async_task():\n        nonlocal TASK_COMPLETE\n        TASK_COMPLETE = True\n\n    task = BackgroundTask(async_task)\n\n    async def app(scope, receive, send):\n        response = Response(\"task initiated\", media_type=\"text/plain\", background=task)\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"task initiated\"\n    assert TASK_COMPLETE",
+        "end_line": 26,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L10-L26",
+        "score": "0.702517",
+        "source_type": "python_test",
+        "start_line": 10
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "### Background tasks\n\n* Add background task support to `FileResponse` and `StreamingResponse`.\n",
+        "end_line": 522,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/release-notes.md#L519-L522",
+        "score": "0.700079",
+        "source_type": "markdown",
+        "start_line": 519
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_application_close(test_client_factory):\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        await websocket.close(status.WS_1001_GOING_AWAY)\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY",
+        "end_line": 236,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L226-L236",
+        "score": "0.699767",
+        "source_type": "python_test",
+        "start_line": 226
+      }
+    ]
+  },
+  "status": "completed"
+}

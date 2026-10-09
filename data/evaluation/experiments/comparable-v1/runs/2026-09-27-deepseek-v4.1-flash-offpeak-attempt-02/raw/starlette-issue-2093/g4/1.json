@@ -1,0 +1,644 @@
+{
+  "case_id": "starlette-issue-2093",
+  "events": [
+    {
+      "case_id": "starlette-issue-2093",
+      "duration_ns": 3029915100,
+      "event_id": "e6b216c82720b6c0",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2093",
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 1,
+      "snapshot_commit": "2168e47052239da5df35d5353bb986f760c51cef",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "duration_ns": 3029915100,
+      "event_id": "6ffe3b654a094cbc",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "query": "`HTTPMiddleware` breaks `BackgroundTasks` in the same connection",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "arguments": {
+        "query_sha256": "8a3d365a9d77ff11e9f371a8706c33fd890fb9e3e9d1ea46302bff6866838f53"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3029915100,
+      "event_id": "7de82ca98245b3c2",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "kind": "tool",
+      "parent_id": "11db76d66622d888",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L130-L146",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L161-L164",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L483-L490",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_exceptions.py#L201-L204"
+      ],
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "arguments": {
+        "query_sha256": "8a3d365a9d77ff11e9f371a8706c33fd890fb9e3e9d1ea46302bff6866838f53"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3029915100,
+      "event_id": "afd25a3ca540afd0",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "kind": "tool",
+      "parent_id": "11db76d66622d888",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L130-L146",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L161-L164",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L483-L490",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_exceptions.py#L201-L204"
+      ],
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "duration_ns": 3029915100,
+      "event_id": "11db76d66622d888",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "to_stage": "retrieved",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L130-L146",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L161-L164",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L483-L490",
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_exceptions.py#L201-L204"
+      ],
+      "duration_ns": 3029915100,
+      "event_id": "ba11e375f1f4a97d",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "cached_input_tokens": 2048,
+      "cost": "0.000430944",
+      "currency": "USD",
+      "duration_ns": 2987408300,
+      "event_id": "04d104d06b827dca",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "input_tokens": 2640,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 560,
+      "parent_id": "ef06a42a165bcaf7",
+      "prompt_version": "agent-v1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "status": "ok",
+      "total_tokens": 3200,
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "duration_ns": 3029915100,
+      "event_id": "ef06a42a165bcaf7",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "BaseHTTPMiddleware may not correctly handle the response lifecycle when BackgroundTasks are attached, possibly not awaiting the tasks or cancelling them upon request completion."
+      ],
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "duration_ns": 3029915100,
+      "event_id": "18c8136d76efd939",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L137-L137"
+      ],
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "supported_hypotheses": 1,
+      "to_stage": "verified",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    },
+    {
+      "duration_ns": 3029915100,
+      "event_id": "53eb37d195758975",
+      "finished_at": "2026-09-27T17:12:13.357064Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1",
+      "run_id": "0ad06fb731ae454384f48711922bf7b3",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:12:10.327149Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3030001900
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000430944",
+    "input_tokens": 2640,
+    "latency_ns": 2987408300,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 560,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 318601628500,
+    "run_latency_ns": 3029915100,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 321631543600,
+    "total_tokens": 3200
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "end_line": 78,
+        "path": "docs/background.md",
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L76-L78",
+        "start_line": 76
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "end_line": 137,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L137-L137",
+        "start_line": 137
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "end_line": 211,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L211-L211",
+        "start_line": 211
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "end_line": 389,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L389-L389",
+        "start_line": 389
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "end_line": 43,
+        "path": "starlette/background.py",
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L41-L43",
+        "start_line": 41
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What is the exact version of Starlette in which the bug occurs?",
+      "Is the issue related to client disconnection or server completion?",
+      "What specific interactions between BaseHTTPMiddleware and BackgroundTasks cause the bug?",
+      "Are there any open or merged pull requests that address this exact issue?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 137,
+            "excerpt": "* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L137-L137",
+            "start_line": 137
+          }
+        ],
+        "text": "A fix exists for BackgroundTasks being cancelled when using BaseHTTPMiddleware and the client disconnects."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 211,
+            "excerpt": "* Prevent `BaseHTTPMiddleware` from hiding errors of `StreamingResponse` and mounted applications [#1459](https://github.com/encode/starlette/pull/1459).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L211-L211",
+            "start_line": 211
+          },
+          {
+            "candidate_rank": 6,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 389,
+            "excerpt": "* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L389-L389",
+            "start_line": 389
+          }
+        ],
+        "text": "BaseHTTPMiddleware has a history of issues with responses, including hiding errors of StreamingResponse and mounted applications, and high memory usage with streaming responses."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 78,
+            "excerpt": "!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+            "path": "docs/background.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L76-L78",
+            "start_line": 76
+          }
+        ],
+        "text": "BackgroundTasks executes tasks in order and stops if one raises an exception."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 43,
+            "excerpt": "    async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+            "path": "starlette/background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L41-L43",
+            "start_line": 41
+          }
+        ],
+        "text": "BackgroundTasks.__call__ iterates and awaits each task sequentially."
+      }
+    ],
+    "issue_classification": "bug",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 137,
+            "excerpt": "* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L137-L137",
+            "start_line": 137
+          }
+        ],
+        "text": "BaseHTTPMiddleware may not correctly handle the response lifecycle when BackgroundTasks are attached, possibly not awaiting the tasks or cancelling them upon request completion.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the exact version of Starlette in which the bug occurs?",
+      "Is the issue related to client disconnection or server completion?",
+      "What specific interactions between BaseHTTPMiddleware and BackgroundTasks cause the bug?",
+      "Are there any open or merged pull requests that address this exact issue?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).\n",
+        "end_line": 138,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "reranker_score": "4.972468",
+        "rrf_score": "0.01639344",
+        "score": "4.972468",
+        "source_type": "markdown",
+        "start_line": 136,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.845224"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.9.9\n\n* Add `TemplateResponse`.\n* Add `CommaSeparatedStrings` datatype.\n* Add `BackgroundTasks` for multiple tasks.\n* Common subclass for `Request` and `WebSocket`, to eg. share `session` functionality.\n* Expose remote address with `request.client`.\n",
+        "end_line": 506,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "reranker_score": "0.326624",
+        "rrf_score": "0.01587302",
+        "score": "0.326624",
+        "source_type": "markdown",
+        "start_line": 499,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.729108"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Prevent `BaseHTTPMiddleware` from hiding errors of `StreamingResponse` and mounted applications [#1459](https://github.com/encode/starlette/pull/1459).\n* `SessionMiddleware` uses an explicit `path=...`, instead of defaulting to the ASGI 'root_path' [#1512](https://github.com/encode/starlette/pull/1512).\n* `Request.client` is now compliant with the ASGI specifications [#1462](https://github.com/encode/starlette/pull/1462).\n* Raise `KeyError` at early stage for missing boundary [#1349](https://github.com/encode/starlette/pull/1349).\n",
+        "end_line": 215,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "reranker_score": "-0.195772",
+        "rrf_score": "0.01562500",
+        "score": "-0.195772",
+        "source_type": "markdown",
+        "start_line": 210,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.728669"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "11.390202",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### BackgroundTasks\n\nUsed to add multiple background tasks to a response.\n\nSignature: `BackgroundTasks(tasks=[])`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.background import BackgroundTasks\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    tasks = BackgroundTasks()\n    tasks.add_task(send_welcome_email, to_address=email)\n    tasks.add_task(send_admin_notification, username=username)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=tasks)\n\nasync def send_welcome_email(to_address):\n    ...\n\nasync def send_admin_notification(username):\n    ...\n\nroutes = [\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n\n!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+        "end_line": 78,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/background.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "reranker_score": "-0.550376",
+        "rrf_score": "0.03151365",
+        "score": "-0.550376",
+        "source_type": "markdown",
+        "start_line": 42,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.725899"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "12.536894",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "#### Establishing a test session\n\n* `.websocket_connect(url, subprotocols=None, **options)` - Takes the same set of arguments as `httpx.get()`.\n\nMay raise `starlette.websockets.WebSocketDisconnect` if the application does not accept the websocket connection.\n\n`websocket_connect()` must be used as a context manager (in a `with` block).\n\n!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.\n\n    ```python\n    with client.websocket_connect('/path?foo=bar') as websocket:\n        ...\n    ```\n",
+        "end_line": 146,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L130-L146",
+        "reranker_score": "-1.085164",
+        "rrf_score": "0.01639344",
+        "score": "-1.085164",
+        "source_type": "markdown",
+        "start_line": 130,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 390,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "reranker_score": "-5.008190",
+        "rrf_score": "0.01612903",
+        "score": "-5.008190",
+        "source_type": "markdown",
+        "start_line": 387,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.745786"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "class BackgroundTasks(BackgroundTask):\n    def __init__(self, tasks: typing.Optional[typing.Sequence[BackgroundTask]] = None):\n        self.tasks = list(tasks) if tasks else []\n\n    def add_task(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        task = BackgroundTask(func, *args, **kwargs)\n        self.tasks.append(task)\n\n    async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+        "end_line": 43,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "reranker_score": "-6.357079",
+        "rrf_score": "0.01515152",
+        "score": "-6.357079",
+        "source_type": "python_source",
+        "start_line": 31,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.713797"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "9.784779",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "#### Closing the connection\n\n* `.close(code=1000)` - Perform a client-side close of the websocket connection.\n",
+        "end_line": 164,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L161-L164",
+        "reranker_score": "-6.834688",
+        "rrf_score": "0.01587302",
+        "score": "-6.834688",
+        "source_type": "markdown",
+        "start_line": 161,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "9.107858",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.9.11\n\n* Session cookies now include browser 'expires', in addition to the existing signed expiry.\n* `request.form()` now returns a multi-dict interface.\n* The query parameter multi-dict implementation now mirrors `dict` more correctly for the\nbehavior of `.keys()`, `.values()`, and `.items()` when multiple same-key items occur.\n* Use `urlsplit` throughout in favor of `urlparse`.\n",
+        "end_line": 490,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L483-L490",
+        "reranker_score": "-8.706276",
+        "rrf_score": "0.01538462",
+        "score": "-8.706276",
+        "source_type": "markdown",
+        "start_line": 483,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "9.111443",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "def test_request_in_app_and_handler_is_the_same_object(client) -> None:\n    response = client.post(\"/consume_body_in_endpoint_and_handler\", content=b\"Hello!\")\n    assert response.status_code == 422\n    assert response.json() == {\"body\": \"Hello!\"}",
+        "end_line": 204,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_exceptions.py#L201-L204",
+        "reranker_score": "-11.269609",
+        "rrf_score": "0.01562500",
+        "score": "-11.269609",
+        "source_type": "python_test",
+        "start_line": 201,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "0ad06fb731ae454384f48711922bf7b3",
+  "status": "completed",
+  "trace_id": "cea9bf0c2574e4bf21e538b1b5f7f5a1"
+}

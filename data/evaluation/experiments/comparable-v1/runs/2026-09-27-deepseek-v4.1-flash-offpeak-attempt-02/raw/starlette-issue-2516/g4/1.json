@@ -1,0 +1,647 @@
+{
+  "case_id": "starlette-issue-2516",
+  "events": [
+    {
+      "case_id": "starlette-issue-2516",
+      "duration_ns": 2728070300,
+      "event_id": "82b997ac0cd2fc65",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2516",
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 1,
+      "snapshot_commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "duration_ns": 2728070300,
+      "event_id": "12bb2ecffdcc6585",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "query": "`RuntimeError(\"No response returned\")` in `BaseHTTPMiddleware`",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a0b5e4a51c1259575730f093dbf537e7f7cbc26eeda8e5710dc2985f3e2a78b2"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2728070300,
+      "event_id": "549a1ac1f3cee868",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "kind": "tool",
+      "parent_id": "bf7ba73fdc80ab60",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L213-L222",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L723-L749",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L96-L198",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L691-L720",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L579-L582",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L607-L633",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L665-L688",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L841-L868",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L636-L662",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/test_applications.py#L47-L49"
+      ],
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a0b5e4a51c1259575730f093dbf537e7f7cbc26eeda8e5710dc2985f3e2a78b2"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2728070300,
+      "event_id": "6079f6b7cb0098a6",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "kind": "tool",
+      "parent_id": "bf7ba73fdc80ab60",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L213-L222",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L723-L749",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L96-L198",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L691-L720",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L579-L582",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L607-L633",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L665-L688",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L841-L868",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L636-L662",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/test_applications.py#L47-L49"
+      ],
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "duration_ns": 2728070300,
+      "event_id": "bf7ba73fdc80ab60",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "to_stage": "retrieved",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L213-L222",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L723-L749",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L96-L198",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L691-L720",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L579-L582",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L607-L633",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L665-L688",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L841-L868",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L636-L662",
+        "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/test_applications.py#L47-L49"
+      ],
+      "duration_ns": 2728070300,
+      "event_id": "22dfd874c4ece120",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "cached_input_tokens": 4096,
+      "cost": "0.000541488",
+      "currency": "USD",
+      "duration_ns": 2684202400,
+      "event_id": "a0948523350b3771",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "input_tokens": 4668,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 739,
+      "parent_id": "052494ecbd2716e3",
+      "prompt_version": "agent-v1",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "status": "ok",
+      "total_tokens": 5407,
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "duration_ns": 2728070300,
+      "event_id": "052494ecbd2716e3",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The downstream app may complete without sending any response message, causing `recv_stream.receive()` to raise `anyio.EndOfStream` with `app_exc` None.",
+        "The downstream app may be cancelled or killed (e.g., due to client disconnect), leading to `recv_stream` ending unexpectedly.",
+        "There may be a race condition between the app's response sending and `recv_stream` closure."
+      ],
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "duration_ns": 2728070300,
+      "event_id": "66f3716a04878750",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "references": [],
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    },
+    {
+      "duration_ns": 2728070300,
+      "event_id": "8ce59e90103c399f",
+      "finished_at": "2026-09-27T17:47:35.742749Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "1beb10628caa06f3210cd7c52fd27613",
+      "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:47:33.014679Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 3
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2728229500
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000541488",
+    "input_tokens": 4668,
+    "latency_ns": 2684202400,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 739,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 351665487300,
+    "run_latency_ns": 2728070300,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 354393557600,
+    "total_tokens": 5407
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "end_line": 581,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L581-L581",
+        "start_line": 581
+      },
+      {
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "end_line": 153,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L152-L153",
+        "start_line": 152
+      },
+      {
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "end_line": 166,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L163-L166",
+        "start_line": 163
+      },
+      {
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "end_line": 191,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L191-L191",
+        "start_line": 191
+      },
+      {
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "end_line": 739,
+        "path": "tests/middleware/test_base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L736-L739",
+        "start_line": 736
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "What conditions cause the downstream app to send no messages and not raise an exception?",
+      "Is there a specific version or configuration of Starlette where this issue is more likely?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+            "end_line": 166,
+            "excerpt": "except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L163-L166",
+            "start_line": 163
+          }
+        ],
+        "text": "The exception is raised at line 166 in the `call_next` method when `recv_stream.receive()` raises `anyio.EndOfStream` and `app_exc` is None."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+            "end_line": 153,
+            "excerpt": "except Exception as exc:\n                        app_exc = exc",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L152-L153",
+            "start_line": 152
+          }
+        ],
+        "text": "`app_exc` is set to the exception raised by the downstream app."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+            "end_line": 191,
+            "excerpt": "response = await self.dispatch_func(request, call_next)",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L191-L191",
+            "start_line": 191
+          }
+        ],
+        "text": "`call_next` is awaited within dispatch to obtain a response."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+            "end_line": 739,
+            "excerpt": "resp = await call_next(request)\n            with pytest.raises(RuntimeError, match=\"Stream consumed\"):\n                async for _ in request.stream():\n                    raise AssertionError(\"should not be called\")  # pragma: no cover",
+            "path": "tests/middleware/test_base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L736-L739",
+            "start_line": 736
+          }
+        ],
+        "text": "A test verifies that reading the request stream after calling `call_next` raises 'Stream consumed'."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+            "end_line": 581,
+            "excerpt": "* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L581-L581",
+            "start_line": 581
+          }
+        ],
+        "text": "A release note mentions a fix for high memory usage with `BaseHTTPMiddleware` and streaming responses."
+      }
+    ],
+    "issue_classification": "runtime_error",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [],
+        "text": "The downstream app may complete without sending any response message, causing `recv_stream.receive()` to raise `anyio.EndOfStream` with `app_exc` None.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The downstream app may be cancelled or killed (e.g., due to client disconnect), leading to `recv_stream` ending unexpectedly.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "There may be a race condition between the app's response sending and `recv_stream` closure.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What conditions cause the downstream app to send no messages and not raise an exception?",
+      "Is there a specific version or configuration of Starlette where this issue is more likely?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "8.286401",
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "class CustomMiddlewareUsingBaseHTTPMiddleware(BaseHTTPMiddleware):\n    async def dispatch(\n        self,\n        request: Request,\n        call_next: RequestResponseEndpoint,\n    ) -> Response:\n        ctxvar.set(\"set by middleware\")\n        resp = await call_next(request)\n        assert ctxvar.get() == \"set by endpoint\"\n        return resp  # pragma: no cover",
+        "end_line": 222,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L213-L222",
+        "reranker_score": "2.487393",
+        "rrf_score": "0.01562500",
+        "score": "2.487393",
+        "source_type": "python_test",
+        "start_line": 213,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "10.693113",
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_stream_in_dispatch_after_app_calls_body(\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        assert await request.body() == b\"a\"\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            resp = await call_next(request)\n            with pytest.raises(RuntimeError, match=\"Stream consumed\"):\n                async for _ in request.stream():\n                    raise AssertionError(\"should not be called\")  # pragma: no cover\n            return resp\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 749,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L723-L749",
+        "reranker_score": "2.299026",
+        "rrf_score": "0.03088620",
+        "score": "2.299026",
+        "source_type": "python_test",
+        "start_line": 723,
+        "vector_contribution": "0.01449275",
+        "vector_rank": 9,
+        "vector_score": "0.752398"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "8.311562",
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "class BaseHTTPMiddleware:\n    def __init__(self, app: ASGIApp, dispatch: DispatchFunction | None = None) -> None:\n        self.app = app\n        self.dispatch_func = self.dispatch if dispatch is None else dispatch\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        request = _CachedRequest(scope, receive)\n        wrapped_receive = request.wrapped_receive\n        response_sent = anyio.Event()\n\n        async def call_next(request: Request) -> Response:\n            app_exc: Exception | None = None\n            send_stream: ObjectSendStream[typing.MutableMapping[str, typing.Any]]\n            recv_stream: ObjectReceiveStream[typing.MutableMapping[str, typing.Any]]\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def receive_or_disconnect() -> Message:\n                if response_sent.is_set():\n                    return {\"type\": \"http.disconnect\"}\n\n                async with anyio.create_task_group() as task_group:\n\n                    async def wrap(func: typing.Callable[[], typing.Awaitable[T]]) -> T:\n                        result = await func()\n                        task_group.cancel_scope.cancel()\n                        return result\n\n                    task_group.start_soon(wrap, response_sent.wait)\n                    message = await wrap(wrapped_receive)\n\n                if response_sent.is_set():\n                    return {\"type\": \"http.disconnect\"}\n\n                return message\n\n            async def close_recv_stream_on_response_sent() -> None:\n                await response_sent.wait()\n                recv_stream.close()\n\n            async def send_no_error(message: Message) -> None:\n                try:\n                    await send_stream.send(message)\n                except anyio.BrokenResourceError:\n                    # recv_stream has been closed, i.e. response_sent has been set.\n                    return\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, receive_or_disconnect, send_no_error)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(close_recv_stream_on_response_sent)\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n                info = message.get(\"info\", None)\n                if message[\"type\"] == \"http.response.debug\" and info is not None:\n                    message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break\n\n                if app_exc is not None:\n                    raise app_exc\n\n            response = _StreamingResponse(\n                status_code=message[\"status\"], content=body_stream(), info=info\n            )\n            response.raw_headers = message[\"headers\"]\n            return response\n\n        with collapse_excgroups():\n            async with anyio.create_task_group() as task_group:\n                response = await self.dispatch_func(request, call_next)\n                await response(scope, wrapped_receive, send)\n                response_sent.set()\n\n    async def dispatch(\n        self, request: Request, call_next: RequestResponseEndpoint\n    ) -> Response:\n        raise NotImplementedError()  # pragma: no cover",
+        "end_line": 198,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/base.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/starlette/middleware/base.py#L96-L198",
+        "reranker_score": "1.512712",
+        "rrf_score": "0.03125763",
+        "score": "1.512712",
+        "source_type": "python_source",
+        "start_line": 96,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.756882"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "10.551254",
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_stream_in_dispatch_after_app_calls_stream(\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        expected = [b\"a\", b\"\"]\n        async for chunk in request.stream():\n            assert chunk == expected.pop(0)\n        assert expected == []\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            resp = await call_next(request)\n            with pytest.raises(RuntimeError, match=\"Stream consumed\"):\n                async for _ in request.stream():\n                    raise AssertionError(\"should not be called\")  # pragma: no cover\n            return resp\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 720,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L691-L720",
+        "reranker_score": "0.613238",
+        "rrf_score": "0.01612903",
+        "score": "0.613238",
+        "source_type": "python_test",
+        "start_line": 691,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 582,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/docs/release-notes.md#L579-L582",
+        "reranker_score": "0.051309",
+        "rrf_score": "0.01639344",
+        "score": "0.051309",
+        "source_type": "markdown",
+        "start_line": 579,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.775223"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_stream_in_app_after_middleware_calls_body(\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        expected = [b\"a\", b\"\"]\n        async for chunk in request.stream():\n            assert chunk == expected.pop(0)\n        assert expected == []\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            assert await request.body() == b\"a\"\n            return await call_next(request)\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 633,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L607-L633",
+        "reranker_score": "-0.584692",
+        "rrf_score": "0.01562500",
+        "score": "-0.584692",
+        "source_type": "python_test",
+        "start_line": 607,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.756934"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_body_in_app_after_middleware_calls_body(\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        assert await request.body() == b\"a\"\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            assert await request.body() == b\"a\"\n            return await call_next(request)\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 688,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L665-L688",
+        "reranker_score": "-0.631205",
+        "rrf_score": "0.01612903",
+        "score": "-0.631205",
+        "source_type": "python_test",
+        "start_line": 665,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.762939"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "7.913327",
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_body_in_dispatch_after_app_calls_body_with_middleware_calling_body_before_call_next(  # noqa: E501\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        assert await request.body() == b\"a\"\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            assert (\n                await request.body() == b\"a\"\n            )  # this buffers the request body in memory\n            resp = await call_next(request)\n            assert await request.body() == b\"a\"  # no problem here\n            return resp\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 868,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L841-L868",
+        "reranker_score": "-0.704438",
+        "rrf_score": "0.01538462",
+        "score": "-0.704438",
+        "source_type": "python_test",
+        "start_line": 841,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "def test_read_request_body_in_app_after_middleware_calls_stream(\n    test_client_factory: TestClientFactory,\n) -> None:\n    async def homepage(request: Request) -> PlainTextResponse:\n        assert await request.body() == b\"\"\n        return PlainTextResponse(\"Homepage\")\n\n    class ConsumingMiddleware(BaseHTTPMiddleware):\n        async def dispatch(\n            self,\n            request: Request,\n            call_next: RequestResponseEndpoint,\n        ) -> Response:\n            expected = [b\"a\", b\"\"]\n            async for chunk in request.stream():\n                assert chunk == expected.pop(0)\n            assert expected == []\n            return await call_next(request)\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage, methods=[\"POST\"])],\n        middleware=[Middleware(ConsumingMiddleware)],\n    )\n\n    client: TestClient = test_client_factory(app)\n    response = client.post(\"/\", content=b\"a\")\n    assert response.status_code == 200",
+        "end_line": 662,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/middleware/test_base.py#L636-L662",
+        "reranker_score": "-0.809500",
+        "rrf_score": "0.01515152",
+        "score": "-0.809500",
+        "source_type": "python_test",
+        "start_line": 636,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.754531"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "5a1bec33f8d6a669a3670f51034de83292d19408",
+        "content": "class Homepage(HTTPEndpoint):\n    def get(self, request: Request) -> PlainTextResponse:\n        return PlainTextResponse(\"Hello, world!\")",
+        "end_line": 49,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/5a1bec33f8d6a669a3670f51034de83292d19408/tests/test_applications.py#L47-L49",
+        "reranker_score": "-7.092518",
+        "rrf_score": "0.01587302",
+        "score": "-7.092518",
+        "source_type": "python_test",
+        "start_line": 47,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.762354"
+      }
+    ]
+  },
+  "run_id": "e4c23f8f5dd84b8990fe540964a3a55c",
+  "status": "completed",
+  "trace_id": "1beb10628caa06f3210cd7c52fd27613"
+}

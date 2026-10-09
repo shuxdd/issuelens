@@ -1,0 +1,134 @@
+{
+  "case_id": "starlette-issue-2134",
+  "failure": {
+    "error_type": "ValueError",
+    "message": "facts[0].evidence[0].excerpt does not match cited lines"
+  },
+  "group": "g1",
+  "replicate": 1,
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "## 0.10.5\n\n* Ensure `templating` does not strictly require `jinja2` to be installed.\n",
+        "end_line": 440,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L437-L440",
+        "score": "0.721868",
+        "source_type": "markdown",
+        "start_line": 437
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_template_response_requires_request(tmpdir):\n    templates = Jinja2Templates(str(tmpdir))\n    with pytest.raises(ValueError):\n        templates.TemplateResponse(\"\", {})",
+        "end_line": 36,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_templates.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_templates.py#L33-L36",
+        "score": "0.719561",
+        "source_type": "python_test",
+        "start_line": 33
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_configured_with_missing_directory(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"no_such_directory\")\n    app = StaticFiles(directory=path, check_dir=False)\n    client = test_client_factory(app)\n    with pytest.raises(RuntimeError) as exc_info:\n        client.get(\"/example.txt\")\n    assert \"does not exist\" in str(exc_info.value)",
+        "end_line": 134,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L128-L134",
+        "score": "0.704082",
+        "source_type": "python_test",
+        "start_line": 128
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_instantiated_with_missing_directory(tmpdir):\n    with pytest.raises(RuntimeError) as exc_info:\n        path = os.path.join(tmpdir, \"no_such_directory\")\n        StaticFiles(directory=path)\n    assert \"does not exist\" in str(exc_info.value)",
+        "end_line": 125,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L121-L125",
+        "score": "0.701941",
+        "source_type": "python_test",
+        "start_line": 121
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_configured_with_file_instead_of_directory(\n    tmpdir, test_client_factory\n):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=path, check_dir=False)\n    client = test_client_factory(app)\n    with pytest.raises(RuntimeError) as exc_info:\n        client.get(\"/example.txt\")\n    assert \"is not a directory\" in str(exc_info.value)",
+        "end_line": 148,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L137-L148",
+        "score": "0.701457",
+        "source_type": "python_test",
+        "start_line": 137
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_html_without_index(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"404.html\")\n    with open(path, \"w\") as file:\n        file.write(\"<h1>Custom not found page</h1>\")\n    path = os.path.join(tmpdir, \"dir\")\n    os.mkdir(path)\n\n    app = StaticFiles(directory=tmpdir, html=True)\n    client = test_client_factory(app)\n\n    response = client.get(\"/dir/\")\n    assert response.url == \"http://testserver/dir/\"\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"\n\n    response = client.get(\"/dir\")\n    assert response.url == \"http://testserver/dir\"\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"\n\n    response = client.get(\"/missing\")\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"",
+        "end_line": 295,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L273-L295",
+        "score": "0.696878",
+        "source_type": "python_test",
+        "start_line": 273
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "### StaticFiles\n\n* Check directory exists on instantiation.\n",
+        "end_line": 606,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L603-L606",
+        "score": "0.695423",
+        "source_type": "markdown",
+        "start_line": 603
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "class Jinja2Templates:\n    \"\"\"\n    templates = Jinja2Templates(\"templates\")\n\n    return templates.TemplateResponse(\"index.html\", {\"request\": request})\n    \"\"\"\n\n    def __init__(\n        self,\n        directory: typing.Union[str, PathLike],\n        context_processors: typing.Optional[\n            typing.List[typing.Callable[[Request], typing.Dict[str, typing.Any]]]\n        ] = None,\n        **env_options: typing.Any,\n    ) -> None:\n        assert jinja2 is not None, \"jinja2 must be installed to use Jinja2Templates\"\n        self.env = self._create_env(directory, **env_options)\n        self.context_processors = context_processors or []\n\n    def _create_env(\n        self, directory: typing.Union[str, PathLike], **env_options: typing.Any\n    ) -> \"jinja2.Environment\":\n        @pass_context\n        def url_for(context: dict, name: str, **path_params: typing.Any) -> URL:\n            request = context[\"request\"]\n            return request.url_for(name, **path_params)\n\n        loader = jinja2.FileSystemLoader(directory)\n        env_options.setdefault(\"loader\", loader)\n        env_options.setdefault(\"autoescape\", True)\n\n        env = jinja2.Environment(**env_options)\n        env.globals[\"url_for\"] = url_for\n        return env\n\n    def get_template(self, name: str) -> \"jinja2.Template\":\n        return self.env.get_template(name)\n\n    def TemplateResponse(\n        self,\n        name: str,\n        context: dict,\n        status_code: int = 200,\n        headers: typing.Optional[typing.Mapping[str, str]] = None,\n        media_type: typing.Optional[str] = None,\n        background: typing.Optional[BackgroundTask] = None,\n    ) -> _TemplateResponse:\n        if \"request\" not in context:\n            raise ValueError('context must include a \"request\" key')\n\n        request = typing.cast(Request, context[\"request\"])\n        for context_processor in self.context_processors:\n            context.update(context_processor(request))\n\n        template = self.get_template(name)\n        return _TemplateResponse(\n            template,\n            context,\n            status_code=status_code,\n            headers=headers,\n            media_type=media_type,\n            background=background,\n        )",
+        "end_line": 120,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/templating.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L58-L120",
+        "score": "0.693619",
+        "source_type": "python_source",
+        "start_line": 58
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_multipart_request_without_charset_for_filename(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            # file\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"\n            b'Content-Disposition: form-data; name=\"file\"; filename=\"\\xe7\\x94\\xbb\\xe5\\x83\\x8f.jpg\"\\r\\n'  # noqa: E501\n            b\"Content-Type: image/jpeg\\r\\n\\r\\n\"\n            b\"<file content>\\r\\n\"\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c--\\r\\n\"\n        ),\n        headers={\n            \"Content-Type\": (\n                \"multipart/form-data; boundary=a7f7ac8d4e2e437c877bb7b8d7cc549c\"\n            )\n        },\n    )\n    assert response.json() == {\n        \"file\": {\n            \"filename\": \"\u753b\u50cf.jpg\",\n            \"size\": 14,\n            \"content\": \"<file content>\",\n            \"content_type\": \"image/jpeg\",\n        }\n    }",
+        "end_line": 360,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_formparsers.py#L335-L360",
+        "score": "0.689253",
+        "source_type": "python_test",
+        "start_line": 335
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "## 0.10.4\n\n* Templates are now configured independently from the application instance. `templates = Jinja2Templates(directory=...)`. Existing API remains in place, but is no longer documented,\nand will be deprecated in due course. See the template documentation for more details.\n",
+        "end_line": 445,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L441-L445",
+        "score": "0.689244",
+        "source_type": "markdown",
+        "start_line": 441
+      }
+    ]
+  },
+  "status": "failed"
+}

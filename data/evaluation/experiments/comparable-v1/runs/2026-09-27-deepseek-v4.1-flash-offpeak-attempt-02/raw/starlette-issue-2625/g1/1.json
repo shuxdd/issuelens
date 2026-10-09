@@ -1,0 +1,289 @@
+{
+  "case_id": "starlette-issue-2625",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00148935",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 5205,
+    "latency_ns": 4566392200,
+    "missed_input_tokens": 5205,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 1181,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 367806389600,
+    "total_latency_ns": 372372781800,
+    "total_tokens": 6386
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 62,
+            "excerpt": "await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)",
+            "path": "starlette/middleware/exceptions.py",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/middleware/exceptions.py#L62-L62",
+            "start_line": 62
+          }
+        ],
+        "text": "Starlette's ExceptionMiddleware wraps the application with exception handling logic that may suppress or transform exceptions depending on handler config."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 9,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 35,
+            "excerpt": "* `ServerErrorMiddleware` - Ensures that application exceptions may return a custom 500 page, or display an application traceback in DEBUG mode. This is *always* the outermost middleware layer.\n* `ExceptionMiddleware` - Adds exception handlers, so that particular types of expected exception cases can be associated with handler functions. For example raising `HTTPException(status_code=404)` within an endpoint will end up rendering a custom 404 page.",
+            "path": "docs/middleware.md",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L34-L35",
+            "start_line": 34
+          }
+        ],
+        "text": "Starlette applications include ServerErrorMiddleware as the outermost middleware and ExceptionMiddleware inside, which can affect exception propagation."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 138,
+            "excerpt": "    def add_exception_handler(\n        self,\n        exc_class_or_status_code: int | type[Exception],\n        handler: ExceptionHandler,\n    ) -> None:  # pragma: no cover\n        self.exception_handlers[exc_class_or_status_code] = handler",
+            "path": "starlette/applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/applications.py#L133-L138",
+            "start_line": 133
+          }
+        ],
+        "text": "Exception handlers can be registered via add_exception_handler, which may handle exceptions silently rather than re-raising them."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 599,
+            "excerpt": "            await self.app(scope, receive, send)\n        except Exception as exc:\n            ...  # Process the exception\n            raise",
+            "path": "docs/middleware.md",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L596-L599",
+            "start_line": 596
+          }
+        ],
+        "text": "Documentation shows middleware can catch exceptions and re-raise them, which is the developer's responsibility to ensure propagation."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 191,
+            "excerpt": "    with pytest.raises(MiddlewareException):",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/test_testclient.py#L191-L191",
+            "start_line": 191
+          }
+        ],
+        "text": "Tests exist to verify that exceptions in middleware are raised as expected (e.g., test_exception_in_middleware expects MiddlewareException)."
+      }
+    ],
+    "issue_classification": "middleware exceptions not propagated/raised",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 130,
+            "excerpt": "        if self.middleware_stack is not None:  # pragma: no cover\n            raise RuntimeError(\"Cannot add middleware after an application has started\")",
+            "path": "starlette/applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/applications.py#L129-L130",
+            "start_line": 129
+          }
+        ],
+        "text": "User middleware added after the application has started is not allowed (raises RuntimeError), which could lead to middleware ordering issues where exception handlers are placed outside user middleware, causing exceptions to be handled silently.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 62,
+            "excerpt": "await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)",
+            "path": "starlette/middleware/exceptions.py",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/middleware/exceptions.py#L62-L62",
+            "start_line": 62
+          },
+          {
+            "candidate_rank": 9,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 35,
+            "excerpt": "* `ExceptionMiddleware` - Adds exception handlers, so that particular types of expected exception cases can be associated with handler functions. For example raising `HTTPException(status_code=404)` within an endpoint will end up rendering a custom 404 page.",
+            "path": "docs/middleware.md",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L35-L35",
+            "start_line": 35
+          }
+        ],
+        "text": "By design, ExceptionMiddleware catches exceptions and calls registered handlers, which may return a response instead of re-raising, leading to silent handling if no handler is configured to re-raise or if a catch-all handler is registered.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+            "end_line": 599,
+            "excerpt": "            await self.app(scope, receive, send)\n        except Exception as exc:\n            ...  # Process the exception\n            raise",
+            "path": "docs/middleware.md",
+            "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L596-L599",
+            "start_line": 596
+          }
+        ],
+        "text": "Developer middleware that does not handle exceptions by re-raising can swallow exceptions, especially if it wraps the app without try/except or catches but does not re-raise.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Is the issue specific to a particular middleware class or user-defined middleware?",
+      "In what environment (e.g., debug mode, test client) is the silent handling observed?",
+      "Are there any custom exception handlers registered that might suppress exceptions?",
+      "Does the issue occur with exceptions raised in background tasks as well as endpoints?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "        **kwargs: P.kwargs,\n    ) -> None:\n        if self.middleware_stack is not None:  # pragma: no cover\n            raise RuntimeError(\"Cannot add middleware after an application has started\")\n        self.user_middleware.insert(0, Middleware(middleware_class, *args, **kwargs))\n\n    def add_exception_handler(\n        self,\n        exc_class_or_status_code: int | type[Exception],\n        handler: ExceptionHandler,\n    ) -> None:  # pragma: no cover\n        self.exception_handlers[exc_class_or_status_code] = handler\n\n    def add_event_handler(\n        self,\n        event_type: str,\n        func: typing.Callable,  # type: ignore[type-arg]\n    ) -> None:  # pragma: no cover\n        self.router.add_event_handler(event_type, func)\n\n    def add_route(\n        self,\n        path: str,\n        route: typing.Callable[[Request], typing.Awaitable[Response] | Response],\n        methods: list[str] | None = None,\n        name: str | None = None,\n        include_in_schema: bool = True,\n    ) -> None:  # pragma: no cover\n        self.router.add_route(path, route, methods=methods, name=name, include_in_schema=include_in_schema)\n\n    def add_websocket_route(\n        self,\n        path: str,\n        route: typing.Callable[[WebSocket], typing.Awaitable[None]],\n        name: str | None = None,\n    ) -> None:  # pragma: no cover\n        self.router.add_websocket_route(path, route, name=name)\n\n    def exception_handler(self, exc_class_or_status_code: int | type[Exception]) -> typing.Callable:  # type: ignore[type-arg]\n        warnings.warn(\n            \"The `exception_handler` decorator is deprecated, and will be removed in version 1.0.0. \"\n            \"Refer to https://www.starlette.io/exceptions/ for the recommended approach.\",\n            DeprecationWarning,\n        )\n\n        def decorator(func: typing.Callable) -> typing.Callable:  # type: ignore[type-arg]\n            self.add_exception_handler(exc_class_or_status_code, func)\n            return func\n\n        return decorator\n\n    def route(\n        self,\n        path: str,\n        methods: list[str] | None = None,\n        name: str | None = None,\n        include_in_schema: bool = True,\n    ) -> typing.Callable:  # type: ignore[type-arg]\n        \"\"\"\n        We no longer document this decorator style API, and its usage is discouraged.\n        Instead you should use the following approach:\n\n        >>> routes = [Route(path, endpoint=...), ...]\n        >>> app = Starlette(routes=routes)\n        \"\"\"\n        warnings.warn(\n            \"The `route` decorator is deprecated, and will be removed in version 1.0.0. \"\n            \"Refer to https://www.starlette.io/routing/ for the recommended approach.\",\n            DeprecationWarning,\n        )\n\n        def decorator(func: typing.Callable) -> typing.Callable:  # type: ignore[type-arg]\n            self.router.add_route(\n                path,\n                func,\n                methods=methods,\n                name=name,\n                include_in_schema=include_in_schema,\n            )\n            return func\n\n        return decorator\n\n    def websocket_route(self, path: str, name: str | None = None) -> typing.Callable:  # type: ignore[type-arg]\n        \"\"\"\n        We no longer document this decorator style API, and its usage is discouraged.\n        Instead you should use the following approach:\n\n        >>> routes = [WebSocketRoute(path, endpoint=...), ...]\n        >>> app = Starlette(routes=routes)\n        \"\"\"\n        warnings.warn(\n            \"The `websocket_route` decorator is deprecated, and will be removed in version 1.0.0. \"\n            \"Refer to https://www.starlette.io/routing/#websocket-routing for the recommended approach.\",\n            DeprecationWarning,\n        )\n\n        def decorator(func: typing.Callable) -> typing.Callable:  # type: ignore[type-arg]\n            self.router.add_websocket_route(path, func, name=name)\n            return func\n\n        return decorator\n\n    def middleware(self, middleware_type: str) -> typing.Callable:  # type: ignore[type-arg]\n        \"\"\"\n        We no longer document this decorator style API, and its usage is discouraged.\n        Instead you should use the following approach:\n\n        >>> middleware = [Middleware(...), ...]\n        >>> app = Starlette(middleware=middleware)\n        \"\"\"\n        warnings.warn(\n            \"The `middleware` decorator is deprecated, and will be removed in version 1.0.0. \"\n            \"Refer to https://www.starlette.io/middleware/#using-middleware for recommended approach.\",\n            DeprecationWarning,\n        )\n        assert middleware_type == \"http\", 'Currently only middleware(\"http\") is supported.'\n\n        def decorator(func: typing.Callable) -> typing.Callable:  # type: ignore[type-arg]\n            self.add_middleware(BaseHTTPMiddleware, dispatch=func)",
+        "end_line": 246,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/applications.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/applications.py#L127-L246",
+        "score": "0.770298",
+        "source_type": "python_source",
+        "start_line": 127
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "### Exceptions\n\n* Add support for `@app.exception_handler(404)`.\n* Ensure handled exceptions are not seen as errors by the middleware stack.\n",
+        "end_line": 863,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/release-notes.md#L859-L863",
+        "score": "0.764947",
+        "source_type": "markdown",
+        "start_line": 859
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "def raise_exception(\n    environ: Environment,\n    start_response: StartResponse,\n) -> WSGIResponse:\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 47,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/middleware/test_wsgi.py#L43-L47",
+        "score": "0.748992",
+        "source_type": "python_test",
+        "start_line": 43
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "def test_exception_in_middleware(test_client_factory: TestClientFactory) -> None:\n    class MiddlewareException(Exception):\n        pass\n\n    class BrokenMiddleware:\n        def __init__(self, app: ASGIApp):\n            self.app = app\n\n        async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n            raise MiddlewareException()\n\n    broken_middleware = Starlette(middleware=[Middleware(BrokenMiddleware)])\n\n    with pytest.raises(MiddlewareException):\n        with test_client_factory(broken_middleware):\n            pass  # pragma: no cover",
+        "end_line": 193,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/test_testclient.py#L178-L193",
+        "score": "0.747036",
+        "source_type": "python_test",
+        "start_line": 178
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "def test_mounted_middleware_does_not_catch_exception(\n    test_client_factory: typing.Callable[..., TestClient],\n) -> None:\n    # https://github.com/encode/starlette/pull/1649#discussion_r960236107\n    def exc(request: Request) -> Response:\n        raise HTTPException(status_code=403, detail=\"auth\")\n\n    class NamedMiddleware:\n        def __init__(self, app: ASGIApp, name: str) -> None:\n            self.app = app\n            self.name = name\n\n        async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n            async def modified_send(msg: Message) -> None:\n                if msg[\"type\"] == \"http.response.start\":\n                    msg[\"headers\"].append((f\"X-{self.name}\".encode(), b\"true\"))\n                await send(msg)\n\n            await self.app(scope, receive, modified_send)\n\n    app = Starlette(\n        routes=[\n            Mount(\n                \"/mount\",\n                routes=[\n                    Route(\"/err\", exc),\n                    Route(\"/home\", homepage),\n                ],\n                middleware=[Middleware(NamedMiddleware, name=\"Mounted\")],\n            ),\n            Route(\"/err\", exc),\n            Route(\"/home\", homepage),\n        ],\n        middleware=[Middleware(NamedMiddleware, name=\"Outer\")],\n    )\n\n    client = test_client_factory(app)\n\n    resp = client.get(\"/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/mount/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Mounted\" in resp.headers\n\n    resp = client.get(\"/mount/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Mounted\" in resp.headers",
+        "end_line": 1082,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/test_routing.py#L1030-L1082",
+        "score": "0.742215",
+        "source_type": "python_test",
+        "start_line": 1030
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "def test_background_task(test_client_factory: TestClientFactory) -> None:\n    accessed_error_handler = False\n\n    def error_handler(request: Request, exc: Exception) -> Any:\n        nonlocal accessed_error_handler\n        accessed_error_handler = True\n\n    def raise_exception() -> None:\n        raise Exception(\"Something went wrong\")\n\n    async def endpoint(request: Request) -> Response:\n        task = BackgroundTask(raise_exception)\n        return Response(status_code=204, background=task)\n\n    app = Starlette(\n        routes=[Route(\"/\", endpoint=endpoint)],\n        exception_handlers={Exception: error_handler},\n    )\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 204\n    assert accessed_error_handler",
+        "end_line": 105,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/middleware/test_errors.py#L83-L105",
+        "score": "0.740920",
+        "source_type": "python_test",
+        "start_line": 83
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "def exc(request: Request) -> None:\n    raise Exception(\"Exc\")",
+        "end_line": 40,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/tests/middleware/test_base.py#L39-L40",
+        "score": "0.735988",
+        "source_type": "python_test",
+        "start_line": 39
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "class ExceptionMiddleware:\n    def __init__(\n        self,\n        app: ASGIApp,\n        handlers: typing.Mapping[typing.Any, typing.Callable[[Request, Exception], Response]] | None = None,\n        debug: bool = False,\n    ) -> None:\n        self.app = app\n        self.debug = debug  # TODO: We ought to handle 404 cases if debug is set.\n        self._status_handlers: StatusHandlers = {}\n        self._exception_handlers: ExceptionHandlers = {\n            HTTPException: self.http_exception,\n            WebSocketException: self.websocket_exception,\n        }\n        if handlers is not None:  # pragma: no branch\n            for key, value in handlers.items():\n                self.add_exception_handler(key, value)\n\n    def add_exception_handler(\n        self,\n        exc_class_or_status_code: int | type[Exception],\n        handler: typing.Callable[[Request, Exception], Response],\n    ) -> None:\n        if isinstance(exc_class_or_status_code, int):\n            self._status_handlers[exc_class_or_status_code] = handler\n        else:\n            assert issubclass(exc_class_or_status_code, Exception)\n            self._exception_handlers[exc_class_or_status_code] = handler\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] not in (\"http\", \"websocket\"):\n            await self.app(scope, receive, send)\n            return\n\n        scope[\"starlette.exception_handlers\"] = (\n            self._exception_handlers,\n            self._status_handlers,\n        )\n\n        conn: Request | WebSocket\n        if scope[\"type\"] == \"http\":\n            conn = Request(scope, receive, send)\n        else:\n            conn = WebSocket(scope, receive, send)\n\n        await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)\n\n    def http_exception(self, request: Request, exc: Exception) -> Response:\n        assert isinstance(exc, HTTPException)\n        if exc.status_code in {204, 304}:\n            return Response(status_code=exc.status_code, headers=exc.headers)\n        return PlainTextResponse(exc.detail, status_code=exc.status_code, headers=exc.headers)\n\n    async def websocket_exception(self, websocket: WebSocket, exc: Exception) -> None:\n        assert isinstance(exc, WebSocketException)\n        await websocket.close(code=exc.code, reason=exc.reason)  # pragma: no cover",
+        "end_line": 72,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/starlette/middleware/exceptions.py#L17-L72",
+        "score": "0.735808",
+        "source_type": "python_source",
+        "start_line": 17
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "## Using middleware\n\nThe Starlette application class allows you to include the ASGI middleware\nin a way that ensures that it remains wrapped by the exception handler.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.middleware import Middleware\nfrom starlette.middleware.httpsredirect import HTTPSRedirectMiddleware\nfrom starlette.middleware.trustedhost import TrustedHostMiddleware\n\nroutes = ...\n\n# Ensure that all requests include an 'example.com' or\n# '*.example.com' host header, and strictly enforce https-only access.\nmiddleware = [\n    Middleware(\n        TrustedHostMiddleware,\n        allowed_hosts=['example.com', '*.example.com'],\n    ),\n    Middleware(HTTPSRedirectMiddleware)\n]\n\napp = Starlette(routes=routes, middleware=middleware)\n```\n\nEvery Starlette application automatically includes two pieces of middleware by default:\n\n* `ServerErrorMiddleware` - Ensures that application exceptions may return a custom 500 page, or display an application traceback in DEBUG mode. This is *always* the outermost middleware layer.\n* `ExceptionMiddleware` - Adds exception handlers, so that particular types of expected exception cases can be associated with handler functions. For example raising `HTTPException(status_code=404)` within an endpoint will end up rendering a custom 404 page.\n\nMiddleware is evaluated from top-to-bottom, so the flow of execution in our example\napplication would look like this:\n\n* Middleware\n    * `ServerErrorMiddleware`\n    * `TrustedHostMiddleware`\n    * `HTTPSRedirectMiddleware`\n    * `ExceptionMiddleware`\n* Routing\n* Endpoint\n\nThe following middleware implementations are available in the Starlette package:\n",
+        "end_line": 49,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L6-L49",
+        "score": "0.735460",
+        "source_type": "markdown",
+        "start_line": 6
+      },
+      {
+        "commit": "ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835",
+        "content": "#### Cleanup and error handling\n\nYou can wrap the application in a `try/except/finally` block or a context manager to perform cleanup operations or do error handling.\n\nFor example, the following middleware might collect metrics and process application exceptions...\n\n```python\nimport time\n\nclass MonitoringMiddleware:\n    def __init__(self, app):\n        self.app = app\n\n    async def __call__(self, scope, receive, send):\n        start = time.time()\n        try:\n            await self.app(scope, receive, send)\n        except Exception as exc:\n            ...  # Process the exception\n            raise\n        finally:\n            end = time.time()\n            elapsed = end - start\n            ...  # Submit `elapsed` as a metric to a monitoring backend\n```\n\nSee also [`timing-asgi`](https://github.com/steinnes/timing-asgi) for a full example of this pattern.\n",
+        "end_line": 607,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/ea7ce8a5b04669d02bd4911ff53ab6b4cef7c835/docs/middleware.md#L580-L607",
+        "score": "0.734859",
+        "source_type": "markdown",
+        "start_line": 580
+      }
+    ]
+  },
+  "status": "completed"
+}

@@ -1,0 +1,265 @@
+{
+  "case_id": "starlette-issue-2692",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 384,
+    "cost": "0.001495602",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 5671,
+    "latency_ns": 3970713100,
+    "missed_input_tokens": 5287,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 1169,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 367383084300,
+    "total_latency_ns": 371353797400,
+    "total_tokens": 6840
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 316,
+            "excerpt": "def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path,\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path,\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L250-L316",
+            "start_line": 250
+          }
+        ],
+        "text": "The TestClient transport constructs the ASGI http scope from the httpx request URL, setting path via unquote(path) and raw_path via request.url.raw_path."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 215,
+            "excerpt": "def test_request_raw_path(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        request = Request(scope, receive)\n        path = request.scope[\"path\"]\n        raw_path = request.scope[\"raw_path\"]\n        response = PlainTextResponse(f\"{path}, {raw_path}\")\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/he%2Fllo\")\n    assert response.text == \"/he/llo, b'/he%2Fllo'\"",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+            "start_line": 205
+          }
+        ],
+        "text": "The test test_request_raw_path requests \"/he%2Fllo\" and asserts the response text equals \"/he/llo, b'/he%2Fllo'\"."
+      }
+    ],
+    "issue_classification": "protocol compliance mismatch in TestClient raw_path handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 254,
+            "excerpt": "raw_path = request.url.raw_path",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+            "start_line": 254
+          }
+        ],
+        "text": "httpx's URL.raw_path includes the query string and does not exactly match the ASGI raw_path definition (which excludes the query and represents the raw path as bytes), so the TestClient's raw_path may be incorrect when a query string is present.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the exact ASGI specification definition of raw_path, and does httpx's URL.raw_path include query or differ in encoding?",
+      "What raw_path value does the TestClient produce when the request URL includes a query string?",
+      "Is the mismatch observed only with percent-encoded paths or also with plain paths and queries?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "18.793101",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "def test_request_raw_path(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        request = Request(scope, receive)\n        path = request.scope[\"path\"]\n        raw_path = request.scope[\"raw_path\"]\n        response = PlainTextResponse(f\"{path}, {raw_path}\")\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/he%2Fllo\")\n    assert response.text == \"/he/llo, b'/he%2Fllo'\"",
+        "end_line": 215,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+        "score": "0.03252247",
+        "source_type": "python_test",
+        "start_line": 205,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.818882"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "20.078294",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "class _TestClientTransport(httpx.BaseTransport):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        *,\n        app_state: dict[str, typing.Any],\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n        self.app_state = app_state\n\n    def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path,\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path,\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: dict[str, typing.Any] = {\"stream\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.read()\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")  # pragma: no cover\n            elif body is None:\n                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:",
+        "end_line": 353,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L234-L353",
+        "score": "0.03201844",
+        "source_type": "python_source",
+        "start_line": 234,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.782345"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "async def pure_asgi_echo_paths(scope: Scope, receive: Receive, send: Send, name: str) -> None:\n    data = {\"name\": name, \"path\": scope[\"path\"], \"root_path\": scope[\"root_path\"]}\n    content = json.dumps(data).encode(\"utf-8\")\n    await send(\n        {\n            \"type\": \"http.response.start\",\n            \"status\": 200,\n            \"headers\": [(b\"content-type\", b\"application/json\")],\n        }\n    )\n    await send({\"type\": \"http.response.body\", \"body\": content})",
+        "end_line": 1214,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1204-L1214",
+        "score": "0.01612903",
+        "source_type": "python_test",
+        "start_line": 1204,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.802348"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "17.433134",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "## Modularity\n\nThe modularity that Starlette is designed on promotes building re-usable\ncomponents that can be shared between any ASGI framework. This should enable\nan ecosystem of shared middleware and mountable applications.\n\nThe clean API separation also means it's easier to understand each component\nin isolation.\n\n---\n\n<p align=\"center\"><i>Starlette is <a href=\"https://github.com/encode/starlette/blob/master/LICENSE.md\">BSD licensed</a> code.<br/>Designed & crafted with care.</i></br>&mdash; \u2b50\ufe0f &mdash;</p>\n\n[asgi]: https://asgi.readthedocs.io/en/latest/\n[httpx]: https://www.python-httpx.org/\n[jinja2]: https://jinja.palletsprojects.com/\n[python-multipart]: https://andrew-d.github.io/python-multipart/\n[itsdangerous]: https://itsdangerous.palletsprojects.com/\n[sqlalchemy]: https://www.sqlalchemy.org\n[pyyaml]: https://pyyaml.org/wiki/PyYAMLDocumentation\n[techempower]: https://www.techempower.com/benchmarks/#hw=ph&test=fortune&l=zijzen-sf",
+        "end_line": 146,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/index.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/index.md#L126-L146",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 126,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 611,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L608-L611",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 608,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.782596"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "16.236415",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "### Testing WebSocket sessions\n\nYou can also test websocket sessions with the test client.\n\nThe `httpx` library will be used to build the initial handshake, meaning you\ncan use the same authentication options and other headers between both http and\nwebsocket testing.\n\n```python\nfrom starlette.testclient import TestClient\nfrom starlette.websockets import WebSocket\n\n\nasync def app(scope, receive, send):\n    assert scope['type'] == 'websocket'\n    websocket = WebSocket(scope, receive=receive, send=send)\n    await websocket.accept()\n    await websocket.send_text('Hello, world!')\n    await websocket.close()\n\n\ndef test_app():\n    client = TestClient(app)\n    with client.websocket_connect('/') as websocket:\n        data = websocket.receive_text()\n        assert data == 'Hello, world!'\n```\n\nThe operations on session are standard function calls, not awaitables.\n\nIt's important to use the session within a context-managed `with` block. This\nensure that the background thread on which the ASGI application is properly\nterminated, and that any exceptions that occur within the application are\nalways raised by the test client.\n",
+        "end_line": 129,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/testclient.md#L95-L129",
+        "score": "0.01562500",
+        "source_type": "markdown",
+        "start_line": 95,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "15.241961",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "### Sending and receiving messages\n\nIf you need to send or receive raw ASGI messages then you should use\n`websocket.send()` and `websocket.receive()` rather than using the raw `send` and\n`receive` callables. This will ensure that the websocket's state is kept\ncorrectly updated.\n\n* `await websocket.send(message)`\n* `await websocket.receive()`\n",
+        "end_line": 112,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/websockets.md#L103-L112",
+        "score": "0.01538462",
+        "source_type": "markdown",
+        "start_line": 103,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "def test_paths_with_root_path(test_client_factory: TestClientFactory) -> None:\n    app = Starlette(routes=echo_paths_routes)\n    client = test_client_factory(app, base_url=\"https://www.example.org/\", root_path=\"/root\")\n    response = client.get(\"/root/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"path\",\n        \"path\": \"/root/path\",\n        \"root_path\": \"/root\",\n    }\n    response = client.get(\"/root/asgipath/\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"asgipath\",\n        \"path\": \"/root/asgipath/\",\n        # Things that mount other ASGI apps, like WSGIMiddleware, would not be aware\n        # of the prefixed path, and would have their own notion of their own paths,\n        # so they need to be able to rely on the root_path to know the location they\n        # are mounted on\n        \"root_path\": \"/root/asgipath\",\n    }\n\n    response = client.get(\"/root/sub/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"subpath\",\n        \"path\": \"/root/sub/path\",\n        \"root_path\": \"/root/sub\",\n    }\n\n    response = client.post(\"/root/root-queue/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"queue_path\",\n        \"path\": \"/root/root-queue/path\",\n        \"root_path\": \"/root\",\n    }",
+        "end_line": 1282,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1246-L1282",
+        "score": "0.01538462",
+        "source_type": "python_test",
+        "start_line": 1246,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.781076"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "#### Changes\n\n* Handle `root_path` to keep compatibility with mounted ASGI applications and WSGI [#2400](https://github.com/encode/starlette/pull/2400).\n* Turn `scope[\"client\"]` to `None` on `TestClient` [#2377](https://github.com/encode/starlette/pull/2377).\n",
+        "end_line": 160,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L156-L160",
+        "score": "0.01515152",
+        "source_type": "markdown",
+        "start_line": 156,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.779566"
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "12.733515",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "class TestClient(httpx.Client):\n    __test__ = False\n    task: Future[None]\n    portal: anyio.abc.BlockingPortal | None = None\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        backend: typing.Literal[\"asyncio\", \"trio\"] = \"asyncio\",\n        backend_options: dict[str, typing.Any] | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        headers: dict[str, str] | None = None,\n        follow_redirects: bool = True,\n    ) -> None:\n        self.async_backend = _AsyncBackend(backend=backend, backend_options=backend_options or {})\n        if _is_asgi3(app):\n            asgi_app = app\n        else:\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\n        self.app = asgi_app\n        self.app_state: dict[str, typing.Any] = {}\n        transport = _TestClientTransport(\n            self.app,\n            portal_factory=self._portal_factory,\n            raise_server_exceptions=raise_server_exceptions,\n            root_path=root_path,\n            app_state=self.app_state,\n        )\n        if headers is None:\n            headers = {}\n        headers.setdefault(\"user-agent\", \"testclient\")\n        super().__init__(\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )\n\n    @contextlib.contextmanager\n    def _portal_factory(self) -> typing.Generator[anyio.abc.BlockingPortal, None, None]:\n        if self.portal is not None:\n            yield self.portal\n        else:\n            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:\n                yield portal\n\n    def _choose_redirect_arg(\n        self, follow_redirects: bool | None, allow_redirects: bool | None\n    ) -> bool | httpx._client.UseClientDefault:\n        redirect: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT\n        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )\n        return redirect\n\n    def request(  # type: ignore[override]\n        self,\n        method: str,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        url = self._merge_url(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(\n            method,\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def get(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().get(\n            url,\n            params=params,",
+        "end_line": 520,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L520",
+        "score": "0.01515152",
+        "source_type": "python_source",
+        "start_line": 401,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "status": "completed"
+}

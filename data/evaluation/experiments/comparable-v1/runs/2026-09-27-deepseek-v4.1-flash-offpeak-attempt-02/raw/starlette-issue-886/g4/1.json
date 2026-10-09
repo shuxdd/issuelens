@@ -1,0 +1,638 @@
+{
+  "case_id": "starlette-issue-886",
+  "events": [
+    {
+      "case_id": "starlette-issue-886",
+      "duration_ns": 5357178800,
+      "event_id": "989bf2cf43b2e6ef",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/886",
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 1,
+      "snapshot_commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "duration_ns": 5357178800,
+      "event_id": "21692b45806bd74d",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "query": "objects defining async __call__ not run/awaited when used in on_startup",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "arguments": {
+        "query_sha256": "c9b195d31747ab98193476fc63b7099efe44cfd1455855e969649f9e6cfcb5aa"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5357178800,
+      "event_id": "b59dcb8a247e51ff",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "kind": "tool",
+      "parent_id": "d0b3fd779c929c32",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L574-L602",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L655",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/applications.py#L14-L133",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L6-L64",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L533-L652",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L33-L45",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L605-L633",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/release-notes.md#L155-L160"
+      ],
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "arguments": {
+        "query_sha256": "c9b195d31747ab98193476fc63b7099efe44cfd1455855e969649f9e6cfcb5aa"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5357178800,
+      "event_id": "b40fd2386e78ec75",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "kind": "tool",
+      "parent_id": "d0b3fd779c929c32",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L574-L602",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L655",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/applications.py#L14-L133",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L6-L64",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L533-L652",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L33-L45",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L605-L633",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/release-notes.md#L155-L160"
+      ],
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "duration_ns": 5357178800,
+      "event_id": "d0b3fd779c929c32",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "to_stage": "retrieved",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L574-L602",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L655",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/applications.py#L14-L133",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L6-L64",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L533-L652",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L33-L45",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L605-L633",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/release-notes.md#L155-L160"
+      ],
+      "duration_ns": 5357178800,
+      "event_id": "2cf8a360dee6f83c",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "cached_input_tokens": 5376,
+      "cost": "0.000531378",
+      "currency": "USD",
+      "duration_ns": 5326311800,
+      "event_id": "cc6c91608d9a18e6",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "input_tokens": 5987,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 706,
+      "parent_id": "ec49e30da311673f",
+      "prompt_version": "agent-v1",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 7,
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "status": "ok",
+      "total_tokens": 6693,
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "duration_ns": 5357178800,
+      "event_id": "ec49e30da311673f",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "asyncio.iscoroutinefunction(handler) returns False for an instance whose class defines async __call__, so the else branch calls the object; the returned coroutine object is not awaited, causing the async __call__ body not to run."
+      ],
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "duration_ns": 5357178800,
+      "event_id": "9657acfb578e3c50",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L602-L606"
+      ],
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "supported_hypotheses": 1,
+      "to_stage": "verified",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    },
+    {
+      "duration_ns": 5357178800,
+      "event_id": "49497980bd7d1fb2",
+      "finished_at": "2026-09-27T15:57:46.914936Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "ee3277bba5c757ef7116f5b0e649e104",
+      "run_id": "6da96d17f5794a84882cc733f1367dc1",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T15:57:41.557757Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 5357253300
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000531378",
+    "input_tokens": 5987,
+    "latency_ns": 5326311800,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 706,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 238187701700,
+    "run_latency_ns": 5357178800,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 243544880500,
+    "total_tokens": 6693
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "end_line": 9,
+        "path": "docs/events.md",
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L8-L9",
+        "start_line": 8
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "end_line": 606,
+        "path": "starlette/routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L602-L606",
+        "start_line": 602
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "end_line": 616,
+        "path": "starlette/routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L612-L616",
+        "start_line": 612
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "end_line": 583,
+        "path": "tests/test_routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L581-L583",
+        "start_line": 581
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "end_line": 614,
+        "path": "tests/test_routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L612-L614",
+        "start_line": 612
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Is the intended contract for on_startup limited to functions, or should awaitable-returning callables such as objects with async __call__ also be awaited?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "high",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 606,
+            "excerpt": "        for handler in self.on_startup:\n            if asyncio.iscoroutinefunction(handler):\n                await handler()\n            else:\n                handler()",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L602-L606",
+            "start_line": 602
+          }
+        ],
+        "text": "Startup handlers are invoked via asyncio.iscoroutinefunction to decide awaiting; otherwise they are called synchronously without awaiting returned awaitables."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 616,
+            "excerpt": "        for handler in self.on_shutdown:\n            if asyncio.iscoroutinefunction(handler):\n                await handler()\n            else:\n                handler()",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L612-L616",
+            "start_line": 612
+          }
+        ],
+        "text": "Shutdown handlers use the same coroutine-function detection and synchronous fallback behavior as startup."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 9,
+            "excerpt": "These event handlers can either be `async` coroutines, or regular synchronous\nfunctions.",
+            "path": "docs/events.md",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L8-L9",
+            "start_line": 8
+          }
+        ],
+        "text": "Documentation states event handlers can be async coroutines or regular synchronous functions."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 583,
+            "excerpt": "    async def run_startup():\n        nonlocal startup_complete\n        startup_complete = True",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L581-L583",
+            "start_line": 581
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 614,
+            "excerpt": "    def run_startup():\n        nonlocal startup_complete\n        startup_complete = True",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L612-L614",
+            "start_line": 612
+          }
+        ],
+        "text": "Tests cover startup handlers implemented as async functions and sync functions, but not objects with async __call__."
+      }
+    ],
+    "issue_classification": "event-handler-execution",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 606,
+            "excerpt": "        for handler in self.on_startup:\n            if asyncio.iscoroutinefunction(handler):\n                await handler()\n            else:\n                handler()",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L602-L606",
+            "start_line": 602
+          }
+        ],
+        "text": "asyncio.iscoroutinefunction(handler) returns False for an instance whose class defines async __call__, so the else branch calls the object; the returned coroutine object is not awaited, causing the async __call__ body not to run.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Is the intended contract for on_startup limited to functions, or should awaitable-returning callables such as objects with async __call__ also be awaited?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "22.304544",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "def test_lifespan_async(test_client_factory):\n    startup_complete = False\n    shutdown_complete = False\n\n    async def hello_world(request):\n        return PlainTextResponse(\"hello, world\")\n\n    async def run_startup():\n        nonlocal startup_complete\n        startup_complete = True\n\n    async def run_shutdown():\n        nonlocal shutdown_complete\n        shutdown_complete = True\n\n    app = Router(\n        on_startup=[run_startup],\n        on_shutdown=[run_shutdown],\n        routes=[Route(\"/\", hello_world)],\n    )\n\n    assert not startup_complete\n    assert not shutdown_complete\n    with test_client_factory(app) as client:\n        assert startup_complete\n        assert not shutdown_complete\n        client.get(\"/\")\n    assert startup_complete\n    assert shutdown_complete",
+        "end_line": 602,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L574-L602",
+        "reranker_score": "2.601379",
+        "rrf_score": "0.01639344",
+        "score": "2.601379",
+        "source_type": "python_test",
+        "start_line": 574,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "20.172731",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "def test_raise_on_startup(test_client_factory):\n    def run_startup():\n        raise RuntimeError()\n\n    router = Router(on_startup=[run_startup])\n    startup_failed = False\n\n    async def app(scope, receive, send):\n        async def _send(message):\n            nonlocal startup_failed\n            if message[\"type\"] == \"lifespan.startup.failed\":\n                startup_failed = True\n            return await send(message)\n\n        await router(scope, receive, _send)\n\n    with pytest.raises(RuntimeError):\n        with test_client_factory(app):\n            pass  # pragma: nocover\n    assert startup_failed",
+        "end_line": 655,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L655",
+        "reranker_score": "2.601336",
+        "rrf_score": "0.03175403",
+        "score": "2.601336",
+        "source_type": "python_test",
+        "start_line": 636,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.766129"
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "19.083138",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "class Starlette:\n    \"\"\"\n    Creates an application instance.\n\n    **Parameters:**\n\n    * **debug** - Boolean indicating if debug tracebacks should be returned on errors.\n    * **routes** - A list of routes to serve incoming HTTP and WebSocket requests.\n    * **middleware** - A list of middleware to run for every request. A starlette\n    application will always automatically include two middleware classes.\n    `ServerErrorMiddleware` is added as the very outermost middleware, to handle\n    any uncaught errors occurring anywhere in the entire stack.\n    `ExceptionMiddleware` is added as the very innermost middleware, to deal\n    with handled exception cases occurring in the routing or endpoints.\n    * **exception_handlers** - A mapping of either integer status codes,\n    or exception class types onto callables which handle the exceptions.\n    Exception handler callables should be of the form\n    `handler(request, exc) -> response` and may be be either standard functions, or\n    async functions.\n    * **on_startup** - A list of callables to run on application startup.\n    Startup handler callables do not take any arguments, and may be be either\n    standard functions, or async functions.\n    * **on_shutdown** - A list of callables to run on application shutdown.\n    Shutdown handler callables do not take any arguments, and may be be either\n    standard functions, or async functions.\n    \"\"\"\n\n    def __init__(\n        self,\n        debug: bool = False,\n        routes: typing.Sequence[BaseRoute] = None,\n        middleware: typing.Sequence[Middleware] = None,\n        exception_handlers: typing.Mapping[\n            typing.Any,\n            typing.Callable[\n                [Request, Exception], typing.Union[Response, typing.Awaitable[Response]]\n            ],\n        ] = None,\n        on_startup: typing.Sequence[typing.Callable] = None,\n        on_shutdown: typing.Sequence[typing.Callable] = None,\n        lifespan: typing.Callable[[\"Starlette\"], typing.AsyncContextManager] = None,\n    ) -> None:\n        # The lifespan context function is a newer style that replaces\n        # on_startup / on_shutdown handlers. Use one or the other, not both.\n        assert lifespan is None or (\n            on_startup is None and on_shutdown is None\n        ), \"Use either 'lifespan' or 'on_startup'/'on_shutdown', not both.\"\n\n        self._debug = debug\n        self.state = State()\n        self.router = Router(\n            routes, on_startup=on_startup, on_shutdown=on_shutdown, lifespan=lifespan\n        )\n        self.exception_handlers = (\n            {} if exception_handlers is None else dict(exception_handlers)\n        )\n        self.user_middleware = [] if middleware is None else list(middleware)\n        self.middleware_stack = self.build_middleware_stack()\n\n    def build_middleware_stack(self) -> ASGIApp:\n        debug = self.debug\n        error_handler = None\n        exception_handlers: typing.Dict[\n            typing.Any, typing.Callable[[Request, Exception], Response]\n        ] = {}\n\n        for key, value in self.exception_handlers.items():\n            if key in (500, Exception):\n                error_handler = value\n            else:\n                exception_handlers[key] = value\n\n        middleware = (\n            [Middleware(ServerErrorMiddleware, handler=error_handler, debug=debug)]\n            + self.user_middleware\n            + [\n                Middleware(\n                    ExceptionMiddleware, handlers=exception_handlers, debug=debug\n                )\n            ]\n        )\n\n        app = self.router\n        for cls, options in reversed(middleware):\n            app = cls(app=app, **options)\n        return app\n\n    @property\n    def routes(self) -> typing.List[BaseRoute]:\n        return self.router.routes\n\n    @property\n    def debug(self) -> bool:\n        return self._debug\n\n    @debug.setter\n    def debug(self, value: bool) -> None:\n        self._debug = value\n        self.middleware_stack = self.build_middleware_stack()\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        return self.router.url_path_for(name, **path_params)\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        scope[\"app\"] = self\n        await self.middleware_stack(scope, receive, send)\n\n    # The following usages are now discouraged in favour of configuration\n    # \u00a0during Starlette.__init__(...)\n    def on_event(self, event_type: str) -> typing.Callable:\n        return self.router.on_event(event_type)\n\n    def mount(self, path: str, app: ASGIApp, name: str = None) -> None:\n        self.router.mount(path, app=app, name=name)\n\n    def host(self, host: str, app: ASGIApp, name: str = None) -> None:\n        self.router.host(host, app=app, name=name)\n\n    def add_middleware(self, middleware_class: type, **options: typing.Any) -> None:\n        self.user_middleware.insert(0, Middleware(middleware_class, **options))",
+        "end_line": 133,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/applications.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/applications.py#L14-L133",
+        "reranker_score": "1.388378",
+        "rrf_score": "0.01515152",
+        "score": "1.388378",
+        "source_type": "python_source",
+        "start_line": 14,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "19.884643",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "## Registering events\n\nThese event handlers can either be `async` coroutines, or regular synchronous\nfunctions.\n\nThe event handlers should be included on the application like so:\n\n```python\nfrom starlette.applications import Starlette\n\n\nasync def some_startup_task():\n    pass\n\nasync def some_shutdown_task():\n    pass\n\nroutes = [\n    ...\n]\n\napp = Starlette(\n    routes=routes,\n    on_startup=[some_startup_task],\n    on_shutdown=[some_shutdown_task]\n)\n```\n\nStarlette will not start serving any incoming requests until all of the\nregistered startup handlers have completed.\n\nThe shutdown handlers will run once all connections have been closed, and\nany in-process background tasks have completed.\n\nA single lifespan asynccontextmanager handler can be used instead of\nseparate startup and shutdown handlers:\n\n```python\nimport contextlib\nimport anyio\nfrom starlette.applications import Starlette\n\n\n@contextlib.asynccontextmanager\nasync def lifespan(app):\n    async with some_async_resource():\n        yield\n\n\nroutes = [\n    ...\n]\n\napp = Starlette(routes=routes, lifespan=lifespan)\n```\n\nConsider using [`anyio.create_task_group()`](https://anyio.readthedocs.io/en/stable/tasks.html)\nfor managing asynchronous tasks.\n",
+        "end_line": 64,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/events.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/events.md#L6-L64",
+        "reranker_score": "1.301072",
+        "rrf_score": "0.01538462",
+        "score": "1.301072",
+        "source_type": "markdown",
+        "start_line": 6,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "20.451377",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "class Router:\n    def __init__(\n        self,\n        routes: typing.Sequence[BaseRoute] = None,\n        redirect_slashes: bool = True,\n        default: ASGIApp = None,\n        on_startup: typing.Sequence[typing.Callable] = None,\n        on_shutdown: typing.Sequence[typing.Callable] = None,\n        lifespan: typing.Callable[[typing.Any], typing.AsyncContextManager] = None,\n    ) -> None:\n        self.routes = [] if routes is None else list(routes)\n        self.redirect_slashes = redirect_slashes\n        self.default = self.not_found if default is None else default\n        self.on_startup = [] if on_startup is None else list(on_startup)\n        self.on_shutdown = [] if on_shutdown is None else list(on_shutdown)\n\n        if lifespan is None:\n            self.lifespan_context: typing.Callable[\n                [typing.Any], typing.AsyncContextManager\n            ] = _DefaultLifespan(self)\n\n        elif inspect.isasyncgenfunction(lifespan):\n            warnings.warn(\n                \"async generator function lifespans are deprecated, \"\n                \"use an @contextlib.asynccontextmanager function instead\",\n                DeprecationWarning,\n            )\n            self.lifespan_context = asynccontextmanager(\n                lifespan,  # type: ignore[arg-type]\n            )\n        elif inspect.isgeneratorfunction(lifespan):\n            warnings.warn(\n                \"generator function lifespans are deprecated, \"\n                \"use an @contextlib.asynccontextmanager function instead\",\n                DeprecationWarning,\n            )\n            self.lifespan_context = _wrap_gen_lifespan_context(\n                lifespan,  # type: ignore[arg-type]\n            )\n        else:\n            self.lifespan_context = lifespan\n\n    async def not_found(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] == \"websocket\":\n            websocket_close = WebSocketClose()\n            await websocket_close(scope, receive, send)\n            return\n\n        # If we're running inside a starlette application then raise an\n        # exception, so that the configurable exception handler can deal with\n        # returning the response. For plain ASGI apps, just return the response.\n        if \"app\" in scope:\n            raise HTTPException(status_code=404)\n        else:\n            response = PlainTextResponse(\"Not Found\", status_code=404)\n        await response(scope, receive, send)\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        for route in self.routes:\n            try:\n                return route.url_path_for(name, **path_params)\n            except NoMatchFound:\n                pass\n        raise NoMatchFound()\n\n    async def startup(self) -> None:\n        \"\"\"\n        Run any `.on_startup` event handlers.\n        \"\"\"\n        for handler in self.on_startup:\n            if asyncio.iscoroutinefunction(handler):\n                await handler()\n            else:\n                handler()\n\n    async def shutdown(self) -> None:\n        \"\"\"\n        Run any `.on_shutdown` event handlers.\n        \"\"\"\n        for handler in self.on_shutdown:\n            if asyncio.iscoroutinefunction(handler):\n                await handler()\n            else:\n                handler()\n\n    async def lifespan(self, scope: Scope, receive: Receive, send: Send) -> None:\n        \"\"\"\n        Handle ASGI lifespan messages, which allows us to manage application\n        startup and shutdown events.\n        \"\"\"\n        started = False\n        app = scope.get(\"app\")\n        await receive()\n        try:\n            async with self.lifespan_context(app):\n                await send({\"type\": \"lifespan.startup.complete\"})\n                started = True\n                await receive()\n        except BaseException:\n            exc_text = traceback.format_exc()\n            if started:\n                await send({\"type\": \"lifespan.shutdown.failed\", \"message\": exc_text})\n            else:\n                await send({\"type\": \"lifespan.startup.failed\", \"message\": exc_text})\n            raise\n        else:\n            await send({\"type\": \"lifespan.shutdown.complete\"})\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        \"\"\"\n        The main entry point to the Router class.\n        \"\"\"\n        assert scope[\"type\"] in (\"http\", \"websocket\", \"lifespan\")\n\n        if \"router\" not in scope:\n            scope[\"router\"] = self\n\n        if scope[\"type\"] == \"lifespan\":\n            await self.lifespan(scope, receive, send)\n            return",
+        "end_line": 652,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/routing.py#L533-L652",
+        "reranker_score": "0.386776",
+        "rrf_score": "0.01587302",
+        "score": "0.386776",
+        "source_type": "python_source",
+        "start_line": 533,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "@app.on_event(\"startup\")\nasync def startup():\n    await database.connect()",
+        "end_line": 38,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_database.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+        "reranker_score": "0.374987",
+        "rrf_score": "0.01639344",
+        "score": "0.374987",
+        "source_type": "python_test",
+        "start_line": 36,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.772190"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "async def run_in_threadpool(\n    func: typing.Callable[P, T], *args: P.args, **kwargs: P.kwargs\n) -> T:\n    if contextvars is not None:  # pragma: no cover\n        # Ensure we run in the same context\n        child = functools.partial(func, *args, **kwargs)\n        context = contextvars.copy_context()\n        func = context.run  # type: ignore[assignment]\n        args = (child,)  # type: ignore[assignment]\n    elif kwargs:  # pragma: no cover\n        # run_sync doesn't accept 'kwargs', so bind them in here\n        func = functools.partial(func, **kwargs)\n    return await anyio.to_thread.run_sync(func, *args)",
+        "end_line": 45,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/concurrency.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L33-L45",
+        "reranker_score": "-1.467598",
+        "rrf_score": "0.01538462",
+        "score": "-1.467598",
+        "source_type": "python_source",
+        "start_line": 33,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.743179"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "20.510983",
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "def test_lifespan_sync(test_client_factory):\n    startup_complete = False\n    shutdown_complete = False\n\n    def hello_world(request):\n        return PlainTextResponse(\"hello, world\")\n\n    def run_startup():\n        nonlocal startup_complete\n        startup_complete = True\n\n    def run_shutdown():\n        nonlocal shutdown_complete\n        shutdown_complete = True\n\n    app = Router(\n        on_startup=[run_startup],\n        on_shutdown=[run_shutdown],\n        routes=[Route(\"/\", hello_world)],\n    )\n\n    assert not startup_complete\n    assert not shutdown_complete\n    with test_client_factory(app) as client:\n        assert startup_complete\n        assert not shutdown_complete\n        client.get(\"/\")\n    assert startup_complete\n    assert shutdown_complete",
+        "end_line": 633,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L605-L633",
+        "reranker_score": "-2.685014",
+        "rrf_score": "0.01612903",
+        "score": "-2.685014",
+        "source_type": "python_test",
+        "start_line": 605,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "@startup_error_app.on_event(\"startup\")\ndef startup():\n    raise RuntimeError()",
+        "end_line": 50,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+        "reranker_score": "-5.433239",
+        "rrf_score": "0.01562500",
+        "score": "-5.433239",
+        "source_type": "python_test",
+        "start_line": 48,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.755506"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "### Changed\n\n* Create tasks from handler coroutines before sending them to `asyncio.wait`.\n* Use `format_exception` instead of `format_tb` in `ServerErrorMiddleware`'s `debug` responses.\n* Be more lenient with handler arguments when using the `requires` decorator.\n",
+        "end_line": 160,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/release-notes.md#L155-L160",
+        "reranker_score": "-7.498501",
+        "rrf_score": "0.01587302",
+        "score": "-7.498501",
+        "source_type": "markdown",
+        "start_line": 155,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.759178"
+      }
+    ]
+  },
+  "run_id": "6da96d17f5794a84882cc733f1367dc1",
+  "status": "completed",
+  "trace_id": "ee3277bba5c757ef7116f5b0e649e104"
+}

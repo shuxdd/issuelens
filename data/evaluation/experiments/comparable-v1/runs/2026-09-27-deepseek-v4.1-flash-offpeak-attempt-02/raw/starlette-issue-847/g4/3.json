@@ -1,0 +1,671 @@
+{
+  "case_id": "starlette-issue-847",
+  "events": [
+    {
+      "case_id": "starlette-issue-847",
+      "duration_ns": 3669246700,
+      "event_id": "cbc8d7d3443e0bbd",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/847",
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 1,
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "duration_ns": 3669246700,
+      "event_id": "5b91b94d994f4539",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "query": "Middleware Request parse Hangs forever",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "arguments": {
+        "query_sha256": "6b108d91e303c2436e1b634fd5ffe499ee881b02103618a4ef28f040650d473a"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3669246700,
+      "event_id": "294ba3e0dc22acee",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "kind": "tool",
+      "parent_id": "12c5e6e562fed8ea",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_authentication.py#L1-L21",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L192-L223",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/third-party-packages.md#L115-L124",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L54-L63",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/authentication.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/formparsers.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/datastructures.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "arguments": {
+        "query_sha256": "6b108d91e303c2436e1b634fd5ffe499ee881b02103618a4ef28f040650d473a"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3669246700,
+      "event_id": "ccb195dcb74e5163",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "kind": "tool",
+      "parent_id": "12c5e6e562fed8ea",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_authentication.py#L1-L21",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L192-L223",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/third-party-packages.md#L115-L124",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L54-L63",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/authentication.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/formparsers.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/datastructures.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "duration_ns": 3669246700,
+      "event_id": "12c5e6e562fed8ea",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "to_stage": "retrieved",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_authentication.py#L1-L21",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L192-L223",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/third-party-packages.md#L115-L124",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L54-L63",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/authentication.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/formparsers.py#L1-L12",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/datastructures.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "duration_ns": 3669246700,
+      "event_id": "2dc9eff19c174699",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "cached_input_tokens": 3072,
+      "cost": "0.000562566",
+      "currency": "USD",
+      "duration_ns": 3600322000,
+      "event_id": "a77fb20ceb03f256",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "input_tokens": 3233,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 882,
+      "parent_id": "28a4c33a678756f3",
+      "prompt_version": "agent-v1",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 7,
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "status": "ok",
+      "total_tokens": 4115,
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "duration_ns": 3669246700,
+      "event_id": "28a4c33a678756f3",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The hang may occur because the task group is not cancelled if an exception is raised before the response is fully sent, causing the task to wait indefinitely on the memory object stream.",
+        "The issue might be related to the request parsing in the middleware, but no direct evidence of parsing code in the middleware is present.",
+        "Context variable propagation issues in BaseHTTPMiddleware may cause unexpected hangs, but this is not directly evidenced for request parsing."
+      ],
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "duration_ns": 3669246700,
+      "event_id": "54dec2b432b1f8c8",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L43-L47",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L198-L202"
+      ],
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    },
+    {
+      "duration_ns": 3669246700,
+      "event_id": "3a12fe877d6569ba",
+      "finished_at": "2026-09-28T02:44:21.673493Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "7512be9ea5f47a7ad3c4c65855c5b931",
+      "run_id": "6936176386b24093b09f832447330059",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-28T02:44:18.004246Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 3
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3670030200
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000562566",
+    "input_tokens": 3233,
+    "latency_ns": 3600322000,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 882,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 373128413500,
+    "run_latency_ns": 3669246700,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 376797660200,
+    "total_tokens": 4115
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 29,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L29-L29",
+        "start_line": 29
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 40,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L40-L40",
+        "start_line": 40
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 43,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L43-L43",
+        "start_line": 43
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 47,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L43-L47",
+        "start_line": 43
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 59,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L51-L59",
+        "start_line": 51
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 74,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L74",
+        "start_line": 70
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 202,
+        "path": "tests/middleware/test_base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L198-L202",
+        "start_line": 198
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What specific request parsing code is being used in the middleware?",
+      "Under what conditions does the hang occur (e.g., specific request types, middleware configuration)?",
+      "Is the issue reproducible with the latest version of Starlette?"
+    ]
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 29,
+            "excerpt": "            send_stream, recv_stream = anyio.create_memory_object_stream()",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L29-L29",
+            "start_line": 29
+          },
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 40,
+            "excerpt": "            task_group.start_soon(coro)",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L40-L40",
+            "start_line": 40
+          },
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 43,
+            "excerpt": "                message = await recv_stream.receive()",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L43-L43",
+            "start_line": 43
+          }
+        ],
+        "text": "BaseHTTPMiddleware uses a task group and memory object streams to dispatch requests, which can cause hangs if not properly drained."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 59,
+            "excerpt": "            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L51-L59",
+            "start_line": 51
+          },
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 74,
+            "excerpt": "        async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L74",
+            "start_line": 70
+          }
+        ],
+        "text": "The body stream is consumed in a separate generator, and if the response is not fully read, the task group may not be cancelled, leading to a hang."
+      }
+    ],
+    "issue_classification": "middleware",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 47,
+            "excerpt": "                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L43-L47",
+            "start_line": 43
+          }
+        ],
+        "text": "The hang may occur because the task group is not cancelled if an exception is raised before the response is fully sent, causing the task to wait indefinitely on the memory object stream.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The issue might be related to the request parsing in the middleware, but no direct evidence of parsing code in the middleware is present.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 202,
+            "excerpt": "            marks=pytest.mark.xfail(\n                reason=(\n                    \"BaseHTTPMiddleware creates a TaskGroup which copies the context\"\n                    \"and erases any changes to it made within the TaskGroup\"\n                ),",
+            "path": "tests/middleware/test_base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L198-L202",
+            "start_line": 198
+          }
+        ],
+        "text": "Context variable propagation issues in BaseHTTPMiddleware may cause unexpected hangs, but this is not directly evidenced for request parsing.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What specific request parsing code is being used in the middleware?",
+      "Under what conditions does the hang occur (e.g., specific request types, middleware configuration)?",
+      "Is the issue reproducible with the latest version of Starlette?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "8.183098",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "import base64\nimport binascii\nfrom urllib.parse import urlencode\n\nimport pytest\n\nfrom starlette.applications import Starlette\nfrom starlette.authentication import (\n    AuthCredentials,\n    AuthenticationBackend,\n    AuthenticationError,\n    SimpleUser,\n    requires,\n)\nfrom starlette.endpoints import HTTPEndpoint\nfrom starlette.middleware import Middleware\nfrom starlette.middleware.authentication import AuthenticationMiddleware\nfrom starlette.requests import Request\nfrom starlette.responses import JSONResponse\nfrom starlette.routing import Route, WebSocketRoute\nfrom starlette.websockets import WebSocketDisconnect",
+        "end_line": 21,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_authentication.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_authentication.py#L1-L21",
+        "reranker_score": "-2.723513",
+        "rrf_score": "0.01639344",
+        "score": "-2.723513",
+        "source_type": "python_test",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "@pytest.mark.parametrize(\n    \"middleware_cls\",\n    [\n        CustomMiddlewareWithoutBaseHTTPMiddleware,\n        pytest.param(\n            CustomMiddlewareUsingBaseHTTPMiddleware,\n            marks=pytest.mark.xfail(\n                reason=(\n                    \"BaseHTTPMiddleware creates a TaskGroup which copies the context\"\n                    \"and erases any changes to it made within the TaskGroup\"\n                ),\n                raises=AssertionError,\n            ),\n        ),\n    ],\n)\ndef test_contextvars(test_client_factory, middleware_cls: type):\n    # this has to be an async endpoint because Starlette calls run_in_threadpool\n    # on sync endpoints which has it's own set of peculiarities w.r.t propagating\n    # contextvars (it propagates them forwards but not backwards)\n    async def homepage(request):\n        assert ctxvar.get() == \"set by middleware\"\n        ctxvar.set(\"set by endpoint\")\n        return PlainTextResponse(\"Homepage\")\n\n    app = Starlette(\n        middleware=[Middleware(middleware_cls)], routes=[Route(\"/\", homepage)]\n    )\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.status_code == 200, response.content",
+        "end_line": 223,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L192-L223",
+        "reranker_score": "-6.240311",
+        "rrf_score": "0.01538462",
+        "score": "-6.240311",
+        "source_type": "python_test",
+        "start_line": 192,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.686034"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "5.991023",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "### webargs-starlette\n\n<a href=\"https://github.com/sloria/webargs-starlette\" target=\"_blank\">GitHub</a>\n\nDeclarative request parsing and validation for Starlette, built on top\nof [webargs](https://github.com/marshmallow-code/webargs).\n\nAllows you to parse querystring, JSON, form, headers, and cookies using\ntype annotations.\n",
+        "end_line": 124,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/third-party-packages.md#L115-L124",
+        "reranker_score": "-8.780872",
+        "rrf_score": "0.01562500",
+        "score": "-8.780872",
+        "source_type": "markdown",
+        "start_line": 115,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 245,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "reranker_score": "-8.932660",
+        "rrf_score": "0.01639344",
+        "score": "-8.932660",
+        "source_type": "markdown",
+        "start_line": 242,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.706987"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class BaseHTTPMiddleware:\n    def __init__(\n        self, app: ASGIApp, dispatch: typing.Optional[DispatchFunction] = None\n    ) -> None:\n        self.app = app\n        self.dispatch_func = self.dispatch if dispatch is None else dispatch\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break\n\n                if app_exc is not None:\n                    raise app_exc\n\n            response = StreamingResponse(\n                status_code=message[\"status\"], content=body_stream()\n            )\n            response.raw_headers = message[\"headers\"]\n            return response\n\n        async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()\n\n    async def dispatch(\n        self, request: Request, call_next: RequestResponseEndpoint\n    ) -> Response:\n        raise NotImplementedError()  # pragma: no cover",
+        "end_line": 79,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/base.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "reranker_score": "-9.535694",
+        "rrf_score": "0.01612903",
+        "score": "-9.535694",
+        "source_type": "python_source",
+        "start_line": 15,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.697435"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "app = Starlette(\n    routes=[\n        Route(\"/\", endpoint=homepage),\n        Route(\"/exc\", endpoint=exc),\n        Route(\"/exc-stream\", endpoint=exc_stream),\n        Route(\"/no-response\", endpoint=NoResponse),\n        WebSocketRoute(\"/ws\", endpoint=websocket_endpoint),\n    ],\n    middleware=[Middleware(CustomMiddleware)],\n)",
+        "end_line": 63,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L54-L63",
+        "reranker_score": "-9.762654",
+        "rrf_score": "0.01587302",
+        "score": "-9.762654",
+        "source_type": "python_test",
+        "start_line": 54,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.692888"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "5.955499",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "import functools\nimport inspect\nimport typing\nfrom urllib.parse import urlencode\n\nfrom starlette._utils import is_async_callable\nfrom starlette.exceptions import HTTPException\nfrom starlette.requests import HTTPConnection, Request\nfrom starlette.responses import RedirectResponse, Response\nfrom starlette.websockets import WebSocket\n\n_CallableType = typing.TypeVar(\"_CallableType\", bound=typing.Callable)",
+        "end_line": 12,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/authentication.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/authentication.py#L1-L12",
+        "reranker_score": "-10.200498",
+        "rrf_score": "0.01538462",
+        "score": "-10.200498",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "6.646798",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "import typing\nfrom enum import Enum\nfrom urllib.parse import unquote_plus\n\nfrom starlette.datastructures import FormData, Headers, UploadFile\n\ntry:\n    import multipart\n    from multipart.multipart import parse_options_header\nexcept ImportError:  # pragma: nocover\n    parse_options_header = None\n    multipart = None",
+        "end_line": 12,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/formparsers.py#L1-L12",
+        "reranker_score": "-10.912684",
+        "rrf_score": "0.01612903",
+        "score": "-10.912684",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "6.161362",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "import tempfile\nimport typing\nfrom collections.abc import Sequence\nfrom shlex import shlex\nfrom urllib.parse import SplitResult, parse_qsl, urlencode, urlsplit\n\nfrom starlette.concurrency import run_in_threadpool\nfrom starlette.types import Scope",
+        "end_line": 8,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/datastructures.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/datastructures.py#L1-L8",
+        "reranker_score": "-11.113377",
+        "rrf_score": "0.01587302",
+        "score": "-11.113377",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 25,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25",
+        "reranker_score": "-11.207007",
+        "rrf_score": "0.01562500",
+        "score": "-11.207007",
+        "source_type": "python_test",
+        "start_line": 24,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.689974"
+      }
+    ]
+  },
+  "run_id": "6936176386b24093b09f832447330059",
+  "status": "completed",
+  "trace_id": "7512be9ea5f47a7ad3c4c65855c5b931"
+}

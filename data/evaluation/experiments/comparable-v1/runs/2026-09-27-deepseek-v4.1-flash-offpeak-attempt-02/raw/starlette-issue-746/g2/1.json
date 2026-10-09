@@ -1,0 +1,284 @@
+{
+  "case_id": "starlette-issue-746",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 128,
+    "cost": "0.000786384",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2884,
+    "latency_ns": 2762124600,
+    "missed_input_tokens": 2756,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 621,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 266591557800,
+    "total_latency_ns": 269353682400,
+    "total_tokens": 3505
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 59,
+            "excerpt": "Router path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L57-L59",
+            "start_line": 57
+          }
+        ],
+        "text": "Path parameters are documented as a dictionary interface on the request/websocket objects, not as endpoint signature arguments."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 560,
+            "excerpt": "The biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L548-L560",
+            "start_line": 548
+          }
+        ],
+        "text": "The release notes state endpoint signatures no longer receive path parameters as keyword arguments and route them through request.path_params instead."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 302,
+            "excerpt": "matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L297-L302",
+            "start_line": 297
+          }
+        ],
+        "text": "Path convertors are applied to matched parameter values and stored in path_params in the routing implementation."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 136,
+            "excerpt": "Route(\"/int/{param:int}\", endpoint=int_convertor, name=\"int-convertor\"),\n        Route(\"/float/{param:float}\", endpoint=float_convertor, name=\"float-convertor\"),\n        Route(\"/path/{param:path}\", endpoint=path_convertor, name=\"path-convertor\"),\n        Route(\"/uuid/{param:uuid}\", endpoint=uuid_converter, name=\"uuid-convertor\"),",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L133-L136",
+            "start_line": 133
+          }
+        ],
+        "text": "Routes support typed path parameters via convertors such as int, float, path, and uuid."
+      }
+    ],
+    "issue_classification": "documentation",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Starlette's dictionary-based path_params interface does not expose parameter type metadata in a form compatible with OAS parameter schema generation.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What specific OAS incompatibility or failure was observed?",
+      "Which layer (Starlette, FastAPI, or another consumer) is expected to produce OAS path parameter type specifications?",
+      "Is the issue about runtime access, schema generation, or both?",
+      "What versions of Starlette and any OAS integration are involved?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "10.388503",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`\n",
+        "end_line": 60,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "score": "0.03225806",
+        "source_type": "markdown",
+        "start_line": 55,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.712574"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "9.119838",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.\n\nThis is different to most Python webframeworks, but I think it actually ends up\nbeing much more nicely consistent all the way through.\n",
+        "end_line": 564,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "score": "0.03177806",
+        "source_type": "markdown",
+        "start_line": 546,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.742861"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "10.388503",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `websocket.path_params['username']`\n",
+        "end_line": 51,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "score": "0.03125763",
+        "source_type": "markdown",
+        "start_line": 46,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.700685"
+      },
+      {
+        "bm25_contribution": "0.01470588",
+        "bm25_rank": 8,
+        "bm25_score": "8.481421",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "class WebSocketRoute(BaseRoute):\n    def __init__(\n        self, path: str, endpoint: typing.Callable, *, name: typing.Optional[str] = None\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"websocket\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, WebSocketRoute)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n        )",
+        "end_line": 327,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "score": "0.02963126",
+        "source_type": "python_source",
+        "start_line": 272,
+        "vector_contribution": "0.01492537",
+        "vector_rank": 7,
+        "vector_score": "0.685231"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "14.113471",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### FastAPI\n\n<a href=\"https://github.com/tiangolo/fastapi\" target=\"_blank\">GitHub</a> |\n<a href=\"https://fastapi.tiangolo.com/\" target=\"_blank\">Documentation</a>\n\nHigh performance, easy to learn, fast to code, ready for production web API framework.\nInspired by **APIStar**'s previous server system with type declarations for route parameters, based on the OpenAPI specification version 3.0.0+ (with JSON Schema), powered by **Pydantic** for the data handling.\n",
+        "end_line": 142,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L135-L142",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 135,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+        "end_line": 472,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 469,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.708882"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "def test_http_endpoint_route_path_params(client):\n    response = client.get(\"/tomchristie\")\n    assert response.status_code == 200\n    assert response.text == \"Hello, tomchristie!\"",
+        "end_line": 36,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 33,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.707064"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "10.146603",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "app = Router(\n    [\n        Route(\"/\", endpoint=homepage, methods=[\"GET\"]),\n        Mount(\n            \"/users\",\n            routes=[\n                Route(\"/\", endpoint=users),\n                Route(\"/me\", endpoint=user_me),\n                Route(\"/{username}\", endpoint=user),\n                Route(\"/nomatch\", endpoint=user_no_match),\n            ],\n        ),\n        Mount(\n            \"/partial\",\n            routes=[\n                Route(\"/\", endpoint=functools.partial(partial_endpoint, \"foo\")),\n                Route(\n                    \"/cls\",\n                    endpoint=functools.partial(PartialRoutes.async_endpoint, \"foo\"),\n                ),\n                WebSocketRoute(\"/ws\", endpoint=functools.partial(partial_ws_endpoint)),\n                WebSocketRoute(\n                    \"/ws/cls\",\n                    endpoint=functools.partial(PartialRoutes.async_ws_endpoint),\n                ),\n            ],\n        ),\n        Mount(\"/static\", app=Response(\"xxxxx\", media_type=\"image/png\")),\n        Route(\"/func\", endpoint=func_homepage, methods=[\"GET\"]),\n        Route(\"/func\", endpoint=contact, methods=[\"POST\"]),\n        Route(\"/int/{param:int}\", endpoint=int_convertor, name=\"int-convertor\"),\n        Route(\"/float/{param:float}\", endpoint=float_convertor, name=\"float-convertor\"),\n        Route(\"/path/{param:path}\", endpoint=path_convertor, name=\"path-convertor\"),\n        Route(\"/uuid/{param:uuid}\", endpoint=uuid_converter, name=\"uuid-convertor\"),\n        # Route with chars that conflict with regex meta chars\n        Route(\n            \"/path-with-parentheses({param:int})\",\n            endpoint=path_with_parentheses,\n            name=\"path-with-parentheses\",\n        ),\n        WebSocketRoute(\"/ws\", endpoint=websocket_endpoint),\n        WebSocketRoute(\"/ws/{room}\", endpoint=websocket_params),\n    ]\n)",
+        "end_line": 146,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L103-L146",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 103,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "9.031161",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### Fixed\n\n* Fixed `ServerErrorMiddleware` compatibility with Python 3.9.1/3.8.7 when debug mode is enabled -\n  [#1132](https://github.com/encode/starlette/pull/1132).\n* Fixed unclosed socket `ResourceWarning`s when using the `TestClient` with WebSocket endpoints -\n  #1132.\n* Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).\n\n",
+        "end_line": 181,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L172-L181",
+        "score": "0.01515152",
+        "source_type": "markdown",
+        "start_line": 172,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 247,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247",
+        "score": "0.01515152",
+        "source_type": "markdown",
+        "start_line": 244,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.691791"
+      }
+    ]
+  },
+  "status": "completed"
+}

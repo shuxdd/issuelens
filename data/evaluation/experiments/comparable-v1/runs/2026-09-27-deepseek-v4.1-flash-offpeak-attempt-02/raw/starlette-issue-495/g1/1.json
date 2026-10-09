@@ -1,0 +1,134 @@
+{
+  "case_id": "starlette-issue-495",
+  "failure": {
+    "error_type": "ValueError",
+    "message": "facts[1].evidence[1].excerpt does not match cited lines"
+  },
+  "group": "g1",
+  "replicate": 1,
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "#### Body\n\nThere are a few different interfaces for returning the body of the request:\n\nThe request body as bytes: `await request.body()`\n\nThe request body, parsed as form data or multipart: `await request.form()`\n\nThe request body, parsed as JSON: `await request.json()`\n\nYou can also access the request body as a stream, using the `async for` syntax:\n\n```python\nfrom starlette.requests import Request\nfrom starlette.responses import Response\n\n    \nasync def app(scope, receive, send):\n    assert scope['type'] == 'http'\n    request = Request(scope, receive)\n    body = b''\n    async for chunk in request.stream():\n        body += chunk\n    response = Response(body, media_type='text/plain')\n    await response(scope, receive, send)\n```\n\nIf you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.\n\nIn some cases such as long-polling, or streaming responses you might need to\ndetermine if the client has dropped the connection. You can determine this\nstate with `disconnected = await request.is_disconnected()`.\n",
+        "end_line": 112,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L78-L112",
+        "score": "0.746735",
+        "source_type": "markdown",
+        "start_line": 78
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def test_request_stream_then_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"<stream consumed>\", \"stream\": \"abc\"}",
+        "end_line": 163,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L147-L163",
+        "score": "0.746546",
+        "source_type": "python_test",
+        "start_line": 147
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 245,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "score": "0.738094",
+        "source_type": "markdown",
+        "start_line": 242
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 25,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25",
+        "score": "0.731219",
+        "source_type": "python_test",
+        "start_line": 24
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class Request(HTTPConnection):\n    def __init__(\n        self, scope: Scope, receive: Receive = empty_receive, send: Send = empty_send\n    ):\n        super().__init__(scope)\n        assert scope[\"type\"] == \"http\"\n        self._receive = receive\n        self._send = send\n        self._stream_consumed = False\n        self._is_disconnected = False\n\n    @property\n    def method(self) -> str:\n        return self.scope[\"method\"]\n\n    @property\n    def receive(self) -> Receive:\n        return self._receive\n\n    async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return\n\n        if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n\n        self._stream_consumed = True\n        while True:\n            message = await self._receive()\n            if message[\"type\"] == \"http.request\":\n                body = message.get(\"body\", b\"\")\n                if body:\n                    yield body\n                if not message.get(\"more_body\", False):\n                    break\n            elif message[\"type\"] == \"http.disconnect\":\n                self._is_disconnected = True\n                raise ClientDisconnect()\n        yield b\"\"\n\n    async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body\n\n    async def json(self) -> typing.Any:\n        if not hasattr(self, \"_json\"):\n            body = await self.body()\n            self._json = json.loads(body)\n        return self._json\n\n    async def form(self) -> FormData:\n        if not hasattr(self, \"_form\"):\n            assert (\n                parse_options_header is not None\n            ), \"The `python-multipart` library must be installed to use form parsing.\"\n            content_type_header = self.headers.get(\"Content-Type\")\n            content_type, options = parse_options_header(content_type_header)\n            if content_type == b\"multipart/form-data\":\n                try:\n                    multipart_parser = MultiPartParser(self.headers, self.stream())\n                    self._form = await multipart_parser.parse()\n                except MultiPartException as exc:\n                    if \"app\" in self.scope:\n                        raise HTTPException(status_code=400, detail=exc.message)\n                    raise exc\n            elif content_type == b\"application/x-www-form-urlencoded\":\n                form_parser = FormParser(self.headers, self.stream())\n                self._form = await form_parser.parse()\n            else:\n                self._form = FormData()\n        return self._form\n\n    async def close(self) -> None:\n        if hasattr(self, \"_form\"):\n            await self._form.close()\n\n    async def is_disconnected(self) -> bool:\n        if not self._is_disconnected:\n            message: Message = {}\n\n            # If message isn't immediately available, move on\n            with anyio.CancelScope() as cs:\n                cs.cancel()\n                message = await self._receive()\n\n            if message.get(\"type\") == \"http.disconnect\":\n                self._is_disconnected = True\n\n        return self._is_disconnected\n\n    async def send_push_promise(self, path: str) -> None:\n        if \"http.response.push\" in self.scope.get(\"extensions\", {}):\n            raw_headers = []\n            for name in SERVER_PUSH_HEADERS_TO_COPY:\n                for value in self.headers.getlist(name):\n                    raw_headers.append(\n                        (name.encode(\"latin-1\"), value.encode(\"latin-1\"))\n                    )\n            await self._send(\n                {\"type\": \"http.response.push\", \"path\": path, \"headers\": raw_headers}\n            )",
+        "end_line": 296,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/requests.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L190-L296",
+        "score": "0.712240",
+        "source_type": "python_source",
+        "start_line": 190
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "async def app_read_body(scope, receive, send):\n    request = Request(scope, receive)\n    # Read bytes, to force request.stream() to return the already parsed body\n    await request.body()\n    data = await request.form()\n    output = {}\n    for key, value in data.items():\n        output[key] = value\n    await request.close()\n    response = JSONResponse(output)\n    await response(scope, receive, send)",
+        "end_line": 96,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_formparsers.py#L86-L96",
+        "score": "0.710377",
+        "source_type": "python_test",
+        "start_line": 86
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## Third party middleware\n",
+        "end_line": 251,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/middleware.md#L250-L251",
+        "score": "0.709074",
+        "source_type": "markdown",
+        "start_line": 250
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "### Middleware\n\n* Add support for `@app.middleware(\"http\")` decorator.\n",
+        "end_line": 494,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L491-L494",
+        "score": "0.708851",
+        "source_type": "markdown",
+        "start_line": 491
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def exc_stream(request):\n    return StreamingResponse(_generate_faulty_stream())",
+        "end_line": 29,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L28-L29",
+        "score": "0.707046",
+        "source_type": "python_test",
+        "start_line": 28
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def test_request_body_then_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\", \"stream\": \"abc\"}",
+        "end_line": 144,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L131-L144",
+        "score": "0.706521",
+        "source_type": "python_test",
+        "start_line": 131
+      }
+    ]
+  },
+  "status": "failed"
+}

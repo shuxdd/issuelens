@@ -1,0 +1,160 @@
+{
+  "case_id": "starlette-issue-472",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.0004014",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2316,
+    "latency_ns": 1629337000,
+    "missed_input_tokens": 2316,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 90,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 295387228100,
+    "total_latency_ns": 297016565100,
+    "total_tokens": 2406
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [],
+    "issue_classification": "middleware and TemplateResponse behavior",
+    "root_cause_hypotheses": [],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What was the exact AssertionError message and stack trace?",
+      "What middleware and TemplateResponse code triggered the failure?",
+      "Which test file or application code was involved in the failure?",
+      "Are the supplied candidates from the same test suite version as the failing test?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def assert_middleware_header_route(request: Request) -> Response:\n    assert request.scope[\"add_headers_middleware\"] is True\n    return Response()",
+        "end_line": 793,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_routing.py#L791-L793",
+        "score": "0.786654",
+        "source_type": "python_test",
+        "start_line": 791
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "@pytest.mark.parametrize(\n    \"app\",\n    [\n        mounted_routes_with_middleware,\n        mounted_app_with_middleware,\n    ],\n)\ndef test_mount_middleware(\n    test_client_factory: typing.Callable[..., TestClient],\n    app: Starlette,\n) -> None:\n    test_client = test_client_factory(app)\n\n    response = test_client.get(\"/home\")\n    assert response.status_code == 200\n    assert \"X-Test\" not in response.headers\n\n    response = test_client.get(\"/http\")\n    assert response.status_code == 200\n    assert response.headers[\"X-Test\"] == \"Set by middleware\"",
+        "end_line": 851,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_routing.py#L832-L851",
+        "score": "0.762099",
+        "source_type": "python_test",
+        "start_line": 832
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def test_mounted_middleware_does_not_catch_exception(\n    test_client_factory: typing.Callable[..., TestClient],\n) -> None:\n    # https://github.com/encode/starlette/pull/1649#discussion_r960236107\n    def exc(request: Request) -> Response:\n        raise HTTPException(status_code=403, detail=\"auth\")\n\n    class NamedMiddleware:\n        def __init__(self, app: ASGIApp, name: str) -> None:\n            self.app = app\n            self.name = name\n\n        async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n            async def modified_send(msg: Message) -> None:\n                if msg[\"type\"] == \"http.response.start\":\n                    msg[\"headers\"].append((f\"X-{self.name}\".encode(), b\"true\"))\n                await send(msg)\n\n            await self.app(scope, receive, modified_send)\n\n    app = Starlette(\n        routes=[\n            Mount(\n                \"/mount\",\n                routes=[\n                    Route(\"/err\", exc),\n                    Route(\"/home\", homepage),\n                ],\n                middleware=[Middleware(NamedMiddleware, name=\"Mounted\")],\n            ),\n            Route(\"/err\", exc),\n            Route(\"/home\", homepage),\n        ],\n        middleware=[Middleware(NamedMiddleware, name=\"Outer\")],\n    )\n\n    client = test_client_factory(app)\n\n    resp = client.get(\"/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/mount/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Mounted\" in resp.headers\n\n    # this is the \"surprising\" behavior bit\n    # the middleware on the mount never runs because there\n    # is nothing to catch the HTTPException\n    # since Mount middlweare is not wrapped by ExceptionMiddleware\n    resp = client.get(\"/mount/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Mounted\" not in resp.headers",
+        "end_line": 954,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_routing.py#L898-L954",
+        "score": "0.759463",
+        "source_type": "python_test",
+        "start_line": 898
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def test_app_middleware_argument(test_client_factory):\n    def homepage(request):\n        return PlainTextResponse(\"Homepage\")\n\n    app = Starlette(\n        routes=[Route(\"/\", homepage)], middleware=[Middleware(CustomMiddleware)]\n    )\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.headers[\"Custom-Header\"] == \"Example\"",
+        "end_line": 142,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/middleware/test_base.py#L132-L142",
+        "score": "0.758927",
+        "source_type": "python_test",
+        "start_line": 132
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 28,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/middleware/test_base.py#L27-L28",
+        "score": "0.756663",
+        "source_type": "python_test",
+        "start_line": 27
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 31,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/middleware/test_wsgi.py#L30-L31",
+        "score": "0.755492",
+        "source_type": "python_test",
+        "start_line": 30
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def test_template_response_requires_request(tmpdir):\n    templates = Jinja2Templates(str(tmpdir))\n    with pytest.raises(ValueError):\n        templates.TemplateResponse(\"\", {})",
+        "end_line": 34,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_templates.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_templates.py#L31-L34",
+        "score": "0.755427",
+        "source_type": "python_test",
+        "start_line": 31
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def test_middleware(test_client_factory):\n    client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+        "end_line": 231,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_applications.py#L227-L231",
+        "score": "0.752361",
+        "source_type": "python_test",
+        "start_line": 227
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "def test_exception_in_middleware(test_client_factory):\n    class MiddlewareException(Exception):\n        pass\n\n    class BrokenMiddleware:\n        def __init__(self, app):\n            self.app = app\n\n        async def __call__(self, scope, receive, send):\n            raise MiddlewareException()\n\n    broken_middleware = Starlette(middleware=[Middleware(BrokenMiddleware)])\n\n    with pytest.raises(MiddlewareException):\n        with test_client_factory(broken_middleware):\n            pass  # pragma: no cover",
+        "end_line": 189,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/test_testclient.py#L174-L189",
+        "score": "0.751897",
+        "source_type": "python_test",
+        "start_line": 174
+      },
+      {
+        "commit": "008e3a51c512c7d7321e5ab044e883a6400c633d",
+        "content": "class CustomMiddleware:\n    pass",
+        "end_line": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_middleware.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/008e3a51c512c7d7321e5ab044e883a6400c633d/tests/middleware/test_middleware.py#L4-L5",
+        "score": "0.751582",
+        "source_type": "python_test",
+        "start_line": 4
+      }
+    ]
+  },
+  "status": "completed"
+}

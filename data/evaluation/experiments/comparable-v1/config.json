@@ -1,0 +1,72 @@
+{
+  "application_commit": "1ee1521225bcd6036c50b237ff704266c49e4993",
+  "dataset_manifest": "data/evaluation/dataset-manifest.json",
+  "dataset_manifest_sha256": "4a3fa3104e4947a2ab5dbae2adf64b2ccc38db281aa38f288798abd1574179fd",
+  "evaluator_version": "evaluation-v1",
+  "experiment_version": "starlette-comparable-v1",
+  "formal": true,
+  "report": {
+    "cached_input_price_per_million": "0.003",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "model": "deepseek-flash",
+    "model_version": "DeepSeek-V4.1-Flash",
+    "output_price_per_million": "0.6"
+  },
+  "report_schema_version": "1.0",
+  "retrieval": {
+    "bm25": {
+      "b": 0.75,
+      "k1": 1.2,
+      "score_precision": 6,
+      "tokenizer_version": "code-text-v1",
+      "top_k": 10
+    },
+    "chunking": {
+      "index_version": "starlette-eval-v1-retrieval-v1",
+      "markdown_parser": "headings-v1",
+      "max_lines": 120,
+      "overlap_lines": 20,
+      "python_parser": "ast-v1"
+    },
+    "embedding": {
+      "dimension": 384,
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "52398278842ec682c6f32300af41344b1c0b0bb2"
+    },
+    "fusion": {
+      "bm25_weight": 1.0,
+      "rank_constant": 60,
+      "score_precision": 8,
+      "top_k": 10,
+      "vector_weight": 1.0
+    },
+    "reranker": {
+      "enabled": true,
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "reranker_model": {
+      "enabled": true,
+      "model": {
+        "artifact_files": {
+          "README.md": "5ab9570ca405274a5eed93c119b32bc6415e6dfcc5f822b00e5d6757b4190a31",
+          "config.json": "d827779a72d27ae68cf878a6fc2e954542663fe21ca515d9f4783fc96be2d37e",
+          "onnx/model.onnx": "c623d0bcb99f4622beb413eaef00cfbe5db20df9f1dd982da4b4f26022881870",
+          "special_tokens_map.json": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+          "tokenizer.json": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "tokenizer_config.json": "0b29c7bfc889e53b36d9dd3e686dd4300f6525110eaa98c76a5dafceb2029f53",
+          "vocab.txt": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+        },
+        "name": "Xenova/ms-marco-MiniLM-L-6-v2",
+        "revision": "a09144355adeed5f58c8ed011d209bf8ee5a1fec"
+      }
+    },
+    "vector": {
+      "generation_version": "retrieval-v1",
+      "score_precision": 6,
+      "top_k": 10
+    }
+  },
+  "schema_version": "1.0"
+}

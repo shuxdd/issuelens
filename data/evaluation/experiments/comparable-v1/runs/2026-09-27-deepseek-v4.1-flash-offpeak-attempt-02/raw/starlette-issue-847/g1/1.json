@@ -1,0 +1,223 @@
+{
+  "case_id": "starlette-issue-847",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.001071",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4376,
+    "latency_ns": 3458691100,
+    "missed_input_tokens": 4376,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 691,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 271935155800,
+    "total_latency_ns": 275393846900,
+    "total_tokens": 5067
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 47,
+            "excerpt": "async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L27-L47",
+            "start_line": 27
+          }
+        ],
+        "text": "The BaseHTTPMiddleware implementation uses an anyio memory object stream and a task group to run the inner app; call_next awaits the first message from recv_stream."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 73,
+            "excerpt": "async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L73",
+            "start_line": 70
+          }
+        ],
+        "text": "The request passed to dispatch uses the original receive, while the inner app receives request.receive through the send_stream."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 232,
+            "excerpt": "!!! bug\n    Currently, the `BaseHTTPMiddleware` has some known issues:\n\n    - It's not possible to use `BackgroundTasks` with `BaseHTTPMiddleware`. Check [#1438](https://github.com/encode/starlette/issues/1438) for more details.",
+            "path": "docs/middleware.md",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/middleware.md#L229-L232",
+            "start_line": 229
+          }
+        ],
+        "text": "There is a known issue documented about BaseHTTPMiddleware with BackgroundTasks."
+      }
+    ],
+    "issue_classification": "hang/deadlock in BaseHTTPMiddleware request parsing",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "A request body that is never fully consumed by the inner app or middleware can cause call_next to hang because the inner app is waiting for more body messages while the outer dispatch waits for a response.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "If the inner app raises before sending any response and the exception is stored in app_exc, but the send_stream closes without a response start, recv_stream.receive() may raise EndOfStream and re-raise app_exc; however, a hang could occur if neither the stream closes nor a message is sent due to a task group cancellation issue.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The known contextvar propagation issue may interact with request parsing or background tasks, but does not directly explain a hang.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exact request/endpoint triggers the hang?",
+      "Is the request body being fully consumed?",
+      "Are there background tasks involved?",
+      "Does the hang occur with streaming responses or large request bodies?",
+      "What version of Starlette is in use?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 245,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "score": "0.706987",
+        "source_type": "markdown",
+        "start_line": 242
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class BaseHTTPMiddleware:\n    def __init__(\n        self, app: ASGIApp, dispatch: typing.Optional[DispatchFunction] = None\n    ) -> None:\n        self.app = app\n        self.dispatch_func = self.dispatch if dispatch is None else dispatch\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break\n\n                if app_exc is not None:\n                    raise app_exc\n\n            response = StreamingResponse(\n                status_code=message[\"status\"], content=body_stream()\n            )\n            response.raw_headers = message[\"headers\"]\n            return response\n\n        async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()\n\n    async def dispatch(\n        self, request: Request, call_next: RequestResponseEndpoint\n    ) -> Response:\n        raise NotImplementedError()  # pragma: no cover",
+        "end_line": 79,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/base.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "score": "0.697435",
+        "source_type": "python_source",
+        "start_line": 15
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "app = Starlette(\n    routes=[\n        Route(\"/\", endpoint=homepage),\n        Route(\"/exc\", endpoint=exc),\n        Route(\"/exc-stream\", endpoint=exc_stream),\n        Route(\"/no-response\", endpoint=NoResponse),\n        WebSocketRoute(\"/ws\", endpoint=websocket_endpoint),\n    ],\n    middleware=[Middleware(CustomMiddleware)],\n)",
+        "end_line": 63,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L54-L63",
+        "score": "0.692888",
+        "source_type": "python_test",
+        "start_line": 54
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 25,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25",
+        "score": "0.689974",
+        "source_type": "python_test",
+        "start_line": 24
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "@pytest.mark.parametrize(\n    \"middleware_cls\",\n    [\n        CustomMiddlewareWithoutBaseHTTPMiddleware,\n        pytest.param(\n            CustomMiddlewareUsingBaseHTTPMiddleware,\n            marks=pytest.mark.xfail(\n                reason=(\n                    \"BaseHTTPMiddleware creates a TaskGroup which copies the context\"\n                    \"and erases any changes to it made within the TaskGroup\"\n                ),\n                raises=AssertionError,\n            ),\n        ),\n    ],\n)\ndef test_contextvars(test_client_factory, middleware_cls: type):\n    # this has to be an async endpoint because Starlette calls run_in_threadpool\n    # on sync endpoints which has it's own set of peculiarities w.r.t propagating\n    # contextvars (it propagates them forwards but not backwards)\n    async def homepage(request):\n        assert ctxvar.get() == \"set by middleware\"\n        ctxvar.set(\"set by endpoint\")\n        return PlainTextResponse(\"Homepage\")\n\n    app = Starlette(\n        middleware=[Middleware(middleware_cls)], routes=[Route(\"/\", homepage)]\n    )\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.status_code == 200, response.content",
+        "end_line": 223,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L192-L223",
+        "score": "0.686034",
+        "source_type": "python_test",
+        "start_line": 192
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## 0.8.7\n\n* Support chunked requests with TestClient.\n* Cleanup asyncio tasks properly with WSGIMiddleware.\n* Support using TestClient within endpoints, for service mocking.\n",
+        "end_line": 413,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L408-L413",
+        "score": "0.682073",
+        "source_type": "markdown",
+        "start_line": 408
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## BaseHTTPMiddleware\n\nAn abstract class that allows you to write ASGI middleware against a request/response\ninterface, rather than dealing with ASGI messages directly.\n\nTo implement a middleware class using `BaseHTTPMiddleware`, you must override the\n`async def dispatch(request, call_next)` method.\n\n```python\nfrom starlette.middleware.base import BaseHTTPMiddleware\n\nclass CustomHeaderMiddleware(BaseHTTPMiddleware):\n    async def dispatch(self, request, call_next):\n        response = await call_next(request)\n        response.headers['Custom'] = 'Example'\n        return response\n\nmiddleware = [\n    Middleware(CustomHeaderMiddleware)\n]\n\napp = Starlette(routes=routes, middleware=middleware)\n```\n\nIf you want to provide configuration options to the middleware class you should\noverride the `__init__` method, ensuring that the first argument is `app`, and\nany remaining arguments are optional keyword arguments. Make sure to set the `app`\nattribute on the instance if you do this.\n\n```python\nclass CustomHeaderMiddleware(BaseHTTPMiddleware):\n    def __init__(self, app, header_value='Example'):\n        super().__init__(app)\n        self.header_value = header_value\n\n    async def dispatch(self, request, call_next):\n        response = await call_next(request)\n        response.headers['Custom'] = self.header_value\n        return response\n\n\nmiddleware = [\n    Middleware(CustomHeaderMiddleware, header_value='Customized')\n]\n\napp = Starlette(routes=routes, middleware=middleware)\n```\n\nMiddleware classes should not modify their state outside of the `__init__` method.\nInstead you should keep any state local to the `dispatch` method, or pass it\naround explicitly, rather than mutating the middleware instance.\n\n!!! bug\n    Currently, the `BaseHTTPMiddleware` has some known issues:\n\n    - It's not possible to use `BackgroundTasks` with `BaseHTTPMiddleware`. Check [#1438](https://github.com/encode/starlette/issues/1438) for more details.\n    - Using `BaseHTTPMiddleware` will prevent changes to [`contextlib.ContextVar`](https://docs.python.org/3/library/contextvars.html#contextvars.ContextVar)s from propagating upwards. That is, if you set a value for a `ContextVar` in your endpoint and try to read it from a middleware you will find that the value is not the same value you set in your endpoint (see [this test](https://github.com/encode/starlette/blob/621abc747a6604825190b93467918a0ec6456a24/tests/middleware/test_base.py#L192-L223) for an example of this behavior).\n",
+        "end_line": 234,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/middleware.md#L177-L234",
+        "score": "0.680726",
+        "source_type": "markdown",
+        "start_line": 177
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "### Middleware\n\n* Add support for `@app.middleware(\"http\")` decorator.\n",
+        "end_line": 494,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L491-L494",
+        "score": "0.678612",
+        "source_type": "markdown",
+        "start_line": 491
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class ClientDisconnect(Exception):\n    pass",
+        "end_line": 60,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/requests.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L59-L60",
+        "score": "0.678446",
+        "source_type": "python_source",
+        "start_line": 59
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class ServerErrorMiddleware:\n    \"\"\"\n    Handles returning 500 responses when a server error occurs.\n\n    If 'debug' is set, then traceback responses will be returned,\n    otherwise the designated 'handler' will be called.\n\n    This middleware class should generally be used to wrap *everything*\n    else up, so that unhandled exceptions anywhere in the stack\n    always result in an appropriate 500 response.\n    \"\"\"\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        handler: typing.Optional[typing.Callable] = None,\n        debug: bool = False,\n    ) -> None:\n        self.app = app\n        self.handler = handler\n        self.debug = debug\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        response_started = False\n\n        async def _send(message: Message) -> None:\n            nonlocal response_started, send\n\n            if message[\"type\"] == \"http.response.start\":\n                response_started = True\n            await send(message)\n\n        try:\n            await self.app(scope, receive, _send)\n        except Exception as exc:\n            request = Request(scope)\n            if self.debug:\n                # In debug mode, return traceback responses.\n                response = self.debug_response(request, exc)\n            elif self.handler is None:\n                # Use our default 500 error handler.\n                response = self.error_response(request, exc)\n            else:\n                # Use an installed 500 error handler.\n                if is_async_callable(self.handler):\n                    response = await self.handler(request, exc)\n                else:\n                    response = await run_in_threadpool(self.handler, request, exc)\n\n            if not response_started:\n                await response(scope, receive, send)\n\n            # We always continue to raise the exception.\n            # This allows servers to log the error, or allows test clients\n            # to optionally raise the error within the test case.\n            raise exc\n\n    def format_line(\n        self, index: int, line: str, frame_lineno: int, frame_index: int\n    ) -> str:\n        values = {\n            # HTML escape - line could contain < or >\n            \"line\": html.escape(line).replace(\" \", \"&nbsp\"),\n            \"lineno\": (frame_lineno - frame_index) + index,\n        }\n\n        if index != frame_index:\n            return LINE.format(**values)\n        return CENTER_LINE.format(**values)\n\n    def generate_frame_html(self, frame: inspect.FrameInfo, is_collapsed: bool) -> str:\n        code_context = \"\".join(\n            self.format_line(index, line, frame.lineno, frame.index)  # type: ignore\n            for index, line in enumerate(frame.code_context or [])\n        )\n\n        values = {\n            # HTML escape - filename could contain < or >, especially if it's a virtual\n            # file e.g. <stdin> in the REPL\n            \"frame_filename\": html.escape(frame.filename),\n            \"frame_lineno\": frame.lineno,\n            # HTML escape - if you try very hard it's possible to name a function with <\n            # or >\n            \"frame_name\": html.escape(frame.function),\n            \"code_context\": code_context,\n            \"collapsed\": \"collapsed\" if is_collapsed else \"\",\n            \"collapse_button\": \"+\" if is_collapsed else \"&#8210;\",\n        }\n        return FRAME_TEMPLATE.format(**values)\n\n    def generate_html(self, exc: Exception, limit: int = 7) -> str:\n        traceback_obj = traceback.TracebackException.from_exception(\n            exc, capture_locals=True\n        )\n\n        exc_html = \"\"\n        is_collapsed = False\n        exc_traceback = exc.__traceback__\n        if exc_traceback is not None:\n            frames = inspect.getinnerframes(exc_traceback, limit)\n            for frame in reversed(frames):\n                exc_html += self.generate_frame_html(frame, is_collapsed)\n                is_collapsed = True\n\n        # escape error class and text\n        error = (\n            f\"{html.escape(traceback_obj.exc_type.__name__)}: \"\n            f\"{html.escape(str(traceback_obj))}\"\n        )\n\n        return TEMPLATE.format(styles=STYLES, js=JS, error=error, exc_html=exc_html)\n\n    def generate_plain_text(self, exc: Exception) -> str:\n        return \"\".join(traceback.format_exception(type(exc), exc, exc.__traceback__))\n\n    def debug_response(self, request: Request, exc: Exception) -> Response:",
+        "end_line": 244,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/errors.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/errors.py#L125-L244",
+        "score": "0.678213",
+        "source_type": "python_source",
+        "start_line": 125
+      }
+    ]
+  },
+  "status": "completed"
+}

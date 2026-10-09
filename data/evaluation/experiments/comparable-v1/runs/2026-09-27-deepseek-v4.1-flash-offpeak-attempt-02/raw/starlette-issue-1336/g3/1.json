@@ -1,0 +1,318 @@
+{
+  "case_id": "starlette-issue-1336",
+  "group": "g3",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 128,
+    "cost": "0.001156284",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4838,
+    "latency_ns": 2908255400,
+    "missed_input_tokens": 4710,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 749,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 333048079400,
+    "total_latency_ns": 335956334800,
+    "total_tokens": 5587
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+            "end_line": 422,
+            "excerpt": "root_path = scope.get(\"root_path\", \"\")\n                child_scope = {\n                    \"path_params\": path_params,\n                    \"app_root_path\": scope.get(\"app_root_path\", root_path),\n                    \"root_path\": root_path + matched_path,\n                    \"path\": remaining_path,\n                    \"endpoint\": self.app,\n                }",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/routing.py#L414-L422",
+            "start_line": 414
+          }
+        ],
+        "text": "In the Mount class's matches method, the root_path is updated for child scope by concatenating the current root_path with the matched path prefix, and the path is updated to the remaining path."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+            "end_line": 145,
+            "excerpt": "assert environ[\"SCRIPT_NAME\"] == \"/\u4e2d\u56fd\".encode().decode(\"latin-1\")\n    assert environ[\"PATH_INFO\"] == \"/\u5c0f\u661f\".encode().decode(\"latin-1\")",
+            "path": "tests/middleware/test_wsgi.py",
+            "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/tests/middleware/test_wsgi.py#L144-L145",
+            "start_line": 144
+          }
+        ],
+        "text": "The test for build_environ encoding sets SCRIPT_NAME from root_path and PATH_INFO from path, confirming mapping of ASGI scope to WSGI environ."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+            "end_line": 486,
+            "excerpt": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L484-L486",
+            "start_line": 484
+          }
+        ],
+        "text": "A release note indicates that a fix was made for request.url_for() when an ASGI root_path is used."
+      }
+    ],
+    "issue_classification": "routing",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+            "end_line": 422,
+            "excerpt": "root_path = scope.get(\"root_path\", \"\")\n                child_scope = {\n                    \"path_params\": path_params,\n                    \"app_root_path\": scope.get(\"app_root_path\", root_path),\n                    \"root_path\": root_path + matched_path,\n                    \"path\": remaining_path,\n                    \"endpoint\": self.app,\n                }",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/routing.py#L414-L422",
+            "start_line": 414
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+            "end_line": 486,
+            "excerpt": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L484-L486",
+            "start_line": 484
+          }
+        ],
+        "text": "The Mount.matches method modifies root_path and path in ways that do not strictly follow ASGI spec, leading to inconsistent handling in WSGI middleware and url_for.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What are the exact differences between Starlette's handling and the ASGI spec?",
+      "Does the SessionMiddleware path handling directly relate to the issue?",
+      "Are there other parts of the codebase that handle root_path and path differently?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "24.532754",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "### Fixed\n* Prevent `BaseHTTPMiddleware` from hiding errors of `StreamingResponse` and mounted applications [#1459](https://github.com/encode/starlette/pull/1459).\n* `SessionMiddleware` uses an explicit `path=...`, instead of defaulting to the ASGI 'root_path' [#1512](https://github.com/encode/starlette/pull/1512).\n* `Request.client` is now compliant with the ASGI specifications [#1462](https://github.com/encode/starlette/pull/1462).\n* Raise `KeyError` at early stage for missing boundary [#1349](https://github.com/encode/starlette/pull/1349).\n",
+        "end_line": 284,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L279-L284",
+        "reranker_score": "1.071926",
+        "rrf_score": "0.01639344",
+        "score": "1.071926",
+        "source_type": "markdown",
+        "start_line": 279,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "21.725432",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 487,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L484-L487",
+        "reranker_score": "1.010646",
+        "rrf_score": "0.03226646",
+        "score": "1.010646",
+        "source_type": "markdown",
+        "start_line": 484,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.827592"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+        "end_line": 712,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L709-L712",
+        "reranker_score": "-1.653012",
+        "rrf_score": "0.01612903",
+        "score": "-1.653012",
+        "source_type": "markdown",
+        "start_line": 709,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.787484"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "20.487015",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "def test_build_environ_encoding() -> None:\n    scope = {\n        \"type\": \"http\",\n        \"http_version\": \"1.1\",\n        \"method\": \"GET\",\n        \"path\": \"/\u5c0f\u661f\",\n        \"root_path\": \"/\u4e2d\u56fd\",\n        \"query_string\": b\"a=123&b=456\",\n        \"headers\": [],\n    }\n    environ = build_environ(scope, b\"\")\n    assert environ[\"SCRIPT_NAME\"] == \"/\u4e2d\u56fd\".encode().decode(\"latin-1\")\n    assert environ[\"PATH_INFO\"] == \"/\u5c0f\u661f\".encode().decode(\"latin-1\")",
+        "end_line": 145,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/tests/middleware/test_wsgi.py#L133-L145",
+        "reranker_score": "-1.911101",
+        "rrf_score": "0.01538462",
+        "score": "-1.911101",
+        "source_type": "python_test",
+        "start_line": 133,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "22.612812",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "class Mount(BaseRoute):\n    def __init__(\n        self,\n        path: str,\n        app: typing.Optional[ASGIApp] = None,\n        routes: typing.Optional[typing.Sequence[BaseRoute]] = None,\n        name: typing.Optional[str] = None,\n        *,\n        middleware: typing.Optional[typing.Sequence[Middleware]] = None,\n    ) -> None:\n        assert path == \"\" or path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        assert (\n            app is not None or routes is not None\n        ), \"Either 'app=...', or 'routes=' must be specified\"\n        self.path = path.rstrip(\"/\")\n        if app is not None:\n            self._base_app: ASGIApp = app\n        else:\n            self._base_app = Router(routes=routes)\n        self.app = self._base_app\n        if middleware is not None:\n            for cls, options in reversed(middleware):\n                self.app = cls(app=self.app, **options)\n        self.name = name\n        self.path_regex, self.path_format, self.param_convertors = compile_path(\n            self.path + \"/{path:path}\"\n        )\n\n    @property\n    def routes(self) -> typing.List[BaseRoute]:\n        return getattr(self._base_app, \"routes\", [])\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] in (\"http\", \"websocket\"):\n            path = scope[\"path\"]\n            match = self.path_regex.match(path)\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                remaining_path = \"/\" + matched_params.pop(\"path\")\n                matched_path = path[: -len(remaining_path)]\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                root_path = scope.get(\"root_path\", \"\")\n                child_scope = {\n                    \"path_params\": path_params,\n                    \"app_root_path\": scope.get(\"app_root_path\", root_path),\n                    \"root_path\": root_path + matched_path,\n                    \"path\": remaining_path,\n                    \"endpoint\": self.app,\n                }\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, /, **path_params: typing.Any) -> URLPath:\n        if self.name is not None and name == self.name and \"path\" in path_params:\n            # 'name' matches \"<mount_name>\".\n            path_params[\"path\"] = path_params[\"path\"].lstrip(\"/\")\n            path, remaining_params = replace_params(\n                self.path_format, self.param_convertors, path_params\n            )\n            if not remaining_params:\n                return URLPath(path=path)\n        elif self.name is None or name.startswith(self.name + \":\"):\n            if self.name is None:\n                # No mount name.\n                remaining_name = name\n            else:\n                # 'name' matches \"<mount_name>:<child_name>\".\n                remaining_name = name[len(self.name) + 1 :]\n            path_kwarg = path_params.get(\"path\")\n            path_params[\"path\"] = \"\"\n            path_prefix, remaining_params = replace_params(\n                self.path_format, self.param_convertors, path_params\n            )\n            if path_kwarg is not None:\n                remaining_params[\"path\"] = path_kwarg\n            for route in self.routes or []:\n                try:\n                    url = route.url_path_for(remaining_name, **remaining_params)\n                    return URLPath(\n                        path=path_prefix.rstrip(\"/\") + str(url), protocol=url.protocol\n                    )\n                except NoMatchFound:\n                    pass\n        raise NoMatchFound(name, path_params)\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, Mount)\n            and self.path == other.path\n            and self.app == other.app\n        )\n\n    def __repr__(self) -> str:\n        class_name = self.__class__.__name__\n        name = self.name or \"\"\n        return f\"{class_name}(path={self.path!r}, name={name!r}, app={self.app!r})\"",
+        "end_line": 471,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/routing.py#L370-L471",
+        "reranker_score": "-3.544220",
+        "rrf_score": "0.03175403",
+        "score": "-3.544220",
+        "source_type": "python_source",
+        "start_line": 370,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.749222"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "## 0.12.0\n\n* Switch to ASGI 3.0.\n* Fixes to CORS middleware.\n* Add `StaticFiles(html=True)` support.\n* Fix path quoting in redirect responses.\n",
+        "end_line": 502,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L496-L502",
+        "reranker_score": "-3.998425",
+        "rrf_score": "0.01538462",
+        "score": "-3.998425",
+        "source_type": "markdown",
+        "start_line": 496,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.748860"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "def test_mount_asgi_app_with_middleware_url_path_for() -> None:\n    \"\"\"Mounted ASGI apps do not work with url path for,\n    middleware does not change this\n    \"\"\"\n    with pytest.raises(NoMatchFound):\n        mounted_app_with_middleware.url_path_for(\"route\")",
+        "end_line": 990,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/tests/test_routing.py#L985-L990",
+        "reranker_score": "-4.125638",
+        "rrf_score": "0.01587302",
+        "score": "-4.125638",
+        "source_type": "python_test",
+        "start_line": 985,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.770904"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.\n\nThis is different to most Python webframeworks, but I think it actually ends up\nbeing much more nicely consistent all the way through.\n",
+        "end_line": 804,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/docs/release-notes.md#L786-L804",
+        "reranker_score": "-5.581513",
+        "rrf_score": "0.01515152",
+        "score": "-5.581513",
+        "source_type": "markdown",
+        "start_line": 786,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.742717"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "20.568854",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "class StaticFiles:\n    def __init__(\n        self,\n        *,\n        directory: typing.Optional[PathLike] = None,\n        packages: typing.Optional[\n            typing.List[typing.Union[str, typing.Tuple[str, str]]]\n        ] = None,\n        html: bool = False,\n        check_dir: bool = True,\n        follow_symlink: bool = False,\n    ) -> None:\n        self.directory = directory\n        self.packages = packages\n        self.all_directories = self.get_directories(directory, packages)\n        self.html = html\n        self.config_checked = False\n        self.follow_symlink = follow_symlink\n        if check_dir and directory is not None and not os.path.isdir(directory):\n            raise RuntimeError(f\"Directory '{directory}' does not exist\")\n\n    def get_directories(\n        self,\n        directory: typing.Optional[PathLike] = None,\n        packages: typing.Optional[\n            typing.List[typing.Union[str, typing.Tuple[str, str]]]\n        ] = None,\n    ) -> typing.List[PathLike]:\n        \"\"\"\n        Given `directory` and `packages` arguments, return a list of all the\n        directories that should be used for serving static files from.\n        \"\"\"\n        directories = []\n        if directory is not None:\n            directories.append(directory)\n\n        for package in packages or []:\n            if isinstance(package, tuple):\n                package, statics_dir = package\n            else:\n                statics_dir = \"statics\"\n            spec = importlib.util.find_spec(package)\n            assert spec is not None, f\"Package {package!r} could not be found.\"\n            assert spec.origin is not None, f\"Package {package!r} could not be found.\"\n            package_directory = os.path.normpath(\n                os.path.join(spec.origin, \"..\", statics_dir)\n            )\n            assert os.path.isdir(\n                package_directory\n            ), f\"Directory '{statics_dir!r}' in package {package!r} could not be found.\"\n            directories.append(package_directory)\n\n        return directories\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        \"\"\"\n        The ASGI entry point.\n        \"\"\"\n        assert scope[\"type\"] == \"http\"\n\n        if not self.config_checked:\n            await self.check_config()\n            self.config_checked = True\n\n        path = self.get_path(scope)\n        response = await self.get_response(path, scope)\n        await response(scope, receive, send)\n\n    def get_path(self, scope: Scope) -> str:\n        \"\"\"\n        Given the ASGI scope, return the `path` string to serve up,\n        with OS specific path separators, and any '..', '.' components removed.\n        \"\"\"\n        return os.path.normpath(os.path.join(*scope[\"path\"].split(\"/\")))  # type: ignore[no-any-return]  # noqa: E501\n\n    async def get_response(self, path: str, scope: Scope) -> Response:\n        \"\"\"\n        Returns an HTTP response, given the incoming path, method and request headers.\n        \"\"\"\n        if scope[\"method\"] not in (\"GET\", \"HEAD\"):\n            raise HTTPException(status_code=405)\n\n        try:\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, path\n            )\n        except PermissionError:\n            raise HTTPException(status_code=401)\n        except OSError:\n            raise\n\n        if stat_result and stat.S_ISREG(stat_result.st_mode):\n            # We have a static file to serve.\n            return self.file_response(full_path, stat_result, scope)\n\n        elif stat_result and stat.S_ISDIR(stat_result.st_mode) and self.html:\n            # We're in HTML mode, and have got a directory URL.\n            # Check if we have 'index.html' file to serve.\n            index_path = os.path.join(path, \"index.html\")\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, index_path\n            )\n            if stat_result is not None and stat.S_ISREG(stat_result.st_mode):\n                if not scope[\"path\"].endswith(\"/\"):\n                    # Directory URLs should redirect to always end in \"/\".\n                    url = URL(scope=scope)\n                    url = url.replace(path=url.path + \"/\")\n                    return RedirectResponse(url=url)\n                return self.file_response(full_path, stat_result, scope)\n\n        if self.html:\n            # Check for '404.html' if we're in HTML mode.\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, \"404.html\"\n            )\n            if stat_result and stat.S_ISREG(stat_result.st_mode):\n                return FileResponse(\n                    full_path,\n                    stat_result=stat_result,\n                    method=scope[\"method\"],",
+        "end_line": 157,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/staticfiles.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/starlette/staticfiles.py#L38-L157",
+        "reranker_score": "-6.425414",
+        "rrf_score": "0.01562500",
+        "score": "-6.425414",
+        "source_type": "python_source",
+        "start_line": 38,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "20.002167",
+        "commit": "1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223",
+        "content": "def test_url_for():\n    assert (\n        app.url_path_for(\"homepage\").make_absolute_url(base_url=\"https://example.org\")\n        == \"https://example.org/\"\n    )\n    assert (\n        app.url_path_for(\"homepage\").make_absolute_url(\n            base_url=\"https://example.org/root_path/\"\n        )\n        == \"https://example.org/root_path/\"\n    )\n    assert (\n        app.url_path_for(\"user\", username=\"tomchristie\").make_absolute_url(\n            base_url=\"https://example.org\"\n        )\n        == \"https://example.org/users/tomchristie\"\n    )\n    assert (\n        app.url_path_for(\"user\", username=\"tomchristie\").make_absolute_url(\n            base_url=\"https://example.org/root_path/\"\n        )\n        == \"https://example.org/root_path/users/tomchristie\"\n    )\n    assert (\n        app.url_path_for(\"websocket_endpoint\").make_absolute_url(\n            base_url=\"https://example.org\"\n        )\n        == \"wss://example.org/ws\"\n    )",
+        "end_line": 306,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/1fd4b20edca3d5d3574e86fd1ee22ef9d1c66223/tests/test_routing.py#L278-L306",
+        "reranker_score": "-7.241981",
+        "rrf_score": "0.01515152",
+        "score": "-7.241981",
+        "source_type": "python_test",
+        "start_line": 278,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "status": "completed"
+}

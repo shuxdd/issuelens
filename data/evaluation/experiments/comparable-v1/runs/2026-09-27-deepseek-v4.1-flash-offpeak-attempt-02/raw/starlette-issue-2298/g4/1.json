@@ -1,0 +1,579 @@
+{
+  "case_id": "starlette-issue-2298",
+  "events": [
+    {
+      "case_id": "starlette-issue-2298",
+      "duration_ns": 3860195300,
+      "event_id": "d9f245c8c55ba73e",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2298",
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 1,
+      "snapshot_commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "duration_ns": 3860195300,
+      "event_id": "ca216ab7fae6aa75",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "query": "Strong and weak etags for StaticFiles",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "arguments": {
+        "query_sha256": "facce9edb61d3300a9a2432c9e1976e4f0f11b70252b2bf6994e19c32db39df4"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3860195300,
+      "event_id": "b74e817f597a99c1",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "kind": "tool",
+      "parent_id": "d6eb93bbbe41dfbb",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L460-L463",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L219-L221",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L450-L455",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L649-L652",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L165-L182",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L520-L550",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/third-party-packages.md#L249-L253",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L185-L195"
+      ],
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "arguments": {
+        "query_sha256": "facce9edb61d3300a9a2432c9e1976e4f0f11b70252b2bf6994e19c32db39df4"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3860195300,
+      "event_id": "4a9102d42756bef1",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "kind": "tool",
+      "parent_id": "d6eb93bbbe41dfbb",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L460-L463",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L219-L221",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L450-L455",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L649-L652",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L165-L182",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L520-L550",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/third-party-packages.md#L249-L253",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L185-L195"
+      ],
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "duration_ns": 3860195300,
+      "event_id": "d6eb93bbbe41dfbb",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "to_stage": "retrieved",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L460-L463",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L219-L221",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L450-L455",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L649-L652",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L165-L182",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L520-L550",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/third-party-packages.md#L249-L253",
+        "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L185-L195"
+      ],
+      "duration_ns": 3860195300,
+      "event_id": "298d43faf8a0206e",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "cached_input_tokens": 2816,
+      "cost": "0.000774348",
+      "currency": "USD",
+      "duration_ns": 3820034400,
+      "event_id": "0801876312dd1fb1",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "input_tokens": 3462,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 1115,
+      "parent_id": "a294f2c93a161580",
+      "prompt_version": "agent-v1",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "status": "ok",
+      "total_tokens": 4577,
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "duration_ns": 3860195300,
+      "event_id": "a294f2c93a161580",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "StaticFiles may generate only strong ETags and handle weak ETags in If-None-Match incorrectly, leading to issues with clients sending weak ETags.",
+        "StaticFiles may generate weak ETags (e.g. W/\"...\") and handle strong ETags in If-None-Match incorrectly."
+      ],
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "duration_ns": 3860195300,
+      "event_id": "0f23f4d5a7661fd3",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "references": [],
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    },
+    {
+      "duration_ns": 3860195300,
+      "event_id": "4a469025bc008b3b",
+      "finished_at": "2026-09-27T17:23:38.424199Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "084f4e6ba051cd4a9e82df46b12044ef",
+      "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:23:34.564004Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3860289400
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000774348",
+    "input_tokens": 3462,
+    "latency_ns": 3820034400,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 1115,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 333384465500,
+    "run_latency_ns": 3860195300,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 337244660800,
+    "total_tokens": 4577
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "end_line": 66,
+        "path": "docs/staticfiles.md",
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "start_line": 4
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "end_line": 210,
+        "path": "tests/test_staticfiles.py",
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "start_line": 198
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "Does StaticFiles generate strong, weak, or both types of ETags?",
+      "How does StaticFiles handle If-None-Match headers containing weak ETags versus strong ETags?",
+      "Is there a known issue where StaticFiles incorrectly processes weak ETags?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+            "end_line": 210,
+            "excerpt": "def test_staticfiles_304_with_etag_match(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    first_resp = client.get(\"/example.txt\")\n    assert first_resp.status_code == 200\n    last_etag = first_resp.headers[\"etag\"]\n    second_resp = client.get(\"/example.txt\", headers={\"if-none-match\": last_etag})\n    assert second_resp.status_code == 304\n    assert second_resp.content == b\"\"",
+            "path": "tests/test_staticfiles.py",
+            "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+            "start_line": 198
+          }
+        ],
+        "text": "The test only uses a single ETag value (last_etag) for If-None-Match and verifies a 304 response, without distinguishing strong or weak ETags."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+            "end_line": 66,
+            "excerpt": "### StaticFiles\n\nSignature: `StaticFiles(directory=None, packages=None, html=False, check_dir=True, follow_symlink=False)`\n\n* `directory` - A string or [os.PathLike][pathlike] denoting a directory path.\n* `packages` - A list of strings or list of tuples of strings of python packages.\n* `html` - Run in HTML mode. Automatically loads `index.html` for directories if such file exist.\n* `check_dir` - Ensure that the directory exists upon instantiation. Defaults to `True`.\n* `follow_symlink` - A boolean indicating if symbolic links for files and directories should be followed. Defaults to `False`.\n\nYou can combine this ASGI application with Starlette's routing to provide\ncomprehensive static file serving.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes = [\n    ...\n    Mount('/static', app=StaticFiles(directory='static'), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nStatic files will respond with \"404 Not found\" or \"405 Method not allowed\"\nresponses for requests which do not match. In HTML mode if `404.html` file\nexists it will be shown as 404 response.\n\nThe `packages` option can be used to include \"static\" directories contained within\na python package. The Python \"bootstrap4\" package is an example of this.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(directory='static', packages=['bootstrap4']), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nBy default `StaticFiles` will look for `statics` directory in each package,\nyou can change the default directory by specifying a tuple of strings.\n\n```python\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(packages=[('bootstrap4', 'static')]), name=\"static\"),\n]\n```\n\nYou may prefer to include static files directly inside the \"static\" directory\nrather than using Python packaging to include static files, but it can be useful\nfor bundling up reusable components.\n\n[pathlike]: https://docs.python.org/3/library/os.html#os.PathLike",
+            "path": "docs/staticfiles.md",
+            "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+            "start_line": 4
+          }
+        ],
+        "text": "StaticFiles documentation mentions no ETag behavior, strong or weak."
+      }
+    ],
+    "issue_classification": "etag handling in StaticFiles",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "StaticFiles may generate only strong ETags and handle weak ETags in If-None-Match incorrectly, leading to issues with clients sending weak ETags.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "StaticFiles may generate weak ETags (e.g. W/\"...\") and handle strong ETags in If-None-Match incorrectly.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Does StaticFiles generate strong, weak, or both types of ETags?",
+      "How does StaticFiles handle If-None-Match headers containing weak ETags versus strong ETags?",
+      "Is there a known issue where StaticFiles incorrectly processes weak ETags?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_304_with_etag_match(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    first_resp = client.get(\"/example.txt\")\n    assert first_resp.status_code == 200\n    last_etag = first_resp.headers[\"etag\"]\n    second_resp = client.get(\"/example.txt\", headers={\"if-none-match\": last_etag})\n    assert second_resp.status_code == 304\n    assert second_resp.content == b\"\"",
+        "end_line": 210,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "reranker_score": "-1.043223",
+        "rrf_score": "0.01639344",
+        "score": "-1.043223",
+        "source_type": "python_test",
+        "start_line": 198,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.805313"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "7.484964",
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "### StaticFiles\n\nSignature: `StaticFiles(directory=None, packages=None, html=False, check_dir=True, follow_symlink=False)`\n\n* `directory` - A string or [os.PathLike][pathlike] denoting a directory path.\n* `packages` - A list of strings or list of tuples of strings of python packages.\n* `html` - Run in HTML mode. Automatically loads `index.html` for directories if such file exist.\n* `check_dir` - Ensure that the directory exists upon instantiation. Defaults to `True`.\n* `follow_symlink` - A boolean indicating if symbolic links for files and directories should be followed. Defaults to `False`.\n\nYou can combine this ASGI application with Starlette's routing to provide\ncomprehensive static file serving.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes = [\n    ...\n    Mount('/static', app=StaticFiles(directory='static'), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nStatic files will respond with \"404 Not found\" or \"405 Method not allowed\"\nresponses for requests which do not match. In HTML mode if `404.html` file\nexists it will be shown as 404 response.\n\nThe `packages` option can be used to include \"static\" directories contained within\na python package. The Python \"bootstrap4\" package is an example of this.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(directory='static', packages=['bootstrap4']), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nBy default `StaticFiles` will look for `statics` directory in each package,\nyou can change the default directory by specifying a tuple of strings.\n\n```python\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(packages=[('bootstrap4', 'static')]), name=\"static\"),\n]\n```\n\nYou may prefer to include static files directly inside the \"static\" directory\nrather than using Python packaging to include static files, but it can be useful\nfor bundling up reusable components.\n\n[pathlike]: https://docs.python.org/3/library/os.html#os.PathLike",
+        "end_line": 66,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/staticfiles.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "reranker_score": "-3.938709",
+        "rrf_score": "0.03128055",
+        "score": "-3.938709",
+        "source_type": "markdown",
+        "start_line": 4,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.732998"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "## 0.13.6\n\n* Fix 404 errors with `StaticFiles`.\n",
+        "end_line": 463,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L460-L463",
+        "reranker_score": "-4.353504",
+        "rrf_score": "0.01587302",
+        "score": "-4.353504",
+        "source_type": "markdown",
+        "start_line": 460,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.743331"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "### Fixed\n* Revert \"Allow `StaticFiles` to follow symlinks\" [#1681](https://github.com/encode/starlette/pull/1681).\n",
+        "end_line": 221,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L219-L221",
+        "reranker_score": "-4.993326",
+        "rrf_score": "0.01612903",
+        "score": "-4.993326",
+        "source_type": "markdown",
+        "start_line": 219,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.744017"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "8.308276",
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "## 0.13.8\n\n* Revert `Queue(maxsize=1)` fix for `BaseHTTPMiddleware` middleware classes and streaming responses.\n\n* The `StaticFiles` constructor now allows `pathlib.Path` in addition to strings for its `directory` argument.\n",
+        "end_line": 455,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L450-L455",
+        "reranker_score": "-5.668576",
+        "rrf_score": "0.03109932",
+        "score": "-5.668576",
+        "source_type": "markdown",
+        "start_line": 450,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.730101"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "7.278005",
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "## StaticFiles\n\n* StaticFiles no longer reads the file for responses to `HEAD` requests.\n",
+        "end_line": 652,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L649-L652",
+        "reranker_score": "-6.063192",
+        "rrf_score": "0.01587302",
+        "score": "-6.063192",
+        "source_type": "markdown",
+        "start_line": 649,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_prevents_breaking_out_of_directory(tmpdir):\n    directory = os.path.join(tmpdir, \"foo\")\n    os.mkdir(directory)\n\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"outside root dir\")\n\n    app = StaticFiles(directory=directory)\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../example.txt\"})\n    scope = {\"method\": \"GET\"}\n\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, scope)\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 182,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L165-L182",
+        "reranker_score": "-6.775774",
+        "rrf_score": "0.01562500",
+        "score": "-6.775774",
+        "source_type": "python_test",
+        "start_line": 165,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.736209"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_avoids_path_traversal(tmp_path: Path):\n    statics_path = tmp_path / \"static\"\n    statics_disallow_path = tmp_path / \"static_disallow\"\n\n    statics_path.mkdir()\n    statics_disallow_path.mkdir()\n\n    static_index_file = statics_path / \"index.html\"\n    statics_disallow_path_index_file = statics_disallow_path / \"index.html\"\n    static_file = tmp_path / \"static1.txt\"\n\n    static_index_file.write_text(\"<h1>Hello</h1>\")\n    statics_disallow_path_index_file.write_text(\"<h1>Private</h1>\")\n    static_file.write_text(\"Private\")\n\n    app = StaticFiles(directory=statics_path)\n\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../static1.txt\"})\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, {\"method\": \"GET\"})\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"\n\n    path = app.get_path({\"path\": \"/../static_disallow/index.html\"})\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, {\"method\": \"GET\"})\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 550,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L520-L550",
+        "reranker_score": "-6.885315",
+        "rrf_score": "0.01538462",
+        "score": "-6.885315",
+        "source_type": "python_test",
+        "start_line": 520,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.733214"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "6.303315",
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "### Starlette-StaticResources\n\n<a href=\"https://github.com/DavidVentura/starlette-static-resources\" target=\"_blank\">GitHub</a>\n\nAllows mounting [package resources](https://docs.python.org/3/library/importlib.resources.html#module-importlib.resources) for static data, similar to [StaticFiles](https://www.starlette.io/staticfiles/).",
+        "end_line": 253,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/third-party-packages.md#L249-L253",
+        "reranker_score": "-7.143199",
+        "rrf_score": "0.01538462",
+        "score": "-7.143199",
+        "source_type": "markdown",
+        "start_line": 249,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "6.328776",
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_never_read_file_for_head_method(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    response = client.head(\"/example.txt\")\n    assert response.status_code == 200\n    assert response.content == b\"\"\n    assert response.headers[\"content-length\"] == \"14\"",
+        "end_line": 195,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L185-L195",
+        "reranker_score": "-7.684348",
+        "rrf_score": "0.01562500",
+        "score": "-7.684348",
+        "source_type": "python_test",
+        "start_line": 185,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "92c3d5088743401fb284029f3f1f1ee3",
+  "status": "completed",
+  "trace_id": "084f4e6ba051cd4a9e82df46b12044ef"
+}

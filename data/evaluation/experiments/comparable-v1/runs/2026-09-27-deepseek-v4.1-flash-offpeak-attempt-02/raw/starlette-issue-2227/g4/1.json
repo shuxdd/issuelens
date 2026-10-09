@@ -1,0 +1,642 @@
+{
+  "case_id": "starlette-issue-2227",
+  "events": [
+    {
+      "case_id": "starlette-issue-2227",
+      "duration_ns": 2433072500,
+      "event_id": "140d4c579385b956",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2227",
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 1,
+      "snapshot_commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "duration_ns": 2433072500,
+      "event_id": "2237995b7aa0dcf4",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "query": "No module named 'exceptiongroup' when upgraded to starlette 0.31.0",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "arguments": {
+        "query_sha256": "e96a3ad54dd7743d97e6e1b240c065511e9658363cc418dee221215631bb0424"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2433072500,
+      "event_id": "15e451d964b9089e",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "kind": "tool",
+      "parent_id": "e6e4f7f8f60bb9dd",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L45-L56",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L168-L173",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/third-party-packages.md#L133-L138",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/test_status.py#L6-L25",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L1-L4",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/config.py#L10-L11",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L42-L42",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L1-L5"
+      ],
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "arguments": {
+        "query_sha256": "e96a3ad54dd7743d97e6e1b240c065511e9658363cc418dee221215631bb0424"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2433072500,
+      "event_id": "ccd3e34be32ae1b7",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "kind": "tool",
+      "parent_id": "e6e4f7f8f60bb9dd",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L45-L56",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L168-L173",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/third-party-packages.md#L133-L138",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/test_status.py#L6-L25",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L1-L4",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/config.py#L10-L11",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L42-L42",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L1-L5"
+      ],
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "duration_ns": 2433072500,
+      "event_id": "e6e4f7f8f60bb9dd",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "to_stage": "retrieved",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L45-L56",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L168-L173",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/third-party-packages.md#L133-L138",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/test_status.py#L6-L25",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L1-L4",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/config.py#L10-L11",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L42-L42",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L1-L5"
+      ],
+      "duration_ns": 2433072500,
+      "event_id": "489591700379293c",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "cached_input_tokens": 1664,
+      "cost": "0.000441492",
+      "currency": "USD",
+      "duration_ns": 2389945400,
+      "event_id": "b8e47ae840e8aef6",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "input_tokens": 2202,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 593,
+      "parent_id": "84721a89d8de3c6e",
+      "prompt_version": "agent-v1",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "status": "ok",
+      "total_tokens": 2795,
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "duration_ns": 2433072500,
+      "event_id": "84721a89d8de3c6e",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "A Python environment below 3.11 lacks the exceptiongroup package, and a Starlette dependency or test path attempts to import it. The only explicit exceptiongroup import in the supplied candidates is guarded for Python < 3.11, so the failure may originate from another affected module not shown in the candidates.",
+        "Starlette 0.31.0 may have introduced an unguarded or improperly guarded exceptiongroup dependency for Python versions below 3.11, causing ModuleNotFoundError when exceptiongroup is not installed."
+      ],
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "duration_ns": 2433072500,
+      "event_id": "e26ecc06f614ee23",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8"
+      ],
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    },
+    {
+      "duration_ns": 2433072500,
+      "event_id": "b42861534b2b9990",
+      "finished_at": "2026-09-27T17:17:51.847485Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "10b06c2aaabef4f9068642334399817b",
+      "run_id": "8dab95caecf94020b13d38e1dda16160",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:17:49.414413Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "10b06c2aaabef4f9068642334399817b"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2433205800
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000441492",
+    "input_tokens": 2202,
+    "latency_ns": 2389945400,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 593,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 328151221400,
+    "run_latency_ns": 2433072500,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 330584293900,
+    "total_tokens": 2795
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "end_line": 171,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+        "start_line": 171
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "end_line": 1,
+        "path": "starlette/__init__.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "start_line": 1
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "end_line": 8,
+        "path": "tests/middleware/test_wsgi.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+        "start_line": 1
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "end_line": 8,
+        "path": "tests/middleware/test_wsgi.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+        "start_line": 7
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Which exact Starlette module or dependency imports exceptiongroup at runtime on Python < 3.11?",
+      "What Python version was used when the error occurred?",
+      "Was exceptiongroup installed as a dependency?",
+      "Is the error occurring during application import, test execution, or package installation?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 8,
+            "excerpt": "import sys\n\nimport pytest\n\nfrom starlette.middleware.wsgi import WSGIMiddleware, build_environ\n\nif sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+            "path": "tests/middleware/test_wsgi.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+            "start_line": 1
+          }
+        ],
+        "text": "The test file conditionally imports exceptiongroup only on Python versions below 3.11."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 1,
+            "excerpt": "__version__ = \"0.31.0\"",
+            "path": "starlette/__init__.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+            "start_line": 1
+          }
+        ],
+        "text": "Starlette 0.31.0 is the version in the candidate source snapshot."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 171,
+            "excerpt": "* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+            "start_line": 171
+          }
+        ],
+        "text": "The release notes for 0.31.0 indicate official support for Python 3.11 was added."
+      }
+    ],
+    "issue_classification": "dependency packaging issue involving exceptiongroup import and Python version compatibility",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 8,
+            "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+            "path": "tests/middleware/test_wsgi.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+            "start_line": 7
+          }
+        ],
+        "text": "A Python environment below 3.11 lacks the exceptiongroup package, and a Starlette dependency or test path attempts to import it. The only explicit exceptiongroup import in the supplied candidates is guarded for Python < 3.11, so the failure may originate from another affected module not shown in the candidates.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 1,
+            "excerpt": "__version__ = \"0.31.0\"",
+            "path": "starlette/__init__.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+            "start_line": 1
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 171,
+            "excerpt": "* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+            "start_line": 171
+          }
+        ],
+        "text": "Starlette 0.31.0 may have introduced an unguarded or improperly guarded exceptiongroup dependency for Python versions below 3.11, causing ModuleNotFoundError when exceptiongroup is not installed.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which exact Starlette module or dependency imports exceptiongroup at runtime on Python < 3.11?",
+      "What Python version was used when the error occurred?",
+      "Was exceptiongroup installed as a dependency?",
+      "Is the error occurring during application import, test execution, or package installation?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "10.558791",
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "def __getattr__(name: str) -> typing.Any:  # pragma: no cover\n    if name == __deprecated__:\n        from starlette.middleware.exceptions import ExceptionMiddleware\n\n        warnings.warn(\n            f\"{__deprecated__} is deprecated on `starlette.exceptions`. \"\n            f\"Import it from `starlette.middleware.exceptions` instead.\",\n            category=DeprecationWarning,\n            stacklevel=3,\n        )\n        return ExceptionMiddleware\n    raise AttributeError(f\"module '{__name__}' has no attribute '{name}'\")",
+        "end_line": 56,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/exceptions.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L45-L56",
+        "reranker_score": "2.115626",
+        "rrf_score": "0.01538462",
+        "score": "2.115626",
+        "source_type": "python_source",
+        "start_line": 45,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "13.225891",
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "import sys\n\nimport pytest\n\nfrom starlette.middleware.wsgi import WSGIMiddleware, build_environ\n\nif sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+        "end_line": 8,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+        "reranker_score": "0.733882",
+        "rrf_score": "0.01587302",
+        "score": "0.733882",
+        "source_type": "python_test",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "### Added\n* Add `WebSocketException` and support for WebSocket exception handlers [#1263](https://github.com/encode/starlette/pull/1263).\n* Add `middleware` parameter to `Mount` class [#1649](https://github.com/encode/starlette/pull/1649).\n* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).\n* Implement `__repr__` for route classes [#1864](https://github.com/encode/starlette/pull/1864).\n",
+        "end_line": 173,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L168-L173",
+        "reranker_score": "-2.558068",
+        "rrf_score": "0.01515152",
+        "score": "-2.558068",
+        "source_type": "markdown",
+        "start_line": 168,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.778677"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "### Starception\n    \n<a href=\"https://github.com/alex-oleshkevich/starception\" target=\"_blank\">GitHub</a>\n\nBeautiful exception page for Starlette apps.\n",
+        "end_line": 138,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/third-party-packages.md#L133-L138",
+        "reranker_score": "-3.534879",
+        "rrf_score": "0.01538462",
+        "score": "-3.534879",
+        "source_type": "markdown",
+        "start_line": 133,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.789791"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "17.442282",
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "__version__ = \"0.31.0\"",
+        "end_line": 1,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/__init__.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "reranker_score": "-4.541093",
+        "rrf_score": "0.03226646",
+        "score": "-4.541093",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.792098"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "12.647148",
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "@pytest.mark.parametrize(\n    \"constant,msg\",\n    (\n        (\n            \"WS_1004_NO_STATUS_RCVD\",\n            \"'WS_1004_NO_STATUS_RCVD' is deprecated. \"\n            \"Use 'WS_1005_NO_STATUS_RCVD' instead.\",\n        ),\n        (\n            \"WS_1005_ABNORMAL_CLOSURE\",\n            \"'WS_1005_ABNORMAL_CLOSURE' is deprecated. \"\n            \"Use 'WS_1006_ABNORMAL_CLOSURE' instead.\",\n        ),\n    ),\n)\ndef test_deprecated_types(constant: str, msg: str) -> None:\n    with pytest.warns(DeprecationWarning) as record:\n        getattr(importlib.import_module(\"starlette.status\"), constant)\n        assert len(record) == 1\n        assert msg in str(record.list[0])",
+        "end_line": 25,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_status.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/test_status.py#L6-L25",
+        "reranker_score": "-5.152452",
+        "rrf_score": "0.01562500",
+        "score": "-5.152452",
+        "source_type": "python_test",
+        "start_line": 6,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "15.928882",
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "## 0.31.0\n\nJuly 24, 2023\n",
+        "end_line": 4,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L1-L4",
+        "reranker_score": "-5.643436",
+        "rrf_score": "0.01612903",
+        "score": "-5.643436",
+        "source_type": "markdown",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "class EnvironError(Exception):\n    pass",
+        "end_line": 11,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/config.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/config.py#L10-L11",
+        "reranker_score": "-7.031738",
+        "rrf_score": "0.01562500",
+        "score": "-7.031738",
+        "source_type": "python_source",
+        "start_line": 10,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.790016"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "__deprecated__ = \"ExceptionMiddleware\"",
+        "end_line": 42,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/exceptions.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L42-L42",
+        "reranker_score": "-8.071360",
+        "rrf_score": "0.01639344",
+        "score": "-8.071360",
+        "source_type": "python_source",
+        "start_line": 42,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.869414"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "import http\nimport typing\nimport warnings\n\n__all__ = (\"HTTPException\", \"WebSocketException\")",
+        "end_line": 5,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/exceptions.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L1-L5",
+        "reranker_score": "-11.420549",
+        "rrf_score": "0.01612903",
+        "score": "-11.420549",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.797589"
+      }
+    ]
+  },
+  "run_id": "8dab95caecf94020b13d38e1dda16160",
+  "status": "completed",
+  "trace_id": "10b06c2aaabef4f9068642334399817b"
+}

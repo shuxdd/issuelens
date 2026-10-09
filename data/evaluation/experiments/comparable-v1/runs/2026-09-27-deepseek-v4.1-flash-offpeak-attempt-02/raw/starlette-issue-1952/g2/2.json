@@ -1,0 +1,334 @@
+{
+  "case_id": "starlette-issue-1952",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 3200,
+    "cost": "0.00055935",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 3417,
+    "latency_ns": 3178528100,
+    "missed_input_tokens": 217,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 862,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 285541255600,
+    "total_latency_ns": 288719783700,
+    "total_tokens": 4279
+  },
+  "replicate": 2,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 8,
+            "excerpt": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L8",
+            "start_line": 7
+          }
+        ],
+        "text": "The release notes state that TestClient was changed to use httpx instead of requests."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 140,
+            "excerpt": "!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.",
+            "path": "docs/testclient.md",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L138-L140",
+            "start_line": 138
+          }
+        ],
+        "text": "The test client documentation states that websocket_connect does not support the params argument and that query arguments must be hardcoded directly in the URL."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 37,
+            "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+            "start_line": 36
+          }
+        ],
+        "text": "An existing query parameter test only covers plainly encoded ASCII keys and values in a query string."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 369,
+            "excerpt": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+            "path": "tests/test_formparsers.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+            "start_line": 366
+          }
+        ],
+        "text": "An existing form parser test covers percent-encoded keys in form data sent via data, not query parameters."
+      }
+    ],
+    "issue_classification": "bug",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 8,
+            "excerpt": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L8",
+            "start_line": 7
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 37,
+            "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+            "start_line": 36
+          }
+        ],
+        "text": "The switch from requests to httpx in TestClient changed how query parameters are encoded, which may cause incorrect encoding for non-ASCII or special characters in query parameters.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "TestClient or httpx may not apply URL encoding correctly to query parameters when constructing requests, leading to bad encoding.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 37,
+            "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+            "start_line": 36
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 369,
+            "excerpt": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+            "path": "tests/test_formparsers.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+            "start_line": 366
+          }
+        ],
+        "text": "Existing tests lack coverage for query parameters with non-ASCII or special characters, so an encoding regression could go undetected.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What specific non-ASCII or special characters in query parameters are being incorrectly encoded?",
+      "Is the bad encoding caused by TestClient, httpx, or the application-side query parameter parsing?",
+      "Does the issue occur with both client.get params and hardcoded URL query strings?",
+      "Are there existing tests or reproduction steps for this encoding bug?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "13.685606",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).\n",
+        "end_line": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L9",
+        "score": "0.03154496",
+        "source_type": "markdown",
+        "start_line": 7,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.781774"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "15.034609",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "#### Establishing a test session\n\n* `.websocket_connect(url, subprotocols=None, **options)` - Takes the same set of arguments as `httpx.get()`.\n\nMay raise `starlette.websockets.WebSocketDisconnect` if the application does not accept the websocket connection.\n\n`websocket_connect()` must be used as a context manager (in a `with` block).\n\n!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.\n\n    ```python\n    with client.websocket_connect('/path?foo=bar') as websocket:\n        ...\n    ```\n",
+        "end_line": 146,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L130-L146",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 130,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "14.042003",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "#### Query Parameters\n\nQuery parameters are exposed as an immutable multi-dict.\n\nFor example: `request.query_params['search']`\n",
+        "end_line": 54,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/requests.md#L49-L54",
+        "score": "0.01612903",
+        "source_type": "markdown",
+        "start_line": 49,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_request_query_params(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        params = dict(request.query_params)\n        response = JSONResponse({\"params\": params})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+        "end_line": 37,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L28-L37",
+        "score": "0.01612903",
+        "source_type": "python_test",
+        "start_line": 28,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.760399"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "14.042003",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "#### Query Parameters\n\nQuery parameters are exposed as an immutable multi-dict.\n\nFor example: `websocket.query_params['search']`\n",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/websockets.md#L40-L45",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 40,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_queryparams():\n    q = QueryParams(\"a=123&a=456&b=789\")\n    assert \"a\" in q\n    assert \"A\" not in q\n    assert \"c\" not in q\n    assert q[\"a\"] == \"456\"\n    assert q.get(\"a\") == \"456\"\n    assert q.get(\"nope\", default=None) is None\n    assert q.getlist(\"a\") == [\"123\", \"456\"]\n    assert list(q.keys()) == [\"a\", \"b\"]\n    assert list(q.values()) == [\"456\", \"789\"]\n    assert list(q.items()) == [(\"a\", \"456\"), (\"b\", \"789\")]\n    assert len(q) == 2\n    assert list(q) == [\"a\", \"b\"]\n    assert dict(q) == {\"a\": \"456\", \"b\": \"789\"}\n    assert str(q) == \"a=123&a=456&b=789\"\n    assert repr(q) == \"QueryParams('a=123&a=456&b=789')\"\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\n        [(\"a\", \"123\"), (\"b\", \"456\")]\n    )\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\"a=123&b=456\")\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\n        {\"b\": \"456\", \"a\": \"123\"}\n    )\n    assert QueryParams() == QueryParams({})\n    assert QueryParams([(\"a\", \"123\"), (\"a\", \"456\")]) == QueryParams(\"a=123&a=456\")\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) != \"invalid\"\n\n    q = QueryParams([(\"a\", \"123\"), (\"a\", \"456\")])\n    assert QueryParams(q) == q",
+        "end_line": 269,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_datastructures.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L240-L269",
+        "score": "0.01587302",
+        "source_type": "python_test",
+        "start_line": 240,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.758182"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "14.041747",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "### Asynchronous tests\n\nSometimes you will want to do async things outside of your application.\nFor example, you might want to check the state of your database after calling your app using your existing async database client / infrastructure.\n\nFor these situations, using `TestClient` is difficult because it creates it's own event loop and async resources (like a database connection) often cannot be shared across event loops.\nThe simplest way to work around this is to just make your entire test async and use an async client, like [httpx.AsyncClient].\n\nHere is an example of such a test:\n\n```python\nfrom httpx import AsyncClient\nfrom starlette.applications import Starlette\nfrom starlette.routing import Route\nfrom starlette.requests import Request\nfrom starlette.responses import PlainTextResponse\n\n\ndef hello(request: Request) -> PlainTextResponse:\n    return PlainTextResponse(\"Hello World!\")\n\n\napp = Starlette(routes=[Route(\"/\", hello)])\n\n\n# if you're using pytest, you'll need to to add an async marker like:\n# @pytest.mark.anyio  # using https://github.com/agronholm/anyio\n# or install and configure pytest-asyncio (https://github.com/pytest-dev/pytest-asyncio)\nasync def test_app() -> None:\n    # note: you _must_ set `base_url` for relative urls like \"/\" to work\n    async with AsyncClient(app=app, base_url=\"http://testserver\") as client:\n        r = await client.get(\"/\")\n        assert r.status_code == 200\n        assert r.text == \"Hello World!\"\n```\n\n[httpx.AsyncClient]: https://www.python-httpx.org/advanced/#calling-into-python-web-apps",
+        "end_line": 201,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L165-L201",
+        "score": "0.01562500",
+        "source_type": "markdown",
+        "start_line": 165,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+        "end_line": 369,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 366,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.754679"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_url_blank_params():\n    q = QueryParams(\"a=123&abc&def&b=456\")\n    assert \"a\" in q\n    assert \"abc\" in q\n    assert \"def\" in q\n    assert \"b\" in q\n    val = q.get(\"abc\")\n    assert val is not None\n    assert len(val) == 0\n    assert len(q[\"a\"]) == 3\n    assert list(q.keys()) == [\"a\", \"abc\", \"def\", \"b\"]",
+        "end_line": 237,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_datastructures.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L227-L237",
+        "score": "0.01538462",
+        "source_type": "python_test",
+        "start_line": 227,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.752112"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "14.021084",
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_use_testclient_as_contextmanager(test_client_factory, anyio_backend_name):\n    \"\"\"\n    This test asserts a number of properties that are important for an\n    app level task_group\n    \"\"\"\n    counter = itertools.count()\n    identity_runvar = anyio.lowlevel.RunVar[int](\"identity_runvar\")\n\n    def get_identity():\n        try:\n            return identity_runvar.get()\n        except LookupError:\n            token = next(counter)\n            identity_runvar.set(token)\n            return token\n\n    startup_task = object()\n    startup_loop = None\n    shutdown_task = object()\n    shutdown_loop = None\n\n    @asynccontextmanager\n    async def lifespan_context(app):\n        nonlocal startup_task, startup_loop, shutdown_task, shutdown_loop\n\n        startup_task = current_task()\n        startup_loop = get_identity()\n        async with anyio.create_task_group() as app.task_group:\n            yield\n        shutdown_task = current_task()\n        shutdown_loop = get_identity()\n\n    async def loop_id(request):\n        return JSONResponse(get_identity())\n\n    app = Starlette(\n        lifespan=lifespan_context,\n        routes=[Route(\"/loop_id\", endpoint=loop_id)],\n    )\n\n    client = test_client_factory(app)\n\n    with client:\n        # within a TestClient context every async request runs in the same thread\n        assert client.get(\"/loop_id\").json() == 0\n        assert client.get(\"/loop_id\").json() == 0\n\n    # that thread is also the same as the lifespan thread\n    assert startup_loop == 0\n    assert shutdown_loop == 0\n\n    # lifespan events run in the same task, this is important because a task\n    # group must be entered and exited in the same task.\n    assert startup_task is shutdown_task\n\n    # outside the TestClient context, new requests continue to spawn in new\n    # eventloops in new threads\n    assert client.get(\"/loop_id\").json() == 1\n    assert client.get(\"/loop_id\").json() == 2\n\n    first_task = startup_task\n\n    with client:\n        # the TestClient context can be re-used, starting a new lifespan task\n        # in a new thread\n        assert client.get(\"/loop_id\").json() == 3\n        assert client.get(\"/loop_id\").json() == 3\n\n    assert startup_loop == 3\n    assert shutdown_loop == 3\n\n    # lifespan events still run in the same task, with the context but...\n    assert startup_task is shutdown_task\n\n    # ... the second TestClient context creates a new lifespan task.\n    assert first_task is not startup_task",
+        "end_line": 145,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_testclient.py#L70-L145",
+        "score": "0.01538462",
+        "source_type": "python_test",
+        "start_line": 70,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "status": "completed"
+}

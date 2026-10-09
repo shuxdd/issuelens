@@ -1,0 +1,222 @@
+{
+  "case_id": "starlette-issue-1952",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.0007881",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 3014,
+    "latency_ns": 2473775500,
+    "missed_input_tokens": 3014,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 560,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 290367498500,
+    "total_latency_ns": 292841274000,
+    "total_tokens": 3574
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 8,
+            "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+            "start_line": 8
+          }
+        ],
+        "text": "The httpx-based TestClient was introduced by replacing requests, as documented in release notes."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 37,
+            "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+            "start_line": 36
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 363,
+            "excerpt": "response = client.post(\"/\", data={\"some\": \"da ta\"})\n    assert response.json() == {\"some\": \"da ta\"}",
+            "path": "tests/test_formparsers.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L362-L363",
+            "start_line": 362
+          }
+        ],
+        "text": "Tests exercise query parameter passing through TestClient and expect plain values to be preserved."
+      }
+    ],
+    "issue_classification": "encoding",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 8,
+            "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+            "start_line": 8
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+            "end_line": 37,
+            "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+            "start_line": 36
+          }
+        ],
+        "text": "The switch from requests to httpx changed how query parameters are encoded, causing incorrect percent-encoding in TestClient requests.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What specific encoding differences exist between httpx and requests in query parameter handling?",
+      "Are there test cases that fail due to this encoding issue?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).\n",
+        "end_line": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L9",
+        "score": "0.781774",
+        "source_type": "markdown",
+        "start_line": 7
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_request_query_params(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        params = dict(request.query_params)\n        response = JSONResponse({\"params\": params})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+        "end_line": 37,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L28-L37",
+        "score": "0.760399",
+        "source_type": "python_test",
+        "start_line": 28
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_queryparams():\n    q = QueryParams(\"a=123&a=456&b=789\")\n    assert \"a\" in q\n    assert \"A\" not in q\n    assert \"c\" not in q\n    assert q[\"a\"] == \"456\"\n    assert q.get(\"a\") == \"456\"\n    assert q.get(\"nope\", default=None) is None\n    assert q.getlist(\"a\") == [\"123\", \"456\"]\n    assert list(q.keys()) == [\"a\", \"b\"]\n    assert list(q.values()) == [\"456\", \"789\"]\n    assert list(q.items()) == [(\"a\", \"456\"), (\"b\", \"789\")]\n    assert len(q) == 2\n    assert list(q) == [\"a\", \"b\"]\n    assert dict(q) == {\"a\": \"456\", \"b\": \"789\"}\n    assert str(q) == \"a=123&a=456&b=789\"\n    assert repr(q) == \"QueryParams('a=123&a=456&b=789')\"\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\n        [(\"a\", \"123\"), (\"b\", \"456\")]\n    )\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\"a=123&b=456\")\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) == QueryParams(\n        {\"b\": \"456\", \"a\": \"123\"}\n    )\n    assert QueryParams() == QueryParams({})\n    assert QueryParams([(\"a\", \"123\"), (\"a\", \"456\")]) == QueryParams(\"a=123&a=456\")\n    assert QueryParams({\"a\": \"123\", \"b\": \"456\"}) != \"invalid\"\n\n    q = QueryParams([(\"a\", \"123\"), (\"a\", \"456\")])\n    assert QueryParams(q) == q",
+        "end_line": 269,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_datastructures.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L240-L269",
+        "score": "0.758182",
+        "source_type": "python_test",
+        "start_line": 240
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+        "end_line": 369,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+        "score": "0.754679",
+        "source_type": "python_test",
+        "start_line": 366
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_url_blank_params():\n    q = QueryParams(\"a=123&abc&def&b=456\")\n    assert \"a\" in q\n    assert \"abc\" in q\n    assert \"def\" in q\n    assert \"b\" in q\n    val = q.get(\"abc\")\n    assert val is not None\n    assert len(val) == 0\n    assert len(q[\"a\"]) == 3\n    assert list(q.keys()) == [\"a\", \"abc\", \"def\", \"b\"]",
+        "end_line": 237,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_datastructures.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L227-L237",
+        "score": "0.752112",
+        "source_type": "python_test",
+        "start_line": 227
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_urlencoded_request_data(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"some\": \"data\"})\n    assert response.json() == {\"some\": \"data\"}",
+        "end_line": 351,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L348-L351",
+        "score": "0.749396",
+        "source_type": "python_test",
+        "start_line": 348
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "@pytest.mark.filterwarnings(\n    r\"ignore\"\n    r\":Trying to detect encoding from a tiny portion of \\(5\\) byte\\(s\\)\\.\"\n    r\":UserWarning\"\n    r\":charset_normalizer.api\"\n)\ndef test_router(client):\n    response = client.get(\"/\")\n    assert response.status_code == 200\n    assert response.text == \"Hello, world\"\n\n    response = client.post(\"/\")\n    assert response.status_code == 405\n    assert response.text == \"Method Not Allowed\"\n    assert set(response.headers[\"allow\"].split(\", \")) == {\"HEAD\", \"GET\"}\n\n    response = client.get(\"/foo\")\n    assert response.status_code == 404\n    assert response.text == \"Not Found\"\n\n    response = client.get(\"/users\")\n    assert response.status_code == 200\n    assert response.text == \"All users\"\n\n    response = client.get(\"/users/tomchristie\")\n    assert response.status_code == 200\n    assert response.text == \"User tomchristie\"\n\n    response = client.get(\"/users/me\")\n    assert response.status_code == 200\n    assert response.text == \"User fixed me\"\n\n    response = client.get(\"/users/tomchristie/\")\n    assert response.status_code == 200\n    assert response.url == \"http://testserver/users/tomchristie\"\n    assert response.text == \"User tomchristie\"\n\n    response = client.put(\"/users/tomchristie:disable\")\n    assert response.status_code == 200\n    assert response.url == \"http://testserver/users/tomchristie:disable\"\n    assert response.text == \"User tomchristie disabled\"\n\n    response = client.get(\"/users/nomatch\")\n    assert response.status_code == 200\n    assert response.text == \"User nomatch\"\n\n    response = client.get(\"/static/123\")\n    assert response.status_code == 200\n    assert response.text == \"xxxxx\"",
+        "end_line": 214,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_routing.py#L166-L214",
+        "score": "0.749126",
+        "source_type": "python_test",
+        "start_line": 166
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_urlencoded_percent_encoding(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"some\": \"da ta\"})\n    assert response.json() == {\"some\": \"da ta\"}",
+        "end_line": 363,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L360-L363",
+        "score": "0.748429",
+        "source_type": "python_test",
+        "start_line": 360
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "@pytest.mark.skipif(\n    any(module in sys.modules for module in (\"brotli\", \"brotlicffi\")),\n    reason='urllib3 includes \"br\" to the \"accept-encoding\" headers.',\n)\ndef test_request_headers(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        headers = dict(request.headers)\n        response = JSONResponse({\"headers\": headers})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\", headers={\"host\": \"example.org\"})\n    assert response.json() == {\n        \"headers\": {\n            \"host\": \"example.org\",\n            \"user-agent\": \"testclient\",\n            \"accept-encoding\": \"gzip, deflate\",\n            \"accept\": \"*/*\",\n            \"connection\": \"keep-alive\",\n        }\n    }",
+        "end_line": 61,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L40-L61",
+        "score": "0.746123",
+        "source_type": "python_test",
+        "start_line": 40
+      },
+      {
+        "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+        "content": "def test_chunked_encoding(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        response = JSONResponse({\"body\": body.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    def post_body():\n        yield b\"foo\"\n        yield b\"bar\"\n\n    response = client.post(\"/\", data=post_body())\n    assert response.json() == {\"body\": \"foobar\"}",
+        "end_line": 437,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L423-L437",
+        "score": "0.745761",
+        "source_type": "python_test",
+        "start_line": 423
+      }
+    ]
+  },
+  "status": "completed"
+}

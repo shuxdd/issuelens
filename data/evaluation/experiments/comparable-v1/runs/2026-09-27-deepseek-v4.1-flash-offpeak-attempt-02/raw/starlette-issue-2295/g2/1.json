@@ -1,0 +1,352 @@
+{
+  "case_id": "starlette-issue-2295",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 384,
+    "cost": "0.001279452",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 5118,
+    "latency_ns": 3808239800,
+    "missed_input_tokens": 4734,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 947,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 367411543800,
+    "total_latency_ns": 371219783600,
+    "total_tokens": 6065
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 251,
+            "excerpt": "client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+            "path": "tests/test_applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L248-L251",
+            "start_line": 248
+          }
+        ],
+        "text": "A test configures TestClient with an invalid base_url and expects a 400 \"Invalid host header\" response."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 307,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 282,
+            "excerpt": "response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L281-L282",
+            "start_line": 281
+          }
+        ],
+        "text": "TestClient sets the scope client to [\"testclient\", 50000] for HTTP requests."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 487,
+            "excerpt": "headers = Headers(scope=scope)\n            host = headers.get(\"host\", \"\").split(\":\")[0]\n            match = self.host_regex.match(host)",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L485-L487",
+            "start_line": 485
+          }
+        ],
+        "text": "Host.matches extracts the host header without port and matches it against the compiled host regex."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 169,
+            "excerpt": "if is_host:\n        # Align with `Host.matches()` behavior, which ignores port.\n        hostname = path[idx:].split(\":\")[0]\n        path_regex += re.escape(hostname) + \"$\"",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L166-L169",
+            "start_line": 166
+          }
+        ],
+        "text": "compile_path treats paths not starting with '/' as hosts and ignores the port portion when building the host regex."
+      }
+    ],
+    "issue_classification": "invalid host header handling in TestClient",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 307,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 282,
+            "excerpt": "response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L281-L282",
+            "start_line": 281
+          }
+        ],
+        "text": "The \"invalid host\" in the issue may refer to the host component of the client tuple in the scope, which TestClient hardcodes as \"testclient\" and does not derive from the base_url.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 487,
+            "excerpt": "headers = Headers(scope=scope)\n            host = headers.get(\"host\", \"\").split(\":\")[0]\n            match = self.host_regex.match(host)",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L485-L487",
+            "start_line": 485
+          },
+          {
+            "candidate_rank": 1,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 251,
+            "excerpt": "client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+            "path": "tests/test_applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L248-L251",
+            "start_line": 248
+          }
+        ],
+        "text": "Passing an invalid host via base_url may not propagate correctly into the Host header used by Host.matches, since Host.matches strips the port and relies on the header value.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 169,
+            "excerpt": "if is_host:\n        # Align with `Host.matches()` behavior, which ignores port.\n        hostname = path[idx:].split(\":\")[0]\n        path_regex += re.escape(hostname) + \"$\"",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L166-L169",
+            "start_line": 166
+          }
+        ],
+        "text": "The host regex in Host may reject a header when the compiled hostname does not exactly match due to port handling or escaping.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Does the issue specifically concern the scope's 'client' value (testclient) or the 'host' header derived from base_url?",
+      "How does HostMiddleware or host validation produce the 400 'Invalid host header' response in the failing scenario?",
+      "Is the invalid host passed through TestClient's base_url, or set via the Host header directly?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "11.313143",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_middleware(test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+        "end_line": 251,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "score": "0.03154496",
+        "source_type": "python_test",
+        "start_line": 247,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.798392"
+      },
+      {
+        "bm25_contribution": "0.01492537",
+        "bm25_rank": 7,
+        "bm25_score": "11.301927",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_client(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        client = scope.get(\"client\")\n        assert client is not None\n        host, port = client\n        response = JSONResponse({\"host\": host, \"port\": port})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+        "end_line": 282,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "score": "0.03105441",
+        "source_type": "python_test",
+        "start_line": 272,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.771062"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "16.274659",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def compile_path(\n    path: str,\n) -> tuple[typing.Pattern[str], str, dict[str, Convertor[typing.Any]]]:\n    \"\"\"\n    Given a path string, like: \"/{username:str}\",\n    or a host string, like: \"{subdomain}.mydomain.org\", return a three-tuple\n    of (regex, format, {param_name:convertor}).\n\n    regex:      \"/(?P<username>[^/]+)\"\n    format:     \"/{username}\"\n    convertors: {\"username\": StringConvertor()}\n    \"\"\"\n    is_host = not path.startswith(\"/\")\n\n    path_regex = \"^\"\n    path_format = \"\"\n    duplicated_params = set()\n\n    idx = 0\n    param_convertors = {}\n    for match in PARAM_REGEX.finditer(path):\n        param_name, convertor_type = match.groups(\"str\")\n        convertor_type = convertor_type.lstrip(\":\")\n        assert convertor_type in CONVERTOR_TYPES, f\"Unknown path convertor '{convertor_type}'\"\n        convertor = CONVERTOR_TYPES[convertor_type]\n\n        path_regex += re.escape(path[idx : match.start()])\n        path_regex += f\"(?P<{param_name}>{convertor.regex})\"\n\n        path_format += path[idx : match.start()]\n        path_format += \"{%s}\" % param_name\n\n        if param_name in param_convertors:\n            duplicated_params.add(param_name)\n\n        param_convertors[param_name] = convertor\n\n        idx = match.end()\n\n    if duplicated_params:\n        names = \", \".join(sorted(duplicated_params))\n        ending = \"s\" if len(duplicated_params) > 1 else \"\"\n        raise ValueError(f\"Duplicated param name{ending} {names} at path {path}\")\n\n    if is_host:\n        # Align with `Host.matches()` behavior, which ignores port.\n        hostname = path[idx:].split(\":\")[0]\n        path_regex += re.escape(hostname) + \"$\"\n    else:\n        path_regex += re.escape(path[idx:]) + \"$\"\n\n    path_format += path[idx:]\n\n    return re.compile(path_regex), path_format, param_convertors",
+        "end_line": 175,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L122-L175",
+        "score": "0.01639344",
+        "source_type": "python_source",
+        "start_line": 122,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "15.379139",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "### Changed\n\n* Create tasks from handler coroutines before sending them to `asyncio.wait`.\n* Use `format_exception` instead of `format_tb` in `ServerErrorMiddleware`'s `debug` responses.\n* Be more lenient with handler arguments when using the `requires` decorator.\n",
+        "end_line": 634,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L629-L634",
+        "score": "0.01612903",
+        "source_type": "markdown",
+        "start_line": 629,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "11.513079",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class Host(BaseRoute):\n    def __init__(self, host: str, app: ASGIApp, name: str | None = None) -> None:\n        assert not host.startswith(\"/\"), \"Host must not start with '/'\"\n        self.host = host\n        self.app = app\n        self.name = name\n        self.host_regex, self.host_format, self.param_convertors = compile_path(host)\n\n    @property\n    def routes(self) -> list[BaseRoute]:\n        return getattr(self.app, \"routes\", [])\n\n    def matches(self, scope: Scope) -> tuple[Match, Scope]:\n        if scope[\"type\"] in (\"http\", \"websocket\"):\n            headers = Headers(scope=scope)\n            host = headers.get(\"host\", \"\").split(\":\")[0]\n            match = self.host_regex.match(host)\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"path_params\": path_params, \"endpoint\": self.app}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, /, **path_params: typing.Any) -> URLPath:\n        if self.name is not None and name == self.name and \"path\" in path_params:\n            # 'name' matches \"<mount_name>\".\n            path = path_params.pop(\"path\")\n            host, remaining_params = replace_params(self.host_format, self.param_convertors, path_params)\n            if not remaining_params:\n                return URLPath(path=path, host=host)\n        elif self.name is None or name.startswith(self.name + \":\"):\n            if self.name is None:\n                # No mount name.\n                remaining_name = name\n            else:\n                # 'name' matches \"<mount_name>:<child_name>\".\n                remaining_name = name[len(self.name) + 1 :]\n            host, remaining_params = replace_params(self.host_format, self.param_convertors, path_params)\n            for route in self.routes or []:\n                try:\n                    url = route.url_path_for(remaining_name, **remaining_params)\n                    return URLPath(path=str(url), protocol=url.protocol, host=host)\n                except NoMatchFound:\n                    pass\n        raise NoMatchFound(name, path_params)\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return isinstance(other, Host) and self.host == other.host and self.app == other.app\n\n    def __repr__(self) -> str:\n        class_name = self.__class__.__name__\n        name = self.name or \"\"\n        return f\"{class_name}(host={self.host!r}, name={name!r}, app={self.app!r})\"",
+        "end_line": 530,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L471-L530",
+        "score": "0.01587302",
+        "source_type": "python_source",
+        "start_line": 471,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_encoded_value(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            b\"--20b303e711c4ab8c443184ac833ab00f\\r\\n\"  # type: ignore\n            b\"Content-Disposition: form-data; \"\n            b'name=\"value\"\\r\\n\\r\\n'\n            b\"Transf\\xc3\\xa9rer\\r\\n\"\n            b\"--20b303e711c4ab8c443184ac833ab00f--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=20b303e711c4ab8c443184ac833ab00f\")},\n    )\n    assert response.json() == {\"value\": \"Transf\u00e9rer\"}",
+        "end_line": 367,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "score": "0.01587302",
+        "source_type": "python_test",
+        "start_line": 354,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.768930"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.448908",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "### Starlette APISpec\n\n<a href=\"https://github.com/Woile/starlette-apispec\" target=\"_blank\">GitHub</a>\n\nSimple APISpec integration for Starlette.\nDocument your REST API built with Starlette by declaring OpenAPI (Swagger)\nschemas in YAML format in your endpoint's docstrings.\n",
+        "end_line": 68,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/third-party-packages.md#L61-L68",
+        "score": "0.01562500",
+        "source_type": "markdown",
+        "start_line": 61,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_charset_for_filename(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            # file\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"  # type: ignore\n            b'Content-Disposition: form-data; name=\"file\"; filename=\"\\xe6\\x96\\x87\\xe6\\x9b\\xb8.txt\"\\r\\n'\n            b\"Content-Type: text/plain\\r\\n\\r\\n\"\n            b\"<file content>\\r\\n\"\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=a7f7ac8d4e2e437c877bb7b8d7cc549c\")},\n    )\n    assert response.json() == {\n        \"file\": {\n            \"filename\": \"\u6587\u66f8.txt\",\n            \"size\": 14,\n            \"content\": \"<file content>\",\n            \"content_type\": \"text/plain\",\n        }\n    }",
+        "end_line": 327,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 306,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.767469"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "11.368883",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "## Running lifespan in tests\n\nYou should use `TestClient` as a context manager, to ensure that the lifespan is called.\n\n```python\nfrom example import app\nfrom starlette.testclient import TestClient\n\n\ndef test_homepage():\n    with TestClient(app) as client:\n        # Application's lifespan is called on entering the block.\n        response = client.get(\"/\")\n        assert response.status_code == 200\n\n    # And the lifespan's teardown is run when exiting the block.\n```",
+        "end_line": 92,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/lifespan.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/lifespan.md#L76-L92",
+        "score": "0.01538462",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class _TestClientTransport(httpx.BaseTransport):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        *,\n        app_state: dict[str, typing.Any],\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n        self.app_state = app_state\n\n    def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path.split(b\"?\", 1)[0],\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path.split(b\"?\", 1)[0],\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: dict[str, typing.Any] = {\"stream\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.read()\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")  # pragma: no cover\n            elif body is None:\n                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:",
+        "end_line": 348,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "score": "0.01538462",
+        "source_type": "python_source",
+        "start_line": 229,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.765606"
+      }
+    ]
+  },
+  "status": "completed"
+}

@@ -1,0 +1,134 @@
+{
+  "case_id": "starlette-issue-1433",
+  "failure": {
+    "error_type": "ValueError",
+    "message": "root_cause_hypotheses[1].evidence[0].excerpt does not match cited lines"
+  },
+  "group": "g1",
+  "replicate": 3,
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "router = Router(\n    routes=[\n        Route(\"/runtime_error\", endpoint=raise_runtime_error),\n        Route(\"/not_acceptable\", endpoint=not_acceptable),\n        Route(\"/no_content\", endpoint=no_content),\n        Route(\"/not_modified\", endpoint=not_modified),\n        Route(\"/with_headers\", endpoint=with_headers),\n        Route(\"/handled_exc_after_response\", endpoint=HandledExcAfterResponse()),\n        WebSocketRoute(\"/runtime_error\", endpoint=raise_runtime_error),\n    ]\n)\n\n\napp = ExceptionMiddleware(router)",
+        "end_line": 48,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+        "score": "0.797853",
+        "source_type": "python_test",
+        "start_line": 35
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "@app.route(\"/exc\")\ndef exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 28,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L26-L28",
+        "score": "0.787150",
+        "source_type": "python_test",
+        "start_line": 26
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 31,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L30-L31",
+        "score": "0.751402",
+        "source_type": "python_test",
+        "start_line": 30
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "@app.route(\"/500\")\ndef runtime_error(request):\n    raise RuntimeError()",
+        "end_line": 86,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+        "score": "0.743984",
+        "source_type": "python_test",
+        "start_line": 84
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def not_acceptable(request):\n    raise HTTPException(status_code=406)",
+        "end_line": 13,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+        "score": "0.740040",
+        "source_type": "python_test",
+        "start_line": 12
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def test_routes():\n    assert app.routes == [\n        Route(\"/func\", endpoint=func_homepage, methods=[\"GET\"]),\n        Route(\"/async\", endpoint=async_homepage, methods=[\"GET\"]),\n        Route(\"/class\", endpoint=Homepage),\n        Mount(\n            \"/users\",\n            app=Router(\n                routes=[\n                    Route(\"/\", endpoint=all_users_page),\n                    Route(\"/{username}\", endpoint=user_page),\n                ]\n            ),\n        ),\n        Host(\n            \"{subdomain}.example.org\",\n            app=Router(routes=[Route(\"/\", endpoint=custom_subdomain)]),\n        ),\n        Route(\"/500\", endpoint=runtime_error, methods=[\"GET\"]),\n        WebSocketRoute(\"/ws\", endpoint=websocket_endpoint),\n    ]",
+        "end_line": 204,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L184-L204",
+        "score": "0.732581",
+        "source_type": "python_test",
+        "start_line": 184
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "users = Router()",
+        "end_line": 56,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L56-L56",
+        "score": "0.732531",
+        "source_type": "python_test",
+        "start_line": 56
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def raise_runtime_error(request):\n    raise RuntimeError(\"Yikes\")",
+        "end_line": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L8-L9",
+        "score": "0.731090",
+        "source_type": "python_test",
+        "start_line": 8
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "ok = PlainTextResponse(\"OK\")",
+        "end_line": 339,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_routing.py#L339-L339",
+        "score": "0.729205",
+        "source_type": "python_test",
+        "start_line": 339
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "app.mount(\"/users\", users)\n\n\nsubdomain = Router()",
+        "end_line": 73,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L70-L73",
+        "score": "0.727220",
+        "source_type": "python_test",
+        "start_line": 70
+      }
+    ]
+  },
+  "status": "failed"
+}

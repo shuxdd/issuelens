@@ -1,0 +1,635 @@
+{
+  "case_id": "starlette-issue-1433",
+  "events": [
+    {
+      "case_id": "starlette-issue-1433",
+      "duration_ns": 2691403200,
+      "event_id": "c276817603dff5c7",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1433",
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 1,
+      "snapshot_commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "duration_ns": 2691403200,
+      "event_id": "4ccf31966a1043ab",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "query": "Raising Exceptions in sub-applications routes",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a37c7ab01dfd60d7b13964cd9d407ccd57b6f63f80251b401e31cf8aafe8a0dc"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2691403200,
+      "event_id": "376963440902dfee",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "kind": "tool",
+      "parent_id": "71443c9cb80eacfa",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L26-L28",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L104-L148",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L209-L253",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_routing.py#L504-L518",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/middleware.md#L152-L176"
+      ],
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a37c7ab01dfd60d7b13964cd9d407ccd57b6f63f80251b401e31cf8aafe8a0dc"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2691403200,
+      "event_id": "9cc2536f124454f5",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "kind": "tool",
+      "parent_id": "71443c9cb80eacfa",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L26-L28",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L104-L148",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L209-L253",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_routing.py#L504-L518",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/middleware.md#L152-L176"
+      ],
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "duration_ns": 2691403200,
+      "event_id": "71443c9cb80eacfa",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "to_stage": "retrieved",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L26-L28",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/starlette/schemas.py#L31-L111",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L104-L148",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L209-L253",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_routing.py#L504-L518",
+        "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/middleware.md#L152-L176"
+      ],
+      "duration_ns": 2691403200,
+      "event_id": "d7f829195beb31fb",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "cached_input_tokens": 3835,
+      "cost": "0.000355005",
+      "currency": "USD",
+      "duration_ns": 2541921100,
+      "event_id": "6355993049e758d2",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "input_tokens": 3969,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 539,
+      "parent_id": "3a841e7a35973a6a",
+      "prompt_version": "agent-v1",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 7,
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "status": "ok",
+      "total_tokens": 4508,
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "duration_ns": 2691403200,
+      "event_id": "3a841e7a35973a6a",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "Exceptions raised in sub-applications may not be properly propagated to the parent application's exception handling middleware, causing unexpected behavior."
+      ],
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "duration_ns": 2691403200,
+      "event_id": "8e2840d329c7b32e",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "references": [],
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    },
+    {
+      "duration_ns": 2691403200,
+      "event_id": "17345940802886ba",
+      "finished_at": "2026-09-28T02:31:47.646311Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "3343e1198cf43e88f7e81b0fc80ecc8b",
+      "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-28T02:31:44.954908Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2695706200
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000355005",
+    "input_tokens": 3969,
+    "latency_ns": 2541921100,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 539,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 343469892700,
+    "run_latency_ns": 2691403200,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 346161295900,
+    "total_tokens": 4508
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "end_line": 144,
+        "path": "docs/routing.md",
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L141-L144",
+        "start_line": 141
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "end_line": 28,
+        "path": "tests/middleware/test_base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L27-L28",
+        "start_line": 27
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "end_line": 31,
+        "path": "tests/middleware/test_wsgi.py",
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L31-L31",
+        "start_line": 31
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "end_line": 13,
+        "path": "tests/test_exceptions.py",
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L13-L13",
+        "start_line": 13
+      },
+      {
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "end_line": 48,
+        "path": "tests/test_exceptions.py",
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L48-L48",
+        "start_line": 48
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "How does Starlette propagate exceptions from mounted sub-applications to the parent application?",
+      "What is the expected behavior when an exception is raised in a sub-application route?",
+      "Are there tests or documentation specifically covering exception handling in sub-applications?"
+    ]
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+            "end_line": 28,
+            "excerpt": "def exc(request):\n    raise Exception(\"Exc\")",
+            "path": "tests/middleware/test_base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L27-L28",
+            "start_line": 27
+          }
+        ],
+        "text": "A route function may raise an Exception directly."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+            "end_line": 31,
+            "excerpt": "raise RuntimeError(\"Something went wrong\")",
+            "path": "tests/middleware/test_wsgi.py",
+            "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L31-L31",
+            "start_line": 31
+          }
+        ],
+        "text": "A WSGI application may raise a RuntimeError during handling."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+            "end_line": 48,
+            "excerpt": "app = ExceptionMiddleware(router)",
+            "path": "tests/test_exceptions.py",
+            "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L48-L48",
+            "start_line": 48
+          }
+        ],
+        "text": "Middleware can dispatch exceptions for a router."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+            "end_line": 13,
+            "excerpt": "raise HTTPException(status_code=406)",
+            "path": "tests/test_exceptions.py",
+            "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L13-L13",
+            "start_line": 13
+          }
+        ],
+        "text": "An HTTPException can be raised from a route function."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+            "end_line": 144,
+            "excerpt": "routes = [\n    ...\n    Mount(\"/static\", app=StaticFiles(directory=\"static\"), name=\"static\")\n]",
+            "path": "docs/routing.md",
+            "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L141-L144",
+            "start_line": 141
+          }
+        ],
+        "text": "Routes can be mounted in a Starlette application."
+      }
+    ],
+    "issue_classification": "error_handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Exceptions raised in sub-applications may not be properly propagated to the parent application's exception handling middleware, causing unexpected behavior.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "How does Starlette propagate exceptions from mounted sub-applications to the parent application?",
+      "What is the expected behavior when an exception is raised in a sub-application route?",
+      "Are there tests or documentation specifically covering exception handling in sub-applications?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "@app.route(\"/exc\")\ndef exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 28,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_base.py#L26-L28",
+        "reranker_score": "3.646338",
+        "rrf_score": "0.01612903",
+        "score": "3.646338",
+        "source_type": "python_test",
+        "start_line": 26,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.787150"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 31,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/middleware/test_wsgi.py#L30-L31",
+        "reranker_score": "-0.262963",
+        "rrf_score": "0.01587302",
+        "score": "-0.262963",
+        "source_type": "python_test",
+        "start_line": 30,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.751402"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "12.594514",
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "class BaseSchemaGenerator:\n    def get_schema(self, routes: typing.List[BaseRoute]) -> dict:\n        raise NotImplementedError()  # pragma: no cover\n\n    def get_endpoints(\n        self, routes: typing.List[BaseRoute]\n    ) -> typing.List[EndpointInfo]:\n        \"\"\"\n        Given the routes, yields the following information:\n\n        - path\n            eg: /users/\n        - http_method\n            one of 'get', 'post', 'put', 'patch', 'delete', 'options'\n        - func\n            method ready to extract the docstring\n        \"\"\"\n        endpoints_info: list = []\n\n        for route in routes:\n            if isinstance(route, Mount):\n                routes = route.routes or []\n                sub_endpoints = [\n                    EndpointInfo(\n                        path=\"\".join((route.path, sub_endpoint.path)),\n                        http_method=sub_endpoint.http_method,\n                        func=sub_endpoint.func,\n                    )\n                    for sub_endpoint in self.get_endpoints(routes)\n                ]\n                endpoints_info.extend(sub_endpoints)\n\n            elif not isinstance(route, Route) or not route.include_in_schema:\n                continue\n\n            elif inspect.isfunction(route.endpoint) or inspect.ismethod(route.endpoint):\n                for method in route.methods or [\"GET\"]:\n                    if method == \"HEAD\":\n                        continue\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), route.endpoint)\n                    )\n            else:\n                for method in [\"get\", \"post\", \"put\", \"patch\", \"delete\", \"options\"]:\n                    if not hasattr(route.endpoint, method):\n                        continue\n                    func = getattr(route.endpoint, method)\n                    endpoints_info.append(\n                        EndpointInfo(route.path, method.lower(), func)\n                    )\n\n        return endpoints_info\n\n    def parse_docstring(self, func_or_method: typing.Callable) -> dict:\n        \"\"\"\n        Given a function, parse the docstring as YAML and return a dictionary of info.\n        \"\"\"\n        docstring = func_or_method.__doc__\n        if not docstring:\n            return {}\n\n        assert yaml is not None, \"`pyyaml` must be installed to use parse_docstring.\"\n\n        # We support having regular docstrings before the schema\n        # definition. Here we return just the schema part from\n        # the docstring.\n        docstring = docstring.split(\"---\")[-1]\n\n        parsed = yaml.safe_load(docstring)\n\n        if not isinstance(parsed, dict):\n            # A regular docstring (not yaml formatted) can return\n            # a simple string here, which wouldn't follow the schema.\n            return {}\n\n        return parsed\n\n    def OpenAPIResponse(self, request: Request) -> Response:\n        routes = request.app.routes\n        schema = self.get_schema(routes=routes)\n        return OpenAPIResponse(schema)",
+        "end_line": 111,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/schemas.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/starlette/schemas.py#L31-L111",
+        "reranker_score": "-1.381650",
+        "rrf_score": "0.01612903",
+        "score": "-1.381650",
+        "source_type": "python_source",
+        "start_line": 31,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "13.090993",
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "## Submounting routes\n\nIn large applications you might find that you want to break out parts of the\nrouting table, based on a common path prefix.\n\n```python\nroutes = [\n    Route('/', homepage),\n    Mount('/users', routes=[\n        Route('/', users, methods=['GET', 'POST']),\n        Route('/{username}', user),\n    ])\n]\n```\n\nThis style allows you to define different subsets of the routing table in\ndifferent parts of your project.\n\n```python\nfrom myproject import users, auth\n\nroutes = [\n    Route('/', homepage),\n    Mount('/users', routes=users.routes),\n    Mount('/auth', routes=auth.routes),\n]\n```\n\nYou can also use mounting to include sub-applications within your Starlette\napplication. For example...\n\n```python\n# This is a standalone static files server:\napp = StaticFiles(directory=\"static\")\n\n# This is a static files server mounted within a Starlette application,\n# underneath the \"/static\" path.\nroutes = [\n    ...\n    Mount(\"/static\", app=StaticFiles(directory=\"static\"), name=\"static\")\n]\n\napp = Starlette(routes=routes)\n```\n",
+        "end_line": 148,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/routing.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L104-L148",
+        "reranker_score": "-2.078004",
+        "rrf_score": "0.01639344",
+        "score": "-2.078004",
+        "source_type": "markdown",
+        "start_line": 104,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "router = Router(\n    routes=[\n        Route(\"/runtime_error\", endpoint=raise_runtime_error),\n        Route(\"/not_acceptable\", endpoint=not_acceptable),\n        Route(\"/no_content\", endpoint=no_content),\n        Route(\"/not_modified\", endpoint=not_modified),\n        Route(\"/with_headers\", endpoint=with_headers),\n        Route(\"/handled_exc_after_response\", endpoint=HandledExcAfterResponse()),\n        WebSocketRoute(\"/runtime_error\", endpoint=raise_runtime_error),\n    ]\n)\n\n\napp = ExceptionMiddleware(router)",
+        "end_line": 48,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+        "reranker_score": "-3.007683",
+        "rrf_score": "0.01639344",
+        "score": "-3.007683",
+        "source_type": "python_test",
+        "start_line": 35,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.797853"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "@app.route(\"/500\")\ndef runtime_error(request):\n    raise RuntimeError()",
+        "end_line": 86,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+        "reranker_score": "-3.794333",
+        "rrf_score": "0.01562500",
+        "score": "-3.794333",
+        "source_type": "python_test",
+        "start_line": 84,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.743984"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.002333",
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "## Host-based routing\n\nIf you want to use different routes for the same path based on the `Host` header.\n\nNote that port is removed from the `Host` header when matching.\nFor example, `Host (host='example.org:3600', ...)` will be processed\neven if the `Host` header contains or does not contain a port other than `3600`\n(`example.org:5600`, `example.org`).\nTherefore, you can specify the port if you need it for use in `url_for`.\n\nThere are several ways to connect host-based routes to your application\n\n```python\nsite = Router()  # Use eg. `@site.route()` to configure this.\napi = Router()  # Use eg. `@api.route()` to configure this.\nnews = Router()  # Use eg. `@news.route()` to configure this.\n\nroutes = [\n    Host('api.example.org', api, name=\"site_api\")\n]\n\napp = Starlette(routes=routes)\n\napp.host('www.example.org', site, name=\"main_site\")\n\nnews_host = Host('news.example.org', news)\napp.router.routes.append(news_host)\n```\n\nURL lookups can include host parameters just like path parameters\n\n```python\nroutes = [\n    Host(\"{subdomain}.example.org\", name=\"sub\", app=Router(routes=[\n        Mount(\"/users\", name=\"users\", routes=[\n            Route(\"/\", user, name=\"user_list\"),\n            Route(\"/{username}\", user, name=\"user_detail\")\n        ])\n    ]))\n]\n...\nurl = request.url_for(\"sub:users:user_detail\", username=..., subdomain=...)\nurl = request.url_for(\"sub:users:user_list\", subdomain=...)\n```\n",
+        "end_line": 253,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/routing.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/routing.md#L209-L253",
+        "reranker_score": "-4.377888",
+        "rrf_score": "0.01562500",
+        "score": "-4.377888",
+        "source_type": "markdown",
+        "start_line": 209,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def not_acceptable(request):\n    raise HTTPException(status_code=406)",
+        "end_line": 13,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+        "reranker_score": "-6.574376",
+        "rrf_score": "0.01538462",
+        "score": "-6.574376",
+        "source_type": "python_test",
+        "start_line": 12,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.740040"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "12.285104",
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "def test_url_for_with_root_path(test_client_factory):\n    app = Starlette(routes=echo_url_routes)\n    client = test_client_factory(\n        app, base_url=\"https://www.example.org/\", root_path=\"/sub_path\"\n    )\n    response = client.get(\"/\")\n    assert response.json() == {\n        \"index\": \"https://www.example.org/sub_path/\",\n        \"submount\": \"https://www.example.org/sub_path/submount/\",\n    }\n    response = client.get(\"/submount/\")\n    assert response.json() == {\n        \"index\": \"https://www.example.org/sub_path/\",\n        \"submount\": \"https://www.example.org/sub_path/submount/\",\n    }",
+        "end_line": 518,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_routing.py#L504-L518",
+        "reranker_score": "-8.256552",
+        "rrf_score": "0.01587302",
+        "score": "-8.256552",
+        "source_type": "python_test",
+        "start_line": 504,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "8.205269",
+        "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+        "content": "## GZipMiddleware\n\nHandles GZip responses for any request that includes `\"gzip\"` in the `Accept-Encoding` header.\n\nThe middleware will handle both standard and streaming responses.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.middleware import Middleware\nfrom starlette.middleware.gzip import GZipMiddleware\n\n\nroutes = ...\n\nmiddleware = [\n    Middleware(GZipMiddleware, minimum_size=1000)\n]\n\napp = Starlette(routes=routes, middleware=middleware)\n```\n\nThe following arguments are supported:\n\n* `minimum_size` - Do not GZip responses that are smaller than this minimum size in bytes. Defaults to `500`.\n",
+        "end_line": 176,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/docs/middleware.md#L152-L176",
+        "reranker_score": "-10.768459",
+        "rrf_score": "0.01538462",
+        "score": "-10.768459",
+        "source_type": "markdown",
+        "start_line": 152,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "a97e43fbd6d84ab6889c0edfcae8a101",
+  "status": "completed",
+  "trace_id": "3343e1198cf43e88f7e81b0fc80ecc8b"
+}

@@ -1,0 +1,6 @@
+{
+  "continuation": "../2026-09-27-deepseek-v4.1-flash-offpeak-attempt-02",
+  "raw_runs": 4,
+  "reason": "DeepSeek returned HTTP 401 because the ignored local .env value contained surrounding whitespace.",
+  "status": "aborted"
+}

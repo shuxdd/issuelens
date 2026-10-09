@@ -1,0 +1,587 @@
+{
+  "case_id": "starlette-issue-2134",
+  "events": [
+    {
+      "case_id": "starlette-issue-2134",
+      "duration_ns": 2635663700,
+      "event_id": "ccd4600fe2da31ee",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2134",
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 1,
+      "snapshot_commit": "94225d0901b7826213716c50c761129c8b7d0944",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "duration_ns": 2635663700,
+      "event_id": "fa53f061ef8ac35a",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "query": "When using a custom Jinja loader, directory parameter is unnecessary but still required.",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "arguments": {
+        "query_sha256": "ca49b6def1ae2d6b7c5262e245a9571cedd3023dc85856357d598f92b6677dfd"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2635663700,
+      "event_id": "0ddd7d98e0b4a4fb",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "kind": "tool",
+      "parent_id": "4f2dc9269b0f06cb",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L58-L120",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L437-L440",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_templates.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/authentication.md#L80-L174",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L181-L194",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/_compat.py#L1-L28",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L121-L125",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L137-L148",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L128-L134",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/middleware.md#L544-L561"
+      ],
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "arguments": {
+        "query_sha256": "ca49b6def1ae2d6b7c5262e245a9571cedd3023dc85856357d598f92b6677dfd"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2635663700,
+      "event_id": "901712ce1093d414",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "kind": "tool",
+      "parent_id": "4f2dc9269b0f06cb",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L58-L120",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L437-L440",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_templates.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/authentication.md#L80-L174",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L181-L194",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/_compat.py#L1-L28",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L121-L125",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L137-L148",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L128-L134",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/middleware.md#L544-L561"
+      ],
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "duration_ns": 2635663700,
+      "event_id": "4f2dc9269b0f06cb",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "to_stage": "retrieved",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L58-L120",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L437-L440",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_templates.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/authentication.md#L80-L174",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L181-L194",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/_compat.py#L1-L28",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L121-L125",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L137-L148",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L128-L134",
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/middleware.md#L544-L561"
+      ],
+      "duration_ns": 2635663700,
+      "event_id": "4d4f613bd8d76129",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "cached_input_tokens": 3840,
+      "cost": "0.00049872",
+      "currency": "USD",
+      "duration_ns": 2597028500,
+      "event_id": "84bdd59ebd6040bd",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "input_tokens": 4480,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 652,
+      "parent_id": "72181c9faa9ee1e3",
+      "prompt_version": "agent-v1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "status": "ok",
+      "total_tokens": 5132,
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "duration_ns": 2635663700,
+      "event_id": "72181c9faa9ee1e3",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The API requires an exact directory argument even when a custom Jinja loader is supplied via env_options because directory is a mandatory positional parameter, while the FileSystemLoader is only set as the default loader and a supplied loader overrides it."
+      ],
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "duration_ns": 2635663700,
+      "event_id": "a75ab1bf7af5236d",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L65-L86"
+      ],
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "supported_hypotheses": 1,
+      "to_stage": "verified",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    },
+    {
+      "duration_ns": 2635663700,
+      "event_id": "74b6649e86414876",
+      "finished_at": "2026-09-27T17:06:42.645070Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "1f9185b1ab58aa88c85a76b1aa3bbba1",
+      "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:06:40.009406Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2635784800
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.00049872",
+    "input_tokens": 4480,
+    "latency_ns": 2597028500,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 652,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 313081588300,
+    "run_latency_ns": 2635663700,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 315717252000,
+    "total_tokens": 5132
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "end_line": 67,
+        "path": "starlette/templating.py",
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L65-L67",
+        "start_line": 65
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "end_line": 86,
+        "path": "starlette/templating.py",
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L65-L86",
+        "start_line": 65
+      },
+      {
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "end_line": 86,
+        "path": "starlette/templating.py",
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L74-L86",
+        "start_line": 74
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What exact API change is desired: make directory optional, allow loader to be passed directly, or detect a custom loader and avoid requiring directory?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "high",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+            "end_line": 67,
+            "excerpt": "    def __init__(\n        self,\n        directory: typing.Union[str, PathLike],",
+            "path": "starlette/templating.py",
+            "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L65-L67",
+            "start_line": 65
+          }
+        ],
+        "text": "Jinja2Templates.__init__ requires a directory parameter without a default value."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+            "end_line": 86,
+            "excerpt": "        self.env = self._create_env(directory, **env_options)\n        self.context_processors = context_processors or []\n\n    def _create_env(\n        self, directory: typing.Union[str, PathLike], **env_options: typing.Any\n    ) -> \"jinja2.Environment\":\n        @pass_context\n        def url_for(context: dict, name: str, **path_params: typing.Any) -> URL:\n            request = context[\"request\"]\n            return request.url_for(name, **path_params)\n\n        loader = jinja2.FileSystemLoader(directory)\n        env_options.setdefault(\"loader\", loader)",
+            "path": "starlette/templating.py",
+            "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L74-L86",
+            "start_line": 74
+          }
+        ],
+        "text": "The directory is passed into _create_env, where a FileSystemLoader is only used as a default loader."
+      }
+    ],
+    "issue_classification": "API design",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+            "end_line": 86,
+            "excerpt": "    def __init__(\n        self,\n        directory: typing.Union[str, PathLike],\n        context_processors: typing.Optional[\n            typing.List[typing.Callable[[Request], typing.Dict[str, typing.Any]]]\n        ] = None,\n        **env_options: typing.Any,\n    ) -> None:\n        assert jinja2 is not None, \"jinja2 must be installed to use Jinja2Templates\"\n        self.env = self._create_env(directory, **env_options)\n        self.context_processors = context_processors or []\n\n    def _create_env(\n        self, directory: typing.Union[str, PathLike], **env_options: typing.Any\n    ) -> \"jinja2.Environment\":\n        @pass_context\n        def url_for(context: dict, name: str, **path_params: typing.Any) -> URL:\n            request = context[\"request\"]\n            return request.url_for(name, **path_params)\n\n        loader = jinja2.FileSystemLoader(directory)\n        env_options.setdefault(\"loader\", loader)",
+            "path": "starlette/templating.py",
+            "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L65-L86",
+            "start_line": 65
+          }
+        ],
+        "text": "The API requires an exact directory argument even when a custom Jinja loader is supplied via env_options because directory is a mandatory positional parameter, while the FileSystemLoader is only set as the default loader and a supplied loader overrides it.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exact API change is desired: make directory optional, allow loader to be passed directly, or detect a custom loader and avoid requiring directory?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "12.407288",
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "class Jinja2Templates:\n    \"\"\"\n    templates = Jinja2Templates(\"templates\")\n\n    return templates.TemplateResponse(\"index.html\", {\"request\": request})\n    \"\"\"\n\n    def __init__(\n        self,\n        directory: typing.Union[str, PathLike],\n        context_processors: typing.Optional[\n            typing.List[typing.Callable[[Request], typing.Dict[str, typing.Any]]]\n        ] = None,\n        **env_options: typing.Any,\n    ) -> None:\n        assert jinja2 is not None, \"jinja2 must be installed to use Jinja2Templates\"\n        self.env = self._create_env(directory, **env_options)\n        self.context_processors = context_processors or []\n\n    def _create_env(\n        self, directory: typing.Union[str, PathLike], **env_options: typing.Any\n    ) -> \"jinja2.Environment\":\n        @pass_context\n        def url_for(context: dict, name: str, **path_params: typing.Any) -> URL:\n            request = context[\"request\"]\n            return request.url_for(name, **path_params)\n\n        loader = jinja2.FileSystemLoader(directory)\n        env_options.setdefault(\"loader\", loader)\n        env_options.setdefault(\"autoescape\", True)\n\n        env = jinja2.Environment(**env_options)\n        env.globals[\"url_for\"] = url_for\n        return env\n\n    def get_template(self, name: str) -> \"jinja2.Template\":\n        return self.env.get_template(name)\n\n    def TemplateResponse(\n        self,\n        name: str,\n        context: dict,\n        status_code: int = 200,\n        headers: typing.Optional[typing.Mapping[str, str]] = None,\n        media_type: typing.Optional[str] = None,\n        background: typing.Optional[BackgroundTask] = None,\n    ) -> _TemplateResponse:\n        if \"request\" not in context:\n            raise ValueError('context must include a \"request\" key')\n\n        request = typing.cast(Request, context[\"request\"])\n        for context_processor in self.context_processors:\n            context.update(context_processor(request))\n\n        template = self.get_template(name)\n        return _TemplateResponse(\n            template,\n            context,\n            status_code=status_code,\n            headers=headers,\n            media_type=media_type,\n            background=background,\n        )",
+        "end_line": 120,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/templating.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/templating.py#L58-L120",
+        "reranker_score": "-1.399929",
+        "rrf_score": "0.03083491",
+        "score": "-1.399929",
+        "source_type": "python_source",
+        "start_line": 58,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.693619"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "## 0.10.5\n\n* Ensure `templating` does not strictly require `jinja2` to be installed.\n",
+        "end_line": 440,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L437-L440",
+        "reranker_score": "-3.205868",
+        "rrf_score": "0.01639344",
+        "score": "-3.205868",
+        "source_type": "markdown",
+        "start_line": 437,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.721868"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_template_response_requires_request(tmpdir):\n    templates = Jinja2Templates(str(tmpdir))\n    with pytest.raises(ValueError):\n        templates.TemplateResponse(\"\", {})",
+        "end_line": 36,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_templates.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_templates.py#L33-L36",
+        "reranker_score": "-6.780272",
+        "rrf_score": "0.01612903",
+        "score": "-6.780272",
+        "source_type": "python_test",
+        "start_line": 33,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.719561"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "11.065908",
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "## Permissions\n\nPermissions are implemented as an endpoint decorator, that enforces that the\nincoming request includes the required authentication scopes.\n\n```python\nfrom starlette.authentication import requires\n\n\n@requires('authenticated')\nasync def dashboard(request):\n    ...\n```\n\nYou can include either one or multiple required scopes:\n\n```python\nfrom starlette.authentication import requires\n\n\n@requires(['authenticated', 'admin'])\nasync def dashboard(request):\n    ...\n```\n\nBy default 403 responses will be returned when permissions are not granted.\nIn some cases you might want to customize this, for example to hide information\nabout the URL layout from unauthenticated users.\n\n```python\nfrom starlette.authentication import requires\n\n\n@requires(['authenticated', 'admin'], status_code=404)\nasync def dashboard(request):\n    ...\n```\n\n!!! note\n    The `status_code` parameter is not supported with WebSockets. The 403 (Forbidden)\n    status code will always be used for those.\n\nAlternatively you might want to redirect unauthenticated users to a different\npage.\n\n```python\nfrom starlette.authentication import requires\n\n\nasync def homepage(request):\n    ...\n\n\n@requires('authenticated', redirect='homepage')\nasync def dashboard(request):\n    ...\n```\n\nWhen redirecting users, the page you redirect them to will include URL they originally requested at the `next` query param:\n\n```python\nfrom starlette.authentication import requires\nfrom starlette.responses import RedirectResponse\n\n\n@requires('authenticated', redirect='login')\nasync def admin(request):\n    ...\n\n\nasync def login(request):\n    if request.method == \"POST\":\n        # Now that the user is authenticated,\n        # we can send them to their original request destination\n        if request.user.is_authenticated:\n            next_url = request.query_params.get(\"next\")\n            if next_url:\n                return RedirectResponse(next_url)\n            return RedirectResponse(\"/\")\n```\n\nFor class-based endpoints, you should wrap the decorator\naround a method on the class.\n\n```python\nfrom starlette.authentication import requires\nfrom starlette.endpoints import HTTPEndpoint\n\n\nclass Dashboard(HTTPEndpoint):\n    @requires(\"authenticated\")\n    async def get(self, request):\n        ...\n```\n",
+        "end_line": 174,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/authentication.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/authentication.md#L80-L174",
+        "reranker_score": "-8.668314",
+        "rrf_score": "0.01538462",
+        "score": "-8.668314",
+        "source_type": "markdown",
+        "start_line": 80,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.247288",
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "### Added\n* Error handler will always run, even if the error happens on a background task [#761](https://github.com/encode/starlette/pull/761).\n* Add `headers` parameter to `HTTPException` [#1435](https://github.com/encode/starlette/pull/1435).\n* Internal responses with `405` status code insert an `Allow` header, as described by [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.5) [#1436](https://github.com/encode/starlette/pull/1436).\n* The `content` argument in `JSONResponse` is now required [#1431](https://github.com/encode/starlette/pull/1431).\n* Add custom URL convertor register [#1437](https://github.com/encode/starlette/pull/1437).\n* Add content disposition type parameter to `FileResponse` [#1266](https://github.com/encode/starlette/pull/1266).\n* Add next query param with original request URL in requires decorator [#920](https://github.com/encode/starlette/pull/920).\n* Add `raw_path` to `TestClient` scope [#1445](https://github.com/encode/starlette/pull/1445).\n* Add union operators to `MutableHeaders` [#1240](https://github.com/encode/starlette/pull/1240).\n* Display missing route details on debug page [#1363](https://github.com/encode/starlette/pull/1363).\n* Change `anyio` required version range to `>=3.4.0,<5.0` [#1421](https://github.com/encode/starlette/pull/1421) and [#1460](https://github.com/encode/starlette/pull/1460).\n* Add `typing-extensions>=3.10` requirement - used only on lower versions than Python 3.10 [#1475](https://github.com/encode/starlette/pull/1475).\n",
+        "end_line": 194,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/release-notes.md#L181-L194",
+        "reranker_score": "-9.225064",
+        "rrf_score": "0.01562500",
+        "score": "-9.225064",
+        "source_type": "markdown",
+        "start_line": 181,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "12.583395",
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "import hashlib\n\n# Compat wrapper to always include the `usedforsecurity=...` parameter,\n# which is only added from Python 3.9 onwards.\n# We use this flag to indicate that we use `md5` hashes only for non-security\n# cases (our ETag checksums).\n# If we don't indicate that we're using MD5 for non-security related reasons,\n# then attempting to use this function will raise an error when used\n# environments which enable a strict \"FIPs mode\".\n#\n# See issue: https://github.com/encode/starlette/issues/1365\ntry:\n    # check if the Python version supports the parameter\n    # using usedforsecurity=False to avoid an exception on FIPS systems\n    # that reject usedforsecurity=True\n    hashlib.md5(b\"data\", usedforsecurity=False)  # type: ignore[call-arg]\n\n    def md5_hexdigest(\n        data: bytes, *, usedforsecurity: bool = True\n    ) -> str:  # pragma: no cover\n        return hashlib.md5(  # type: ignore[call-arg]\n            data, usedforsecurity=usedforsecurity\n        ).hexdigest()\n\nexcept TypeError:  # pragma: no cover\n\n    def md5_hexdigest(data: bytes, *, usedforsecurity: bool = True) -> str:\n        return hashlib.md5(data).hexdigest()",
+        "end_line": 28,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/_compat.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/starlette/_compat.py#L1-L28",
+        "reranker_score": "-9.739918",
+        "rrf_score": "0.01639344",
+        "score": "-9.739918",
+        "source_type": "python_source",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_instantiated_with_missing_directory(tmpdir):\n    with pytest.raises(RuntimeError) as exc_info:\n        path = os.path.join(tmpdir, \"no_such_directory\")\n        StaticFiles(directory=path)\n    assert \"does not exist\" in str(exc_info.value)",
+        "end_line": 125,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L121-L125",
+        "reranker_score": "-10.489162",
+        "rrf_score": "0.01562500",
+        "score": "-10.489162",
+        "source_type": "python_test",
+        "start_line": 121,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.701941"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_configured_with_file_instead_of_directory(\n    tmpdir, test_client_factory\n):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=path, check_dir=False)\n    client = test_client_factory(app)\n    with pytest.raises(RuntimeError) as exc_info:\n        client.get(\"/example.txt\")\n    assert \"is not a directory\" in str(exc_info.value)",
+        "end_line": 148,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L137-L148",
+        "reranker_score": "-10.868116",
+        "rrf_score": "0.01538462",
+        "score": "-10.868116",
+        "source_type": "python_test",
+        "start_line": 137,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.701457"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "def test_staticfiles_configured_with_missing_directory(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"no_such_directory\")\n    app = StaticFiles(directory=path, check_dir=False)\n    client = test_client_factory(app)\n    with pytest.raises(RuntimeError) as exc_info:\n        client.get(\"/example.txt\")\n    assert \"does not exist\" in str(exc_info.value)",
+        "end_line": 134,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/tests/test_staticfiles.py#L128-L134",
+        "reranker_score": "-10.892239",
+        "rrf_score": "0.01587302",
+        "score": "-10.892239",
+        "source_type": "python_test",
+        "start_line": 128,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.704082"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "11.368819",
+        "commit": "94225d0901b7826213716c50c761129c8b7d0944",
+        "content": "#### Passing information to endpoints\n\nIf you need to share information with the underlying app or endpoints, you may store it into the `scope` dictionary. Note that this is a convention -- for example, Starlette uses this to share routing information with endpoints -- but it is not part of the ASGI specification. If you do so, be sure to avoid conflicts by using keys that have low chances of being used by other middleware or applications.\n\nFor example, when including the middleware below, endpoints would be able to access `request.scope[\"asgi_transaction_id\"]`.\n\n```python\nimport uuid\n\nclass TransactionIDMiddleware:\n    def __init__(self, app):\n        self.app = app\n\n    async def __call__(self, scope, receive, send):\n        scope[\"asgi_transaction_id\"] = uuid.uuid4()\n        await self.app(scope, receive, send)\n```\n",
+        "end_line": 561,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/94225d0901b7826213716c50c761129c8b7d0944/docs/middleware.md#L544-L561",
+        "reranker_score": "-11.121201",
+        "rrf_score": "0.01587302",
+        "score": "-11.121201",
+        "source_type": "markdown",
+        "start_line": 544,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "3d454ddd002a4c1cb36c82faf166d723",
+  "status": "completed",
+  "trace_id": "1f9185b1ab58aa88c85a76b1aa3bbba1"
+}

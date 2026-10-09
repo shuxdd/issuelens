@@ -1,0 +1,327 @@
+{
+  "case_id": "starlette-issue-1578",
+  "group": "g3",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 4608,
+    "cost": "0.000509424",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4760,
+    "latency_ns": 3691209700,
+    "missed_input_tokens": 152,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 788,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 347928918200,
+    "total_latency_ns": 351620127900,
+    "total_tokens": 5548
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+            "end_line": 18,
+            "excerpt": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000, reason: str = None) -> None:\n        self.code = code\n        self.reason = reason or \"\"",
+            "path": "starlette/websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L15-L18",
+            "start_line": 15
+          }
+        ],
+        "text": "The WebSocketDisconnect exception defaults to code 1000 and stores an optional reason."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+            "end_line": 79,
+            "excerpt": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`",
+            "path": "docs/websockets.md",
+            "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/websockets.md#L76-L79",
+            "start_line": 76
+          }
+        ],
+        "text": "The documentation shows closing a websocket with code 1000 and reason=None."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+            "end_line": 86,
+            "excerpt": "close_code = status.WS_1000_NORMAL_CLOSURE\n\n        try:\n            while True:\n                message = await websocket.receive()\n                if message[\"type\"] == \"websocket.receive\":\n                    data = await self.decode(websocket, message)\n                    await self.on_receive(websocket, data)\n                elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )\n                    break",
+            "path": "starlette/endpoints.py",
+            "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L74-L86",
+            "start_line": 74
+          }
+        ],
+        "text": "WebSocketEndpoint.dispatch uses WS_1000_NORMAL_CLOSURE as the default close code and falls back to it when the disconnect message has no code."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+            "end_line": 105,
+            "excerpt": "def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])",
+            "path": "starlette/websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L103-L105",
+            "start_line": 103
+          }
+        ],
+        "text": "WebSocket._raise_on_disconnect raises WebSocketDisconnect with the disconnect message's code."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+            "end_line": 217,
+            "excerpt": "def test_client_close(test_client_factory):\n    close_code = None\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        nonlocal close_code\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        try:\n            await websocket.receive_text()\n        except WebSocketDisconnect as exc:\n            close_code = exc.code\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.close(code=status.WS_1001_GOING_AWAY)\n    assert close_code == status.WS_1001_GOING_AWAY",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_websockets.py#L202-L217",
+            "start_line": 202
+          }
+        ],
+        "text": "Tests assert that a client close with WS_1001_GOING_AWAY is propagated as the close code."
+      }
+    ],
+    "issue_classification": "WebSocket status code documentation/implementation gap",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The code or docs may describe status code 1005 incorrectly and omit status code 1006, but the supplied candidates do not contain text referencing 1005 or 1006.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Where is status code 1005 described incorrectly?",
+      "Where should status code 1006 be added?",
+      "Are the relevant status code definitions or documentation outside the supplied candidates?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "12.761079",
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "class WebSocketEndpoint:\n\n    encoding: typing.Optional[str] = None  # May be \"text\", \"bytes\", or \"json\".\n\n    def __init__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        assert scope[\"type\"] == \"websocket\"\n        self.scope = scope\n        self.receive = receive\n        self.send = send\n\n    def __await__(self) -> typing.Generator:\n        return self.dispatch().__await__()\n\n    async def dispatch(self) -> None:\n        websocket = WebSocket(self.scope, receive=self.receive, send=self.send)\n        await self.on_connect(websocket)\n\n        close_code = status.WS_1000_NORMAL_CLOSURE\n\n        try:\n            while True:\n                message = await websocket.receive()\n                if message[\"type\"] == \"websocket.receive\":\n                    data = await self.decode(websocket, message)\n                    await self.on_receive(websocket, data)\n                elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )\n                    break\n        except Exception as exc:\n            close_code = status.WS_1011_INTERNAL_ERROR\n            raise exc\n        finally:\n            await self.on_disconnect(websocket, close_code)\n\n    async def decode(self, websocket: WebSocket, message: Message) -> typing.Any:\n\n        if self.encoding == \"text\":\n            if \"text\" not in message:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Expected text websocket messages, but got bytes\")\n            return message[\"text\"]\n\n        elif self.encoding == \"bytes\":\n            if \"bytes\" not in message:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Expected bytes websocket messages, but got text\")\n            return message[\"bytes\"]\n\n        elif self.encoding == \"json\":\n            if message.get(\"text\") is not None:\n                text = message[\"text\"]\n            else:\n                text = message[\"bytes\"].decode(\"utf-8\")\n\n            try:\n                return json.loads(text)\n            except json.decoder.JSONDecodeError:\n                await websocket.close(code=status.WS_1003_UNSUPPORTED_DATA)\n                raise RuntimeError(\"Malformed JSON data received.\")\n\n        assert (\n            self.encoding is None\n        ), f\"Unsupported 'encoding' attribute {self.encoding}\"\n        return message[\"text\"] if message.get(\"text\") else message[\"bytes\"]\n\n    async def on_connect(self, websocket: WebSocket) -> None:\n        \"\"\"Override to handle an incoming websocket connection\"\"\"\n        await websocket.accept()\n\n    async def on_receive(self, websocket: WebSocket, data: typing.Any) -> None:\n        \"\"\"Override to handle an incoming websocket message\"\"\"\n\n    async def on_disconnect(self, websocket: WebSocket, close_code: int) -> None:\n        \"\"\"Override to handle a disconnecting websocket\"\"\"",
+        "end_line": 132,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/endpoints.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L57-L132",
+        "reranker_score": "1.252506",
+        "rrf_score": "0.03200205",
+        "score": "1.252506",
+        "source_type": "python_source",
+        "start_line": 57,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.753630"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "def test_rejected_connection(test_client_factory):\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.close(status.WS_1001_GOING_AWAY)\n\n    client = test_client_factory(app)\n    with pytest.raises(WebSocketDisconnect) as exc:\n        with client.websocket_connect(\"/\"):\n            pass  # pragma: nocover\n    assert exc.value.code == status.WS_1001_GOING_AWAY",
+        "end_line": 242,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_websockets.py#L233-L242",
+        "reranker_score": "-0.889523",
+        "rrf_score": "0.01515152",
+        "score": "-0.889523",
+        "source_type": "python_test",
+        "start_line": 233,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.741442"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "13.727111",
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "def test_client_close(test_client_factory):\n    close_code = None\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        nonlocal close_code\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        try:\n            await websocket.receive_text()\n        except WebSocketDisconnect as exc:\n            close_code = exc.code\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.close(code=status.WS_1001_GOING_AWAY)\n    assert close_code == status.WS_1001_GOING_AWAY",
+        "end_line": 217,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_websockets.py#L202-L217",
+        "reranker_score": "-1.010882",
+        "rrf_score": "0.01639344",
+        "score": "-1.010882",
+        "source_type": "python_test",
+        "start_line": 202,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`\n",
+        "end_line": 79,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/websockets.md#L76-L79",
+        "reranker_score": "-3.481105",
+        "rrf_score": "0.01639344",
+        "score": "-3.481105",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.775563"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000, reason: str = None) -> None:\n        self.code = code\n        self.reason = reason or \"\"",
+        "end_line": 18,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/websockets.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L15-L18",
+        "reranker_score": "-3.586956",
+        "rrf_score": "0.01612903",
+        "score": "-3.586956",
+        "source_type": "python_source",
+        "start_line": 15,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.765395"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "class WebSocket(HTTPConnection):\n    def __init__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        super().__init__(scope)\n        assert scope[\"type\"] == \"websocket\"\n        self._receive = receive\n        self._send = send\n        self.client_state = WebSocketState.CONNECTING\n        self.application_state = WebSocketState.CONNECTING\n\n    async def receive(self) -> Message:\n        \"\"\"\n        Receive ASGI websocket messages, ensuring valid state transitions.\n        \"\"\"\n        if self.client_state == WebSocketState.CONNECTING:\n            message = await self._receive()\n            message_type = message[\"type\"]\n            if message_type != \"websocket.connect\":\n                raise RuntimeError(\n                    'Expected ASGI message \"websocket.connect\", '\n                    f\"but got {message_type!r}\"\n                )\n            self.client_state = WebSocketState.CONNECTED\n            return message\n        elif self.client_state == WebSocketState.CONNECTED:\n            message = await self._receive()\n            message_type = message[\"type\"]\n            if message_type not in {\"websocket.receive\", \"websocket.disconnect\"}:\n                raise RuntimeError(\n                    'Expected ASGI message \"websocket.receive\" or '\n                    f'\"websocket.disconnect\", but got {message_type!r}'\n                )\n            if message_type == \"websocket.disconnect\":\n                self.client_state = WebSocketState.DISCONNECTED\n            return message\n        else:\n            raise RuntimeError(\n                'Cannot call \"receive\" once a disconnect message has been received.'\n            )\n\n    async def send(self, message: Message) -> None:\n        \"\"\"\n        Send ASGI websocket messages, ensuring valid state transitions.\n        \"\"\"\n        if self.application_state == WebSocketState.CONNECTING:\n            message_type = message[\"type\"]\n            if message_type not in {\"websocket.accept\", \"websocket.close\"}:\n                raise RuntimeError(\n                    'Expected ASGI message \"websocket.connect\", '\n                    f\"but got {message_type!r}\"\n                )\n            if message_type == \"websocket.close\":\n                self.application_state = WebSocketState.DISCONNECTED\n            else:\n                self.application_state = WebSocketState.CONNECTED\n            await self._send(message)\n        elif self.application_state == WebSocketState.CONNECTED:\n            message_type = message[\"type\"]\n            if message_type not in {\"websocket.send\", \"websocket.close\"}:\n                raise RuntimeError(\n                    'Expected ASGI message \"websocket.send\" or \"websocket.close\", '\n                    f\"but got {message_type!r}\"\n                )\n            if message_type == \"websocket.close\":\n                self.application_state = WebSocketState.DISCONNECTED\n            await self._send(message)\n        else:\n            raise RuntimeError('Cannot call \"send\" once a close message has been sent.')\n\n    async def accept(\n        self,\n        subprotocol: str = None,\n        headers: typing.Iterable[typing.Tuple[bytes, bytes]] = None,\n    ) -> None:\n        headers = headers or []\n\n        if self.client_state == WebSocketState.CONNECTING:\n            # If we haven't yet seen the 'connect' message, then wait for it first.\n            await self.receive()\n        await self.send(\n            {\"type\": \"websocket.accept\", \"subprotocol\": subprotocol, \"headers\": headers}\n        )\n\n    def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])\n\n    async def receive_text(self) -> str:\n        if self.application_state != WebSocketState.CONNECTED:\n            raise RuntimeError(\n                'WebSocket is not connected. Need to call \"accept\" first.'\n            )\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n        return message[\"text\"]\n\n    async def receive_bytes(self) -> bytes:\n        if self.application_state != WebSocketState.CONNECTED:\n            raise RuntimeError(\n                'WebSocket is not connected. Need to call \"accept\" first.'\n            )\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n        return message[\"bytes\"]\n\n    async def receive_json(self, mode: str = \"text\") -> typing.Any:\n        if mode not in {\"text\", \"binary\"}:\n            raise RuntimeError('The \"mode\" argument should be \"text\" or \"binary\".')\n        if self.application_state != WebSocketState.CONNECTED:\n            raise RuntimeError(\n                'WebSocket is not connected. Need to call \"accept\" first.'\n            )\n        message = await self.receive()\n        self._raise_on_disconnect(message)\n\n        if mode == \"text\":\n            text = message[\"text\"]\n        else:\n            text = message[\"bytes\"].decode(\"utf-8\")\n        return json.loads(text)\n",
+        "end_line": 140,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/websockets.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L21-L140",
+        "reranker_score": "-4.857914",
+        "rrf_score": "0.01538462",
+        "score": "-4.857914",
+        "source_type": "python_source",
+        "start_line": 21,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.745358"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "### Fixed\n\n* Fixed `ServerErrorMiddleware` compatibility with Python 3.9.1/3.8.7 when debug mode is enabled -\n  [#1132](https://github.com/encode/starlette/pull/1132).\n* Fixed unclosed socket `ResourceWarning`s when using the `TestClient` with WebSocket endpoints -\n  #1132.\n* Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).\n\n",
+        "end_line": 161,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/release-notes.md#L152-L161",
+        "reranker_score": "-5.863498",
+        "rrf_score": "0.01562500",
+        "score": "-5.863498",
+        "source_type": "markdown",
+        "start_line": 152,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.749478"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "12.642204",
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "def test_staticfiles_html_without_404(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"dir\")\n    os.mkdir(path)\n    path = os.path.join(path, \"index.html\")\n    with open(path, \"w\") as file:\n        file.write(\"<h1>Hello</h1>\")\n\n    app = StaticFiles(directory=tmpdir, html=True)\n    client = test_client_factory(app)\n\n    response = client.get(\"/dir/\")\n    assert response.url == \"http://testserver/dir/\"\n    assert response.status_code == 200\n    assert response.text == \"<h1>Hello</h1>\"\n\n    response = client.get(\"/dir\")\n    assert response.url == \"http://testserver/dir/\"\n    assert response.status_code == 200\n    assert response.text == \"<h1>Hello</h1>\"\n\n    with pytest.raises(HTTPException) as exc_info:\n        response = client.get(\"/missing\")\n    assert exc_info.value.status_code == 404",
+        "end_line": 320,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_staticfiles.py#L298-L320",
+        "reranker_score": "-8.551015",
+        "rrf_score": "0.01587302",
+        "score": "-8.551015",
+        "source_type": "python_test",
+        "start_line": 298,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "12.439087",
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "def test_force_500_response(test_client_factory):\n    # use a sentinal variable to make sure we actually\n    # make it into the endpoint and don't get a 500\n    # from an incorrect ASGI app signature or something\n    called = False\n\n    async def app(scope, receive, send):\n        nonlocal called\n        called = True\n        raise RuntimeError()\n\n    force_500_client = test_client_factory(app, raise_server_exceptions=False)\n    response = force_500_client.get(\"/\")\n    assert called\n    assert response.status_code == 500\n    assert response.text == \"\"",
+        "end_line": 116,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_exceptions.py#L101-L116",
+        "reranker_score": "-8.813238",
+        "rrf_score": "0.01562500",
+        "score": "-8.813238",
+        "source_type": "python_test",
+        "start_line": 101,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "12.394378",
+        "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+        "content": "def test_staticfiles_html_without_index(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"404.html\")\n    with open(path, \"w\") as file:\n        file.write(\"<h1>Custom not found page</h1>\")\n    path = os.path.join(tmpdir, \"dir\")\n    os.mkdir(path)\n\n    app = StaticFiles(directory=tmpdir, html=True)\n    client = test_client_factory(app)\n\n    response = client.get(\"/dir/\")\n    assert response.url == \"http://testserver/dir/\"\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"\n\n    response = client.get(\"/dir\")\n    assert response.url == \"http://testserver/dir\"\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"\n\n    response = client.get(\"/missing\")\n    assert response.status_code == 404\n    assert response.text == \"<h1>Custom not found page</h1>\"",
+        "end_line": 295,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_staticfiles.py#L273-L295",
+        "reranker_score": "-9.971563",
+        "rrf_score": "0.01538462",
+        "score": "-9.971563",
+        "source_type": "python_test",
+        "start_line": 273,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "status": "completed"
+}
