@@ -1,0 +1,685 @@
+{
+  "case_id": "starlette-issue-1099",
+  "events": [
+    {
+      "case_id": "starlette-issue-1099",
+      "duration_ns": 5171122500,
+      "event_id": "521fcf1e2142cd04",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1099",
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 1,
+      "snapshot_commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "duration_ns": 5171122500,
+      "event_id": "b67d86c0f9e69ddc",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "query": "Missing content-length header field in some responses",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "arguments": {
+        "query_sha256": "7e884012d94eb0a95a7437412a0f10f4bb2f6764606e5448dcd9ff58d4ff5c76"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5171122500,
+      "event_id": "84aed0df22aebc7a",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "kind": "tool",
+      "parent_id": "ee78eb05554dfa42",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L5-L29",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L152",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L250-L330",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L161-L171",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L113-L232",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L310-L313",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L316-L321",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L185-L186",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L23-L31"
+      ],
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "arguments": {
+        "query_sha256": "7e884012d94eb0a95a7437412a0f10f4bb2f6764606e5448dcd9ff58d4ff5c76"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5171122500,
+      "event_id": "3d6081d8aacaf211",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "kind": "tool",
+      "parent_id": "ee78eb05554dfa42",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L5-L29",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L152",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L250-L330",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L161-L171",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L113-L232",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L310-L313",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L316-L321",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L185-L186",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L23-L31"
+      ],
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "duration_ns": 5171122500,
+      "event_id": "ee78eb05554dfa42",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "to_stage": "retrieved",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L5-L29",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L152",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L250-L330",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L161-L171",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L113-L232",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L310-L313",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L316-L321",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L185-L186",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L23-L31"
+      ],
+      "duration_ns": 5171122500,
+      "event_id": "c5f13ab8d62465bf",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "cached_input_tokens": 384,
+      "cost": "0.001745202",
+      "currency": "USD",
+      "duration_ns": 5137014000,
+      "event_id": "a033ba6c1f11202b",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "input_tokens": 6111,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 1475,
+      "parent_id": "880860d9b800f4b3",
+      "prompt_version": "agent-v1",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 7,
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "status": "ok",
+      "total_tokens": 7586,
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "duration_ns": 5171122500,
+      "event_id": "880860d9b800f4b3",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "Content-Length may be omitted for empty response bodies; the code only adds it when the body is non-empty.",
+        "If a headers argument is provided that already contains a Content-Length header, Starlette does not auto-populate it.",
+        "FileResponse may lack a Content-Length header when stat_result is not provided and os.stat fails or the file is invalid."
+      ],
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "duration_ns": 5171122500,
+      "event_id": "5ac1e1e02ae18a81",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L297-L302",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L69-L71",
+        "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L74-L76"
+      ],
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "supported_hypotheses": 3,
+      "to_stage": "verified",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    },
+    {
+      "duration_ns": 5171122500,
+      "event_id": "be6e3002d616d8b9",
+      "finished_at": "2026-09-27T15:53:28.639394Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "824f4e5a28d761c2e475f852e689b4d5",
+      "run_id": "7b976150fcdd407a923eb38ca041a37b",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T15:53:23.468272Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 3
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 5171222000
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.001745202",
+    "input_tokens": 6111,
+    "latency_ns": 5137014000,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 1475,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 225445723800,
+    "run_latency_ns": 5171122500,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 230616846300,
+    "total_tokens": 7586
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 16,
+        "path": "docs/responses.md",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L14-L16",
+        "start_line": 14
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 84,
+        "path": "starlette/responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L84",
+        "start_line": 33
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 71,
+        "path": "starlette/responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L69-L71",
+        "start_line": 69
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 76,
+        "path": "starlette/responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L74-L76",
+        "start_line": 74
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 300,
+        "path": "starlette/responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L282-L300",
+        "start_line": 282
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 302,
+        "path": "starlette/responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L297-L302",
+        "start_line": 297
+      },
+      {
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "end_line": 304,
+        "path": "tests/test_responses.py",
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+        "start_line": 298
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Which specific response types or conditions exhibit the missing content-length header?",
+      "Are there custom or third-party response classes involved?",
+      "Does the issue occur with empty responses, streaming responses, or responses with user-provided headers?",
+      "Is this behavior a bug or expected for certain status codes (e.g., 204, 304)?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 84,
+            "excerpt": "class Response:\n    media_type = None\n    charset = \"utf-8\"\n\n    def __init__(\n        self,\n        content: typing.Any = None,\n        status_code: int = 200,\n        headers: dict = None,\n        media_type: str = None,\n        background: BackgroundTask = None,\n    ) -> None:\n        self.status_code = status_code\n        if media_type is not None:\n            self.media_type = media_type\n        self.background = background\n        self.body = self.render(content)\n        self.init_headers(headers)\n\n    def render(self, content: typing.Any) -> bytes:\n        if content is None:\n            return b\"\"\n        if isinstance(content, bytes):\n            return content\n        return content.encode(self.charset)\n\n    def init_headers(self, headers: typing.Mapping[str, str] = None) -> None:\n        if headers is None:\n            raw_headers: typing.List[typing.Tuple[bytes, bytes]] = []\n            populate_content_length = True\n            populate_content_type = True\n        else:\n            raw_headers = [\n                (k.lower().encode(\"latin-1\"), v.encode(\"latin-1\"))\n                for k, v in headers.items()\n            ]\n            keys = [h[0] for h in raw_headers]\n            populate_content_length = b\"content-length\" not in keys\n            populate_content_type = b\"content-type\" not in keys\n\n        body = getattr(self, \"body\", b\"\")\n        if body and populate_content_length:\n            content_length = str(len(body))\n            raw_headers.append((b\"content-length\", content_length.encode(\"latin-1\")))\n\n        content_type = self.media_type\n        if content_type is not None and populate_content_type:\n            if content_type.startswith(\"text/\"):\n                content_type += \"; charset=\" + self.charset\n            raw_headers.append((b\"content-type\", content_type.encode(\"latin-1\")))\n\n        self.raw_headers = raw_headers",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L84",
+            "start_line": 33
+          }
+        ],
+        "text": "Starlette's Response class initializes headers and can automatically set content-length based on the rendered body length."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 16,
+            "excerpt": "Starlette will automatically include a Content-Length header. It will also\ninclude a Content-Type header, based on the media_type and appending a charset\nfor text types.",
+            "path": "docs/responses.md",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L14-L16",
+            "start_line": 14
+          }
+        ],
+        "text": "Starlette's documentation states that it will automatically include a Content-Length header."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 304,
+            "excerpt": "def test_populate_headers(test_client_factory):\n    app = Response(content=\"hi\", headers={}, media_type=\"text/html\")\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"hi\"\n    assert response.headers[\"content-length\"] == \"2\"\n    assert response.headers[\"content-type\"] == \"text/html; charset=utf-8\"",
+            "path": "tests/test_responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+            "start_line": 298
+          }
+        ],
+        "text": "A test verifies that a simple Response includes the content-length header."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 300,
+            "excerpt": "        self.stat_result = stat_result\n        if stat_result is not None:\n            self.set_stat_headers(stat_result)\n\n    def set_stat_headers(self, stat_result: os.stat_result) -> None:\n        content_length = str(stat_result.st_size)\n        last_modified = formatdate(stat_result.st_mtime, usegmt=True)\n        etag_base = str(stat_result.st_mtime) + \"-\" + str(stat_result.st_size)\n        etag = md5_hexdigest(etag_base.encode(), usedforsecurity=False)\n\n        self.headers.setdefault(\"content-length\", content_length)\n        self.headers.setdefault(\"last-modified\", last_modified)\n        self.headers.setdefault(\"etag\", etag)\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if self.stat_result is None:\n            try:\n                stat_result = await anyio.to_thread.run_sync(os.stat, self.path)\n                self.set_stat_headers(stat_result)",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L282-L300",
+            "start_line": 282
+          }
+        ],
+        "text": "FileResponse sets content-length via stat headers when a stat_result is provided, but may not have one initially."
+      }
+    ],
+    "issue_classification": "missing header",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 76,
+            "excerpt": "        if body and populate_content_length:\n            content_length = str(len(body))\n            raw_headers.append((b\"content-length\", content_length.encode(\"latin-1\")))",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L74-L76",
+            "start_line": 74
+          }
+        ],
+        "text": "Content-Length may be omitted for empty response bodies; the code only adds it when the body is non-empty.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 71,
+            "excerpt": "            keys = [h[0] for h in raw_headers]\n            populate_content_length = b\"content-length\" not in keys\n            populate_content_type = b\"content-type\" not in keys",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L69-L71",
+            "start_line": 69
+          }
+        ],
+        "text": "If a headers argument is provided that already contains a Content-Length header, Starlette does not auto-populate it.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+            "end_line": 302,
+            "excerpt": "        if self.stat_result is None:\n            try:\n                stat_result = await anyio.to_thread.run_sync(os.stat, self.path)\n                self.set_stat_headers(stat_result)\n            except FileNotFoundError:\n                raise RuntimeError(f\"File at path {self.path} does not exist.\")",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L297-L302",
+            "start_line": 297
+          }
+        ],
+        "text": "FileResponse may lack a Content-Length header when stat_result is not provided and os.stat fails or the file is invalid.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which specific response types or conditions exhibit the missing content-length header?",
+      "Are there custom or third-party response classes involved?",
+      "Does the issue occur with empty responses, streaming responses, or responses with user-provided headers?",
+      "Is this behavior a bug or expected for certain status codes (e.g., 204, 304)?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "12.424532",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "### Response\n\nSignature: `Response(content, status_code=200, headers=None, media_type=None)`\n\n* `content` - A string or bytestring.\n* `status_code` - An integer HTTP status code.\n* `headers` - A dictionary of strings.\n* `media_type` - A string giving the media type. eg. \"text/html\"\n\nStarlette will automatically include a Content-Length header. It will also\ninclude a Content-Type header, based on the media_type and appending a charset\nfor text types.\n\nOnce you've instantiated a response, you can send it by calling it as an\nASGI application instance.\n\n```python\nfrom starlette.responses import Response\n\n\nasync def app(scope, receive, send):\n    assert scope['type'] == 'http'\n    response = Response('Hello, world!', media_type='text/plain')\n    await response(scope, receive, send)\n```",
+        "end_line": 29,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/responses.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L5-L29",
+        "reranker_score": "2.393919",
+        "rrf_score": "0.03225806",
+        "score": "2.393919",
+        "source_type": "markdown",
+        "start_line": 5,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.767966"
+      },
+      {
+        "bm25_contribution": "0.01492537",
+        "bm25_rank": 7,
+        "bm25_score": "10.394187",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "def test_populate_headers(test_client_factory):\n    app = Response(content=\"hi\", headers={}, media_type=\"text/html\")\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"hi\"\n    assert response.headers[\"content-length\"] == \"2\"\n    assert response.headers[\"content-type\"] == \"text/html; charset=utf-8\"",
+        "end_line": 304,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_responses.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L298-L304",
+        "reranker_score": "0.996835",
+        "rrf_score": "0.03131882",
+        "score": "0.996835",
+        "source_type": "python_test",
+        "start_line": 298,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.785052"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "11.473070",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "class Response:\n    media_type = None\n    charset = \"utf-8\"\n\n    def __init__(\n        self,\n        content: typing.Any = None,\n        status_code: int = 200,\n        headers: dict = None,\n        media_type: str = None,\n        background: BackgroundTask = None,\n    ) -> None:\n        self.status_code = status_code\n        if media_type is not None:\n            self.media_type = media_type\n        self.background = background\n        self.body = self.render(content)\n        self.init_headers(headers)\n\n    def render(self, content: typing.Any) -> bytes:\n        if content is None:\n            return b\"\"\n        if isinstance(content, bytes):\n            return content\n        return content.encode(self.charset)\n\n    def init_headers(self, headers: typing.Mapping[str, str] = None) -> None:\n        if headers is None:\n            raw_headers: typing.List[typing.Tuple[bytes, bytes]] = []\n            populate_content_length = True\n            populate_content_type = True\n        else:\n            raw_headers = [\n                (k.lower().encode(\"latin-1\"), v.encode(\"latin-1\"))\n                for k, v in headers.items()\n            ]\n            keys = [h[0] for h in raw_headers]\n            populate_content_length = b\"content-length\" not in keys\n            populate_content_type = b\"content-type\" not in keys\n\n        body = getattr(self, \"body\", b\"\")\n        if body and populate_content_length:\n            content_length = str(len(body))\n            raw_headers.append((b\"content-length\", content_length.encode(\"latin-1\")))\n\n        content_type = self.media_type\n        if content_type is not None and populate_content_type:\n            if content_type.startswith(\"text/\"):\n                content_type += \"; charset=\" + self.charset\n            raw_headers.append((b\"content-type\", content_type.encode(\"latin-1\")))\n\n        self.raw_headers = raw_headers\n\n    @property\n    def headers(self) -> MutableHeaders:\n        if not hasattr(self, \"_headers\"):\n            self._headers = MutableHeaders(raw=self.raw_headers)\n        return self._headers\n\n    def set_cookie(\n        self,\n        key: str,\n        value: str = \"\",\n        max_age: int = None,\n        expires: int = None,\n        path: str = \"/\",\n        domain: str = None,\n        secure: bool = False,\n        httponly: bool = False,\n        samesite: str = \"lax\",\n    ) -> None:\n        cookie: http.cookies.BaseCookie = http.cookies.SimpleCookie()\n        cookie[key] = value\n        if max_age is not None:\n            cookie[key][\"max-age\"] = max_age\n        if expires is not None:\n            cookie[key][\"expires\"] = expires\n        if path is not None:\n            cookie[key][\"path\"] = path\n        if domain is not None:\n            cookie[key][\"domain\"] = domain\n        if secure:\n            cookie[key][\"secure\"] = True\n        if httponly:\n            cookie[key][\"httponly\"] = True\n        if samesite is not None:\n            assert samesite.lower() in [\n                \"strict\",\n                \"lax\",\n                \"none\",\n            ], \"samesite must be either 'strict', 'lax' or 'none'\"\n            cookie[key][\"samesite\"] = samesite\n        cookie_val = cookie.output(header=\"\").strip()\n        self.raw_headers.append((b\"set-cookie\", cookie_val.encode(\"latin-1\")))\n\n    def delete_cookie(\n        self,\n        key: str,\n        path: str = \"/\",\n        domain: str = None,\n        secure: bool = False,\n        httponly: bool = False,\n        samesite: str = \"lax\",\n    ) -> None:\n        self.set_cookie(\n            key,\n            max_age=0,\n            expires=0,\n            path=path,\n            domain=domain,\n            secure=secure,\n            httponly=httponly,\n            samesite=samesite,\n        )\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await send(\n            {\n                \"type\": \"http.response.start\",\n                \"status\": self.status_code,",
+        "end_line": 152,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/responses.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L33-L152",
+        "reranker_score": "0.866920",
+        "rrf_score": "0.03174603",
+        "score": "0.866920",
+        "source_type": "python_source",
+        "start_line": 33,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.753048"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "class FileResponse(Response):\n    chunk_size = 64 * 1024\n\n    def __init__(\n        self,\n        path: typing.Union[str, \"os.PathLike[str]\"],\n        status_code: int = 200,\n        headers: dict = None,\n        media_type: str = None,\n        background: BackgroundTask = None,\n        filename: str = None,\n        stat_result: os.stat_result = None,\n        method: str = None,\n    ) -> None:\n        self.path = path\n        self.status_code = status_code\n        self.filename = filename\n        self.send_header_only = method is not None and method.upper() == \"HEAD\"\n        if media_type is None:\n            media_type = guess_type(filename or path)[0] or \"text/plain\"\n        self.media_type = media_type\n        self.background = background\n        self.init_headers(headers)\n        if self.filename is not None:\n            content_disposition_filename = quote(self.filename)\n            if content_disposition_filename != self.filename:\n                content_disposition = \"attachment; filename*=utf-8''{}\".format(\n                    content_disposition_filename\n                )\n            else:\n                content_disposition = f'attachment; filename=\"{self.filename}\"'\n            self.headers.setdefault(\"content-disposition\", content_disposition)\n        self.stat_result = stat_result\n        if stat_result is not None:\n            self.set_stat_headers(stat_result)\n\n    def set_stat_headers(self, stat_result: os.stat_result) -> None:\n        content_length = str(stat_result.st_size)\n        last_modified = formatdate(stat_result.st_mtime, usegmt=True)\n        etag_base = str(stat_result.st_mtime) + \"-\" + str(stat_result.st_size)\n        etag = md5_hexdigest(etag_base.encode(), usedforsecurity=False)\n\n        self.headers.setdefault(\"content-length\", content_length)\n        self.headers.setdefault(\"last-modified\", last_modified)\n        self.headers.setdefault(\"etag\", etag)\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if self.stat_result is None:\n            try:\n                stat_result = await anyio.to_thread.run_sync(os.stat, self.path)\n                self.set_stat_headers(stat_result)\n            except FileNotFoundError:\n                raise RuntimeError(f\"File at path {self.path} does not exist.\")\n            else:\n                mode = stat_result.st_mode\n                if not stat.S_ISREG(mode):\n                    raise RuntimeError(f\"File at path {self.path} is not a file.\")\n        await send(\n            {\n                \"type\": \"http.response.start\",\n                \"status\": self.status_code,\n                \"headers\": self.raw_headers,\n            }\n        )\n        if self.send_header_only:\n            await send({\"type\": \"http.response.body\", \"body\": b\"\", \"more_body\": False})\n        else:\n            async with await anyio.open_file(self.path, mode=\"rb\") as file:\n                more_body = True\n                while more_body:\n                    chunk = await file.read(self.chunk_size)\n                    more_body = len(chunk) == self.chunk_size\n                    await send(\n                        {\n                            \"type\": \"http.response.body\",\n                            \"body\": chunk,\n                            \"more_body\": more_body,\n                        }\n                    )\n        if self.background is not None:\n            await self.background()",
+        "end_line": 330,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/responses.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/responses.py#L250-L330",
+        "reranker_score": "0.036935",
+        "rrf_score": "0.01562500",
+        "score": "0.036935",
+        "source_type": "python_source",
+        "start_line": 250,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.749511"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "def test_response_headers(test_client_factory):\n    async def app(scope, receive, send):\n        headers = {\"x-header-1\": \"123\", \"x-header-2\": \"456\"}\n        response = Response(\"hello, world\", media_type=\"text/plain\", headers=headers)\n        response.headers[\"x-header-2\"] = \"789\"\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.headers[\"x-header-1\"] == \"123\"\n    assert response.headers[\"x-header-2\"] == \"789\"",
+        "end_line": 171,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_responses.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_responses.py#L161-L171",
+        "reranker_score": "-5.209974",
+        "rrf_score": "0.01538462",
+        "score": "-5.209974",
+        "source_type": "python_test",
+        "start_line": 161,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.747388"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "16.537764",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "class MultiPartParser:\n    def __init__(\n        self, headers: Headers, stream: typing.AsyncGenerator[bytes, None]\n    ) -> None:\n        assert (\n            multipart is not None\n        ), \"The `python-multipart` library must be installed to use form parsing.\"\n        self.headers = headers\n        self.stream = stream\n        self.messages: typing.List[typing.Tuple[MultiPartMessage, bytes]] = []\n\n    def on_part_begin(self) -> None:\n        message = (MultiPartMessage.PART_BEGIN, b\"\")\n        self.messages.append(message)\n\n    def on_part_data(self, data: bytes, start: int, end: int) -> None:\n        message = (MultiPartMessage.PART_DATA, data[start:end])\n        self.messages.append(message)\n\n    def on_part_end(self) -> None:\n        message = (MultiPartMessage.PART_END, b\"\")\n        self.messages.append(message)\n\n    def on_header_field(self, data: bytes, start: int, end: int) -> None:\n        message = (MultiPartMessage.HEADER_FIELD, data[start:end])\n        self.messages.append(message)\n\n    def on_header_value(self, data: bytes, start: int, end: int) -> None:\n        message = (MultiPartMessage.HEADER_VALUE, data[start:end])\n        self.messages.append(message)\n\n    def on_header_end(self) -> None:\n        message = (MultiPartMessage.HEADER_END, b\"\")\n        self.messages.append(message)\n\n    def on_headers_finished(self) -> None:\n        message = (MultiPartMessage.HEADERS_FINISHED, b\"\")\n        self.messages.append(message)\n\n    def on_end(self) -> None:\n        message = (MultiPartMessage.END, b\"\")\n        self.messages.append(message)\n\n    async def parse(self) -> FormData:\n        # Parse the Content-Type header to get the multipart boundary.\n        content_type, params = parse_options_header(self.headers[\"Content-Type\"])\n        charset = params.get(b\"charset\", \"utf-8\")\n        if type(charset) == bytes:\n            charset = charset.decode(\"latin-1\")\n        boundary = params.get(b\"boundary\")\n\n        # Callbacks dictionary.\n        callbacks = {\n            \"on_part_begin\": self.on_part_begin,\n            \"on_part_data\": self.on_part_data,\n            \"on_part_end\": self.on_part_end,\n            \"on_header_field\": self.on_header_field,\n            \"on_header_value\": self.on_header_value,\n            \"on_header_end\": self.on_header_end,\n            \"on_headers_finished\": self.on_headers_finished,\n            \"on_end\": self.on_end,\n        }\n\n        # Create the parser.\n        parser = multipart.MultipartParser(boundary, callbacks)\n        header_field = b\"\"\n        header_value = b\"\"\n        content_disposition = None\n        content_type = b\"\"\n        field_name = \"\"\n        data = b\"\"\n        file: typing.Optional[UploadFile] = None\n\n        items: typing.List[typing.Tuple[str, typing.Union[str, UploadFile]]] = []\n\n        # Feed the parser with data from the request.\n        async for chunk in self.stream:\n            parser.write(chunk)\n            messages = list(self.messages)\n            self.messages.clear()\n            for message_type, message_bytes in messages:\n                if message_type == MultiPartMessage.PART_BEGIN:\n                    content_disposition = None\n                    content_type = b\"\"\n                    data = b\"\"\n                elif message_type == MultiPartMessage.HEADER_FIELD:\n                    header_field += message_bytes\n                elif message_type == MultiPartMessage.HEADER_VALUE:\n                    header_value += message_bytes\n                elif message_type == MultiPartMessage.HEADER_END:\n                    field = header_field.lower()\n                    if field == b\"content-disposition\":\n                        content_disposition = header_value\n                    elif field == b\"content-type\":\n                        content_type = header_value\n                    header_field = b\"\"\n                    header_value = b\"\"\n                elif message_type == MultiPartMessage.HEADERS_FINISHED:\n                    disposition, options = parse_options_header(content_disposition)\n                    field_name = _user_safe_decode(options[b\"name\"], charset)\n                    if b\"filename\" in options:\n                        filename = _user_safe_decode(options[b\"filename\"], charset)\n                        file = UploadFile(\n                            filename=filename,\n                            content_type=content_type.decode(\"latin-1\"),\n                        )\n                    else:\n                        file = None\n                elif message_type == MultiPartMessage.PART_DATA:\n                    if file is None:\n                        data += message_bytes\n                    else:\n                        await file.write(message_bytes)\n                elif message_type == MultiPartMessage.PART_END:\n                    if file is None:\n                        items.append((field_name, _user_safe_decode(data, charset)))\n                    else:\n                        await file.seek(0)\n                        items.append((field_name, file))\n",
+        "end_line": 232,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L113-L232",
+        "reranker_score": "-5.815783",
+        "rrf_score": "0.01639344",
+        "score": "-5.815783",
+        "source_type": "python_source",
+        "start_line": 113,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "11.032712",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "def test_urlencoded_multi_field_app_reads_body(tmpdir, test_client_factory):\n    client = test_client_factory(app_read_body)\n    response = client.post(\"/\", data={\"some\": \"data\", \"second\": \"key pair\"})\n    assert response.json() == {\"some\": \"data\", \"second\": \"key pair\"}",
+        "end_line": 313,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L310-L313",
+        "reranker_score": "-6.472186",
+        "rrf_score": "0.01538462",
+        "score": "-6.472186",
+        "source_type": "python_test",
+        "start_line": 310,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "10.812678",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "def test_multipart_multi_field_app_reads_body(tmpdir, test_client_factory):\n    client = test_client_factory(app_read_body)\n    response = client.post(\n        \"/\", data={\"some\": \"data\", \"second\": \"key pair\"}, files=FORCE_MULTIPART\n    )\n    assert response.json() == {\"some\": \"data\", \"second\": \"key pair\"}",
+        "end_line": 321,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/tests/test_formparsers.py#L316-L321",
+        "reranker_score": "-6.582425",
+        "rrf_score": "0.01515152",
+        "score": "-6.582425",
+        "source_type": "python_test",
+        "start_line": 316,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "## Third party responses\n",
+        "end_line": 186,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/responses.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/docs/responses.md#L185-L186",
+        "reranker_score": "-7.785217",
+        "rrf_score": "0.01515152",
+        "score": "-7.785217",
+        "source_type": "markdown",
+        "start_line": 185,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.745310"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.329486",
+        "commit": "9d686a7125131fe026071d04e0d0e0a726e1afc5",
+        "content": "class MultiPartMessage(Enum):\n    PART_BEGIN = 1\n    PART_DATA = 2\n    PART_END = 3\n    HEADER_FIELD = 4\n    HEADER_VALUE = 5\n    HEADER_END = 6\n    HEADERS_FINISHED = 7\n    END = 8",
+        "end_line": 31,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/formparsers.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/9d686a7125131fe026071d04e0d0e0a726e1afc5/starlette/formparsers.py#L23-L31",
+        "reranker_score": "-8.271564",
+        "rrf_score": "0.03033088",
+        "score": "-8.271564",
+        "source_type": "python_source",
+        "start_line": 23,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.733956"
+      }
+    ]
+  },
+  "run_id": "7b976150fcdd407a923eb38ca041a37b",
+  "status": "completed",
+  "trace_id": "824f4e5a28d761c2e475f852e689b4d5"
+}

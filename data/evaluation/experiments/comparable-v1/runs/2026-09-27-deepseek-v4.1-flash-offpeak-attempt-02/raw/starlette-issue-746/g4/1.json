@@ -1,0 +1,648 @@
+{
+  "case_id": "starlette-issue-746",
+  "events": [
+    {
+      "case_id": "starlette-issue-746",
+      "duration_ns": 4855388200,
+      "event_id": "ee00a07c3a403b3e",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/746",
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 1,
+      "snapshot_commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "duration_ns": 4855388200,
+      "event_id": "870740d3878bafce",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "query": "Endpoint path parameters type specification compatibility with OAS",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "arguments": {
+        "query_sha256": "e925996caa5bc8fc55a2925b0d447267cddb79781831263381aa8a0aff7bc495"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 4855388200,
+      "event_id": "b9c34ae584893d86",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "kind": "tool",
+      "parent_id": "977bdd699377c8b9",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L103-L146",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L172-L181",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L135-L142",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247"
+      ],
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "arguments": {
+        "query_sha256": "e925996caa5bc8fc55a2925b0d447267cddb79781831263381aa8a0aff7bc495"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 4855388200,
+      "event_id": "caccfccd63ede6a8",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "kind": "tool",
+      "parent_id": "977bdd699377c8b9",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L103-L146",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L172-L181",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L135-L142",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247"
+      ],
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "duration_ns": 4855388200,
+      "event_id": "977bdd699377c8b9",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "to_stage": "retrieved",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L103-L146",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L172-L181",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L135-L142",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247"
+      ],
+      "duration_ns": 4855388200,
+      "event_id": "bf63441aaf1116f2",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "cached_input_tokens": 2816,
+      "cost": "0.000512598",
+      "currency": "USD",
+      "duration_ns": 2415656000,
+      "event_id": "7354c1d5b14a5d13",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "input_tokens": 3441,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 684,
+      "parent_id": "92608337b1e652c9",
+      "prompt_version": "agent-v1",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 7,
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "status": "invalid_output",
+      "total_tokens": 4125,
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "attempt": 1,
+      "duration_ns": 4855388200,
+      "event_id": "6481cc5229b28d0c",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "kind": "recovery",
+      "max_retries": 1,
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 8,
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "status": "retrying",
+      "target": "structured_output",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "cached_input_tokens": 3200,
+      "cost": "0.00034815",
+      "currency": "USD",
+      "duration_ns": 2382386700,
+      "event_id": "c85af4a8e1ac50c1",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "input_tokens": 3441,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 504,
+      "parent_id": "92608337b1e652c9",
+      "prompt_version": "agent-v1",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 9,
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "status": "ok",
+      "total_tokens": 3945,
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "duration_ns": 4855388200,
+      "event_id": "92608337b1e652c9",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "Starlette's core routing API does not expose route parameter type declarations, so OAS-compatible typed path parameters require an integration layer such as FastAPI."
+      ],
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 10,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "duration_ns": 4855388200,
+      "event_id": "9bc2e229b3078cf1",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L560-L560",
+        "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L140-L141"
+      ],
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 11,
+      "stage": "verified",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "supported_hypotheses": 1,
+      "to_stage": "verified",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    },
+    {
+      "duration_ns": 4855388200,
+      "event_id": "07fd35e96a441294",
+      "finished_at": "2026-09-27T16:20:13.281967Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "f05427e18efed38aad00e026ff472f17",
+      "run_id": "15c8037f90bf40b58456b1367d996df1",
+      "sequence": 12,
+      "stage": "reported",
+      "started_at": "2026-09-27T16:20:08.426579Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "f05427e18efed38aad00e026ff472f17"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 4855518600
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000860748",
+    "input_tokens": 6882,
+    "latency_ns": 4798042700,
+    "model": "deepseek-flash",
+    "model_calls": 2,
+    "output_tokens": 1188,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 268006174600,
+    "run_latency_ns": 4855388200,
+    "structured_output_retries": 1,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 272861562800,
+    "total_tokens": 8070
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "end_line": 560,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L560-L560",
+        "start_line": 560
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "end_line": 59,
+        "path": "docs/requests.md",
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L57-L59",
+        "start_line": 57
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "end_line": 141,
+        "path": "docs/third-party-packages.md",
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L140-L141",
+        "start_line": 140
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Does Starlette itself provide any OAS-compatible parameter type schema generation outside the shown routing and documentation excerpts?",
+      "Is the compatibility issue in the retrieved issue about runtime behavior, documentation, or a specific integration layer?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 560,
+            "excerpt": "The path parameters are available on the request as `request.path_params`.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L560-L560",
+            "start_line": 560
+          }
+        ],
+        "text": "Starlette endpoints receive path parameters via `request.path_params` rather than as typed function parameters in the endpoint signature."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 59,
+            "excerpt": "Router path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L57-L59",
+            "start_line": 57
+          }
+        ],
+        "text": "Path parameters are documented as exposed via a dictionary interface."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 9,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 141,
+            "excerpt": "High performance, easy to learn, fast to code, ready for production web API framework.\nInspired by **APIStar**'s previous server system with type declarations for route parameters, based on the OpenAPI specification version 3.0.0+ (with JSON Schema), powered by **Pydantic** for the data handling.",
+            "path": "docs/third-party-packages.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L140-L141",
+            "start_line": 140
+          }
+        ],
+        "text": "FastAPI provides type declarations for route parameters and is based on the OpenAPI specification, but it is a third-party package rather than Starlette core."
+      }
+    ],
+    "issue_classification": "documentation and API compatibility",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 560,
+            "excerpt": "The path parameters are available on the request as `request.path_params`.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L560-L560",
+            "start_line": 560
+          },
+          {
+            "candidate_rank": 9,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 141,
+            "excerpt": "High performance, easy to learn, fast to code, ready for production web API framework.\nInspired by **APIStar**'s previous server system with type declarations for route parameters, based on the OpenAPI specification version 3.0.0+ (with JSON Schema), powered by **Pydantic** for the data handling.",
+            "path": "docs/third-party-packages.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L140-L141",
+            "start_line": 140
+          }
+        ],
+        "text": "Starlette's core routing API does not expose route parameter type declarations, so OAS-compatible typed path parameters require an integration layer such as FastAPI.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Does Starlette itself provide any OAS-compatible parameter type schema generation outside the shown routing and documentation excerpts?",
+      "Is the compatibility issue in the retrieved issue about runtime behavior, documentation, or a specific integration layer?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "9.119838",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.\n\nThis is different to most Python webframeworks, but I think it actually ends up\nbeing much more nicely consistent all the way through.\n",
+        "end_line": 564,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "reranker_score": "-1.672900",
+        "rrf_score": "0.03177806",
+        "score": "-1.672900",
+        "source_type": "markdown",
+        "start_line": 546,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.742861"
+      },
+      {
+        "bm25_contribution": "0.01470588",
+        "bm25_rank": 8,
+        "bm25_score": "8.481421",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "class WebSocketRoute(BaseRoute):\n    def __init__(\n        self, path: str, endpoint: typing.Callable, *, name: typing.Optional[str] = None\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"websocket\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, WebSocketRoute)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n        )",
+        "end_line": 327,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "reranker_score": "-1.865802",
+        "rrf_score": "0.02963126",
+        "score": "-1.865802",
+        "source_type": "python_source",
+        "start_line": 272,
+        "vector_contribution": "0.01492537",
+        "vector_rank": 7,
+        "vector_score": "0.685231"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "10.146603",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "app = Router(\n    [\n        Route(\"/\", endpoint=homepage, methods=[\"GET\"]),\n        Mount(\n            \"/users\",\n            routes=[\n                Route(\"/\", endpoint=users),\n                Route(\"/me\", endpoint=user_me),\n                Route(\"/{username}\", endpoint=user),\n                Route(\"/nomatch\", endpoint=user_no_match),\n            ],\n        ),\n        Mount(\n            \"/partial\",\n            routes=[\n                Route(\"/\", endpoint=functools.partial(partial_endpoint, \"foo\")),\n                Route(\n                    \"/cls\",\n                    endpoint=functools.partial(PartialRoutes.async_endpoint, \"foo\"),\n                ),\n                WebSocketRoute(\"/ws\", endpoint=functools.partial(partial_ws_endpoint)),\n                WebSocketRoute(\n                    \"/ws/cls\",\n                    endpoint=functools.partial(PartialRoutes.async_ws_endpoint),\n                ),\n            ],\n        ),\n        Mount(\"/static\", app=Response(\"xxxxx\", media_type=\"image/png\")),\n        Route(\"/func\", endpoint=func_homepage, methods=[\"GET\"]),\n        Route(\"/func\", endpoint=contact, methods=[\"POST\"]),\n        Route(\"/int/{param:int}\", endpoint=int_convertor, name=\"int-convertor\"),\n        Route(\"/float/{param:float}\", endpoint=float_convertor, name=\"float-convertor\"),\n        Route(\"/path/{param:path}\", endpoint=path_convertor, name=\"path-convertor\"),\n        Route(\"/uuid/{param:uuid}\", endpoint=uuid_converter, name=\"uuid-convertor\"),\n        # Route with chars that conflict with regex meta chars\n        Route(\n            \"/path-with-parentheses({param:int})\",\n            endpoint=path_with_parentheses,\n            name=\"path-with-parentheses\",\n        ),\n        WebSocketRoute(\"/ws\", endpoint=websocket_endpoint),\n        WebSocketRoute(\"/ws/{room}\", endpoint=websocket_params),\n    ]\n)",
+        "end_line": 146,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_routing.py#L103-L146",
+        "reranker_score": "-3.144497",
+        "rrf_score": "0.01562500",
+        "score": "-3.144497",
+        "source_type": "python_test",
+        "start_line": 103,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "9.031161",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### Fixed\n\n* Fixed `ServerErrorMiddleware` compatibility with Python 3.9.1/3.8.7 when debug mode is enabled -\n  [#1132](https://github.com/encode/starlette/pull/1132).\n* Fixed unclosed socket `ResourceWarning`s when using the `TestClient` with WebSocket endpoints -\n  #1132.\n* Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).\n\n",
+        "end_line": 181,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L172-L181",
+        "reranker_score": "-3.547817",
+        "rrf_score": "0.01515152",
+        "score": "-3.547817",
+        "source_type": "markdown",
+        "start_line": 172,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "10.388503",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`\n",
+        "end_line": 60,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "reranker_score": "-4.357662",
+        "rrf_score": "0.03225806",
+        "score": "-4.357662",
+        "source_type": "markdown",
+        "start_line": 55,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.712574"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "10.388503",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `websocket.path_params['username']`\n",
+        "end_line": 51,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "reranker_score": "-4.451703",
+        "rrf_score": "0.03125763",
+        "score": "-4.451703",
+        "source_type": "markdown",
+        "start_line": 46,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.700685"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "def test_http_endpoint_route_path_params(client):\n    response = client.get(\"/tomchristie\")\n    assert response.status_code == 200\n    assert response.text == \"Hello, tomchristie!\"",
+        "end_line": 36,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "reranker_score": "-4.692901",
+        "rrf_score": "0.01562500",
+        "score": "-4.692901",
+        "source_type": "python_test",
+        "start_line": 33,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.707064"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+        "end_line": 472,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "reranker_score": "-5.703963",
+        "rrf_score": "0.01587302",
+        "score": "-5.703963",
+        "source_type": "markdown",
+        "start_line": 469,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.708882"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "14.113471",
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### FastAPI\n\n<a href=\"https://github.com/tiangolo/fastapi\" target=\"_blank\">GitHub</a> |\n<a href=\"https://fastapi.tiangolo.com/\" target=\"_blank\">Documentation</a>\n\nHigh performance, easy to learn, fast to code, ready for production web API framework.\nInspired by **APIStar**'s previous server system with type declarations for route parameters, based on the OpenAPI specification version 3.0.0+ (with JSON Schema), powered by **Pydantic** for the data handling.\n",
+        "end_line": 142,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/third-party-packages.md#L135-L142",
+        "reranker_score": "-8.435896",
+        "rrf_score": "0.01639344",
+        "score": "-8.435896",
+        "source_type": "markdown",
+        "start_line": 135,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 247,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247",
+        "reranker_score": "-10.512183",
+        "rrf_score": "0.01515152",
+        "score": "-10.512183",
+        "source_type": "markdown",
+        "start_line": 244,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.691791"
+      }
+    ]
+  },
+  "run_id": "15c8037f90bf40b58456b1367d996df1",
+  "status": "completed",
+  "trace_id": "f05427e18efed38aad00e026ff472f17"
+}

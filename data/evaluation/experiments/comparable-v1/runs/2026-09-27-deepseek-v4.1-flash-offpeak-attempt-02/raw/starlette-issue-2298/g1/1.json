@@ -1,0 +1,174 @@
+{
+  "case_id": "starlette-issue-2298",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00093",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4816,
+    "latency_ns": 1788398600,
+    "missed_input_tokens": 4816,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 346,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 331843469000,
+    "total_latency_ns": 333631867600,
+    "total_tokens": 5162
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+            "end_line": 210,
+            "excerpt": "def test_staticfiles_304_with_etag_match(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    first_resp = client.get(\"/example.txt\")\n    assert first_resp.status_code == 200\n    last_etag = first_resp.headers[\"etag\"]\n    second_resp = client.get(\"/example.txt\", headers={\"if-none-match\": last_etag})\n    assert second_resp.status_code == 304\n    assert second_resp.content == b\"\"",
+            "path": "tests/test_staticfiles.py",
+            "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+            "start_line": 198
+          }
+        ],
+        "text": "Test verifies that a request with an If-None-Match header matching the ETag from a previous response returns 304 with empty body."
+      }
+    ],
+    "issue_classification": "StaticFiles ETag handling",
+    "root_cause_hypotheses": [],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Does StaticFiles support weak ETags?",
+      "How are ETags generated for static files?",
+      "Is there a bug related to strong/weak ETag comparison?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_304_with_etag_match(tmpdir, test_client_factory):\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    first_resp = client.get(\"/example.txt\")\n    assert first_resp.status_code == 200\n    last_etag = first_resp.headers[\"etag\"]\n    second_resp = client.get(\"/example.txt\", headers={\"if-none-match\": last_etag})\n    assert second_resp.status_code == 304\n    assert second_resp.content == b\"\"",
+        "end_line": 210,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L198-L210",
+        "score": "0.805313",
+        "source_type": "python_test",
+        "start_line": 198
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "### Fixed\n* Revert \"Allow `StaticFiles` to follow symlinks\" [#1681](https://github.com/encode/starlette/pull/1681).\n",
+        "end_line": 221,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L219-L221",
+        "score": "0.744017",
+        "source_type": "markdown",
+        "start_line": 219
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "## 0.13.6\n\n* Fix 404 errors with `StaticFiles`.\n",
+        "end_line": 463,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L460-L463",
+        "score": "0.743331",
+        "source_type": "markdown",
+        "start_line": 460
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_prevents_breaking_out_of_directory(tmpdir):\n    directory = os.path.join(tmpdir, \"foo\")\n    os.mkdir(directory)\n\n    path = os.path.join(tmpdir, \"example.txt\")\n    with open(path, \"w\") as file:\n        file.write(\"outside root dir\")\n\n    app = StaticFiles(directory=directory)\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../example.txt\"})\n    scope = {\"method\": \"GET\"}\n\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, scope)\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 182,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L165-L182",
+        "score": "0.736209",
+        "source_type": "python_test",
+        "start_line": 165
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_avoids_path_traversal(tmp_path: Path):\n    statics_path = tmp_path / \"static\"\n    statics_disallow_path = tmp_path / \"static_disallow\"\n\n    statics_path.mkdir()\n    statics_disallow_path.mkdir()\n\n    static_index_file = statics_path / \"index.html\"\n    statics_disallow_path_index_file = statics_disallow_path / \"index.html\"\n    static_file = tmp_path / \"static1.txt\"\n\n    static_index_file.write_text(\"<h1>Hello</h1>\")\n    statics_disallow_path_index_file.write_text(\"<h1>Private</h1>\")\n    static_file.write_text(\"Private\")\n\n    app = StaticFiles(directory=statics_path)\n\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../static1.txt\"})\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, {\"method\": \"GET\"})\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"\n\n    path = app.get_path({\"path\": \"/../static_disallow/index.html\"})\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, {\"method\": \"GET\"})\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 550,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L520-L550",
+        "score": "0.733214",
+        "source_type": "python_test",
+        "start_line": 520
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "### StaticFiles\n\nSignature: `StaticFiles(directory=None, packages=None, html=False, check_dir=True, follow_symlink=False)`\n\n* `directory` - A string or [os.PathLike][pathlike] denoting a directory path.\n* `packages` - A list of strings or list of tuples of strings of python packages.\n* `html` - Run in HTML mode. Automatically loads `index.html` for directories if such file exist.\n* `check_dir` - Ensure that the directory exists upon instantiation. Defaults to `True`.\n* `follow_symlink` - A boolean indicating if symbolic links for files and directories should be followed. Defaults to `False`.\n\nYou can combine this ASGI application with Starlette's routing to provide\ncomprehensive static file serving.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes = [\n    ...\n    Mount('/static', app=StaticFiles(directory='static'), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nStatic files will respond with \"404 Not found\" or \"405 Method not allowed\"\nresponses for requests which do not match. In HTML mode if `404.html` file\nexists it will be shown as 404 response.\n\nThe `packages` option can be used to include \"static\" directories contained within\na python package. The Python \"bootstrap4\" package is an example of this.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.routing import Mount\nfrom starlette.staticfiles import StaticFiles\n\n\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(directory='static', packages=['bootstrap4']), name=\"static\"),\n]\n\napp = Starlette(routes=routes)\n```\n\nBy default `StaticFiles` will look for `statics` directory in each package,\nyou can change the default directory by specifying a tuple of strings.\n\n```python\nroutes=[\n    ...\n    Mount('/static', app=StaticFiles(packages=[('bootstrap4', 'static')]), name=\"static\"),\n]\n```\n\nYou may prefer to include static files directly inside the \"static\" directory\nrather than using Python packaging to include static files, but it can be useful\nfor bundling up reusable components.\n\n[pathlike]: https://docs.python.org/3/library/os.html#os.PathLike",
+        "end_line": 66,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/staticfiles.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/staticfiles.md#L4-L66",
+        "score": "0.732998",
+        "source_type": "markdown",
+        "start_line": 4
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_disallows_path_traversal_with_symlinks(tmpdir):\n    statics_path = os.path.join(tmpdir, \"statics\")\n\n    root_source_path = tempfile.mkdtemp()\n    source_path = os.path.join(root_source_path, \"statics\")\n    os.mkdir(source_path)\n\n    source_file_path = os.path.join(root_source_path, \"index.html\")\n    with open(source_file_path, \"w\") as file:\n        file.write(\"<h1>Hello</h1>\")\n\n    os.symlink(source_path, statics_path)\n\n    app = StaticFiles(directory=statics_path, follow_symlink=True)\n    # We can't test this with 'httpx', so we test the app directly here.\n    path = app.get_path({\"path\": \"/../index.html\"})\n    scope = {\"method\": \"GET\"}\n\n    with pytest.raises(HTTPException) as exc_info:\n        anyio.run(app.get_response, path, scope)\n\n    assert exc_info.value.status_code == 404\n    assert exc_info.value.detail == \"Not Found\"",
+        "end_line": 517,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L495-L517",
+        "score": "0.730661",
+        "source_type": "python_test",
+        "start_line": 495
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "## 0.13.8\n\n* Revert `Queue(maxsize=1)` fix for `BaseHTTPMiddleware` middleware classes and streaming responses.\n\n* The `StaticFiles` constructor now allows `pathlib.Path` in addition to strings for its `directory` argument.\n",
+        "end_line": 455,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/docs/release-notes.md#L450-L455",
+        "score": "0.730101",
+        "source_type": "markdown",
+        "start_line": 450
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "class StaticFiles:\n    def __init__(\n        self,\n        *,\n        directory: typing.Optional[PathLike] = None,\n        packages: typing.Optional[\n            typing.List[typing.Union[str, typing.Tuple[str, str]]]\n        ] = None,\n        html: bool = False,\n        check_dir: bool = True,\n        follow_symlink: bool = False,\n    ) -> None:\n        self.directory = directory\n        self.packages = packages\n        self.all_directories = self.get_directories(directory, packages)\n        self.html = html\n        self.config_checked = False\n        self.follow_symlink = follow_symlink\n        if check_dir and directory is not None and not os.path.isdir(directory):\n            raise RuntimeError(f\"Directory '{directory}' does not exist\")\n\n    def get_directories(\n        self,\n        directory: typing.Optional[PathLike] = None,\n        packages: typing.Optional[\n            typing.List[typing.Union[str, typing.Tuple[str, str]]]\n        ] = None,\n    ) -> typing.List[PathLike]:\n        \"\"\"\n        Given `directory` and `packages` arguments, return a list of all the\n        directories that should be used for serving static files from.\n        \"\"\"\n        directories = []\n        if directory is not None:\n            directories.append(directory)\n\n        for package in packages or []:\n            if isinstance(package, tuple):\n                package, statics_dir = package\n            else:\n                statics_dir = \"statics\"\n            spec = importlib.util.find_spec(package)\n            assert spec is not None, f\"Package {package!r} could not be found.\"\n            assert spec.origin is not None, f\"Package {package!r} could not be found.\"\n            package_directory = os.path.normpath(\n                os.path.join(spec.origin, \"..\", statics_dir)\n            )\n            assert os.path.isdir(\n                package_directory\n            ), f\"Directory '{statics_dir!r}' in package {package!r} could not be found.\"\n            directories.append(package_directory)\n\n        return directories\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        \"\"\"\n        The ASGI entry point.\n        \"\"\"\n        assert scope[\"type\"] == \"http\"\n\n        if not self.config_checked:\n            await self.check_config()\n            self.config_checked = True\n\n        path = self.get_path(scope)\n        response = await self.get_response(path, scope)\n        await response(scope, receive, send)\n\n    def get_path(self, scope: Scope) -> str:\n        \"\"\"\n        Given the ASGI scope, return the `path` string to serve up,\n        with OS specific path separators, and any '..', '.' components removed.\n        \"\"\"\n        return os.path.normpath(os.path.join(*scope[\"path\"].split(\"/\")))  # type: ignore[no-any-return]  # noqa: E501\n\n    async def get_response(self, path: str, scope: Scope) -> Response:\n        \"\"\"\n        Returns an HTTP response, given the incoming path, method and request headers.\n        \"\"\"\n        if scope[\"method\"] not in (\"GET\", \"HEAD\"):\n            raise HTTPException(status_code=405)\n\n        try:\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, path\n            )\n        except PermissionError:\n            raise HTTPException(status_code=401)\n        except OSError:\n            raise\n\n        if stat_result and stat.S_ISREG(stat_result.st_mode):\n            # We have a static file to serve.\n            return self.file_response(full_path, stat_result, scope)\n\n        elif stat_result and stat.S_ISDIR(stat_result.st_mode) and self.html:\n            # We're in HTML mode, and have got a directory URL.\n            # Check if we have 'index.html' file to serve.\n            index_path = os.path.join(path, \"index.html\")\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, index_path\n            )\n            if stat_result is not None and stat.S_ISREG(stat_result.st_mode):\n                if not scope[\"path\"].endswith(\"/\"):\n                    # Directory URLs should redirect to always end in \"/\".\n                    url = URL(scope=scope)\n                    url = url.replace(path=url.path + \"/\")\n                    return RedirectResponse(url=url)\n                return self.file_response(full_path, stat_result, scope)\n\n        if self.html:\n            # Check for '404.html' if we're in HTML mode.\n            full_path, stat_result = await anyio.to_thread.run_sync(\n                self.lookup_path, \"404.html\"\n            )\n            if stat_result and stat.S_ISREG(stat_result.st_mode):\n                return FileResponse(\n                    full_path,\n                    stat_result=stat_result,\n                    method=scope[\"method\"],",
+        "end_line": 157,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/staticfiles.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/starlette/staticfiles.py#L38-L157",
+        "score": "0.729851",
+        "source_type": "python_source",
+        "start_line": 38
+      },
+      {
+        "commit": "93494a46ee0f2e8b1eeafd12e466ebac15037b41",
+        "content": "def test_staticfiles_304_with_last_modified_compare_last_req(\n    tmpdir, test_client_factory\n):\n    path = os.path.join(tmpdir, \"example.txt\")\n    file_last_modified_time = time.mktime(\n        time.strptime(\"2013-10-10 23:40:00\", \"%Y-%m-%d %H:%M:%S\")\n    )\n    with open(path, \"w\") as file:\n        file.write(\"<file content>\")\n    os.utime(path, (file_last_modified_time, file_last_modified_time))\n\n    app = StaticFiles(directory=tmpdir)\n    client = test_client_factory(app)\n    # last modified less than last request, 304\n    response = client.get(\n        \"/example.txt\", headers={\"If-Modified-Since\": \"Thu, 11 Oct 2013 15:30:19 GMT\"}\n    )\n    assert response.status_code == 304\n    assert response.content == b\"\"\n    # last modified greater than last request, 200 with content\n    response = client.get(\n        \"/example.txt\", headers={\"If-Modified-Since\": \"Thu, 20 Feb 2012 15:30:19 GMT\"}\n    )\n    assert response.status_code == 200\n    assert response.content == b\"<file content>\"",
+        "end_line": 237,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_staticfiles.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/93494a46ee0f2e8b1eeafd12e466ebac15037b41/tests/test_staticfiles.py#L213-L237",
+        "score": "0.729312",
+        "source_type": "python_test",
+        "start_line": 213
+      }
+    ]
+  },
+  "status": "completed"
+}

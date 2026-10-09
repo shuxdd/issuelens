@@ -1,0 +1,896 @@
+{
+  "case_id": "starlette-issue-2692",
+  "events": [
+    {
+      "case_id": "starlette-issue-2692",
+      "duration_ns": 5502653300,
+      "event_id": "6a5b746b8f331467",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2692",
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 1,
+      "snapshot_commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "duration_ns": 5502653300,
+      "event_id": "6aee51c0e6067a80",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "query": "Mismatch Between ASGI Specification and httpx's `raw_path` Definition in TestClient",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a9aeba3599e6532f54ad66c4fcaa130981e616735d7eb33eaa2cec0fdbc8e929"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5502653300,
+      "event_id": "505b3547c60cdfc4",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "kind": "tool",
+      "parent_id": "2648695c4c260d6b",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/testclient.md#L95-L129",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L520",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L234-L353",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L156-L160",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/websockets.md#L103-L112",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1246-L1282",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1204-L1214",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L608-L611",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/index.md#L126-L146"
+      ],
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "arguments": {
+        "query_sha256": "a9aeba3599e6532f54ad66c4fcaa130981e616735d7eb33eaa2cec0fdbc8e929"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 5502653300,
+      "event_id": "560536185cb109e5",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "kind": "tool",
+      "parent_id": "2648695c4c260d6b",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/testclient.md#L95-L129",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L520",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L234-L353",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L156-L160",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/websockets.md#L103-L112",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1246-L1282",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1204-L1214",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L608-L611",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/index.md#L126-L146"
+      ],
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "duration_ns": 5502653300,
+      "event_id": "2648695c4c260d6b",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "to_stage": "retrieved",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/testclient.md#L95-L129",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L520",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L234-L353",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L156-L160",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/websockets.md#L103-L112",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1246-L1282",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1204-L1214",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L608-L611",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/index.md#L126-L146"
+      ],
+      "duration_ns": 5502653300,
+      "event_id": "1991c8bb33c0aedc",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "cached_input_tokens": 5632,
+      "cost": "0.001168296",
+      "currency": "USD",
+      "duration_ns": 5432462500,
+      "event_id": "6ae55c90842ef60f",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "input_tokens": 6188,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 1780,
+      "parent_id": "c6eb9bee16d9eb1d",
+      "prompt_version": "agent-v1",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 7,
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "status": "ok",
+      "total_tokens": 7968,
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "duration_ns": 5502653300,
+      "event_id": "c6eb9bee16d9eb1d",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The mismatch may be caused by relying on httpx's `request.url.raw_path`, which has different semantics than the ASGI `raw_path` specification.",
+        "The mismatch may be limited to websocket scope handling, where the transport also sets `scope['raw_path']` from httpx."
+      ],
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "duration_ns": 5502653300,
+      "event_id": "c6d0117f331b3ae1",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L279-L279",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L288-L288",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L307-L307",
+        "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L401"
+      ],
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    },
+    {
+      "duration_ns": 5502653300,
+      "event_id": "1cfbc40b512e3e6e",
+      "finished_at": "2026-09-27T18:00:25.075797Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "ca29f07a7004ced30de4db1f248ae7ba",
+      "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T18:00:19.573144Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 5503391600
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.001168296",
+    "input_tokens": 6188,
+    "latency_ns": 5432462500,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 1780,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 369219652900,
+    "run_latency_ns": 5502653300,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 374722306200,
+    "total_tokens": 7968
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 158,
+        "path": "docs/release-notes.md",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L158-L158",
+        "start_line": 158
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 254,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+        "start_line": 254
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 277,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L277-L277",
+        "start_line": 277
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 279,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L279-L279",
+        "start_line": 279
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 285,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L285-L285",
+        "start_line": 285
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 288,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L288-L288",
+        "start_line": 288
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 307,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L307-L307",
+        "start_line": 307
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 401,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L401",
+        "start_line": 401
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 442,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L436-L442",
+        "start_line": 436
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 205,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L205",
+        "start_line": 205
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 210,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L208-L210",
+        "start_line": 208
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 214,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L214-L214",
+        "start_line": 214
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 215,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L215-L215",
+        "start_line": 215
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 1205,
+        "path": "tests/test_routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1205-L1205",
+        "start_line": 1205
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 1255,
+        "path": "tests/test_routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1251-L1255",
+        "start_line": 1251
+      },
+      {
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "end_line": 1274,
+        "path": "tests/test_routing.py",
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1268-L1274",
+        "start_line": 1268
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What exactly does ASGI require `raw_path` to contain?",
+      "What exactly does httpx return for `request.url.raw_path` in the relevant versions?",
+      "Is the mismatch considered a bug in Starlette's TestClient or in httpx?",
+      "Should websocket scopes have the same `raw_path` semantics as HTTP scopes under ASGI?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 254,
+            "excerpt": "raw_path = request.url.raw_path",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+            "start_line": 254
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 288,
+            "excerpt": "\"raw_path\": raw_path,",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L288-L288",
+            "start_line": 288
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 307,
+            "excerpt": "\"raw_path\": raw_path,",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 285,
+            "excerpt": "scope = {",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L285-L285",
+            "start_line": 285
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 277,
+            "excerpt": "scope: dict[str, typing.Any]",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L277-L277",
+            "start_line": 277
+          }
+        ],
+        "text": "The TestClient transport reads `request.url.raw_path` from the httpx request and places it into `scope['raw_path']` for several ASGI scope types."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 205,
+            "excerpt": "def test_request_raw_path(test_client_factory: TestClientFactory) -> None:",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L205",
+            "start_line": 205
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 210,
+            "excerpt": "path = request.scope[\"path\"]\n        raw_path = request.scope[\"raw_path\"]\n        response = PlainTextResponse(f\"{path}, {raw_path}\")",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L208-L210",
+            "start_line": 208
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 214,
+            "excerpt": "response = client.get(\"/he%2Fllo\")",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L214-L214",
+            "start_line": 214
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 215,
+            "excerpt": "assert response.text == \"/he/llo, b'/he%2Fllo'\"",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L215-L215",
+            "start_line": 215
+          }
+        ],
+        "text": "A test named `test_request_raw_path` demonstrates that the received ASGI `raw_path` is the percent-encoded path, not the decoded path."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 401,
+            "excerpt": "class TestClient(httpx.Client):",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L401",
+            "start_line": 401
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 442,
+            "excerpt": "super().__init__(\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L436-L442",
+            "start_line": 436
+          }
+        ],
+        "text": "The `TestClient` subclasses `httpx.Client`, which ties its request handling and URL parsing to httpx."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 279,
+            "excerpt": "if scheme in {\"ws\", \"wss\"}:",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L279-L279",
+            "start_line": 279
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 288,
+            "excerpt": "\"raw_path\": raw_path,",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L288-L288",
+            "start_line": 288
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 254,
+            "excerpt": "raw_path = request.url.raw_path",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+            "start_line": 254
+          }
+        ],
+        "text": "The test client transport supports websocket scopes and sets `raw_path` to the httpx `request.url.raw_path` for websocket scopes."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 158,
+            "excerpt": "* Handle `root_path` to keep compatibility with mounted ASGI applications and WSGI [#2400](https://github.com/encode/starlette/pull/2400).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L158-L158",
+            "start_line": 158
+          }
+        ],
+        "text": "A release note explicitly mentions handling `root_path` for mounted ASGI/WSGI compatibility."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 1255,
+            "excerpt": "assert response.json() == {\n        \"name\": \"path\",\n        \"path\": \"/root/path\",\n        \"root_path\": \"/root\",\n    }",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1251-L1255",
+            "start_line": 1251
+          },
+          {
+            "candidate_rank": 7,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 1274,
+            "excerpt": "response = client.get(\"/root/sub/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"subpath\",\n        \"path\": \"/root/sub/path\",\n        \"root_path\": \"/root/sub\",\n    }",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1268-L1274",
+            "start_line": 1268
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 1205,
+            "excerpt": "data = {\"name\": name, \"path\": scope[\"path\"], \"root_path\": scope[\"root_path\"]}",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1205-L1205",
+            "start_line": 1205
+          }
+        ],
+        "text": "Routing tests verify `scope['path']` and `scope['root_path']` but do not inspect `scope['raw_path']`."
+      }
+    ],
+    "issue_classification": "protocol_mismatch",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 254,
+            "excerpt": "raw_path = request.url.raw_path",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L254-L254",
+            "start_line": 254
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 307,
+            "excerpt": "\"raw_path\": raw_path,",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 401,
+            "excerpt": "class TestClient(httpx.Client):",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L401",
+            "start_line": 401
+          }
+        ],
+        "text": "The mismatch may be caused by relying on httpx's `request.url.raw_path`, which has different semantics than the ASGI `raw_path` specification.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 279,
+            "excerpt": "if scheme in {\"ws\", \"wss\"}:",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L279-L279",
+            "start_line": 279
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+            "end_line": 288,
+            "excerpt": "\"raw_path\": raw_path,",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L288-L288",
+            "start_line": 288
+          }
+        ],
+        "text": "The mismatch may be limited to websocket scope handling, where the transport also sets `scope['raw_path']` from httpx.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exactly does ASGI require `raw_path` to contain?",
+      "What exactly does httpx return for `request.url.raw_path` in the relevant versions?",
+      "Is the mismatch considered a bug in Starlette's TestClient or in httpx?",
+      "Should websocket scopes have the same `raw_path` semantics as HTTP scopes under ASGI?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "16.236415",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "### Testing WebSocket sessions\n\nYou can also test websocket sessions with the test client.\n\nThe `httpx` library will be used to build the initial handshake, meaning you\ncan use the same authentication options and other headers between both http and\nwebsocket testing.\n\n```python\nfrom starlette.testclient import TestClient\nfrom starlette.websockets import WebSocket\n\n\nasync def app(scope, receive, send):\n    assert scope['type'] == 'websocket'\n    websocket = WebSocket(scope, receive=receive, send=send)\n    await websocket.accept()\n    await websocket.send_text('Hello, world!')\n    await websocket.close()\n\n\ndef test_app():\n    client = TestClient(app)\n    with client.websocket_connect('/') as websocket:\n        data = websocket.receive_text()\n        assert data == 'Hello, world!'\n```\n\nThe operations on session are standard function calls, not awaitables.\n\nIt's important to use the session within a context-managed `with` block. This\nensure that the background thread on which the ASGI application is properly\nterminated, and that any exceptions that occur within the application are\nalways raised by the test client.\n",
+        "end_line": 129,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/testclient.md#L95-L129",
+        "reranker_score": "0.825545",
+        "rrf_score": "0.01562500",
+        "score": "0.825545",
+        "source_type": "markdown",
+        "start_line": 95,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "12.733515",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "class TestClient(httpx.Client):\n    __test__ = False\n    task: Future[None]\n    portal: anyio.abc.BlockingPortal | None = None\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        backend: typing.Literal[\"asyncio\", \"trio\"] = \"asyncio\",\n        backend_options: dict[str, typing.Any] | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        headers: dict[str, str] | None = None,\n        follow_redirects: bool = True,\n    ) -> None:\n        self.async_backend = _AsyncBackend(backend=backend, backend_options=backend_options or {})\n        if _is_asgi3(app):\n            asgi_app = app\n        else:\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\n        self.app = asgi_app\n        self.app_state: dict[str, typing.Any] = {}\n        transport = _TestClientTransport(\n            self.app,\n            portal_factory=self._portal_factory,\n            raise_server_exceptions=raise_server_exceptions,\n            root_path=root_path,\n            app_state=self.app_state,\n        )\n        if headers is None:\n            headers = {}\n        headers.setdefault(\"user-agent\", \"testclient\")\n        super().__init__(\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )\n\n    @contextlib.contextmanager\n    def _portal_factory(self) -> typing.Generator[anyio.abc.BlockingPortal, None, None]:\n        if self.portal is not None:\n            yield self.portal\n        else:\n            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:\n                yield portal\n\n    def _choose_redirect_arg(\n        self, follow_redirects: bool | None, allow_redirects: bool | None\n    ) -> bool | httpx._client.UseClientDefault:\n        redirect: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT\n        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )\n        return redirect\n\n    def request(  # type: ignore[override]\n        self,\n        method: str,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        url = self._merge_url(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(\n            method,\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def get(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().get(\n            url,\n            params=params,",
+        "end_line": 520,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L401-L520",
+        "reranker_score": "0.344261",
+        "rrf_score": "0.01515152",
+        "score": "0.344261",
+        "source_type": "python_source",
+        "start_line": 401,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "20.078294",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "class _TestClientTransport(httpx.BaseTransport):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        *,\n        app_state: dict[str, typing.Any],\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n        self.app_state = app_state\n\n    def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path,\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path,\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: dict[str, typing.Any] = {\"stream\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.read()\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")  # pragma: no cover\n            elif body is None:\n                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:",
+        "end_line": 353,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/starlette/testclient.py#L234-L353",
+        "reranker_score": "-0.157208",
+        "rrf_score": "0.03201844",
+        "score": "-0.157208",
+        "source_type": "python_source",
+        "start_line": 234,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.782345"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "18.793101",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "def test_request_raw_path(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        request = Request(scope, receive)\n        path = request.scope[\"path\"]\n        raw_path = request.scope[\"raw_path\"]\n        response = PlainTextResponse(f\"{path}, {raw_path}\")\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/he%2Fllo\")\n    assert response.text == \"/he/llo, b'/he%2Fllo'\"",
+        "end_line": 215,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_requests.py#L205-L215",
+        "reranker_score": "-0.604787",
+        "rrf_score": "0.03252247",
+        "score": "-0.604787",
+        "source_type": "python_test",
+        "start_line": 205,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.818882"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "#### Changes\n\n* Handle `root_path` to keep compatibility with mounted ASGI applications and WSGI [#2400](https://github.com/encode/starlette/pull/2400).\n* Turn `scope[\"client\"]` to `None` on `TestClient` [#2377](https://github.com/encode/starlette/pull/2377).\n",
+        "end_line": 160,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L156-L160",
+        "reranker_score": "-0.775598",
+        "rrf_score": "0.01515152",
+        "score": "-0.775598",
+        "source_type": "markdown",
+        "start_line": 156,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.779566"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "15.241961",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "### Sending and receiving messages\n\nIf you need to send or receive raw ASGI messages then you should use\n`websocket.send()` and `websocket.receive()` rather than using the raw `send` and\n`receive` callables. This will ensure that the websocket's state is kept\ncorrectly updated.\n\n* `await websocket.send(message)`\n* `await websocket.receive()`\n",
+        "end_line": 112,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/websockets.md#L103-L112",
+        "reranker_score": "-2.499552",
+        "rrf_score": "0.01538462",
+        "score": "-2.499552",
+        "source_type": "markdown",
+        "start_line": 103,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "def test_paths_with_root_path(test_client_factory: TestClientFactory) -> None:\n    app = Starlette(routes=echo_paths_routes)\n    client = test_client_factory(app, base_url=\"https://www.example.org/\", root_path=\"/root\")\n    response = client.get(\"/root/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"path\",\n        \"path\": \"/root/path\",\n        \"root_path\": \"/root\",\n    }\n    response = client.get(\"/root/asgipath/\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"asgipath\",\n        \"path\": \"/root/asgipath/\",\n        # Things that mount other ASGI apps, like WSGIMiddleware, would not be aware\n        # of the prefixed path, and would have their own notion of their own paths,\n        # so they need to be able to rely on the root_path to know the location they\n        # are mounted on\n        \"root_path\": \"/root/asgipath\",\n    }\n\n    response = client.get(\"/root/sub/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"subpath\",\n        \"path\": \"/root/sub/path\",\n        \"root_path\": \"/root/sub\",\n    }\n\n    response = client.post(\"/root/root-queue/path\")\n    assert response.status_code == 200\n    assert response.json() == {\n        \"name\": \"queue_path\",\n        \"path\": \"/root/root-queue/path\",\n        \"root_path\": \"/root\",\n    }",
+        "end_line": 1282,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1246-L1282",
+        "reranker_score": "-2.718724",
+        "rrf_score": "0.01538462",
+        "score": "-2.718724",
+        "source_type": "python_test",
+        "start_line": 1246,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.781076"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "async def pure_asgi_echo_paths(scope: Scope, receive: Receive, send: Send, name: str) -> None:\n    data = {\"name\": name, \"path\": scope[\"path\"], \"root_path\": scope[\"root_path\"]}\n    content = json.dumps(data).encode(\"utf-8\")\n    await send(\n        {\n            \"type\": \"http.response.start\",\n            \"status\": 200,\n            \"headers\": [(b\"content-type\", b\"application/json\")],\n        }\n    )\n    await send({\"type\": \"http.response.body\", \"body\": content})",
+        "end_line": 1214,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/tests/test_routing.py#L1204-L1214",
+        "reranker_score": "-2.871638",
+        "rrf_score": "0.01612903",
+        "score": "-2.871638",
+        "source_type": "python_test",
+        "start_line": 1204,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.802348"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 611,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/release-notes.md#L608-L611",
+        "reranker_score": "-3.020291",
+        "rrf_score": "0.01587302",
+        "score": "-3.020291",
+        "source_type": "markdown",
+        "start_line": 608,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.782596"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "17.433134",
+        "commit": "e11684013fe5ca084f5bd4e54830512a4dff9618",
+        "content": "## Modularity\n\nThe modularity that Starlette is designed on promotes building re-usable\ncomponents that can be shared between any ASGI framework. This should enable\nan ecosystem of shared middleware and mountable applications.\n\nThe clean API separation also means it's easier to understand each component\nin isolation.\n\n---\n\n<p align=\"center\"><i>Starlette is <a href=\"https://github.com/encode/starlette/blob/master/LICENSE.md\">BSD licensed</a> code.<br/>Designed & crafted with care.</i></br>&mdash; \u2b50\ufe0f &mdash;</p>\n\n[asgi]: https://asgi.readthedocs.io/en/latest/\n[httpx]: https://www.python-httpx.org/\n[jinja2]: https://jinja.palletsprojects.com/\n[python-multipart]: https://andrew-d.github.io/python-multipart/\n[itsdangerous]: https://itsdangerous.palletsprojects.com/\n[sqlalchemy]: https://www.sqlalchemy.org\n[pyyaml]: https://pyyaml.org/wiki/PyYAMLDocumentation\n[techempower]: https://www.techempower.com/benchmarks/#hw=ph&test=fortune&l=zijzen-sf",
+        "end_line": 146,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/index.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/e11684013fe5ca084f5bd4e54830512a4dff9618/docs/index.md#L126-L146",
+        "reranker_score": "-3.696895",
+        "rrf_score": "0.01587302",
+        "score": "-3.696895",
+        "source_type": "markdown",
+        "start_line": 126,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "f1b2bd24afae4d7c8a03c222af5a3582",
+  "status": "completed",
+  "trace_id": "ca29f07a7004ced30de4db1f248ae7ba"
+}

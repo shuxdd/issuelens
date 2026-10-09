@@ -1,0 +1,248 @@
+{
+  "case_id": "starlette-issue-1878",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00096105",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 3583,
+    "latency_ns": 2506816800,
+    "missed_input_tokens": 3583,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 706,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 295467180300,
+    "total_latency_ns": 297973997100,
+    "total_tokens": 4289
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 39,
+            "excerpt": "* `expires` - An integer that defines the number of seconds until the cookie expires. `Optional`",
+            "path": "docs/responses.md",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/responses.md#L39-L39",
+            "start_line": 39
+          }
+        ],
+        "text": "The documentation describes the `expires` parameter of `set_cookie` as an integer that defines the number of seconds until the cookie expires."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 34,
+            "excerpt": "Signature: `Response.set_cookie(key, value, max_age=None, expires=None, path=\"/\", domain=None, secure=False, httponly=False, samesite=\"lax\")`",
+            "path": "docs/responses.md",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/responses.md#L34-L34",
+            "start_line": 34
+          }
+        ],
+        "text": "The documented signature shows `expires` with a default of `None`."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 151,
+            "excerpt": "self.set_cookie(\n            key,\n            max_age=0,\n            expires=0,",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/starlette/responses.py#L148-L151",
+            "start_line": 148
+          }
+        ],
+        "text": "The `delete_cookie` method passes `expires=0` to `set_cookie`."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 365,
+            "excerpt": "* Session cookies now include browser 'expires', in addition to the existing signed expiry.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/release-notes.md#L365-L365",
+            "start_line": 365
+          }
+        ],
+        "text": "The release notes mention that session cookies now include browser 'expires'."
+      }
+    ],
+    "issue_classification": "documentation",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 39,
+            "excerpt": "* `expires` - An integer that defines the number of seconds until the cookie expires. `Optional`",
+            "path": "docs/responses.md",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/responses.md#L39-L39",
+            "start_line": 39
+          }
+        ],
+        "text": "The documentation incorrectly specifies that `expires` is an integer representing seconds, when it should be a datetime object.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+            "end_line": 151,
+            "excerpt": "self.set_cookie(\n            key,\n            max_age=0,\n            expires=0,",
+            "path": "starlette/responses.py",
+            "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/starlette/responses.py#L148-L151",
+            "start_line": 148
+          }
+        ],
+        "text": "The `delete_cookie` method passing `expires=0` indicates the code may be using an integer representation for expiration, which could be correct if the implementation expects seconds.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the expected type for the `expires` parameter in `set_cookie`?",
+      "Is the documentation error only in the type description or also in the default value?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "## 0.9.11\n\n* Session cookies now include browser 'expires', in addition to the existing signed expiry.\n* `request.form()` now returns a multi-dict interface.\n* The query parameter multi-dict implementation now mirrors `dict` more correctly for the\nbehavior of `.keys()`, `.values()`, and `.items()` when multiple same-key items occur.\n* Use `urlsplit` throughout in favor of `urlparse`.\n",
+        "end_line": 370,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/release-notes.md#L363-L370",
+        "score": "0.775493",
+        "source_type": "markdown",
+        "start_line": 363
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "@pytest.mark.parametrize(\n    \"set_cookie,expected\",\n    [\n        (\"chips=ahoy; vienna=finger\", {\"chips\": \"ahoy\", \"vienna\": \"finger\"}),\n        # all semicolons are delimiters, even within quotes\n        (\n            'keebler=\"E=mc2; L=\\\\\"Loves\\\\\"; fudge=\\\\012;\"',\n            {\"keebler\": '\"E=mc2', \"L\": '\\\\\"Loves\\\\\"', \"fudge\": \"\\\\012\", \"\": '\"'},\n        ),\n        # Illegal cookies that have an '=' char in an unquoted value.\n        (\"keebler=E=mc2\", {\"keebler\": \"E=mc2\"}),\n        # Cookies with ':' character in their name.\n        (\"key:term=value:term\", {\"key:term\": \"value:term\"}),\n        # Cookies with '[' and ']'.\n        (\"a=b; c=[; d=r; f=h\", {\"a\": \"b\", \"c\": \"[\", \"d\": \"r\", \"f\": \"h\"}),\n        # Cookies that RFC6265 allows.\n        (\"a=b; Domain=example.com\", {\"a\": \"b\", \"Domain\": \"example.com\"}),\n        # parse_cookie() keeps only the last cookie with the same name.\n        (\"a=b; h=i; a=c\", {\"a\": \"c\", \"h\": \"i\"}),\n    ],\n)\ndef test_cookies_edge_cases(set_cookie, expected, test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        response = JSONResponse({\"cookies\": request.cookies})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\", headers={\"cookie\": set_cookie})\n    result = response.json()\n    assert result[\"cookies\"] == expected",
+        "end_line": 380,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/tests/test_requests.py#L350-L380",
+        "score": "0.753268",
+        "source_type": "python_test",
+        "start_line": 350
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "#### Set Cookie\n\nStarlette provides a `set_cookie` method to allow you to set cookies on the response object.\n\nSignature: `Response.set_cookie(key, value, max_age=None, expires=None, path=\"/\", domain=None, secure=False, httponly=False, samesite=\"lax\")`\n\n* `key` - A string that will be the cookie's key.\n* `value` - A string that will be the cookie's value.\n* `max_age` - An integer that defines the lifetime of the cookie in seconds. A negative integer or a value of `0` will discard the cookie immediately. `Optional`\n* `expires` - An integer that defines the number of seconds until the cookie expires. `Optional`\n* `path` - A string that specifies the subset of routes to which the cookie will apply. `Optional`\n* `domain` - A string that specifies the domain for which the cookie is valid. `Optional`\n* `secure` - A bool indicating that the cookie will only be sent to the server if request is made using SSL and the HTTPS protocol. `Optional`\n* `httponly` - A bool indicating that the cookie cannot be accessed via JavaScript through `Document.cookie` property, the `XMLHttpRequest` or `Request` APIs. `Optional`\n* `samesite` - A string that specifies the samesite strategy for the cookie. Valid values are `'lax'`, `'strict'` and `'none'`. Defaults to `'lax'`. `Optional`\n",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/responses.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/responses.md#L30-L45",
+        "score": "0.740016",
+        "source_type": "markdown",
+        "start_line": 30
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "@pytest.mark.parametrize(\n    \"set_cookie,expected\",\n    [\n        # Chunks without an equals sign appear as unnamed values per\n        # https://bugzilla.mozilla.org/show_bug.cgi?id=169091\n        (\n            \"abc=def; unnamed; django_language=en\",\n            {\"\": \"unnamed\", \"abc\": \"def\", \"django_language\": \"en\"},\n        ),\n        # Even a double quote may be an unamed value.\n        ('a=b; \"; c=d', {\"a\": \"b\", \"\": '\"', \"c\": \"d\"}),\n        # Spaces in names and values, and an equals sign in values.\n        (\"a b c=d e = f; gh=i\", {\"a b c\": \"d e = f\", \"gh\": \"i\"}),\n        # More characters the spec forbids.\n        ('a   b,c<>@:/[]?{}=d  \"  =e,f g', {\"a   b,c<>@:/[]?{}\": 'd  \"  =e,f g'}),\n        # Unicode characters. The spec only allows ASCII.\n        # (\"saint=Andr\u00e9 Bessette\", {\"saint\": \"Andr\u00e9 Bessette\"}),\n        # Browsers don't send extra whitespace or semicolons in Cookie headers,\n        # but cookie_parser() should parse whitespace the same way\n        # document.cookie parses whitespace.\n        # (\"  =  b  ;  ;  =  ;   c  =  ;  \", {\"\": \"b\", \"c\": \"\"}),\n    ],\n)\ndef test_cookies_invalid(set_cookie, expected, test_client_factory):\n    \"\"\"\n    Cookie strings that are against the RFC6265 spec but which browsers will send if set\n    via document.cookie.\n    \"\"\"\n\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        response = JSONResponse({\"cookies\": request.cookies})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\", headers={\"cookie\": set_cookie})\n    result = response.json()\n    assert result[\"cookies\"] == expected",
+        "end_line": 420,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/tests/test_requests.py#L383-L420",
+        "score": "0.737255",
+        "source_type": "python_test",
+        "start_line": 383
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "### SessionMiddleware\n\n* Add `max_age`, and use timestamp-signed cookies. Defaults to two weeks.\n",
+        "end_line": 493,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/release-notes.md#L490-L493",
+        "score": "0.722550",
+        "source_type": "markdown",
+        "start_line": 490
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "#### Delete Cookie\n\nConversly, Starlette also provides a `delete_cookie` method to manually expire a set cookie.\n\nSignature: `Response.delete_cookie(key, path='/', domain=None)`\n\n",
+        "end_line": 52,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/responses.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/responses.md#L46-L52",
+        "score": "0.720589",
+        "source_type": "markdown",
+        "start_line": 46
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "\n    def delete_cookie(\n        self,\n        key: str,\n        path: str = \"/\",\n        domain: typing.Optional[str] = None,\n        secure: bool = False,\n        httponly: bool = False,\n        samesite: typing.Optional[Literal[\"lax\", \"strict\", \"none\"]] = \"lax\",\n    ) -> None:\n        self.set_cookie(\n            key,\n            max_age=0,\n            expires=0,\n            path=path,\n            domain=domain,\n            secure=secure,\n            httponly=httponly,\n            samesite=samesite,\n        )\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await send(\n            {\n                \"type\": \"http.response.start\",\n                \"status\": self.status_code,\n                \"headers\": self.raw_headers,\n            }\n        )\n        await send({\"type\": \"http.response.body\", \"body\": self.body})\n\n        if self.background is not None:\n            await self.background()",
+        "end_line": 170,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/responses.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/starlette/responses.py#L138-L170",
+        "score": "0.717993",
+        "source_type": "python_source",
+        "start_line": 138
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "## SessionMiddleware\n\nAdds signed cookie-based HTTP sessions. Session information is readable but not modifiable.\n\nAccess or modify the session data using the `request.session` dictionary interface.\n\nThe following arguments are supported:\n\n* `secret_key` - Should be a random string.\n* `session_cookie` - Defaults to \"session\".\n* `max_age` - Session expiry time in seconds. Defaults to 2 weeks. If set to `None` then the cookie will last as long as the browser session.\n* `same_site` - SameSite flag prevents the browser from sending session cookie along with cross-site requests. Defaults to `'lax'`.\n* `https_only` - Indicate that Secure flag should be set (can be used with HTTPS only). Defaults to `False`.\n",
+        "end_line": 109,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/middleware.md#L96-L109",
+        "score": "0.715923",
+        "source_type": "markdown",
+        "start_line": 96
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "def test_session_expires(test_client_factory):\n    app = Starlette(\n        routes=[\n            Route(\"/view_session\", endpoint=view_session),\n            Route(\"/update_session\", endpoint=update_session, methods=[\"POST\"]),\n        ],\n        middleware=[Middleware(SessionMiddleware, secret_key=\"example\", max_age=-1)],\n    )\n    client = test_client_factory(app)\n\n    response = client.post(\"/update_session\", json={\"some\": \"data\"})\n    assert response.json() == {\"session\": {\"some\": \"data\"}}\n\n    # requests removes expired cookies from response.cookies, we need to\n    # fetch session id from the headers and pass it explicitly\n    expired_cookie_header = response.headers[\"set-cookie\"]\n    expired_session_match = re.search(r\"session=([^;]*);\", expired_cookie_header)\n    assert expired_session_match is not None\n    expired_session_value = expired_session_match[1]\n    client = test_client_factory(app, cookies={\"session\": expired_session_value})\n    response = client.get(\"/view_session\")\n    assert response.json() == {\"session\": {}}",
+        "end_line": 80,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_session.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/tests/middleware/test_session.py#L59-L80",
+        "score": "0.714842",
+        "source_type": "python_test",
+        "start_line": 59
+      },
+      {
+        "commit": "212fa46b23be0701a5963cdeff14f05ed352e22a",
+        "content": "### Added\n* `Response.delete_cookie` now accepts the same parameters as `Response.set_cookie` [#1228](https://github.com/encode/starlette/pull/1228).\n* Update the `Jinja2Templates` constructor to allow `PathLike` [#1292](https://github.com/encode/starlette/pull/1292).\n",
+        "end_line": 137,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/212fa46b23be0701a5963cdeff14f05ed352e22a/docs/release-notes.md#L134-L137",
+        "score": "0.713273",
+        "source_type": "markdown",
+        "start_line": 134
+      }
+    ]
+  },
+  "status": "completed"
+}

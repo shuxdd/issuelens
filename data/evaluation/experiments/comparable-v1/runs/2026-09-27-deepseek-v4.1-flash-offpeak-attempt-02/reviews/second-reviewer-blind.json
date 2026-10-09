@@ -1,0 +1,3400 @@
+{
+  "cases": [
+    {
+      "case_id": "starlette-issue-1355",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 533,
+                    "excerpt": "def test_standalone_ws_route_does_not_match(test_client_factory):\n    app = WebSocketRoute(\"/\", ws_helloworld)\n    client = test_client_factory(app)\n    with pytest.raises(WebSocketDisconnect):\n        with client.websocket_connect(\"/invalid\"):\n            pass  # pragma: nocover",
+                    "path": "tests/test_routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_routing.py#L528-L533",
+                    "start_line": 528
+                  }
+                ],
+                "text": "WebSocketRoute is constructed directly in a test without functools.partial."
+              }
+            ],
+            "issue_classification": "websocket routing",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "WebSocketRoute may fail to correctly detect async endpoints wrapped in functools.partial.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What exact error occurs when WebSocketRoute is used with functools.partial?",
+              "Does WebSocketRoute use the same endpoint detection logic as referenced for other routes?",
+              "Which Starlette version is affected?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              false
+            ],
+            "notes": "指向 partial async endpoint 的方向对，但证据只是普通 WebSocketRoute 测试，未支持该机制。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "2200954c027b"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 9,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 284,
+                    "excerpt": "        if inspect.isfunction(endpoint) or inspect.ismethod(endpoint):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.",
+                    "path": "starlette/routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L279-L284",
+                    "start_line": 279
+                  }
+                ],
+                "text": "WebSocketRoute initializes the endpoint by checking if it is a function or method to wrap with websocket_session, otherwise treats it as ASGI app."
+              }
+            ],
+            "issue_classification": "routing",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 9,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 284,
+                    "excerpt": "        if inspect.isfunction(endpoint) or inspect.ismethod(endpoint):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.",
+                    "path": "starlette/routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L279-L284",
+                    "start_line": 279
+                  }
+                ],
+                "text": "The endpoint check in WebSocketRoute uses inspect.isfunction and inspect.ismethod, which return False for functools.partial objects, so the endpoint is incorrectly treated as an ASGI application instead of a function endpoint.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What is the exact expected behavior when using functools.partial with WebSocketRoute?",
+              "Does the issue occur with other callable objects that are not functions, methods, or classes?",
+              "Are there any specific error messages or tracebacks associated with this issue?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true
+            ],
+            "notes": "精确指出 inspect.isfunction/ismethod 将 partial 当作 ASGI app；代码证据直接。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "7fea5799077e"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 108,
+                    "excerpt": "Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/docs/release-notes.md#L107-L108",
+                    "start_line": 107
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 48,
+                    "excerpt": "def iscoroutinefunction_or_partial(obj: typing.Any) -> bool:\n    \"\"\"\n    Correctly determines if an object is a coroutine function,\n    including those wrapped in functools.partial objects.\n    \"\"\"\n    while isinstance(obj, functools.partial):\n        obj = obj.func\n    return inspect.iscoroutinefunction(obj)",
+                    "path": "starlette/routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L41-L48",
+                    "start_line": 41
+                  }
+                ],
+                "text": "Starlette introduced a helper to detect async callables wrapped in functools.partial, which suggests that such wrapping was a known compatibility concern."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 651,
+                    "excerpt": "partial_async_endpoint = functools.partial(_partial_async_endpoint, \"foo\")\npartial_cls_async_endpoint = functools.partial(\n    AsyncEndpointClassMethod.async_endpoint, \"foo\"\n)\n\npartial_async_app = Router(\n    routes=[\n        Route(\"/\", partial_async_endpoint),\n        Route(\"/cls\", partial_cls_async_endpoint),\n    ]\n)",
+                    "path": "tests/test_routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_routing.py#L641-L651",
+                    "start_line": 641
+                  }
+                ],
+                "text": "Tests exist for HTTP routes using functools.partial, but no corresponding WebSocketRoute test is provided in the candidates."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 529,
+                    "excerpt": "app = WebSocketRoute(\"/\", ws_helloworld)",
+                    "path": "tests/test_routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/tests/test_routing.py#L529-L529",
+                    "start_line": 529
+                  }
+                ],
+                "text": "WebSocketRoute is used in tests, but only with a plain function, not with functools.partial."
+              }
+            ],
+            "issue_classification": "routing",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 48,
+                    "excerpt": "def iscoroutinefunction_or_partial(obj: typing.Any) -> bool:\n    \"\"\"\n    Correctly determines if an object is a coroutine function,\n    including those wrapped in functools.partial objects.\n    \"\"\"\n    while isinstance(obj, functools.partial):\n        obj = obj.func\n    return inspect.iscoroutinefunction(obj)",
+                    "path": "starlette/routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/starlette/routing.py#L41-L48",
+                    "start_line": 41
+                  }
+                ],
+                "text": "WebSocketRoute may not use iscoroutinefunction_or_partial or may handle functools.partial differently than Route, causing async detection to fail.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "f53faba229e3fa2844bc3753e233d9c1f54cca52",
+                    "end_line": 108,
+                    "excerpt": "Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/f53faba229e3fa2844bc3753e233d9c1f54cca52/docs/release-notes.md#L107-L108",
+                    "start_line": 107
+                  }
+                ],
+                "text": "WebSocketRoute may have an incomplete or different async endpoint detection logic, so partial-wrapped coroutine functions are not recognized.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What is the exact implementation of WebSocketRoute.__init__ and handle()?",
+              "Does WebSocketRoute currently call iscoroutinefunction or iscoroutinefunction_or_partial?",
+              "Is there a test for WebSocketRoute with functools.partial that fails?",
+              "What Python versions are affected?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "找到 partial 检测及 HTTP 路由旁证，但未证明 WebSocketRoute 实际走错检测分支。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "a86668e3d1b3"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[1].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "ea73ef6c0a0c"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "submissions": [
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[0].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "1382a65b6a9e"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[3].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "2d130571c92a"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [],
+            "issue_classification": "insufficient evidence",
+            "root_cause_hypotheses": [],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which evidence is needed to produce a valid investigation report?"
+            ]
+          },
+          "score": {
+            "citation_validity": [],
+            "notes": "没有可评分的根因陈述或引用。",
+            "root_cause_verdict": 0
+          },
+          "submission_id": "49e6143ff66d"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 48,
+                    "excerpt": "router = Router(\n    routes=[\n        Route(\"/runtime_error\", endpoint=raise_runtime_error),\n        Route(\"/not_acceptable\", endpoint=not_acceptable),\n        Route(\"/no_content\", endpoint=no_content),\n        Route(\"/not_modified\", endpoint=not_modified),\n        Route(\"/with_headers\", endpoint=with_headers),\n        Route(\"/handled_exc_after_response\", endpoint=HandledExcAfterResponse()),\n        WebSocketRoute(\"/runtime_error\", endpoint=raise_runtime_error),\n    ]\n)\n\n\napp = ExceptionMiddleware(router)",
+                    "path": "tests/test_exceptions.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L35-L48",
+                    "start_line": 35
+                  }
+                ],
+                "text": "A Router instance is created with routes including one that raises a RuntimeError, and is wrapped in ExceptionMiddleware to form an app."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 9,
+                    "excerpt": "def raise_runtime_error(request):\n    raise RuntimeError(\"Yikes\")",
+                    "path": "tests/test_exceptions.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L8-L9",
+                    "start_line": 8
+                  }
+                ],
+                "text": "A function endpoint raises RuntimeError with message 'Yikes'."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 70,
+                    "excerpt": "app.mount(\"/users\", users)",
+                    "path": "tests/test_applications.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L70-L70",
+                    "start_line": 70
+                  }
+                ],
+                "text": "A sub-application is mounted at '/users'."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 56,
+                    "excerpt": "users = Router()",
+                    "path": "tests/test_applications.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L56-L56",
+                    "start_line": 56
+                  }
+                ],
+                "text": "A Router instance named 'users' is defined separately."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 86,
+                    "excerpt": "@app.route(\"/500\")\ndef runtime_error(request):\n    raise RuntimeError()",
+                    "path": "tests/test_applications.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_applications.py#L84-L86",
+                    "start_line": 84
+                  }
+                ],
+                "text": "An application route '/500' is defined that raises RuntimeError without a message."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "84820a25f2237c7c8fe7911f4fea2394f02994e8",
+                    "end_line": 13,
+                    "excerpt": "def not_acceptable(request):\n    raise HTTPException(status_code=406)",
+                    "path": "tests/test_exceptions.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/84820a25f2237c7c8fe7911f4fea2394f02994e8/tests/test_exceptions.py#L12-L13",
+                    "start_line": 12
+                  }
+                ],
+                "text": "Another endpoint raises HTTPException with status code 406."
+              }
+            ],
+            "issue_classification": "exception handling in sub-applications",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "Exception handling middleware may not propagate exceptions from mounted sub-applications as expected, causing unhandled errors.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific behavior or error message is observed when exceptions are raised in sub-application routes?",
+              "Are there tests that verify exception handling in mounted sub-applications?",
+              "How does ExceptionMiddleware interact with mounted sub-applications in Starlette?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "看到 mounted sub-app 的异常传播方向，但未定位 BaseHTTPMiddleware 中响应先返回、异常后保存的时序。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "b6ca8ea99162"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 85,
+                    "excerpt": "        close_code = status.WS_1000_NORMAL_CLOSURE\n\n        try:\n            while True:\n                message = await websocket.receive()\n                if message[\"type\"] == \"websocket.receive\":\n                    data = await self.decode(websocket, message)\n                    await self.on_receive(websocket, data)\n                elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )",
+                    "path": "starlette/endpoints.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L74-L85",
+                    "start_line": 74
+                  }
+                ],
+                "text": "The WebSocketEndpoint.dispatch method defaults close_code to status.WS_1000_NORMAL_CLOSURE and, on a websocket.disconnect message, sets close_code to the message's code or WS_1000_NORMAL_CLOSURE."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 18,
+                    "excerpt": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000, reason: str = None) -> None:\n        self.code = code\n        self.reason = reason or \"\"",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L15-L18",
+                    "start_line": 15
+                  }
+                ],
+                "text": "WebSocketDisconnect stores a code and reason, defaulting to 1000."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 105,
+                    "excerpt": "    def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L103-L105",
+                    "start_line": 103
+                  }
+                ],
+                "text": "WebSocket._raise_on_disconnect raises WebSocketDisconnect using message[\"code\"] from a websocket.disconnect message."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 78,
+                    "excerpt": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`",
+                    "path": "docs/websockets.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/websockets.md#L76-L78",
+                    "start_line": 76
+                  }
+                ],
+                "text": "Documentation shows websocket.close accepts code and reason parameters, with code 1000 in the example."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 217,
+                    "excerpt": "def test_client_close(test_client_factory):\n    close_code = None\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        nonlocal close_code\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        try:\n            await websocket.receive_text()\n        except WebSocketDisconnect as exc:\n            close_code = exc.code\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.close(code=status.WS_1001_GOING_AWAY)\n    assert close_code == status.WS_1001_GOING_AWAY",
+                    "path": "tests/test_websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/tests/test_websockets.py#L202-L217",
+                    "start_line": 202
+                  }
+                ],
+                "text": "Tests demonstrate close handling by asserting the client-provided close code WS_1001_GOING_AWAY is propagated to WebSocketDisconnect."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 160,
+                    "excerpt": "### Fixed\n\n* Fixed `ServerErrorMiddleware` compatibility with Python 3.9.1/3.8.7 when debug mode is enabled -\n  [#1132](https://github.com/encode/starlette/pull/1132).\n* Fixed unclosed socket `ResourceWarning`s when using the `TestClient` with WebSocket endpoints -\n  #1132.\n* Improved detection of `async` endpoints wrapped in `functools.partial` on Python 3.8+ -\n  [#1106](https://github.com/encode/starlette/pull/1106).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/release-notes.md#L152-L160",
+                    "start_line": 152
+                  }
+                ],
+                "text": "Release notes mention fixes for unclosed socket ResourceWarnings when using the TestClient with WebSocket endpoints."
+              }
+            ],
+            "issue_classification": "WebSocket status code handling in Starlette",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The bug is that Starlette does not expose or describe WebSocket status code 1005 correctly and omits status code 1006.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 85,
+                    "excerpt": "                elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )",
+                    "path": "starlette/endpoints.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L82-L85",
+                    "start_line": 82
+                  }
+                ],
+                "text": "The issue may be in how close codes are inferred from websocket.disconnect messages, where a missing code defaults to 1000 rather than 1005/1006.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 18,
+                    "excerpt": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000, reason: str = None) -> None:\n        self.code = code\n        self.reason = reason or \"\"",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L15-L18",
+                    "start_line": 15
+                  },
+                  {
+                    "candidate_rank": 6,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 105,
+                    "excerpt": "    def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L103-L105",
+                    "start_line": 103
+                  }
+                ],
+                "text": "The issue may be in the WebSocketDisconnect exception defaults or in _raise_on_disconnect, which assumes message[\"code\"] is always present.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which Starlette version or commit introduced the incorrect 1005 description and missing 1006?",
+              "Where is the WebSocket status code 1005 description currently defined or documented?",
+              "Where should status code 1006 be added or handled?",
+              "What exact expected behavior is required for status codes 1005 and 1006?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "讨论断开码默认值，但未定位 status.py 中 1005/1006 的状态码定义/描述问题。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "108e401a0b0f"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "model output: invalid JSON at line 1, column 2678"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "639b610671dd"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[1].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "a145524d619f"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 18,
+                    "excerpt": "class WebSocketDisconnect(Exception):\n    def __init__(self, code: int = 1000, reason: str = None) -> None:\n        self.code = code\n        self.reason = reason or \"\"",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L15-L18",
+                    "start_line": 15
+                  }
+                ],
+                "text": "The WebSocketDisconnect constructor defaults to code 1000 and an empty reason, with no handling or description of status code 1005 or 1006."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 105,
+                    "excerpt": "def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L103-L105",
+                    "start_line": 103
+                  }
+                ],
+                "text": "WebSocket.disconnect handling raises WebSocketDisconnect with the message code, without any special-casing for 1005 or 1006."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 85,
+                    "excerpt": "elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )",
+                    "path": "starlette/endpoints.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L82-L85",
+                    "start_line": 82
+                  }
+                ],
+                "text": "WebSocketEndpoint.dispatch falls back to WS_1000_NORMAL_CLOSURE when the disconnect message omits or sets a falsy code, not to 1005."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 78,
+                    "excerpt": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`",
+                    "path": "docs/websockets.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/docs/websockets.md#L76-L78",
+                    "start_line": 76
+                  }
+                ],
+                "text": "The websockets documentation only illustrates closing with code 1000, with no description of status code 1005 or 1006."
+              }
+            ],
+            "issue_classification": "documentation",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 105,
+                    "excerpt": "def _raise_on_disconnect(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.disconnect\":\n            raise WebSocketDisconnect(message[\"code\"])",
+                    "path": "starlette/websockets.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/websockets.py#L103-L105",
+                    "start_line": 103
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
+                    "end_line": 85,
+                    "excerpt": "elif message[\"type\"] == \"websocket.disconnect\":\n                    close_code = int(\n                        message.get(\"code\") or status.WS_1000_NORMAL_CLOSURE\n                    )",
+                    "path": "starlette/endpoints.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/487f05dfc641a0632be8bd405add6454cab4f6b0/starlette/endpoints.py#L82-L85",
+                    "start_line": 82
+                  }
+                ],
+                "text": "The code maps missing or None disconnect codes to 1000 instead of 1005, and never produces or documents 1006.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "No supplied candidate contains a textual description of status code 1005, so the claim that 1005 is described incorrectly cannot be verified from the evidence.",
+              "No supplied candidate shows where status codes are described to users, so it is unknown whether 1006 is expected to be documented or represented in code."
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "接近缺省断开码行为，但报告也承认无法验证 1005 描述，未到核心代码区域。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "cf1e0404172e"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 74,
+                    "excerpt": "async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L74",
+                    "start_line": 70
+                  }
+                ],
+                "text": "The BaseHTTPMiddleware.__call__ method creates a task group and awaits the dispatch function, then cancels the task group."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 68,
+                    "excerpt": "async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break\n\n                if app_exc is not None:\n                    raise app_exc\n\n            response = StreamingResponse(\n                status_code=message[\"status\"], content=body_stream()\n            )\n            response.raw_headers = message[\"headers\"]\n            return response",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L27-L68",
+                    "start_line": 27
+                  }
+                ],
+                "text": "The call_next function creates a memory object stream and spawns a task to run the inner app. It receives the first message from the stream and returns a StreamingResponse that yields body messages."
+              }
+            ],
+            "issue_classification": "middleware request parsing hang",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The hang occurs when a request body is parsed inside a BaseHTTPMiddleware dispatch method before calling call_next, because the request's receive channel is not forwarded to the inner app, causing the inner app to wait indefinitely for the body while the middleware is blocked on parsing.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "How exactly does the request body parsing interact with the middleware's TaskGroup and memory object streams?",
+              "Is there a documented issue or known bug about hangs when parsing request bodies in BaseHTTPMiddleware?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true
+            ],
+            "notes": "指到 BaseHTTPMiddleware 的流/任务组，但挂起因果链仍是未验证假设。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "3ae335c4b790"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 47,
+                    "excerpt": "async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L27-L47",
+                    "start_line": 27
+                  }
+                ],
+                "text": "The BaseHTTPMiddleware implementation uses an anyio memory object stream and a task group to run the inner app; call_next awaits the first message from recv_stream."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 73,
+                    "excerpt": "async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L73",
+                    "start_line": 70
+                  }
+                ],
+                "text": "The request passed to dispatch uses the original receive, while the inner app receives request.receive through the send_stream."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 232,
+                    "excerpt": "!!! bug\n    Currently, the `BaseHTTPMiddleware` has some known issues:\n\n    - It's not possible to use `BackgroundTasks` with `BaseHTTPMiddleware`. Check [#1438](https://github.com/encode/starlette/issues/1438) for more details.",
+                    "path": "docs/middleware.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/middleware.md#L229-L232",
+                    "start_line": 229
+                  }
+                ],
+                "text": "There is a known issue documented about BaseHTTPMiddleware with BackgroundTasks."
+              }
+            ],
+            "issue_classification": "hang/deadlock in BaseHTTPMiddleware request parsing",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "A request body that is never fully consumed by the inner app or middleware can cause call_next to hang because the inner app is waiting for more body messages while the outer dispatch waits for a response.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "If the inner app raises before sending any response and the exception is stored in app_exc, but the send_stream closes without a response start, recv_stream.receive() may raise EndOfStream and re-raise app_exc; however, a hang could occur if neither the stream closes nor a message is sent due to a task group cancellation issue.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The known contextvar propagation issue may interact with request parsing or background tasks, but does not directly explain a hang.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What exact request/endpoint triggers the hang?",
+              "Is the request body being fully consumed?",
+              "Are there background tasks involved?",
+              "Does the hang occur with streaming responses or large request bodies?",
+              "What version of Starlette is in use?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true
+            ],
+            "notes": "看到 call_next 等待 response stream 的机制，但没有具体解释 body parsing 如何导致永远等待。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "3ee383c228ba"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 25,
+                    "excerpt": "if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L23-L25",
+                    "start_line": 23
+                  }
+                ],
+                "text": "BaseHTTPMiddleware handles non-http scopes by directly passing through to the inner app."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 43,
+                    "excerpt": "async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L27-L43",
+                    "start_line": 27
+                  }
+                ],
+                "text": "BaseHTTPMiddleware creates a memory object stream and starts the inner app in a task group, then waits for the first message from the receive stream."
+              }
+            ],
+            "issue_classification": "middleware request hanging",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 59,
+                    "excerpt": "async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L51-L59",
+                    "start_line": 51
+                  }
+                ],
+                "text": "The request parsing may hang if the streaming response body generator does not close the receive stream or continues waiting for more body messages from the inner app that never arrive, causing anyio memory object stream receive to block indefinitely.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 47,
+                    "excerpt": "try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L42-L47",
+                    "start_line": 42
+                  },
+                  {
+                    "candidate_rank": 5,
+                    "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+                    "end_line": 73,
+                    "excerpt": "async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)",
+                    "path": "starlette/middleware/base.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L70-L73",
+                    "start_line": 70
+                  }
+                ],
+                "text": "The middleware dispatch function could hang by never returning or raising because it awaits call_next and call_next blocks on the first response message, so if the inner app never sends http.response.start, the middleware hangs.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which specific middleware class or custom dispatch function is involved in the hanging case?",
+              "Does the hang occur before the response starts, while streaming the body, or after the response completes?",
+              "Are there any deadlocks or missing stream closures in third-party middleware not shown in the supplied candidates?",
+              "Is the reported hang reproducible with the standard BaseHTTPMiddleware or only with a custom middleware/endpoint combination?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "主要是假设内层 app 不发送响应/stream 不关闭，未抓到请求体解析触发的实际根因。",
+            "root_cause_verdict": 0
+          },
+          "submission_id": "5ba13e6c9691"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[2].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "7324e504bded"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-1952",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "The TestClient's HTTP client was changed from requests to httpx."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 140,
+                    "excerpt": "* `.websocket_connect(url, subprotocols=None, **options)` - Takes the same set of arguments as `httpx.get()`.\n\nMay raise `starlette.websockets.WebSocketDisconnect` if the application does not accept the websocket connection.\n\n`websocket_connect()` must be used as a context manager (in a `with` block).\n\n!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.",
+                    "path": "docs/testclient.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L132-L140",
+                    "start_line": 132
+                  }
+                ],
+                "text": "The documented test session usage notes that websocket_connect takes the same arguments as httpx.get and recommends hard coding query arguments directly in the URL."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 53,
+                    "excerpt": "#### Query Parameters\n\nQuery parameters are exposed as an immutable multi-dict.\n\nFor example: `request.query_params['search']`",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/requests.md#L49-L53",
+                    "start_line": 49
+                  }
+                ],
+                "text": "Query parameters are documented as an immutable multi-dict and accessed as request.query_params['search']."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "def test_request_query_params(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        params = dict(request.query_params)\n        response = JSONResponse({\"params\": params})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L28-L37",
+                    "start_line": 28
+                  }
+                ],
+                "text": "A test verifies that query parameters from a request are parsed into a dict correctly for unencoded ASCII values."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 369,
+                    "excerpt": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+                    "path": "tests/test_formparsers.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+                    "start_line": 366
+                  }
+                ],
+                "text": "A form parser test posts data with a key containing a space and expects the parsed JSON to preserve the key."
+              }
+            ],
+            "issue_classification": "encoding",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "The replacement of requests with httpx in TestClient changed query parameter encoding behavior, causing bad encoding in query parameters.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 140,
+                    "excerpt": "!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.",
+                    "path": "docs/testclient.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L138-L140",
+                    "start_line": 138
+                  }
+                ],
+                "text": "The documented difference in httpx parameter handling for websocket_connect (not supporting params, requiring hard-coded URLs) may reflect an httpx API limitation affecting query parameter encoding in TestClient.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 369,
+                    "excerpt": "def test_urlencoded_percent_encoding_keys(tmpdir, test_client_factory):\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"so me\": \"data\"})\n    assert response.json() == {\"so me\": \"data\"}",
+                    "path": "tests/test_formparsers.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L366-L369",
+                    "start_line": 366
+                  }
+                ],
+                "text": "The existing URL-encoded form parser test with a space in the key may indicate that encoding of special characters in parameters is a relevant regression area.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific characters or encoding formats exhibit bad encoding in query parameters?",
+              "What was the expected versus actual encoded query parameter output?",
+              "Does the issue occur only with httpx.Client or also with httpx.AsyncClient?",
+              "Which version of httpx or starlette is affected?",
+              "Is there a failing test or reproduction case for bad encoding in query parameters?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "怀疑 requests→httpx 迁移影响 query 编码，方向合理但缺少具体编码差异及 testclient.py 根因。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "0458d774af55"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "Starlette replaced requests with httpx in TestClient."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 140,
+                    "excerpt": "!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.",
+                    "path": "docs/testclient.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L138-L140",
+                    "start_line": 138
+                  }
+                ],
+                "text": "Documentation states the params argument is not supported by websocket_connect."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "    client = test_client_factory(app)\n    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L35-L37",
+                    "start_line": 35
+                  }
+                ],
+                "text": "Test demonstrates that query parameters in URLs are parsed correctly."
+              }
+            ],
+            "issue_classification": "encoding",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The issue may be caused by httpx handling of query parameter encoding differently than requests.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific encoding issue occurs with query parameters using httpx.Client in TestClient?",
+              "Does the issue affect both HTTP and WebSocket connections?",
+              "What example of the bad encoding is observed?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true
+            ],
+            "notes": "找到迁移和参数编码可能性，但没有精确机制。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "20980652347c"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+                    "start_line": 8
+                  }
+                ],
+                "text": "The httpx-based TestClient was introduced by replacing requests, as documented in release notes."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+                    "start_line": 36
+                  },
+                  {
+                    "candidate_rank": 8,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 363,
+                    "excerpt": "response = client.post(\"/\", data={\"some\": \"da ta\"})\n    assert response.json() == {\"some\": \"da ta\"}",
+                    "path": "tests/test_formparsers.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_formparsers.py#L362-L363",
+                    "start_line": 362
+                  }
+                ],
+                "text": "Tests exercise query parameter passing through TestClient and expect plain values to be preserved."
+              }
+            ],
+            "issue_classification": "encoding",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+                    "start_line": 8
+                  },
+                  {
+                    "candidate_rank": 2,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+                    "start_line": 36
+                  }
+                ],
+                "text": "The switch from requests to httpx changed how query parameters are encoded, causing incorrect percent-encoding in TestClient requests.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific encoding differences exist between httpx and requests in query parameter handling?",
+              "Are there test cases that fail due to this encoding issue?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "同样指向 requests→httpx 的编码差异，但证据只说明迁移和普通参数测试。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "5ac0f4489d13"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+                    "start_line": 8
+                  }
+                ],
+                "text": "The TestClient was changed to use httpx instead of requests."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 195,
+                    "excerpt": "    # note: you _must_ set `base_url` for relative urls like \"/\" to work\n    async with AsyncClient(app=app, base_url=\"http://testserver\") as client:",
+                    "path": "docs/testclient.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L194-L195",
+                    "start_line": 194
+                  }
+                ],
+                "text": "The TestClient documentation indicates AsyncClient can be used with a base_url for relative URLs."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 140,
+                    "excerpt": "    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.",
+                    "path": "docs/testclient.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/testclient.md#L139-L140",
+                    "start_line": 139
+                  }
+                ],
+                "text": "The websocket_connect documentation says params are unsupported; query arguments must be hard-coded in the URL."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+                    "start_line": 36
+                  }
+                ],
+                "text": "A request query params test uses client.get with a raw URL query string and expects decoded keys and values."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 9,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 241,
+                    "excerpt": "def test_queryparams():\n    q = QueryParams(\"a=123&a=456&b=789\")",
+                    "path": "tests/test_datastructures.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L240-L241",
+                    "start_line": 240
+                  }
+                ],
+                "text": "QueryParams tests show parsing of urlencoded query strings into decoded values."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 235,
+                    "excerpt": "    q = QueryParams(\"a=123&abc&def&b=456\")\n    assert \"a\" in q\n    assert \"abc\" in q\n    assert \"def\" in q\n    assert \"b\" in q\n    val = q.get(\"abc\")\n    assert val is not None\n    assert len(val) == 0",
+                    "path": "tests/test_datastructures.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_datastructures.py#L228-L235",
+                    "start_line": 228
+                  }
+                ],
+                "text": "QueryParams test for blank parameters shows keys without equals parse to empty values."
+              }
+            ],
+            "issue_classification": "encoding",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 8,
+                    "excerpt": "* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/docs/release-notes.md#L8-L8",
+                    "start_line": 8
+                  }
+                ],
+                "text": "The switch from requests to httpx in TestClient changed how query parameter encoding/decoding is handled.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "bf5d7357b544b48b96844d3274ea558df079571d",
+                    "end_line": 37,
+                    "excerpt": "    response = client.get(\"/?a=123&b=456\")\n    assert response.json() == {\"params\": {\"a\": \"123\", \"b\": \"456\"}}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/bf5d7357b544b48b96844d3274ea558df079571d/tests/test_requests.py#L36-L37",
+                    "start_line": 36
+                  }
+                ],
+                "text": "When using params with httpx Client, query parameters may be encoded differently than expected by the application or tests.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What exact encoding issue is observed (e.g., keys/values not decoded, plus signs, percent-encoding, non-ASCII)?",
+              "What request code and inputs trigger the bad encoding?",
+              "Is the issue in httpx.Client URL encoding, Starlette QueryParams parsing, or how TestClient passes params?",
+              "What specific httpx version is being used?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "找到 httpx/URL 参数处理方向，仍未解释具体错误编码路径。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "a078801ca682"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-493",
+      "submissions": [
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[2].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "378c0edf7498"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 82,
+                    "excerpt": "The request body as bytes: `await request.body()`",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L82-L82",
+                    "start_line": 82
+                  }
+                ],
+                "text": "The documented way to read the request body as bytes is `await request.body()`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 107,
+                    "excerpt": "If you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L105-L107",
+                    "start_line": 105
+                  }
+                ],
+                "text": "Accessing `.stream()` consumes the byte chunks without storing the entire body to memory, and subsequent calls to `.body()`, `.form()`, or `.json()` will raise an error."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 239,
+                    "excerpt": "async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L233-L239",
+                    "start_line": 233
+                  }
+                ],
+                "text": "The `Request.body()` implementation caches the parsed body in `self._body` and returns it, joining chunks from `self.stream()`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 219,
+                    "excerpt": "async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return\n        if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n        self._stream_consumed = True",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L212-L219",
+                    "start_line": 212
+                  }
+                ],
+                "text": "`Request.stream()` yields the cached `_body` if it exists, otherwise raises `RuntimeError(\"Stream consumed\")` if the stream was already consumed."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 176,
+                    "excerpt": "def test_request_stream_then_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"<stream consumed>\", \"stream\": \"abc\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+                    "start_line": 160
+                  }
+                ],
+                "text": "A test shows that consuming the stream first then calling `.body()` raises `RuntimeError`, resulting in `<stream consumed>`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 157,
+                    "excerpt": "def test_request_body_then_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\", \"stream\": \"abc\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+                    "start_line": 144
+                  }
+                ],
+                "text": "A test shows that calling `.body()` first then `.stream()` returns the body for both, because `stream()` yields the cached `_body`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 232,
+                    "excerpt": "def test_request_without_setting_receive(test_client_factory):\n    \"\"\"\n    If Request is instantiated without the receive channel, then .body()\n    is not available.\n    \"\"\"\n\n    async def app(scope, receive, send):\n        request = Request(scope)\n        try:\n            data = await request.json()\n        except RuntimeError:\n            data = \"Receive channel not available\"\n        response = JSONResponse({\"json\": data})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.post(\"/\", json={\"a\": \"123\"})\n    assert response.json() == {\"json\": \"Receive channel not available\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L215-L232",
+                    "start_line": 215
+                  }
+                ],
+                "text": "If `Request` is instantiated without a receive channel, calling `.json()` (and therefore `.body()`) is not available and raises `RuntimeError`."
+              }
+            ],
+            "issue_classification": "api usage documentation",
+            "root_cause_hypotheses": [],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific question about Request.Body() is being asked?",
+              "Is the issue about a usage error, documentation confusion, or an implementation bug?",
+              "What exact error or unexpected behavior is being observed?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "描述 Request.body/stream 缓存，但没抓到 exception handler 收到重建 Request、缓存丢失这一关键点。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "514b82d6cdf3"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "high",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 82,
+                    "excerpt": "The request body as bytes: `await request.body()`",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L82-L82",
+                    "start_line": 82
+                  }
+                ],
+                "text": "The request body can be obtained as bytes via awaiting request.body()."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 107,
+                    "excerpt": "If you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L105-L107",
+                    "start_line": 105
+                  }
+                ],
+                "text": "After request.stream() is consumed, subsequent calls to .body(), .form(), or .json() raise an error."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 239,
+                    "excerpt": "async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L233-L239",
+                    "start_line": 233
+                  }
+                ],
+                "text": "The Request.body() implementation caches the parsed body in self._body and returns it."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 216,
+                    "excerpt": "async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L212-L216",
+                    "start_line": 212
+                  }
+                ],
+                "text": "Request.stream() yields the cached body if self._body exists."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 219,
+                    "excerpt": "if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n        self._stream_consumed = True",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L217-L219",
+                    "start_line": 217
+                  }
+                ],
+                "text": "Request.stream() raises RuntimeError(\"Stream consumed\") if the stream was already consumed."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 151,
+                    "excerpt": "body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L147-L151",
+                    "start_line": 147
+                  }
+                ],
+                "text": "A test shows that reading the body first, then streaming, yields the full body in both cases."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 169,
+                    "excerpt": "async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L164-L169",
+                    "start_line": 164
+                  }
+                ],
+                "text": "A test shows that consuming the stream first causes a subsequent await request.body() to raise RuntimeError."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 245,
+                    "excerpt": "async def json(self) -> typing.Any:\n        if not hasattr(self, \"_json\"):\n            body = await self.body()\n            self._json = json.loads(body)\n        return self._json",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L241-L245",
+                    "start_line": 241
+                  }
+                ],
+                "text": "request.json() internally calls await self.body() and parses the result as JSON."
+              }
+            ],
+            "issue_classification": "usage question about Request.body() semantics and interaction with stream()/form()/json() in Starlette",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 239,
+                    "excerpt": "async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return\n        if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n        self._stream_consumed = True\n        while True:\n            message = await self._receive()\n            if message[\"type\"] == \"http.request\":\n                body = message.get(\"body\", b\"\")\n                if body:\n                    yield body\n                if not message.get(\"more_body\", False):\n                    break\n            elif message[\"type\"] == \"http.disconnect\":\n                self._is_disconnected = True\n                raise ClientDisconnect()\n        yield b\"\"\n\n    async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L212-L239",
+                    "start_line": 212
+                  },
+                  {
+                    "candidate_rank": 1,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 107,
+                    "excerpt": "If you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.",
+                    "path": "docs/requests.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L105-L107",
+                    "start_line": 105
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 169,
+                    "excerpt": "async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L164-L169",
+                    "start_line": 164
+                  }
+                ],
+                "text": "Request.body() caches the full body in self._body only after successful stream consumption; if the stream was already consumed, stream() raises RuntimeError, so body() cannot cache and propagates that error.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 216,
+                    "excerpt": "async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L212-L216",
+                    "start_line": 212
+                  },
+                  {
+                    "candidate_rank": 10,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 239,
+                    "excerpt": "async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body",
+                    "path": "starlette/requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L233-L239",
+                    "start_line": 233
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+                    "end_line": 151,
+                    "excerpt": "body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L147-L151",
+                    "start_line": 147
+                  }
+                ],
+                "text": "After body() is called, the cached body is reused by stream(), allowing subsequent streaming to work.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Should the documentation clarify the exact timing and caching semantics between Request.body(), Request.stream(), Request.form(), and Request.json()?",
+              "Are there additional behaviors for streaming/multipart parsing or long-polling that affect when body() can be safely called?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "详细解释单个 Request 的 body 缓存；仍遗漏异常处理器中的 Request 重建。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "a515a58eaf7e"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [],
+            "issue_classification": "insufficient evidence",
+            "root_cause_hypotheses": [],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which evidence is needed to produce a valid investigation report?"
+            ]
+          },
+          "score": {
+            "citation_validity": [],
+            "notes": "没有可评分的根因陈述或引用。",
+            "root_cause_verdict": 0
+          },
+          "submission_id": "b9786a252884"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-2227",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "import sys\n\nimport pytest\n\nfrom starlette.middleware.wsgi import WSGIMiddleware, build_environ\n\nif sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L1-L8",
+                    "start_line": 1
+                  }
+                ],
+                "text": "The test file conditionally imports exceptiongroup only on Python versions below 3.11."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 1,
+                    "excerpt": "__version__ = \"0.31.0\"",
+                    "path": "starlette/__init__.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+                    "start_line": 1
+                  }
+                ],
+                "text": "Starlette 0.31.0 is the version in the candidate source snapshot."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 171,
+                    "excerpt": "* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+                    "start_line": 171
+                  }
+                ],
+                "text": "The release notes for 0.31.0 indicate official support for Python 3.11 was added."
+              }
+            ],
+            "issue_classification": "dependency packaging issue involving exceptiongroup import and Python version compatibility",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "A Python environment below 3.11 lacks the exceptiongroup package, and a Starlette dependency or test path attempts to import it. The only explicit exceptiongroup import in the supplied candidates is guarded for Python < 3.11, so the failure may originate from another affected module not shown in the candidates.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 1,
+                    "excerpt": "__version__ = \"0.31.0\"",
+                    "path": "starlette/__init__.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+                    "start_line": 1
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 171,
+                    "excerpt": "* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+                    "start_line": 171
+                  }
+                ],
+                "text": "Starlette 0.31.0 may have introduced an unguarded or improperly guarded exceptiongroup dependency for Python versions below 3.11, causing ModuleNotFoundError when exceptiongroup is not installed.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which exact Starlette module or dependency imports exceptiongroup at runtime on Python < 3.11?",
+              "What Python version was used when the error occurred?",
+              "Was exceptiongroup installed as a dependency?",
+              "Is the error occurring during application import, test execution, or package installation?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "识别 Python <3.11 与 exceptiongroup 缺失的关联，但把运行时导入误指向测试模块。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "20fc9e225cac"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 1,
+                    "excerpt": "__version__ = \"0.31.0\"",
+                    "path": "starlette/__init__.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+                    "start_line": 1
+                  }
+                ],
+                "text": "The installed Starlette version is 0.31.0."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 9,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 68,
+                    "excerpt": "### Fixed\n* Replace `commonprefix` by `commonpath` on `StaticFiles` [1797de4](https://github.com/encode/starlette/commit/1797de464124b090f10cf570441e8292936d63e3).\n* Convert ImportErrors into ModuleNotFoundError [#2135](https://github.com/encode/starlette/pull/2135).\n* Correct the RuntimeError message content in websockets [#2141](https://github.com/encode/starlette/pull/2141).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L64-L68",
+                    "start_line": 64
+                  }
+                ],
+                "text": "Starlette 0.31.0 release notes mention a change to convert ImportErrors into ModuleNotFoundError and reference PR #2135."
+              }
+            ],
+            "issue_classification": "dependency/import error",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The `exceptiongroup` backport package may be an undeclared runtime dependency of Starlette 0.31.0 or one of its dependencies, causing an ImportError when it is not installed.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The change described as 'Convert ImportErrors into ModuleNotFoundError' may alter error handling around an optional or missing `exceptiongroup` import, surfacing it as a ModuleNotFoundError.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which module or code path in Starlette 0.31.0 imports `exceptiongroup`?",
+              "Is `exceptiongroup` listed in Starlette 0.31.0's dependency metadata?",
+              "Does the error occur only under Python versions where `exceptiongroup` is not part of the standard library?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true
+            ],
+            "notes": "exceptiongroup 是 Python <3.11 的缺失运行时依赖这一方向正确，但未定位 BaseHTTPMiddleware 导入路径。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "71d6370646f0"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 1,
+                    "excerpt": "__version__ = \"0.31.0\"",
+                    "path": "starlette/__init__.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+                    "start_line": 1
+                  }
+                ],
+                "text": "Starlette version 0.31.0 is defined in the package's __init__.py."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "The test file tests/middleware/test_wsgi.py imports the 'exceptiongroup' module unconditionally for Python versions below 3.11, but does not declare it as a dependency."
+              }
+            ],
+            "issue_classification": "dependency",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "The package's test module imports 'exceptiongroup' for Python <3.11, but the library's dependencies do not include it, leading to an ImportError when those tests are run.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 171,
+                    "excerpt": "* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L171-L171",
+                    "start_line": 171
+                  },
+                  {
+                    "candidate_rank": 2,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "The release notes for 0.31.0 indicate official support for Python 3.11, but the change may have inadvertently introduced an undeclared test dependency on 'exceptiongroup' for earlier Python versions.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Is 'exceptiongroup' declared in the project's dependencies (e.g., pyproject.toml)?",
+              "Does the import error occur only in test environments or also in production usage?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "发现旧 Python 下 exceptiongroup 依赖，但把根因限定在测试导入而非库导入。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "818f23031aec"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 1,
+                    "excerpt": "__version__ = \"0.31.0\"",
+                    "path": "starlette/__init__.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+                    "start_line": 1
+                  }
+                ],
+                "text": "The candidate source shows starlette version 0.31.0."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 8,
+                    "excerpt": "if sys.version_info < (3, 11):  # pragma: no cover\n    from exceptiongroup import ExceptionGroup",
+                    "path": "tests/middleware/test_wsgi.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/tests/middleware/test_wsgi.py#L7-L8",
+                    "start_line": 7
+                  }
+                ],
+                "text": "A test file imports exceptiongroup only under Python versions below 3.11."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+                    "end_line": 3,
+                    "excerpt": "## 0.31.0\n\nJuly 24, 2023",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L1-L3",
+                    "start_line": 1
+                  }
+                ],
+                "text": "The 0.31.0 release notes exist and are dated July 24, 2023."
+              }
+            ],
+            "issue_classification": "dependency or packaging issue causing an import error for 'exceptiongroup' after upgrading to starlette 0.31.0",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "Starlette 0.31.0 may conditionally import exceptiongroup on Python <3.11, and the dependency may not be declared in the installed package metadata, causing ModuleNotFoundError.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The user's environment may be missing the exceptiongroup backport package despite running a Starlette version that requires it for Python <3.11.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which Python version was used when the ModuleNotFoundError occurred?",
+              "Where in the installed starlette package is exceptiongroup imported?",
+              "Does Starlette 0.31.0 declare exceptiongroup as a conditional dependency for Python <3.11 in its packaging metadata?",
+              "Was the project installed from PyPI, a lockfile, or a source checkout, and were dependencies installed consistently?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true
+            ],
+            "notes": "识别旧 Python/exceptiongroup 关联，但未定位 Starlette 运行时的无条件 import。",
+            "root_cause_verdict": 1
+          },
+          "submission_id": "e71c79537018"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-2306",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 468,
+                    "excerpt": "url = self.base_url.join(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L468",
+                    "start_line": 466
+                  }
+                ],
+                "text": "TestClient overrides request and joins the incoming URL with the client base_url before delegating to httpx.Client.request."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 364,
+                    "excerpt": "class TestClient(httpx.Client):",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L364",
+                    "start_line": 364
+                  }
+                ],
+                "text": "TestClient inherits from httpx.Client."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 22,
+                    "excerpt": "    client = test_client_factory(app)\n    response = client.get(\"/123?a=abc\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"http://testserver/123?a=abc\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L20-L22",
+                    "start_line": 20
+                  }
+                ],
+                "text": "The test suite includes a merge case: a root-relative path is requested and resolves against the base_url."
+              }
+            ],
+            "issue_classification": "compatibility",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 468,
+                    "excerpt": "url = self.base_url.join(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L468",
+                    "start_line": 466
+                  }
+                ],
+                "text": "The custom URL join in TestClient.request applies httpx.URL.join semantics to the incoming argument, but httpx.Client.request normally applies its own base_url merge logic; overriding the request therefore duplicates or replaces that merge, causing merging differences.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific URL inputs produce different results between TestClient and httpx.Client?",
+              "Does httpx.Client.request perform URL merging internally when base_url is set, making the explicit self.base_url.join(url) redundant or incorrect?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "准确指出 TestClient 自己 join base_url 后再委托 httpx 造成语义差异。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "09a96d25a673"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "DeepSeek structured output finish_reason=length"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "49e3a11a413b"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "high",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 466,
+                    "excerpt": "url = self.base_url.join(url)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+                    "start_line": 466
+                  }
+                ],
+                "text": "TestClient.request explicitly joins the given URL with self.base_url before calling the underlying httpx request."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 364,
+                    "excerpt": "class TestClient(httpx.Client):",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L364",
+                    "start_line": 364
+                  }
+                ],
+                "text": "TestClient inherits from httpx.Client."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 372,
+                    "excerpt": "    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L369-L372",
+                    "start_line": 369
+                  }
+                ],
+                "text": "TestClient is initialized with a base_url parameter that defaults to \"http://testserver\"."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 208,
+                    "excerpt": "This release replaces the underlying HTTP client used on the `TestClient` (`requests` :arrow_right: `httpx`), and as those clients [differ _a bit_ on their API](https://www.python-httpx.org/compatibility/), your test suite will likely break. To make the migration smoother, you can use the [`bump-testclient`](https://github.com/Kludex/bump-testclient) tool.",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/release-notes.md#L208-L208",
+                    "start_line": 208
+                  }
+                ],
+                "text": "The release notes indicate that TestClient replaced requests with httpx, and that API differences may break test suites."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 25,
+                    "excerpt": "    response = client.get(\"/123?a=abc\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"http://testserver/123?a=abc\"}\n\n    response = client.get(\"https://example.org:123/\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"https://example.org:123/\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L21-L25",
+                    "start_line": 21
+                  }
+                ],
+                "text": "Tests show that relative URLs passed to TestClient are resolved against the base URL, while absolute URLs are used as-is."
+              }
+            ],
+            "issue_classification": "url_merging",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 466,
+                    "excerpt": "url = self.base_url.join(url)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+                    "start_line": 466
+                  }
+                ],
+                "text": "TestClient joins the provided URL with its base_url before delegating to httpx, which may cause different URL merging behavior than httpx.Client when both client base_url and request URL are provided.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 208,
+                    "excerpt": "This release replaces the underlying HTTP client used on the `TestClient` (`requests` :arrow_right: `httpx`), and as those clients [differ _a bit_ on their API](https://www.python-httpx.org/compatibility/), your test suite will likely break. To make the migration smoother, you can use the [`bump-testclient`](https://github.com/Kludex/bump-testclient) tool.",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/release-notes.md#L208-L208",
+                    "start_line": 208
+                  }
+                ],
+                "text": "The migration from requests to httpx introduced API differences that affect URL merging, as highlighted in the release notes.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What specific URL merging scenarios differ between TestClient and httpx.Client?",
+              "Does the explicit join in TestClient.request duplicate or override httpx.Client's internal base_url handling?",
+              "What was the intended behavior for TestClient URL merging?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "精确定位 TestClient.request 的 URL join 与 httpx base_url 合并差异。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "5f6a31adb04b"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 364,
+                    "excerpt": "class TestClient(httpx.Client):",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L364",
+                    "start_line": 364
+                  }
+                ],
+                "text": "TestClient inherits from httpx.Client."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 466,
+                    "excerpt": "url = self.base_url.join(url)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+                    "start_line": 466
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 468,
+                    "excerpt": "return super().request(",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L468-L468",
+                    "start_line": 468
+                  }
+                ],
+                "text": "TestClient.request manually joins the URL with base_url before calling the parent httpx.Client.request."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 594,
+                    "excerpt": "return super().post(\n            url,",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L593-L594",
+                    "start_line": 593
+                  },
+                  {
+                    "candidate_rank": 7,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 631,
+                    "excerpt": "return super().put(\n            url,",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L630-L631",
+                    "start_line": 630
+                  },
+                  {
+                    "candidate_rank": 7,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 668,
+                    "excerpt": "return super().patch(\n            url,",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L667-L668",
+                    "start_line": 667
+                  }
+                ],
+                "text": "Child method overrides of post/put/patch/delete do not perform base_url.join, forwarding the raw url to httpx.Client."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 22,
+                    "excerpt": "response = client.get(\"/123?a=abc\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"http://testserver/123?a=abc\"}",
+                    "path": "tests/test_requests.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L21-L22",
+                    "start_line": 21
+                  }
+                ],
+                "text": "Test asserts that a relative URL is resolved against the TestClient base_url http://testserver."
+              }
+            ],
+            "issue_classification": "URL merging behavior difference between TestClient and httpx.Client",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 466,
+                    "excerpt": "url = self.base_url.join(url)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+                    "start_line": 466
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 364,
+                    "excerpt": "class TestClient(httpx.Client):",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L364",
+                    "start_line": 364
+                  }
+                ],
+                "text": "TestClient.request calls self.base_url.join(url), which merges URLs differently than httpx.Client's internal URL joining, producing non-equivalent resolved URLs for some inputs.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 7,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 594,
+                    "excerpt": "return super().post(\n            url,",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L593-L594",
+                    "start_line": 593
+                  },
+                  {
+                    "candidate_rank": 7,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 631,
+                    "excerpt": "return super().put(\n            url,",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L630-L631",
+                    "start_line": 630
+                  },
+                  {
+                    "candidate_rank": 3,
+                    "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+                    "end_line": 466,
+                    "excerpt": "url = self.base_url.join(url)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+                    "start_line": 466
+                  }
+                ],
+                "text": "The per-verb wrappers (post/put/patch/delete) bypass the manual base_url.join override, so different verbs use different URL-merging behavior.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Which specific inputs produce different resolved URLs between httpx.Client and TestClient?",
+              "Does httpx.Client's own request method also merge relative URLs against base_url, or does it leave joining to the transport?",
+              "Are the per-verb overrides intentionally bypassing base_url.join, or is that an oversight?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "同时找到 request 覆盖与各 HTTP verb wrapper 路径不一致，机制和代码范围充分。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "f0fcd8e67eb6"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-2646",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 6,
+                    "excerpt": "Signature: `StaticFiles(directory=None, packages=None, html=False, check_dir=True, follow_symlink=False)`",
+                    "path": "docs/staticfiles.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/staticfiles.md#L6-L6",
+                    "start_line": 6
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 12,
+                    "excerpt": "`follow_symlink` - A boolean indicating if symbolic links for files and directories should be followed. Defaults to `False`.",
+                    "path": "docs/staticfiles.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/staticfiles.md#L12-L12",
+                    "start_line": 12
+                  },
+                  {
+                    "candidate_rank": 5,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 47,
+                    "excerpt": "follow_symlink: bool = False,",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L47-L47",
+                    "start_line": 47
+                  }
+                ],
+                "text": "The StaticFiles application has a `follow_symlink` option with default `False`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 158,
+                    "excerpt": "joined_path = os.path.join(directory, path)\n            if self.follow_symlink:\n                full_path = os.path.abspath(joined_path)\n            else:\n                full_path = os.path.realpath(joined_path)\n            directory = os.path.realpath(directory)",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L153-L158",
+                    "start_line": 153
+                  }
+                ],
+                "text": "The path resolution logic in `lookup_path` behaves differently when `follow_symlink` is enabled."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 158,
+                    "excerpt": "full_path = os.path.realpath(joined_path)\n            directory = os.path.realpath(directory)",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L157-L158",
+                    "start_line": 157
+                  }
+                ],
+                "text": "When `follow_symlink` is `False`, the directory path is resolved with `os.path.realpath`, which follows symlinks in the directory itself."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 370,
+                    "excerpt": "* Revert \"Allow `StaticFiles` to follow symlinks\" [#1681](https://github.com/encode/starlette/pull/1681).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L370-L370",
+                    "start_line": 370
+                  }
+                ],
+                "text": "A previous attempt to make StaticFiles follow symlinks was reverted."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 6,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 519,
+                    "excerpt": "os.symlink(source_path, statics_path)\n\n    app = StaticFiles(directory=statics_path, follow_symlink=True)",
+                    "path": "tests/test_staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L517-L519",
+                    "start_line": 517
+                  }
+                ],
+                "text": "A test uses a symlink as the static files directory with `follow_symlink=True`."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 197,
+                    "excerpt": "if not (stat.S_ISDIR(stat_result.st_mode) or stat.S_ISLNK(stat_result.st_mode)):\n            raise RuntimeError(f\"StaticFiles path '{self.directory}' is not a directory.\")",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L196-L197",
+                    "start_line": 196
+                  }
+                ],
+                "text": "`check_config` accepts either a directory or a symlink for the static files path."
+              }
+            ],
+            "issue_classification": "StaticFiles symlink directory handling",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 10,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 158,
+                    "excerpt": "def lookup_path(self, path: str) -> tuple[str, os.stat_result | None]:\n        for directory in self.all_directories:\n            joined_path = os.path.join(directory, path)\n            if self.follow_symlink:\n                full_path = os.path.abspath(joined_path)\n            else:\n                full_path = os.path.realpath(joined_path)\n            directory = os.path.realpath(directory)",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L151-L158",
+                    "start_line": 151
+                  }
+                ],
+                "text": "When the directory itself is a symlink and `follow_symlink` is `False` (the default), the `lookup_path` method resolves both `full_path` and `directory` with `os.path.realpath`. This may follow the symlink for the directory but then the commonpath check could fail or the joined path might not be properly resolved, causing incorrect path resolution or `404` responses.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [
+                  {
+                    "candidate_rank": 5,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 56,
+                    "excerpt": "if check_dir and directory is not None and not os.path.isdir(directory):\n            raise RuntimeError(f\"Directory '{directory}' does not exist\")",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L55-L56",
+                    "start_line": 55
+                  },
+                  {
+                    "candidate_rank": 10,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 162,
+                    "excerpt": "if os.path.commonpath([full_path, directory]) != directory:\n                # Don't allow misbehaving clients to break out of the static files\n                # directory.\n                continue",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L159-L162",
+                    "start_line": 159
+                  }
+                ],
+                "text": "The instantiation check in `__init__` uses `os.path.isdir(directory)`, which returns `True` for a symlink to a directory. However, if the symlink is broken or points outside allowed paths, later lookup with `follow_symlink=False` may still fail due to the commonpath check rejecting paths that resolve outside the real directory.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What is the exact failure mode (e.g., error message, status code) when the directory is a symlink?",
+              "Does the issue occur with `follow_symlink=True`, `follow_symlink=False`, or both?",
+              "Is the symlink absolute or relative, and does the target directory exist?",
+              "What version of Starlette is being used? The behavior may have changed across releases."
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "直接围绕 directory symlink、realpath 和 commonpath 检查解释失败。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "148e932b9893"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[0].evidence[0].start_line/end_line is outside candidate"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "6587f9296082"
+        },
+        {
+          "failure": {
+            "error_type": "ValueError",
+            "message": "facts[0].evidence[0].excerpt does not match cited lines"
+          },
+          "report": null,
+          "score": {
+            "citation_validity": [],
+            "notes": "",
+            "root_cause_verdict": null
+          },
+          "submission_id": "7d1bec2b7189"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 47,
+                    "excerpt": "follow_symlink: bool = False,",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L47-L47",
+                    "start_line": 47
+                  },
+                  {
+                    "candidate_rank": 1,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 54,
+                    "excerpt": "self.follow_symlink = follow_symlink",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L54-L54",
+                    "start_line": 54
+                  }
+                ],
+                "text": "StaticFiles supports a follow_symlink parameter that defaults to False."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 157,
+                    "excerpt": "if self.follow_symlink:\n                full_path = os.path.abspath(joined_path)\n            else:\n                full_path = os.path.realpath(joined_path)",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L154-L157",
+                    "start_line": 154
+                  },
+                  {
+                    "candidate_rank": 1,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 157,
+                    "excerpt": "if self.follow_symlink:\n                full_path = os.path.abspath(joined_path)\n            else:\n                full_path = os.path.realpath(joined_path)",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L154-L157",
+                    "start_line": 154
+                  }
+                ],
+                "text": "lookup_path computes realpath when follow_symlink is False."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 8,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 196,
+                    "excerpt": "stat_result = await anyio.to_thread.run_sync(os.stat, self.directory)\n        except FileNotFoundError:\n            raise RuntimeError(f\"StaticFiles directory '{self.directory}' does not exist.\")\n        if not (stat.S_ISDIR(stat_result.st_mode) or stat.S_ISLNK(stat_result.st_mode)):",
+                    "path": "starlette/staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/starlette/staticfiles.py#L193-L196",
+                    "start_line": 193
+                  }
+                ],
+                "text": "check_config allows the directory to be a symlink."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 370,
+                    "excerpt": "* Revert \"Allow `StaticFiles` to follow symlinks\" [#1681](https://github.com/encode/starlette/pull/1681).",
+                    "path": "docs/release-notes.md",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/docs/release-notes.md#L370-L370",
+                    "start_line": 370
+                  }
+                ],
+                "text": "There was a revert of a change that allowed StaticFiles to follow symlinks."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 4,
+                    "commit": "0b50b9c4abd992a39d6e32148cc6f577ac3b1c44",
+                    "end_line": 519,
+                    "excerpt": "app = StaticFiles(directory=statics_path, follow_symlink=True)",
+                    "path": "tests/test_staticfiles.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/0b50b9c4abd992a39d6e32148cc6f577ac3b1c44/tests/test_staticfiles.py#L519-L519",
+                    "start_line": 519
+                  }
+                ],
+                "text": "A test uses follow_symlink=True with a directory that is a symlink."
+              }
+            ],
+            "issue_classification": "static files symlink resolution",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "medium",
+                "evidence": [],
+                "text": "When the directory itself is a symlink, the default follow_symlink=False causes realpath resolution that may strip the symlink and break common path containment, leading to 404 responses.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The revert of the symlink-following change removed handling for symlinked directories, causing the reported failure.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Is the issue triggered when follow_symlink is left at its default value?",
+              "Does the problem also occur when follow_symlink=True?",
+              "What exact error or behavior is observed (e.g., 404, 401, or exception)?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "定位 follow_symlink=False 下的 realpath 与目录 symlink 行为，代码区域正确。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "e1290d0ec89f"
+        }
+      ]
+    },
+    {
+      "case_id": "starlette-issue-2783",
+      "submissions": [
+        {
+          "failure": null,
+          "report": {
+            "confidence": "low",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 1,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 809,
+                    "excerpt": "def test_raise_on_startup(test_client_factory: TestClientFactory) -> None:\n    def run_startup() -> None:\n        raise RuntimeError()\n\n    with pytest.deprecated_call(match=\"The on_startup and on_shutdown parameters are deprecated\"):\n        router = Router(on_startup=[run_startup])\n    startup_failed = False\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        async def _send(message: Message) -> None:\n            nonlocal startup_failed\n            if message[\"type\"] == \"lifespan.startup.failed\":  # pragma: no branch\n                startup_failed = True\n            return await send(message)\n\n        await router(scope, receive, _send)\n\n    with pytest.raises(RuntimeError):\n        with test_client_factory(app):\n            pass  # pragma: no cover\n    assert startup_failed",
+                    "path": "tests/test_routing.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+                    "start_line": 789
+                  }
+                ],
+                "text": "The test `test_raise_on_startup` triggers a startup failure and asserts the RuntimeError propagates and the startup_failed flag is set."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 49,
+                    "excerpt": "def startup() -> None:\n    raise RuntimeError()",
+                    "path": "tests/test_testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49",
+                    "start_line": 48
+                  },
+                  {
+                    "candidate_rank": 7,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 67,
+                    "excerpt": "def runtime_error(request: Request) -> None:\n    raise RuntimeError()",
+                    "path": "tests/test_applications.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L66-L67",
+                    "start_line": 66
+                  },
+                  {
+                    "candidate_rank": 8,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 110,
+                    "excerpt": "def test_websockets_should_raise(client: TestClient) -> None:\n    with pytest.raises(RuntimeError):\n        with client.websocket_connect(\"/runtime_error\"):\n            pass  # pragma: no cover",
+                    "path": "tests/test_exceptions.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+                    "start_line": 107
+                  }
+                ],
+                "text": "Other tests exercise RuntimeError handling but no candidate references `_choose_redirect_arg` or its elif branch."
+              }
+            ],
+            "issue_classification": "test coverage gap",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The elif branch in `_choose_redirect_arg` that raises an error is unreachable or untriggered because tests do not exercise the condition guarding it.",
+                "verification": "unverified_hypothesis"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The `_choose_redirect_arg` helper lacks test coverage for its error-raising branch, so the branch is never observed to trigger.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "What is the source code of `_choose_redirect_arg` and the condition of its elif branch?",
+              "What inputs or parameters cause the elif branch to execute?",
+              "Are there any tests that call `_choose_redirect_arg` directly or indirectly?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "只找到启动异常测试，没有找到 _choose_redirect_arg 分支。",
+            "root_cause_verdict": 0
+          },
+          "submission_id": "4105c1a60d12"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "medium",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "The elif branch in _choose_redirect_arg guarding a raise is marked pragma: no cover, indicating the branch is never executed in tests or practice."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 457,
+                    "excerpt": "        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L457",
+                    "start_line": 452
+                  }
+                ],
+                "text": "The preceding if branch sets redirect to allow_redirects when allow_redirects is not None, so control never reaches the elif when allow_redirects is not None."
+              }
+            ],
+            "issue_classification": "logic error / unreachable code branch",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 458,
+                    "excerpt": "        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L458",
+                    "start_line": 452
+                  }
+                ],
+                "text": "The first if branch already consumes the allow_redirects is not None condition, making the subsequent elif redundant and unreachable because the first if branch ran when allow_redirects is not None, so the following if is evaluated and then the elif can only be reached when follow_redirects is None, which contradicts the elif condition requiring follow_redirects is not None.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "Prior refactor separated mutually exclusive conditions into sequential if statements without updating the elif condition, leaving dead code.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Was the intent to raise when both allow_redirects and follow_redirects are provided, and if so why is it structured as an unreachable elif?",
+              "Does any test exercise passing both allow_redirects and follow_redirects to TestClient methods?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true
+            ],
+            "notes": "正确证明 elif 的 follow_redirects 条件被前面的 if 排除，解释分支不可达。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "43aca86f8e40"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "high",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "The `_choose_redirect_arg` method contains an `elif` branch that raises a RuntimeError when both `allow_redirects` and `follow_redirects` are not None."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "In the `elif` condition, `follow_redirects` is guaranteed to be None because the preceding `if follow_redirects is not None` branch was not taken, making the `follow_redirects is not None` part of the `elif` condition always False."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 459,
+                    "excerpt": "            raise RuntimeError(  # pragma: no cover",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L459-L459",
+                    "start_line": 459
+                  }
+                ],
+                "text": "The RuntimeError raise is marked with `# pragma: no cover`, indicating it is not covered by tests."
+              }
+            ],
+            "issue_classification": "bug",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 3,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "The `elif` branch condition is logically unreachable because the `if follow_redirects is not None` branch would have been taken if `follow_redirects` were not None, making the `follow_redirects is not None` check in the `elif` always False.",
+                "verification": "supported"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Is this a known bug or intentional dead code?",
+              "What is the intended behavior when both `allow_redirects` and `follow_redirects` are provided?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true
+            ],
+            "notes": "精确指出条件逻辑矛盾及未覆盖分支。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "b895f79891a8"
+        },
+        {
+          "failure": null,
+          "report": {
+            "confidence": "high",
+            "facts": [
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "_choose_redirect_arg contains an elif branch that raises RuntimeError when both allow_redirects and follow_redirects are provided, but the branch is marked pragma: no cover and appears unreachable due to preceding assignments."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 457,
+                    "excerpt": "        redirect: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT\n        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L451-L457",
+                    "start_line": 451
+                  }
+                ],
+                "text": "The conditional structure first sets redirect from allow_redirects when not None, then unconditionally overwrites it with follow_redirects when follow_redirects is not None."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 458,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L458",
+                    "start_line": 456
+                  }
+                ],
+                "text": "The elif branch's condition duplicates part of the preceding if condition, making it structurally impossible to reach when follow_redirects is not None."
+              },
+              {
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 483,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L483-L483",
+                    "start_line": 483
+                  },
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 513,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L513-L513",
+                    "start_line": 513
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 538,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L538-L538",
+                    "start_line": 538
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 563,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L563-L563",
+                    "start_line": 563
+                  },
+                  {
+                    "candidate_rank": 4,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 592,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L592-L592",
+                    "start_line": 592
+                  },
+                  {
+                    "candidate_rank": 6,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 625,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L625-L625",
+                    "start_line": 625
+                  },
+                  {
+                    "candidate_rank": 6,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 658,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L658-L658",
+                    "start_line": 658
+                  },
+                  {
+                    "candidate_rank": 6,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 687,
+                    "excerpt": "        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L687-L687",
+                    "start_line": 687
+                  }
+                ],
+                "text": "The same _choose_redirect_arg method is invoked by request, get, options, head, post, put, patch, and delete methods in TestClient."
+              }
+            ],
+            "issue_classification": "logic error in deprecation/redirect argument validation",
+            "root_cause_hypotheses": [
+              {
+                "confidence": "high",
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 461,
+                    "excerpt": "        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+                    "start_line": 456
+                  }
+                ],
+                "text": "The elif branch condition `allow_redirects is not None and follow_redirects is not None` can never be true because when follow_redirects is not None, the preceding if branch already executes. This is a logic error in the conditional structure.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "medium",
+                "evidence": [
+                  {
+                    "candidate_rank": 2,
+                    "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+                    "end_line": 459,
+                    "excerpt": "            raise RuntimeError(  # pragma: no cover",
+                    "path": "starlette/testclient.py",
+                    "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L459-L459",
+                    "start_line": 459
+                  }
+                ],
+                "text": "The `# pragma: no cover` comment confirms the developers recognized the branch was unreachable, but the intended mutual-exclusion validation was lost.",
+                "verification": "supported"
+              },
+              {
+                "confidence": "low",
+                "evidence": [],
+                "text": "The correct validation should check both parameters at the top before any assignment, or use if/elif ordering that makes the conflict check reachable.",
+                "verification": "unverified_hypothesis"
+              }
+            ],
+            "schema_version": "1.0",
+            "unresolved_questions": [
+              "Was there originally a test that expected RuntimeError when passing both allow_redirects and follow_redirects?",
+              "Should allow_redirects and follow_redirects be mutually exclusive, or should follow_redirects silently override allow_redirects?",
+              "Does httpx.Client already handle conflicting redirect arguments, making this validation redundant?"
+            ]
+          },
+          "score": {
+            "citation_validity": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              false
+            ],
+            "notes": "unreachable 分支机制准确；最后一条 pragma: no cover 只能说明未覆盖，不能证明开发者已知它不可达。",
+            "root_cause_verdict": 2
+          },
+          "submission_id": "f926a2770b82"
+        }
+      ]
+    }
+  ],
+  "dataset_version": "starlette-eval-v1",
+  "experiment_version": "starlette-comparable-v1",
+  "reviewer_role": "second_reviewer",
+  "schema_version": "1.0"
+}

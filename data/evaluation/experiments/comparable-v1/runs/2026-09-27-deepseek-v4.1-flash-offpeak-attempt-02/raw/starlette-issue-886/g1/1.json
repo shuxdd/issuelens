@@ -1,0 +1,240 @@
+{
+  "case_id": "starlette-issue-886",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00080385",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2659,
+    "latency_ns": 2795766600,
+    "missed_input_tokens": 2659,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 675,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 236764316600,
+    "total_latency_ns": 239560083200,
+    "total_tokens": 3334
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 38,
+            "excerpt": "@app.on_event(\"startup\")\nasync def startup():\n    await database.connect()",
+            "path": "tests/test_database.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+            "start_line": 36
+          }
+        ],
+        "text": "Startup event handlers can be async and awaited, as shown in a test using an async startup function awaiting a database connection."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 50,
+            "excerpt": "@startup_error_app.on_event(\"startup\")\ndef startup():\n    raise RuntimeError()",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+            "start_line": 48
+          }
+        ],
+        "text": "Startup handlers can also be synchronous functions, as shown in a test where a synchronous startup handler raises RuntimeError."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 640,
+            "excerpt": "def test_raise_on_startup(test_client_factory):\n    def run_startup():\n        raise RuntimeError()\n\n    router = Router(on_startup=[run_startup])",
+            "path": "tests/test_routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L640",
+            "start_line": 636
+          }
+        ],
+        "text": "Router accepts a list of on_startup callbacks, including synchronous callables, as shown in a test."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 28,
+            "excerpt": "self.is_async = asyncio.iscoroutinefunction(func)\n\n    async def __call__(self) -> None:\n        if self.is_async:\n            await self.func(*self.args, **self.kwargs)\n        else:\n            await run_in_threadpool(self.func, *self.args, **self.kwargs)",
+            "path": "starlette/background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/background.py#L22-L28",
+            "start_line": 22
+          }
+        ],
+        "text": "A class can define an async __call__ method, and code elsewhere checks coroutine functions via asyncio.iscoroutinefunction."
+      }
+    ],
+    "issue_classification": "async startup event handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+            "end_line": 26,
+            "excerpt": "self.is_async = asyncio.iscoroutinefunction(func)\n\n    async def __call__(self) -> None:\n        if self.is_async:\n            await self.func(*self.args, **self.kwargs)",
+            "path": "starlette/background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/background.py#L22-L26",
+            "start_line": 22
+          }
+        ],
+        "text": "Startup event dispatch may check whether the handler itself is a coroutine function (e.g., asyncio.iscoroutinefunction) rather than checking the result of calling the handler, so an object with an async __call__ is treated as synchronous and its returned coroutine is not awaited.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Startup handlers may be invoked without awaiting the returned value, so async handlers only work because they are separately detected as coroutine functions; callable objects with async __call__ fall through.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Where is the on_startup dispatch code that decides to await handlers?",
+      "Does the dispatch use asyncio.iscoroutinefunction on the handler or on the handler's return value?",
+      "Is the observed issue specific to app.on_event registration, Router(on_startup=...), or both?",
+      "Which Starlette version exhibits the behavior?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "@app.on_event(\"startup\")\nasync def startup():\n    await database.connect()",
+        "end_line": 38,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_database.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_database.py#L36-L38",
+        "score": "0.772190",
+        "source_type": "python_test",
+        "start_line": 36
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "def test_raise_on_startup(test_client_factory):\n    def run_startup():\n        raise RuntimeError()\n\n    router = Router(on_startup=[run_startup])\n    startup_failed = False\n\n    async def app(scope, receive, send):\n        async def _send(message):\n            nonlocal startup_failed\n            if message[\"type\"] == \"lifespan.startup.failed\":\n                startup_failed = True\n            return await send(message)\n\n        await router(scope, receive, _send)\n\n    with pytest.raises(RuntimeError):\n        with test_client_factory(app):\n            pass  # pragma: nocover\n    assert startup_failed",
+        "end_line": 655,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_routing.py#L636-L655",
+        "score": "0.766129",
+        "source_type": "python_test",
+        "start_line": 636
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "### Changed\n\n* Create tasks from handler coroutines before sending them to `asyncio.wait`.\n* Use `format_exception` instead of `format_tb` in `ServerErrorMiddleware`'s `debug` responses.\n* Be more lenient with handler arguments when using the `requires` decorator.\n",
+        "end_line": 160,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/docs/release-notes.md#L155-L160",
+        "score": "0.759178",
+        "source_type": "markdown",
+        "start_line": 155
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "@startup_error_app.on_event(\"startup\")\ndef startup():\n    raise RuntimeError()",
+        "end_line": 50,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_testclient.py#L48-L50",
+        "score": "0.755506",
+        "source_type": "python_test",
+        "start_line": 48
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "async def run_in_threadpool(\n    func: typing.Callable[P, T], *args: P.args, **kwargs: P.kwargs\n) -> T:\n    if contextvars is not None:  # pragma: no cover\n        # Ensure we run in the same context\n        child = functools.partial(func, *args, **kwargs)\n        context = contextvars.copy_context()\n        func = context.run  # type: ignore[assignment]\n        args = (child,)  # type: ignore[assignment]\n    elif kwargs:  # pragma: no cover\n        # run_sync doesn't accept 'kwargs', so bind them in here\n        func = functools.partial(func, **kwargs)\n    return await anyio.to_thread.run_sync(func, *args)",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/concurrency.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L33-L45",
+        "score": "0.743179",
+        "source_type": "python_source",
+        "start_line": 33
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "def async_inject_decorator(**kwargs):\n    def wrapper(endpoint):\n        async def app(request):\n            return await endpoint(request=request, **kwargs)\n\n        return app\n\n    return wrapper",
+        "end_line": 126,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_authentication.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_authentication.py#L119-L126",
+        "score": "0.741541",
+        "source_type": "python_test",
+        "start_line": 119
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "class BackgroundTask:\n    def __init__(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        self.func = func\n        self.args = args\n        self.kwargs = kwargs\n        self.is_async = asyncio.iscoroutinefunction(func)\n\n    async def __call__(self) -> None:\n        if self.is_async:\n            await self.func(*self.args, **self.kwargs)\n        else:\n            await run_in_threadpool(self.func, *self.args, **self.kwargs)",
+        "end_line": 28,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/background.py#L15-L28",
+        "score": "0.740082",
+        "source_type": "python_source",
+        "start_line": 15
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "class BaseHTTPMiddleware:\n    def __init__(self, app: ASGIApp, dispatch: DispatchFunction = None) -> None:\n        self.app = app\n        self.dispatch_func = self.dispatch if dispatch is None else dispatch\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        yield message.get(\"body\", b\"\")\n\n            response = StreamingResponse(\n                status_code=message[\"status\"], content=body_stream()\n            )\n            response.raw_headers = message[\"headers\"]\n            return response\n\n        async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()\n\n    async def dispatch(\n        self, request: Request, call_next: RequestResponseEndpoint\n    ) -> Response:\n        raise NotImplementedError()  # pragma: no cover",
+        "end_line": 70,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/base.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/middleware/base.py#L15-L70",
+        "score": "0.736689",
+        "source_type": "python_source",
+        "start_line": 15
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "async def run_until_first_complete(*args: typing.Tuple[typing.Callable, dict]) -> None:\n    async with anyio.create_task_group() as task_group:\n\n        async def run(func: typing.Callable[[], typing.Coroutine]) -> None:\n            await func()\n            task_group.cancel_scope.cancel()\n\n        for func, kwargs in args:\n            task_group.start_soon(run, functools.partial(func, **kwargs))",
+        "end_line": 30,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/concurrency.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/starlette/concurrency.py#L22-L30",
+        "score": "0.735790",
+        "source_type": "python_source",
+        "start_line": 22
+      },
+      {
+        "commit": "199fc703f3078bd5b0e1aca0e9f4ab236b03f029",
+        "content": "@pytest.mark.anyio\nasync def test_run_until_first_complete():\n    task1_finished = anyio.Event()\n    task2_finished = anyio.Event()\n\n    async def task1():\n        task1_finished.set()\n\n    async def task2():\n        await task1_finished.wait()\n        await anyio.sleep(0)  # pragma: nocover\n        task2_finished.set()  # pragma: nocover\n\n    await run_until_first_complete((task1, {}), (task2, {}))\n    assert task1_finished.is_set()\n    assert not task2_finished.is_set()",
+        "end_line": 22,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_concurrency.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/199fc703f3078bd5b0e1aca0e9f4ab236b03f029/tests/test_concurrency.py#L7-L22",
+        "score": "0.733062",
+        "source_type": "python_test",
+        "start_line": 7
+      }
+    ]
+  },
+  "status": "completed"
+}

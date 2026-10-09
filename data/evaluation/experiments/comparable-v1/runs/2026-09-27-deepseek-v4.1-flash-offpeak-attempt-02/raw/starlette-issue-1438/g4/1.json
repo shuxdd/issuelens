@@ -1,0 +1,632 @@
+{
+  "case_id": "starlette-issue-1438",
+  "events": [
+    {
+      "case_id": "starlette-issue-1438",
+      "duration_ns": 2469836100,
+      "event_id": "d1a877339cad84ea",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1438",
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 1,
+      "snapshot_commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "duration_ns": 2469836100,
+      "event_id": "47caf49953eadd90",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "query": "Background tasks are cancelled if the client closes connection",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "arguments": {
+        "query_sha256": "402d91142bab202ed341c2423481669e9916a23d0e70e7142b97fac3f400aa79"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2469836100,
+      "event_id": "3fc0d3d1bd5daf7e",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "kind": "tool",
+      "parent_id": "fde3c268436003ef",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/testclient.md#L154-L156",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L71-L94",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/websockets.md#L76-L79",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/release-notes.md#L519-L522",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L354-L365",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L48-L68",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L29-L45",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L31-L43"
+      ],
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "arguments": {
+        "query_sha256": "402d91142bab202ed341c2423481669e9916a23d0e70e7142b97fac3f400aa79"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2469836100,
+      "event_id": "771c6d9f71b3af3d",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "kind": "tool",
+      "parent_id": "fde3c268436003ef",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/testclient.md#L154-L156",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L71-L94",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/websockets.md#L76-L79",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/release-notes.md#L519-L522",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L354-L365",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L48-L68",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L29-L45",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L31-L43"
+      ],
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "duration_ns": 2469836100,
+      "event_id": "fde3c268436003ef",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "to_stage": "retrieved",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/testclient.md#L154-L156",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L71-L94",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/websockets.md#L76-L79",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/release-notes.md#L519-L522",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L354-L365",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L48-L68",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L29-L45",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L42-L78",
+        "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L31-L43"
+      ],
+      "duration_ns": 2469836100,
+      "event_id": "65b5f8b6ecd16cfa",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "cached_input_tokens": 2432,
+      "cost": "0.000410946",
+      "currency": "USD",
+      "duration_ns": 2427291900,
+      "event_id": "16c4ce6b0b79d3ef",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "input_tokens": 3047,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 519,
+      "parent_id": "6706e3194ed73ced",
+      "prompt_version": "agent-v1",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 7,
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "status": "ok",
+      "total_tokens": 3566,
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "duration_ns": 2469836100,
+      "event_id": "6706e3194ed73ced",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "Cancellation may occur when the ASGI server cancels the response or the background tasks upon client disconnect, and the tasks are not shielded from cancellation.",
+        "The TestClient or ASGI server may terminate background task execution when the connection is closed before tasks complete."
+      ],
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "duration_ns": 2469836100,
+      "event_id": "45d70abd44fdd63d",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "references": [],
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    },
+    {
+      "duration_ns": 2469836100,
+      "event_id": "3d25755bf1732632",
+      "finished_at": "2026-09-27T16:34:45.890900Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "0b7acbd8fd31cf88af6109c137bfbc6e",
+      "run_id": "83251e3c71f04514a00b270a7e116a8e",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T16:34:43.421064Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2469946600
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000410946",
+    "input_tokens": 3047,
+    "latency_ns": 2427291900,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 519,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 277993727100,
+    "run_latency_ns": 2469836100,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 280463563200,
+    "total_tokens": 3566
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "end_line": 78,
+        "path": "docs/background.md",
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L76-L78",
+        "start_line": 76
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "end_line": 43,
+        "path": "starlette/background.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L41-L43",
+        "start_line": 41
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "end_line": 45,
+        "path": "tests/test_background.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L42-L45",
+        "start_line": 42
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "end_line": 68,
+        "path": "tests/test_background.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L65-L68",
+        "start_line": 65
+      },
+      {
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "end_line": 94,
+        "path": "tests/test_background.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L91-L94",
+        "start_line": 91
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "Is the reported behavior reproducible in a real ASGI server or only in TestClient?",
+      "Does Starlette shield background tasks from cancellation on client disconnect?",
+      "Where in the request/response lifecycle is background task execution triggered relative to connection close detection?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+            "end_line": 43,
+            "excerpt": "async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+            "path": "starlette/background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L41-L43",
+            "start_line": 41
+          },
+          {
+            "candidate_rank": 9,
+            "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+            "end_line": 78,
+            "excerpt": "!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+            "path": "docs/background.md",
+            "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L76-L78",
+            "start_line": 76
+          }
+        ],
+        "text": "The BackgroundTasks implementation runs each task sequentially without any per-task isolation; if a task raises, subsequent tasks are skipped, but the documented behavior does not describe cancellation due to client disconnect."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+            "end_line": 68,
+            "excerpt": "response = client.get(\"/\")\n    assert response.text == \"tasks initiated\"\n    assert TASK_COUNTER == 1 + 2 + 3",
+            "path": "tests/test_background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L65-L68",
+            "start_line": 65
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+            "end_line": 45,
+            "excerpt": "response = client.get(\"/\")\n    assert response.text == \"task initiated\"\n    assert TASK_COMPLETE",
+            "path": "tests/test_background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L42-L45",
+            "start_line": 42
+          }
+        ],
+        "text": "Tests confirm that background tasks are executed after the response is sent in normal TestClient usage."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+            "end_line": 94,
+            "excerpt": "client = test_client_factory(app)\n    with pytest.raises(Exception):\n        client.get(\"/\")\n    assert TASK_COUNTER == 1",
+            "path": "tests/test_background.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L91-L94",
+            "start_line": 91
+          }
+        ],
+        "text": "Tests show that when a background task raises, later tasks are not run."
+      }
+    ],
+    "issue_classification": "background tasks cancellation on client disconnect",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Cancellation may occur when the ASGI server cancels the response or the background tasks upon client disconnect, and the tasks are not shielded from cancellation.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The TestClient or ASGI server may terminate background task execution when the connection is closed before tasks complete.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Is the reported behavior reproducible in a real ASGI server or only in TestClient?",
+      "Does Starlette shield background tasks from cancellation on client disconnect?",
+      "Where in the request/response lifecycle is background task execution triggered relative to connection close detection?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "11.921412",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "#### Closing the connection\n\n* `.close(code=1000)` - Perform a client-side close of the websocket connection.",
+        "end_line": 156,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/testclient.md#L154-L156",
+        "reranker_score": "-1.597757",
+        "rrf_score": "0.03102453",
+        "score": "-1.597757",
+        "source_type": "markdown",
+        "start_line": 154,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.714571"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "15.619728",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_multi_tasks_failure_avoids_next_execution(\n    test_client_factory: Callable[..., TestClient]\n) -> None:\n    TASK_COUNTER = 0\n\n    def increment():\n        nonlocal TASK_COUNTER\n        TASK_COUNTER += 1\n        if TASK_COUNTER == 1:\n            raise Exception(\"task failed\")\n\n    async def app(scope, receive, send):\n        tasks = BackgroundTasks()\n        tasks.add_task(increment)\n        tasks.add_task(increment)\n        response = Response(\n            \"tasks initiated\", media_type=\"text/plain\", background=tasks\n        )\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    with pytest.raises(Exception):\n        client.get(\"/\")\n    assert TASK_COUNTER == 1",
+        "end_line": 94,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L71-L94",
+        "reranker_score": "-4.857122",
+        "rrf_score": "0.03225806",
+        "score": "-4.857122",
+        "source_type": "python_test",
+        "start_line": 71,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.720835"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`\n",
+        "end_line": 79,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/websockets.md#L76-L79",
+        "reranker_score": "-5.082814",
+        "rrf_score": "0.01639344",
+        "score": "-5.082814",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.752970"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "12.348838",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "### Background tasks\n\n* Add background task support to `FileResponse` and `StreamingResponse`.\n",
+        "end_line": 522,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/release-notes.md#L519-L522",
+        "reranker_score": "-6.013851",
+        "rrf_score": "0.02987737",
+        "score": "-6.013851",
+        "source_type": "markdown",
+        "start_line": 519,
+        "vector_contribution": "0.01449275",
+        "vector_rank": 9,
+        "vector_score": "0.700079"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_websocket_close_reason(test_client_factory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        await websocket.close(code=status.WS_1001_GOING_AWAY, reason=\"Going Away\")\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY\n        assert exc.value.reason == \"Going Away\"",
+        "end_line": 365,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_websockets.py#L354-L365",
+        "reranker_score": "-6.215881",
+        "rrf_score": "0.01562500",
+        "score": "-6.215881",
+        "source_type": "python_test",
+        "start_line": 354,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.712109"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "14.288028",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_multiple_tasks(test_client_factory: Callable[..., TestClient]):\n    TASK_COUNTER = 0\n\n    def increment(amount):\n        nonlocal TASK_COUNTER\n        TASK_COUNTER += amount\n\n    async def app(scope, receive, send):\n        tasks = BackgroundTasks()\n        tasks.add_task(increment, amount=1)\n        tasks.add_task(increment, amount=2)\n        tasks.add_task(increment, amount=3)\n        response = Response(\n            \"tasks initiated\", media_type=\"text/plain\", background=tasks\n        )\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"tasks initiated\"\n    assert TASK_COUNTER == 1 + 2 + 3",
+        "end_line": 68,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L48-L68",
+        "reranker_score": "-6.767431",
+        "rrf_score": "0.01587302",
+        "score": "-6.767431",
+        "source_type": "python_test",
+        "start_line": 48,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_websocket_endpoint_on_disconnect(test_client_factory):\n    class WebSocketApp(WebSocketEndpoint):\n        async def on_disconnect(self, websocket, close_code):\n            assert close_code == 1001\n            await websocket.close(code=close_code)\n\n    client = test_client_factory(WebSocketApp)\n    with client.websocket_connect(\"/ws\") as websocket:\n        websocket.close(code=1001)",
+        "end_line": 147,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_endpoints.py#L139-L147",
+        "reranker_score": "-6.785379",
+        "rrf_score": "0.01515152",
+        "score": "-6.785379",
+        "source_type": "python_test",
+        "start_line": 139,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.709155"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "def test_sync_task(test_client_factory):\n    TASK_COMPLETE = False\n\n    def sync_task():\n        nonlocal TASK_COMPLETE\n        TASK_COMPLETE = True\n\n    task = BackgroundTask(sync_task)\n\n    async def app(scope, receive, send):\n        response = Response(\"task initiated\", media_type=\"text/plain\", background=task)\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"task initiated\"\n    assert TASK_COMPLETE",
+        "end_line": 45,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/tests/test_background.py#L29-L45",
+        "reranker_score": "-7.600847",
+        "rrf_score": "0.01538462",
+        "score": "-7.600847",
+        "source_type": "python_test",
+        "start_line": 29,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.711393"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "17.247138",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "### BackgroundTasks\n\nUsed to add multiple background tasks to a response.\n\nSignature: `BackgroundTasks(tasks=[])`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.background import BackgroundTasks\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    tasks = BackgroundTasks()\n    tasks.add_task(send_welcome_email, to_address=email)\n    tasks.add_task(send_admin_notification, username=username)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=tasks)\n\nasync def send_welcome_email(to_address):\n    ...\n\nasync def send_admin_notification(username):\n    ...\n\nroutes = [\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n\n!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+        "end_line": 78,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/background.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/docs/background.md#L42-L78",
+        "reranker_score": "-7.655445",
+        "rrf_score": "0.01639344",
+        "score": "-7.655445",
+        "source_type": "markdown",
+        "start_line": 42,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "13.676501",
+        "commit": "4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3",
+        "content": "class BackgroundTasks(BackgroundTask):\n    def __init__(self, tasks: typing.Optional[typing.Sequence[BackgroundTask]] = None):\n        self.tasks = list(tasks) if tasks else []\n\n    def add_task(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        task = BackgroundTask(func, *args, **kwargs)\n        self.tasks.append(task)\n\n    async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+        "end_line": 43,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/4b37cf89ec80f8eee74eefa8bdce6384ae7af5c3/starlette/background.py#L31-L43",
+        "reranker_score": "-9.227287",
+        "rrf_score": "0.01562500",
+        "score": "-9.227287",
+        "source_type": "python_source",
+        "start_line": 31,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "83251e3c71f04514a00b270a7e116a8e",
+  "status": "completed",
+  "trace_id": "0b7acbd8fd31cf88af6109c137bfbc6e"
+}

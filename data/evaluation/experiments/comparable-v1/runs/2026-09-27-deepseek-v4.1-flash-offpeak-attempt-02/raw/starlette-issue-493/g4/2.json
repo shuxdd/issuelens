@@ -1,0 +1,638 @@
+{
+  "case_id": "starlette-issue-493",
+  "events": [
+    {
+      "case_id": "starlette-issue-493",
+      "duration_ns": 3288368200,
+      "event_id": "d0ca42cfb6a69c22",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/493",
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 1,
+      "snapshot_commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "duration_ns": 3288368200,
+      "event_id": "3e83fb039bd62f5f",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "query": "Question about Request.Body()",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "arguments": {
+        "query_sha256": "5029ea0c956cc1fc76895e5a5caedfeda9e46d76e01ad3db2283ab20739e45f5"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3288368200,
+      "event_id": "a6188bde806dd000",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "kind": "tool",
+      "parent_id": "3ecaeb04fa5a75e4",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L78-L94",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_formparsers.py#L88-L98",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L436-L450",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/testclient.py#L284-L354",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L190-L301",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/routing.md#L1-L32"
+      ],
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "arguments": {
+        "query_sha256": "5029ea0c956cc1fc76895e5a5caedfeda9e46d76e01ad3db2283ab20739e45f5"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3288368200,
+      "event_id": "59e0364e45591c5a",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "kind": "tool",
+      "parent_id": "3ecaeb04fa5a75e4",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L78-L94",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_formparsers.py#L88-L98",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L436-L450",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/testclient.py#L284-L354",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L190-L301",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/routing.md#L1-L32"
+      ],
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "duration_ns": 3288368200,
+      "event_id": "3ecaeb04fa5a75e4",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "to_stage": "retrieved",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L78-L94",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_formparsers.py#L88-L98",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L436-L450",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/testclient.py#L284-L354",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L190-L301",
+        "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/routing.md#L1-L32"
+      ],
+      "duration_ns": 3288368200,
+      "event_id": "47610338e077718c",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "cached_input_tokens": 5248,
+      "cost": "0.000550794",
+      "currency": "USD",
+      "duration_ns": 3240339500,
+      "event_id": "7763ef704fa27cbd",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "input_tokens": 5427,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 847,
+      "parent_id": "622fd89d21a4d02b",
+      "prompt_version": "agent-v1",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 7,
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "status": "ok",
+      "total_tokens": 6274,
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "duration_ns": 3288368200,
+      "event_id": "622fd89d21a4d02b",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [],
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "duration_ns": 3288368200,
+      "event_id": "f2907bbe3ae855eb",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "references": [],
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    },
+    {
+      "duration_ns": 3288368200,
+      "event_id": "17c568dd9a57afac",
+      "finished_at": "2026-09-27T18:54:15.080250Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "cb3d6c1501a44ca705562b829cbc1054",
+      "run_id": "e41168ee0489448a9003e0148380346c",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T18:54:11.791882Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 0
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3288495700
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000550794",
+    "input_tokens": 5427,
+    "latency_ns": 3240339500,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 847,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 299472680800,
+    "run_latency_ns": 3288368200,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 302761049000,
+    "total_tokens": 6274
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 86,
+        "path": "docs/requests.md",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L80-L86",
+        "start_line": 80
+      },
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 82,
+        "path": "docs/requests.md",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L82-L82",
+        "start_line": 82
+      },
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 107,
+        "path": "docs/requests.md",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L105-L107",
+        "start_line": 105
+      },
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 239,
+        "path": "starlette/requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L233-L239",
+        "start_line": 233
+      },
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 157,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+        "start_line": 144
+      },
+      {
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "end_line": 176,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+        "start_line": 160
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "Which evidence would verify the leading root cause hypothesis?"
+    ]
+  },
+  "replicate": 2,
+  "report": {
+    "confidence": "high",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 82,
+            "excerpt": "The request body as bytes: `await request.body()`",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L82-L82",
+            "start_line": 82
+          }
+        ],
+        "text": "Request.body() is documented as returning the request body as bytes."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 107,
+            "excerpt": "If you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L105-L107",
+            "start_line": 105
+          }
+        ],
+        "text": "Calling .body() after .stream() raises an error according to the documentation."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 176,
+            "excerpt": "def test_request_stream_then_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"<stream consumed>\", \"stream\": \"abc\"}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+            "start_line": 160
+          },
+          {
+            "candidate_rank": 5,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 157,
+            "excerpt": "def test_request_body_then_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\", \"stream\": \"abc\"}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+            "start_line": 144
+          }
+        ],
+        "text": "A test confirms that when .stream() is consumed before .body(), body raises RuntimeError, while .body() before .stream() returns the cached body and stream also yields it."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 86,
+            "excerpt": "There are a few different interfaces for returning the body of the request:\n\nThe request body as bytes: `await request.body()`\n\nThe request body, parsed as form data or multipart: `async with request.form() as form:`\n\nThe request body, parsed as JSON: `await request.json()`",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L80-L86",
+            "start_line": 80
+          }
+        ],
+        "text": "Some interfaces for returning the request body are: bytes via await request.body(), parsed form via async with request.form(), parsed JSON via await request.json(), and streaming via async for chunk in request.stream()."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 9,
+            "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+            "end_line": 239,
+            "excerpt": "    async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body",
+            "path": "starlette/requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L233-L239",
+            "start_line": 233
+          }
+        ],
+        "text": "Request.body() is an async method that, if not already cached, collects chunks from stream() and joins them; then returns the cached bytes."
+      }
+    ],
+    "issue_classification": "API usage question",
+    "root_cause_hypotheses": [],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which evidence would verify the leading root cause hypothesis?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "8.126283",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "#### Body\n\nThere are a few different interfaces for returning the body of the request:\n\nThe request body as bytes: `await request.body()`\n\nThe request body, parsed as form data or multipart: `async with request.form() as form:`\n\nThe request body, parsed as JSON: `await request.json()`\n\nYou can also access the request body as a stream, using the `async for` syntax:\n\n```python\nfrom starlette.requests import Request\nfrom starlette.responses import Response\n\n    \nasync def app(scope, receive, send):\n    assert scope['type'] == 'http'\n    request = Request(scope, receive)\n    body = b''\n    async for chunk in request.stream():\n        body += chunk\n    response = Response(body, media_type='text/plain')\n    await response(scope, receive, send)\n```\n\nIf you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.\n\nIn some cases such as long-polling, or streaming responses you might need to\ndetermine if the client has dropped the connection. You can determine this\nstate with `disconnected = await request.is_disconnected()`.\n",
+        "end_line": 112,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/requests.md#L78-L112",
+        "reranker_score": "2.412932",
+        "rrf_score": "0.03226646",
+        "score": "2.412932",
+        "source_type": "markdown",
+        "start_line": 78,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.812472"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "8.169382",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "def test_request_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        response = JSONResponse({\"body\": body.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.get(\"/\")\n    assert response.json() == {\"body\": \"\"}\n\n    response = client.post(\"/\", json={\"a\": \"123\"})\n    assert response.json() == {\"body\": '{\"a\": \"123\"}'}\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\"}",
+        "end_line": 94,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L78-L94",
+        "reranker_score": "1.319138",
+        "rrf_score": "0.03175403",
+        "score": "1.319138",
+        "source_type": "python_test",
+        "start_line": 78,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.774899"
+      },
+      {
+        "bm25_contribution": "0.01449275",
+        "bm25_rank": 9,
+        "bm25_score": "7.597016",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "async def app_read_body(scope, receive, send):\n    request = Request(scope, receive)\n    # Read bytes, to force request.stream() to return the already parsed body\n    await request.body()\n    data = await request.form()\n    output = {}\n    for key, value in data.items():\n        output[key] = value\n    await request.close()\n    response = JSONResponse(output)\n    await response(scope, receive, send)",
+        "end_line": 98,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_formparsers.py#L88-L98",
+        "reranker_score": "0.896491",
+        "rrf_score": "0.03062179",
+        "score": "0.896491",
+        "source_type": "python_test",
+        "start_line": 88,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.790519"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "8.094435",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "def test_request_stream_then_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"<stream consumed>\", \"stream\": \"abc\"}",
+        "end_line": 176,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L160-L176",
+        "reranker_score": "0.782349",
+        "rrf_score": "0.03149802",
+        "score": "0.782349",
+        "source_type": "python_test",
+        "start_line": 160,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.779320"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "8.060859",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "def test_request_body_then_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\", \"stream\": \"abc\"}",
+        "end_line": 157,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L144-L157",
+        "reranker_score": "0.749577",
+        "rrf_score": "0.03076923",
+        "score": "0.749577",
+        "source_type": "python_test",
+        "start_line": 144,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.765007"
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "8.019615",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "def test_chunked_encoding(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        response = JSONResponse({\"body\": body.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    def post_body():\n        yield b\"foo\"\n        yield b\"bar\"\n\n    response = client.post(\"/\", data=post_body())\n    assert response.json() == {\"body\": \"foobar\"}",
+        "end_line": 450,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L436-L450",
+        "reranker_score": "0.398648",
+        "rrf_score": "0.01515152",
+        "score": "0.398648",
+        "source_type": "python_test",
+        "start_line": 436,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01492537",
+        "bm25_rank": 7,
+        "bm25_score": "7.995888",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "def test_request_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = b\"\"\n        async for chunk in request.stream():\n            body += chunk\n        response = JSONResponse({\"body\": body.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.get(\"/\")\n    assert response.json() == {\"body\": \"\"}\n\n    response = client.post(\"/\", json={\"a\": \"123\"})\n    assert response.json() == {\"body\": '{\"a\": \"123\"}'}\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\"}",
+        "end_line": 115,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/tests/test_requests.py#L97-L115",
+        "reranker_score": "-0.347486",
+        "rrf_score": "0.02963126",
+        "score": "-0.347486",
+        "source_type": "python_test",
+        "start_line": 97,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.725411"
+      },
+      {
+        "bm25_contribution": "0.01428571",
+        "bm25_rank": 10,
+        "bm25_score": "7.562608",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:\n            nonlocal raw_kwargs, response_started, template, context\n\n            if message[\"type\"] == \"http.response.start\":\n                assert (\n                    not response_started\n                ), 'Received multiple \"http.response.start\" messages.'\n                raw_kwargs[\"status_code\"] = message[\"status\"]\n                raw_kwargs[\"headers\"] = [\n                    (key.decode(), value.decode())\n                    for key, value in message.get(\"headers\", [])\n                ]\n                response_started = True\n            elif message[\"type\"] == \"http.response.body\":\n                assert (\n                    response_started\n                ), 'Received \"http.response.body\" without \"http.response.start\".'\n                assert (\n                    not response_complete.is_set()\n                ), 'Received \"http.response.body\" after response completed.'\n                body = message.get(\"body\", b\"\")\n                more_body = message.get(\"more_body\", False)\n                if request.method != \"HEAD\":\n                    raw_kwargs[\"stream\"].write(body)\n                if not more_body:\n                    raw_kwargs[\"stream\"].seek(0)\n                    response_complete.set()\n            elif message[\"type\"] == \"http.response.debug\":\n                template = message[\"info\"][\"template\"]\n                context = message[\"info\"][\"context\"]\n\n        try:\n            with self.portal_factory() as portal:\n                response_complete = portal.call(anyio.Event)\n                portal.call(self.app, scope, receive, send)\n        except BaseException as exc:\n            if self.raise_server_exceptions:\n                raise exc\n\n        if self.raise_server_exceptions:\n            assert response_started, \"TestClient did not receive any response.\"\n        elif not response_started:\n            raw_kwargs = {\n                \"status_code\": 500,\n                \"headers\": [],\n                \"stream\": io.BytesIO(),\n            }\n\n        raw_kwargs[\"stream\"] = httpx.ByteStream(raw_kwargs[\"stream\"].read())\n\n        response = httpx.Response(**raw_kwargs, request=request)\n        if template is not None:\n            response.template = template  # type: ignore[attr-defined]\n            response.context = context  # type: ignore[attr-defined]\n        return response",
+        "end_line": 354,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/testclient.py#L284-L354",
+        "reranker_score": "-1.627192",
+        "rrf_score": "0.02943723",
+        "score": "-1.627192",
+        "source_type": "python_source",
+        "start_line": 284,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.750720"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "class Request(HTTPConnection):\n    _form: typing.Optional[FormData]\n\n    def __init__(\n        self, scope: Scope, receive: Receive = empty_receive, send: Send = empty_send\n    ):\n        super().__init__(scope)\n        assert scope[\"type\"] == \"http\"\n        self._receive = receive\n        self._send = send\n        self._stream_consumed = False\n        self._is_disconnected = False\n        self._form = None\n\n    @property\n    def method(self) -> str:\n        return self.scope[\"method\"]\n\n    @property\n    def receive(self) -> Receive:\n        return self._receive\n\n    async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return\n        if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n        self._stream_consumed = True\n        while True:\n            message = await self._receive()\n            if message[\"type\"] == \"http.request\":\n                body = message.get(\"body\", b\"\")\n                if body:\n                    yield body\n                if not message.get(\"more_body\", False):\n                    break\n            elif message[\"type\"] == \"http.disconnect\":\n                self._is_disconnected = True\n                raise ClientDisconnect()\n        yield b\"\"\n\n    async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks: \"typing.List[bytes]\" = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body\n\n    async def json(self) -> typing.Any:\n        if not hasattr(self, \"_json\"):\n            body = await self.body()\n            self._json = json.loads(body)\n        return self._json\n\n    async def _get_form(self) -> FormData:\n        if self._form is None:\n            assert (\n                parse_options_header is not None\n            ), \"The `python-multipart` library must be installed to use form parsing.\"\n            content_type_header = self.headers.get(\"Content-Type\")\n            content_type: bytes\n            content_type, _ = parse_options_header(content_type_header)\n            if content_type == b\"multipart/form-data\":\n                try:\n                    multipart_parser = MultiPartParser(self.headers, self.stream())\n                    self._form = await multipart_parser.parse()\n                except MultiPartException as exc:\n                    if \"app\" in self.scope:\n                        raise HTTPException(status_code=400, detail=exc.message)\n                    raise exc\n            elif content_type == b\"application/x-www-form-urlencoded\":\n                form_parser = FormParser(self.headers, self.stream())\n                self._form = await form_parser.parse()\n            else:\n                self._form = FormData()\n        return self._form\n\n    def form(self) -> AwaitableOrContextManager[FormData]:\n        return AwaitableOrContextManagerWrapper(self._get_form())\n\n    async def close(self) -> None:\n        if self._form is not None:\n            await self._form.close()\n\n    async def is_disconnected(self) -> bool:\n        if not self._is_disconnected:\n            message: Message = {}\n\n            # If message isn't immediately available, move on\n            with anyio.CancelScope() as cs:\n                cs.cancel()\n                message = await self._receive()\n\n            if message.get(\"type\") == \"http.disconnect\":\n                self._is_disconnected = True\n\n        return self._is_disconnected\n\n    async def send_push_promise(self, path: str) -> None:\n        if \"http.response.push\" in self.scope.get(\"extensions\", {}):\n            raw_headers: \"typing.List[typing.Tuple[bytes, bytes]]\" = []\n            for name in SERVER_PUSH_HEADERS_TO_COPY:\n                for value in self.headers.getlist(name):\n                    raw_headers.append(\n                        (name.encode(\"latin-1\"), value.encode(\"latin-1\"))\n                    )\n            await self._send(\n                {\"type\": \"http.response.push\", \"path\": path, \"headers\": raw_headers}\n            )",
+        "end_line": 301,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/requests.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/starlette/requests.py#L190-L301",
+        "reranker_score": "-3.547822",
+        "rrf_score": "0.01492537",
+        "score": "-3.547822",
+        "source_type": "python_source",
+        "start_line": 190,
+        "vector_contribution": "0.01492537",
+        "vector_rank": 7,
+        "vector_score": "0.740176"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "10.311510",
+        "commit": "218a6b4f98a2ff5fe3f6076b401d5c24c3021943",
+        "content": "## HTTP Routing\n\nStarlette has a simple but capable request routing system. A routing table\nis defined as a list of routes, and passed when instantiating the application.\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import PlainTextResponse\nfrom starlette.routing import Route\n\n\nasync def homepage(request):\n    return PlainTextResponse(\"Homepage\")\n\nasync def about(request):\n    return PlainTextResponse(\"About\")\n\n\nroutes = [\n    Route(\"/\", endpoint=homepage),\n    Route(\"/about\", endpoint=about),\n]\n\napp = Starlette(routes=routes)\n```\n\nThe `endpoint` argument can be one of:\n\n* A regular function or async function, which accepts a single `request`\nargument and which should return a response.\n* A class that implements the ASGI interface, such as Starlette's [HTTPEndpoint](endpoints.md#httpendpoint).\n",
+        "end_line": 32,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/routing.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/218a6b4f98a2ff5fe3f6076b401d5c24c3021943/docs/routing.md#L1-L32",
+        "reranker_score": "-9.534154",
+        "rrf_score": "0.01639344",
+        "score": "-9.534154",
+        "source_type": "markdown",
+        "start_line": 1,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "e41168ee0489448a9003e0148380346c",
+  "status": "completed",
+  "trace_id": "cb3d6c1501a44ca705562b829cbc1054"
+}

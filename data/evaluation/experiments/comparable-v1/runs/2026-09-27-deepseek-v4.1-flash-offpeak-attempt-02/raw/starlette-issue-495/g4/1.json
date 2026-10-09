@@ -1,0 +1,654 @@
+{
+  "case_id": "starlette-issue-495",
+  "events": [
+    {
+      "case_id": "starlette-issue-495",
+      "duration_ns": 3095982000,
+      "event_id": "79e08430c5f67bac",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/495",
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 1,
+      "snapshot_commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "duration_ns": 3095982000,
+      "event_id": "7b0a0929b79714d4",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "query": "Consume request body in middleware is problematic",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "arguments": {
+        "query_sha256": "514c0a4afb37e0174105e16954103c45d7d81658f8ecfe04d09a8cee38d37e4c"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3095982000,
+      "event_id": "546016b210d3ad6b",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "kind": "tool",
+      "parent_id": "0235a37d975498e6",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L147-L163",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L190-L296",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L131-L144",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_formparsers.py#L86-L96",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/testclient.py#L108-L227",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "arguments": {
+        "query_sha256": "514c0a4afb37e0174105e16954103c45d7d81658f8ecfe04d09a8cee38d37e4c"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3095982000,
+      "event_id": "6e2b438c7faf1e84",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "kind": "tool",
+      "parent_id": "0235a37d975498e6",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L147-L163",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L190-L296",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L131-L144",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_formparsers.py#L86-L96",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/testclient.py#L108-L227",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "duration_ns": 3095982000,
+      "event_id": "0235a37d975498e6",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "to_stage": "retrieved",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L147-L163",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L190-L296",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L78-L112",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L131-L144",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_formparsers.py#L86-L96",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L97-L115",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/testclient.py#L108-L227",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25"
+      ],
+      "duration_ns": 3095982000,
+      "event_id": "0e6f1486d84563e4",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "cached_input_tokens": 5248,
+      "cost": "0.000602844",
+      "currency": "USD",
+      "duration_ns": 3052034000,
+      "event_id": "3bf9bae926523cb4",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "input_tokens": 5822,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 835,
+      "parent_id": "37caf6e3af562019",
+      "prompt_version": "agent-v1",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 7,
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "status": "ok",
+      "total_tokens": 6657,
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "duration_ns": 3095982000,
+      "event_id": "37caf6e3af562019",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "If a middleware consumes the request body via Request.stream(), subsequent calls to Request.body() or Request.stream() in the same request lifecycle raise RuntimeError due to the _stream_consumed flag.",
+        "BaseHTTPMiddleware passes the original receive callable to the Request used within dispatch and call_next, which can cause raw body consumption conflicts when middleware reads the body."
+      ],
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "duration_ns": 3095982000,
+      "event_id": "bef2313b340ba37a",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L71-L72",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L215-L216",
+        "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L151-L156"
+      ],
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    },
+    {
+      "duration_ns": 3095982000,
+      "event_id": "7bc5448195a1f421",
+      "finished_at": "2026-09-27T16:25:07.783533Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "ee1c96a3c05617c25d96459712ce6ab9",
+      "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T16:25:04.687551Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3096090400
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000602844",
+    "input_tokens": 5822,
+    "latency_ns": 3052034000,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 835,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 274202901900,
+    "run_latency_ns": 3095982000,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 277298883900,
+    "total_tokens": 6657
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 107,
+        "path": "docs/requests.md",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L105-L107",
+        "start_line": 105
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 72,
+        "path": "starlette/middleware/base.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L71-L72",
+        "start_line": 71
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 216,
+        "path": "starlette/requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L215-L216",
+        "start_line": 215
+      },
+      {
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "end_line": 156,
+        "path": "tests/test_requests.py",
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L151-L156",
+        "start_line": 151
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Do any BaseHTTPMiddleware implementations actually consume the request body via stream()?",
+      "What are the specific error conditions or symptoms caused by consuming the body in middleware?",
+      "Could other parts of the framework call stream() before or after middleware, causing conflicts?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 156,
+            "excerpt": "async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L151-L156",
+            "start_line": 151
+          }
+        ],
+        "text": "After consuming the request stream, calling body() raises RuntimeError."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 216,
+            "excerpt": "if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")",
+            "path": "starlette/requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L215-L216",
+            "start_line": 215
+          }
+        ],
+        "text": "The Request.stream() method tracks _stream_consumed and raises RuntimeError on subsequent calls."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 107,
+            "excerpt": "If you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L105-L107",
+            "start_line": 105
+          }
+        ],
+        "text": "Documentation states that accessing stream() prevents subsequent calls to body(), form(), or json()."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 72,
+            "excerpt": "request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L71-L72",
+            "start_line": 71
+          }
+        ],
+        "text": "BaseHTTPMiddleware creates a Request object with the original receive callable and passes it to dispatch."
+      }
+    ],
+    "issue_classification": "middleware request body consumption",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 216,
+            "excerpt": "if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")",
+            "path": "starlette/requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L215-L216",
+            "start_line": 215
+          },
+          {
+            "candidate_rank": 1,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 156,
+            "excerpt": "async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L151-L156",
+            "start_line": 151
+          }
+        ],
+        "text": "If a middleware consumes the request body via Request.stream(), subsequent calls to Request.body() or Request.stream() in the same request lifecycle raise RuntimeError due to the _stream_consumed flag.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+            "end_line": 72,
+            "excerpt": "request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)",
+            "path": "starlette/middleware/base.py",
+            "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L71-L72",
+            "start_line": 71
+          }
+        ],
+        "text": "BaseHTTPMiddleware passes the original receive callable to the Request used within dispatch and call_next, which can cause raw body consumption conflicts when middleware reads the body.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Do any BaseHTTPMiddleware implementations actually consume the request body via stream()?",
+      "What are the specific error conditions or symptoms caused by consuming the body in middleware?",
+      "Could other parts of the framework call stream() before or after middleware, causing conflicts?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "9.596993",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def test_request_stream_then_body(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        try:\n            body = await request.body()\n        except RuntimeError:\n            body = b\"<stream consumed>\"\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"<stream consumed>\", \"stream\": \"abc\"}",
+        "end_line": 163,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L147-L163",
+        "reranker_score": "-0.976564",
+        "rrf_score": "0.03151365",
+        "score": "-0.976564",
+        "source_type": "python_test",
+        "start_line": 147,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.746546"
+      },
+      {
+        "bm25_contribution": "0.01470588",
+        "bm25_rank": 8,
+        "bm25_score": "9.277090",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class Request(HTTPConnection):\n    def __init__(\n        self, scope: Scope, receive: Receive = empty_receive, send: Send = empty_send\n    ):\n        super().__init__(scope)\n        assert scope[\"type\"] == \"http\"\n        self._receive = receive\n        self._send = send\n        self._stream_consumed = False\n        self._is_disconnected = False\n\n    @property\n    def method(self) -> str:\n        return self.scope[\"method\"]\n\n    @property\n    def receive(self) -> Receive:\n        return self._receive\n\n    async def stream(self) -> typing.AsyncGenerator[bytes, None]:\n        if hasattr(self, \"_body\"):\n            yield self._body\n            yield b\"\"\n            return\n\n        if self._stream_consumed:\n            raise RuntimeError(\"Stream consumed\")\n\n        self._stream_consumed = True\n        while True:\n            message = await self._receive()\n            if message[\"type\"] == \"http.request\":\n                body = message.get(\"body\", b\"\")\n                if body:\n                    yield body\n                if not message.get(\"more_body\", False):\n                    break\n            elif message[\"type\"] == \"http.disconnect\":\n                self._is_disconnected = True\n                raise ClientDisconnect()\n        yield b\"\"\n\n    async def body(self) -> bytes:\n        if not hasattr(self, \"_body\"):\n            chunks = []\n            async for chunk in self.stream():\n                chunks.append(chunk)\n            self._body = b\"\".join(chunks)\n        return self._body\n\n    async def json(self) -> typing.Any:\n        if not hasattr(self, \"_json\"):\n            body = await self.body()\n            self._json = json.loads(body)\n        return self._json\n\n    async def form(self) -> FormData:\n        if not hasattr(self, \"_form\"):\n            assert (\n                parse_options_header is not None\n            ), \"The `python-multipart` library must be installed to use form parsing.\"\n            content_type_header = self.headers.get(\"Content-Type\")\n            content_type, options = parse_options_header(content_type_header)\n            if content_type == b\"multipart/form-data\":\n                try:\n                    multipart_parser = MultiPartParser(self.headers, self.stream())\n                    self._form = await multipart_parser.parse()\n                except MultiPartException as exc:\n                    if \"app\" in self.scope:\n                        raise HTTPException(status_code=400, detail=exc.message)\n                    raise exc\n            elif content_type == b\"application/x-www-form-urlencoded\":\n                form_parser = FormParser(self.headers, self.stream())\n                self._form = await form_parser.parse()\n            else:\n                self._form = FormData()\n        return self._form\n\n    async def close(self) -> None:\n        if hasattr(self, \"_form\"):\n            await self._form.close()\n\n    async def is_disconnected(self) -> bool:\n        if not self._is_disconnected:\n            message: Message = {}\n\n            # If message isn't immediately available, move on\n            with anyio.CancelScope() as cs:\n                cs.cancel()\n                message = await self._receive()\n\n            if message.get(\"type\") == \"http.disconnect\":\n                self._is_disconnected = True\n\n        return self._is_disconnected\n\n    async def send_push_promise(self, path: str) -> None:\n        if \"http.response.push\" in self.scope.get(\"extensions\", {}):\n            raw_headers = []\n            for name in SERVER_PUSH_HEADERS_TO_COPY:\n                for value in self.headers.getlist(name):\n                    raw_headers.append(\n                        (name.encode(\"latin-1\"), value.encode(\"latin-1\"))\n                    )\n            await self._send(\n                {\"type\": \"http.response.push\", \"path\": path, \"headers\": raw_headers}\n            )",
+        "end_line": 296,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/requests.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/requests.py#L190-L296",
+        "reranker_score": "-2.340154",
+        "rrf_score": "0.03009050",
+        "score": "-2.340154",
+        "source_type": "python_source",
+        "start_line": 190,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.712240"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "10.713995",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "#### Body\n\nThere are a few different interfaces for returning the body of the request:\n\nThe request body as bytes: `await request.body()`\n\nThe request body, parsed as form data or multipart: `await request.form()`\n\nThe request body, parsed as JSON: `await request.json()`\n\nYou can also access the request body as a stream, using the `async for` syntax:\n\n```python\nfrom starlette.requests import Request\nfrom starlette.responses import Response\n\n    \nasync def app(scope, receive, send):\n    assert scope['type'] == 'http'\n    request = Request(scope, receive)\n    body = b''\n    async for chunk in request.stream():\n        body += chunk\n    response = Response(body, media_type='text/plain')\n    await response(scope, receive, send)\n```\n\nIf you access `.stream()` then the byte chunks are provided without storing\nthe entire body to memory. Any subsequent calls to `.body()`, `.form()`, or `.json()`\nwill raise an error.\n\nIn some cases such as long-polling, or streaming responses you might need to\ndetermine if the client has dropped the connection. You can determine this\nstate with `disconnected = await request.is_disconnected()`.\n",
+        "end_line": 112,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/requests.md#L78-L112",
+        "reranker_score": "-3.132742",
+        "rrf_score": "0.03278689",
+        "score": "-3.132742",
+        "source_type": "markdown",
+        "start_line": 78,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.746735"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "9.907125",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class BaseHTTPMiddleware:\n    def __init__(\n        self, app: ASGIApp, dispatch: typing.Optional[DispatchFunction] = None\n    ) -> None:\n        self.app = app\n        self.dispatch_func = self.dispatch if dispatch is None else dispatch\n\n    async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"type\"] != \"http\":\n            await self.app(scope, receive, send)\n            return\n\n        async def call_next(request: Request) -> Response:\n            app_exc: typing.Optional[Exception] = None\n            send_stream, recv_stream = anyio.create_memory_object_stream()\n\n            async def coro() -> None:\n                nonlocal app_exc\n\n                async with send_stream:\n                    try:\n                        await self.app(scope, request.receive, send_stream.send)\n                    except Exception as exc:\n                        app_exc = exc\n\n            task_group.start_soon(coro)\n\n            try:\n                message = await recv_stream.receive()\n            except anyio.EndOfStream:\n                if app_exc is not None:\n                    raise app_exc\n                raise RuntimeError(\"No response returned.\")\n\n            assert message[\"type\"] == \"http.response.start\"\n\n            async def body_stream() -> typing.AsyncGenerator[bytes, None]:\n                async with recv_stream:\n                    async for message in recv_stream:\n                        assert message[\"type\"] == \"http.response.body\"\n                        body = message.get(\"body\", b\"\")\n                        if body:\n                            yield body\n                        if not message.get(\"more_body\", False):\n                            break\n\n                if app_exc is not None:\n                    raise app_exc\n\n            response = StreamingResponse(\n                status_code=message[\"status\"], content=body_stream()\n            )\n            response.raw_headers = message[\"headers\"]\n            return response\n\n        async with anyio.create_task_group() as task_group:\n            request = Request(scope, receive=receive)\n            response = await self.dispatch_func(request, call_next)\n            await response(scope, receive, send)\n            task_group.cancel_scope.cancel()\n\n    async def dispatch(\n        self, request: Request, call_next: RequestResponseEndpoint\n    ) -> Response:\n        raise NotImplementedError()  # pragma: no cover",
+        "end_line": 79,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/middleware/base.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/middleware/base.py#L15-L79",
+        "reranker_score": "-5.601056",
+        "rrf_score": "0.01587302",
+        "score": "-5.601056",
+        "source_type": "python_source",
+        "start_line": 15,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "9.617733",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def test_request_body_then_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = await request.body()\n        chunks = b\"\"\n        async for chunk in request.stream():\n            chunks += chunk\n        response = JSONResponse({\"body\": body.decode(), \"stream\": chunks.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\", \"stream\": \"abc\"}",
+        "end_line": 144,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L131-L144",
+        "reranker_score": "-6.271642",
+        "rrf_score": "0.02991071",
+        "score": "-6.271642",
+        "source_type": "python_test",
+        "start_line": 131,
+        "vector_contribution": "0.01428571",
+        "vector_rank": 10,
+        "vector_score": "0.706521"
+      },
+      {
+        "bm25_contribution": "0.01449275",
+        "bm25_rank": 9,
+        "bm25_score": "9.228329",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "async def app_read_body(scope, receive, send):\n    request = Request(scope, receive)\n    # Read bytes, to force request.stream() to return the already parsed body\n    await request.body()\n    data = await request.form()\n    output = {}\n    for key, value in data.items():\n        output[key] = value\n    await request.close()\n    response = JSONResponse(output)\n    await response(scope, receive, send)",
+        "end_line": 96,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_formparsers.py#L86-L96",
+        "reranker_score": "-7.186022",
+        "rrf_score": "0.02964427",
+        "score": "-7.186022",
+        "source_type": "python_test",
+        "start_line": 86,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.710377"
+      },
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "9.498360",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def test_request_stream(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        body = b\"\"\n        async for chunk in request.stream():\n            body += chunk\n        response = JSONResponse({\"body\": body.decode()})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n\n    response = client.get(\"/\")\n    assert response.json() == {\"body\": \"\"}\n\n    response = client.post(\"/\", json={\"a\": \"123\"})\n    assert response.json() == {\"body\": '{\"a\": \"123\"}'}\n\n    response = client.post(\"/\", data=\"abc\")\n    assert response.json() == {\"body\": \"abc\"}",
+        "end_line": 115,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/test_requests.py#L97-L115",
+        "reranker_score": "-7.899332",
+        "rrf_score": "0.01515152",
+        "score": "-7.899332",
+        "source_type": "python_test",
+        "start_line": 97,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 245,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/docs/release-notes.md#L242-L245",
+        "reranker_score": "-8.467643",
+        "rrf_score": "0.01587302",
+        "score": "-8.467643",
+        "source_type": "markdown",
+        "start_line": 242,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.738094"
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "10.166225",
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "class _ASGIAdapter(requests.adapters.HTTPAdapter):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n\n    def send(\n        self, request: requests.PreparedRequest, *args: typing.Any, **kwargs: typing.Any\n    ) -> requests.Response:\n        scheme, netloc, path, query, fragment = (\n            str(item) for item in urlsplit(request.url)\n        )\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: typing.List[typing.Tuple[bytes, bytes]] = []\n        elif port == default_port:\n            headers = [(b\"host\", host.encode())]\n        else:\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [\n            (key.lower().encode(), value.encode())\n            for key, value in request.headers.items()\n        ]\n\n        scope: typing.Dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": path.encode(),\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": path.encode(),\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.template\": {}},\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: typing.Dict[str, typing.Any] = {\"body\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.body\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")\n            elif body is None:\n                body_bytes = b\"\"\n            elif isinstance(body, types.GeneratorType):\n                try:\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:\n            nonlocal raw_kwargs, response_started, template, context\n\n            if message[\"type\"] == \"http.response.start\":",
+        "end_line": 227,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/starlette/testclient.py#L108-L227",
+        "reranker_score": "-10.585418",
+        "rrf_score": "0.01612903",
+        "score": "-10.585418",
+        "source_type": "python_source",
+        "start_line": 108,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "daf29136df53ff03fb291644a4e564b6b37b4857",
+        "content": "def exc(request):\n    raise Exception(\"Exc\")",
+        "end_line": 25,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_base.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/daf29136df53ff03fb291644a4e564b6b37b4857/tests/middleware/test_base.py#L24-L25",
+        "reranker_score": "-11.184754",
+        "rrf_score": "0.01562500",
+        "score": "-11.184754",
+        "source_type": "python_test",
+        "start_line": 24,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.731219"
+      }
+    ]
+  },
+  "run_id": "1e7b7cd338ba4c3fb6ea85bea677a5ba",
+  "status": "completed",
+  "trace_id": "ee1c96a3c05617c25d96459712ce6ab9"
+}

@@ -1,0 +1,296 @@
+{
+  "case_id": "starlette-issue-2093",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 128,
+    "cost": "0.000763734",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2133,
+    "latency_ns": 3296763600,
+    "missed_input_tokens": 2005,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 771,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 317776315800,
+    "total_latency_ns": 321073079400,
+    "total_tokens": 2904
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 78,
+            "excerpt": "### BackgroundTasks\n\nUsed to add multiple background tasks to a response.\n\nSignature: `BackgroundTasks(tasks=[])`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.background import BackgroundTasks\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    tasks = BackgroundTasks()\n    tasks.add_task(send_welcome_email, to_address=email)\n    tasks.add_task(send_admin_notification, username=username)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=tasks)\n\nasync def send_welcome_email(to_address):\n    ...\n\nasync def send_admin_notification(username):\n    ...\n\nroutes = [\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n\n!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+            "path": "docs/background.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+            "start_line": 42
+          }
+        ],
+        "text": "BackgroundTasks is a documented Starlette feature used to attach tasks to a response, with tasks executed in order."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 138,
+            "excerpt": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+            "start_line": 136
+          }
+        ],
+        "text": "Release notes record a fixed bug where BackgroundTasks were cancelled when using BaseHTTPMiddleware and the client disconnected."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 390,
+            "excerpt": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+            "start_line": 387
+          }
+        ],
+        "text": "Release notes record a fixed bug where BaseHTTPMiddleware caused high memory usage with streaming responses."
+      }
+    ],
+    "issue_classification": "middleware/background tasks interaction bug",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 138,
+            "excerpt": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+            "start_line": 136
+          }
+        ],
+        "text": "HTTPMiddleware/BaseHTTPMiddleware may interfere with BackgroundTasks execution after the response is returned, especially on client disconnect or connection reuse.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 390,
+            "excerpt": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+            "start_line": 387
+          }
+        ],
+        "text": "Middleware behavior around response streaming may affect when or whether background tasks attached to the response are allowed to run.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which specific HTTPMiddleware/BaseHTTPMiddleware version is affected?",
+      "Does the issue occur only when the client disconnects or also on normal connection reuse?",
+      "Are background tasks skipped, cancelled, or delayed when the connection is reused?",
+      "Is the reported behavior the same bug fixed by PR #1715 or a distinct regression?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "11.390202",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### BackgroundTasks\n\nUsed to add multiple background tasks to a response.\n\nSignature: `BackgroundTasks(tasks=[])`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.background import BackgroundTasks\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    tasks = BackgroundTasks()\n    tasks.add_task(send_welcome_email, to_address=email)\n    tasks.add_task(send_admin_notification, username=username)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=tasks)\n\nasync def send_welcome_email(to_address):\n    ...\n\nasync def send_admin_notification(username):\n    ...\n\nroutes = [\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n\n!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+        "end_line": 78,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/background.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "score": "0.03151365",
+        "source_type": "markdown",
+        "start_line": 42,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.725899"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).\n",
+        "end_line": 138,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 136,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.845224"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "12.536894",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "#### Establishing a test session\n\n* `.websocket_connect(url, subprotocols=None, **options)` - Takes the same set of arguments as `httpx.get()`.\n\nMay raise `starlette.websockets.WebSocketDisconnect` if the application does not accept the websocket connection.\n\n`websocket_connect()` must be used as a context manager (in a `with` block).\n\n!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.\n\n    ```python\n    with client.websocket_connect('/path?foo=bar') as websocket:\n        ...\n    ```\n",
+        "end_line": 146,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L130-L146",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 130,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 390,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "score": "0.01612903",
+        "source_type": "markdown",
+        "start_line": 387,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.745786"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.9.9\n\n* Add `TemplateResponse`.\n* Add `CommaSeparatedStrings` datatype.\n* Add `BackgroundTasks` for multiple tasks.\n* Common subclass for `Request` and `WebSocket`, to eg. share `session` functionality.\n* Expose remote address with `request.client`.\n",
+        "end_line": 506,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 499,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.729108"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "9.784779",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "#### Closing the connection\n\n* `.close(code=1000)` - Perform a client-side close of the websocket connection.\n",
+        "end_line": 164,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/testclient.md#L161-L164",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 161,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Prevent `BaseHTTPMiddleware` from hiding errors of `StreamingResponse` and mounted applications [#1459](https://github.com/encode/starlette/pull/1459).\n* `SessionMiddleware` uses an explicit `path=...`, instead of defaulting to the ASGI 'root_path' [#1512](https://github.com/encode/starlette/pull/1512).\n* `Request.client` is now compliant with the ASGI specifications [#1462](https://github.com/encode/starlette/pull/1462).\n* Raise `KeyError` at early stage for missing boundary [#1349](https://github.com/encode/starlette/pull/1349).\n",
+        "end_line": 215,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "score": "0.01562500",
+        "source_type": "markdown",
+        "start_line": 210,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.728669"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "9.111443",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "def test_request_in_app_and_handler_is_the_same_object(client) -> None:\n    response = client.post(\"/consume_body_in_endpoint_and_handler\", content=b\"Hello!\")\n    assert response.status_code == 422\n    assert response.json() == {\"body\": \"Hello!\"}",
+        "end_line": 204,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_exceptions.py#L201-L204",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 201,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "9.107858",
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.9.11\n\n* Session cookies now include browser 'expires', in addition to the existing signed expiry.\n* `request.form()` now returns a multi-dict interface.\n* The query parameter multi-dict implementation now mirrors `dict` more correctly for the\nbehavior of `.keys()`, `.values()`, and `.items()` when multiple same-key items occur.\n* Use `urlsplit` throughout in favor of `urlparse`.\n",
+        "end_line": 490,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L483-L490",
+        "score": "0.01538462",
+        "source_type": "markdown",
+        "start_line": 483,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "class BackgroundTasks(BackgroundTask):\n    def __init__(self, tasks: typing.Optional[typing.Sequence[BackgroundTask]] = None):\n        self.tasks = list(tasks) if tasks else []\n\n    def add_task(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        task = BackgroundTask(func, *args, **kwargs)\n        self.tasks.append(task)\n\n    async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+        "end_line": 43,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "score": "0.01515152",
+        "source_type": "python_source",
+        "start_line": 31,
+        "vector_contribution": "0.01515152",
+        "vector_rank": 6,
+        "vector_score": "0.713797"
+      }
+    ]
+  },
+  "status": "completed"
+}

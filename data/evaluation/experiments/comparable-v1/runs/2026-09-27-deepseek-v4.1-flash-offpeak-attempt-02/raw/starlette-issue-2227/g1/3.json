@@ -1,0 +1,181 @@
+{
+  "case_id": "starlette-issue-2227",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 1152,
+    "cost": "0.000138456",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 1344,
+    "latency_ns": 1425622600,
+    "missed_input_tokens": 192,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 177,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 558355018200,
+    "total_latency_ns": 559780640800,
+    "total_tokens": 1521
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+            "end_line": 1,
+            "excerpt": "__version__ = \"0.31.0\"",
+            "path": "starlette/__init__.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+            "start_line": 1
+          }
+        ],
+        "text": "Starlette version 0.31.0 is defined in the package."
+      }
+    ],
+    "issue_classification": "dependency error",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Starlette 0.31.0 may rely on the exceptiongroup package on Python versions where it is not built-in, causing an import failure when the package is not installed.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which Python version was used when the error occurred?",
+      "Does starlette 0.31.0 declare exceptiongroup as a dependency in its packaging metadata?",
+      "Where in the code is exceptiongroup imported?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "__deprecated__ = \"ExceptionMiddleware\"",
+        "end_line": 42,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/exceptions.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L42-L42",
+        "score": "0.869414",
+        "source_type": "python_source",
+        "start_line": 42
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "import http\nimport typing\nimport warnings\n\n__all__ = (\"HTTPException\", \"WebSocketException\")",
+        "end_line": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/exceptions.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/exceptions.py#L1-L5",
+        "score": "0.797589",
+        "source_type": "python_source",
+        "start_line": 1
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "__version__ = \"0.31.0\"",
+        "end_line": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/__init__.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/__init__.py#L1-L1",
+        "score": "0.792098",
+        "source_type": "python_source",
+        "start_line": 1
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "class EnvironError(Exception):\n    pass",
+        "end_line": 11,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/config.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/config.py#L10-L11",
+        "score": "0.790016",
+        "source_type": "python_source",
+        "start_line": 10
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "### Starception\n    \n<a href=\"https://github.com/alex-oleshkevich/starception\" target=\"_blank\">GitHub</a>\n\nBeautiful exception page for Starlette apps.\n",
+        "end_line": 138,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/third-party-packages.md#L133-L138",
+        "score": "0.789791",
+        "source_type": "markdown",
+        "start_line": 133
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "### Added\n* Add `WebSocketException` and support for WebSocket exception handlers [#1263](https://github.com/encode/starlette/pull/1263).\n* Add `middleware` parameter to `Mount` class [#1649](https://github.com/encode/starlette/pull/1649).\n* Officially support Python 3.11 [#1863](https://github.com/encode/starlette/pull/1863).\n* Implement `__repr__` for route classes [#1864](https://github.com/encode/starlette/pull/1864).\n",
+        "end_line": 173,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L168-L173",
+        "score": "0.778677",
+        "source_type": "markdown",
+        "start_line": 168
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "class ClientDisconnect(Exception):\n    pass",
+        "end_line": 60,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/requests.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/requests.py#L59-L60",
+        "score": "0.776401",
+        "source_type": "python_source",
+        "start_line": 59
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "class _Upgrade(Exception):\n    def __init__(self, session: \"WebSocketTestSession\") -> None:\n        self.session = session",
+        "end_line": 68,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/testclient.py#L66-L68",
+        "score": "0.775592",
+        "source_type": "python_source",
+        "start_line": 66
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "### Fixed\n* Replace `commonprefix` by `commonpath` on `StaticFiles` [1797de4](https://github.com/encode/starlette/commit/1797de464124b090f10cf570441e8292936d63e3).\n* Convert ImportErrors into ModuleNotFoundError [#2135](https://github.com/encode/starlette/pull/2135).\n* Correct the RuntimeError message content in websockets [#2141](https://github.com/encode/starlette/pull/2141).\n",
+        "end_line": 68,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/docs/release-notes.md#L64-L68",
+        "score": "0.774466",
+        "source_type": "markdown",
+        "start_line": 64
+      },
+      {
+        "commit": "a8b8856ce393a82ab4a714131085dbc4d658e34d",
+        "content": "class AuthenticationError(Exception):\n    pass",
+        "end_line": 110,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/authentication.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/a8b8856ce393a82ab4a714131085dbc4d658e34d/starlette/authentication.py#L109-L110",
+        "score": "0.774381",
+        "source_type": "python_source",
+        "start_line": 109
+      }
+    ]
+  },
+  "status": "completed"
+}

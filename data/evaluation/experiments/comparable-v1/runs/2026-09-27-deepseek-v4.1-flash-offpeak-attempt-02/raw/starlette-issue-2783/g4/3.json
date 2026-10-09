@@ -1,0 +1,602 @@
+{
+  "case_id": "starlette-issue-2783",
+  "events": [
+    {
+      "case_id": "starlette-issue-2783",
+      "duration_ns": 3193217800,
+      "event_id": "d9609f5374d3015e",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2783",
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 1,
+      "snapshot_commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "duration_ns": 3193217800,
+      "event_id": "7b4ee1de61e7662f",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "query": "Elif branch with error raise in TestClient _choose_redirect_arg never triggers",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "arguments": {
+        "query_sha256": "4d9612397d7dfba5714b8f778c3cba76ef1105a818b30903ff0a5393bbf18793"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3193217800,
+      "event_id": "fd2a9da0232bd5e2",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "kind": "tool",
+      "parent_id": "6b569542539ea0c8",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L397-L516",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L229-L234",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L237-L244",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L597-L716",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/middleware/test_wsgi.py#L43-L47",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L57-L74",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L497-L616",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49"
+      ],
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "arguments": {
+        "query_sha256": "4d9612397d7dfba5714b8f778c3cba76ef1105a818b30903ff0a5393bbf18793"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3193217800,
+      "event_id": "2fca82d764d7f47d",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "kind": "tool",
+      "parent_id": "6b569542539ea0c8",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L397-L516",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L229-L234",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L237-L244",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L597-L716",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/middleware/test_wsgi.py#L43-L47",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L57-L74",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L497-L616",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49"
+      ],
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "duration_ns": 3193217800,
+      "event_id": "6b569542539ea0c8",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "to_stage": "retrieved",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L397-L516",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L229-L234",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L237-L244",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L597-L716",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/middleware/test_wsgi.py#L43-L47",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L57-L74",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L497-L616",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49"
+      ],
+      "duration_ns": 3193217800,
+      "event_id": "4257ec07e7e3629d",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "cached_input_tokens": 6656,
+      "cost": "0.000471468",
+      "currency": "USD",
+      "duration_ns": 3042042100,
+      "event_id": "fe47ee8d986de51f",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "input_tokens": 6826,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 710,
+      "parent_id": "5647208c273c270f",
+      "prompt_version": "agent-v1",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 7,
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "status": "ok",
+      "total_tokens": 7536,
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "duration_ns": 3193217800,
+      "event_id": "5647208c273c270f",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The elif condition is logically impossible: because the elif is only reached when follow_redirects is None, the subcondition follow_redirects is not None is always false, so the RuntimeError can never be raised.",
+        "The intended conflict check should likely be a separate condition or structured as if both values are not None, rather than as an elif after handling the follow_redirects is not None case."
+      ],
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "duration_ns": 3193217800,
+      "event_id": "d6c93835cde6aec5",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L461",
+        "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461"
+      ],
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    },
+    {
+      "duration_ns": 3193217800,
+      "event_id": "033b3b2f6bbb26c1",
+      "finished_at": "2026-09-28T03:44:48.080016Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "c79a96476c1fbaed0b89379554d0ade8",
+      "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-28T03:44:44.886798Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3195063500
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000471468",
+    "input_tokens": 6826,
+    "latency_ns": 3042042100,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 710,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 752999372500,
+    "run_latency_ns": 3193217800,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 756192590300,
+    "total_tokens": 7536
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "end_line": 457,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L457",
+        "start_line": 452
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "end_line": 461,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L461",
+        "start_line": 452
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "end_line": 461,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+        "start_line": 456
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Is there any public API path where both follow_redirects and allow_redirects can be non-None but the first follow_redirects is not None branch is skipped?",
+      "Is the pragma: no cover annotation present because the branch is known to be unreachable, or only to suppress coverage expectations?"
+    ]
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "high",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+            "end_line": 461,
+            "excerpt": "if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+            "start_line": 456
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+            "end_line": 457,
+            "excerpt": "if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L457",
+            "start_line": 452
+          }
+        ],
+        "text": "_choose_redirect_arg checks allow_redirects first and then checks follow_redirects; the elif condition also requires follow_redirects to be non-None, but that branch is only evaluated when the preceding if condition (follow_redirects is not None) is false."
+      }
+    ],
+    "issue_classification": "unreachable code in TestClient redirect argument handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "high",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+            "end_line": 461,
+            "excerpt": "if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L456-L461",
+            "start_line": 456
+          }
+        ],
+        "text": "The elif condition is logically impossible: because the elif is only reached when follow_redirects is None, the subcondition follow_redirects is not None is always false, so the RuntimeError can never be raised.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 3,
+            "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+            "end_line": 461,
+            "excerpt": "if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L452-L461",
+            "start_line": 452
+          }
+        ],
+        "text": "The intended conflict check should likely be a separate condition or structured as if both values are not None, rather than as an elif after handling the follow_redirects is not None case.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Is there any public API path where both follow_redirects and allow_redirects can be non-None but the first follow_redirects is not None branch is skipped?",
+      "Is the pragma: no cover annotation present because the branch is known to be unreachable, or only to suppress coverage expectations?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "12.297511",
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websockets_should_raise(client: TestClient) -> None:\n    with pytest.raises(RuntimeError):\n        with client.websocket_connect(\"/runtime_error\"):\n            pass  # pragma: no cover",
+        "end_line": 110,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+        "reranker_score": "-2.127823",
+        "rrf_score": "0.03033088",
+        "score": "-2.127823",
+        "source_type": "python_test",
+        "start_line": 107,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.730831"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_raise_on_startup(test_client_factory: TestClientFactory) -> None:\n    def run_startup() -> None:\n        raise RuntimeError()\n\n    with pytest.deprecated_call(match=\"The on_startup and on_shutdown parameters are deprecated\"):\n        router = Router(on_startup=[run_startup])\n    startup_failed = False\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        async def _send(message: Message) -> None:\n            nonlocal startup_failed\n            if message[\"type\"] == \"lifespan.startup.failed\":  # pragma: no branch\n                startup_failed = True\n            return await send(message)\n\n        await router(scope, receive, _send)\n\n    with pytest.raises(RuntimeError):\n        with test_client_factory(app):\n            pass  # pragma: no cover\n    assert startup_failed",
+        "end_line": 809,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+        "reranker_score": "-2.212023",
+        "rrf_score": "0.01639344",
+        "score": "-2.212023",
+        "source_type": "python_test",
+        "start_line": 789,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.744769"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "21.979593",
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "class TestClient(httpx.Client):\n    __test__ = False\n    task: Future[None]\n    portal: anyio.abc.BlockingPortal | None = None\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        backend: typing.Literal[\"asyncio\", \"trio\"] = \"asyncio\",\n        backend_options: dict[str, typing.Any] | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        headers: dict[str, str] | None = None,\n        follow_redirects: bool = True,\n    ) -> None:\n        self.async_backend = _AsyncBackend(backend=backend, backend_options=backend_options or {})\n        if _is_asgi3(app):\n            asgi_app = app\n        else:\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\n        self.app = asgi_app\n        self.app_state: dict[str, typing.Any] = {}\n        transport = _TestClientTransport(\n            self.app,\n            portal_factory=self._portal_factory,\n            raise_server_exceptions=raise_server_exceptions,\n            root_path=root_path,\n            app_state=self.app_state,\n        )\n        if headers is None:\n            headers = {}\n        headers.setdefault(\"user-agent\", \"testclient\")\n        super().__init__(\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )\n\n    @contextlib.contextmanager\n    def _portal_factory(self) -> typing.Generator[anyio.abc.BlockingPortal, None, None]:\n        if self.portal is not None:\n            yield self.portal\n        else:\n            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:\n                yield portal\n\n    def _choose_redirect_arg(\n        self, follow_redirects: bool | None, allow_redirects: bool | None\n    ) -> bool | httpx._client.UseClientDefault:\n        redirect: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT\n        if allow_redirects is not None:\n            message = \"The `allow_redirects` argument is deprecated. Use `follow_redirects` instead.\"\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )\n        return redirect\n\n    def request(  # type: ignore[override]\n        self,\n        method: str,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        url = self._merge_url(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(\n            method,\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def get(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().get(\n            url,\n            params=params,",
+        "end_line": 516,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L397-L516",
+        "reranker_score": "-3.749892",
+        "rrf_score": "0.01639344",
+        "score": "-3.749892",
+        "source_type": "python_source",
+        "start_line": 397,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websocket_raise_http_exception(client: TestClient) -> None:\n    with pytest.raises(WebSocketDenialResponse) as exc:\n        with client.websocket_connect(\"/ws-raise-http\"):\n            pass  # pragma: no cover\n    assert exc.value.status_code == 401\n    assert exc.value.content == b'{\"detail\":\"Unauthorized\"}'",
+        "end_line": 234,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L229-L234",
+        "reranker_score": "-4.355615",
+        "rrf_score": "0.01562500",
+        "score": "-4.355615",
+        "source_type": "python_test",
+        "start_line": 229,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.733250"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websocket_raise_custom_exception(client: TestClient) -> None:\n    with client.websocket_connect(\"/ws-raise-custom\") as session:\n        response = session.receive()\n        assert response == {\n            \"type\": \"websocket.close\",\n            \"code\": status.WS_1013_TRY_AGAIN_LATER,\n            \"reason\": \"\",\n        }",
+        "end_line": 244,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L237-L244",
+        "reranker_score": "-4.923083",
+        "rrf_score": "0.01538462",
+        "score": "-4.923083",
+        "source_type": "python_test",
+        "start_line": 237,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.732010"
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "19.024999",
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def put(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().put(\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def patch(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().patch(\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def delete(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().delete(\n            url,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def websocket_connect(\n        self,\n        url: str,\n        subprotocols: typing.Sequence[str] | None = None,\n        **kwargs: typing.Any,\n    ) -> WebSocketTestSession:\n        url = urljoin(\"ws://testserver\", url)\n        headers = kwargs.get(\"headers\", {})\n        headers.setdefault(\"connection\", \"upgrade\")\n        headers.setdefault(\"sec-websocket-key\", \"testserver==\")\n        headers.setdefault(\"sec-websocket-version\", \"13\")\n        if subprotocols is not None:\n            headers.setdefault(\"sec-websocket-protocol\", \", \".join(subprotocols))\n        kwargs[\"headers\"] = headers\n        try:\n            super().request(\"GET\", url, **kwargs)\n        except _Upgrade as exc:\n            session = exc.session",
+        "end_line": 716,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L597-L716",
+        "reranker_score": "-6.609799",
+        "rrf_score": "0.01587302",
+        "score": "-6.609799",
+        "source_type": "python_source",
+        "start_line": 597,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def raise_exception(\n    environ: Environment,\n    start_response: StartResponse,\n) -> WSGIResponse:\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 47,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/middleware/test_wsgi.py#L43-L47",
+        "reranker_score": "-6.924745",
+        "rrf_score": "0.01587302",
+        "score": "-6.924745",
+        "source_type": "python_test",
+        "start_line": 43,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.734699"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "11.520932",
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "router = Router(\n    routes=[\n        Route(\"/runtime_error\", endpoint=raise_runtime_error),\n        Route(\"/not_acceptable\", endpoint=not_acceptable),\n        Route(\"/no_content\", endpoint=no_content),\n        Route(\"/not_modified\", endpoint=not_modified),\n        Route(\"/with_headers\", endpoint=with_headers),\n        Route(\"/handled_exc_after_response\", endpoint=HandledExcAfterResponse()),\n        WebSocketRoute(\"/runtime_error\", endpoint=raise_runtime_error),\n        Route(\"/consume_body_in_endpoint_and_handler\", endpoint=read_body_and_raise_exc, methods=[\"POST\"]),\n    ]\n)\n\n\napp = ExceptionMiddleware(\n    router,\n    handlers={BadBodyException: handler_that_reads_body},  # type: ignore[dict-item]\n)",
+        "end_line": 74,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L57-L74",
+        "reranker_score": "-8.182261",
+        "rrf_score": "0.01538462",
+        "score": "-8.182261",
+        "source_type": "python_test",
+        "start_line": 57,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "21.190107",
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "            extensions=extensions,\n        )\n\n    def get(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().get(\n            url,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def options(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().options(\n            url,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def head(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().head(\n            url,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def post(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | None = None,\n        allow_redirects: bool | None = None,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().post(\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def put(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,",
+        "end_line": 616,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/starlette/testclient.py#L497-L616",
+        "reranker_score": "-8.905281",
+        "rrf_score": "0.01612903",
+        "score": "-8.905281",
+        "source_type": "python_source",
+        "start_line": 497,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def startup() -> None:\n    raise RuntimeError()",
+        "end_line": 49,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49",
+        "reranker_score": "-9.597974",
+        "rrf_score": "0.01612903",
+        "score": "-9.597974",
+        "source_type": "python_test",
+        "start_line": 48,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.742517"
+      }
+    ]
+  },
+  "run_id": "f8d6749ac2604c0c9fbccfdc14c233cb",
+  "status": "completed",
+  "trace_id": "c79a96476c1fbaed0b89379554d0ade8"
+}

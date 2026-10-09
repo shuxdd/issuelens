@@ -1,0 +1,572 @@
+{
+  "case_id": "starlette-issue-2295",
+  "events": [
+    {
+      "case_id": "starlette-issue-2295",
+      "duration_ns": 2001524600,
+      "event_id": "e8d67460e6a6d94e",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/2295",
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 1,
+      "snapshot_commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "duration_ns": 2001524600,
+      "event_id": "932732e8475f1f35",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "query": "invalid format of client's host in testclient",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "arguments": {
+        "query_sha256": "3d418cd0ffa574d7fc094f0bf0d442d263914f6598eedb2dbfad398d58e81cdf"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2001524600,
+      "event_id": "fc17ef20ca665b7d",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "kind": "tool",
+      "parent_id": "dedb1a6f78fc9062",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/lifespan.md#L76-L92",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L471-L530",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L122-L175",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L629-L634",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/third-party-packages.md#L61-L68"
+      ],
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "arguments": {
+        "query_sha256": "3d418cd0ffa574d7fc094f0bf0d442d263914f6598eedb2dbfad398d58e81cdf"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 2001524600,
+      "event_id": "5131205f9e762983",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "kind": "tool",
+      "parent_id": "dedb1a6f78fc9062",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/lifespan.md#L76-L92",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L471-L530",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L122-L175",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L629-L634",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/third-party-packages.md#L61-L68"
+      ],
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "duration_ns": 2001524600,
+      "event_id": "dedb1a6f78fc9062",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "to_stage": "retrieved",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/lifespan.md#L76-L92",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L471-L530",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L122-L175",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L629-L634",
+        "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/third-party-packages.md#L61-L68"
+      ],
+      "duration_ns": 2001524600,
+      "event_id": "9690b42063c6a92f",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "cached_input_tokens": 4992,
+      "cost": "0.000330126",
+      "currency": "USD",
+      "duration_ns": 1955258500,
+      "event_id": "6ffe756bbbbcde88",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "input_tokens": 5661,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 358,
+      "parent_id": "8592a5c99e6df958",
+      "prompt_version": "agent-v1",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 7,
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "status": "ok",
+      "total_tokens": 6019,
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "duration_ns": 2001524600,
+      "event_id": "8592a5c99e6df958",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The TestClient hardcodes the client host to 'testclient' without a valid hostname format (e.g., missing domain), leading to an invalid format."
+      ],
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "duration_ns": 2001524600,
+      "event_id": "0ebeaec22172d6a0",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "references": [],
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "supported_hypotheses": 0,
+      "to_stage": "verified",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    },
+    {
+      "duration_ns": 2001524600,
+      "event_id": "3ff1f8b037c9cc6b",
+      "finished_at": "2026-09-27T18:19:28.587386Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "insufficient_evidence",
+      "parent_id": "10536f38e7b8149ba1eb48dc5e559f23",
+      "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T18:19:26.585861Z",
+      "stop_reason": "no_supported_root_cause",
+      "to_stage": "reported",
+      "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 1
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 2001631900
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000330126",
+    "input_tokens": 5661,
+    "latency_ns": 1955258500,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 358,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 368793820300,
+    "run_latency_ns": 2001524600,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 370795344900,
+    "total_tokens": 6019
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "end_line": 288,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L288-L288",
+        "start_line": 288
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "end_line": 307,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+        "start_line": 307
+      }
+    ],
+    "status": "insufficient_evidence",
+    "stop_reason": "no_supported_root_cause",
+    "unresolved_questions": [
+      "What is the expected valid format for the client's host in TestClient?",
+      "Are there other parts of the codebase that specify the client host?",
+      "Why is the client host set to 'testclient' instead of a valid hostname like 'testclient.example.com'?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 307,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          }
+        ],
+        "text": "The TestClient sets the 'client' scope entry to a fixed value ['testclient', 50000] for both HTTP and WebSocket requests."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 4,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 288,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L288-L288",
+            "start_line": 288
+          }
+        ],
+        "text": "The TestClient sets the 'client' scope entry to a fixed value ['testclient', 50000] for WebSocket requests as well."
+      }
+    ],
+    "issue_classification": "invalid host format in TestClient",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The TestClient hardcodes the client host to 'testclient' without a valid hostname format (e.g., missing domain), leading to an invalid format.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the expected valid format for the client's host in TestClient?",
+      "Are there other parts of the codebase that specify the client host?",
+      "Why is the client host set to 'testclient' instead of a valid hostname like 'testclient.example.com'?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "11.313143",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_middleware(test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+        "end_line": 251,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "reranker_score": "5.486302",
+        "rrf_score": "0.03154496",
+        "score": "5.486302",
+        "source_type": "python_test",
+        "start_line": 247,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.798392"
+      },
+      {
+        "bm25_contribution": "0.01492537",
+        "bm25_rank": 7,
+        "bm25_score": "11.301927",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_client(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        client = scope.get(\"client\")\n        assert client is not None\n        host, port = client\n        response = JSONResponse({\"host\": host, \"port\": port})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+        "end_line": 282,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "reranker_score": "4.081850",
+        "rrf_score": "0.03105441",
+        "score": "4.081850",
+        "source_type": "python_test",
+        "start_line": 272,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.771062"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_charset_for_filename(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            # file\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"  # type: ignore\n            b'Content-Disposition: form-data; name=\"file\"; filename=\"\\xe6\\x96\\x87\\xe6\\x9b\\xb8.txt\"\\r\\n'\n            b\"Content-Type: text/plain\\r\\n\\r\\n\"\n            b\"<file content>\\r\\n\"\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=a7f7ac8d4e2e437c877bb7b8d7cc549c\")},\n    )\n    assert response.json() == {\n        \"file\": {\n            \"filename\": \"\u6587\u66f8.txt\",\n            \"size\": 14,\n            \"content\": \"<file content>\",\n            \"content_type\": \"text/plain\",\n        }\n    }",
+        "end_line": 327,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "reranker_score": "-0.750946",
+        "rrf_score": "0.01562500",
+        "score": "-0.750946",
+        "source_type": "python_test",
+        "start_line": 306,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.767469"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class _TestClientTransport(httpx.BaseTransport):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        *,\n        app_state: dict[str, typing.Any],\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n        self.app_state = app_state\n\n    def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path.split(b\"?\", 1)[0],\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path.split(b\"?\", 1)[0],\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: dict[str, typing.Any] = {\"stream\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.read()\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")  # pragma: no cover\n            elif body is None:\n                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:",
+        "end_line": 348,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "reranker_score": "-1.192930",
+        "rrf_score": "0.01538462",
+        "score": "-1.192930",
+        "source_type": "python_source",
+        "start_line": 229,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.765606"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_encoded_value(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            b\"--20b303e711c4ab8c443184ac833ab00f\\r\\n\"  # type: ignore\n            b\"Content-Disposition: form-data; \"\n            b'name=\"value\"\\r\\n\\r\\n'\n            b\"Transf\\xc3\\xa9rer\\r\\n\"\n            b\"--20b303e711c4ab8c443184ac833ab00f--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=20b303e711c4ab8c443184ac833ab00f\")},\n    )\n    assert response.json() == {\"value\": \"Transf\u00e9rer\"}",
+        "end_line": 367,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "reranker_score": "-1.281998",
+        "rrf_score": "0.01587302",
+        "score": "-1.281998",
+        "source_type": "python_test",
+        "start_line": 354,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.768930"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "11.368883",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "## Running lifespan in tests\n\nYou should use `TestClient` as a context manager, to ensure that the lifespan is called.\n\n```python\nfrom example import app\nfrom starlette.testclient import TestClient\n\n\ndef test_homepage():\n    with TestClient(app) as client:\n        # Application's lifespan is called on entering the block.\n        response = client.get(\"/\")\n        assert response.status_code == 200\n\n    # And the lifespan's teardown is run when exiting the block.\n```",
+        "end_line": 92,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/lifespan.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/lifespan.md#L76-L92",
+        "reranker_score": "-2.701097",
+        "rrf_score": "0.01538462",
+        "score": "-2.701097",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "11.513079",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class Host(BaseRoute):\n    def __init__(self, host: str, app: ASGIApp, name: str | None = None) -> None:\n        assert not host.startswith(\"/\"), \"Host must not start with '/'\"\n        self.host = host\n        self.app = app\n        self.name = name\n        self.host_regex, self.host_format, self.param_convertors = compile_path(host)\n\n    @property\n    def routes(self) -> list[BaseRoute]:\n        return getattr(self.app, \"routes\", [])\n\n    def matches(self, scope: Scope) -> tuple[Match, Scope]:\n        if scope[\"type\"] in (\"http\", \"websocket\"):\n            headers = Headers(scope=scope)\n            host = headers.get(\"host\", \"\").split(\":\")[0]\n            match = self.host_regex.match(host)\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"path_params\": path_params, \"endpoint\": self.app}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, /, **path_params: typing.Any) -> URLPath:\n        if self.name is not None and name == self.name and \"path\" in path_params:\n            # 'name' matches \"<mount_name>\".\n            path = path_params.pop(\"path\")\n            host, remaining_params = replace_params(self.host_format, self.param_convertors, path_params)\n            if not remaining_params:\n                return URLPath(path=path, host=host)\n        elif self.name is None or name.startswith(self.name + \":\"):\n            if self.name is None:\n                # No mount name.\n                remaining_name = name\n            else:\n                # 'name' matches \"<mount_name>:<child_name>\".\n                remaining_name = name[len(self.name) + 1 :]\n            host, remaining_params = replace_params(self.host_format, self.param_convertors, path_params)\n            for route in self.routes or []:\n                try:\n                    url = route.url_path_for(remaining_name, **remaining_params)\n                    return URLPath(path=str(url), protocol=url.protocol, host=host)\n                except NoMatchFound:\n                    pass\n        raise NoMatchFound(name, path_params)\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return isinstance(other, Host) and self.host == other.host and self.app == other.app\n\n    def __repr__(self) -> str:\n        class_name = self.__class__.__name__\n        name = self.name or \"\"\n        return f\"{class_name}(host={self.host!r}, name={name!r}, app={self.app!r})\"",
+        "end_line": 530,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L471-L530",
+        "reranker_score": "-3.115080",
+        "rrf_score": "0.01587302",
+        "score": "-3.115080",
+        "source_type": "python_source",
+        "start_line": 471,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "16.274659",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def compile_path(\n    path: str,\n) -> tuple[typing.Pattern[str], str, dict[str, Convertor[typing.Any]]]:\n    \"\"\"\n    Given a path string, like: \"/{username:str}\",\n    or a host string, like: \"{subdomain}.mydomain.org\", return a three-tuple\n    of (regex, format, {param_name:convertor}).\n\n    regex:      \"/(?P<username>[^/]+)\"\n    format:     \"/{username}\"\n    convertors: {\"username\": StringConvertor()}\n    \"\"\"\n    is_host = not path.startswith(\"/\")\n\n    path_regex = \"^\"\n    path_format = \"\"\n    duplicated_params = set()\n\n    idx = 0\n    param_convertors = {}\n    for match in PARAM_REGEX.finditer(path):\n        param_name, convertor_type = match.groups(\"str\")\n        convertor_type = convertor_type.lstrip(\":\")\n        assert convertor_type in CONVERTOR_TYPES, f\"Unknown path convertor '{convertor_type}'\"\n        convertor = CONVERTOR_TYPES[convertor_type]\n\n        path_regex += re.escape(path[idx : match.start()])\n        path_regex += f\"(?P<{param_name}>{convertor.regex})\"\n\n        path_format += path[idx : match.start()]\n        path_format += \"{%s}\" % param_name\n\n        if param_name in param_convertors:\n            duplicated_params.add(param_name)\n\n        param_convertors[param_name] = convertor\n\n        idx = match.end()\n\n    if duplicated_params:\n        names = \", \".join(sorted(duplicated_params))\n        ending = \"s\" if len(duplicated_params) > 1 else \"\"\n        raise ValueError(f\"Duplicated param name{ending} {names} at path {path}\")\n\n    if is_host:\n        # Align with `Host.matches()` behavior, which ignores port.\n        hostname = path[idx:].split(\":\")[0]\n        path_regex += re.escape(hostname) + \"$\"\n    else:\n        path_regex += re.escape(path[idx:]) + \"$\"\n\n    path_format += path[idx:]\n\n    return re.compile(path_regex), path_format, param_convertors",
+        "end_line": 175,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/routing.py#L122-L175",
+        "reranker_score": "-6.439775",
+        "rrf_score": "0.01639344",
+        "score": "-6.439775",
+        "source_type": "python_source",
+        "start_line": 122,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "15.379139",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "### Changed\n\n* Create tasks from handler coroutines before sending them to `asyncio.wait`.\n* Use `format_exception` instead of `format_tb` in `ServerErrorMiddleware`'s `debug` responses.\n* Be more lenient with handler arguments when using the `requires` decorator.\n",
+        "end_line": 634,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L629-L634",
+        "reranker_score": "-6.656517",
+        "rrf_score": "0.01612903",
+        "score": "-6.656517",
+        "source_type": "markdown",
+        "start_line": 629,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.448908",
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "### Starlette APISpec\n\n<a href=\"https://github.com/Woile/starlette-apispec\" target=\"_blank\">GitHub</a>\n\nSimple APISpec integration for Starlette.\nDocument your REST API built with Starlette by declaring OpenAPI (Swagger)\nschemas in YAML format in your endpoint's docstrings.\n",
+        "end_line": 68,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/third-party-packages.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/third-party-packages.md#L61-L68",
+        "reranker_score": "-11.328760",
+        "rrf_score": "0.01562500",
+        "score": "-11.328760",
+        "source_type": "markdown",
+        "start_line": 61,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "d076d649f8ac4c70b7b7fafb010c520f",
+  "status": "completed",
+  "trace_id": "10536f38e7b8149ba1eb48dc5e559f23"
+}

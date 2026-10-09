@@ -1,0 +1,181 @@
+{
+  "case_id": "starlette-issue-1471",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.0004356",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2080,
+    "latency_ns": 1330393900,
+    "missed_input_tokens": 2080,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 206,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 237784778400,
+    "total_latency_ns": 239115172300,
+    "total_tokens": 2286
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 340,
+            "excerpt": "            assert False\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(AssertionError):",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L335-L340",
+            "start_line": 335
+          }
+        ],
+        "text": "Candidate rank 5 contains an ASGI websocket test app that uses an assert statement and expects AssertionError."
+      }
+    ],
+    "issue_classification": "error handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Assert statements may be used in ASGI messaging validation paths in production code, and should be replaced with RuntimeError.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which specific assert statements in production Starlette code are guarding against invalid ASGI messaging?",
+      "Do the supplied candidates include production source files where the change should be applied?",
+      "Should the test at candidate rank 5 be updated to expect RuntimeError instead of AssertionError?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def raise_runtime_error(request):\n    raise RuntimeError(\"Yikes\")",
+        "end_line": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "score": "0.763745",
+        "source_type": "python_test",
+        "start_line": 8
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_debug_text(test_client_factory):\n    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    app = ServerErrorMiddleware(app, debug=True)\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert response.headers[\"content-type\"].startswith(\"text/plain\")\n    assert \"RuntimeError: Something went wrong\" in response.text",
+        "end_line": 33,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L24-L33",
+        "score": "0.757119",
+        "source_type": "python_test",
+        "start_line": 24
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 31,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "score": "0.745351",
+        "source_type": "python_test",
+        "start_line": 30
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_app_debug(test_client_factory):\n    app = Starlette()\n    app.debug = True\n\n    @app.route(\"/\")\n    async def homepage(request):\n        raise RuntimeError()\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert \"RuntimeError\" in response.text\n    assert app.debug",
+        "end_line": 238,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L226-L238",
+        "score": "0.738747",
+        "source_type": "python_test",
+        "start_line": 226
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_websocket_exception(test_client_factory):\n    def app(scope):\n        async def asgi(receive, send):\n            assert False\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(AssertionError):\n        with client.websocket_connect(\"/123?a=abc\"):\n            pass  # pragma: nocover",
+        "end_line": 342,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L332-L342",
+        "score": "0.736467",
+        "source_type": "python_test",
+        "start_line": 332
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_debug_html(test_client_factory):\n    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    app = ServerErrorMiddleware(app, debug=True)\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\", headers={\"Accept\": \"text/html, */*\"})\n    assert response.status_code == 500\n    assert response.headers[\"content-type\"].startswith(\"text/html\")\n    assert \"RuntimeError\" in response.text",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L36-L45",
+        "score": "0.736246",
+        "source_type": "python_test",
+        "start_line": 36
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_background_task(test_client_factory):\n    accessed_error_handler = False\n\n    def error_handler(request, exc):\n        nonlocal accessed_error_handler\n        accessed_error_handler = True\n\n    def raise_exception():\n        raise Exception(\"Something went wrong\")\n\n    async def endpoint(request):\n        task = BackgroundTask(raise_exception)\n        return Response(status_code=204, background=task)\n\n    app = Starlette(\n        routes=[Route(\"/\", endpoint=endpoint)],\n        exception_handlers={Exception: error_handler},\n    )\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 204\n    assert accessed_error_handler",
+        "end_line": 98,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L76-L98",
+        "score": "0.729652",
+        "source_type": "python_test",
+        "start_line": 76
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_handler(test_client_factory):\n    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    def error_500(request, exc):\n        return JSONResponse({\"detail\": \"Server Error\"}, status_code=500)\n\n    app = ServerErrorMiddleware(app, handler=error_500)\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert response.json() == {\"detail\": \"Server Error\"}",
+        "end_line": 21,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L10-L21",
+        "score": "0.728869",
+        "source_type": "python_test",
+        "start_line": 10
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "@startup_error_app.on_event(\"startup\")\ndef startup():\n    raise RuntimeError()",
+        "end_line": 50,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_testclient.py#L48-L50",
+        "score": "0.727865",
+        "source_type": "python_test",
+        "start_line": 48
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_debug_not_http(test_client_factory):\n    \"\"\"\n    DebugMiddleware should just pass through any non-http messages as-is.\n    \"\"\"\n\n    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    app = ServerErrorMiddleware(app)\n\n    with pytest.raises(RuntimeError):\n        client = test_client_factory(app)\n        with client.websocket_connect(\"/\"):\n            pass  # pragma: nocover",
+        "end_line": 73,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L60-L73",
+        "score": "0.726367",
+        "source_type": "python_test",
+        "start_line": 60
+      }
+    ]
+  },
+  "status": "completed"
+}

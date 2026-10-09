@@ -1,0 +1,704 @@
+{
+  "case_id": "starlette-issue-1471",
+  "events": [
+    {
+      "case_id": "starlette-issue-1471",
+      "duration_ns": 3173050000,
+      "event_id": "d13dd4fb89474aa2",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1471",
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 1,
+      "snapshot_commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "duration_ns": 3173050000,
+      "event_id": "e308baedf1efebe6",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "query": "Where assert statements are guarding against invalid ASGI messaging, use RuntimeError instead.",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "arguments": {
+        "query_sha256": "0480d50ef1a26d7dfa9dd65068a3c29cf1ddc45086d10a222931c4ca61e56102"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3173050000,
+      "event_id": "c1f7692868447aba",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "kind": "tool",
+      "parent_id": "ba8844e54737541d",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L332-L342",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L24-L33",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L253-L256",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L226-L238",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L266-L269",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L317-L323",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L254-L276",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L149-L208"
+      ],
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "arguments": {
+        "query_sha256": "0480d50ef1a26d7dfa9dd65068a3c29cf1ddc45086d10a222931c4ca61e56102"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 3173050000,
+      "event_id": "4a9cf68bee4119f8",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "kind": "tool",
+      "parent_id": "ba8844e54737541d",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L332-L342",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L24-L33",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L253-L256",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L226-L238",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L266-L269",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L317-L323",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L254-L276",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L149-L208"
+      ],
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "duration_ns": 3173050000,
+      "event_id": "ba8844e54737541d",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "to_stage": "retrieved",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L332-L342",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L24-L33",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L253-L256",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L226-L238",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L266-L269",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L317-L323",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L254-L276",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L149-L208"
+      ],
+      "duration_ns": 3173050000,
+      "event_id": "94078fe7fe92a9b0",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "cached_input_tokens": 2304,
+      "cost": "0.000592812",
+      "currency": "USD",
+      "duration_ns": 3139018300,
+      "event_id": "309322dfd8ef0289",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "input_tokens": 2922,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 822,
+      "parent_id": "b40cc6947492860f",
+      "prompt_version": "agent-v1",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 7,
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "status": "ok",
+      "total_tokens": 3744,
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "duration_ns": 3173050000,
+      "event_id": "b40cc6947492860f",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "The requested change refers to production ASGI messaging guard clauses, but the supplied candidates only include tests and documentation; the relevant source file containing assert-based ASGI messaging validation is not retrieved.",
+        "Assert statements may be intentionally used in tests to verify exception propagation, not as invalid ASGI message guards, so replacing them would not satisfy the issue.",
+        "RuntimeError is already used in several tests for generic server errors, but no supplied candidate shows an ASGI messaging validation assert being replaced by RuntimeError."
+      ],
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "duration_ns": 3173050000,
+      "event_id": "c832fee15d550578",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L26-L26",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L232-L232",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L335-L340",
+        "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L340-L340"
+      ],
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "supported_hypotheses": 3,
+      "to_stage": "verified",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    },
+    {
+      "duration_ns": 3173050000,
+      "event_id": "d117c87da925126f",
+      "finished_at": "2026-09-27T16:06:17.276467Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "cbf8bb64ea40a1ee0ff4211c875f6b03",
+      "run_id": "cd995229a8244eb49d3661edaa8140fb",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T16:06:14.103417Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 3
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 3173132600
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000592812",
+    "input_tokens": 2922,
+    "latency_ns": 3139018300,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 822,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 239167221100,
+    "run_latency_ns": 3173050000,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 242340271100,
+    "total_tokens": 3744
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 33,
+        "path": "tests/middleware/test_errors.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L25-L33",
+        "start_line": 25
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 26,
+        "path": "tests/middleware/test_errors.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L26-L26",
+        "start_line": 26
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 31,
+        "path": "tests/middleware/test_wsgi.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "start_line": 30
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 237,
+        "path": "tests/test_applications.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L230-L237",
+        "start_line": 230
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 232,
+        "path": "tests/test_applications.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L232-L232",
+        "start_line": 232
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 9,
+        "path": "tests/test_exceptions.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "start_line": 8
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 340,
+        "path": "tests/test_websockets.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L335-L340",
+        "start_line": 335
+      },
+      {
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "end_line": 340,
+        "path": "tests/test_websockets.py",
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L340-L340",
+        "start_line": 340
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "Which production source file or module contains the assert statements guarding invalid ASGI messaging?",
+      "What exact ASGI messaging condition do those assert statements guard against?",
+      "Should the tests that currently expect AssertionError be updated to expect RuntimeError after the change?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "low",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 340,
+            "excerpt": "            assert False\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(AssertionError):",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L335-L340",
+            "start_line": 335
+          }
+        ],
+        "text": "A test application contains a bare assert statement in an ASGI receive/send callable, and the test expecting websocket_connect to raise AssertionError."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 33,
+            "excerpt": "    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    app = ServerErrorMiddleware(app, debug=True)\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert response.headers[\"content-type\"].startswith(\"text/plain\")\n    assert \"RuntimeError: Something went wrong\" in response.text",
+            "path": "tests/middleware/test_errors.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L25-L33",
+            "start_line": 25
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 237,
+            "excerpt": "    @app.route(\"/\")\n    async def homepage(request):\n        raise RuntimeError()\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert \"RuntimeError\" in response.text",
+            "path": "tests/test_applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L230-L237",
+            "start_line": 230
+          },
+          {
+            "candidate_rank": 6,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 9,
+            "excerpt": "def raise_runtime_error(request):\n    raise RuntimeError(\"Yikes\")",
+            "path": "tests/test_exceptions.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+            "start_line": 8
+          }
+        ],
+        "text": "Tests demonstrate raising RuntimeError from ASGI applications/middleware and expecting it to surface as a 500 response."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 31,
+            "excerpt": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+            "path": "tests/middleware/test_wsgi.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+            "start_line": 30
+          }
+        ],
+        "text": "A WSGI callable in tests raises RuntimeError, showing RuntimeError used for error signaling outside pure ASGI contexts as well."
+      }
+    ],
+    "issue_classification": "error handling",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 340,
+            "excerpt": "            assert False\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(AssertionError):",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L335-L340",
+            "start_line": 335
+          }
+        ],
+        "text": "The requested change refers to production ASGI messaging guard clauses, but the supplied candidates only include tests and documentation; the relevant source file containing assert-based ASGI messaging validation is not retrieved.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 340,
+            "excerpt": "    with pytest.raises(AssertionError):",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L340-L340",
+            "start_line": 340
+          }
+        ],
+        "text": "Assert statements may be intentionally used in tests to verify exception propagation, not as invalid ASGI message guards, so replacing them would not satisfy the issue.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 26,
+            "excerpt": "        raise RuntimeError(\"Something went wrong\")",
+            "path": "tests/middleware/test_errors.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L26-L26",
+            "start_line": 26
+          },
+          {
+            "candidate_rank": 4,
+            "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+            "end_line": 232,
+            "excerpt": "        raise RuntimeError()",
+            "path": "tests/test_applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L232-L232",
+            "start_line": 232
+          }
+        ],
+        "text": "RuntimeError is already used in several tests for generic server errors, but no supplied candidate shows an ASGI messaging validation assert being replaced by RuntimeError.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which production source file or module contains the assert statements guarding invalid ASGI messaging?",
+      "What exact ASGI messaging condition do those assert statements guard against?",
+      "Should the tests that currently expect AssertionError be updated to expect RuntimeError after the change?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_websocket_exception(test_client_factory):\n    def app(scope):\n        async def asgi(receive, send):\n            assert False\n\n        return asgi\n\n    client = test_client_factory(app)\n    with pytest.raises(AssertionError):\n        with client.websocket_connect(\"/123?a=abc\"):\n            pass  # pragma: nocover",
+        "end_line": 342,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_websockets.py#L332-L342",
+        "reranker_score": "-1.370139",
+        "rrf_score": "0.01538462",
+        "score": "-1.370139",
+        "source_type": "python_test",
+        "start_line": 332,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.736467"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_debug_text(test_client_factory):\n    async def app(scope, receive, send):\n        raise RuntimeError(\"Something went wrong\")\n\n    app = ServerErrorMiddleware(app, debug=True)\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert response.headers[\"content-type\"].startswith(\"text/plain\")\n    assert \"RuntimeError: Something went wrong\" in response.text",
+        "end_line": 33,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_errors.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_errors.py#L24-L33",
+        "reranker_score": "-1.804494",
+        "rrf_score": "0.01612903",
+        "score": "-1.804494",
+        "source_type": "python_test",
+        "start_line": 24,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.757119"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "14.540575",
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "#### [asgi-csrf](https://github.com/simonw/asgi-csrf)\n\nMiddleware for protecting against CSRF attacks. This middleware implements the Double Submit Cookie pattern, where a cookie is set, then it is compared to a csrftoken hidden form field or an `x-csrftoken` HTTP header.\n",
+        "end_line": 256,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L253-L256",
+        "reranker_score": "-3.161878",
+        "rrf_score": "0.01639344",
+        "score": "-3.161878",
+        "source_type": "markdown",
+        "start_line": 253,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def test_app_debug(test_client_factory):\n    app = Starlette()\n    app.debug = True\n\n    @app.route(\"/\")\n    async def homepage(request):\n        raise RuntimeError()\n\n    client = test_client_factory(app, raise_server_exceptions=False)\n    response = client.get(\"/\")\n    assert response.status_code == 500\n    assert \"RuntimeError\" in response.text\n    assert app.debug",
+        "end_line": 238,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L226-L238",
+        "reranker_score": "-3.392406",
+        "rrf_score": "0.01562500",
+        "score": "-3.392406",
+        "source_type": "python_test",
+        "start_line": 226,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.738747"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def raise_exception(environ, start_response):\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 31,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/middleware/test_wsgi.py#L30-L31",
+        "reranker_score": "-5.398366",
+        "rrf_score": "0.01587302",
+        "score": "-5.398366",
+        "source_type": "python_test",
+        "start_line": 30,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.745351"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "def raise_runtime_error(request):\n    raise RuntimeError(\"Yikes\")",
+        "end_line": 9,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_exceptions.py#L8-L9",
+        "reranker_score": "-6.626526",
+        "rrf_score": "0.01639344",
+        "score": "-6.626526",
+        "source_type": "python_test",
+        "start_line": 8,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.763745"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "11.091420",
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "#### [CSRFMiddleware](https://github.com/frankie567/starlette-csrf)\n\nMiddleware for protecting against CSRF attacks. This middleware implements the Double Submit Cookie pattern, where a cookie is set, then it is compared to an `x-csrftoken` HTTP header.\n",
+        "end_line": 269,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/middleware.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/middleware.md#L266-L269",
+        "reranker_score": "-9.409296",
+        "rrf_score": "0.01562500",
+        "score": "-9.409296",
+        "source_type": "markdown",
+        "start_line": 266,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "12.040616",
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "deprecated_lifespan = pytest.mark.filterwarnings(\n    r\"ignore\"\n    r\":(async )?generator function lifespans are deprecated, use an \"\n    r\"@contextlib\\.asynccontextmanager function instead\"\n    r\":DeprecationWarning\"\n    r\":starlette.routing\"\n)",
+        "end_line": 323,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/tests/test_applications.py#L317-L323",
+        "reranker_score": "-10.492191",
+        "rrf_score": "0.01587302",
+        "score": "-10.492191",
+        "source_type": "python_test",
+        "start_line": 317,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "12.106671",
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "## Route priority\n\nIncoming paths are matched against each `Route` in order.\n\nIn cases where more that one route could match an incoming path, you should\ntake care to ensure that more specific routes are listed before general cases.\n\nFor example:\n\n```python\n# Don't do this: `/users/me` will never match incoming requests.\nroutes = [\n    Route('/users/{username}', user),\n    Route('/users/me', current_user),\n]\n\n# Do this: `/users/me` is tested first.\nroutes = [\n    Route('/users/me', current_user),\n    Route('/users/{username}', user),\n]\n```\n",
+        "end_line": 276,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/routing.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L254-L276",
+        "reranker_score": "-11.250437",
+        "rrf_score": "0.01612903",
+        "score": "-11.250437",
+        "source_type": "markdown",
+        "start_line": 254,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "10.297401",
+        "commit": "a6d3d8f0179cb1c2ac283bb5db779f6075854a66",
+        "content": "## Reverse URL lookups\n\nYou'll often want to be able to generate the URL for a particular route,\nsuch as in cases where you need to return a redirect response.\n\n```python\nroutes = [\n    Route(\"/\", homepage, name=\"homepage\")\n]\n\n# We can use the following to return a URL...\nurl = request.url_for(\"homepage\")\n```\n\nURL lookups can include path parameters...\n\n```python\nroutes = [\n    Route(\"/users/{username}\", user, name=\"user_detail\")\n]\n\n# We can use the following to return a URL...\nurl = request.url_for(\"user_detail\", username=...)\n```\n\nIf a `Mount` includes a `name`, then submounts should use a `{prefix}:{name}`\nstyle for reverse URL lookups.\n\n```python\nroutes = [\n    Mount(\"/users\", name=\"users\", routes=[\n        Route(\"/\", user, name=\"user_list\"),\n        Route(\"/{username}\", user, name=\"user_detail\")\n    ])\n]\n\n# We can use the following to return URLs...\nurl = request.url_for(\"users:user_list\")\nurl = request.url_for(\"users:user_detail\", username=...)\n```\n\nMounted applications may include a `path=...` parameter.\n\n```python\nroutes = [\n    ...\n    Mount(\"/static\", app=StaticFiles(directory=\"static\"), name=\"static\")\n]\n\n# We can use the following to return URLs...\nurl = request.url_for(\"static\", path=\"/css/base.css\")\n```\n\nFor cases where there is no `request` instance, you can make reverse lookups\nagainst the application, although these will only return the URL path.\n\n```python\nurl = app.url_path_for(\"user_detail\", username=...)\n```\n",
+        "end_line": 208,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/routing.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/a6d3d8f0179cb1c2ac283bb5db779f6075854a66/docs/routing.md#L149-L208",
+        "reranker_score": "-11.262760",
+        "rrf_score": "0.01538462",
+        "score": "-11.262760",
+        "source_type": "markdown",
+        "start_line": 149,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "cd995229a8244eb49d3661edaa8140fb",
+  "status": "completed",
+  "trace_id": "cbf8bb64ea40a1ee0ff4211c875f6b03"
+}

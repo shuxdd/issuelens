@@ -1,0 +1,279 @@
+{
+  "case_id": "starlette-issue-2306",
+  "group": "g2",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 4480,
+    "cost": "0.00033834",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 4686,
+    "latency_ns": 2508318600,
+    "missed_input_tokens": 206,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 490,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 616700395100,
+    "total_latency_ns": 619208713700,
+    "total_tokens": 5176
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+            "end_line": 466,
+            "excerpt": "url = self.base_url.join(url)",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+            "start_line": 466
+          }
+        ],
+        "text": "TestClient overrides request to merge the provided URL with base_url using self.base_url.join(url)."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+            "end_line": 25,
+            "excerpt": "response = client.get(\"https://example.org:123/\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"https://example.org:123/\"}",
+            "path": "tests/test_requests.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L24-L25",
+            "start_line": 24
+          }
+        ],
+        "text": "The test suite confirms that an absolute URL given to TestClient results in that exact absolute URL being received by the app."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+            "end_line": 364,
+            "excerpt": "class TestClient(httpx.Client):",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L364",
+            "start_line": 364
+          }
+        ],
+        "text": "TestClient inherits from httpx.Client."
+      }
+    ],
+    "issue_classification": "URL merging semantics in TestClient",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 6,
+            "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+            "end_line": 466,
+            "excerpt": "url = self.base_url.join(url)",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L466-L466",
+            "start_line": 466
+          }
+        ],
+        "text": "TestClient manually joins the base_url with the request URL using httpx.URL.join, which may behave differently from how httpx.Client internally merges URLs.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the exact difference in URL merging between TestClient and a plain httpx.Client?",
+      "Does httpx.Client perform any additional URL resolution (e.g., relative to a base URL) that TestClient bypasses?",
+      "Is there a known documented compatibility note about URL merging differences after the httpx migration?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01515152",
+        "bm25_rank": 6,
+        "bm25_score": "19.599988",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "## 0.21.0\n\nSeptember 26, 2022\n\nThis release replaces the underlying HTTP client used on the `TestClient` (`requests` :arrow_right: `httpx`), and as those clients [differ _a bit_ on their API](https://www.python-httpx.org/compatibility/), your test suite will likely break. To make the migration smoother, you can use the [`bump-testclient`](https://github.com/Kludex/bump-testclient) tool.\n",
+        "end_line": 209,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/release-notes.md#L204-L209",
+        "score": "0.03128055",
+        "source_type": "markdown",
+        "start_line": 204,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.788847"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "### Changed\n* Replace `requests` with `httpx` in `TestClient` [#1376](https://github.com/encode/starlette/pull/1376).\n",
+        "end_line": 212,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/release-notes.md#L210-L212",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 210,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.799996"
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "26.606368",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.\n\nThis is different to most Python webframeworks, but I think it actually ends up\nbeing much more nicely consistent all the way through.\n",
+        "end_line": 818,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/release-notes.md#L800-L818",
+        "score": "0.01639344",
+        "source_type": "markdown",
+        "start_line": 800,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "23.682271",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "#### Establishing a test session\n\n* `.websocket_connect(url, subprotocols=None, **options)` - Takes the same set of arguments as `httpx.get()`.\n\nMay raise `starlette.websockets.WebSocketDisconnect` if the application does not accept the websocket connection.\n\n`websocket_connect()` must be used as a context manager (in a `with` block).\n\n!!! note\n    The `params` argument is not supported by `websocket_connect`. If you need to pass query arguments, hard code it\n    directly in the URL.\n\n    ```python\n    with client.websocket_connect('/path?foo=bar') as websocket:\n        ...\n    ```\n",
+        "end_line": 146,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/testclient.md#L130-L146",
+        "score": "0.01612903",
+        "source_type": "markdown",
+        "start_line": 130,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "22.046922",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "### Asynchronous tests\n\nSometimes you will want to do async things outside of your application.\nFor example, you might want to check the state of your database after calling your app using your existing async database client / infrastructure.\n\nFor these situations, using `TestClient` is difficult because it creates it's own event loop and async resources (like a database connection) often cannot be shared across event loops.\nThe simplest way to work around this is to just make your entire test async and use an async client, like [httpx.AsyncClient].\n\nHere is an example of such a test:\n\n```python\nfrom httpx import AsyncClient\nfrom starlette.applications import Starlette\nfrom starlette.routing import Route\nfrom starlette.requests import Request\nfrom starlette.responses import PlainTextResponse\n\n\ndef hello(request: Request) -> PlainTextResponse:\n    return PlainTextResponse(\"Hello World!\")\n\n\napp = Starlette(routes=[Route(\"/\", hello)])\n\n\n# if you're using pytest, you'll need to to add an async marker like:\n# @pytest.mark.anyio  # using https://github.com/agronholm/anyio\n# or install and configure pytest-asyncio (https://github.com/pytest-dev/pytest-asyncio)\nasync def test_app() -> None:\n    # note: you _must_ set `base_url` for relative urls like \"/\" to work\n    async with AsyncClient(app=app, base_url=\"http://testserver\") as client:\n        r = await client.get(\"/\")\n        assert r.status_code == 200\n        assert r.text == \"Hello World!\"\n```\n\n[httpx.AsyncClient]: https://www.python-httpx.org/advanced/#calling-into-python-web-apps",
+        "end_line": 201,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/testclient.md#L165-L201",
+        "score": "0.01587302",
+        "source_type": "markdown",
+        "start_line": 165,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "class TestClient(httpx.Client):\n    __test__ = False\n    task: \"Future[None]\"\n    portal: typing.Optional[anyio.abc.BlockingPortal] = None\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        backend: str = \"asyncio\",\n        backend_options: typing.Optional[typing.Dict[str, typing.Any]] = None,\n        cookies: httpx._types.CookieTypes = None,\n        headers: typing.Dict[str, str] = None,\n        follow_redirects: bool = True,\n    ) -> None:\n        self.async_backend = _AsyncBackend(\n            backend=backend, backend_options=backend_options or {}\n        )\n        if _is_asgi3(app):\n            app = typing.cast(ASGI3App, app)\n            asgi_app = app\n        else:\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\n        self.app = asgi_app\n        self.app_state: typing.Dict[str, typing.Any] = {}\n        transport = _TestClientTransport(\n            self.app,\n            portal_factory=self._portal_factory,\n            raise_server_exceptions=raise_server_exceptions,\n            root_path=root_path,\n            app_state=self.app_state,\n        )\n        if headers is None:\n            headers = {}\n        headers.setdefault(\"user-agent\", \"testclient\")\n        super().__init__(\n            app=self.app,\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )\n\n    @contextlib.contextmanager\n    def _portal_factory(self) -> typing.Generator[anyio.abc.BlockingPortal, None, None]:\n        if self.portal is not None:\n            yield self.portal\n        else:\n            with anyio.from_thread.start_blocking_portal(\n                **self.async_backend\n            ) as portal:\n                yield portal\n\n    def _choose_redirect_arg(\n        self,\n        follow_redirects: typing.Optional[bool],\n        allow_redirects: typing.Optional[bool],\n    ) -> typing.Union[bool, httpx._client.UseClientDefault]:\n        redirect: typing.Union[\n            bool, httpx._client.UseClientDefault\n        ] = httpx._client.USE_CLIENT_DEFAULT\n        if allow_redirects is not None:\n            message = (\n                \"The `allow_redirects` argument is deprecated. \"\n                \"Use `follow_redirects` instead.\"\n            )\n            warnings.warn(message, DeprecationWarning)\n            redirect = allow_redirects\n        if follow_redirects is not None:\n            redirect = follow_redirects\n        elif allow_redirects is not None and follow_redirects is not None:\n            raise RuntimeError(  # pragma: no cover\n                \"Cannot use both `allow_redirects` and `follow_redirects`.\"\n            )\n        return redirect\n\n    def request(  # type: ignore[override]\n        self,\n        method: str,\n        url: httpx._types.URLTypes,\n        *,\n        content: typing.Optional[httpx._types.RequestContent] = None,\n        data: typing.Optional[_RequestData] = None,\n        files: typing.Optional[httpx._types.RequestFiles] = None,\n        json: typing.Any = None,\n        params: typing.Optional[httpx._types.QueryParamTypes] = None,\n        headers: typing.Optional[httpx._types.HeaderTypes] = None,\n        cookies: typing.Optional[httpx._types.CookieTypes] = None,\n        auth: typing.Union[\n            httpx._types.AuthTypes, httpx._client.UseClientDefault\n        ] = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: typing.Optional[bool] = None,\n        allow_redirects: typing.Optional[bool] = None,\n        timeout: typing.Union[\n            httpx._types.TimeoutTypes, httpx._client.UseClientDefault\n        ] = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: typing.Optional[typing.Dict[str, typing.Any]] = None,\n    ) -> httpx.Response:\n        url = self.base_url.join(url)\n        redirect = self._choose_redirect_arg(follow_redirects, allow_redirects)\n        return super().request(\n            method,\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=redirect,\n            timeout=timeout,\n            extensions=extensions,\n        )\n",
+        "end_line": 483,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/starlette/testclient.py#L364-L483",
+        "score": "0.01587302",
+        "source_type": "python_source",
+        "start_line": 364,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.765672"
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "21.984513",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "@pytest.mark.parametrize(\n    \"set_cookie,expected\",\n    [\n        # Chunks without an equals sign appear as unnamed values per\n        # https://bugzilla.mozilla.org/show_bug.cgi?id=169091\n        (\n            \"abc=def; unnamed; django_language=en\",\n            {\"\": \"unnamed\", \"abc\": \"def\", \"django_language\": \"en\"},\n        ),\n        # Even a double quote may be an unamed value.\n        ('a=b; \"; c=d', {\"a\": \"b\", \"\": '\"', \"c\": \"d\"}),\n        # Spaces in names and values, and an equals sign in values.\n        (\"a b c=d e = f; gh=i\", {\"a b c\": \"d e = f\", \"gh\": \"i\"}),\n        # More characters the spec forbids.\n        ('a   b,c<>@:/[]?{}=d  \"  =e,f g', {\"a   b,c<>@:/[]?{}\": 'd  \"  =e,f g'}),\n        # Unicode characters. The spec only allows ASCII.\n        # (\"saint=Andr\u00e9 Bessette\", {\"saint\": \"Andr\u00e9 Bessette\"}),\n        # Browsers don't send extra whitespace or semicolons in Cookie headers,\n        # but cookie_parser() should parse whitespace the same way\n        # document.cookie parses whitespace.\n        # (\"  =  b  ;  ;  =  ;   c  =  ;  \", {\"\": \"b\", \"c\": \"\"}),\n    ],\n)\ndef test_cookies_invalid(set_cookie, expected, test_client_factory):\n    \"\"\"\n    Cookie strings that are against the RFC6265 spec but which browsers will send if set\n    via document.cookie.\n    \"\"\"\n\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        response = JSONResponse({\"cookies\": request.cookies})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\", headers={\"cookie\": set_cookie})\n    result = response.json()\n    assert result[\"cookies\"] == expected",
+        "end_line": 433,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L396-L433",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 396,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "def test_with_duplicate_headers(test_client_factory: Callable[[Starlette], TestClient]):\n    def homepage(request: Request) -> JSONResponse:\n        return JSONResponse({\"x-token\": request.headers.getlist(\"x-token\")})\n\n    app = Starlette(routes=[Route(\"/\", endpoint=homepage)])\n    client = test_client_factory(app)\n    response = client.get(\"/\", headers=[(\"x-token\", \"foo\"), (\"x-token\", \"bar\")])\n    assert response.json() == {\"x-token\": [\"foo\", \"bar\"]}",
+        "end_line": 356,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_testclient.py#L349-L356",
+        "score": "0.01562500",
+        "source_type": "python_test",
+        "start_line": 349,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.761585"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "21.824552",
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "### Testing WebSocket sessions\n\nYou can also test websocket sessions with the test client.\n\nThe `httpx` library will be used to build the initial handshake, meaning you\ncan use the same authentication options and other headers between both http and\nwebsocket testing.\n\n```python\nfrom starlette.testclient import TestClient\nfrom starlette.websockets import WebSocket\n\n\nasync def app(scope, receive, send):\n    assert scope['type'] == 'websocket'\n    websocket = WebSocket(scope, receive=receive, send=send)\n    await websocket.accept()\n    await websocket.send_text('Hello, world!')\n    await websocket.close()\n\n\ndef test_app():\n    client = TestClient(app)\n    with client.websocket_connect('/') as websocket:\n        data = websocket.receive_text()\n        assert data == 'Hello, world!'\n```\n\nThe operations on session are standard function calls, not awaitables.\n\nIt's important to use the session within a context-managed `with` block. This\nensure that the background thread on which the ASGI application is properly\nterminated, and that any exceptions that occur within the application are\nalways raised by the test client.\n",
+        "end_line": 129,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/testclient.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/docs/testclient.md#L95-L129",
+        "score": "0.01538462",
+        "source_type": "markdown",
+        "start_line": 95,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "9a213c1321593fcf9344161b043bdd7d1e600e24",
+        "content": "def test_request_url(test_client_factory):\n    async def app(scope, receive, send):\n        request = Request(scope, receive)\n        data = {\"method\": request.method, \"url\": str(request.url)}\n        response = JSONResponse(data)\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/123?a=abc\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"http://testserver/123?a=abc\"}\n\n    response = client.get(\"https://example.org:123/\")\n    assert response.json() == {\"method\": \"GET\", \"url\": \"https://example.org:123/\"}",
+        "end_line": 25,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_requests.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/9a213c1321593fcf9344161b043bdd7d1e600e24/tests/test_requests.py#L13-L25",
+        "score": "0.01538462",
+        "source_type": "python_test",
+        "start_line": 13,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.751419"
+      }
+    ]
+  },
+  "status": "completed"
+}

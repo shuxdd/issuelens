@@ -1,0 +1,241 @@
+{
+  "case_id": "starlette-issue-746",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.000747",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2124,
+    "latency_ns": 3131874300,
+    "missed_input_tokens": 2124,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 714,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 266538816400,
+    "total_latency_ns": 269670690700,
+    "total_tokens": 2838
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 60,
+            "excerpt": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`",
+            "path": "docs/requests.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+            "start_line": 55
+          }
+        ],
+        "text": "Router path parameters are documented as a dictionary interface on requests."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 560,
+            "excerpt": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L560",
+            "start_line": 546
+          }
+        ],
+        "text": "Path parameters are documented as available on the request object, without explicit type annotations in endpoint signatures."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 8,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 28,
+            "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/schemas.py#L25-L28",
+            "start_line": 25
+          }
+        ],
+        "text": "The schema module represents endpoint info without path parameter type information."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 7,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 302,
+            "excerpt": "self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}",
+            "path": "starlette/routing.py",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L291-L302",
+            "start_line": 291
+          }
+        ],
+        "text": "Routing compiles paths with parameter convertors, but does not expose type metadata via endpoint signatures."
+      }
+    ],
+    "issue_classification": "documentation/schema generation compatibility",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 560,
+            "excerpt": "Instead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L554-L560",
+            "start_line": 554
+          },
+          {
+            "candidate_rank": 8,
+            "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+            "end_line": 28,
+            "excerpt": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+            "path": "starlette/schemas.py",
+            "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/schemas.py#L25-L28",
+            "start_line": 25
+          }
+        ],
+        "text": "Because endpoint functions do not declare path parameters in their signatures, automatic OpenAPI schema generation cannot infer path parameter types, leading to compatibility issues with OAS path parameter type specification.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Whether the supplied documentation or code was intended to address OAS path parameter type specification compatibility.",
+      "Whether there is any separate mechanism to provide path parameter type metadata for OpenAPI schema generation."
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### request.path_params\n\nThe biggest change in 0.6 is that endpoint signatures are no longer:\n\n```python\nasync def func(request: Request, **kwargs) -> Response\n```\n\nInstead we just use:\n\n```python\nasync def func(request: Request) -> Response\n```\n\nThe path parameters are available on the request as `request.path_params`.\n\nThis is different to most Python webframeworks, but I think it actually ends up\nbeing much more nicely consistent all the way through.\n",
+        "end_line": 564,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L546-L564",
+        "score": "0.742861",
+        "source_type": "markdown",
+        "start_line": 546
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `request.path_params['username']`\n",
+        "end_line": 60,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/requests.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/requests.md#L55-L60",
+        "score": "0.712574",
+        "source_type": "markdown",
+        "start_line": 55
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### Routing\n\n* Add \"endpoint\" to ASGI scope.\n",
+        "end_line": 472,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L469-L472",
+        "score": "0.708882",
+        "source_type": "markdown",
+        "start_line": 469
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "def test_http_endpoint_route_path_params(client):\n    response = client.get(\"/tomchristie\")\n    assert response.status_code == 200\n    assert response.text == \"Hello, tomchristie!\"",
+        "end_line": 36,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_endpoints.py#L33-L36",
+        "score": "0.707064",
+        "source_type": "python_test",
+        "start_line": 33
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "#### Path Parameters\n\nRouter path parameters are exposed as a dictionary interface.\n\nFor example: `websocket.path_params['username']`\n",
+        "end_line": 51,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/websockets.md#L46-L51",
+        "score": "0.700685",
+        "source_type": "markdown",
+        "start_line": 46
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "## 0.12.11\n\n* Fix `request.url_for()` when an ASGI `root_path` is being used.\n",
+        "end_line": 247,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L244-L247",
+        "score": "0.691791",
+        "source_type": "markdown",
+        "start_line": 244
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "class WebSocketRoute(BaseRoute):\n    def __init__(\n        self, path: str, endpoint: typing.Callable, *, name: typing.Optional[str] = None\n    ) -> None:\n        assert path.startswith(\"/\"), \"Routed paths must start with '/'\"\n        self.path = path\n        self.endpoint = endpoint\n        self.name = get_name(endpoint) if name is None else name\n\n        endpoint_handler = endpoint\n        while isinstance(endpoint_handler, functools.partial):\n            endpoint_handler = endpoint_handler.func\n        if inspect.isfunction(endpoint_handler) or inspect.ismethod(endpoint_handler):\n            # Endpoint is function or method. Treat it as `func(websocket)`.\n            self.app = websocket_session(endpoint)\n        else:\n            # Endpoint is a class. Treat it as ASGI.\n            self.app = endpoint\n\n        self.path_regex, self.path_format, self.param_convertors = compile_path(path)\n\n    def matches(self, scope: Scope) -> typing.Tuple[Match, Scope]:\n        if scope[\"type\"] == \"websocket\":\n            match = self.path_regex.match(scope[\"path\"])\n            if match:\n                matched_params = match.groupdict()\n                for key, value in matched_params.items():\n                    matched_params[key] = self.param_convertors[key].convert(value)\n                path_params = dict(scope.get(\"path_params\", {}))\n                path_params.update(matched_params)\n                child_scope = {\"endpoint\": self.endpoint, \"path_params\": path_params}\n                return Match.FULL, child_scope\n        return Match.NONE, {}\n\n    def url_path_for(self, name: str, **path_params: typing.Any) -> URLPath:\n        seen_params = set(path_params.keys())\n        expected_params = set(self.param_convertors.keys())\n\n        if name != self.name or seen_params != expected_params:\n            raise NoMatchFound(name, path_params)\n\n        path, remaining_params = replace_params(\n            self.path_format, self.param_convertors, path_params\n        )\n        assert not remaining_params\n        return URLPath(path=path, protocol=\"websocket\")\n\n    async def handle(self, scope: Scope, receive: Receive, send: Send) -> None:\n        await self.app(scope, receive, send)\n\n    def __eq__(self, other: typing.Any) -> bool:\n        return (\n            isinstance(other, WebSocketRoute)\n            and self.path == other.path\n            and self.endpoint == other.endpoint\n        )",
+        "end_line": 327,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/routing.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/routing.py#L272-L327",
+        "score": "0.685231",
+        "source_type": "python_source",
+        "start_line": 272
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "class EndpointInfo(typing.NamedTuple):\n    path: str\n    http_method: str\n    func: typing.Callable",
+        "end_line": 28,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/schemas.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/starlette/schemas.py#L25-L28",
+        "score": "0.683991",
+        "source_type": "python_source",
+        "start_line": 25
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "def test_mounted_route_path_params(client):\n    response = client.get(\"/users/tomchristie\")\n    assert response.status_code == 200\n    assert response.text == \"Hello, tomchristie!\"",
+        "end_line": 143,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/tests/test_applications.py#L140-L143",
+        "score": "0.680693",
+        "source_type": "python_test",
+        "start_line": 140
+      },
+      {
+        "commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
+        "content": "### app.routes\n\nApplications now support a `.routes` parameter, which returns a list of `[Route|WebSocketRoute|Mount]`.\n",
+        "end_line": 580,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8/docs/release-notes.md#L577-L580",
+        "score": "0.678310",
+        "source_type": "markdown",
+        "start_line": 577
+      }
+    ]
+  },
+  "status": "completed"
+}

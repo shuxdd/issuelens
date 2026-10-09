@@ -1,0 +1,717 @@
+{
+  "case_id": "starlette-issue-947",
+  "events": [
+    {
+      "case_id": "starlette-issue-947",
+      "duration_ns": 4552039700,
+      "event_id": "f1fc2276436be083",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/947",
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 1,
+      "snapshot_commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+      "stage": "issue_parsed",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "duration_ns": 4552039700,
+      "event_id": "f709a0c2d0ef4ce4",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "query": "Background Thread created by WebSocketTestSession should exit when close() is called",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "arguments": {
+        "query_sha256": "6a5e5622ae6489485958cb42526a9081766a9364d5afd02453511fc357169249"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 4552039700,
+      "event_id": "1576293956b5f594",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "kind": "tool",
+      "parent_id": "0a63029672fb418a",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L71-L183",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L99-L102",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L386-L397",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L237-L255",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L258-L268",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L76-L98",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/release-notes.md#L311-L314",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/exceptions.md#L76-L115",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/lifespan.md#L76-L92"
+      ],
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "status": "ok",
+      "tool": "search_code",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "arguments": {
+        "query_sha256": "6a5e5622ae6489485958cb42526a9081766a9364d5afd02453511fc357169249"
+      },
+      "candidate_count": 10,
+      "candidate_ranks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "duration_ns": 4552039700,
+      "event_id": "c26945ed6f189bb9",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "kind": "tool",
+      "parent_id": "0a63029672fb418a",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L71-L183",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L99-L102",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L386-L397",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L237-L255",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L258-L268",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L76-L98",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/release-notes.md#L311-L314",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/exceptions.md#L76-L115",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/lifespan.md#L76-L92"
+      ],
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "status": "ok",
+      "tool": "semantic_search",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "duration_ns": 4552039700,
+      "event_id": "0a63029672fb418a",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 5,
+      "stage": "retrieved",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "to_stage": "retrieved",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "candidate_references": [
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L71-L183",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L99-L102",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L386-L397",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_endpoints.py#L139-L147",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L237-L255",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L258-L268",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L76-L98",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/release-notes.md#L311-L314",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/exceptions.md#L76-L115",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/lifespan.md#L76-L92"
+      ],
+      "duration_ns": 4552039700,
+      "event_id": "29e32b0d0b499cb9",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 6,
+      "stage": "evidence_summarized",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "to_stage": "evidence_summarized",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "cached_input_tokens": 3968,
+      "cost": "0.000802104",
+      "currency": "USD",
+      "duration_ns": 4509131400,
+      "event_id": "8bc48142ea0b442c",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "input_tokens": 4524,
+      "kind": "model",
+      "model": "deepseek-flash",
+      "output_tokens": 1178,
+      "parent_id": "eba99c8c0b1e431a",
+      "prompt_version": "agent-v1",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 7,
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "status": "ok",
+      "total_tokens": 5702,
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "duration_ns": 4552039700,
+      "event_id": "eba99c8c0b1e431a",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "evidence_summarized",
+      "hypotheses": [
+        "close() only enqueues a websocket.disconnect message and does not cancel or signal the background portal task, so an app that does not return on disconnect leaves the task/thread running.",
+        "The portal/exit stack is only closed in __exit__, so if close() is called directly without exiting the context manager or if the app blocks, the portal task may remain alive."
+      ],
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 8,
+      "stage": "hypotheses_formed",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "to_stage": "hypotheses_formed",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "duration_ns": 4552039700,
+      "event_id": "4680b4bda7fa8bf8",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "hypotheses_formed",
+      "kind": "stage",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "references": [
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L102-L106",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L119-L123",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L156-L157",
+        "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L91-L91"
+      ],
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 9,
+      "stage": "verified",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "supported_hypotheses": 2,
+      "to_stage": "verified",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    },
+    {
+      "duration_ns": 4552039700,
+      "event_id": "6b1aa09c1aa1b38c",
+      "finished_at": "2026-09-27T17:41:24.223917Z",
+      "from_stage": "verified",
+      "kind": "stage",
+      "outcome": "supported",
+      "parent_id": "cd5b402c2cb3c67d85816fe156c2d311",
+      "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+      "sequence": 10,
+      "stage": "reported",
+      "started_at": "2026-09-27T17:41:19.671877Z",
+      "stop_reason": "verified_root_cause",
+      "to_stage": "reported",
+      "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+    }
+  ],
+  "group": "g4",
+  "metadata": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 2
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 4552156900
+      },
+      "tool_calls": {
+        "limit": 20,
+        "used": 2
+      }
+    },
+    "cost": "0.000802104",
+    "input_tokens": 4524,
+    "latency_ns": 4509131400,
+    "model": "deepseek-flash",
+    "model_calls": 1,
+    "output_tokens": 1178,
+    "prompt_version": "agent-v1",
+    "retrieval": {
+      "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+      "score_precision": 6,
+      "top_k": 10
+    },
+    "retrieval_latency_ns": 343548254400,
+    "run_latency_ns": 4552039700,
+    "structured_output_retries": 0,
+    "tool_calls": 2,
+    "tools": {
+      "search_code": 1,
+      "semantic_search": 1
+    },
+    "total_latency_ns": 348100294100,
+    "total_tokens": 5702
+  },
+  "outcome": {
+    "allowed_evidence": [
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 92,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L86-L92",
+        "start_line": 86
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 91,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L91-L91",
+        "start_line": 91
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 110,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L102-L110",
+        "start_line": 102
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 106,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L102-L106",
+        "start_line": 102
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 123,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L112-L123",
+        "start_line": 112
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 123,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L119-L123",
+        "start_line": 119
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 157,
+        "path": "starlette/testclient.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L156-L157",
+        "start_line": 156
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 255,
+        "path": "tests/test_websockets.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L252-L255",
+        "start_line": 252
+      },
+      {
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "end_line": 396,
+        "path": "tests/test_websockets.py",
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L393-L396",
+        "start_line": 393
+      }
+    ],
+    "status": "supported",
+    "stop_reason": "verified_root_cause",
+    "unresolved_questions": [
+      "What exact portal_factory implementation is used by TestClient/WebSocketTestSession in this version, and does exiting the portal cancel start_task_soon tasks?",
+      "Does the application under test reliably return after receiving websocket.disconnect, or can it keep waiting?",
+      "Is the reported background thread from anyio task/thread pool, an ASGI test thread, or a separate server thread not shown in the supplied candidates?"
+    ]
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 92,
+            "excerpt": "def __enter__(self) -> \"WebSocketTestSession\":\n        self.exit_stack = contextlib.ExitStack()\n        self.portal = self.exit_stack.enter_context(self.portal_factory())\n\n        try:\n            _: \"Future[None]\" = self.portal.start_task_soon(self._run)\n            self.send({\"type\": \"websocket.connect\"})",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L86-L92",
+            "start_line": 86
+          },
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 157,
+            "excerpt": "def close(self, code: int = 1000, reason: typing.Union[str, None] = None) -> None:\n        self.send({\"type\": \"websocket.disconnect\", \"code\": code, \"reason\": reason})",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L156-L157",
+            "start_line": 156
+          }
+        ],
+        "text": "WebSocketTestSession runs its app in a portal task started on __enter__, and close() only sends a websocket.disconnect message rather than stopping that task."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 123,
+            "excerpt": "async def _run(self) -> None:\n        \"\"\"\n        The sub-thread in which the websocket session runs.\n        \"\"\"\n        scope = self.scope\n        receive = self._asgi_receive\n        send = self._asgi_send\n        try:\n            await self.app(scope, receive, send)\n        except BaseException as exc:\n            self._send_queue.put(exc)\n            raise",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L112-L123",
+            "start_line": 112
+          }
+        ],
+        "text": "The background task in the portal runs the ASGI app and may not exit until the app returns; close() does not directly cancel that task."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 110,
+            "excerpt": "def __exit__(self, *args: typing.Any) -> None:\n        try:\n            self.close(1000)\n        finally:\n            self.exit_stack.close()\n        while not self._send_queue.empty():\n            message = self._send_queue.get()\n            if isinstance(message, BaseException):\n                raise message",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L102-L110",
+            "start_line": 102
+          }
+        ],
+        "text": "The context manager __exit__ calls close() and then closes the exit stack / portal, which is the normal lifecycle point where the background task should be shut down."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 255,
+            "excerpt": "with client.websocket_connect(\"/\") as websocket:\n        websocket.close(code=status.WS_1001_GOING_AWAY, reason=\"Going Away\")\n    assert close_code == status.WS_1001_GOING_AWAY\n    assert close_reason == \"Going Away\"",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L252-L255",
+            "start_line": 252
+          },
+          {
+            "candidate_rank": 3,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 396,
+            "excerpt": "with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY",
+            "path": "tests/test_websockets.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L393-L396",
+            "start_line": 393
+          }
+        ],
+        "text": "Tests exercise closing from server and client sides and expect WebSocketDisconnect or close code propagation, implying the session should complete cleanly on close."
+      }
+    ],
+    "issue_classification": "resource leak in WebSocketTestSession lifecycle",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 91,
+            "excerpt": "            _: \"Future[None]\" = self.portal.start_task_soon(self._run)",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L91-L91",
+            "start_line": 91
+          },
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 157,
+            "excerpt": "def close(self, code: int = 1000, reason: typing.Union[str, None] = None) -> None:\n        self.send({\"type\": \"websocket.disconnect\", \"code\": code, \"reason\": reason})",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L156-L157",
+            "start_line": 156
+          },
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 123,
+            "excerpt": "        try:\n            await self.app(scope, receive, send)\n        except BaseException as exc:\n            self._send_queue.put(exc)\n            raise",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L119-L123",
+            "start_line": 119
+          }
+        ],
+        "text": "close() only enqueues a websocket.disconnect message and does not cancel or signal the background portal task, so an app that does not return on disconnect leaves the task/thread running.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+            "end_line": 106,
+            "excerpt": "def __exit__(self, *args: typing.Any) -> None:\n        try:\n            self.close(1000)\n        finally:\n            self.exit_stack.close()",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L102-L106",
+            "start_line": 102
+          }
+        ],
+        "text": "The portal/exit stack is only closed in __exit__, so if close() is called directly without exiting the context manager or if the app blocks, the portal task may remain alive.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exact portal_factory implementation is used by TestClient/WebSocketTestSession in this version, and does exiting the portal cancel start_task_soon tasks?",
+      "Does the application under test reliably return after receiving websocket.disconnect, or can it keep waiting?",
+      "Is the reported background thread from anyio task/thread pool, an ASGI test thread, or a separate server thread not shown in the supplied candidates?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "bm25_contribution": "0.01612903",
+        "bm25_rank": 2,
+        "bm25_score": "14.065182",
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "class WebSocketTestSession:\n    def __init__(\n        self,\n        app: ASGI3App,\n        scope: Scope,\n        portal_factory: _PortalFactoryType,\n    ) -> None:\n        self.app = app\n        self.scope = scope\n        self.accepted_subprotocol = None\n        self.portal_factory = portal_factory\n        self._receive_queue: \"queue.Queue[Message]\" = queue.Queue()\n        self._send_queue: \"queue.Queue[Message | BaseException]\" = queue.Queue()\n        self.extra_headers = None\n\n    def __enter__(self) -> \"WebSocketTestSession\":\n        self.exit_stack = contextlib.ExitStack()\n        self.portal = self.exit_stack.enter_context(self.portal_factory())\n\n        try:\n            _: \"Future[None]\" = self.portal.start_task_soon(self._run)\n            self.send({\"type\": \"websocket.connect\"})\n            message = self.receive()\n            self._raise_on_close(message)\n        except Exception:\n            self.exit_stack.close()\n            raise\n        self.accepted_subprotocol = message.get(\"subprotocol\", None)\n        self.extra_headers = message.get(\"headers\", None)\n        return self\n\n    def __exit__(self, *args: typing.Any) -> None:\n        try:\n            self.close(1000)\n        finally:\n            self.exit_stack.close()\n        while not self._send_queue.empty():\n            message = self._send_queue.get()\n            if isinstance(message, BaseException):\n                raise message\n\n    async def _run(self) -> None:\n        \"\"\"\n        The sub-thread in which the websocket session runs.\n        \"\"\"\n        scope = self.scope\n        receive = self._asgi_receive\n        send = self._asgi_send\n        try:\n            await self.app(scope, receive, send)\n        except BaseException as exc:\n            self._send_queue.put(exc)\n            raise\n\n    async def _asgi_receive(self) -> Message:\n        while self._receive_queue.empty():\n            await anyio.sleep(0)\n        return self._receive_queue.get()\n\n    async def _asgi_send(self, message: Message) -> None:\n        self._send_queue.put(message)\n\n    def _raise_on_close(self, message: Message) -> None:\n        if message[\"type\"] == \"websocket.close\":\n            raise WebSocketDisconnect(\n                message.get(\"code\", 1000), message.get(\"reason\", \"\")\n            )\n\n    def send(self, message: Message) -> None:\n        self._receive_queue.put(message)\n\n    def send_text(self, data: str) -> None:\n        self.send({\"type\": \"websocket.receive\", \"text\": data})\n\n    def send_bytes(self, data: bytes) -> None:\n        self.send({\"type\": \"websocket.receive\", \"bytes\": data})\n\n    def send_json(self, data: typing.Any, mode: str = \"text\") -> None:\n        assert mode in [\"text\", \"binary\"]\n        text = json.dumps(data, separators=(\",\", \":\"), ensure_ascii=False)\n        if mode == \"text\":\n            self.send({\"type\": \"websocket.receive\", \"text\": text})\n        else:\n            self.send({\"type\": \"websocket.receive\", \"bytes\": text.encode(\"utf-8\")})\n\n    def close(self, code: int = 1000, reason: typing.Union[str, None] = None) -> None:\n        self.send({\"type\": \"websocket.disconnect\", \"code\": code, \"reason\": reason})\n\n    def receive(self) -> Message:\n        message = self._send_queue.get()\n        if isinstance(message, BaseException):\n            raise message\n        return message\n\n    def receive_text(self) -> str:\n        message = self.receive()\n        self._raise_on_close(message)\n        return typing.cast(str, message[\"text\"])\n\n    def receive_bytes(self) -> bytes:\n        message = self.receive()\n        self._raise_on_close(message)\n        return typing.cast(bytes, message[\"bytes\"])\n\n    def receive_json(self, mode: str = \"text\") -> typing.Any:\n        assert mode in [\"text\", \"binary\"]\n        message = self.receive()\n        self._raise_on_close(message)\n        if mode == \"text\":\n            text = message[\"text\"]\n        else:\n            text = message[\"bytes\"].decode(\"utf-8\")\n        return json.loads(text)",
+        "end_line": 183,
+        "g2_rank": 1,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/starlette/testclient.py#L71-L183",
+        "reranker_score": "1.163316",
+        "rrf_score": "0.03083491",
+        "score": "1.163316",
+        "source_type": "python_source",
+        "start_line": 71,
+        "vector_contribution": "0.01470588",
+        "vector_rank": 8,
+        "vector_score": "0.746370"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "### Closing the connection\n\n* `await websocket.close(code=1000, reason=None)`\n",
+        "end_line": 102,
+        "g2_rank": 3,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L99-L102",
+        "reranker_score": "-4.002625",
+        "rrf_score": "0.01639344",
+        "score": "-4.002625",
+        "source_type": "markdown",
+        "start_line": 99,
+        "vector_contribution": "0.01639344",
+        "vector_rank": 1,
+        "vector_score": "0.791534"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "def test_websocket_close_reason(test_client_factory: Callable[..., TestClient]) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        await websocket.close(code=status.WS_1001_GOING_AWAY, reason=\"Going Away\")\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY\n        assert exc.value.reason == \"Going Away\"",
+        "end_line": 397,
+        "g2_rank": 6,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L386-L397",
+        "reranker_score": "-4.535701",
+        "rrf_score": "0.01587302",
+        "score": "-4.535701",
+        "source_type": "python_test",
+        "start_line": 386,
+        "vector_contribution": "0.01587302",
+        "vector_rank": 3,
+        "vector_score": "0.772575"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "def test_websocket_endpoint_on_disconnect(test_client_factory):\n    class WebSocketApp(WebSocketEndpoint):\n        async def on_disconnect(self, websocket, close_code):\n            assert close_code == 1001\n            await websocket.close(code=close_code)\n\n    client = test_client_factory(WebSocketApp)\n    with client.websocket_connect(\"/ws\") as websocket:\n        websocket.close(code=1001)",
+        "end_line": 147,
+        "g2_rank": 8,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_endpoints.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_endpoints.py#L139-L147",
+        "reranker_score": "-4.680263",
+        "rrf_score": "0.01562500",
+        "score": "-4.680263",
+        "source_type": "python_test",
+        "start_line": 139,
+        "vector_contribution": "0.01562500",
+        "vector_rank": 4,
+        "vector_score": "0.763401"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "def test_client_close(test_client_factory: Callable[..., TestClient]):\n    close_code = None\n    close_reason = None\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        nonlocal close_code, close_reason\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        try:\n            await websocket.receive_text()\n        except WebSocketDisconnect as exc:\n            close_code = exc.code\n            close_reason = exc.reason\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        websocket.close(code=status.WS_1001_GOING_AWAY, reason=\"Going Away\")\n    assert close_code == status.WS_1001_GOING_AWAY\n    assert close_reason == \"Going Away\"",
+        "end_line": 255,
+        "g2_rank": 4,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L237-L255",
+        "reranker_score": "-4.855689",
+        "rrf_score": "0.01612903",
+        "score": "-4.855689",
+        "source_type": "python_test",
+        "start_line": 237,
+        "vector_contribution": "0.01612903",
+        "vector_rank": 2,
+        "vector_score": "0.774272"
+      },
+      {
+        "bm25_contribution": "0.00000000",
+        "bm25_rank": null,
+        "bm25_score": null,
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "def test_application_close(test_client_factory: Callable[..., TestClient]):\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        websocket = WebSocket(scope, receive=receive, send=send)\n        await websocket.accept()\n        await websocket.close(status.WS_1001_GOING_AWAY)\n\n    client = test_client_factory(app)\n    with client.websocket_connect(\"/\") as websocket:\n        with pytest.raises(WebSocketDisconnect) as exc:\n            websocket.receive_text()\n        assert exc.value.code == status.WS_1001_GOING_AWAY",
+        "end_line": 268,
+        "g2_rank": 10,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_websockets.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/tests/test_websockets.py#L258-L268",
+        "reranker_score": "-4.948974",
+        "rrf_score": "0.01538462",
+        "score": "-4.948974",
+        "source_type": "python_test",
+        "start_line": 258,
+        "vector_contribution": "0.01538462",
+        "vector_rank": 5,
+        "vector_score": "0.752640"
+      },
+      {
+        "bm25_contribution": "0.01538462",
+        "bm25_rank": 5,
+        "bm25_score": "12.323146",
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "### Iterating data\n\n* `websocket.iter_text()`\n* `websocket.iter_bytes()`\n* `websocket.iter_json()`\n\nSimilar to `receive_text`, `receive_bytes`, and `receive_json` but returns an\nasync iterator.\n\n```python hl_lines=\"7-8\"\nfrom starlette.websockets import WebSocket\n\n\nasync def app(scope, receive, send):\n    websocket = WebSocket(scope=scope, receive=receive, send=send)\n    await websocket.accept()\n    async for message in websocket.iter_text():\n        await websocket.send_text(f\"Message text was: {message}\")\n    await websocket.close()\n```\n\nWhen `starlette.websockets.WebSocketDisconnect` is raised, the iterator will exit.\n",
+        "end_line": 98,
+        "g2_rank": 9,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/websockets.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/websockets.md#L76-L98",
+        "reranker_score": "-5.352238",
+        "rrf_score": "0.01538462",
+        "score": "-5.352238",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01587302",
+        "bm25_rank": 3,
+        "bm25_score": "13.639067",
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "### Fixed\n* Fix inference of `Route.name` when created from methods [#1553](https://github.com/encode/starlette/pull/1553).\n* Avoid `TypeError` on `websocket.disconnect` when code is `None` [#1574](https://github.com/encode/starlette/pull/1574).\n",
+        "end_line": 314,
+        "g2_rank": 5,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/release-notes.md#L311-L314",
+        "reranker_score": "-5.953630",
+        "rrf_score": "0.01587302",
+        "score": "-5.953630",
+        "source_type": "markdown",
+        "start_line": 311,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01562500",
+        "bm25_rank": 4,
+        "bm25_score": "13.573099",
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "## Errors and handled exceptions\n\nIt is important to differentiate between handled exceptions and errors.\n\nHandled exceptions do not represent error cases. They are coerced into appropriate\nHTTP responses, which are then sent through the standard middleware stack. By default\nthe `HTTPException` class is used to manage any handled exceptions.\n\nErrors are any other exception that occurs within the application. These cases\nshould bubble through the entire middleware stack as exceptions. Any error\nlogging middleware should ensure that it re-raises the exception all the\nway up to the server.\n\nIn practical terms, the error handled used is `exception_handler[500]` or `exception_handler[Exception]`.\nBoth keys `500` and `Exception` can be used. See below:\n\n```python\nasync def handle_error(request: Request, exc: HTTPException):\n    # Perform some logic\n    return JSONResponse({\"detail\": exc.detail}, status_code=exc.status_code)\n\nexception_handlers = {\n    Exception: handle_error  # or \"500: handle_error\"\n}\n```\n\nIt's important to notice that in case a [`BackgroundTask`](https://www.starlette.io/background/) raises an exception,\nit will be handled by the `handle_error` function, but at that point, the response was already sent. In other words,\nthe response created by `handle_error` will be discarded. In case the error happens before the response was sent, then\nit will use the response object - in the above example, the returned `JSONResponse`.\n\nIn order to deal with this behaviour correctly, the middleware stack of a\n`Starlette` application is configured like this:\n\n* `ServerErrorMiddleware` - Returns 500 responses when server errors occur.\n* Installed middleware\n* `ExceptionMiddleware` - Deals with handled exceptions, and returns responses.\n* Router\n* Endpoints\n",
+        "end_line": 115,
+        "g2_rank": 7,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/exceptions.md",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/exceptions.md#L76-L115",
+        "reranker_score": "-9.066151",
+        "rrf_score": "0.01562500",
+        "score": "-9.066151",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      },
+      {
+        "bm25_contribution": "0.01639344",
+        "bm25_rank": 1,
+        "bm25_score": "15.084756",
+        "commit": "363e4fb1940f0eb6e290755fddd7ea6666ce18ae",
+        "content": "## Running lifespan in tests\n\nYou should use `TestClient` as a context manager, to ensure that the lifespan is called.\n\n```python\nfrom example import app\nfrom starlette.testclient import TestClient\n\n\ndef test_homepage():\n    with TestClient(app) as client:\n        # Application's lifespan is called on entering the block.\n        response = client.get(\"/\")\n        assert response.status_code == 200\n\n    # And the lifespan's teardown is run when exiting the block.\n```",
+        "end_line": 92,
+        "g2_rank": 2,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/lifespan.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/363e4fb1940f0eb6e290755fddd7ea6666ce18ae/docs/lifespan.md#L76-L92",
+        "reranker_score": "-10.554761",
+        "rrf_score": "0.01639344",
+        "score": "-10.554761",
+        "source_type": "markdown",
+        "start_line": 76,
+        "vector_contribution": "0.00000000",
+        "vector_rank": null,
+        "vector_score": null
+      }
+    ]
+  },
+  "run_id": "5eeef53e4594478ea3ccde514181dc5d",
+  "status": "completed",
+  "trace_id": "cd5b402c2cb3c67d85816fe156c2d311"
+}

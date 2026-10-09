@@ -1,0 +1,4797 @@
+{
+  "dataset_version": "starlette-eval-v1",
+  "evaluator_version": "evaluation-v1",
+  "experiment_version": "starlette-comparable-v1",
+  "groups": {
+    "g1": {
+      "failures": 5,
+      "metrics": {
+        "changed_files_recall_at_10": 0.39861111111111114,
+        "changed_files_recall_at_5": 0.24444444444444444,
+        "citation_validity": 0.7422222222222222,
+        "mrr": 0.1080423,
+        "ndcg_at_10": 0.1696754,
+        "root_cause_accuracy": 0.2,
+        "root_cause_files_recall_at_10": 0.4,
+        "root_cause_files_recall_at_5": 0.22777777777777777,
+        "test_files_recall_at_10": 0.36666666666666664,
+        "test_files_recall_at_5": 0.21666666666666667
+      },
+      "usage": {
+        "cost": "0.022779942",
+        "input_tokens": 90973,
+        "latency_ns": 7620984012300,
+        "output_tokens": 16415,
+        "total_tokens": 107388
+      }
+    },
+    "g2": {
+      "failures": 10,
+      "metrics": {
+        "changed_files_recall_at_10": 0.3375,
+        "changed_files_recall_at_5": 0.25,
+        "citation_validity": 0.652991452991453,
+        "mrr": 0.20722223333333334,
+        "ndcg_at_10": 0.24441503333333334,
+        "root_cause_accuracy": 0.3333333333333333,
+        "root_cause_files_recall_at_10": 0.3722222222222222,
+        "root_cause_files_recall_at_5": 0.2833333333333333,
+        "test_files_recall_at_10": 0.36666666666666664,
+        "test_files_recall_at_5": 0.23333333333333334
+      },
+      "usage": {
+        "cost": "0.022358688",
+        "input_tokens": 81068,
+        "latency_ns": 6398476052800,
+        "output_tokens": 18001,
+        "total_tokens": 99069
+      }
+    },
+    "g3": {
+      "failures": 16,
+      "metrics": {
+        "changed_files_recall_at_10": 0.2555555555555556,
+        "changed_files_recall_at_5": 0.24444444444444444,
+        "citation_validity": 0.4666666666666667,
+        "mrr": 0.1172222,
+        "ndcg_at_10": 0.15464656666666665,
+        "root_cause_accuracy": 0.1,
+        "root_cause_files_recall_at_10": 0.2722222222222222,
+        "root_cause_files_recall_at_5": 0.2611111111111111,
+        "test_files_recall_at_10": 0.26666666666666666,
+        "test_files_recall_at_5": 0.21666666666666667
+      },
+      "usage": {
+        "cost": "0.012145974",
+        "input_tokens": 53481,
+        "latency_ns": 4473766582200,
+        "output_tokens": 8786,
+        "total_tokens": 62267
+      }
+    },
+    "g4": {
+      "failures": 2,
+      "metrics": {
+        "changed_files_recall_at_10": 0.4597222222222222,
+        "changed_files_recall_at_5": 0.4486111111111111,
+        "citation_validity": 0.7575569358178054,
+        "mrr": 0.3199999666666667,
+        "ndcg_at_10": 0.3585926333333333,
+        "root_cause_accuracy": 0.3,
+        "root_cause_files_recall_at_10": 0.49444444444444446,
+        "root_cause_files_recall_at_5": 0.48333333333333334,
+        "test_files_recall_at_10": 0.5333333333333333,
+        "test_files_recall_at_5": 0.48333333333333334
+      },
+      "usage": {
+        "cost": "0.023593971",
+        "input_tokens": 157990,
+        "latency_ns": 8560278006100,
+        "output_tokens": 32878,
+        "total_tokens": 190868
+      }
+    }
+  },
+  "per_case": [
+    {
+      "case_id": "starlette-issue-1355",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.111111,
+      "ndcg_at_10": 0.30103,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00102195",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5081,
+        "latency_ns": 3179834100,
+        "missed_input_tokens": 5081,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 433,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 224934904600,
+        "total_latency_ns": 228114738700,
+        "total_tokens": 5514
+      }
+    },
+    {
+      "case_id": "starlette-issue-1355",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[1].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1355",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001206834",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4399,
+        "latency_ns": 5468809800,
+        "missed_input_tokens": 4271,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 943,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 226699754600,
+        "total_latency_ns": 232168564400,
+        "total_tokens": 5342
+      }
+    },
+    {
+      "case_id": "starlette-issue-1355",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 5196042400
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000273456",
+        "input_tokens": 4924,
+        "latency_ns": 5084385300,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 291,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 226699754600,
+        "run_latency_ns": 5193912800,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 231893667400,
+        "total_tokens": 5215
+      }
+    },
+    {
+      "case_id": "starlette-issue-1099",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1099",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "IncompleteRead",
+        "message": "IncompleteRead(4090 bytes read)"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1099",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "URLError",
+        "message": "<urlopen error _ssl.c:983: The handshake operation timed out>"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1099",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 0.8571428571428571,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.306574,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 0.5,
+      "root_cause_files_recall_at_5": 0.5,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 3
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 5171222000
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001745202",
+        "input_tokens": 6111,
+        "latency_ns": 5137014000,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1475,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 225445723800,
+        "run_latency_ns": 5171122500,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 230616846300,
+        "total_tokens": 7586
+      }
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "changed_files_recall_at_10": 0.125,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.6,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.142857,
+      "ndcg_at_10": 0.100867,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.16666666666666666,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00080385",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2659,
+        "latency_ns": 2795766600,
+        "missed_input_tokens": 2659,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 675,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 236764316600,
+        "total_latency_ns": 239560083200,
+        "total_tokens": 3334
+      }
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "changed_files_recall_at_10": 0.125,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.166667,
+      "ndcg_at_10": 0.107789,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 0.16666666666666666,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001420134",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5441,
+        "latency_ns": 4202244400,
+        "missed_input_tokens": 5313,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1038,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 236846274000,
+        "total_latency_ns": 241048518400,
+        "total_tokens": 6479
+      }
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "changed_files_recall_at_10": 0.125,
+      "changed_files_recall_at_5": 0.125,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.117063,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 0.16666666666666666,
+      "root_cause_files_recall_at_5": 0.16666666666666666,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 5357253300
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000531378",
+        "input_tokens": 5987,
+        "latency_ns": 5326311800,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 706,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 238187701700,
+        "run_latency_ns": 5357178800,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 243544880500,
+        "total_tokens": 6693
+      }
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00068265",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 1507,
+        "latency_ns": 2809877100,
+        "missed_input_tokens": 1507,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 761,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 233606050900,
+        "total_latency_ns": 236415928000,
+        "total_tokens": 2268
+      }
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[3].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1433",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 0
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 9015616800
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001475139",
+        "input_tokens": 7938,
+        "latency_ns": 8973832400,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 2229,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 235001867300,
+        "run_latency_ns": 9015526700,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 244017394000,
+        "total_tokens": 10167
+      }
+    },
+    {
+      "case_id": "starlette-issue-1471",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0004356",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2080,
+        "latency_ns": 1330393900,
+        "missed_input_tokens": 2080,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 206,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 237784778400,
+        "total_latency_ns": 239115172300,
+        "total_tokens": 2286
+      }
+    },
+    {
+      "case_id": "starlette-issue-1471",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000590334",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2373,
+        "latency_ns": 2252201300,
+        "missed_input_tokens": 2245,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 422,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 237829071200,
+        "total_latency_ns": 240081272500,
+        "total_tokens": 2795
+      }
+    },
+    {
+      "case_id": "starlette-issue-1471",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "root_cause_hypotheses[1].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1471",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 3
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 3173132600
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000592812",
+        "input_tokens": 2922,
+        "latency_ns": 3139018300,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 822,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 239167221100,
+        "run_latency_ns": 3173050000,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 242340271100,
+        "total_tokens": 3744
+      }
+    },
+    {
+      "case_id": "starlette-issue-1552",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 4864,
+        "cost": "0.000333642",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5071,
+        "latency_ns": 2052994300,
+        "missed_input_tokens": 207,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 480,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 257351992200,
+        "total_latency_ns": 259404986500,
+        "total_tokens": 5551
+      }
+    },
+    {
+      "case_id": "starlette-issue-1552",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[4].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1552",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 3968,
+        "cost": "0.000406104",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4192,
+        "latency_ns": 2807236700,
+        "missed_input_tokens": 224,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 601,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 258800015100,
+        "total_latency_ns": 261607251800,
+        "total_tokens": 4793
+      }
+    },
+    {
+      "case_id": "starlette-issue-1552",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 4693495800
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000729288",
+        "input_tokens": 4676,
+        "latency_ns": 4651298600,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1050,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 258800015100,
+        "run_latency_ns": 4693352100,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 263493367200,
+        "total_tokens": 5726
+      }
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0010248",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4152,
+        "latency_ns": 2752952600,
+        "missed_input_tokens": 4152,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 670,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 259300424600,
+        "total_latency_ns": 262053377200,
+        "total_tokens": 4822
+      }
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[1].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "model output: invalid JSON at line 1, column 2678"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1578",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 3
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 4615428200
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000891258",
+        "input_tokens": 5295,
+        "latency_ns": 4570320400,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1322,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 260800031700,
+        "run_latency_ns": 4615334900,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 265415366600,
+        "total_tokens": 6617
+      }
+    },
+    {
+      "case_id": "starlette-issue-746",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.125,
+      "ndcg_at_10": 0.315465,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.000747",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2124,
+        "latency_ns": 3131874300,
+        "missed_input_tokens": 2124,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 714,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 266538816400,
+        "total_latency_ns": 269670690700,
+        "total_tokens": 2838
+      }
+    },
+    {
+      "case_id": "starlette-issue-746",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000786384",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2884,
+        "latency_ns": 2762124600,
+        "missed_input_tokens": 2756,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 621,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 266591557800,
+        "total_latency_ns": 269353682400,
+        "total_tokens": 3505
+      }
+    },
+    {
+      "case_id": "starlette-issue-746",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[1].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-746",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 4855518600
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000860748",
+        "input_tokens": 6882,
+        "latency_ns": 4798042700,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 1188,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 268006174600,
+        "run_latency_ns": 4855388200,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 272861562800,
+        "total_tokens": 8070
+      }
+    },
+    {
+      "case_id": "starlette-issue-495",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[1].evidence[1].excerpt does not match cited lines"
+      },
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-495",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.5,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 768,
+        "cost": "0.001699554",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5311,
+        "latency_ns": 5823396400,
+        "missed_input_tokens": 4543,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1693,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 272801486800,
+        "total_latency_ns": 278624883200,
+        "total_tokens": 7004
+      }
+    },
+    {
+      "case_id": "starlette-issue-495",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[1].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-495",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.650921,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 3096090400
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000602844",
+        "input_tokens": 5822,
+        "latency_ns": 3052034000,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 835,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 274202901900,
+        "run_latency_ns": 3095982000,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 277298883900,
+        "total_tokens": 6657
+      }
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.571429,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.5,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.001071",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4376,
+        "latency_ns": 3458691100,
+        "missed_input_tokens": 4376,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 691,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 271935155800,
+        "total_latency_ns": 275393846900,
+        "total_tokens": 5067
+      }
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[2].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.237198,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.5,
+      "root_cause_files_recall_at_5": 0.5,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000832734",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2713,
+        "latency_ns": 3139766000,
+        "missed_input_tokens": 2585,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 741,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 273499415900,
+        "total_latency_ns": 276639181900,
+        "total_tokens": 3454
+      }
+    },
+    {
+      "case_id": "starlette-issue-847",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.237198,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.5,
+      "root_cause_files_recall_at_5": 0.5,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 6135246600
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001016580",
+        "input_tokens": 6466,
+        "latency_ns": 6087137700,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 1489,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 273499415900,
+        "run_latency_ns": 6135153800,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 279634569700,
+        "total_tokens": 7955
+      }
+    },
+    {
+      "case_id": "starlette-issue-1438",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00043065",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2331,
+        "latency_ns": 1458304900,
+        "missed_input_tokens": 2331,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 135,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 276875288300,
+        "total_latency_ns": 278333593200,
+        "total_tokens": 2466
+      }
+    },
+    {
+      "case_id": "starlette-issue-1438",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000507984",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2512,
+        "latency_ns": 1391399300,
+        "missed_input_tokens": 2384,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 250,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 276975860800,
+        "total_latency_ns": 278367260100,
+        "total_tokens": 2762
+      }
+    },
+    {
+      "case_id": "starlette-issue-1438",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000488784",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2512,
+        "latency_ns": 1206128300,
+        "missed_input_tokens": 2384,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 218,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 277993727100,
+        "total_latency_ns": 279199855400,
+        "total_tokens": 2730
+      }
+    },
+    {
+      "case_id": "starlette-issue-1438",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2469946600
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000410946",
+        "input_tokens": 3047,
+        "latency_ns": 2427291900,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 519,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 277993727100,
+        "run_latency_ns": 2469836100,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 280463563200,
+        "total_tokens": 3566
+      }
+    },
+    {
+      "case_id": "starlette-issue-1878",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.142857,
+      "ndcg_at_10": 0.333333,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00096105",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3583,
+        "latency_ns": 2506816800,
+        "missed_input_tokens": 3583,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 706,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 295467180300,
+        "total_latency_ns": 297973997100,
+        "total_tokens": 4289
+      }
+    },
+    {
+      "case_id": "starlette-issue-1878",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001297134",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4861,
+        "latency_ns": 3275489500,
+        "missed_input_tokens": 4733,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 978,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 295568921000,
+        "total_latency_ns": 298844410500,
+        "total_tokens": 5839
+      }
+    },
+    {
+      "case_id": "starlette-issue-1878",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[1].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1878",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2636291700
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000482658",
+        "input_tokens": 5379,
+        "latency_ns": 2589331100,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 620,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 296980940800,
+        "run_latency_ns": 2636198100,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 299617138900,
+        "total_tokens": 5999
+      }
+    },
+    {
+      "case_id": "starlette-issue-1952",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0007881",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3014,
+        "latency_ns": 2473775500,
+        "missed_input_tokens": 3014,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 560,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 290367498500,
+        "total_latency_ns": 292841274000,
+        "total_tokens": 3574
+      }
+    },
+    {
+      "case_id": "starlette-issue-1952",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001123134",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3417,
+        "latency_ns": 4448368000,
+        "missed_input_tokens": 3289,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1049,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 290430797900,
+        "total_latency_ns": 294879165900,
+        "total_tokens": 4466
+      }
+    },
+    {
+      "case_id": "starlette-issue-1952",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000701934",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3417,
+        "latency_ns": 1949694600,
+        "missed_input_tokens": 3289,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 347,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 291847584900,
+        "total_latency_ns": 293797279500,
+        "total_tokens": 3764
+      }
+    },
+    {
+      "case_id": "starlette-issue-1952",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 3554676900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000594684",
+        "input_tokens": 3926,
+        "latency_ns": 3510827600,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 825,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 291847584900,
+        "run_latency_ns": 3554575300,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 295402160200,
+        "total_tokens": 4751
+      }
+    },
+    {
+      "case_id": "starlette-issue-472",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0004014",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2316,
+        "latency_ns": 1629337000,
+        "missed_input_tokens": 2316,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 90,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 295387228100,
+        "total_latency_ns": 297016565100,
+        "total_tokens": 2406
+      }
+    },
+    {
+      "case_id": "starlette-issue-472",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0] requires evidence; use an unverified hypothesis"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-472",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-472",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 0
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 6799905100
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001181148",
+        "input_tokens": 6810,
+        "latency_ns": 6739274900,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 1740,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 296841630000,
+        "run_latency_ns": 6799800000,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 303641430000,
+        "total_tokens": 8550
+      }
+    },
+    {
+      "case_id": "starlette-issue-2002",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.9166666666666666,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0014286",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4124,
+        "latency_ns": 4750392100,
+        "missed_input_tokens": 4124,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1350,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 297820001500,
+        "total_latency_ns": 302570393600,
+        "total_tokens": 5474
+      }
+    },
+    {
+      "case_id": "starlette-issue-2002",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "root_cause_hypotheses[0].evidence[1].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2002",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2002",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 0
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 11443980700
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.002119296",
+        "input_tokens": 9512,
+        "latency_ns": 11393778600,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 3318,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 299302891300,
+        "run_latency_ns": 11443886900,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 310746778200,
+        "total_tokens": 12830
+      }
+    },
+    {
+      "case_id": "starlette-issue-493",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0014007",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4642,
+        "latency_ns": 3898967700,
+        "missed_input_tokens": 4642,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1174,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 302449799600,
+        "total_latency_ns": 306348767300,
+        "total_tokens": 5816
+      }
+    },
+    {
+      "case_id": "starlette-issue-493",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 512,
+        "cost": "0.001590786",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4875,
+        "latency_ns": 5016610400,
+        "missed_input_tokens": 4363,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1558,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 302508116800,
+        "total_latency_ns": 307524727200,
+        "total_tokens": 6433
+      }
+    },
+    {
+      "case_id": "starlette-issue-493",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[2].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-493",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 0
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 10997648400
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.002070636",
+        "input_tokens": 10854,
+        "latency_ns": 10939919000,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 3215,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 303881808200,
+        "run_latency_ns": 10997517500,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 314879325700,
+        "total_tokens": 14069
+      }
+    },
+    {
+      "case_id": "starlette-issue-2134",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2134",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000885384",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3952,
+        "latency_ns": 2150770800,
+        "missed_input_tokens": 3824,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 519,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 311658528000,
+        "total_latency_ns": 313809298800,
+        "total_tokens": 4471
+      }
+    },
+    {
+      "case_id": "starlette-issue-2134",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0] requires evidence; use an unverified hypothesis"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2134",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2635784800
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.00049872",
+        "input_tokens": 4480,
+        "latency_ns": 2597028500,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 652,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 313081588300,
+        "run_latency_ns": 2635663700,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 315717252000,
+        "total_tokens": 5132
+      }
+    },
+    {
+      "case_id": "starlette-issue-2093",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00064035",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2397,
+        "latency_ns": 2182871800,
+        "missed_input_tokens": 2397,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 468,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 317624453700,
+        "total_latency_ns": 319807325500,
+        "total_tokens": 2865
+      }
+    },
+    {
+      "case_id": "starlette-issue-2093",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000763734",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2133,
+        "latency_ns": 3296763600,
+        "missed_input_tokens": 2005,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 771,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 317776315800,
+        "total_latency_ns": 321073079400,
+        "total_tokens": 2904
+      }
+    },
+    {
+      "case_id": "starlette-issue-2093",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000568134",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2133,
+        "latency_ns": 2076072500,
+        "missed_input_tokens": 2005,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 445,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 318601628500,
+        "total_latency_ns": 320677701000,
+        "total_tokens": 2578
+      }
+    },
+    {
+      "case_id": "starlette-issue-2093",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 3030001900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000430944",
+        "input_tokens": 2640,
+        "latency_ns": 2987408300,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 560,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 318601628500,
+        "run_latency_ns": 3029915100,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 321631543600,
+        "total_tokens": 3200
+      }
+    },
+    {
+      "case_id": "starlette-issue-2227",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0004572",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 1344,
+        "latency_ns": 1971105800,
+        "missed_input_tokens": 1344,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 426,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 327408220100,
+        "total_latency_ns": 329379325900,
+        "total_tokens": 1770
+      }
+    },
+    {
+      "case_id": "starlette-issue-2227",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000481434",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 1679,
+        "latency_ns": 2158731800,
+        "missed_input_tokens": 1551,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 414,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 327530685600,
+        "total_latency_ns": 329689417400,
+        "total_tokens": 2093
+      }
+    },
+    {
+      "case_id": "starlette-issue-2227",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000597834",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 1679,
+        "latency_ns": 2320942500,
+        "missed_input_tokens": 1551,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 608,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 328151221400,
+        "total_latency_ns": 330472163900,
+        "total_tokens": 2287
+      }
+    },
+    {
+      "case_id": "starlette-issue-2227",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2433205800
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000441492",
+        "input_tokens": 2202,
+        "latency_ns": 2389945400,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 593,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 328151221400,
+        "run_latency_ns": 2433072500,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 330584293900,
+        "total_tokens": 2795
+      }
+    },
+    {
+      "case_id": "starlette-issue-2298",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.111111,
+      "ndcg_at_10": 0.184576,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.5,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00093",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4816,
+        "latency_ns": 1788398600,
+        "missed_input_tokens": 4816,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 346,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 331843469000,
+        "total_latency_ns": 333631867600,
+        "total_tokens": 5162
+      }
+    },
+    {
+      "case_id": "starlette-issue-2298",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000745584",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2920,
+        "latency_ns": 2251821700,
+        "missed_input_tokens": 2792,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 544,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 331968500900,
+        "total_latency_ns": 334220322600,
+        "total_tokens": 3464
+      }
+    },
+    {
+      "case_id": "starlette-issue-2298",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 384,
+        "cost": "0.000833952",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2920,
+        "latency_ns": 3065675300,
+        "missed_input_tokens": 2536,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 754,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 333384465500,
+        "total_latency_ns": 336450140800,
+        "total_tokens": 3674
+      }
+    },
+    {
+      "case_id": "starlette-issue-2298",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 3860289400
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000774348",
+        "input_tokens": 3462,
+        "latency_ns": 3820034400,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1115,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 333384465500,
+        "run_latency_ns": 3860195300,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 337244660800,
+        "total_tokens": 4577
+      }
+    },
+    {
+      "case_id": "starlette-issue-1336",
+      "changed_files_recall_at_10": 0.3333333333333333,
+      "changed_files_recall_at_5": 0.3333333333333333,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.202107,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.3333333333333333,
+      "root_cause_files_recall_at_5": 0.3333333333333333,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00082515",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3381,
+        "latency_ns": 2037302700,
+        "missed_input_tokens": 3381,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 530,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 331539489300,
+        "total_latency_ns": 333576792000,
+        "total_tokens": 3911
+      }
+    },
+    {
+      "case_id": "starlette-issue-1336",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0] requires evidence; use an unverified hypothesis"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-1336",
+      "changed_files_recall_at_10": 0.6666666666666666,
+      "changed_files_recall_at_5": 0.3333333333333333,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.322809,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.6666666666666666,
+      "root_cause_files_recall_at_5": 0.3333333333333333,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001156284",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4838,
+        "latency_ns": 2908255400,
+        "missed_input_tokens": 4710,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 749,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 333048079400,
+        "total_latency_ns": 335956334800,
+        "total_tokens": 5587
+      }
+    },
+    {
+      "case_id": "starlette-issue-1336",
+      "changed_files_recall_at_10": 0.6666666666666666,
+      "changed_files_recall_at_5": 0.3333333333333333,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.322809,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.6666666666666666,
+      "root_cause_files_recall_at_5": 0.3333333333333333,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 8113008900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001623252",
+        "input_tokens": 10838,
+        "latency_ns": 8054557100,
+        "model": "deepseek-flash",
+        "model_calls": 2,
+        "output_tokens": 2442,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 333048079400,
+        "run_latency_ns": 8112905400,
+        "structured_output_retries": 1,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 341160984800,
+        "total_tokens": 13280
+      }
+    },
+    {
+      "case_id": "starlette-issue-2306",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0015276",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 7456,
+        "latency_ns": 3022777300,
+        "missed_input_tokens": 7456,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 682,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 335341029600,
+        "total_latency_ns": 338363806900,
+        "total_tokens": 8138
+      }
+    },
+    {
+      "case_id": "starlette-issue-2306",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.166667,
+      "ndcg_at_10": 0.356207,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001264884",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4686,
+        "latency_ns": 3410463800,
+        "missed_input_tokens": 4558,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 968,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 335422327500,
+        "total_latency_ns": 338832791300,
+        "total_tokens": 5654
+      }
+    },
+    {
+      "case_id": "starlette-issue-2306",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.386853,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 256,
+        "cost": "0.000923268",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4686,
+        "latency_ns": 2731393500,
+        "missed_input_tokens": 4430,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 430,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 336828196400,
+        "total_latency_ns": 339559589900,
+        "total_tokens": 5116
+      }
+    },
+    {
+      "case_id": "starlette-issue-2306",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "DeepSeek structured output finish_reason=length"
+      },
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-947",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.125,
+      "ndcg_at_10": 0.315465,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00081795",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3205,
+        "latency_ns": 2103422700,
+        "missed_input_tokens": 3205,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 562,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 342056216000,
+        "total_latency_ns": 344159638700,
+        "total_tokens": 3767
+      }
+    },
+    {
+      "case_id": "starlette-issue-947",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001046784",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4000,
+        "latency_ns": 3260566400,
+        "missed_input_tokens": 3872,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 776,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 342131538100,
+        "total_latency_ns": 345392104500,
+        "total_tokens": 4776
+      }
+    },
+    {
+      "case_id": "starlette-issue-947",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-947",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 4552156900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000802104",
+        "input_tokens": 4524,
+        "latency_ns": 4509131400,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1178,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 343548254400,
+        "run_latency_ns": 4552039700,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 348100294100,
+        "total_tokens": 5702
+      }
+    },
+    {
+      "case_id": "starlette-issue-2516",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.386853,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00165825",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4163,
+        "latency_ns": 6106485500,
+        "missed_input_tokens": 4163,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1723,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 350190053100,
+        "total_latency_ns": 356296538600,
+        "total_tokens": 5886
+      }
+    },
+    {
+      "case_id": "starlette-issue-2516",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001377084",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4114,
+        "latency_ns": 4628174700,
+        "missed_input_tokens": 3986,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1298,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 350261757100,
+        "total_latency_ns": 354889931800,
+        "total_tokens": 5412
+      }
+    },
+    {
+      "case_id": "starlette-issue-2516",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001184484",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4114,
+        "latency_ns": 3888652800,
+        "missed_input_tokens": 3986,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 977,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 351665487300,
+        "total_latency_ns": 355554140100,
+        "total_tokens": 5091
+      }
+    },
+    {
+      "case_id": "starlette-issue-2516",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 3
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2728229500
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000541488",
+        "input_tokens": 4668,
+        "latency_ns": 2684202400,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 739,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 351665487300,
+        "run_latency_ns": 2728070300,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 354393557600,
+        "total_tokens": 5407
+      }
+    },
+    {
+      "case_id": "starlette-issue-2646",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2646",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.386853,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001562484",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 4914,
+        "latency_ns": 4616615000,
+        "missed_input_tokens": 4786,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1407,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 366632459200,
+        "total_latency_ns": 371249074200,
+        "total_tokens": 6321
+      }
+    },
+    {
+      "case_id": "starlette-issue-2646",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[0].evidence[0].start_line/end_line is outside candidate"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2646",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2940397200
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000613542",
+        "input_tokens": 5477,
+        "latency_ns": 2896861600,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 845,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 368073286600,
+        "run_latency_ns": 2940291700,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 371013578300,
+        "total_tokens": 6322
+      }
+    },
+    {
+      "case_id": "starlette-issue-2692",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.75,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0008499",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3834,
+        "latency_ns": 2444114700,
+        "missed_input_tokens": 3834,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 458,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367281847200,
+        "total_latency_ns": 369725961900,
+        "total_tokens": 4292
+      }
+    },
+    {
+      "case_id": "starlette-issue-2692",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.6666666666666666,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 384,
+        "cost": "0.001495602",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5671,
+        "latency_ns": 3970713100,
+        "missed_input_tokens": 5287,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1169,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367383084300,
+        "total_latency_ns": 371353797400,
+        "total_tokens": 6840
+      }
+    },
+    {
+      "case_id": "starlette-issue-2692",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001154634",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5671,
+        "latency_ns": 2109171800,
+        "missed_input_tokens": 5543,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 538,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 369219652900,
+        "total_latency_ns": 371328824700,
+        "total_tokens": 6209
+      }
+    },
+    {
+      "case_id": "starlette-issue-2692",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 0.8695652173913043,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 5503391600
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.001168296",
+        "input_tokens": 6188,
+        "latency_ns": 5432462500,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 1780,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 369219652900,
+        "run_latency_ns": 5502653300,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 374722306200,
+        "total_tokens": 7968
+      }
+    },
+    {
+      "case_id": "starlette-issue-2766",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "type: unexpected field"
+      },
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2766",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.000822234",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3903,
+        "latency_ns": 1924343400,
+        "missed_input_tokens": 3775,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 426,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 365774606600,
+        "total_latency_ns": 367698950000,
+        "total_tokens": 4329
+      }
+    },
+    {
+      "case_id": "starlette-issue-2766",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 1792,
+        "cost": "0.000824226",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 3903,
+        "latency_ns": 3305741300,
+        "missed_input_tokens": 2111,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 837,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367162198200,
+        "total_latency_ns": 370467939500,
+        "total_tokens": 4740
+      }
+    },
+    {
+      "case_id": "starlette-issue-2766",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 1.0,
+      "ndcg_at_10": 1.0,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 1.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 1750737000
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.00033087",
+        "input_tokens": 4473,
+        "latency_ns": 1703638900,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 374,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 367162198200,
+        "run_latency_ns": 1750618800,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 368912817000,
+        "total_tokens": 4847
+      }
+    },
+    {
+      "case_id": "starlette-issue-2783",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0007566",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 2552,
+        "latency_ns": 2538568600,
+        "missed_input_tokens": 2552,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 623,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 366010931800,
+        "total_latency_ns": 368549500400,
+        "total_tokens": 3175
+      }
+    },
+    {
+      "case_id": "starlette-issue-2783",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 0.9230769230769231,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.5,
+      "ndcg_at_10": 0.63093,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 128,
+        "cost": "0.001618584",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 6304,
+        "latency_ns": 4225844200,
+        "missed_input_tokens": 6176,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1153,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 366097737400,
+        "total_latency_ns": 370323581600,
+        "total_tokens": 7457
+      }
+    },
+    {
+      "case_id": "starlette-issue-2783",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 256,
+        "cost": "0.001266768",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 6304,
+        "latency_ns": 2406103600,
+        "missed_input_tokens": 6048,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 598,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367481510900,
+        "total_latency_ns": 369887614500,
+        "total_tokens": 6902
+      }
+    },
+    {
+      "case_id": "starlette-issue-2783",
+      "changed_files_recall_at_10": 0.5,
+      "changed_files_recall_at_5": 0.5,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.333333,
+      "ndcg_at_10": 0.5,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 2
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2652768900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000460716",
+        "input_tokens": 6826,
+        "latency_ns": 2558924100,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 598,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 367481510900,
+        "run_latency_ns": 2652656300,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 370134167200,
+        "total_tokens": 7424
+      }
+    },
+    {
+      "case_id": "starlette-issue-2295",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.2,
+      "ndcg_at_10": 0.386853,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.0012966",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5560,
+        "latency_ns": 3020041600,
+        "missed_input_tokens": 5560,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 771,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367287017600,
+        "total_latency_ns": 370307059200,
+        "total_tokens": 6331
+      }
+    },
+    {
+      "case_id": "starlette-issue-2295",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.1,
+      "ndcg_at_10": 0.289065,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 384,
+        "cost": "0.001279452",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5118,
+        "latency_ns": 3808239800,
+        "missed_input_tokens": 4734,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 947,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367411543800,
+        "total_latency_ns": 371219783600,
+        "total_tokens": 6065
+      }
+    },
+    {
+      "case_id": "starlette-issue-2295",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "model output: invalid JSON at line 1, column 2839"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2295",
+      "changed_files_recall_at_10": 1.0,
+      "changed_files_recall_at_5": 1.0,
+      "citation_validity": 1.0,
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.25,
+      "ndcg_at_10": 0.430677,
+      "root_cause_accuracy": 1.0,
+      "root_cause_files_recall_at_10": 1.0,
+      "root_cause_files_recall_at_5": 1.0,
+      "status": "completed",
+      "test_files_recall_at_10": 0.5,
+      "test_files_recall_at_5": 0.5,
+      "usage": {
+        "budgets": {
+          "patch_attempts": {
+            "limit": 2,
+            "used": 0
+          },
+          "retrieval_rewrites": {
+            "limit": 2,
+            "used": 0
+          },
+          "root_cause_hypotheses": {
+            "limit": 3,
+            "used": 1
+          },
+          "run_time_ns": {
+            "limit": 300000000000,
+            "used": 2001631900
+          },
+          "tool_calls": {
+            "limit": 20,
+            "used": 2
+          }
+        },
+        "cost": "0.000330126",
+        "input_tokens": 5661,
+        "latency_ns": 1955258500,
+        "model": "deepseek-flash",
+        "model_calls": 1,
+        "output_tokens": 358,
+        "prompt_version": "agent-v1",
+        "retrieval": {
+          "reranker_identifier": "fastembed:Xenova/ms-marco-MiniLM-L-6-v2@a09144355adeed5f58c8ed011d209bf8ee5a1fec",
+          "score_precision": 6,
+          "top_k": 10
+        },
+        "retrieval_latency_ns": 368793820300,
+        "run_latency_ns": 2001524600,
+        "structured_output_retries": 0,
+        "tool_calls": 2,
+        "tools": {
+          "search_code": 1,
+          "semantic_search": 1
+        },
+        "total_latency_ns": 370795344900,
+        "total_tokens": 6019
+      }
+    },
+    {
+      "case_id": "starlette-issue-2625",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 1.0,
+      "group": "g1",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "completed",
+      "test_files_recall_at_10": 1.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cached_input_price_per_million": "0.003",
+        "cached_input_tokens": 0,
+        "cost": "0.00148935",
+        "currency": "USD",
+        "input_price_per_million": "0.15",
+        "input_tokens": 5205,
+        "latency_ns": 4566392200,
+        "missed_input_tokens": 5205,
+        "model": "deepseek-flash",
+        "output_price_per_million": "0.6",
+        "output_tokens": 1181,
+        "prompt_version": "one-shot-v1",
+        "retrieval_latency_ns": 367806389600,
+        "total_latency_ns": 372372781800,
+        "total_tokens": 6386
+      }
+    },
+    {
+      "case_id": "starlette-issue-2625",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[2].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g2",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2625",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "facts[3].evidence[0].excerpt does not match cited lines"
+      },
+      "group": "g3",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    },
+    {
+      "case_id": "starlette-issue-2625",
+      "changed_files_recall_at_10": 0.0,
+      "changed_files_recall_at_5": 0.0,
+      "citation_validity": 0.0,
+      "failure": {
+        "error_type": "ValueError",
+        "message": "DeepSeek structured output finish_reason=length"
+      },
+      "group": "g4",
+      "llm_judge": null,
+      "mrr": 0.0,
+      "ndcg_at_10": 0.0,
+      "root_cause_accuracy": 0.0,
+      "root_cause_files_recall_at_10": 0.0,
+      "root_cause_files_recall_at_5": 0.0,
+      "status": "failed",
+      "test_files_recall_at_10": 0.0,
+      "test_files_recall_at_5": 0.0,
+      "usage": {
+        "cost": "0",
+        "input_tokens": 0,
+        "latency_ns": 0,
+        "output_tokens": 0,
+        "total_tokens": 0
+      }
+    }
+  ],
+  "preregistered_assessment": {
+    "citation_validity_gain": 0.015334713595583138,
+    "g4_vs_g1_clear_gain": false,
+    "groups": {
+      "g1": {
+        "unmet": [
+          "root_cause_recall_at_10",
+          "citation_validity",
+          "root_cause_accuracy"
+        ],
+        "values": {
+          "citation_validity": 0.7422222222222222,
+          "root_cause_accuracy": 0.2,
+          "root_cause_recall_at_10": 0.4
+        }
+      },
+      "g2": {
+        "unmet": [
+          "root_cause_recall_at_10",
+          "citation_validity",
+          "root_cause_accuracy"
+        ],
+        "values": {
+          "citation_validity": 0.652991452991453,
+          "root_cause_accuracy": 0.3333333333333333,
+          "root_cause_recall_at_10": 0.3722222222222222
+        }
+      },
+      "g3": {
+        "unmet": [
+          "root_cause_recall_at_10",
+          "citation_validity",
+          "root_cause_accuracy"
+        ],
+        "values": {
+          "citation_validity": 0.4666666666666667,
+          "root_cause_accuracy": 0.1,
+          "root_cause_recall_at_10": 0.2722222222222222
+        }
+      },
+      "g4": {
+        "unmet": [
+          "root_cause_recall_at_10",
+          "citation_validity",
+          "root_cause_accuracy"
+        ],
+        "values": {
+          "citation_validity": 0.7575569358178054,
+          "root_cause_accuracy": 0.3,
+          "root_cause_recall_at_10": 0.49444444444444446
+        }
+      }
+    },
+    "root_cause_accuracy_gain": 0.09999999999999998,
+    "root_cause_recall_at_10_gain": 0.09444444444444444
+  },
+  "review_agreement": {
+    "citation_exact": 1.0,
+    "disagreements": [],
+    "root_cause_exact": 1.0
+  },
+  "schema_version": "1.0",
+  "stability": {
+    "groups": {
+      "g1": {
+        "cost": {
+          "max": 0.0015276,
+          "mean": 0.0004677636,
+          "min": 0.0
+        },
+        "latency_ns": {
+          "max": 749712569000,
+          "mean": 275738599130.0,
+          "min": 0
+        },
+        "outcome_consistency": 0.8333333333333334,
+        "root_cause_conclusion_consistency": 0.4333333333333333,
+        "runs": 30
+      },
+      "g2": {
+        "cost": {
+          "max": 0.001618584,
+          "mean": 0.0004920574,
+          "min": 0.0
+        },
+        "latency_ns": {
+          "max": 750078209800,
+          "mean": 260234240076.66666,
+          "min": 0
+        },
+        "outcome_consistency": 0.8,
+        "root_cause_conclusion_consistency": 0.4666666666666666,
+        "runs": 30
+      },
+      "g3": {
+        "cost": {
+          "max": 0.001266768,
+          "mean": 0.00043506359999999995,
+          "min": 0.0
+        },
+        "latency_ns": {
+          "max": 755995811100,
+          "mean": 246519840243.33334,
+          "min": 0
+        },
+        "outcome_consistency": 0.8333333333333334,
+        "root_cause_conclusion_consistency": 0.4666666666666666,
+        "runs": 30
+      },
+      "g4": {
+        "cost": {
+          "max": 0.002295588,
+          "mean": 0.0006780461,
+          "min": 0.0
+        },
+        "latency_ns": {
+          "max": 757390181600,
+          "mean": 342009192866.6667,
+          "min": 0
+        },
+        "outcome_consistency": 0.7666666666666666,
+        "root_cause_conclusion_consistency": 0.4333333333333333,
+        "runs": 30
+      }
+    }
+  }
+}

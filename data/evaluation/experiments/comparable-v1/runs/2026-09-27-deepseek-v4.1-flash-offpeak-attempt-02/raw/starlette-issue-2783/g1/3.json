@@ -1,0 +1,172 @@
+{
+  "case_id": "starlette-issue-2783",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 2304,
+    "cost": "0.000147912",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2552,
+    "latency_ns": 1786738200,
+    "missed_input_tokens": 248,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 173,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 747925830800,
+    "total_latency_ns": 749712569000,
+    "total_tokens": 2725
+  },
+  "replicate": 3,
+  "report": {
+    "confidence": "low",
+    "facts": [],
+    "issue_classification": "unverified_code_path",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "The elif branch in TestClient._choose_redirect_arg that raises an error may be dead code because no supplied candidate exercises _choose_redirect_arg with a second redirect response or conflicting follow_redirects state.",
+        "verification": "unverified_hypothesis"
+      },
+      {
+        "confidence": "low",
+        "evidence": [],
+        "text": "Redirect handling tests may already cover the relevant branch paths, so the unreachable elif is an artifact of test selection rather than a true defect.",
+        "verification": "unverified_hypothesis"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What exact source lines implement TestClient._choose_redirect_arg and its elif branch?",
+      "Which test inputs set the condition required for the elif branch to raise?",
+      "Does coverage tooling mark that elif branch as unreachable?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_raise_on_startup(test_client_factory: TestClientFactory) -> None:\n    def run_startup() -> None:\n        raise RuntimeError()\n\n    with pytest.deprecated_call(match=\"The on_startup and on_shutdown parameters are deprecated\"):\n        router = Router(on_startup=[run_startup])\n    startup_failed = False\n\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        async def _send(message: Message) -> None:\n            nonlocal startup_failed\n            if message[\"type\"] == \"lifespan.startup.failed\":  # pragma: no branch\n                startup_failed = True\n            return await send(message)\n\n        await router(scope, receive, _send)\n\n    with pytest.raises(RuntimeError):\n        with test_client_factory(app):\n            pass  # pragma: no cover\n    assert startup_failed",
+        "end_line": 809,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L789-L809",
+        "score": "0.744769",
+        "source_type": "python_test",
+        "start_line": 789
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def startup() -> None:\n    raise RuntimeError()",
+        "end_line": 49,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_testclient.py#L48-L49",
+        "score": "0.742517",
+        "source_type": "python_test",
+        "start_line": 48
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def raise_exception(\n    environ: Environment,\n    start_response: StartResponse,\n) -> WSGIResponse:\n    raise RuntimeError(\"Something went wrong\")",
+        "end_line": 47,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/middleware/test_wsgi.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/middleware/test_wsgi.py#L43-L47",
+        "score": "0.734699",
+        "source_type": "python_test",
+        "start_line": 43
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websocket_raise_http_exception(client: TestClient) -> None:\n    with pytest.raises(WebSocketDenialResponse) as exc:\n        with client.websocket_connect(\"/ws-raise-http\"):\n            pass  # pragma: no cover\n    assert exc.value.status_code == 401\n    assert exc.value.content == b'{\"detail\":\"Unauthorized\"}'",
+        "end_line": 234,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L229-L234",
+        "score": "0.733250",
+        "source_type": "python_test",
+        "start_line": 229
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websocket_raise_custom_exception(client: TestClient) -> None:\n    with client.websocket_connect(\"/ws-raise-custom\") as session:\n        response = session.receive()\n        assert response == {\n            \"type\": \"websocket.close\",\n            \"code\": status.WS_1013_TRY_AGAIN_LATER,\n            \"reason\": \"\",\n        }",
+        "end_line": 244,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L237-L244",
+        "score": "0.732010",
+        "source_type": "python_test",
+        "start_line": 237
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_mounted_middleware_does_not_catch_exception(\n    test_client_factory: typing.Callable[..., TestClient],\n) -> None:\n    # https://github.com/encode/starlette/pull/1649#discussion_r960236107\n    def exc(request: Request) -> Response:\n        raise HTTPException(status_code=403, detail=\"auth\")\n\n    class NamedMiddleware:\n        def __init__(self, app: ASGIApp, name: str) -> None:\n            self.app = app\n            self.name = name\n\n        async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:\n            async def modified_send(msg: Message) -> None:\n                if msg[\"type\"] == \"http.response.start\":\n                    msg[\"headers\"].append((f\"X-{self.name}\".encode(), b\"true\"))\n                await send(msg)\n\n            await self.app(scope, receive, modified_send)\n\n    app = Starlette(\n        routes=[\n            Mount(\n                \"/mount\",\n                routes=[\n                    Route(\"/err\", exc),\n                    Route(\"/home\", homepage),\n                ],\n                middleware=[Middleware(NamedMiddleware, name=\"Mounted\")],\n            ),\n            Route(\"/err\", exc),\n            Route(\"/home\", homepage),\n        ],\n        middleware=[Middleware(NamedMiddleware, name=\"Outer\")],\n    )\n\n    client = test_client_factory(app)\n\n    resp = client.get(\"/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Outer\" in resp.headers\n\n    resp = client.get(\"/mount/home\")\n    assert resp.status_code == 200, resp.content\n    assert \"X-Mounted\" in resp.headers\n\n    resp = client.get(\"/mount/err\")\n    assert resp.status_code == 403, resp.content\n    assert \"X-Mounted\" in resp.headers",
+        "end_line": 1082,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L1030-L1082",
+        "score": "0.731571",
+        "source_type": "python_test",
+        "start_line": 1030
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def runtime_error(request: Request) -> None:\n    raise RuntimeError()",
+        "end_line": 67,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_applications.py#L66-L67",
+        "score": "0.730908",
+        "source_type": "python_test",
+        "start_line": 66
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_websockets_should_raise(client: TestClient) -> None:\n    with pytest.raises(RuntimeError):\n        with client.websocket_connect(\"/runtime_error\"):\n            pass  # pragma: no cover",
+        "end_line": 110,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_exceptions.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_exceptions.py#L107-L110",
+        "score": "0.730831",
+        "source_type": "python_test",
+        "start_line": 107
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_exception_on_mounted_apps(\n    test_client_factory: TestClientFactory,\n) -> None:\n    def exc(request: Request) -> None:\n        raise Exception(\"Exc\")\n\n    sub_app = Starlette(routes=[Route(\"/\", exc)])\n    app = Starlette(routes=[Mount(\"/sub\", app=sub_app)])\n\n    client = test_client_factory(app)\n    with pytest.raises(Exception) as ctx:\n        client.get(\"/sub/\")\n    assert str(ctx.value) == \"Exc\"",
+        "end_line": 1027,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_routing.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_routing.py#L1015-L1027",
+        "score": "0.729503",
+        "source_type": "python_test",
+        "start_line": 1015
+      },
+      {
+        "commit": "f884b6649ea7e0b019443a265db7ff62ebe7914b",
+        "content": "def test_quoting_redirect_response(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        if scope[\"path\"] == \"/I \u2665 Starlette/\":\n            response = Response(\"hello, world\", media_type=\"text/plain\")\n        else:\n            response = RedirectResponse(\"/I \u2665 Starlette/\")\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/redirect\")\n    assert response.text == \"hello, world\"\n    assert response.url == \"http://testserver/I%20%E2%99%A5%20Starlette/\"",
+        "end_line": 78,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_responses.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/f884b6649ea7e0b019443a265db7ff62ebe7914b/tests/test_responses.py#L67-L78",
+        "score": "0.729179",
+        "source_type": "python_test",
+        "start_line": 67
+      }
+    ]
+  },
+  "status": "completed"
+}

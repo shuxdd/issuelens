@@ -1,0 +1,221 @@
+{
+  "case_id": "starlette-issue-2093",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.00064035",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 2397,
+    "latency_ns": 2182871800,
+    "missed_input_tokens": 2397,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 468,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 317624453700,
+    "total_latency_ns": 319807325500,
+    "total_tokens": 2865
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 137,
+            "excerpt": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L137",
+            "start_line": 136
+          }
+        ],
+        "text": "A release note documents a fixed bug where BackgroundTasks were cancelled when using BaseHTTPMiddleware and the client disconnected."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 78,
+            "excerpt": "!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+            "path": "docs/background.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L76-L78",
+            "start_line": 76
+          }
+        ],
+        "text": "BackgroundTasks executes its tasks in order and does not execute remaining tasks if one raises an exception."
+      }
+    ],
+    "issue_classification": "background_tasks_cancellation",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 137,
+            "excerpt": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L137",
+            "start_line": 136
+          }
+        ],
+        "text": "BaseHTTPMiddleware may cancel background tasks when the client disconnects before the tasks finish, matching the fixed bug in the release notes.",
+        "verification": "supported"
+      },
+      {
+        "confidence": "low",
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+            "end_line": 137,
+            "excerpt": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L137",
+            "start_line": 136
+          }
+        ],
+        "text": "The issue may occur in older Starlette versions before the fix referenced by PR #1715 and therefore is not present in newer releases.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which Starlette version is affected by the reported issue?",
+      "Does the issue require client disconnection, or does it also occur when the connection remains open?",
+      "Was the issue already resolved by PR #1715 in the user's environment?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Fix bug on which `BackgroundTasks` were cancelled when using `BaseHTTPMiddleware` and client disconnected [#1715](https://github.com/encode/starlette/pull/1715).\n",
+        "end_line": 138,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L136-L138",
+        "score": "0.845224",
+        "source_type": "markdown",
+        "start_line": 136
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.13.7\n\n* Fix high memory usage when using `BaseHTTPMiddleware` middleware classes and streaming responses.\n",
+        "end_line": 390,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L387-L390",
+        "score": "0.745786",
+        "source_type": "markdown",
+        "start_line": 387
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "## 0.9.9\n\n* Add `TemplateResponse`.\n* Add `CommaSeparatedStrings` datatype.\n* Add `BackgroundTasks` for multiple tasks.\n* Common subclass for `Request` and `WebSocket`, to eg. share `session` functionality.\n* Expose remote address with `request.client`.\n",
+        "end_line": 506,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L499-L506",
+        "score": "0.729108",
+        "source_type": "markdown",
+        "start_line": 499
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Fixed\n* Prevent `BaseHTTPMiddleware` from hiding errors of `StreamingResponse` and mounted applications [#1459](https://github.com/encode/starlette/pull/1459).\n* `SessionMiddleware` uses an explicit `path=...`, instead of defaulting to the ASGI 'root_path' [#1512](https://github.com/encode/starlette/pull/1512).\n* `Request.client` is now compliant with the ASGI specifications [#1462](https://github.com/encode/starlette/pull/1462).\n* Raise `KeyError` at early stage for missing boundary [#1349](https://github.com/encode/starlette/pull/1349).\n",
+        "end_line": 215,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L210-L215",
+        "score": "0.728669",
+        "source_type": "markdown",
+        "start_line": 210
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### BackgroundTasks\n\nUsed to add multiple background tasks to a response.\n\nSignature: `BackgroundTasks(tasks=[])`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.background import BackgroundTasks\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    tasks = BackgroundTasks()\n    tasks.add_task(send_welcome_email, to_address=email)\n    tasks.add_task(send_admin_notification, username=username)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=tasks)\n\nasync def send_welcome_email(to_address):\n    ...\n\nasync def send_admin_notification(username):\n    ...\n\nroutes = [\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n\n!!! important\n    The tasks are executed in order. In case one of the tasks raises\n    an exception, the following tasks will not get the opportunity to be executed.",
+        "end_line": 78,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/background.md",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L42-L78",
+        "score": "0.725899",
+        "source_type": "markdown",
+        "start_line": 42
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "class BackgroundTasks(BackgroundTask):\n    def __init__(self, tasks: typing.Optional[typing.Sequence[BackgroundTask]] = None):\n        self.tasks = list(tasks) if tasks else []\n\n    def add_task(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        task = BackgroundTask(func, *args, **kwargs)\n        self.tasks.append(task)\n\n    async def __call__(self) -> None:\n        for task in self.tasks:\n            await task()",
+        "end_line": 43,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L31-L43",
+        "score": "0.713797",
+        "source_type": "python_source",
+        "start_line": 31
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Background Task\n\nUsed to add a single background task to a response.\n\nSignature: `BackgroundTask(func, *args, **kwargs)`\n\n```python\nfrom starlette.applications import Starlette\nfrom starlette.responses import JSONResponse\nfrom starlette.routing import Route\nfrom starlette.background import BackgroundTask\n\n\n...\n\nasync def signup(request):\n    data = await request.json()\n    username = data['username']\n    email = data['email']\n    task = BackgroundTask(send_welcome_email, to_address=email)\n    message = {'status': 'Signup successful'}\n    return JSONResponse(message, background=task)\n\nasync def send_welcome_email(to_address):\n    ...\n\n\nroutes = [\n    ...\n    Route('/user/signup', endpoint=signup, methods=['POST'])\n]\n\napp = Starlette(routes=routes)\n```\n",
+        "end_line": 41,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/background.md",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/background.md#L7-L41",
+        "score": "0.712467",
+        "source_type": "markdown",
+        "start_line": 7
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "### Background tasks\n\n* Add background task support to `FileResponse` and `StreamingResponse`.\n",
+        "end_line": 660,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/docs/release-notes.md#L657-L660",
+        "score": "0.709970",
+        "source_type": "markdown",
+        "start_line": 657
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "class BackgroundTask:\n    def __init__(\n        self, func: typing.Callable[P, typing.Any], *args: P.args, **kwargs: P.kwargs\n    ) -> None:\n        self.func = func\n        self.args = args\n        self.kwargs = kwargs\n        self.is_async = is_async_callable(func)\n\n    async def __call__(self) -> None:\n        if self.is_async:\n            await self.func(*self.args, **self.kwargs)\n        else:\n            await run_in_threadpool(self.func, *self.args, **self.kwargs)",
+        "end_line": 28,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/background.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/starlette/background.py#L15-L28",
+        "score": "0.705821",
+        "source_type": "python_source",
+        "start_line": 15
+      },
+      {
+        "commit": "2168e47052239da5df35d5353bb986f760c51cef",
+        "content": "def test_sync_task(test_client_factory):\n    TASK_COMPLETE = False\n\n    def sync_task():\n        nonlocal TASK_COMPLETE\n        TASK_COMPLETE = True\n\n    task = BackgroundTask(sync_task)\n\n    async def app(scope, receive, send):\n        response = Response(\"task initiated\", media_type=\"text/plain\", background=task)\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.text == \"task initiated\"\n    assert TASK_COMPLETE",
+        "end_line": 45,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_background.py",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/2168e47052239da5df35d5353bb986f760c51cef/tests/test_background.py#L29-L45",
+        "score": "0.705430",
+        "source_type": "python_test",
+        "start_line": 29
+      }
+    ]
+  },
+  "status": "completed"
+}

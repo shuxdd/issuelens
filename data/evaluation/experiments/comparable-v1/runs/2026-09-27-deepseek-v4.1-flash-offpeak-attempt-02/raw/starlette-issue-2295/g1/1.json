@@ -1,0 +1,264 @@
+{
+  "case_id": "starlette-issue-2295",
+  "group": "g1",
+  "metadata": {
+    "cached_input_price_per_million": "0.003",
+    "cached_input_tokens": 0,
+    "cost": "0.0012966",
+    "currency": "USD",
+    "input_price_per_million": "0.15",
+    "input_tokens": 5560,
+    "latency_ns": 3020041600,
+    "missed_input_tokens": 5560,
+    "model": "deepseek-flash",
+    "output_price_per_million": "0.6",
+    "output_tokens": 771,
+    "prompt_version": "one-shot-v1",
+    "retrieval_latency_ns": 367287017600,
+    "total_latency_ns": 370307059200,
+    "total_tokens": 6331
+  },
+  "replicate": 1,
+  "report": {
+    "confidence": "medium",
+    "facts": [
+      {
+        "evidence": [
+          {
+            "candidate_rank": 1,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 251,
+            "excerpt": "def test_middleware(test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+            "path": "tests/test_applications.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+            "start_line": 247
+          }
+        ],
+        "text": "The test `test_middleware` creates a TestClient with an invalid host and expects a 400 response with 'Invalid host header'."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 288,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L288-L288",
+            "start_line": 288
+          },
+          {
+            "candidate_rank": 5,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 307,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          }
+        ],
+        "text": "The TestClient transport constructs the ASGI scope's `client` as `[\"testclient\", 50000]` for both websocket and http scopes."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 2,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 282,
+            "excerpt": "def test_client(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        client = scope.get(\"client\")\n        assert client is not None\n        host, port = client\n        response = JSONResponse({\"host\": host, \"port\": port})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+            "start_line": 272
+          }
+        ],
+        "text": "A test verifies that the client host in scope is `testclient` and port is `50000`."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 9,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 404,
+            "excerpt": "base_url: str = \"http://testserver\",",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L404-L404",
+            "start_line": 404
+          }
+        ],
+        "text": "The TestClient constructor has a default base_url of `http://testserver`."
+      },
+      {
+        "evidence": [
+          {
+            "candidate_rank": 10,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 157,
+            "excerpt": "Revert \"Turn `scope[\"client\"]` to `None` on `TestClient` (#2377)\" [#2525](https://github.com/encode/starlette/pull/2525).",
+            "path": "docs/release-notes.md",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L157-L157",
+            "start_line": 157
+          }
+        ],
+        "text": "Release notes mention a revert of 'Turn scope[\"client\"] to None on TestClient'."
+      }
+    ],
+    "issue_classification": "test client host header validation",
+    "root_cause_hypotheses": [
+      {
+        "confidence": "medium",
+        "evidence": [
+          {
+            "candidate_rank": 5,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 307,
+            "excerpt": "\"client\": [\"testclient\", 50000],",
+            "path": "starlette/testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L307-L307",
+            "start_line": 307
+          },
+          {
+            "candidate_rank": 2,
+            "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+            "end_line": 282,
+            "excerpt": "assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+            "path": "tests/test_testclient.py",
+            "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L281-L282",
+            "start_line": 281
+          }
+        ],
+        "text": "The TestClient's client field in the ASGI scope is hardcoded to 'testclient' instead of derived from the request URL's host, causing host validation to reject the request when a custom base_url is provided.",
+        "verification": "supported"
+      }
+    ],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "What is the exact implementation of the host validation middleware that returns 'Invalid host header'?",
+      "Is there a mismatch between the client host in scope and the Host header used for validation?"
+    ]
+  },
+  "retrieval": {
+    "candidates": [
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_middleware(test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app, base_url=\"http://incorrecthost\")\n    response = client.get(\"/func\")\n    assert response.status_code == 400\n    assert response.text == \"Invalid host header\"",
+        "end_line": 251,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_applications.py",
+        "rank": 1,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_applications.py#L247-L251",
+        "score": "0.798392",
+        "source_type": "python_test",
+        "start_line": 247
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_client(test_client_factory: TestClientFactory) -> None:\n    async def app(scope: Scope, receive: Receive, send: Send) -> None:\n        client = scope.get(\"client\")\n        assert client is not None\n        host, port = client\n        response = JSONResponse({\"host\": host, \"port\": port})\n        await response(scope, receive, send)\n\n    client = test_client_factory(app)\n    response = client.get(\"/\")\n    assert response.json() == {\"host\": \"testclient\", \"port\": 50000}",
+        "end_line": 282,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_testclient.py",
+        "rank": 2,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_testclient.py#L272-L282",
+        "score": "0.771062",
+        "source_type": "python_test",
+        "start_line": 272
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_encoded_value(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            b\"--20b303e711c4ab8c443184ac833ab00f\\r\\n\"  # type: ignore\n            b\"Content-Disposition: form-data; \"\n            b'name=\"value\"\\r\\n\\r\\n'\n            b\"Transf\\xc3\\xa9rer\\r\\n\"\n            b\"--20b303e711c4ab8c443184ac833ab00f--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=20b303e711c4ab8c443184ac833ab00f\")},\n    )\n    assert response.json() == {\"value\": \"Transf\u00e9rer\"}",
+        "end_line": 367,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 3,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L354-L367",
+        "score": "0.768930",
+        "source_type": "python_test",
+        "start_line": 354
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_with_charset_for_filename(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            # file\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"  # type: ignore\n            b'Content-Disposition: form-data; name=\"file\"; filename=\"\\xe6\\x96\\x87\\xe6\\x9b\\xb8.txt\"\\r\\n'\n            b\"Content-Type: text/plain\\r\\n\\r\\n\"\n            b\"<file content>\\r\\n\"\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; charset=utf-8; boundary=a7f7ac8d4e2e437c877bb7b8d7cc549c\")},\n    )\n    assert response.json() == {\n        \"file\": {\n            \"filename\": \"\u6587\u66f8.txt\",\n            \"size\": 14,\n            \"content\": \"<file content>\",\n            \"content_type\": \"text/plain\",\n        }\n    }",
+        "end_line": 327,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 4,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L306-L327",
+        "score": "0.767469",
+        "source_type": "python_test",
+        "start_line": 306
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class _TestClientTransport(httpx.BaseTransport):\n    def __init__(\n        self,\n        app: ASGI3App,\n        portal_factory: _PortalFactoryType,\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        *,\n        app_state: dict[str, typing.Any],\n    ) -> None:\n        self.app = app\n        self.raise_server_exceptions = raise_server_exceptions\n        self.root_path = root_path\n        self.portal_factory = portal_factory\n        self.app_state = app_state\n\n    def handle_request(self, request: httpx.Request) -> httpx.Response:\n        scheme = request.url.scheme\n        netloc = request.url.netloc.decode(encoding=\"ascii\")\n        path = request.url.path\n        raw_path = request.url.raw_path\n        query = request.url.query.decode(encoding=\"ascii\")\n\n        default_port = {\"http\": 80, \"ws\": 80, \"https\": 443, \"wss\": 443}[scheme]\n\n        if \":\" in netloc:\n            host, port_string = netloc.split(\":\", 1)\n            port = int(port_string)\n        else:\n            host = netloc\n            port = default_port\n\n        # Include the 'host' header.\n        if \"host\" in request.headers:\n            headers: list[tuple[bytes, bytes]] = []\n        elif port == default_port:  # pragma: no cover\n            headers = [(b\"host\", host.encode())]\n        else:  # pragma: no cover\n            headers = [(b\"host\", (f\"{host}:{port}\").encode())]\n\n        # Include other request headers.\n        headers += [(key.lower().encode(), value.encode()) for key, value in request.headers.multi_items()]\n\n        scope: dict[str, typing.Any]\n\n        if scheme in {\"ws\", \"wss\"}:\n            subprotocol = request.headers.get(\"sec-websocket-protocol\", None)\n            if subprotocol is None:\n                subprotocols: typing.Sequence[str] = []\n            else:\n                subprotocols = [value.strip() for value in subprotocol.split(\",\")]\n            scope = {\n                \"type\": \"websocket\",\n                \"path\": unquote(path),\n                \"raw_path\": raw_path.split(b\"?\", 1)[0],\n                \"root_path\": self.root_path,\n                \"scheme\": scheme,\n                \"query_string\": query.encode(),\n                \"headers\": headers,\n                \"client\": [\"testclient\", 50000],\n                \"server\": [host, port],\n                \"subprotocols\": subprotocols,\n                \"state\": self.app_state.copy(),\n                \"extensions\": {\"websocket.http.response\": {}},\n            }\n            session = WebSocketTestSession(self.app, scope, self.portal_factory)\n            raise _Upgrade(session)\n\n        scope = {\n            \"type\": \"http\",\n            \"http_version\": \"1.1\",\n            \"method\": request.method,\n            \"path\": unquote(path),\n            \"raw_path\": raw_path.split(b\"?\", 1)[0],\n            \"root_path\": self.root_path,\n            \"scheme\": scheme,\n            \"query_string\": query.encode(),\n            \"headers\": headers,\n            \"client\": [\"testclient\", 50000],\n            \"server\": [host, port],\n            \"extensions\": {\"http.response.debug\": {}},\n            \"state\": self.app_state.copy(),\n        }\n\n        request_complete = False\n        response_started = False\n        response_complete: anyio.Event\n        raw_kwargs: dict[str, typing.Any] = {\"stream\": io.BytesIO()}\n        template = None\n        context = None\n\n        async def receive() -> Message:\n            nonlocal request_complete\n\n            if request_complete:\n                if not response_complete.is_set():\n                    await response_complete.wait()\n                return {\"type\": \"http.disconnect\"}\n\n            body = request.read()\n            if isinstance(body, str):\n                body_bytes: bytes = body.encode(\"utf-8\")  # pragma: no cover\n            elif body is None:\n                body_bytes = b\"\"  # pragma: no cover\n            elif isinstance(body, GeneratorType):\n                try:  # pragma: no cover\n                    chunk = body.send(None)\n                    if isinstance(chunk, str):\n                        chunk = chunk.encode(\"utf-8\")\n                    return {\"type\": \"http.request\", \"body\": chunk, \"more_body\": True}\n                except StopIteration:  # pragma: no cover\n                    request_complete = True\n                    return {\"type\": \"http.request\", \"body\": b\"\"}\n            else:\n                body_bytes = body\n\n            request_complete = True\n            return {\"type\": \"http.request\", \"body\": body_bytes}\n\n        async def send(message: Message) -> None:",
+        "end_line": 348,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 5,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L229-L348",
+        "score": "0.765606",
+        "source_type": "python_source",
+        "start_line": 229
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_no_request_data(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\"/\")\n    assert response.json() == {}",
+        "end_line": 379,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 6,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L376-L379",
+        "score": "0.765498",
+        "source_type": "python_test",
+        "start_line": 376
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_urlencoded_request_data(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\"/\", data={\"some\": \"data\"})\n    assert response.json() == {\"some\": \"data\"}",
+        "end_line": 373,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 7,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L370-L373",
+        "score": "0.763809",
+        "source_type": "python_test",
+        "start_line": 370
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "def test_multipart_request_mixed_files_and_data(tmpdir: Path, test_client_factory: TestClientFactory) -> None:\n    client = test_client_factory(app)\n    response = client.post(\n        \"/\",\n        data=(\n            # data\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"  # type: ignore\n            b'Content-Disposition: form-data; name=\"field0\"\\r\\n\\r\\n'\n            b\"value0\\r\\n\"\n            # file\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"\n            b'Content-Disposition: form-data; name=\"file\"; filename=\"file.txt\"\\r\\n'\n            b\"Content-Type: text/plain\\r\\n\\r\\n\"\n            b\"<file content>\\r\\n\"\n            # data\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c\\r\\n\"\n            b'Content-Disposition: form-data; name=\"field1\"\\r\\n\\r\\n'\n            b\"value1\\r\\n\"\n            b\"--a7f7ac8d4e2e437c877bb7b8d7cc549c--\\r\\n\"\n        ),\n        headers={\"Content-Type\": (\"multipart/form-data; boundary=a7f7ac8d4e2e437c877bb7b8d7cc549c\")},\n    )\n    assert response.json() == {\n        \"file\": {\n            \"filename\": \"file.txt\",\n            \"size\": 14,\n            \"content\": \"<file content>\",\n            \"content_type\": \"text/plain\",\n        },\n        \"field0\": \"value0\",\n        \"field1\": \"value1\",\n    }",
+        "end_line": 303,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "tests/test_formparsers.py",
+        "rank": 8,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/tests/test_formparsers.py#L272-L303",
+        "score": "0.762013",
+        "source_type": "python_test",
+        "start_line": 272
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "class TestClient(httpx.Client):\n    __test__ = False\n    task: Future[None]\n    portal: anyio.abc.BlockingPortal | None = None\n\n    def __init__(\n        self,\n        app: ASGIApp,\n        base_url: str = \"http://testserver\",\n        raise_server_exceptions: bool = True,\n        root_path: str = \"\",\n        backend: typing.Literal[\"asyncio\", \"trio\"] = \"asyncio\",\n        backend_options: dict[str, typing.Any] | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        headers: dict[str, str] | None = None,\n        follow_redirects: bool = True,\n    ) -> None:\n        self.async_backend = _AsyncBackend(backend=backend, backend_options=backend_options or {})\n        if _is_asgi3(app):\n            asgi_app = app\n        else:\n            app = typing.cast(ASGI2App, app)  # type: ignore[assignment]\n            asgi_app = _WrapASGI2(app)  # type: ignore[arg-type]\n        self.app = asgi_app\n        self.app_state: dict[str, typing.Any] = {}\n        transport = _TestClientTransport(\n            self.app,\n            portal_factory=self._portal_factory,\n            raise_server_exceptions=raise_server_exceptions,\n            root_path=root_path,\n            app_state=self.app_state,\n        )\n        if headers is None:\n            headers = {}\n        headers.setdefault(\"user-agent\", \"testclient\")\n        super().__init__(\n            base_url=base_url,\n            headers=headers,\n            transport=transport,\n            follow_redirects=follow_redirects,\n            cookies=cookies,\n        )\n\n    @contextlib.contextmanager\n    def _portal_factory(self) -> typing.Generator[anyio.abc.BlockingPortal, None, None]:\n        if self.portal is not None:\n            yield self.portal\n        else:\n            with anyio.from_thread.start_blocking_portal(**self.async_backend) as portal:\n                yield portal\n\n    def request(  # type: ignore[override]\n        self,\n        method: str,\n        url: httpx._types.URLTypes,\n        *,\n        content: httpx._types.RequestContent | None = None,\n        data: _RequestData | None = None,\n        files: httpx._types.RequestFiles | None = None,\n        json: typing.Any = None,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        url = self._merge_url(url)\n        return super().request(\n            method,\n            url,\n            content=content,\n            data=data,\n            files=files,\n            json=json,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=follow_redirects,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def get(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:\n        return super().get(\n            url,\n            params=params,\n            headers=headers,\n            cookies=cookies,\n            auth=auth,\n            follow_redirects=follow_redirects,\n            timeout=timeout,\n            extensions=extensions,\n        )\n\n    def options(  # type: ignore[override]\n        self,\n        url: httpx._types.URLTypes,\n        *,\n        params: httpx._types.QueryParamTypes | None = None,\n        headers: httpx._types.HeaderTypes | None = None,\n        cookies: httpx._types.CookieTypes | None = None,\n        auth: httpx._types.AuthTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        follow_redirects: bool | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        timeout: httpx._types.TimeoutTypes | httpx._client.UseClientDefault = httpx._client.USE_CLIENT_DEFAULT,\n        extensions: dict[str, typing.Any] | None = None,\n    ) -> httpx.Response:",
+        "end_line": 515,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "starlette/testclient.py",
+        "rank": 9,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/starlette/testclient.py#L396-L515",
+        "score": "0.760364",
+        "source_type": "python_source",
+        "start_line": 396
+      },
+      {
+        "commit": "4e625bb9793f36a1ff9d30f935d7bc83513c71fe",
+        "content": "#### Fixed\n\n* Revert \"Turn `scope[\"client\"]` to `None` on `TestClient` (#2377)\" [#2525](https://github.com/encode/starlette/pull/2525).\n* Remove deprecated `app` argument passed to `httpx.Client` on the `TestClient` [#2526](https://github.com/encode/starlette/pull/2526).\n",
+        "end_line": 159,
+        "index_version": "starlette-eval-v1-retrieval-v1",
+        "path": "docs/release-notes.md",
+        "rank": 10,
+        "reference": "https://github.com/Kludex/starlette/blob/4e625bb9793f36a1ff9d30f935d7bc83513c71fe/docs/release-notes.md#L155-L159",
+        "score": "0.758683",
+        "source_type": "markdown",
+        "start_line": 155
+      }
+    ]
+  },
+  "status": "completed"
+}
