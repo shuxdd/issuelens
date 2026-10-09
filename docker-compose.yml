@@ -19,6 +19,7 @@ services:
       dockerfile: backend/Dockerfile
     environment:
       DATABASE_URL: postgresql://issuelens:issuelens@postgres:5432/issuelens
+      ISSUELENS_PUBLIC_DEMO: "true"
     depends_on:
       postgres:
         condition: service_healthy

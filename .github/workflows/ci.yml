@@ -51,9 +51,9 @@ jobs:
         run: |
           curl --fail http://localhost:3000/
           curl --fail http://localhost:3000/api/health | grep '"status":"ok"'
-          curl --fail http://localhost:3000/api/cases/starlette-issue-1552 | grep '"validation_status":"valid"'
-          curl --fail http://localhost:3000/api/retrieval/cases/starlette-issue-1552 | grep '"root_cause_files":{"hits":1'
-          curl --fail http://localhost:3000/api/retrieval/comparisons/starlette-issue-1552 | grep '"g2_hybrid"'
+          curl --fail http://localhost:3000/api/demo/cases | grep '"case_id":"safe-dangerous-01"'
+          curl --fail http://localhost:3000/api/demo/cases/starlette-issue-1552 | grep '"status":"supported"'
+          test "$(curl --silent --output /dev/null --write-out '%{http_code}' http://localhost:3000/api/cases/starlette-issue-1552)" = 404
 
       - name: Stop containers
         if: always()

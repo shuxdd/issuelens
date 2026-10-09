@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "cases": [
+    {
+      "case_id": "starlette-issue-1552",
+      "title": "Route names for bound methods",
+      "outcome": "supported",
+      "scenario": "Recorded investigation",
+      "run": "investigations/starlette-issue-1552/run.json"
+    },
+    {
+      "case_id": "starlette-issue-886",
+      "title": "Async lifecycle callable is not awaited",
+      "outcome": "supported",
+      "scenario": "Recorded G4 investigation",
+      "run": "evaluation/experiments/comparable-v1/runs/2026-09-27-deepseek-v4.1-flash-offpeak-attempt-02/raw/starlette-issue-886/g4/1.json"
+    },
+    {
+      "case_id": "starlette-issue-1355",
+      "title": "Investigation stops with insufficient evidence",
+      "outcome": "insufficient_evidence",
+      "scenario": "Recorded G4 investigation",
+      "run": "evaluation/experiments/comparable-v1/runs/2026-09-27-deepseek-v4.1-flash-offpeak-attempt-02/raw/starlette-issue-1355/g4/1.json"
+    },
+    {
+      "case_id": "starlette-issue-1552-budget",
+      "title": "Investigation reaches its tool budget",
+      "outcome": "budget_exhausted",
+      "scenario": "Offline budget scenario on Starlette issue 1552",
+      "run": "demo/runs/starlette-issue-1552-budget.json"
+    },
+    {
+      "case_id": "safe-dangerous-01",
+      "title": "Unsafe instruction is denied",
+      "outcome": "unsafe_request",
+      "scenario": "Offline safety scenario in the Starlette repository",
+      "run": "demo/runs/safe-dangerous-01.json"
+    }
+  ]
+}

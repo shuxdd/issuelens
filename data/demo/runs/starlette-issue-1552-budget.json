@@ -1,0 +1,144 @@
+{
+  "case_id": "starlette-issue-1552-budget",
+  "events": [
+    {
+      "case_id": "starlette-issue-1552-budget",
+      "duration_ns": 0,
+      "event_id": "e7d49c8cb829909c",
+      "finished_at": "2026-10-09T00:00:00Z",
+      "from_stage": null,
+      "issue_source_url": "https://github.com/Kludex/starlette/issues/1552",
+      "kind": "stage",
+      "parent_id": "d6a2383a13edd707969e206c58ada234",
+      "run_id": "starlette-issue-1552-budget-demo-v1",
+      "sequence": 1,
+      "snapshot_commit": "e086fc2da361767b532cf690e5203619bbae98aa",
+      "stage": "issue_parsed",
+      "started_at": "2026-10-09T00:00:00Z",
+      "to_stage": "issue_parsed",
+      "trace_id": "d6a2383a13edd707969e206c58ada234"
+    },
+    {
+      "duration_ns": 0,
+      "event_id": "eda4339c8c1b2c42",
+      "finished_at": "2026-10-09T00:00:00Z",
+      "from_stage": "issue_parsed",
+      "kind": "stage",
+      "parent_id": "d6a2383a13edd707969e206c58ada234",
+      "query": "Route naming introspection always return \"method\" for method endpoints ",
+      "run_id": "starlette-issue-1552-budget-demo-v1",
+      "sequence": 2,
+      "stage": "planned",
+      "started_at": "2026-10-09T00:00:00Z",
+      "to_stage": "planned",
+      "tools": [
+        "search_code",
+        "semantic_search"
+      ],
+      "trace_id": "d6a2383a13edd707969e206c58ada234"
+    },
+    {
+      "dimension": "tool_calls",
+      "duration_ns": 0,
+      "event_id": "d9071f98a1a0eba0",
+      "finished_at": "2026-10-09T00:00:00Z",
+      "kind": "budget",
+      "limit": 0,
+      "parent_id": "d6a2383a13edd707969e206c58ada234",
+      "run_id": "starlette-issue-1552-budget-demo-v1",
+      "sequence": 3,
+      "stage": "retrieved",
+      "started_at": "2026-10-09T00:00:00Z",
+      "status": "exhausted",
+      "trace_id": "d6a2383a13edd707969e206c58ada234",
+      "used": 0
+    },
+    {
+      "duration_ns": 0,
+      "event_id": "39cad3e699e85b62",
+      "finished_at": "2026-10-09T00:00:00Z",
+      "from_stage": "planned",
+      "kind": "stage",
+      "parent_id": "d6a2383a13edd707969e206c58ada234",
+      "run_id": "starlette-issue-1552-budget-demo-v1",
+      "sequence": 4,
+      "stage": "retrieved",
+      "started_at": "2026-10-09T00:00:00Z",
+      "to_stage": "retrieved",
+      "trace_id": "d6a2383a13edd707969e206c58ada234"
+    },
+    {
+      "duration_ns": 0,
+      "event_id": "e6ff20d4145d22db",
+      "finished_at": "2026-10-09T00:00:00Z",
+      "from_stage": "retrieved",
+      "kind": "stage",
+      "outcome": "budget_exhausted",
+      "parent_id": "d6a2383a13edd707969e206c58ada234",
+      "run_id": "starlette-issue-1552-budget-demo-v1",
+      "sequence": 5,
+      "stage": "reported",
+      "started_at": "2026-10-09T00:00:00Z",
+      "stop_reason": "tool_call_budget_exhausted",
+      "to_stage": "reported",
+      "trace_id": "d6a2383a13edd707969e206c58ada234"
+    }
+  ],
+  "outcome": {
+    "allowed_evidence": [],
+    "status": "budget_exhausted",
+    "stop_reason": "tool_call_budget_exhausted",
+    "unresolved_questions": [
+      "Which evidence should be investigated in a new budgeted run?"
+    ]
+  },
+  "report": {
+    "confidence": "low",
+    "facts": [],
+    "issue_classification": "budget exhausted",
+    "root_cause_hypotheses": [],
+    "schema_version": "1.0",
+    "unresolved_questions": [
+      "Which evidence should be investigated in a new budgeted run?"
+    ]
+  },
+  "run_id": "starlette-issue-1552-budget-demo-v1",
+  "statistics": {
+    "budgets": {
+      "patch_attempts": {
+        "limit": 2,
+        "used": 0
+      },
+      "retrieval_rewrites": {
+        "limit": 2,
+        "used": 0
+      },
+      "root_cause_hypotheses": {
+        "limit": 3,
+        "used": 0
+      },
+      "run_time_ns": {
+        "limit": 300000000000,
+        "used": 0
+      },
+      "tool_calls": {
+        "limit": 0,
+        "used": 0
+      }
+    },
+    "cost": "0",
+    "input_tokens": 0,
+    "latency_ns": 0,
+    "model": "offline",
+    "model_calls": 0,
+    "output_tokens": 0,
+    "prompt_version": "agent-v1",
+    "retrieval": {},
+    "run_latency_ns": 0,
+    "structured_output_retries": 0,
+    "tool_calls": 0,
+    "tools": {},
+    "total_tokens": 0
+  },
+  "trace_id": "d6a2383a13edd707969e206c58ada234"
+}
