@@ -55,7 +55,7 @@ def run(output_path: Path, *, runs_directory: Path | None = None) -> dict[str, A
         preflight = run_root / item["case_id"] / "preflight-failure.json"
         if preflight.is_file():
             try:
-                row["preflight_failure_record"] = str(preflight.relative_to(ROOT))
+                row["preflight_failure_record"] = preflight.relative_to(ROOT).as_posix()
             except ValueError:
                 row["preflight_failure_record"] = str(preflight)
     output_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")

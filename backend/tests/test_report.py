@@ -1,3 +1,5 @@
+import json
+import shutil
 from pathlib import Path
 
 import pytest
@@ -24,7 +26,8 @@ def test_versioned_three_way_loader_reuses_existing_candidate_models() -> None:
 def test_versioned_report_run_uses_three_fixed_offline_responses(tmp_path: Path) -> None:
     import importlib.util
 
-    from issuelens.report import ModelResponse, ReportConfig
+    from issuelens.report import ModelResponse, ReportConfig, load_versioned_three_way
+    from issuelens.retrieval import load_retrieval_input
 
     root = Path(__file__).resolve().parents[2]
     spec = importlib.util.spec_from_file_location(
@@ -48,11 +51,41 @@ def test_versioned_report_run_uses_three_fixed_offline_responses(tmp_path: Path)
                 120,
             )
 
+    sandbox = tmp_path / "checkout"
+    case_path = sandbox / "data/cases/starlette-issue-1552.json"
+    frozen_dir = sandbox / "data/retrieval/starlette-issue-1552"
+    case_path.parent.mkdir(parents=True)
+    frozen_dir.mkdir(parents=True)
+    shutil.copy2(root / "data/cases/starlette-issue-1552.json", case_path)
+    for name in ("result.json", "three-way.json"):
+        shutil.copy2(root / "data/retrieval/starlette-issue-1552" / name, frozen_dir / name)
+
+    case = load_retrieval_input(case_path)
+    commit = case.snapshot_commit
+    snapshot = sandbox / ".retrieval-cache" / f"starlette-{commit}" / f"starlette-{commit}"
+    snapshot.mkdir(parents=True)
+    (snapshot / ".issuelens-snapshot.json").write_text(
+        json.dumps({"repository": case.repository, "commit": commit}), encoding="utf-8"
+    )
+    comparison = load_versioned_three_way(case_path, frozen_dir / "three-way.json")
+    source_lines: dict[str, dict[int, str]] = {}
+    for run in (comparison.g1_vector, comparison.g2_hybrid, comparison.g3_reranked):
+        for candidate in run.candidates:
+            lines = source_lines.setdefault(candidate.path, {})
+            for number, content in enumerate(candidate.content.split("\n"), candidate.start_line):
+                assert lines.get(number, content) == content
+                lines[number] = content
+    for path, lines in source_lines.items():
+        source = snapshot / path
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_text(
+            "\n".join(lines.get(number, "") for number in range(1, max(lines) + 1)) + "\n",
+            encoding="utf-8",
+        )
+
     model = FixedModel()
     output = tmp_path / "report.json"
-    runner.run(root, model, ReportConfig("fixed", "one-shot-v1", "0", "0", "USD"), output)
-
-    import json
+    runner.run(sandbox, model, ReportConfig("fixed", "one-shot-v1", "0", "0", "USD"), output)
 
     groups = json.loads(output.read_text(encoding="utf-8"))["groups"]
     assert model.calls == 3

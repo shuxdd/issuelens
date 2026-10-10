@@ -7,6 +7,9 @@ on:
 jobs:
   checks:
     runs-on: ubuntu-latest
+    env:
+      LANGFUSE_ENABLED: "false"
+      HF_HUB_OFFLINE: "1"
     steps:
       - uses: actions/checkout@v4
 
@@ -16,14 +19,22 @@ jobs:
           enable-cache: true
 
       - name: Check backend
-        run: uv run python scripts/check_backend.py
+        run: uv run --frozen python scripts/check_backend.py
+
+      - name: Check dataset schema and leakage
+        run: uv run --frozen --offline pytest backend/tests/test_dataset.py backend/tests/test_case_validation.py
+
+      - name: Rebuild offline investigations and patch metrics
+        run: |
+          uv run --frozen --offline pytest backend/tests/test_release_reproduction.py
+          uv run --frozen --offline python scripts/run_patch_evaluation.py "$RUNNER_TEMP/patch-report.json"
+          cmp "$RUNNER_TEMP/patch-report.json" data/patch-evaluation/report.json
         env:
-          HF_HUB_OFFLINE: "1"
+          PYTHONPATH: backend/src
 
       - name: Check retrieval regression
         run: uv run --frozen --offline python scripts/check_retrieval_regression.py
         env:
-          HF_HUB_OFFLINE: "1"
           PYTHONPATH: backend/src
 
       - uses: pnpm/action-setup@v4

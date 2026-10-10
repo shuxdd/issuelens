@@ -33,7 +33,7 @@ class StoppedTools:
         raise AssertionError("budget replay must stop before invoking a tool")
 
 
-def build() -> None:
+def build(output_dir: Path = DATA / "demo" / "runs") -> None:
     source = json.loads((DATA / "cases" / "starlette-issue-1552.json").read_text(encoding="utf-8"))
     safety = json.loads(
         (DATA / "evaluation" / "safe-termination-v1.json").read_text(encoding="utf-8")
@@ -79,7 +79,7 @@ def build() -> None:
         )
         if result["outcome"]["status"] != expected:
             raise ValueError(f"{case_id}: expected {expected}, got {result['outcome']['status']}")
-        write_investigation_result(DATA / "demo" / "runs" / f"{case_id}.json", result)
+        write_investigation_result(output_dir / f"{case_id}.json", result)
 
 
 if __name__ == "__main__":

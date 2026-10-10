@@ -172,6 +172,15 @@ def test_report_command_uses_the_preselected_ten_frozen_cases(tmp_path: Path) ->
     assert report["cases"][0]["snapshot_commit"] == "f53faba229e3fa2844bc3753e233d9c1f54cca52"
     assert report["cases"][5]["case_id"] == "starlette-issue-1552"
     assert report["cases"][5]["attempts"][0]["target_passed"] is True
+    preflight_case = next(
+        case for case in report["cases"] if case["case_id"] == "starlette-issue-746"
+    )
+    assert preflight_case["preflight_failure_record"] == (
+        "data/patch-validation/starlette-issue-746/preflight-failure.json"
+    )
+    assert report == json.loads(
+        (ROOT / "data/patch-evaluation/report.json").read_text(encoding="utf-8")
+    )
 
 
 def test_report_reads_two_separate_attempt_records_for_one_case(tmp_path: Path) -> None:

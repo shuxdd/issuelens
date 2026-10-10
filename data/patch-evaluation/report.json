@@ -175,7 +175,7 @@
         }
       ],
       "snapshot_commit": "487f05dfc641a0632be8bd405add6454cab4f6b0",
-      "preflight_failure_record": "data\\patch-validation\\starlette-issue-1578\\preflight-failure.json"
+      "preflight_failure_record": "data/patch-validation/starlette-issue-1578/preflight-failure.json"
     },
     {
       "case_id": "starlette-issue-746",
@@ -201,7 +201,7 @@
         }
       ],
       "snapshot_commit": "cf592a40e5b6a3b7dcbf45811ae7923d1c2480f8",
-      "preflight_failure_record": "data\\patch-validation\\starlette-issue-746\\preflight-failure.json"
+      "preflight_failure_record": "data/patch-validation/starlette-issue-746/preflight-failure.json"
     },
     {
       "case_id": "starlette-issue-495",
