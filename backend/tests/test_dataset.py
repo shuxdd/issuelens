@@ -1,3 +1,4 @@
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -16,6 +17,36 @@ def test_versioned_dataset_has_fifty_one_traceable_leak_free_cases() -> None:
     assert {path.stem for path in (DATA / "cases").glob("*.json")} == expected
     assert len(expected) == 51
     assert check_cases(DATA) == []
+
+
+def test_dataset_hashes_ignore_windows_checkout_line_endings(tmp_path: Path) -> None:
+    source_manifest = json.loads(
+        (DATA / "evaluation" / "dataset-manifest.json").read_text(encoding="utf-8")
+    )
+    data = tmp_path / "data"
+    hashes: dict[str, str] = {}
+    for name in source_manifest["file_hashes"]:
+        content = (
+            (DATA / name)
+            .read_bytes()
+            .replace(b"\r\n", b"\n")
+            .replace(b"\r", b"\n")
+        )
+        target = data / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(content.replace(b"\n", b"\r\n"))
+        hashes[name] = hashlib.sha256(content).hexdigest()
+
+    manifest = {**source_manifest, "file_hashes": hashes}
+    manifest_path = data / "evaluation" / "dataset-manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+    assert check_cases(data) == []
 
 
 def test_versioned_screening_report_explains_the_candidate_funnel() -> None:

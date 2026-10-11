@@ -22,3 +22,9 @@ README 给出单条 Compose 启动与健康检查命令、数据来源和许可�
 验收：干净输入下的报告测试通过；后端 270 passed，Ruff、mypy 和检索回归通过；前端 Vitest 15 passed、ESLint、TypeScript、Vite 构建通过；补丁报告与版本化文件字节一致。独立 Compose 项目三项服务健康，HTTP 冒烟确认首页、健康接口、五条 Demo 案例、支持与不安全终态及非 Demo 接口的 404 边界；随后已停止该项目并保留数据卷。GitHub Actions 增加明确的 Schema、防泄漏、离线调查和报告重建门槛；本地未推送，因此远端 Actions 尚未执行。
 
 本机离线 `uv sync` 因缓存缺少 mypy wheel 未完成，后端检查使用另一工作区已有环境的可执行文件只读运行。本机 `pnpm check` 因依赖目录跨磁盘链接的锁文件写入错误中断；其四项检查已分别通过。
+
+### 2026-10-11 CI 修复
+
+第一次 GitHub Actions 运行在 pytest 收集阶段无法导入仓库根目录下的 `scripts`；将项目根目录加入 pytest 的 `pythonpath` 后，后续运行已收集全部 270 项测试。该次运行暴露的实际失败是版本化数据的 105 个文件哈希不匹配：Windows 检出为 CRLF，Linux CI 检出为 LF，而校验此前直接散列原始字节。现在生成和校验哈希前都会将文本换行规范为 LF，并更新现有数据清单中的哈希；案例内容和指标不变。README 的 Python 检查统一使用锁文件，并补充了前端依赖安装命令。
+
+当前修复本地通过后端 271 项、Ruff、mypy、数据 Schema/防泄漏 24 项、离线轨迹重建及检索回归；重建的补丁报告与版本化报告 SHA-256 相同。README 已说明 LF 规范化哈希规则。GitHub Actions run [38116397378](https://github.com/shuxdd/issuelens/actions/runs/38116397378) 全部通过：后端、Schema/防泄漏、离线调查与报告重建、检索回归、前端安装与检查、Compose 启动及 HTTP 冒烟均成功。工单验收完成。

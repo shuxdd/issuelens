@@ -678,6 +678,11 @@ def build_review_queue(
     return output_path
 
 
+def _sha256_text_file(path: Path) -> str:
+    content = path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(content).hexdigest()
+
+
 def freeze_evaluation_dataset(
     data_directory: Path,
     reviews_path: Path,
@@ -794,9 +799,7 @@ def freeze_evaluation_dataset(
         *sorted(gold_directory.glob("*.json")),
     ]
     file_hashes = {
-        path.resolve().relative_to(data_directory.resolve()).as_posix(): hashlib.sha256(
-            path.read_bytes()
-        ).hexdigest()
+        path.resolve().relative_to(data_directory.resolve()).as_posix(): _sha256_text_file(path)
         for path in hash_paths
     }
     candidate_manifest = json.loads(candidate_manifest_path.read_text(encoding="utf-8"))
@@ -1003,7 +1006,7 @@ def check_cases(data_directory: Path) -> list[str]:
                 hashed_path = (root / relative).resolve()
                 if not hashed_path.is_relative_to(root) or not hashed_path.is_file():
                     errors.append(f"hashed file missing: {name}")
-                elif hashlib.sha256(hashed_path.read_bytes()).hexdigest() != expected_hash:
+                elif _sha256_text_file(hashed_path) != expected_hash:
                     errors.append(f"file hash mismatch: {name}")
         for series, members in manifest["repair_series"].items():
             member_set = set(members)

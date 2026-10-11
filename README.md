@@ -62,10 +62,12 @@ evaluation inputs (see `docs/adr/0002-versioned-files-as-evaluation-source-of-tr
 - The formal v2 review queue records 80 project-author decisions. Two candidates
   fail the final time-slice gate; the remaining decisions produce 51 accepted
   cases and the frozen split in `data/evaluation/dataset-manifest.json`.
+- Dataset file hashes use LF-normalized UTF-8 content, so Windows and Linux
+  checkout line endings produce the same validation result.
 - Validate the committed dataset (schema, source traceability, and leak checks):
 
   ```shell
-  uv run pytest backend/tests/test_dataset.py backend/tests/test_case_validation.py
+  uv run --frozen pytest backend/tests/test_dataset.py backend/tests/test_case_validation.py
   ```
 
 - Rebuild the 51-case dataset in a temporary directory from the versioned
@@ -153,13 +155,14 @@ Its safety boundary and residual risks are recorded in the
 Run all backend tests, lint rules, and type checks:
 
 ```shell
-uv run python scripts/check_backend.py
+uv run --frozen python scripts/check_backend.py
 ```
 
 Run all frontend tests, lint rules, type checks, and the production build:
 
 ```shell
 cd frontend
+pnpm install --frozen-lockfile
 pnpm check
 ```
 

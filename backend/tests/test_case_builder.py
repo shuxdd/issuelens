@@ -1,3 +1,4 @@
+import hashlib
 import io
 import json
 import shutil
@@ -498,6 +499,9 @@ def test_freeze_builds_series_safe_thirty_and_ten_splits_with_gold(
     )
 
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["file_hashes"]["candidate-manifest.json"] == hashlib.sha256(
+        b'{"high_water_issue_number": 3572}'
+    ).hexdigest()
     assert len(manifest["splits"]["development"]) == 2
     assert len(manifest["splits"]["primary"]) == 30
     assert manifest["splits"]["stability"] == manifest["splits"]["primary"][::3]
